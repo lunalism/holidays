@@ -114,16 +114,12 @@ MUTATIONS = [
         ("ruleset-순서-뒤집기", _reverse_ruleset_order, REJECTED),
         id="ruleset-순서-뒤집기",
     ),
+    # 한때 미탐지였다. 2025-05-05 겹침 케이스와 3호 경로 테스트를 넣어 메웠다.
+    # 3호는 토·일 판정에 기여하지 않으므로 eligibility 결과로는 존재가 드러나지 않는다.
+    # test_substitute_rules.py 의 test_clause_3_covers_* 가 경로 자체를 본다.
     pytest.param(
         ("1항3호-삭제", _delete_clause_3, MISMATCH),
         id="1항3호-삭제",
-        marks=pytest.mark.xfail(
-            reason=(
-                "픽스처 구멍: 정답 픽스처가 토·일 겹침만 검증하고 공휴일끼리 겹치는 "
-                "케이스를 하나도 담고 있지 않아 3호를 지워도 아무것도 깨지지 않는다. "
-                "open_questions 의 픽스처구멍-공휴일간-겹침 참조."
-            ),
-        ),
     ),
     pytest.param(
         ("3항-토요일-재배치-삭제", _delete_placement_paragraph_3, MISMATCH),
@@ -132,6 +128,7 @@ MUTATIONS = [
             reason=(
                 "픽스처 구멍: 배치 규칙을 쓰는 코드가 아직 없다. 로더는 placement_rules 를 "
                 "읽어 두기만 하고 계산하지 않으므로 지워도 결과가 변하지 않는다. "
+                "검증 케이스는 배치 계산 구현 후 스캔으로 뽑아 원문 확인을 거쳐 넣는다. "
                 "open_questions 의 픽스처구멍-배치규칙-미검증 참조."
             ),
         ),

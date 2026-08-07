@@ -17,27 +17,14 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-
 import pytest
-import yaml
 
-FIXTURE_PATH = Path(__file__).parent / "fixtures" / "kr.yaml"
-
-_FIXTURE = yaml.safe_load(FIXTURE_PATH.read_text(encoding="utf-8"))
-
-DAYS = _FIXTURE["days"]
-SUBSTITUTE_RULES = _FIXTURE["substitute_rules"]
-ALL_CASES = DAYS + SUBSTITUTE_RULES
+from tests.fixture_loader import ALL_CASES, DAYS, SUBSTITUTE_RULES, ids as _ids, params
 
 try:
     from rules.kr import holiday_calendar as impl
 except ImportError:  # 아직 구현 없음
     impl = None
-
-
-def _ids(cases):
-    return [case["id"] for case in cases]
 
 
 def _require(func_name):
@@ -94,6 +81,17 @@ def test_case_has_a_why(case):
     assert why, f"{case['id']}: why 가 비어 있다"
 
 
+@pytest.mark.parametrize("case", ALL_CASES, ids=_ids(ALL_CASES))
+def test_case_declares_verification_status(case):
+    """verified 가 빠지면 fixture_loader 가 미검증으로 간주해 조용히 xfail 을 붙인다.
+
+    빠뜨린 것인지 일부러 false 인지 구분되지 않으므로 명시를 강제한다.
+    """
+    assert isinstance(case.get("verified"), bool), (
+        f"{case['id']}: verified 가 없거나 불리언이 아니다"
+    )
+
+
 @pytest.mark.parametrize("case", DAYS, ids=_ids(DAYS))
 def test_day_case_shape(case):
     expect = case["expect"]
@@ -127,7 +125,7 @@ def test_every_case_has_a_source():
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("case", DAYS, ids=_ids(DAYS))
+@pytest.mark.parametrize("case", params(DAYS))
 def test_holidays_on_date(case):
     holidays_on = _require("holidays_on")
 
@@ -139,7 +137,7 @@ def test_holidays_on_date(case):
     assert [_field(h, "kind") for h in actual] == expect["kinds"], _explain(case, actual)
 
 
-@pytest.mark.parametrize("case", SUBSTITUTE_RULES, ids=_ids(SUBSTITUTE_RULES))
+@pytest.mark.parametrize("case", params(SUBSTITUTE_RULES))
 def test_substitute_eligibility(case):
     substitute_eligibility = _require("substitute_eligibility")
 

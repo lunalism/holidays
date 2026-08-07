@@ -13,29 +13,20 @@ from __future__ import annotations
 
 import os
 from datetime import date
-from pathlib import Path
 
 import pytest
-import yaml
 
 from rules.kr import substitute_rules as sr
-
-FIXTURE_PATH = Path(__file__).parent / "fixtures" / "kr.yaml"
+from tests.fixture_loader import SUBSTITUTE_RULES as FIXTURE_RULES, params
 
 # tests/test_rule_table_mutations.py 가 변이시킨 표를 물려 이 파일을 다시 돌린다.
 # 이음매를 테스트 쪽에만 두어 rules/ 는 테스트를 의식하지 않게 한다.
 TABLE = sr.load(os.environ.get("KR_RULE_TABLE") or None)
-FIXTURE = yaml.safe_load(FIXTURE_PATH.read_text(encoding="utf-8"))
-FIXTURE_RULES = FIXTURE["substitute_rules"]
 
 # 정답 픽스처는 사람이 읽는 이름, 규칙 테이블은 키를 쓴다. 이름 → 키 대응.
 # 정답 쪽 표기를 규칙 테이블에 맞추면 두 파일이 서로 오염되므로 여기서만 잇는다.
 NAME_TO_KEY = {meta["name"]: key for key, meta in TABLE.holidays.items()}
 NAME_TO_KEY.update({"설날": "seollal", "추석": "chuseok"})
-
-
-def _ids(cases):
-    return [c["id"] for c in cases]
 
 
 # ---------------------------------------------------------------------------
@@ -71,7 +62,7 @@ def test_effective_from_is_a_date_not_a_year():
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("case", FIXTURE_RULES, ids=_ids(FIXTURE_RULES))
+@pytest.mark.parametrize("case", params(FIXTURE_RULES))
 def test_derivation_matches_fixture(case):
     """규칙 테이블에서 유도한 값이 정답 픽스처와 일치하는가."""
     key = NAME_TO_KEY[case["holiday"]]
@@ -90,7 +81,7 @@ def test_derivation_matches_fixture(case):
     assert got.sunday == expect["applies_to_sunday"], detail
 
 
-@pytest.mark.parametrize("case", FIXTURE_RULES, ids=_ids(FIXTURE_RULES))
+@pytest.mark.parametrize("case", params(FIXTURE_RULES))
 def test_derivation_is_backed_by_a_clause(case):
     """대상이라고 답했으면 근거가 된 호가 있어야 한다.
 
@@ -120,6 +111,49 @@ def test_asymmetry_comes_from_clause_membership():
     )
     assert (chuseok.saturday, chuseok.sunday) == (False, True)
     assert (gwangbokjeol.saturday, gwangbokjeol.sunday) == (True, True)
+
+
+def test_clause_3_covers_the_2025_overlap():
+    """제1항제3호가 2025-05-05 겹침을 담당할 수 있는 상태인지 확인한다.
+
+    3호는 토·일 판정에 기여하지 않아 eligibility 의 saturday/sunday 로는 존재가
+    드러나지 않는다. 이 테스트가 없으면 3호를 통째로 지워도 아무도 모른다.
+
+    주의: 트리거가 어린이날인지 부처님오신날인지는 확정하지 않는다.
+    출처마다 서술이 다르고, open_questions 의 3호-귀속-불명 에 기록해 두었다.
+    여기서 보는 것은 "두 공휴일 모두 3호의 적용 대상에 들어 있는가"뿐이다.
+    어느 쪽이 트리거로 판정되든 3호가 없으면 2025-05-06 대체공휴일은 나올 수 없다.
+    """
+    day = date(2025, 5, 5)
+    ruleset = TABLE.ruleset_on(day)
+    assert ruleset is not None
+
+    for holiday in ("childrens_day", "buddhas_birthday"):
+        clauses = ruleset.clauses_for(holiday)
+        weekday_overlap = [c for c in clauses if "other_holiday_on_weekday" in c.overlaps]
+        assert weekday_overlap, (
+            f"{holiday} 가 공휴일간 겹침(3호) 경로를 갖고 있지 않다. "
+            f"2025-05-06 대체공휴일이 유도될 수 없다. ruleset={ruleset.id}"
+        )
+
+
+def test_clause_3_covers_the_2017_chuseok_overlap():
+    """2017년 추석×개천절 겹침. 3호 경로가 2013년 규칙에도 있어야 한다.
+
+    이 해에는 국경일이 아직 대체공휴일 대상이 아니므로 개천절은 트리거가 될 수 없고,
+    추석 연휴 쪽에만 겹침 경로가 있어야 한다. 소급 금지와 3호가 함께 걸리는 지점이다.
+    """
+    day = date(2017, 10, 3)
+    ruleset = TABLE.ruleset_on(day)
+    assert ruleset is not None
+
+    chuseok = ruleset.clauses_for("chuseok")
+    assert [c for c in chuseok if "other_holiday_on_weekday" in c.overlaps], (
+        f"추석 연휴에 공휴일간 겹침 경로가 없다. ruleset={ruleset.id}"
+    )
+    assert not ruleset.clauses_for("gaecheonjeol"), (
+        "2017년에 개천절이 대체공휴일 대상으로 잡혔다. 국경일은 2021년부터다."
+    )
 
 
 def test_rules_are_not_applied_retroactively():
