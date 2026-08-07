@@ -35,3 +35,5 @@ select = ["E", "F", "I", "UP", "B"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+# 픽스처의 한글 case id 를 이스케이프 없이 출력한다. -k 로 케이스를 골라 돌리기 위해 필요.
+disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
