@@ -1,0 +1,71 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+build/
+dist/
+sdist/
+wheels/
+*.egg-info/
+*.egg
+.eggs/
+
+# 가상환경
+.venv/
+venv/
+env/
+
+# 테스트 / 커버리지
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# 타입 체커 / 린터 캐시
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# uv
+# uv.lock 은 커밋한다 (재현 가능한 빌드용)
+
+# 노트북
+.ipynb_checkpoints/
+
+# ---- 환경변수 / 시크릿 ----
+# 키는 절대 커밋 금지. GitHub Actions Secret 으로만 주입할 것.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# ---- macOS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon?
+
+# ---- 에디터 ----
+.idea/
+.vscode/
+*.swp
+
+# ---- 로컬 작업용 ----
+tmp/
+scratch/

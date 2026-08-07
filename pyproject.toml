@@ -1,0 +1,37 @@
+[project]
+name = "holidays-pipeline"
+version = "0.1.0"
+description = "공휴일 iCalendar 구독 피드 생성기"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "lunalism" }]
+
+# v1 스켈레톤 기준 잠정 의존성. 구현 착수 시 재확인.
+dependencies = [
+    "httpx>=0.27",
+    "icalendar>=6.0",
+    "pyyaml>=6.0",
+]
+
+[dependency-groups]
+dev = [
+    "holidays==0.102",
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+# 라이브러리로 배포하지 않는 애플리케이션 레포. 빌드 백엔드 불필요.
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
