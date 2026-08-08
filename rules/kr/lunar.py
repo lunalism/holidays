@@ -58,6 +58,16 @@ MID_TERM_STEP_DEGREES = 30.0
 MONTHS_IN_COMMON_SUI = 12
 MONTHS_IN_LEAP_SUI = 13
 
+# 초하루가 위태로운 기준. 삭이 KST 자정에서 이보다 가까우면 계산 오차만으로
+# 날짜가 하루 갈릴 수 있다고 본다.
+#
+# 10 분인 이유는 이것이 우리가 실제로 견딘다고 확인한 폭이기 때문이다.
+# tests/test_lunar.py 가 삭을 ±300 초 흔들어도 답이 안 바뀌는 것을 상시 확인하고,
+# 관측된 임계점은 ±600 초다. 그 임계점을 그대로 기준으로 삼는다.
+# 문헌 오차(20 초 안쪽)를 기준으로 잡으면 우리가 옮겨 적은 계수가 맞다는 것을
+# 전제하게 되는데, 그건 아직 대조 구간에서만 확인된 것이다.
+BOUNDARY_MARGIN_MINUTES = 10.0
+
 
 class LunarError(ValueError):
     """음력 계산이 답을 내지 못했다."""
@@ -71,10 +81,24 @@ class LunarMonth:
     leap: bool
     start: date      # 초하루
     end: date        # 그믐 (다음 달 초하루 전날)
+    start_margin_minutes: float = 720.0  # 초하루를 정한 삭이 KST 자정에서 떨어진 거리
 
     @property
     def length(self) -> int:
         return (self.end - self.start).days + 1
+
+    @property
+    def boundary_risk(self) -> bool:
+        """초하루가 계산 오차만으로 하루 갈릴 수 있는가.
+
+        삭이 KST 자정에 가까우면 급수 오차가 그대로 날짜를 옮긴다. 초하루가
+        밀리면 그 달의 공휴일이 통째로 밀리고, 설·추석은 연휴 3 일이 함께 밀린다.
+
+        위험 표시일 뿐 날짜를 바꾸지 않는다. 바꾸려면 발표값이 있어야 하고,
+        그건 lunar_holidays.yaml 의 exceptions 가 할 일이다. 여기서 자동으로
+        옮기면 근거 없이 답이 달라지고 무엇을 왜 옮겼는지 남지 않는다.
+        """
+        return self.start_margin_minutes < BOUNDARY_MARGIN_MINUTES
 
     @property
     def label(self) -> str:
@@ -119,7 +143,9 @@ def months_of_sui(year: int) -> tuple:
             "동지 시각이나 삭 시각 계산이 깨졌다는 뜻이다."
         )
 
-    starts = [astro.kst_moment(astro.new_moon_jde(first_k + i))[0] for i in range(count + 1)]
+    new_moons = [astro.new_moon_jde(first_k + i) for i in range(count + 1)]
+    starts = [astro.kst_moment(jde)[0] for jde in new_moons]
+    margins = [astro.minutes_from_midnight(jde) for jde in new_moons]
 
     # 중기는 세 전체를 덮을 만큼만 뽑는다. 13 달이면 13 개로 모자랄 수 있으므로
     # 한 개 넉넉히 잡는다. 남는 것은 어느 달에도 안 걸리고 그냥 버려진다.
@@ -143,7 +169,7 @@ def months_of_sui(year: int) -> tuple:
     number = 11
     previous_number = None
     for index in range(count):
-        span = (starts[index], starts[index + 1] - timedelta(days=1))
+        span = (starts[index], starts[index + 1] - timedelta(days=1), margins[index])
         if index == leap_index:
             months.append(LunarMonth(previous_number, True, *span))
             continue

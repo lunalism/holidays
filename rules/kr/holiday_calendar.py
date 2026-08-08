@@ -92,6 +92,11 @@ class Holiday:
     source_key: str = ""  # 대체공휴일일 때 원인이 된 공휴일 키
     provisional: bool = False  # 개정 확인 시점 이후라 확정이 아님
 
+    # 음력 공휴일 전용. 초하루를 정한 삭이 KST 자정에 가까워 계산 오차만으로
+    # 날짜가 하루 갈릴 수 있는 자리다. 값을 바꾸지는 않는다 — 표시만 한다.
+    # 옮기려면 발표값이 있어야 하고 그건 lunar_holidays.yaml 의 exceptions 다.
+    lunar_boundary_risk: bool = False
+
 
 # ---------------------------------------------------------------------------
 # 데이터 적재
@@ -379,19 +384,110 @@ def resolve_lunar(key: str, year: int) -> date:
         raise CalendarError(f"{key!r} 는 음력 공휴일이 아니다. holidays_on() 을 쓸 것.")
     require_supported(key)
 
+    return _lunar_anchor(key, year)[0]
+
+
+def _lunar_anchor(key: str, year: int, sui: dict = None) -> tuple:
+    """(양력 날짜, 경계 위험 여부).
+
+    발표값 예외가 있으면 그 값을 쓰고 위험은 False 다. 계산이 자정에 걸려
+    흔들리든 말든 발표값이 답을 정했으므로 더 이상 갈릴 자리가 아니다.
+    """
     table = _lunar()
     published = table["exceptions"].get((key, year))
     if published is not None:
-        return published
+        return published, False
 
-    entry = next(h for h in table["entries"] if h["key"] == key)
-    spec = entry["lunar"]
-    return lunar.solar_date(year, spec["month"], spec["day"])
+    spec = next(h for h in table["entries"] if h["key"] == key)["lunar"]
+    if sui is None:
+        sui = {(m.number, m.leap): m for m in lunar.months_of_sui(year)}
+    month = sui.get((spec["month"], False))
+    if month is None:
+        raise CalendarError(f"{year} 년 세에 음력 {spec['month']} 월이 없다.")
+    return month.day(spec["day"]), month.boundary_risk
 
 
 # ---------------------------------------------------------------------------
 # 달력 조립
 # ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class BoundaryRisk:
+    """초하루가 하루 갈릴 수 있는 자리에 놓인 음력 공휴일."""
+
+    year: int
+    key: str
+    name: str
+    day: date
+    month_start: date
+    margin_minutes: float
+
+    def __str__(self) -> str:
+        return (
+            f"{self.year}  {self.name:<12} {self.day}  "
+            f"초하루 {self.month_start}  자정에서 {self.margin_minutes:6.2f} 분"
+        )
+
+
+def lunar_boundary_risks(first_year: int, last_year: int) -> tuple:
+    """그 구간에서 초하루가 위태로운 음력 공휴일 목록.
+
+    coverage 를 보지 않는다. 이건 우리 데이터 표의 성질이 아니라 천문 계산의
+    성질이라, 우리가 답하기로 한 구간과 무관하게 존재한다. 오히려 구간을 넓힐지
+    말지 판단하는 근거가 이 목록이므로, 구간에 갇히면 볼 수 없게 된다.
+
+    값을 바꾸지 않는다. 위험한 자리를 알려 줄 뿐이다. 옮기려면 발표값이
+    있어야 하고 그건 lunar_holidays.yaml 의 exceptions 다.
+    """
+    entries = _lunar()["entries"]
+    found = []
+    for year in range(first_year, last_year + 1):
+        sui = {(m.number, m.leap): m for m in lunar.months_of_sui(year)}
+        for entry in entries:
+            month = sui.get((entry["lunar"]["month"], False))
+            if month is None or not month.boundary_risk:
+                continue
+            found.append(
+                BoundaryRisk(
+                    year=year,
+                    key=entry["key"],
+                    name=entry["name"],
+                    day=month.day(entry["lunar"]["day"]),
+                    month_start=month.start,
+                    margin_minutes=month.start_margin_minutes,
+                )
+            )
+    return tuple(sorted(found, key=lambda r: r.margin_minutes))
+
+
+def lunar_boundary_report(first_year: int, last_year: int) -> str:
+    """사람이 읽는 경계 위험 요약."""
+    risks = lunar_boundary_risks(first_year, last_year)
+    threshold = lunar.BOUNDARY_MARGIN_MINUTES
+    lines = [
+        f"음력 초하루 경계 위험 ({first_year}~{last_year})",
+        f"기준: 삭이 KST 자정에서 {threshold:.0f} 분 이내",
+        "",
+    ]
+    if not risks:
+        lines += [
+            "  해당 없음.",
+            "",
+            "  이 구간의 음력 공휴일은 전부 삭이 자정에서 충분히 떨어져 있다.",
+            "  급수 오차가 초하루를 하루 옮길 수 있는 자리가 없다는 뜻이며,",
+            "  그 자체가 이 구간의 안전 근거다.",
+        ]
+        return "\n".join(lines)
+
+    lines += [f"  {risk}" for risk in risks]
+    lines += [
+        "",
+        f"  {len(risks)} 건. 값은 바꾸지 않았다.",
+        "  각 날짜를 한국천문연구원 발표값으로 확인할 것.",
+        "  갈리면 lunar_holidays.yaml 의 exceptions 에 적는다. 계산을 고치지 않는다.",
+    ]
+    return "\n".join(lines)
 
 
 def _active(entry: dict, day: date) -> bool:
@@ -413,23 +509,36 @@ def _base_holidays(year: int) -> dict:
             continue
         out.setdefault(day, []).append(Holiday(name=h["name"], kind=KIND_STATUTORY, key=h["key"]))
 
+    # 세는 세 공휴일이 공유하므로 한 번만 짓는다. 공휴일마다 다시 지으면
+    # 같은 삭·중기 계산을 세 번 돌리게 된다.
+    sui = {(m.number, m.leap): m for m in lunar.months_of_sui(year)}
     for h in _lunar()["entries"]:
-        anchor = resolve_lunar(h["key"], year)
+        anchor, risk = _lunar_anchor(h["key"], year, sui)
         if not _active(h, anchor):
             continue
         out.setdefault(anchor, []).append(
-            Holiday(name=h["name"], kind=KIND_STATUTORY, key=h["key"])
+            Holiday(
+                name=h["name"], kind=KIND_STATUTORY, key=h["key"], lunar_boundary_risk=risk
+            )
         )
         # 연휴는 같은 key 를 단다. 대체공휴일 판정이 이 key 로 호 소속을 찾기
         # 때문이다. 연휴 이름만 다르고 규칙상 성질은 명절 당일과 같다.
         # key 를 비우면 연휴가 일요일에 걸려도 대체공휴일이 생기지 않는다.
+        #
+        # 경계 위험도 함께 단다. 초하루가 밀리면 연휴 3 일이 통째로 따라 밀리므로
+        # 당일만 표시하면 연휴 이틀이 위험 표시 없이 나간다.
         leave = h.get("leave") or {}
         before, after = leave.get("days_before", 0), leave.get("days_after", 0)
         for offset in range(-before, after + 1):
             if offset == 0:
                 continue
             out.setdefault(anchor + timedelta(days=offset), []).append(
-                Holiday(name=h["leave_name"], kind=KIND_STATUTORY, key=h["key"])
+                Holiday(
+                    name=h["leave_name"],
+                    kind=KIND_STATUTORY,
+                    key=h["key"],
+                    lunar_boundary_risk=risk,
+                )
             )
 
     designated = _designated()

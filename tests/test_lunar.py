@@ -28,6 +28,7 @@ from pathlib import Path
 import pytest
 
 from rules.kr import astro, lunar
+from rules.kr import holiday_calendar as hc
 from sources.kr import kasi_parser as kp
 
 CACHE_DIR = Path(__file__).parent.parent / "sources" / "kr" / "cache"
@@ -303,6 +304,92 @@ def test_holidays_survive_perturbing_the_series(perturb, solar_degrees, lunar_se
         f"{len(changed)} 건이 바뀌었다:\n"
         + "\n".join(f"  {k}: {was} → {now}" for k, (was, now) in sorted(changed.items()))
     )
+
+
+# ---------------------------------------------------------------------------
+# 초하루 경계 위험 — 삭이 자정에 걸린 자리
+# ---------------------------------------------------------------------------
+
+# 1950~2100 전 구간 스캔 결과(조사 2026-08-08). 삭이 KST 자정에서 10 분 이내인
+# 달에 걸린 공휴일이다. 값은 바꾸지 않았다 — 위험 표시일 뿐이다.
+#
+# 이 목록을 여기 박아 두는 이유는, 급수를 건드렸을 때 목록이 조용히 달라지는
+# 것을 잡기 위해서다. 새 항목이 늘면 위태로운 자리가 생긴 것이고, 줄면 계산이
+# 달라진 것이다. 둘 다 사람이 볼 일이다.
+KNOWN_BOUNDARY_RISKS = {
+    (1967, "buddhas_birthday"),
+    (1970, "buddhas_birthday"),
+    (1978, "seollal"),
+    (1997, "seollal"),
+    (2063, "buddhas_birthday"),
+    (2092, "seollal"),
+}
+
+# 그중 이미 지나간 날짜. 발표값이 존재하므로 지금 당장 확인할 수 있다.
+BOUNDARY_RISKS_ALREADY_PAST = {(1967, "buddhas_birthday"), (1970, "buddhas_birthday"),
+                               (1978, "seollal"), (1997, "seollal")}
+
+
+def test_boundary_risk_scan_matches_the_recorded_list():
+    """1950~2100 스캔 결과가 기록된 목록과 같은지."""
+    found = {(r.year, r.key) for r in hc.lunar_boundary_risks(1950, 2100)}
+    assert found == KNOWN_BOUNDARY_RISKS, (
+        "경계 위험 목록이 달라졌다.\n"
+        f"  새로 생김: {sorted(found - KNOWN_BOUNDARY_RISKS)}\n"
+        f"  사라짐   : {sorted(KNOWN_BOUNDARY_RISKS - found)}\n"
+        "급수를 건드렸다면 어느 쪽이든 사람이 확인할 것."
+    )
+
+
+def test_the_verified_range_has_no_boundary_risk():
+    """대조 완료 구간(2015~2028)에는 위태로운 자리가 없다.
+
+    0 건이라는 사실 자체가 이 구간의 안전 근거다. 앵커 42 건이 맞았다는 것에
+    더해, 그 42 건이 운으로 맞은 것이 아니라는 뜻이 된다. 삭이 전부 자정에서
+    충분히 떨어져 있으므로 급수 오차가 날짜를 옮길 여지가 애초에 없었다.
+
+    이 구간에 위험이 생기면 confirmed_through 를 그대로 두어도 되는지 다시
+    판단해야 한다.
+    """
+    assert hc.lunar_boundary_risks(2015, 2028) == ()
+    assert "해당 없음" in hc.lunar_boundary_report(2015, 2028)
+
+
+def test_boundary_risk_reaches_the_holiday_and_its_leave_days():
+    """위험 표시가 명절 당일에만 붙으면 연휴 이틀이 표시 없이 나간다.
+
+    초하루가 밀리면 연휴 3 일이 통째로 따라 밀린다. 위험은 날짜 하나가 아니라
+    그 달에 걸린 항목 전부의 성질이다.
+    """
+    risky = next(r for r in hc.lunar_boundary_risks(1950, 2100) if r.key == "seollal")
+    for offset in (-1, 0, 1):
+        found = hc._base_holidays(risky.year)[risky.day + timedelta(days=offset)]
+        assert found and all(h.lunar_boundary_risk for h in found), (
+            f"{risky.day + timedelta(days=offset)}: 위험 표시가 없다"
+        )
+
+
+def test_boundary_risk_does_not_move_any_date():
+    """플래그는 표시일 뿐 값을 바꾸지 않는다.
+
+    자동으로 옮기면 근거 없이 답이 달라지고 무엇을 왜 옮겼는지 남지 않는다.
+    옮기는 것은 발표값이 있을 때 exceptions 가 할 일이다.
+    """
+    for risk in hc.lunar_boundary_risks(1950, 2100):
+        month, day = SPEC[risk.key]
+        assert risk.day == lunar.solar_date(risk.year, month, day)
+
+
+def test_past_boundary_risks_are_checkable_now():
+    """이미 지나간 위험 날짜는 발표값이 존재한다. 확인 대상으로 남겨 둔다.
+
+    미래 날짜(2063·2092)는 기다릴 수밖에 없지만 과거 날짜는 지금 확인할 수 있다.
+    확인해서 갈리면 exceptions 에 적을 것. 이 테스트는 그 목록이 잊히지 않게
+    붙잡아 두는 자리다.
+    """
+    past = {(r.year, r.key) for r in hc.lunar_boundary_risks(1950, 2014)}
+    assert past == BOUNDARY_RISKS_ALREADY_PAST
+    assert all(year < 2015 for year, _ in past), "coverage 시작 이후 날짜가 섞였다"
 
 
 # ---------------------------------------------------------------------------

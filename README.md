@@ -25,6 +25,9 @@ tests/        테스트
 국가를 추가할 때는 `sources/<코드>/`, `rules/<코드>/`, `data/<코드>/` 를 늘리고
 `core/` 는 국가 중립으로 유지합니다.
 
+피드 단위 범위 결정은 [`DESIGN.md`](DESIGN.md) 에 있습니다. 규칙 하나에 붙는
+결정은 해당 YAML 의 주석과 `open_questions` 에 있습니다.
+
 ## 개발 환경
 
 Python 3.12 이상, 패키지 관리는 [uv](https://docs.astral.sh/uv/).
