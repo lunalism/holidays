@@ -5,6 +5,12 @@ iCalendar(`.ics`) 피드로 발행하는 프로젝트입니다. v1 대상 국가
 
 > **상태: v1 스켈레톤.** 디렉터리 구조와 설정만 잡혀 있고 로직은 아직 없습니다.
 
+```bash
+uv run pytest        # 테스트 — 시스템 python 이 아니라 반드시 uv 로 실행합니다
+```
+
+전체 명령과 규약은 [`AGENTS.md`](AGENTS.md) 에 있습니다.
+
 ## 구독 URL
 
 준비 중입니다.
@@ -31,12 +37,7 @@ tests/        테스트
 ## 개발 환경
 
 Python 3.12 이상, 패키지 관리는 [uv](https://docs.astral.sh/uv/).
-
-```bash
-uv sync              # 의존성 설치
-uv run pytest        # 테스트
-uv run ruff check .  # 린트
-```
+명령 목록은 [`AGENTS.md`](AGENTS.md) 에 있습니다 — 한 곳에만 둡니다.
 
 `pyproject.toml` 의 런타임 의존성은 잠정값이며 구현 착수 시 재확인합니다.
 

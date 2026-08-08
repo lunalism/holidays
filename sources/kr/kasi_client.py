@@ -42,6 +42,8 @@ from urllib.parse import quote, unquote
 
 import httpx
 
+from sources.kr import kasi_parser
+
 log = logging.getLogger(__name__)
 
 # httpx 는 INFO 레벨에서 요청 URL 을 통째로 찍는다. 이 API 는 인증키를 쿼리
@@ -195,6 +197,19 @@ def scrub(text: str, key: str) -> str:
 
 
 def _request(url: str, key: str, timeout: float = 20.0, params: dict = None) -> str:
+    """한 번 호출한다. 실패하면 키를 지운 KasiError 로 바꿔 던진다.
+
+    스크럽을 여기 두는 것이 요점이다. 호출자마다 넣으면 다음에 생기는 호출자가
+    반드시 빠뜨린다. 실제로 try_key_modes() 는 감싸고 있었는데 fetch_year() 는
+    빠져 있었다.
+
+    왜 필요한가. 이 API 는 인증키를 쿼리 문자열로 받고, httpx 의
+    HTTPStatusError 메시지에는 요청 URL 이 통째로 들어간다. 그대로 올라가면
+    터미널 스크롤백과 CI 로그에 키가 남는다. 로그에 남은 키는 유출된 키다.
+
+    관측된 실물(조사 2026-08-08): 등록되지 않은 키는 403, 빈 키는 401 이 온다.
+    즉 이 경로는 이론이 아니라 실제로 밟히는 경로다.
+    """
     global _call_count
     if _call_count >= MAX_CALLS_PER_RUN:
         raise CallBudgetExceeded(
@@ -204,8 +219,13 @@ def _request(url: str, key: str, timeout: float = 20.0, params: dict = None) -> 
     _call_count += 1
     log.info("호출 #%d/%d %s", _call_count, MAX_CALLS_PER_RUN, scrub(url, key))
 
-    response = httpx.get(url, params=params, timeout=timeout, follow_redirects=True)
-    response.raise_for_status()
+    try:
+        response = httpx.get(url, params=params, timeout=timeout, follow_redirects=True)
+        response.raise_for_status()
+    except httpx.HTTPError as exc:
+        # 예외 본문뿐 아니라 타입 이름까지 함께 실어 보낸다. 스크럽을 거치므로
+        # 키는 남지 않고, 무엇이 실패했는지는 그대로 남는다.
+        raise KasiError(scrub(f"{type(exc).__name__}: {exc}", key)) from None
     return response.text
 
 
@@ -299,10 +319,68 @@ def fetch_year(year: int, *, key_mode: str = None, force: bool = False) -> str:
 
     body = _request(_build_url(key, key_mode, year), key)
 
+    # 캐시에 쓰기 전에 봉투를 확인한다. 검사는 kasi_parser 가 한다 — 응답 구조를
+    # 아는 곳은 거기 하나여야 한다. 여기서 XML 을 뜯으면 검사가 두 벌이 되고,
+    # 한쪽만 고쳐 놓으면 저장은 되는데 읽지 못하는 파일이 생긴다.
+    #
+    # 검사 없이 쓰면 오류 응답이 정상 캐시로 굳는다. fetch_year 는 파일 존재만
+    # 보고 재사용하므로 force=True 없이는 영원히 복구되지 않고, 그 파일이
+    # sources/kr/cache/ 에 커밋되면 관측 기록 자체가 오염된다.
+    try:
+        kasi_parser.check_envelope(body)
+    except kasi_parser.KasiParseError as exc:
+        raise KasiError(
+            f"{year} 년 응답이 정상 봉투가 아니다. 캐시에 쓰지 않았다.\n  {exc}"
+        ) from exc
+
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(body, encoding="utf-8")
     log.info("캐시 저장 %s (%d bytes)", path.name, len(body))
     return body
+
+
+def audit_cache() -> list:
+    """저장된 캐시 파일을 전부 검사한다. (경로, 오류) 목록. 정상이면 빈 목록.
+
+    지우지 않는다. 오염된 파일도 관측 기록이고, 무엇이 어떻게 오염됐는지는
+    사람이 봐야 한다. 자동으로 지우면 다시 받아 오는 동안 무엇이 사라졌는지
+    아무도 모른다.
+    """
+    broken = []
+    for path in sorted(CACHE_DIR.glob(f"{OPERATION}_*.xml")):
+        try:
+            kasi_parser.check_envelope(path.read_text(encoding="utf-8"))
+        except kasi_parser.KasiParseError as exc:
+            broken.append((path, str(exc)))
+    return broken
+
+
+def audit_cache_report() -> str:
+    """사람이 읽는 캐시 점검 요약."""
+    paths = sorted(CACHE_DIR.glob(f"{OPERATION}_*.xml"))
+    broken = audit_cache()
+    lines = [f"캐시 점검 — {CACHE_DIR}", f"파일 {len(paths)} 개", ""]
+    if not paths:
+        return "\n".join(lines + ["  캐시가 비어 있다."])
+    if not broken:
+        return "\n".join(
+            lines
+            + [
+                "  전부 정상 봉투(resultCode 00).",
+                "",
+                "  주의: 이것은 '오류 응답이 저장되지 않았다'는 뜻이지 '내용이 맞다'는",
+                "  뜻이 아니다. 내용 대조는 tests/test_source_agreement.py 가 한다.",
+            ]
+        )
+    lines += [f"  깨진 파일 {len(broken)} 개:", ""]
+    lines += [f"  {path.name}\n    {error}" for path, error in broken]
+    lines += [
+        "",
+        "  지우지 않았다. 각 파일을 열어 무엇이 저장됐는지 확인할 것.",
+        "  다시 받으려면 fetch_year(연도, force=True). 그 전에 키부터 확인할 것 —",
+        "  인증 실패가 저장된 것이라면 다시 받아도 같은 것이 저장된다.",
+    ]
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":  # pragma: no cover

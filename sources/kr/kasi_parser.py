@@ -123,14 +123,27 @@ def _resolve(name: str, table: dict, day: date) -> tuple:
     )
 
 
-def parse(xml: str, table: dict = None) -> tuple:
-    """원시 XML → KasiHoliday 목록. 날짜 오름차순.
+def check_envelope(xml: str):
+    """정상 응답 봉투인지 확인하고 루트 엘리먼트를 돌려준다.
 
-    같은 날짜에 항목이 여럿이면 그대로 여럿 돌려준다. 합치지 않는다.
-    합치는 규칙을 정하려면 seq 의 의미를 알아야 하는데 아직 모른다.
+    실패하면 KasiParseError. 통과하면 그 응답은 저장해도 되는 것이다.
+
+    이 함수가 따로 있는 이유는 kasi_client 가 캐시에 쓰기 전에 같은 검사를
+    해야 하기 때문이다. 클라이언트가 XML 을 직접 뜯으면 검사가 두 벌이 되고,
+    한쪽만 고쳐 놓으면 저장은 되는데 읽지 못하는 파일이 생긴다.
+    응답 구조를 아는 곳은 이 모듈 하나여야 한다.
+
+    두 가지 실패 형태를 갈라 본다.
+
+      resultCode 가 없다   data.go.kr 이 인증 실패 등을 다른 봉투
+                          (OpenAPI_ServiceResponse)로 준다. 관측된 실물은
+                          tests/fixtures/kasi_errors/ 에 있다.
+      resultCode != 00     정상 봉투인데 서비스 쪽 오류다.
+
+    둘 다 HTTP 상태와 무관하게 성립한다. 관측된 인증 오류는 401·403 과 함께
+    왔지만, 봉투만 보고도 판정할 수 있어야 한다. HTTP 상태에 기대면 200 으로
+    오는 오류를 놓친다.
     """
-    table = table or load_names()
-
     try:
         root = ET.fromstring(xml.strip())
     except ET.ParseError as exc:
@@ -138,8 +151,6 @@ def parse(xml: str, table: dict = None) -> tuple:
 
     code = root.findtext("header/resultCode")
     if code is None:
-        # data.go.kr 은 인증 실패 등을 다른 봉투(OpenAPI_ServiceResponse)로 준다.
-        # 그 경우 header/resultCode 가 없다. 오류 메시지를 그대로 실어 보낸다.
         detail = (root.findtext(".//errMsg") or root.findtext(".//returnAuthMsg") or "").strip()
         raise KasiParseError(
             f"resultCode 가 없다. 정상 응답 봉투가 아니다 (root={root.tag!r})."
@@ -148,6 +159,17 @@ def parse(xml: str, table: dict = None) -> tuple:
     if code.strip() != "00":
         message = (root.findtext("header/resultMsg") or "").strip()
         raise KasiParseError(f"정상 응답이 아니다. resultCode={code.strip()} {message}")
+    return root
+
+
+def parse(xml: str, table: dict = None) -> tuple:
+    """원시 XML → KasiHoliday 목록. 날짜 오름차순.
+
+    같은 날짜에 항목이 여럿이면 그대로 여럿 돌려준다. 합치지 않는다.
+    합치는 규칙을 정하려면 seq 의 의미를 알아야 하는데 아직 모른다.
+    """
+    table = table or load_names()
+    root = check_envelope(xml)
 
     out = []
     for item in root.findall("body/items/item"):
