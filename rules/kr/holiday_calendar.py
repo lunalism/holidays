@@ -33,7 +33,7 @@ substitute_holidays.yaml 의 sunday_in_output: false 가 그 결정이다.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date, timedelta
 from functools import lru_cache
 from pathlib import Path
@@ -61,6 +61,15 @@ class CalendarError(ValueError):
     """달력 데이터가 잘못되었다."""
 
 
+class UnsupportedYear(CalendarError):
+    """신뢰 구간 밖의 날짜를 물었다.
+
+    빈 결과를 돌려주지 않는 이유: 데이터가 없는 것과 공휴일이 아닌 것은 다르다.
+    둘을 같은 값으로 답하면 호출자가 구분할 수 없고, 누락이 오류로 드러나지 않는다.
+    피드로 나가면 구독자 캘린더에서 공휴일이 조용히 사라진다.
+    """
+
+
 class LunarNotImplemented(NotImplementedError):
     """음력 공휴일은 아직 환산하지 못한다.
 
@@ -76,6 +85,7 @@ class Holiday:
     kind: str
     key: str = ""
     source_key: str = ""  # 대체공휴일일 때 원인이 된 공휴일 키
+    provisional: bool = False  # 개정 확인 시점 이후라 확정이 아님
 
 
 # ---------------------------------------------------------------------------
@@ -87,14 +97,38 @@ def _read(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
+def _coverage_of(raw: dict, path: Path) -> substitute_rules.Coverage:
+    block = raw.get("coverage")
+    if not block:
+        raise CalendarError(f"{path.name}: coverage 선언이 없다.")
+    start, confirmed = block.get("from"), block.get("confirmed_through")
+    if not isinstance(start, date) or not isinstance(confirmed, date):
+        raise CalendarError(
+            f"{path.name}: coverage.from / coverage.confirmed_through 가 날짜가 아니다."
+        )
+    if start > confirmed:
+        raise CalendarError(f"{path.name}: coverage 구간이 뒤집혀 있다({start} > {confirmed}).")
+    return substitute_rules.Coverage(start=start, confirmed_through=confirmed)
+
+
 @lru_cache(maxsize=1)
 def _rules():
     return substitute_rules.load()
 
 
 @lru_cache(maxsize=1)
+def _solar_raw() -> dict:
+    return _read(SOLAR_PATH)
+
+
+@lru_cache(maxsize=1)
+def _designated_raw() -> dict:
+    return _read(DESIGNATED_PATH)
+
+
+@lru_cache(maxsize=1)
 def _solar() -> tuple:
-    raw = _read(SOLAR_PATH)
+    raw = _solar_raw()
     registry = _rules().holidays
     out = []
     for h in raw["holidays"]:
@@ -109,7 +143,7 @@ def _solar() -> tuple:
 
 @lru_cache(maxsize=1)
 def _designated() -> dict:
-    raw = _read(DESIGNATED_PATH)
+    raw = _designated_raw()
     kinds = raw["kinds"]
     by_date = {}
     for h in raw["holidays"]:
@@ -148,6 +182,74 @@ def _name_to_key() -> dict:
 # ---------------------------------------------------------------------------
 # 미구현 공휴일
 # ---------------------------------------------------------------------------
+
+
+@lru_cache(maxsize=1)
+def coverage() -> dict:
+    """각 소스의 신뢰 구간과 그 교집합.
+
+    최종 달력이 답할 수 있는 범위는 교집합이다. 한 소스라도 못 믿는 구간은
+    전체가 못 믿는 구간이다. 가장 좁은 소스가 전체를 결정한다.
+
+    음력 표는 교집합에 넣지 않는다. 환산이 미구현이라 구간이 비어 있어서
+    넣으면 교집합이 통째로 사라진다. 음력의 미구현은 구간이 아니라
+    unresolved_holidays() / require_supported() 로 표현한다.
+    """
+    sources = {
+        "solar_holidays.yaml": _coverage_of(_solar_raw(), SOLAR_PATH),
+        "designated_holidays.yaml": _coverage_of(_designated_raw(), DESIGNATED_PATH),
+        "substitute_holidays.yaml": _rules().coverage,
+    }
+    # start 는 가장 늦은 것을, confirmed_through 는 가장 이른 것을 따른다.
+    # 한 소스라도 못 믿는 구간은 전체가 못 믿는 구간이다.
+    effective = substitute_rules.Coverage(
+        start=max(c.start for c in sources.values()),
+        confirmed_through=min(c.confirmed_through for c in sources.values()),
+    )
+    if effective.start > effective.confirmed_through:
+        raise CalendarError(
+            "소스들의 coverage 확정 구간이 비었다:\n"
+            + "\n".join(f"  {name}: {c}" for name, c in sources.items())
+        )
+    return {"sources": sources, "effective": effective, "unresolved": unresolved_holidays()}
+
+
+def coverage_report() -> str:
+    """사람이 읽는 coverage 요약. 로그·CLI 용."""
+    cov = coverage()
+    width = max(len(n) for n in cov["sources"])
+    lines = ["공휴일 데이터 신뢰 구간 (kr)", ""]
+    for name, c in cov["sources"].items():
+        lines.append(f"  {name:<{width}}  {c}")
+    eff = cov["effective"]
+    lines += [
+        "",
+        f"  {'→ 최종(교집합)':<{width}}  {eff}",
+        "",
+        f"  {eff.start.isoformat()} 이전     : UnsupportedYear 로 거부",
+        f"  ~ {eff.confirmed_through.isoformat()} : 확정",
+        f"  {eff.confirmed_through.isoformat()} 이후    : 답하되 provisional: true (상한 없음)",
+        "",
+        f"  미구현 공휴일(구간과 무관): {', '.join(sorted(cov['unresolved']))}",
+    ]
+    return "\n".join(lines)
+
+
+def require_covered(day: date) -> None:
+    """데이터 완결성 경계 이전이면 UnsupportedYear. 상한은 보지 않는다."""
+    effective = coverage()["effective"]
+    if not effective.contains(day):
+        raise UnsupportedYear(
+            f"{day.isoformat()} 는 데이터 완결성 경계({effective.start.isoformat()}) "
+            "이전이다.\n빈 결과를 돌려주지 않는 이유는 '데이터 없음'과 '공휴일 아님'이 "
+            "다르기 때문이다. 범위를 넓히려면 각 소스의 데이터를 먼저 채우고 coverage.from "
+            "을 앞당길 것. 추정으로 채우지 말 것.\n" + coverage_report()
+        )
+
+
+def is_provisional(day: date) -> bool:
+    """개정 확인 시점 이후인가. 답은 나오지만 확정이 아니다."""
+    return coverage()["effective"].is_provisional(day)
 
 
 def unresolved_holidays() -> frozenset:
@@ -330,7 +432,14 @@ def holidays_on(day: date) -> tuple:
     """
     if not isinstance(day, date):
         raise CalendarError(f"날짜가 아니다: {day!r}")
-    return tuple(_calendar_cached(day.year).get(day, ()))
+    require_covered(day)
+
+    found = _calendar_cached(day.year).get(day, ())
+    if not is_provisional(day):
+        return tuple(found)
+    # 확정 구간 밖. 답은 그대로 두되 잠정임을 항목마다 표시한다.
+    # 피드 생성기가 이 값을 보고 이벤트에 표시하거나 발행 범위를 자를 수 있다.
+    return tuple(replace(h, provisional=True) for h in found)
 
 
 def substitute_eligibility(holiday: str, day: date) -> dict:
@@ -343,10 +452,23 @@ def substitute_eligibility(holiday: str, day: date) -> dict:
     if key is None:
         raise CalendarError(f"모르는 공휴일: {holiday!r}")
 
+    # 여기서는 규칙 표만 본다. 양력·지정 표를 건드리지 않으므로 규칙 표의 구간만 본다.
+    rules_coverage = _rules().coverage
+    if not rules_coverage.contains(day):
+        raise UnsupportedYear(
+            f"{day.isoformat()} 는 대체공휴일 규칙 표의 완결성 경계 "
+            f"({rules_coverage.start.isoformat()}) 이전이다."
+        )
+
     result = _rules().eligibility_for_date(key, day)
     return {
         "saturday": result.saturday,
         "sunday": result.sunday,
         "ruleset": result.ruleset,
         "clauses": result.clauses,
+        "provisional": rules_coverage.is_provisional(day),
     }
+
+
+if __name__ == "__main__":  # pragma: no cover
+    print(coverage_report())

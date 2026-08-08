@@ -76,7 +76,34 @@ class Eligibility:
 
 
 @dataclass(frozen=True)
+class Coverage:
+    """데이터를 신뢰할 수 있는 구간. 두 축을 구분한다.
+
+        start              데이터 완결성 경계. 이전은 조회를 거부한다.
+        confirmed_through  개정을 확인한 시점. 이후는 답하되 잠정으로 표시한다.
+
+    상한을 거부로 두지 않는 이유는 피드가 몇 년치를 미리 발행해야 하기 때문이다.
+    또 미래의 임시공휴일이 없는 것은 누락이 아니라 아직 지정되지 않은 상태다.
+    반대로 start 이전은 있었어야 할 데이터가 없는 것이라 성격이 다르다.
+    """
+
+    start: date
+    confirmed_through: date
+
+    def contains(self, day: date) -> bool:
+        """조회 가능한가. 상한은 보지 않는다."""
+        return day >= self.start
+
+    def is_provisional(self, day: date) -> bool:
+        return day > self.confirmed_through
+
+    def __str__(self) -> str:
+        return f"{self.start.isoformat()} ~ [확정 {self.confirmed_through.isoformat()}] ~ (잠정)"
+
+
+@dataclass(frozen=True)
 class RuleTable:
+    coverage: Coverage
     weekly_holidays: frozenset
     sunday_in_output: bool
     overlap_vocabulary: frozenset
@@ -161,12 +188,27 @@ def _ruleset(raw: dict) -> Ruleset:
     )
 
 
+def _coverage(raw: dict, path) -> Coverage:
+    block = raw.get("coverage")
+    if not block:
+        raise RuleTableError(f"{path}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다.")
+    start, confirmed = block.get("from"), block.get("confirmed_through")
+    if not isinstance(start, date) or not isinstance(confirmed, date):
+        raise RuleTableError(
+            f"{path}: coverage.from / coverage.confirmed_through 가 날짜가 아니다."
+        )
+    if start > confirmed:
+        raise RuleTableError(f"{path}: coverage 구간이 뒤집혀 있다({start} > {confirmed}).")
+    return Coverage(start=start, confirmed_through=confirmed)
+
+
 def load(path=None) -> RuleTable:
     """규칙 테이블을 읽고 검증한다. 구조가 깨져 있으면 RuleTableError."""
     path = Path(path) if path else DEFAULT_PATH
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     table = RuleTable(
+        coverage=_coverage(raw, path),
         weekly_holidays=frozenset(raw["weekly_holidays"]),
         sunday_in_output=bool(raw["sunday_in_output"]),
         overlap_vocabulary=frozenset(raw["overlap_vocabulary"]),
