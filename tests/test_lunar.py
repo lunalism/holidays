@@ -1,0 +1,341 @@
+"""rules/kr/lunar.py — 삭과 중기에서 달 번호를 세운다.
+
+--------------------------------------------------------------------------
+무엇으로 검증하는가
+--------------------------------------------------------------------------
+KASI 특일정보 캐시가 덮는 2015~2028 년의 앵커 42 건(설날·추석·부처님오신날
+각 14 년)이 유일한 실측 대조다. 그 밖은 대조된 바 없고, 그래서
+lunar_holidays.yaml 의 confirmed_through 가 2028-12-31 이다.
+
+앵커 대조만으로는 부족하다. "맞았다"는 사실은 알려 주지만 "왜 맞았는지",
+"얼마나 아슬아슬하게 맞았는지"는 알려 주지 않는다. 급수를 조금 잘못 옮겨도
+운 좋게 42 건이 다 맞을 수 있다. 그래서 세 가지를 더 본다.
+
+  자정 여유   삭·중기가 KST 자정에서 얼마나 떨어져 있는가.
+              가까울수록 급수 오차가 하루를 가를 수 있는 자리다.
+  섭동 내성   급수를 일부러 흔들어도 답이 그대로인가.
+              문헌 오차의 몇 배까지 견디는지가 실제 안전 여유다.
+  시간대 감도 UTC+8 로 계산하면 달라지는가.
+              달라지는 해가 실제로 있고, 그 해에 우리 KST 값이 KASI 와 맞는다는
+              것이 중국 음력 라이브러리를 쓰지 않은 이유의 실증이다.
+"""
+
+from __future__ import annotations
+
+from datetime import date, timedelta
+from pathlib import Path
+
+import pytest
+
+from rules.kr import astro, lunar
+from sources.kr import kasi_parser as kp
+
+CACHE_DIR = Path(__file__).parent.parent / "sources" / "kr" / "cache"
+
+# 음력 공휴일의 정의. lunar_holidays.yaml 과 같은 값이어야 한다.
+SPEC = {"seollal": (1, 1), "chuseok": (8, 15), "buddhas_birthday": (4, 8)}
+
+# 섭동 폭. 문헌 오차의 몇 배인지가 요점이다.
+#   태양 황경 Meeus 제25장 문헌 오차 약 0.01° → 5 배
+#   삭 시각   Meeus 제49장 문헌 오차 20 초 안쪽 → 15 배
+SOLAR_PERTURBATION_DEGREES = 0.05
+LUNAR_PERTURBATION_SECONDS = 300
+
+# 섭동 테스트가 도는 구간. 대조 구간보다 넓게 잡는다. 대조되지 않은 구간에서
+# 여유가 어떻게 되는지도 알아야 confirmed_through 를 밀 때 근거가 된다.
+PROBE_YEARS = range(2015, 2051)
+
+
+def _cached_paths() -> list:
+    return sorted(CACHE_DIR.glob("getRestDeInfo_*.xml"))
+
+
+pytestmark = pytest.mark.skipif(not _cached_paths(), reason="캐시된 KASI 응답이 없다.")
+
+
+def _kasi_anchors() -> dict:
+    """(연도, 키) → KASI 가 준 명절 당일 날짜.
+
+    설·추석은 연휴 3 일이 같은 이름으로 오므로 가운데 날을 당일로 본다.
+    3 일이 아닌 해는 연휴 범위 자체가 다르다는 뜻이라 앵커로 쓰지 않는다.
+    """
+    found = {}
+    for path in _cached_paths():
+        for item in kp.parse(path.read_text(encoding="utf-8")):
+            if item.key in SPEC:
+                found.setdefault((item.date.year, item.key), []).append(item.date)
+
+    anchors = {}
+    for (year, key), days in found.items():
+        days = sorted(days)
+        expected = 3 if key in ("seollal", "chuseok") else 1
+        if len(days) != expected:
+            continue
+        anchors[(year, key)] = days[len(days) // 2]
+    return anchors
+
+
+def _our_dates(years=PROBE_YEARS) -> dict:
+    return {
+        (year, key): lunar.solar_date(year, *SPEC[key]) for year in years for key in SPEC
+    }
+
+
+# ---------------------------------------------------------------------------
+# 실측 대조
+# ---------------------------------------------------------------------------
+
+
+def test_every_cached_anchor_matches_kasi():
+    """대조 구간의 앵커가 전부 맞는지. 이것이 1 차 근거다."""
+    anchors = _kasi_anchors()
+    assert len(anchors) >= 40, f"앵커가 {len(anchors)} 건뿐이다. 캐시나 파서를 의심할 것."
+
+    wrong = []
+    for (year, key), published in sorted(anchors.items()):
+        computed = lunar.solar_date(year, *SPEC[key])
+        if computed != published:
+            wrong.append(f"  {year} {key}: 계산 {computed} / KASI {published}")
+
+    assert not wrong, (
+        f"앵커 {len(wrong)}/{len(anchors)} 건이 어긋났다:\n" + "\n".join(wrong)
+        + "\n계산을 고쳐 맞추기 전에 lunar_holidays.yaml 의 exceptions 를 볼 것. "
+        "한국 공식 역서는 발표값이고 우리 계산은 2차 소스다."
+    )
+
+
+def test_leave_spans_three_days_for_seollal_and_chuseok():
+    """KASI 가 준 연휴 범위가 전날·당일·다음날인지.
+
+    lunar_holidays.yaml 의 leave 가 그렇게 적혀 있다. 응답과 어긋나면 그 값이
+    틀렸다는 뜻이고, 연휴 3 일이 통째로 밀린다.
+    """
+    found = {}
+    for path in _cached_paths():
+        for item in kp.parse(path.read_text(encoding="utf-8")):
+            if item.key in ("seollal", "chuseok"):
+                found.setdefault((item.date.year, item.key), []).append(item.date)
+
+    for (year, key), days in sorted(found.items()):
+        days = sorted(days)
+        if len(days) != 3:
+            continue  # 연휴가 잘려 응답된 해. 앵커에서도 뺀다.
+        anchor = lunar.solar_date(year, *SPEC[key])
+        assert days[1] == anchor, f"{year} {key}: 가운데 날 {days[1]} ≠ 명절 {anchor}"
+        assert (days[2] - days[0]).days == 2, f"{year} {key}: {days}"
+
+
+@pytest.mark.parametrize(
+    "year, expected",
+    [
+        (2017, "윤5월"),
+        (2020, "윤4월"),
+        (2023, "윤2월"),
+        (2025, "윤6월"),
+        (2028, "윤5월"),
+        (2026, None),
+        (2027, None),
+    ],
+)
+def test_known_leap_months(year, expected):
+    """윤달 배치. 무중치윤법이 실제로 도는지 보는 자리다.
+
+    2025 년이 윤6월이라는 것이 2026-02-17 설날의 배경이다. 단순히 354 일을
+    더하는 방식으로는 맞출 수 없다는 정답 픽스처의 근거가 여기서 확인된다.
+    """
+    leap = lunar.leap_month_of(year)
+    assert (leap.label if leap else None) == expected
+
+
+# ---------------------------------------------------------------------------
+# 세(歲)의 구조
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("year", list(PROBE_YEARS))
+def test_sui_structure_is_well_formed(year):
+    """달 수, 번호 순서, 날짜 연속성.
+
+    앵커 대조는 세 개 달만 본다. 나머지 달이 어긋나 있어도 드러나지 않으므로
+    구조를 따로 확인한다.
+    """
+    months = lunar.months_of_sui(year)
+    assert len(months) in (12, 13)
+
+    plain = [m.number for m in months if not m.leap]
+    assert plain == [11, 12] + list(range(1, 11)), f"{year}: 번호 순서 {plain}"
+
+    for previous, current in zip(months, months[1:], strict=False):
+        assert current.start == previous.end + timedelta(days=1), f"{year}: 달 사이가 비었다"
+        assert 29 <= previous.length <= 30, f"{year}: {previous.label} 이 {previous.length} 일"
+
+    leaps = [m for m in months if m.leap]
+    assert len(leaps) == (1 if len(months) == 13 else 0)
+    if leaps:
+        # 윤달은 앞 달의 번호를 물려받는다. 첫 달(11월)은 동지를 품어 윤달이 못 된다.
+        index = months.index(leaps[0])
+        assert index >= 1
+        assert months[index - 1].number == leaps[0].number
+
+
+def test_month_of_refuses_the_ambiguous_months():
+    """11·12 월은 세의 앞머리라 양력으로 전년에 속한다.
+
+    조용히 한 해 전 날짜를 돌려주면 호출자가 알아챌 방법이 없다.
+    """
+    for month in (11, 12, 0, 13):
+        with pytest.raises(lunar.LunarError):
+            lunar.month_of(2026, month)
+
+
+def test_day_beyond_the_month_length_is_rejected():
+    """29 일까지인 달에 30 일을 물으면 다음 달 초하루를 돌려주면 안 된다."""
+    month = lunar.month_of(2026, 1)
+    with pytest.raises(lunar.LunarError):
+        month.day(month.length + 1)
+
+
+# ---------------------------------------------------------------------------
+# 자정 여유 — 급수 오차가 하루를 가를 수 있는 자리인가
+# ---------------------------------------------------------------------------
+
+
+def test_new_moons_keep_a_margin_from_kst_midnight():
+    """실제로 쓰이는 초하루가 자정에서 얼마나 떨어져 있는가.
+
+    삭이 자정에 아주 가까우면 20 초짜리 급수 오차도 초하루를 하루 옮긴다.
+    최소 여유를 고정해 두면 급수를 건드렸을 때 여유가 줄어드는 것이 보인다.
+    """
+    margins = []
+    for year in PROBE_YEARS:
+        for month in lunar.months_of_sui(year):
+            k = astro.month_start_k(month.start)
+            margins.append((astro.minutes_from_midnight(astro.new_moon_jde(k)), month.start))
+
+    worst, day = min(margins)
+    assert worst > 1.0, (
+        f"{day} 초하루의 삭이 KST 자정에서 {worst:.2f} 분이다.\n"
+        "급수 오차가 그대로 하루를 가르는 자리다. 그 날짜는 발표값으로 확인할 것."
+    )
+
+
+def test_mid_terms_keep_a_margin_from_kst_midnight():
+    """중기가 자정에 가까우면 윤달 자리가 갈릴 수 있다.
+
+    2025-12-22 동지가 자정에서 1 분 안쪽이다. 태양 황경의 문헌 오차(약 15 분)
+    보다 훨씬 작다. 즉 그 동지가 21 일인지 22 일인지 우리 계산은 보증하지 못한다.
+
+    그런데도 답이 안 바뀐다는 것은 아래 섭동 테스트가 따로 보인다.
+    자정 여유가 없다는 사실과 결과가 흔들린다는 사실은 다른 이야기다.
+    여기서는 전자를 사실대로 기록해 둔다.
+    """
+    tight = []
+    for year in PROBE_YEARS:
+        jde = astro.winter_solstice_jde(year - 1)
+        for index in range(13):
+            longitude = (270.0 + 30.0 * index) % 360.0
+            jde = astro.solar_term_jde(longitude, jde + (0 if index == 0 else 30.44))
+            margin = astro.minutes_from_midnight(jde)
+            if margin < 15.0:
+                tight.append((round(margin, 2), astro.kst_moment(jde)[0]))
+
+    # 아슬아슬한 중기는 실제로 있다. 없다고 주장하지 않는다.
+    assert tight, "자정에 가까운 중기가 하나도 없다. 계산을 의심할 것."
+    assert (0.44, date(2025, 12, 22)) in [(m, d) for m, d in tight], (
+        f"2025 동지의 자정 여유가 달라졌다. 관측된 목록: {sorted(tight)[:5]}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 섭동 내성 — 실제 안전 여유
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def perturb(monkeypatch):
+    """급수를 일부러 흔든 상태로 돌린다."""
+
+    def apply(solar_degrees=0.0, lunar_seconds=0.0):
+        sun, moon = astro.apparent_solar_longitude, astro.new_moon_jde
+        monkeypatch.setattr(
+            astro,
+            "apparent_solar_longitude",
+            lambda jde: (sun(jde) + solar_degrees) % 360.0,
+        )
+        monkeypatch.setattr(
+            astro, "new_moon_jde", lambda k: moon(k) + lunar_seconds / 86400.0
+        )
+
+    return apply
+
+
+@pytest.mark.parametrize(
+    "solar_degrees, lunar_seconds",
+    [
+        (SOLAR_PERTURBATION_DEGREES, 0),
+        (-SOLAR_PERTURBATION_DEGREES, 0),
+        (0, LUNAR_PERTURBATION_SECONDS),
+        (0, -LUNAR_PERTURBATION_SECONDS),
+    ],
+)
+def test_holidays_survive_perturbing_the_series(perturb, solar_degrees, lunar_seconds, request):
+    """급수를 문헌 오차의 몇 배로 흔들어도 답이 그대로인가.
+
+    이것이 실제 안전 여유다. 자정 여유가 좁은 자리가 있어도, 그 자리가 우리
+    세 공휴일의 경계가 아니면 결과는 흔들리지 않는다.
+
+    관측된 임계점(2026-08-08 기준):
+      태양 황경 ±0.1° 까지 무변화, ±0.2° 에서 첫 변화
+      삭 시각   ±600 초까지 무변화, -900 초에서 첫 변화
+
+    여기가 빨개지면 급수를 늘릴 때가 된 것이다(VSOP87).
+    lunar_holidays.yaml 의 open_questions 태양-황경-정밀도 참조.
+    """
+    baseline = _our_dates()
+    perturb(solar_degrees=solar_degrees, lunar_seconds=lunar_seconds)
+    changed = {
+        key: (baseline[key], value)
+        for key, value in _our_dates().items()
+        if value != baseline[key]
+    }
+    assert not changed, (
+        f"섭동(태양 {solar_degrees:+}°, 삭 {lunar_seconds:+} 초)에서 "
+        f"{len(changed)} 건이 바뀌었다:\n"
+        + "\n".join(f"  {k}: {was} → {now}" for k, (was, now) in sorted(changed.items()))
+    )
+
+
+# ---------------------------------------------------------------------------
+# 시간대 감도 — 중국 음력 라이브러리를 쓰지 않은 이유
+# ---------------------------------------------------------------------------
+
+
+def test_utc8_would_give_different_dates_and_ours_is_the_verified_one(monkeypatch):
+    """UTC+8 로 계산하면 갈리는 해가 실제로 있다.
+
+    삭 시각이 KST 00:00~01:00 이면 UTC+8 로는 전날이 된다. 그러면 초하루가
+    하루 밀리고 연휴 3 일이 통째로 밀린다.
+
+    대조 구간 안에서 갈리는 해가 있고, 그 해에 우리 KST 값이 KASI 와 맞는다.
+    그것이 이 선택의 실증이다. 갈리는 해가 없다면 시간대는 취향 문제였을 것이다.
+    """
+    baseline = _our_dates()
+    monkeypatch.setattr(astro, "KST_OFFSET_DAYS", 8 / 24)
+    china = _our_dates()
+
+    diverging = {k: (baseline[k], china[k]) for k in baseline if baseline[k] != china[k]}
+    assert diverging, (
+        "UTC+8 로 바꿔도 아무것도 안 바뀐다. 시간대가 결과에 반영되지 않는다는 뜻이다."
+    )
+
+    anchors = _kasi_anchors()
+    checked = [key for key in diverging if key in anchors]
+    assert checked, (
+        f"갈리는 해가 {sorted(diverging)} 인데 대조 구간 밖이라 어느 쪽이 맞는지 "
+        "확인되지 않는다. 캐시를 넓히거나 이 테스트의 주장을 낮출 것."
+    )
+
+    for key in checked:
+        ours, other = diverging[key]
+        assert ours == anchors[key], f"{key}: 우리 {ours} / KASI {anchors[key]}"
+        assert other != anchors[key], f"{key}: UTC+8 값도 KASI 와 같다. 대조가 성립 안 한다."

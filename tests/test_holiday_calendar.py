@@ -12,11 +12,14 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
+from copy import deepcopy
 from datetime import date, timedelta
 
 import pytest
 
 from rules.kr import holiday_calendar as hc
+from rules.kr import substitute_rules
 from tests import fixture_loader
 
 
@@ -163,19 +166,85 @@ def test_effective_coverage_is_the_intersection_of_sources():
     sources = cov["sources"]
     assert set(sources) == {
         "solar_holidays.yaml",
+        "lunar_holidays.yaml",
         "designated_holidays.yaml",
         "substitute_holidays.yaml",
     }
     assert cov["effective"].start == max(c.start for c in sources.values())
-    assert cov["effective"].confirmed_through == min(
-        c.confirmed_through for c in sources.values()
+    # 상한은 축별로 따로 좁힌다. 축을 선언하지 않은 소스는 그 축에 참여하지 않는다.
+    for axis in ("confirmed_through", "last_synced_at"):
+        declared = [
+            getattr(c, axis) for c in sources.values() if getattr(c, axis) is not None
+        ]
+        assert declared, f"{axis} 를 선언한 소스가 하나도 없다"
+        assert getattr(cov["effective"], axis) == min(declared)
+
+
+def test_the_two_upper_bounds_are_not_collapsed_into_one():
+    """규칙 확정과 지정 반영은 다른 보증이다. 한 값으로 뭉치면 안 된다.
+
+    뭉쳐서 min 을 잡으면 규칙 개정을 2028 년까지 확인해 둔 사실이 지정 표의
+    동기화 시점에 가려져 사라진다. 그러면 2027 년 대체공휴일이 "규칙 미확인"으로
+    보고되는데, 실제로 미확인인 것은 그 해 임시공휴일이 더 생길지 여부다.
+    두 축이 각자 살아 있어야 어느 쪽이 열려 있는지 구분된다.
+    """
+    eff = hc.coverage()["effective"]
+    assert eff.confirmed_through is not None
+    assert eff.last_synced_at is not None
+    assert eff.last_synced_at < eff.confirmed_through
+
+    between = eff.last_synced_at + timedelta(days=1)
+    assert hc.is_provisional(between) is False  # 규칙은 확인되어 있다
+    assert hc.may_grow(between) is True         # 지정은 더 생길 수 있다
+
+    beyond = date(eff.confirmed_through.year + 1, 1, 1)
+    assert hc.is_provisional(beyond) is True
+    assert hc.may_grow(beyond) is True
+
+
+def test_designated_table_declares_the_sync_axis_not_the_rule_axis():
+    """지정 표에는 규칙이 없다. 규칙 개정을 확인했다고 주장할 수 없다.
+
+    반대로 규칙을 담은 표는 반영 축을 주장하지 않는다. 소스와 맞출 목록이 없다.
+    이 대응이 뒤집히면 표가 자기가 못 가진 것을 보증하게 된다.
+    """
+    sources = hc.coverage()["sources"]
+
+    designated = sources["designated_holidays.yaml"]
+    assert designated.last_synced_at == date(2026, 8, 8)
+    assert designated.confirmed_through is None
+
+    for name in ("solar_holidays.yaml", "substitute_holidays.yaml"):
+        assert sources[name].confirmed_through is not None, name
+        assert sources[name].last_synced_at is None, name
+
+
+def test_a_table_may_not_declare_both_axes_or_neither():
+    """축 선택은 스키마가 강제한다. 주석으로 부탁하지 않는다."""
+    base = {"coverage": {"from": date(2015, 1, 1)}}
+
+    for block in (
+        {},  # 아무 축도 없음
+        {"confirmed_through": date(2028, 12, 31), "last_synced_at": date(2026, 8, 8)},
+    ):
+        raw = {"coverage": {**base["coverage"], **block}}
+        with pytest.raises(substitute_rules.RuleTableError) as exc:
+            substitute_rules.read_coverage(raw, "테스트")
+        assert "정확히 하나" in str(exc.value)
+
+    ok = substitute_rules.read_coverage(
+        {"coverage": {"from": date(2015, 1, 1), "last_synced_at": date(2026, 8, 8)}}, "테스트"
     )
+    assert ok.last_synced_at == date(2026, 8, 8)
+    assert ok.confirmed_through is None
+    assert ok.is_provisional(date(2030, 1, 1)) is False  # 규칙 축을 주장하지 않았다
+    assert ok.may_grow(date(2030, 1, 1)) is True
 
 
 def test_narrowest_source_decides_the_range():
     """가장 좁은 소스가 전체를 결정한다.
 
-    start 는 가장 늦은 것을, confirmed_through 는 가장 이른 것을 따른다.
+    start 는 가장 늦은 것을, 각 상한은 가장 이른 것을 따른다.
     designated 가 2015 부터라 solar(2013)·rules(2013-11-05)보다 늦다.
     그래서 2014 년은 solar 가 답할 수 있어도 전체로는 답하지 않는다.
     """
@@ -299,6 +368,27 @@ def test_known_substitutes_across_all_rulesets():
         assert found[0].source_key == source, f"{day}: 원인 공휴일이 {found[0].source_key}"
 
 
+def test_clause_three_never_credits_an_ineligible_holiday():
+    """3호 대체공휴일의 원인은 실제로 3호 대상인 공휴일이어야 한다.
+
+    2017-10-03 에 개천절과 추석 연휴가 겹친다. 그 해 국경일은 아직 대체공휴일
+    대상이 아니었으므로 개천절은 트리거가 될 수 없고 추석 쪽 규칙이 발동한 것이다
+    (정답 픽스처 2017-10-06 케이스의 why 참조).
+
+    겹친 목록의 첫 항목을 그냥 원인으로 적으면 배열 순서에 따라 개천절이 붙는다.
+    어느 쪽이 트리거인지 확정되지 않은 것(3호-귀속-불명)과, 대상이 아닌 것을
+    원인으로 적는 것은 다르다. 뒤쪽은 미확정이 아니라 틀린 것이다.
+    """
+    substitutes = [h for h in hc.holidays_on(date(2017, 10, 6)) if h.kind == "substitute"]
+    assert substitutes, "2017-10-06 대체공휴일이 유도되지 않았다"
+
+    source = substitutes[0].source_key
+    assert source == "chuseok", f"원인이 {source!r} 로 붙었다"
+
+    eligible = hc.substitute_eligibility(source, date(2017, 10, 3))
+    assert eligible["clauses"], f"{source} 가 2017 년에 어느 호에도 속하지 않는다"
+
+
 def test_no_fixture_case_is_provisional():
     """정답 픽스처는 확정 구간 안에만 있어야 한다.
 
@@ -354,17 +444,15 @@ def test_known_election_days_are_present():
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("key", ["seollal", "chuseok", "buddhas_birthday"])
-def test_lunar_holidays_are_declared_unresolved(key):
-    assert key in hc.unresolved_holidays()
-    with pytest.raises(hc.LunarNotImplemented):
-        hc.require_supported(key)
-    with pytest.raises(hc.LunarNotImplemented):
-        hc.resolve_lunar(key, 2026)
+def test_nothing_is_unresolved_anymore():
+    """미구현 공휴일이 남아 있지 않다.
 
-
-def test_solar_holidays_are_supported():
-    for key in ("gwangbokjeol", "childrens_day", "constitution_day"):
+    비어 있음을 명시적으로 고정한다. 음력이 들어오면서 마지막 항목이 빠졌고,
+    그 결과 정답 픽스처의 depends_on 케이스가 전부 실제로 돌기 시작했다.
+    이 집합이 다시 채워지면 그만큼 케이스가 조용히 skip 으로 빠진다.
+    """
+    assert hc.unresolved_holidays() == frozenset()
+    for key in ("seollal", "chuseok", "buddhas_birthday", "gwangbokjeol"):
         hc.require_supported(key)  # 예외가 없어야 한다
 
 
@@ -374,12 +462,102 @@ def test_resolve_lunar_rejects_non_lunar_keys():
         hc.resolve_lunar("gwangbokjeol", 2026)
 
 
-def test_lunar_holidays_are_absent_from_the_output():
-    """설날이 있어야 할 날짜가 지금은 비어 있다.
+def test_lunar_holidays_are_in_the_output():
+    """음력 공휴일이 결과에 나온다. 연휴는 전날·당일·다음날 3 일이다."""
+    assert _names(date(2026, 2, 16)) == ["설날 연휴"]
+    assert _names(date(2026, 2, 17)) == ["설날"]
+    assert _names(date(2026, 2, 18)) == ["설날 연휴"]
+    assert _names(date(2026, 2, 19)) == []  # 경계. 하루 밀리면 여기가 잡힌다
 
-    이것이 정답이라는 뜻이 아니다. 음력이 미구현이라 나타나는 결과이고,
-    정답 픽스처에서 이 날짜들이 depends_on 으로 skip 되는 이유다.
-    구현이 들어오면 이 테스트를 지울 것.
+    assert _names(date(2026, 9, 25)) == ["추석"]
+    assert _names(date(2026, 5, 24)) == ["부처님오신날"]
+
+
+def test_leave_days_carry_the_festival_key():
+    """연휴에도 명절 key 가 붙어야 대체공휴일 판정이 돈다.
+
+    key 를 비워 두면 연휴가 일요일에 걸려도 호 소속을 못 찾아 대체공휴일이
+    생기지 않는다. 설·추석은 일요일과 겹칠 때만 대상이라 그 경로가 유일하다.
     """
-    assert hc.holidays_on(date(2026, 2, 17)) == ()
-    assert "seollal" in hc.unresolved_holidays()
+    for day in (date(2026, 2, 16), date(2026, 2, 18)):
+        assert [h.key for h in hc.holidays_on(day)] == ["seollal"]
+
+
+@contextmanager
+def _lunar_raw_patched(mutate):
+    """lunar_holidays.yaml 을 바꿔 읽힌 상태로 돌린다. 캐시를 앞뒤로 비운다.
+
+    파일을 건드리지 않는다. 예외 표가 비어 있는 동안에도 덮어쓰기 경로가
+    실제로 도는지 확인해야 하는데, 빈 표만 보면 그것을 알 수 없다.
+    """
+    original = hc._lunar_raw()
+    patched = deepcopy(original)
+    mutate(patched)
+    for cache in (hc._lunar_raw, hc._lunar, hc._calendar_cached, hc.coverage):
+        cache.cache_clear()
+    hc._lunar_raw = lambda _p=patched: _p
+    try:
+        yield
+    finally:
+        hc._lunar_raw = original_reader
+        for cache in (hc._lunar, hc._calendar_cached, hc.coverage):
+            cache.cache_clear()
+
+
+original_reader = hc._lunar_raw
+
+
+def test_lunar_exception_table_overrides_the_calculation():
+    """발표값 예외가 계산을 이긴다.
+
+    한국 공식 역서는 한국천문연구원 발표값이고 우리 계산은 2차 소스다.
+    갈리면 발표가 맞다. 계산을 손봐서 맞추지 않는다.
+    """
+    assert hc.resolve_lunar("seollal", 2026) == date(2026, 2, 17)  # 계산값
+
+    def add_exception(raw):
+        raw["exceptions"] = [
+            {
+                "key": "seollal",
+                "year": 2026,
+                "computed": date(2026, 2, 17),
+                "published": date(2026, 2, 18),
+                "source": "테스트용 가짜 발표값",
+            }
+        ]
+
+    with _lunar_raw_patched(add_exception):
+        assert hc.resolve_lunar("seollal", 2026) == date(2026, 2, 18)
+        # 연휴 3 일이 통째로 따라 움직여야 한다. 당일만 옮기면 연휴가 어긋난다.
+        assert _names(date(2026, 2, 17)) == ["설날 연휴"]
+        assert _names(date(2026, 2, 19)) == ["설날 연휴"]
+
+    assert hc.resolve_lunar("seollal", 2026) == date(2026, 2, 17)  # 원상복구
+
+
+@pytest.mark.parametrize(
+    "missing, expected",
+    [("source", "source 가 비어 있다"), ("published", "published 가 날짜가 아니다")],
+)
+def test_lunar_exception_needs_a_published_date_and_a_source(missing, expected):
+    """근거 없는 예외는 받지 않는다.
+
+    예외는 우리 계산을 덮어쓰는 장치다. 무엇으로 덮는지 적히지 않으면 다음
+    사람이 그 값을 확인할 방법이 없고, 계산 버그를 예외로 덮어 감춘 것과
+    구분되지 않는다.
+    """
+
+    def add_exception(raw):
+        item = {
+            "key": "seollal",
+            "year": 2026,
+            "published": date(2026, 2, 18),
+            "source": "테스트용 가짜 발표값",
+        }
+        item[missing] = None
+        raw["exceptions"] = [item]
+
+    with pytest.raises(hc.CalendarError) as exc:  # noqa: PT012 - 컨텍스트 안에서 터진다
+        with _lunar_raw_patched(add_exception):
+            hc.resolve_lunar("seollal", 2026)
+    assert expected in str(exc.value)

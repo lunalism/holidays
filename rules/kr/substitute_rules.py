@@ -106,28 +106,72 @@ class Eligibility:
 
 @dataclass(frozen=True)
 class Coverage:
-    """데이터를 신뢰할 수 있는 구간. 두 축을 구분한다.
+    """데이터를 신뢰할 수 있는 구간. 축이 셋이고 서로 다른 것을 보증한다.
 
-        start              데이터 완결성 경계. 이전은 조회를 거부한다.
-        confirmed_through  개정을 확인한 시점. 이후는 답하되 잠정으로 표시한다.
+        start              완결성 경계의 아래쪽. 이전은 조회를 거부한다.
+        confirmed_through  규칙 축. 이 날짜까지의 규칙 개정을 확인했다.
+                           이후는 답하되 provisional 로 표시한다.
+        last_synced_at     반영 축. 이 시점에 소스와 맞췄다.
+                           이후 날짜는 목록이 더 늘어날 수 있다.
 
-    상한을 거부로 두지 않는 이유는 피드가 몇 년치를 미리 발행해야 하기 때문이다.
-    또 미래의 임시공휴일이 없는 것은 누락이 아니라 아직 지정되지 않은 상태다.
+    --------------------------------------------------------------------
+    왜 두 축을 한 필드로 합치지 않는가
+    --------------------------------------------------------------------
+    보증하는 내용이 다르다.
+
+    규칙 축이 깨지면 이미 낸 답이 틀린다. 개정이 들어오면 같은 날짜의 대체공휴일
+    유도 결과 자체가 달라지기 때문이다. 그래서 항목마다 provisional 을 붙인다.
+
+    반영 축이 깨져도 이미 낸 항목은 그대로다. 대신 목록이 짧을 수 있다.
+    임시공휴일은 국무회의 의결로 짧은 예고 후 정해지므로, 오늘 시점에 2027 년의
+    임시공휴일을 다 아는 것은 원리적으로 불가능하다. 이건 누락이 아니라
+    아직 지정되지 않은 상태다.
+
+    "항목이 틀릴 수 있다"와 "항목이 더 생길 수 있다"는 다른 주장이다.
+    한 필드로 합치면 어느 쪽도 정확히 뜻하지 않는 값이 된다. 규칙 표에
+    last_synced_at 을 적으면 개정 확인을 안 했는데 한 척이 되고, 지정 표에
+    confirmed_through 를 적으면 앞으로 지정될 임시공휴일까지 다 안다는 주장이 된다.
+    후자가 실제로 이 레포에 있던 상태다.
+
+    한 표는 둘 중 하나만 선언한다. read_coverage() 가 강제한다.
+    표를 합칠 때(coverage 교집합)만 두 축이 한 Coverage 에 함께 실린다.
+
+    상한을 거부로 두지 않는 이유는 어느 축이든 같다. 피드가 몇 년치를 미리
+    발행해야 하는데 상한을 거부로 두면 발행 자체가 막힌다.
     반대로 start 이전은 있었어야 할 데이터가 없는 것이라 성격이 다르다.
     """
 
     start: date
-    confirmed_through: date
+    confirmed_through: date = None
+    last_synced_at: date = None
 
     def contains(self, day: date) -> bool:
         """조회 가능한가. 상한은 보지 않는다."""
         return day >= self.start
 
     def is_provisional(self, day: date) -> bool:
-        return day > self.confirmed_through
+        """규칙 축 밖인가. 이미 낸 답이 개정으로 달라질 수 있다.
+
+        규칙 축을 선언하지 않은 표는 False 다. 규칙을 담고 있지 않으므로
+        개정으로 답이 달라질 일이 없다. 모른다가 아니라 해당 없음이다.
+        """
+        return self.confirmed_through is not None and day > self.confirmed_through
+
+    def may_grow(self, day: date) -> bool:
+        """반영 축 밖인가. 목록에 항목이 더 생길 수 있다.
+
+        is_provisional 과 섞지 말 것. 여기 걸린 항목은 틀린 것이 아니라
+        옆에 다른 항목이 빠져 있을 수 있다는 뜻이다.
+        """
+        return self.last_synced_at is not None and day > self.last_synced_at
 
     def __str__(self) -> str:
-        return f"{self.start.isoformat()} ~ [확정 {self.confirmed_through.isoformat()}] ~ (잠정)"
+        marks = []
+        if self.confirmed_through is not None:
+            marks.append(f"규칙 확정 {self.confirmed_through.isoformat()}")
+        if self.last_synced_at is not None:
+            marks.append(f"지정 반영 {self.last_synced_at.isoformat()}")
+        return f"{self.start.isoformat()} ~ [{' / '.join(marks)}] ~ (열림)"
 
 
 @dataclass(frozen=True)
@@ -296,18 +340,43 @@ def _ruleset(raw: dict, article2) -> Ruleset:
     )
 
 
-def _coverage(raw: dict, path) -> Coverage:
+AXES = ("confirmed_through", "last_synced_at")
+
+
+def read_coverage(raw: dict, where) -> Coverage:
+    """coverage 블록을 읽는다. 상한 축을 하나만 선언하게 강제한다.
+
+    규칙 표(rules/kr/*.yaml)와 지정 표가 같은 함수를 쓴다. 축 선택 규칙이
+    한 군데에만 있어야 표마다 다르게 흘러가지 않는다.
+    """
     block = raw.get("coverage")
     if not block:
-        raise RuleTableError(f"{path}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다.")
-    start, confirmed = block.get("from"), block.get("confirmed_through")
-    if not isinstance(start, date) or not isinstance(confirmed, date):
+        raise RuleTableError(f"{where}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다.")
+
+    start = block.get("from")
+    if not isinstance(start, date):
+        raise RuleTableError(f"{where}: coverage.from 이 날짜가 아니다({start!r}).")
+
+    declared = {axis: block[axis] for axis in AXES if block.get(axis) is not None}
+    if len(declared) != 1:
         raise RuleTableError(
-            f"{path}: coverage.from / coverage.confirmed_through 가 날짜가 아니다."
+            f"{where}: coverage 는 {' 와 '.join(AXES)} 중 정확히 하나를 선언해야 한다"
+            f"(지금: {sorted(declared) or '없음'}).\n"
+            "  confirmed_through — 규칙 축. 이 날짜까지의 규칙 개정을 확인했다.\n"
+            "                      규칙을 담은 표가 쓴다(양력 고정 공휴일, 대체공휴일 규칙).\n"
+            "  last_synced_at    — 반영 축. 이 시점에 소스와 맞췄다.\n"
+            "                      규칙 없이 날짜를 하나씩 적는 표가 쓴다(지정 공휴일).\n"
+            "두 값은 다른 보증이다. 규칙 축은 '이미 낸 답이 틀릴 수 있다'를, 반영 축은\n"
+            "'항목이 더 생길 수 있다'를 뜻한다. 한 필드로 합치면 어느 쪽도 참이 아니다.\n"
+            "Coverage 의 docstring 참조."
         )
-    if start > confirmed:
-        raise RuleTableError(f"{path}: coverage 구간이 뒤집혀 있다({start} > {confirmed}).")
-    return Coverage(start=start, confirmed_through=confirmed)
+
+    axis, value = next(iter(declared.items()))
+    if not isinstance(value, date):
+        raise RuleTableError(f"{where}: coverage.{axis} 가 날짜가 아니다({value!r}).")
+    if start > value:
+        raise RuleTableError(f"{where}: coverage 구간이 뒤집혀 있다({start} > {value}).")
+    return Coverage(start=start, **{axis: value})
 
 
 def load(path=None) -> RuleTable:
@@ -317,7 +386,7 @@ def load(path=None) -> RuleTable:
     article2 = raw.get("article2")
 
     table = RuleTable(
-        coverage=_coverage(raw, path),
+        coverage=read_coverage(raw, path),
         weekly_holidays=frozenset(raw["weekly_holidays"]),
         sunday_in_output=bool(raw["sunday_in_output"]),
         overlap_vocabulary=frozenset(raw["overlap_vocabulary"]),

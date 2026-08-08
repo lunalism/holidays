@@ -2,25 +2,24 @@
 
     holidays_on(day)                  -> 그 날짜의 공휴일 목록
     substitute_eligibility(holiday, day) -> 대체공휴일 대상 여부
-    resolve_lunar(key, year)          -> 음력 공휴일의 양력 환산 (미구현)
+    resolve_lunar(key, year)          -> 음력 공휴일의 양력 환산
 
 조회 축은 날짜다. substitute_rules.eligibility_for_date 와 같은 축을 쓴다.
 연 단위 조회는 두지 않는다. 규칙이 연중에 바뀌는 해가 있어 답이 하나로 정해지지 않는다.
 
 --------------------------------------------------------------------------
-이번 범위
+범위
 --------------------------------------------------------------------------
-양력 고정 공휴일, 지정 공휴일(선거일·임시공휴일), 대체공휴일까지 다룬다.
-음력 공휴일(설날·추석·부처님오신날)은 범위 밖이며 결과에 나타나지 않는다.
+양력 고정 공휴일, 음력 공휴일(설날·추석·부처님오신날), 지정 공휴일(선거일·
+임시공휴일), 대체공휴일까지 다룬다.
 
-중요: holidays_on() 은 음력 공휴일이 없는 세계의 답을 준다.
-음력 공휴일이 놓일 수 있는 날짜를 물으면 "공휴일 아님"이라고 답하는데, 그것은
-틀린 답이다. 어느 날짜가 그런 날인지 이 모듈은 알 수 없다. 알려면 음력 환산이
-필요하고 그것이 바로 미구현인 부분이기 때문이다.
+음력 날짜는 계산으로 유도한다. rules/kr/lunar.py 가 삭과 중기에서 달 번호를
+세우고 rules/kr/astro.py 가 그 시각을 KST 로 옮긴다. 한국천문연구원 발표값과
+갈리는 해는 lunar_holidays.yaml 의 exceptions 가 발표값으로 덮는다.
 
-그래서 이 모듈은 그 판단을 호출자에게 넘긴다. 호출자가 관심 있는 공휴일 키를
-require_supported() 로 물어보면 미해결인 경우 LunarNotImplemented 가 나온다.
-정답 픽스처는 depends_on 필드로 그 키를 선언하고 테스트가 skip 으로 돌린다.
+require_supported() / LunarNotImplemented 는 남아 있지만 지금은 아무것도
+막지 않는다. unresolved_holidays() 가 비었기 때문이다. 정답 픽스처의
+depends_on 도 같은 이유로 더 이상 skip 되지 않는다.
 
 --------------------------------------------------------------------------
 일요일
@@ -40,7 +39,7 @@ from pathlib import Path
 
 import yaml
 
-from rules.kr import substitute_rules
+from rules.kr import lunar, substitute_rules
 
 _HERE = Path(__file__).parent
 SOLAR_PATH = _HERE / "solar_holidays.yaml"
@@ -104,17 +103,15 @@ def _read(path: Path) -> dict:
 
 
 def _coverage_of(raw: dict, path: Path) -> substitute_rules.Coverage:
-    block = raw.get("coverage")
-    if not block:
-        raise CalendarError(f"{path.name}: coverage 선언이 없다.")
-    start, confirmed = block.get("from"), block.get("confirmed_through")
-    if not isinstance(start, date) or not isinstance(confirmed, date):
-        raise CalendarError(
-            f"{path.name}: coverage.from / coverage.confirmed_through 가 날짜가 아니다."
-        )
-    if start > confirmed:
-        raise CalendarError(f"{path.name}: coverage 구간이 뒤집혀 있다({start} > {confirmed}).")
-    return substitute_rules.Coverage(start=start, confirmed_through=confirmed)
+    """축 선택 규칙은 substitute_rules 가 들고 있다. 여기서 다시 쓰지 않는다.
+
+    규칙이 두 군데에 있으면 한쪽만 고쳐 놓고 표마다 다른 스키마를 허용하게 된다.
+    예외 타입만 이 모듈 것으로 바꿔 준다. 호출자가 두 모듈을 다 알 필요는 없다.
+    """
+    try:
+        return substitute_rules.read_coverage(raw, path.name)
+    except substitute_rules.RuleTableError as exc:
+        raise CalendarError(str(exc)) from exc
 
 
 @lru_cache(maxsize=1)
@@ -160,17 +157,51 @@ def _designated() -> dict:
 
 
 @lru_cache(maxsize=1)
-def _lunar_keys() -> frozenset:
-    raw = _read(LUNAR_PATH)
+def _lunar_raw() -> dict:
+    return _read(LUNAR_PATH)
+
+
+@lru_cache(maxsize=1)
+def _lunar() -> dict:
+    """음력 공휴일 정의와 발표값 예외.
+
+    exceptions 는 (키, 연도) → 발표 날짜다. 우리 계산과 한국천문연구원 발표가
+    갈릴 때 발표를 쓴다. 계산을 고치지 않는 이유는 lunar_holidays.yaml 참조.
+    """
+    raw = _lunar_raw()
     registry = _rules().holidays
-    keys = []
+    entries = []
     for h in raw["holidays"]:
         if h["key"] not in registry:
             raise CalendarError(
                 f"lunar_holidays.yaml 의 키 {h['key']!r} 가 공휴일 레지스트리에 없다."
             )
-        keys.append(h["key"])
-    return frozenset(keys)
+        entries.append(h)
+
+    keys = {h["key"] for h in entries}
+    exceptions = {}
+    for item in raw.get("exceptions") or ():
+        if item["key"] not in keys:
+            raise CalendarError(
+                f"lunar_holidays.yaml exceptions: 모르는 키 {item['key']!r}"
+            )
+        published = item.get("published")
+        if not isinstance(published, date):
+            raise CalendarError(
+                f"lunar_holidays.yaml exceptions {item['key']} {item.get('year')}: "
+                "published 가 날짜가 아니다. 발표값 없이 예외를 둘 수 없다."
+            )
+        if not (item.get("source") or "").strip():
+            raise CalendarError(
+                f"lunar_holidays.yaml exceptions {item['key']} {item.get('year')}: "
+                "source 가 비어 있다. 계산을 덮어쓰려면 무엇으로 덮는지 적어야 한다."
+            )
+        exceptions[(item["key"], item["year"])] = published
+    return {"entries": tuple(entries), "keys": frozenset(keys), "exceptions": exceptions}
+
+
+def _lunar_keys() -> frozenset:
+    return _lunar()["keys"]
 
 
 @lru_cache(maxsize=1)
@@ -197,26 +228,40 @@ def coverage() -> dict:
     최종 달력이 답할 수 있는 범위는 교집합이다. 한 소스라도 못 믿는 구간은
     전체가 못 믿는 구간이다. 가장 좁은 소스가 전체를 결정한다.
 
-    음력 표는 교집합에 넣지 않는다. 환산이 미구현이라 구간이 비어 있어서
-    넣으면 교집합이 통째로 사라진다. 음력의 미구현은 구간이 아니라
-    unresolved_holidays() / require_supported() 로 표현한다.
+    교집합은 축별로 따로 낸다. 규칙 축(confirmed_through)과 반영 축
+    (last_synced_at)은 다른 보증이므로 한 값으로 뭉치지 않는다.
+    뭉쳐서 min 을 잡으면 규칙 개정을 2028 년까지 확인해 둔 사실이 지정 표의
+    동기화 시점에 가려져 사라진다. substitute_rules.Coverage docstring 참조.
+
+    음력 표의 confirmed_through 는 개정이 아니라 대조를 뜻한다. "이 구간까지
+    우리 계산을 발표값과 맞춰 봤다"이다. 주장하는 바는 같다 — 밖은 낸 답이
+    틀릴 수 있다. 그래서 같은 축에 싣는다.
     """
     sources = {
         "solar_holidays.yaml": _coverage_of(_solar_raw(), SOLAR_PATH),
+        "lunar_holidays.yaml": _coverage_of(_lunar_raw(), LUNAR_PATH),
         "designated_holidays.yaml": _coverage_of(_designated_raw(), DESIGNATED_PATH),
         "substitute_holidays.yaml": _rules().coverage,
     }
-    # start 는 가장 늦은 것을, confirmed_through 는 가장 이른 것을 따른다.
+
+    def narrowest(axis: str):
+        values = [getattr(c, axis) for c in sources.values() if getattr(c, axis) is not None]
+        return min(values) if values else None
+
+    # start 는 가장 늦은 것을, 각 상한은 가장 이른 것을 따른다.
     # 한 소스라도 못 믿는 구간은 전체가 못 믿는 구간이다.
     effective = substitute_rules.Coverage(
         start=max(c.start for c in sources.values()),
-        confirmed_through=min(c.confirmed_through for c in sources.values()),
+        confirmed_through=narrowest("confirmed_through"),
+        last_synced_at=narrowest("last_synced_at"),
     )
-    if effective.start > effective.confirmed_through:
-        raise CalendarError(
-            "소스들의 coverage 확정 구간이 비었다:\n"
-            + "\n".join(f"  {name}: {c}" for name, c in sources.items())
-        )
+    for axis in substitute_rules.AXES:
+        upper = getattr(effective, axis)
+        if upper is not None and effective.start > upper:
+            raise CalendarError(
+                f"소스들의 coverage {axis} 구간이 비었다:\n"
+                + "\n".join(f"  {name}: {c}" for name, c in sources.items())
+            )
     return {"sources": sources, "effective": effective, "unresolved": unresolved_holidays()}
 
 
@@ -233,10 +278,23 @@ def coverage_report() -> str:
         f"  {'→ 최종(교집합)':<{width}}  {eff}",
         "",
         f"  {eff.start.isoformat()} 이전     : UnsupportedYear 로 거부",
-        f"  ~ {eff.confirmed_through.isoformat()} : 확정",
-        f"  {eff.confirmed_through.isoformat()} 이후    : 답하되 provisional: true (상한 없음)",
+    ]
+    if eff.confirmed_through is not None:
+        lines.append(
+            f"  {eff.confirmed_through.isoformat()} 이후    : 규칙 개정 미확인. "
+            "답하되 항목마다 provisional: true"
+        )
+    if eff.last_synced_at is not None:
+        lines.append(
+            f"  {eff.last_synced_at.isoformat()} 이후    : 지정 공휴일 미반영. "
+            "답은 그대로이나 목록이 늘어날 수 있다 (may_grow)"
+        )
+    lines += [
         "",
-        f"  미구현 공휴일(구간과 무관): {', '.join(sorted(cov['unresolved']))}",
+        "  두 상한은 다른 보증이다. 앞은 '낸 답이 틀릴 수 있다', 뒤는 '항목이 더 생길 수 있다'.",
+        "",
+        "  미구현 공휴일(구간과 무관): "
+        + (", ".join(sorted(cov["unresolved"])) or "없음"),
     ]
     return "\n".join(lines)
 
@@ -254,37 +312,81 @@ def require_covered(day: date) -> None:
 
 
 def is_provisional(day: date) -> bool:
-    """개정 확인 시점 이후인가. 답은 나오지만 확정이 아니다."""
+    """규칙 개정 확인 시점 이후인가. 답은 나오지만 확정이 아니다.
+
+    이 축은 이미 낸 항목이 달라질 수 있다는 뜻이다. 그래서 항목마다 붙는다
+    (Holiday.provisional).
+    """
     return coverage()["effective"].is_provisional(day)
 
 
+def may_grow(day: date) -> bool:
+    """지정 공휴일 반영 시점 이후인가. 목록에 항목이 더 생길 수 있다.
+
+    is_provisional 과 섞지 말 것. 이 축에 걸린 날짜는 낸 답이 틀린 것이 아니라
+    옆자리가 비어 있을 수 있다는 뜻이다. 임시공휴일은 국무회의 의결로 짧은 예고
+    후 정해지므로, 반영 시점 이후 날짜의 임시공휴일을 다 아는 것은 원리적으로
+    불가능하다. 없는 것이 누락이 아니라 정상이다.
+
+    항목 단위 플래그로 두지 않는 이유도 같다. 없는 항목에는 플래그를 달 수 없다.
+    날짜 단위 질문으로만 성립한다.
+
+    피드 생성기가 볼 자리다. 이 축 밖의 날짜를 발행했다면 KASI 를 다시 조회해
+    새 지정을 반영하고 재발행해야 한다. 발행 시점을 지나도 답이 자동으로
+    갱신되지는 않는다.
+
+    두 번째 효과가 하나 있다. 새로 지정된 임시공휴일이 대체공휴일이 놓일 자리를
+    차지하면(제3조제1항 본문) 이미 낸 대체공휴일 날짜가 밀린다. 즉 이 축은
+    드물게 기존 항목까지 움직일 수 있다. 그 경우까지 provisional 로 올리면
+    반영 시점 이후 전 구간이 잠정이 되어 규칙 축의 신호가 죽으므로 그렇게 하지
+    않았다. 재발행으로 흡수한다.
+    """
+    return coverage()["effective"].may_grow(day)
+
+
 def unresolved_holidays() -> frozenset:
-    """아직 날짜를 계산하지 못하는 공휴일 키."""
-    return _lunar_keys()
+    """아직 날짜를 계산하지 못하는 공휴일 키.
+
+    지금은 비어 있다. 음력이 들어오면서 마지막 항목이 빠졌다.
+    함수는 남겨 둔다. 미구현을 표현하는 자리가 없어지면 다음에 같은 상황이
+    왔을 때 그 사실이 어디에도 드러나지 않는다.
+    """
+    return frozenset()
 
 
 def require_supported(key: str) -> None:
     """이 공휴일을 계산할 수 있는지 확인한다. 못 하면 LunarNotImplemented.
 
     정답 픽스처의 depends_on 이 이 함수를 통해 skip 여부를 정한다.
+    지금은 모든 키가 계산 가능하므로 아무것도 skip 되지 않는다.
     """
     if key not in _rules().holidays:
         raise CalendarError(f"모르는 공휴일 키: {key!r}")
-    if key in _lunar_keys():
+    if key in unresolved_holidays():
         raise LunarNotImplemented(
-            f"{key}: 음력 공휴일은 아직 환산하지 못한다. "
-            "rules/kr/lunar_holidays.yaml 참조."
+            f"{key}: 아직 환산하지 못한다. rules/kr/lunar_holidays.yaml 참조."
         )
 
 
-def resolve_lunar(key: str, year: int):
-    """음력 공휴일의 그 해 양력 날짜. 아직 구현하지 않았다.
+def resolve_lunar(key: str, year: int) -> date:
+    """음력 공휴일의 그 해 양력 날짜.
 
-    인터페이스만 뚫어 둔다. 구현 시 KST 삭 시각 기준과 윤달 처리를 먼저 정할 것.
+    계산이 1차다(rules/kr/lunar.py). 다만 한국천문연구원 발표값과 갈리는 해가
+    있으면 exceptions 에 적힌 발표값이 이긴다. 한국 공식 역서는 발표값이고
+    우리 계산은 2차 소스이기 때문이다. lunar_holidays.yaml 참조.
     """
     if key not in _lunar_keys():
         raise CalendarError(f"{key!r} 는 음력 공휴일이 아니다. holidays_on() 을 쓸 것.")
     require_supported(key)
+
+    table = _lunar()
+    published = table["exceptions"].get((key, year))
+    if published is not None:
+        return published
+
+    entry = next(h for h in table["entries"] if h["key"] == key)
+    spec = entry["lunar"]
+    return lunar.solar_date(year, spec["month"], spec["day"])
 
 
 # ---------------------------------------------------------------------------
@@ -303,13 +405,32 @@ def _active(entry: dict, day: date) -> bool:
 
 
 def _base_holidays(year: int) -> dict:
-    """대체공휴일을 뺀 그 해의 공휴일. 음력은 빠져 있다."""
+    """대체공휴일을 뺀 그 해의 공휴일."""
     out = {}
     for h in _solar():
         day = date(year, h["month"], h["day"])
         if not _active(h, day):
             continue
         out.setdefault(day, []).append(Holiday(name=h["name"], kind=KIND_STATUTORY, key=h["key"]))
+
+    for h in _lunar()["entries"]:
+        anchor = resolve_lunar(h["key"], year)
+        if not _active(h, anchor):
+            continue
+        out.setdefault(anchor, []).append(
+            Holiday(name=h["name"], kind=KIND_STATUTORY, key=h["key"])
+        )
+        # 연휴는 같은 key 를 단다. 대체공휴일 판정이 이 key 로 호 소속을 찾기
+        # 때문이다. 연휴 이름만 다르고 규칙상 성질은 명절 당일과 같다.
+        # key 를 비우면 연휴가 일요일에 걸려도 대체공휴일이 생기지 않는다.
+        leave = h.get("leave") or {}
+        before, after = leave.get("days_before", 0), leave.get("days_after", 0)
+        for offset in range(-before, after + 1):
+            if offset == 0:
+                continue
+            out.setdefault(anchor + timedelta(days=offset), []).append(
+                Holiday(name=h["leave_name"], kind=KIND_STATUTORY, key=h["key"])
+            )
 
     designated = _designated()
     for day, entries in designated["by_date"].items():
@@ -419,11 +540,28 @@ def _calendar(year: int) -> dict:
         # 어느 쪽이든 결과가 같으므로 겹침 1건당 대체공휴일 1일로 둔다.
         # 3일 이상 겹치는 경우의 연장 방식은 미해결이다(겹침-판정-대상-단위).
         if coincide:
-            overlaps_each = [_eligible_overlaps(h, day) for h in holidays]
-            if any(o is not None and "other_holiday_on_weekday" in o for o in overlaps_each):
+            # source_key 는 겹친 공휴일 중 실제로 3호 대상인 쪽에서 고른다.
+            # 목록의 첫 항목을 그냥 쓰면 대상이 아닌 공휴일이 원인으로 붙는다.
+            # 2017-10-06 이 그 경우였다. 개천절과 추석 연휴가 10-03 에 겹치는데
+            # 그 해 국경일은 아직 대체공휴일 대상이 아니었으므로 개천절은 트리거가
+            # 될 수 없다. 그런데도 배열 순서상 개천절이 원인으로 붙었다.
+            #
+            # 대상이 둘 이상이면 여전히 어느 쪽인지 모른다. 그건 3호-귀속-불명이
+            # 남아 있는 것이고 여기서 정하지 않는다. 다만 "대상이 아닌 것을
+            # 원인으로 적는" 것은 미확정이 아니라 그냥 틀린 것이라 막는다.
+            triggers = [
+                h
+                for h in holidays
+                if (_eligible_overlaps(h, day) or set()) >= {"other_holiday_on_weekday"}
+            ]
+            if triggers:
                 for placed in _place(day, 1, is_rule_holiday, flags):
                     span.setdefault(placed, []).append(
-                        Holiday(name="대체공휴일", kind=KIND_SUBSTITUTE, source_key=holidays[0].key)
+                        Holiday(
+                            name="대체공휴일",
+                            kind=KIND_SUBSTITUTE,
+                            source_key=triggers[0].key,
+                        )
                     )
 
     return {"span": span, "uncertain": uncertain}
