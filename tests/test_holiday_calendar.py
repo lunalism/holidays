@@ -47,13 +47,18 @@ def test_temporary_holiday_is_not_substitute_eligible():
         )
 
 
-def test_election_day_is_substitute_eligible():
-    """선거일은 대상이다. 근거 호는 미확인이라 kind 로 게이트한다."""
+def test_election_day_eligibility_is_unresolved():
+    """선거일은 대상인지 아닌지 확정되지 않았다.
+
+    제2조제10의2호(가지번호)인데 제3조는 제10호까지만 열거한다. 가지번호가 그
+    범위에 드는지는 법제처 해석이 필요하다. true 도 false 도 주장하지 않는다.
+    None 이 "모른다"이고, set() 은 "대상 아님"이다. 둘을 섞으면 안 된다.
+    """
     election = hc.Holiday(name="제9회 전국동시지방선거", kind="election")
-    assert hc._eligible_overlaps(election, date(2026, 6, 3)), (
-        "선거일이 대체공휴일 대상에서 빠졌다. "
-        "designated_holidays.yaml 의 kinds.election.substitute_eligible 확인."
-    )
+    assert hc._eligible_overlaps(election, date(2026, 6, 3)) is None
+
+    temporary = hc.Holiday(name="임시공휴일", kind="temporary")
+    assert hc._eligible_overlaps(temporary, date(2026, 6, 3)) == set()
 
 
 def test_2020_08_17_does_not_generate_a_substitute():
@@ -234,6 +239,7 @@ def test_provisional_flag_is_attached_to_each_holiday():
 
 
 def test_substitute_eligibility_reports_provisional():
+    """확정 구간과 잠정 구간이 갈리는지."""
     assert hc.substitute_eligibility("광복절", date(2026, 8, 15))["provisional"] is False
     assert hc.substitute_eligibility("광복절", date(2030, 8, 15))["provisional"] is True
 
@@ -241,13 +247,47 @@ def test_substitute_eligibility_reports_provisional():
 def test_provisional_substitutes_still_derive():
     """잠정 구간에서도 대체공휴일 계산은 그대로 돈다. 표시만 다르다.
 
-    2027-08-15 는 일요일이라 08-16 이 대체공휴일이 되어야 한다.
+    2027-08-15 는 일요일이라 08-16 이 대체공휴일이 된다.
     잠정이라고 계산을 멈추면 선발행할 피드가 비어 버린다.
     """
     assert date(2027, 8, 15).weekday() == 6
     substitutes = [h for h in hc.holidays_on(date(2027, 8, 16)) if h.kind == "substitute"]
     assert substitutes, "잠정 구간에서 대체공휴일이 계산되지 않았다"
     assert all(h.provisional for h in substitutes)
+
+
+def test_constitution_day_first_substitute_is_2027():
+    """제헌절 대체공휴일의 첫 발동. 제2조제2호가 국경일을 통째로 참조한 결과다.
+
+    2026-07-17 은 금요일이라 발동하지 않고, 2027-07-17 은 토요일이라 07-19(월)로
+    넘어간다. 07-18 은 일요일이므로 건너뛴다.
+    """
+    assert hc.holidays_on(date(2026, 7, 17))[0].name == "제헌절"
+    assert "substitute" not in _kinds(date(2026, 7, 20))
+
+    assert date(2027, 7, 17).weekday() == 5
+    assert _kinds(date(2027, 7, 19)) == ["substitute"]
+
+
+def test_known_substitutes_across_all_rulesets():
+    """확인된 대체공휴일이 ruleset 구간마다 하나씩 유도되는지.
+
+    제2조 배열을 확보하기 전에는 2021-08-04 ~ 2026-04-30 을 유도 불가로 두었고
+    이 날짜들이 전부 막혀 있었다. 배열이 들어오면서 풀렸다.
+    구간 경계를 넘나드는 표본이라 한 ruleset 만 깨져도 여기서 드러난다.
+    """
+    known = {
+        date(2019, 5, 6): "childrens_day",    # 제24828호
+        date(2021, 10, 11): "hangeul_day",    # 제31930호
+        date(2022, 10, 10): "hangeul_day",    # 제31930호
+        date(2025, 3, 3): "samiljeol",        # 제33448호
+        date(2026, 3, 2): "samiljeol",        # 제33448호
+        date(2026, 8, 17): "gwangbokjeol",    # 제36290호
+    }
+    for day, source in known.items():
+        found = [h for h in hc.holidays_on(day) if h.kind == "substitute"]
+        assert found, f"{day}: 대체공휴일이 유도되지 않았다"
+        assert found[0].source_key == source, f"{day}: 원인 공휴일이 {found[0].source_key}"
 
 
 def test_no_fixture_case_is_provisional():

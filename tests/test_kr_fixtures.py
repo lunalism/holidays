@@ -56,6 +56,23 @@ def _skip_if_dependency_unsupported(case):
             pytest.skip(f"{case['id']}: {exc}")
 
 
+def _answer_or_skip(case, call):
+    """구현이 '답할 수 없다'고 선언하면 skip.
+
+    두 가지가 있다.
+      LunarNotImplemented  음력 환산 미구현
+      MappingUnresolved    제2조 호 배열 미확인 (2026-05-11 이후)
+
+    둘 다 실패가 아니라 미구현이다. 실패로 두면 verified: false 의 xfail 에
+    흡수되어 "아직 못 만든 것"과 "원문 대조 전"이 출력에서 구분되지 않는다.
+    일반 예외는 잡지 않는다. 진짜 오류까지 skip 으로 감추면 안 된다.
+    """
+    try:
+        return call()
+    except (impl.LunarNotImplemented, impl.MappingUnresolved) as exc:
+        pytest.skip(f"{case['id']}: {exc}")
+
+
 def _field(item, key):
     """구현이 dict 를 주든 객체를 주든 받아준다."""
     if hasattr(item, "get"):
@@ -149,7 +166,7 @@ def test_holidays_on_date(case):
     holidays_on = _require("holidays_on")
     _skip_if_dependency_unsupported(case)
 
-    actual = list(holidays_on(case["date"]))
+    actual = list(_answer_or_skip(case, lambda: holidays_on(case["date"])))
     expect = case["expect"]
 
     assert bool(actual) == expect["is_holiday"], _explain(case, actual)
@@ -162,7 +179,9 @@ def test_substitute_eligibility(case):
     substitute_eligibility = _require("substitute_eligibility")
     _skip_if_dependency_unsupported(case)
 
-    actual = substitute_eligibility(case["holiday"], case["date"])
+    actual = _answer_or_skip(
+        case, lambda: substitute_eligibility(case["holiday"], case["date"])
+    )
     expect = case["expect"]
 
     assert _field(actual, "saturday") == expect["applies_to_saturday"], _explain(case, actual)

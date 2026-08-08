@@ -70,6 +70,12 @@ class UnsupportedYear(CalendarError):
     """
 
 
+# 조문의 호 번호를 공휴일로 옮기는 매핑이 미확인이라 답할 수 없을 때.
+# substitute_rules 쪽에서 정의한 것을 그대로 쓴다. 호출자가 두 모듈을 다 import
+# 하지 않아도 되게 여기서도 이름을 노출한다.
+MappingUnresolved = substitute_rules.MappingUnresolved
+
+
 class LunarNotImplemented(NotImplementedError):
     """음력 공휴일은 아직 환산하지 못한다.
 
@@ -321,19 +327,29 @@ def _eligible_overlaps(holiday: Holiday, day: date) -> set:
     지정 공휴일(선거일·임시공휴일)은 kind 의 substitute_eligible 이 결정한다.
     두 경로가 갈리는 이유는 지정 공휴일이 제3조의 어느 호에 해당하는지 확인되지
     않았기 때문이다. designated_holidays.yaml 의 kinds source_todo 참조.
+
+    반환값이 None 이면 "모른다"는 뜻이다. 빈 집합("대상 아님")과 구분해야 한다.
     """
     if holiday.kind in (KIND_STATUTORY,) and holiday.key:
         ruleset = _rules().ruleset_on(day)
         if ruleset is None:
             return set()
-        matched = ruleset.clauses_for(holiday.key)
+        try:
+            matched = ruleset.clauses_for(holiday.key)
+        except substitute_rules.MappingUnresolved:
+            return None
         return {o for c in matched for o in c.overlaps}
 
     kinds = _designated()["kinds"]
-    spec = kinds.get(holiday.kind)
-    if spec and spec.get("substitute_eligible"):
-        # 어느 호인지 미확인이라 겹침 조건을 특정할 수 없다.
-        # 확인될 때까지 규칙 테이블과 같은 조건을 쓰지 않고 별도로 둔다.
+    spec = kinds.get(holiday.kind) or {}
+    eligible = spec.get("substitute_eligible")
+
+    if eligible == "unresolved":
+        # 선거일이 그렇다. 제2조제10의2호(가지번호)인데 제3조는 제10호까지만 열거한다.
+        # 가지번호가 그 범위에 드는지는 법제처 해석이 필요하다.
+        # true 로도 false 로도 답하지 않는다. 모른다를 모른다로 돌려준다.
+        return None
+    if eligible is True:
         return {"saturday", "sunday", "other_holiday_on_weekday"}
     return set()
 
@@ -360,11 +376,27 @@ def _calendar(year: int) -> dict:
         """대체공휴일 계산에서의 공휴일. 일요일을 포함한다."""
         return d.weekday() == SUNDAY or d in span
 
+    uncertain = set()
+
     for day in sorted(span):
         holidays = [h for h in span[day] if h.kind != KIND_SUBSTITUTE]
+        weekend = day.weekday() in (SATURDAY, SUNDAY)
+        coincide = day.weekday() < SATURDAY and len(holidays) >= 2
+
+        # 매핑 미확인 공휴일이 주말에 있거나 평일에 겹치면 대체공휴일이 생길 수도,
+        # 안 생길 수도 있다. 어느 쪽인지 모르므로 그 자리를 불확실로 표시한다.
+        # 표시만 하고 대체공휴일을 만들지는 않는다. 없는 확신을 만들지 않기 위해서다.
+        if weekend or coincide:
+            for h in holidays:
+                if _eligible_overlaps(h, day) is None:
+                    uncertain.update(_place(day, 1, is_rule_holiday, flags))
+                    break
+
         triggered = []
         for h in holidays:
             overlaps = _eligible_overlaps(h, day)
+            if overlaps is None:
+                continue  # 모른다. 위에서 불확실로 표시했다.
             if day.weekday() == SATURDAY and "saturday" in overlaps:
                 triggered.append(h)
             elif day.weekday() == SUNDAY and "sunday" in overlaps:
@@ -386,14 +418,15 @@ def _calendar(year: int) -> dict:
         # 겹친 공휴일 중 어느 쪽이 트리거인지는 확정되지 않았다(3호-귀속-불명).
         # 어느 쪽이든 결과가 같으므로 겹침 1건당 대체공휴일 1일로 둔다.
         # 3일 이상 겹치는 경우의 연장 방식은 미해결이다(겹침-판정-대상-단위).
-        if day.weekday() < SATURDAY and len(holidays) >= 2:
-            if any("other_holiday_on_weekday" in _eligible_overlaps(h, day) for h in holidays):
+        if coincide:
+            overlaps_each = [_eligible_overlaps(h, day) for h in holidays]
+            if any(o is not None and "other_holiday_on_weekday" in o for o in overlaps_each):
                 for placed in _place(day, 1, is_rule_holiday, flags):
                     span.setdefault(placed, []).append(
                         Holiday(name="대체공휴일", kind=KIND_SUBSTITUTE, source_key=holidays[0].key)
                     )
 
-    return span
+    return {"span": span, "uncertain": uncertain}
 
 
 def _place(start: date, count: int, is_rule_holiday, flags: dict) -> list:
@@ -434,7 +467,18 @@ def holidays_on(day: date) -> tuple:
         raise CalendarError(f"날짜가 아니다: {day!r}")
     require_covered(day)
 
-    found = _calendar_cached(day.year).get(day, ())
+    year = _calendar_cached(day.year)
+    if day in year["uncertain"]:
+        raise MappingUnresolved(
+            f"{day.isoformat()} 가 대체공휴일인지 아닌지 유도할 수 없다.\n"
+            "직전 공휴일이 주말에 걸리거나 다른 공휴일과 겹치는데, 그 공휴일이 "
+            "대체공휴일 대상인지가 제2조 호 배열 미확인으로 정해지지 않는다.\n"
+            "'대체공휴일 아님'으로 답하지 않는 이유는 모르는 것을 아는 것처럼 "
+            "답하지 않기 위해서다. "
+            "rules/kr/substitute_holidays.yaml 의 open_questions 제2조-호-배열 참조."
+        )
+
+    found = year["span"].get(day, ())
     if not is_provisional(day):
         return tuple(found)
     # 확정 구간 밖. 답은 그대로 두되 잠정임을 항목마다 표시한다.
