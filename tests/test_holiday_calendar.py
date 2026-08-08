@@ -12,7 +12,7 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, timedelta
 
 import pytest
 
@@ -218,7 +218,8 @@ def test_future_dates_are_answered_not_rejected():
     미래 연도에 임시공휴일이 없는 것은 누락이 아니라 아직 지정되지 않은 상태다.
     없는 것이 정상이므로 오류로 다루지 않는다.
     """
-    for far in (date(2027, 1, 1), date(2030, 8, 15), date(2035, 3, 1)):
+    # 확정 구간은 2028-12-31 까지다(KASI 데이터가 2028 년까지라 그 구간까지 대조했다).
+    for far in (date(2029, 1, 1), date(2030, 8, 15), date(2035, 3, 1)):
         hc.holidays_on(far)  # 예외가 없어야 한다
         assert hc.is_provisional(far)
 
@@ -231,7 +232,7 @@ def test_provisional_flag_is_attached_to_each_holiday():
 
     for h in hc.holidays_on(date(2026, 8, 15)):  # 확정 구간
         assert h.provisional is False
-    for h in hc.holidays_on(date(2027, 8, 15)):  # 확정 이후
+    for h in hc.holidays_on(date(2029, 8, 15)):  # 확정 이후
         assert h.provisional is True
 
     assert hc.is_provisional(confirmed) is False
@@ -247,12 +248,20 @@ def test_substitute_eligibility_reports_provisional():
 def test_provisional_substitutes_still_derive():
     """잠정 구간에서도 대체공휴일 계산은 그대로 돈다. 표시만 다르다.
 
-    2027-08-15 는 일요일이라 08-16 이 대체공휴일이 된다.
+    2034-08-15 는 화요일이 아니라 일요일이라 08-16 이 대체공휴일이 된다.
+    확정 구간(2028-12-31) 이후를 골라야 provisional 이 붙는다.
     잠정이라고 계산을 멈추면 선발행할 피드가 비어 버린다.
     """
-    assert date(2027, 8, 15).weekday() == 6
-    substitutes = [h for h in hc.holidays_on(date(2027, 8, 16)) if h.kind == "substitute"]
-    assert substitutes, "잠정 구간에서 대체공휴일이 계산되지 않았다"
+    sunday_gwangbokjeol = next(
+        d for y in range(2029, 2045)
+        for d in [date(y, 8, 15)]
+        if d.weekday() == 6
+    )
+    substitutes = [
+        h for h in hc.holidays_on(sunday_gwangbokjeol + timedelta(days=1))
+        if h.kind == "substitute"
+    ]
+    assert substitutes, f"{sunday_gwangbokjeol}: 잠정 구간에서 대체공휴일이 계산되지 않았다"
     assert all(h.provisional for h in substitutes)
 
 
