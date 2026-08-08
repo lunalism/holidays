@@ -1,0 +1,105 @@
+# 양력 고정 공휴일
+#
+# 매년 같은 월·일에 오는 공휴일만 담는다. 음력 공휴일(설날·추석·부처님오신날)은
+# rules/kr/lunar_holidays.yaml 로 분리되어 있고 아직 미구현이다.
+#
+# effective_from / effective_until 은 공휴일 지위의 시작·끝이다. 비어 있으면
+# "이 표가 다루는 기간 내내 공휴일"이라는 뜻이며, 아래 한계 항목을 함께 읽을 것.
+#
+# 한계 — 지금 이 표를 믿을 수 있는 구간
+#   1991~2012 년의 한글날, 2008~2025 년의 제헌절처럼 공휴일 지위가 없던 구간이
+#   실제로 존재한다. 제헌절만 경계를 넣었고 나머지는 넣지 못했다(근거 미확보).
+#   따라서 2013 년 이전 날짜 조회는 신뢰하지 말 것. 정답 픽스처의 최초 케이스가
+#   2015 년이라 지금은 문제가 드러나지 않을 뿐이다.
+#
+# key 는 rules/kr/substitute_holidays.yaml 의 holidays 레지스트리와 같은 값을 쓴다.
+# 대체공휴일 대상 여부를 그 키로 조회하기 때문이다. 어긋나면 로더가 거부한다.
+
+version: 1
+
+holidays:
+
+  - key: new_years_day
+    name: 1월 1일
+    month: 1
+    day: 1
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+  - key: samiljeol
+    name: 3·1절
+    month: 3
+    day: 1
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+  - key: childrens_day
+    name: 어린이날
+    month: 5
+    day: 5
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+  - key: memorial_day
+    name: 현충일
+    month: 6
+    day: 6
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: |
+      호 번호 미확인.
+      현충일은 국경일이 아니고 대체공휴일 대상도 아니다.
+      substitute_holidays.yaml 의 어느 호에도 들어 있지 않은 것이 정상이다.
+
+  - key: constitution_day
+    name: 제헌절
+    month: 7
+    day: 17
+    effective_from: 2026-05-11
+    verified: false
+    source: 「공휴일에 관한 법률」 개정 (법률 제21338호, 2026-02-10 공포, 2026-05-11 시행)
+    source_todo: |
+      2차 출처 기준. 법제처 원문 대조 필요.
+      2008 년에 공휴일에서 제외되었다가 복원되는 것이므로, 그 이전 구간
+      (1949~2007)에는 다시 공휴일이었다. 이 표는 그 구간을 표현하지 못한다.
+      과거 방향으로 범위를 넓힐 때 effective_until 을 포함한 구간 목록으로
+      바꿔야 한다.
+
+  - key: gwangbokjeol
+    name: 광복절
+    month: 8
+    day: 15
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+  - key: gaecheonjeol
+    name: 개천절
+    month: 10
+    day: 3
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+  - key: hangeul_day
+    name: 한글날
+    month: 10
+    day: 9
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: |
+      호 번호 미확인.
+      한글날은 1991 년에 공휴일에서 제외되었다가 2013 년에 복원되었다.
+      복원 시행일을 확보하지 못해 effective_from 을 비워 두었다.
+      2013 년 이전 조회는 틀린 답을 낸다.
+
+  - key: christmas
+    name: 기독탄신일
+    month: 12
+    day: 25
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.

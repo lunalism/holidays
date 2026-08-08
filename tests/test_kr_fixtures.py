@@ -8,11 +8,16 @@
         해당 날짜의 공휴일 목록. 공휴일이 아니면 빈 시퀀스.
         각 항목은 name / kind 를 가진다. dict 든 dataclass 든 상관없다.
 
-    rules.kr.holiday_calendar.substitute_eligibility(holiday, year) -> Mapping
+    rules.kr.holiday_calendar.substitute_eligibility(holiday, date) -> Mapping
         {"saturday": bool, "sunday": bool}
-        해당 연도 기준으로 그 공휴일이 토/일과 겹칠 때 대체공휴일 대상인지.
+        그 날짜 기준으로 그 공휴일이 토/일과 겹칠 때 대체공휴일 대상인지.
+        조회 축은 날짜다. substitute_rules.eligibility_for_date 와 같다.
 
 구현이 없으면 관련 테스트는 skip 된다. 스키마 검증 테스트는 구현과 무관하게 돈다.
+
+케이스의 depends_on 이 아직 구현되지 않은 공휴일을 가리키면 그 케이스도 skip 된다.
+음력 공휴일이 그런 경우다. 이것이 없으면 부정 케이스가 "공휴일이 안 만들어져서"
+통과해 버려, 정작 잡으라고 넣은 오류를 놓친 채 초록불이 켜진다.
 """
 
 from __future__ import annotations
@@ -35,6 +40,20 @@ def _require(func_name):
     if func is None:
         pytest.skip(f"rules.kr.holiday_calendar.{func_name}() 미구현")
     return func
+
+
+def _skip_if_dependency_unsupported(case):
+    """depends_on 이 가리키는 공휴일이 아직 구현되지 않았으면 skip.
+
+    실패로 두면 안 된다. 케이스가 전부 verified: false 라 xfail 이 붙어 있어서,
+    실패는 XFAIL 로 흡수되어 "미구현"과 "원문 대조 전"이 구분되지 않는다.
+    skip 으로 갈라야 남은 작업량이 출력에 그대로 보인다.
+    """
+    for key in case.get("depends_on") or ():
+        try:
+            impl.require_supported(key)
+        except impl.LunarNotImplemented as exc:
+            pytest.skip(f"{case['id']}: {exc}")
 
 
 def _field(item, key):
@@ -128,6 +147,7 @@ def test_every_case_has_a_source():
 @pytest.mark.parametrize("case", params(DAYS))
 def test_holidays_on_date(case):
     holidays_on = _require("holidays_on")
+    _skip_if_dependency_unsupported(case)
 
     actual = list(holidays_on(case["date"]))
     expect = case["expect"]
@@ -140,8 +160,9 @@ def test_holidays_on_date(case):
 @pytest.mark.parametrize("case", params(SUBSTITUTE_RULES))
 def test_substitute_eligibility(case):
     substitute_eligibility = _require("substitute_eligibility")
+    _skip_if_dependency_unsupported(case)
 
-    actual = substitute_eligibility(case["holiday"], case["year"])
+    actual = substitute_eligibility(case["holiday"], case["date"])
     expect = case["expect"]
 
     assert _field(actual, "saturday") == expect["applies_to_saturday"], _explain(case, actual)

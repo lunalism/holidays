@@ -1,0 +1,59 @@
+# 음력 공휴일 — 이번 범위 밖. 정의만 두고 환산은 구현하지 않는다.
+#
+# 미루는 이유: KST 삭(朔) 시각 계산은 별도 작업이고, 대체공휴일 로직과 같이
+# 진행하면 대체공휴일 버그가 음력 버그에 가려진다. 먼저 대체공휴일을 확정한다.
+#
+# 여기 실린 key 는 rules/kr/holiday_calendar.py 에서 미해결로 취급된다.
+# holidays_on() 은 이 공휴일들을 결과에 넣지 않으며, resolve_lunar() 는
+# LunarNotImplemented 를 던진다.
+#
+# 정답 픽스처에서 이 공휴일에 의존하는 케이스는 depends_on 으로 선언되어 있고
+# 자동으로 skip 된다. 답이 조용히 맞아 보이는 일이 없도록 하기 위한 것이다.
+# 특히 부정 케이스(is_holiday: false)는 음력 공휴일이 아예 안 만들어져서
+# 저절로 통과해 버리므로, depends_on 없이는 거짓 초록불이 된다.
+
+version: 1
+
+holidays:
+
+  - key: seollal
+    name: 설날
+    leave_name: 설날 연휴
+    lunar: { month: 1, day: 1 }
+    leave: { days_before: 1, days_after: 1 }
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조 — 설날 전날, 설날, 설날 다음날
+    source_todo: 호 번호 미확인. 연휴 범위(전날·당일·다음날) 원문 대조 필요.
+
+  - key: chuseok
+    name: 추석
+    leave_name: 추석 연휴
+    lunar: { month: 8, day: 15 }
+    leave: { days_before: 1, days_after: 1 }
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조 — 추석 전날, 추석, 추석 다음날
+    source_todo: 호 번호 미확인. 연휴 범위 원문 대조 필요.
+
+  - key: buddhas_birthday
+    name: 부처님오신날
+    lunar: { month: 4, day: 8 }
+    verified: false
+    source: 「관공서의 공휴일에 관한 규정」 제2조
+    source_todo: 호 번호 미확인.
+
+# ---------------------------------------------------------------------------
+# 구현할 때 결정해야 할 것
+# ---------------------------------------------------------------------------
+open_questions:
+
+  - id: 삭-시각-기준
+    question: |
+      음력 삭 시각을 KST 기준으로 판정해야 한다. UTC 로 계산하면 자정 근처에서
+      하루가 어긋나고, 그러면 연휴 3일이 통째로 밀린다.
+      한국천문연구원 발표 음양력을 기준으로 삼을지, 계산으로 유도할지 결정할 것.
+
+  - id: 윤달-처리
+    question: |
+      윤달이 든 해는 단순 일수 가산으로 맞출 수 없다. 2025 년이 그런 해였고,
+      정답 픽스처의 2026-02-17 설날이 바로 그 다음 해다. 이 케이스가 윤달 처리를
+      검증하는 자리이므로 구현 후 반드시 통과시킬 것.
