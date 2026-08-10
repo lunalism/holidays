@@ -91,8 +91,8 @@ def test_overlapping_holidays_become_two_events_with_distinct_uids():
     uids = [_prop(b, "UID") for b in blocks]
     assert len(set(uids)) == 2, f"UID 가 겹친다: {uids}"
     assert set(uids) == {
-        "20250505-statutory-1@holidays.lunalism.com",
-        "20250505-statutory-2@holidays.lunalism.com",
+        "20250505-1@holidays.lunalism.com",
+        "20250505-2@holidays.lunalism.com",
     }
 
     summaries = {_prop(b, "SUMMARY") for b in blocks}
@@ -122,8 +122,44 @@ def test_seq_does_not_follow_the_order_the_calendar_returned():
 
     blocks = _on(_build(), "20250505")
     by_uid = {_prop(b, "UID"): _prop(b, "SUMMARY") for b in blocks}
-    assert by_uid["20250505-statutory-1@holidays.lunalism.com"] == "부처님오신날"
-    assert by_uid["20250505-statutory-2@holidays.lunalism.com"] == "어린이날"
+    assert by_uid["20250505-1@holidays.lunalism.com"] == "부처님오신날"
+    assert by_uid["20250505-2@holidays.lunalism.com"] == "어린이날"
+
+
+def test_the_uid_does_not_carry_the_kind():
+    """UID 에 kind 가 들어 있지 않은지.
+
+    kind 는 우리 판정 결과다. open_questions 가 풀리면 어떤 항목의 kind 가
+    바뀔 수 있고, kind 가 UID 에 있으면 그 판정 변경이 구독자 캘린더에서
+    이벤트 삭제 + 생성으로 나타난다. SEQUENCE 로 수습되지 않는다.
+    """
+    for block in _events(_build()):
+        uid = _prop(block, "UID")
+        assert re.fullmatch(r"\d{8}-\d+@holidays\.lunalism\.com", uid), uid
+        for kind in ("statutory", "substitute", "temporary", "election"):
+            assert kind not in uid, uid
+
+
+def test_seq_runs_across_the_whole_day_not_per_kind():
+    """seq 는 그 날 전체 순번이다. kind 별로 세면 같은 UID 가 두 번 나온다.
+
+    지금 달력에는 한 날짜에 kind 가 섞이는 자리가 없다(2020~2035 전수 확인).
+    그래서 실제 피드로는 이 규칙을 확인할 수 없고, Event 를 직접 지어 본다.
+    """
+    day = dt.date(2030, 3, 1)
+    substitute = ics.Event(
+        day=day, summary="대체공휴일", kind="substitute", order_key=("", "z", "대")
+    )
+    statutory = ics.Event(
+        day=day, summary="삼일절", kind="statutory", order_key=("samiljeol", "", "삼")
+    )
+    made = ics.assign_uids([substitute, statutory])
+    uids = [uid for _, uid in made]
+    assert uids == [
+        "20300301-1@holidays.lunalism.com",
+        "20300301-2@holidays.lunalism.com",
+    ], uids
+    assert len(set(uids)) == 2
 
 
 def test_a_tie_in_order_key_is_an_error_not_a_coin_flip():

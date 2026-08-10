@@ -18,11 +18,19 @@ diff 가 뜬다. 그러면 "무엇이 실제로 바뀌었나"를 diff 로 볼 �
 --------------------------------------------------------------------------
 UID
 --------------------------------------------------------------------------
-    {YYYYMMDD}-{kind}-{seq}@holidays.lunalism.com
+    {YYYYMMDD}-{seq}@holidays.lunalism.com
 
 한 번 공개되면 바꿀 수 없다. UID 가 바뀌면 캘린더 앱이 같은 공휴일을 새
 이벤트로 인식해 중복이 생긴다(README 의 이벤트 UID 참조).
 
+날짜와 순번만 넣는다. kind 는 넣지 않는다 — 우리 판정 결과이기 때문이다.
+지금도 확정되지 않은 것들이 있고(선거일-가지번호, 3호-귀속-불명 등)
+open_questions 가 풀리면 어떤 항목의 kind 가 바뀔 수 있다. kind 가 UID 에
+들어가 있으면 그 판정 변경이 구독자 캘린더에서 "이벤트 삭제 + 새 이벤트 생성"
+으로 나타난다. SEQUENCE 를 올려도 수습되지 않는다 — SEQUENCE 는 같은 UID
+안에서의 개정이고, UID 가 달라지면 캘린더는 애초에 다른 이벤트로 본다.
+
+날짜는 우리 판정이 아니라 사실이고, 순번은 내용에서 유도한다.
 그래서 seq 를 정하는 규칙이 중요하다. assign_uids() 의 주석을 볼 것.
 """
 
@@ -63,12 +71,18 @@ class Event:
     order_key: tuple = field(default_factory=tuple)
 
 
-def _group_key(event: Event) -> tuple:
-    return (event.day, event.kind)
-
-
 def assign_uids(events) -> list:
     """[(Event, uid)] — 파일에 실릴 순서대로.
+
+    ----------------------------------------------------------------------
+    seq 는 그 날 전체의 순번이다. kind 로 가르지 않는다
+    ----------------------------------------------------------------------
+    kind 별로 seq 를 매기면 UID 에 kind 가 없어도 같은 값이 두 번 나온다.
+    한 날짜 안에서 1 부터 센다.
+
+    kind 를 UID 에서 뺀 이유는 모듈 docstring 에 있다. 정렬 키에서도 뺀다 —
+    정렬에 남겨 두면 kind 판정이 바뀔 때 순서가 밀려 seq 가 바뀌고, UID 에서
+    뺀 의미가 없어진다.
 
     ----------------------------------------------------------------------
     seq 는 order_key 오름차순이다. 목록에 담겨 온 순서를 쓰지 않는다
@@ -85,28 +99,28 @@ def assign_uids(events) -> list:
     그래서 정렬은 내용에서 유도한 order_key 로 한다. 표를 어떻게 재배열해도,
     공휴일이 어느 표에서 오든 같은 값이 나온다.
 
-    같은 (날짜, kind) 안에서 order_key 가 겹치면 seq 를 정할 수 없다.
-    그때는 임의로 고르지 않고 IcsError 로 멈춘다. 임의로 고르면 그 선택이
-    다음 실행에서 뒤집힐 수 있고, 뒤집히는 순간 UID 가 바뀐다.
+    한 날짜 안에서 order_key 가 겹치면 seq 를 정할 수 없다. 그때는 임의로
+    고르지 않고 IcsError 로 멈춘다. 임의로 고르면 그 선택이 다음 실행에서
+    뒤집힐 수 있고, 뒤집히는 순간 UID 가 바뀐다.
     """
     groups = {}
     for event in events:
-        groups.setdefault(_group_key(event), []).append(event)
+        groups.setdefault(event.day, []).append(event)
 
     out = []
-    for (day, kind), members in sorted(groups.items()):
+    for day, members in sorted(groups.items()):
         members = sorted(members, key=lambda e: e.order_key)
 
         keys = [e.order_key for e in members]
         if len(set(keys)) != len(keys):
             raise IcsError(
-                f"{day.isoformat()} {kind}: order_key 가 겹쳐 seq 를 정할 수 없다.\n"
+                f"{day.isoformat()}: order_key 가 겹쳐 seq 를 정할 수 없다.\n"
                 f"  {keys}\n"
                 "임의로 고르면 다음 실행에서 뒤집힐 수 있고, 그때 UID 가 바뀐다."
             )
 
         for seq, event in enumerate(members, start=1):
-            out.append((event, f"{day:%Y%m%d}-{kind}-{seq}@{UID_DOMAIN}"))
+            out.append((event, f"{day:%Y%m%d}-{seq}@{UID_DOMAIN}"))
     return out
 
 
