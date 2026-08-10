@@ -17,7 +17,8 @@ from sources.kr import kasi_parser as kp
 CACHE_2026 = Path(__file__).parent.parent / "sources" / "kr" / "cache" / "getRestDeInfo_2026.xml"
 
 pytestmark = pytest.mark.skipif(
-    not CACHE_2026.exists(), reason="캐시된 2026 응답이 없다. sources.kr.kasi_client 로 먼저 받을 것."
+    not CACHE_2026.exists(),
+    reason="캐시된 2026 응답이 없다. sources.kr.kasi_client 로 먼저 받을 것.",
 )
 
 
@@ -57,7 +58,12 @@ def test_locdate_is_the_key_and_seq_is_ignored():
 def test_substitute_cause_is_preserved_separately():
     """괄호 안 원인 공휴일은 별도 필드로 남는다. 이름 자체에는 섞지 않는다."""
     substitutes = {h.date: h for h in _parsed() if h.is_substitute}
-    assert set(substitutes) == {date(2026, 3, 2), date(2026, 5, 25), date(2026, 8, 17), date(2026, 10, 5)}
+    assert set(substitutes) == {
+        date(2026, 3, 2),
+        date(2026, 5, 25),
+        date(2026, 8, 17),
+        date(2026, 10, 5),
+    }
 
     aug = substitutes[date(2026, 8, 17)]
     assert aug.name == "대체공휴일(광복절)"

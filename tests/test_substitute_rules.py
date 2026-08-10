@@ -17,7 +17,8 @@ from datetime import date
 import pytest
 
 from rules.kr import substitute_rules as sr
-from tests.fixture_loader import SUBSTITUTE_RULES as FIXTURE_RULES, params
+from tests.fixture_loader import SUBSTITUTE_RULES as FIXTURE_RULES
+from tests.fixture_loader import params
 
 # tests/test_rule_table_mutations.py 가 변이시킨 표를 물려 이 파일을 다시 돌린다.
 # 이음매를 테스트 쪽에만 두어 rules/ 는 테스트를 의식하지 않게 한다.

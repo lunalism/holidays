@@ -351,7 +351,9 @@ def read_coverage(raw: dict, where) -> Coverage:
     """
     block = raw.get("coverage")
     if not block:
-        raise RuleTableError(f"{where}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다.")
+        raise RuleTableError(
+            f"{where}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다."
+        )
 
     start = block.get("from")
     if not isinstance(start, date):

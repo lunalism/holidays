@@ -750,7 +750,9 @@ def _place(start: date, count: int, is_rule_holiday, flags: dict) -> list:
             continue  # 제3조제3항: 토요일에 놓이면 다음 비공휴일로 다시 옮긴다
         out.append(day)
     if len(out) < count:
-        raise CalendarError(f"{start} 의 대체공휴일 배치를 {_MAX_PLACEMENT_SEARCH}일 안에 못 찾았다")
+        raise CalendarError(
+            f"{start} 의 대체공휴일 배치를 {_MAX_PLACEMENT_SEARCH}일 안에 못 찾았다"
+        )
     return out
 
 

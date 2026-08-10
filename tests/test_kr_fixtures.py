@@ -28,7 +28,8 @@ from __future__ import annotations
 
 import pytest
 
-from tests.fixture_loader import ALL_CASES, DAYS, SUBSTITUTE_RULES, ids as _ids, params
+from tests.fixture_loader import ALL_CASES, DAYS, SUBSTITUTE_RULES, params
+from tests.fixture_loader import ids as _ids
 
 try:
     from rules.kr import holiday_calendar as impl
