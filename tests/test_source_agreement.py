@@ -151,6 +151,9 @@ def format_table(rows: list) -> str:
     return "\n".join(lines)
 
 
+# strict 를 켜지 않는다. 이것은 불일치 0 을 목표로 하는 마커가 아니라
+# 목록을 상시 노출하기 위한 영구 마커다. 0 이 되는 날이 오더라도 그건 고쳐진
+# 것이 아니라 대조할 것이 없어진 것이므로, xpass 를 실패로 만들 이유가 없다.
 @pytest.mark.xfail(
     reason="소스 간 불일치는 정상 상태다. 어느 쪽도 자동 채택하지 않는다. -rx 로 목록을 볼 것.",
 )

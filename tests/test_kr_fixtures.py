@@ -149,6 +149,7 @@ def test_day_case_shape(case):
 
 @pytest.mark.xfail(
     reason="근거(관보/고시) 미확인 항목이 남아 있다. 전부 채우면 xpass 로 바뀐다.",
+    strict=True,
 )
 def test_every_case_has_a_source():
     """근거 없는 정답은 나중에 검증할 수 없다. 추측으로 채우지 말고 확인해서 채울 것."""

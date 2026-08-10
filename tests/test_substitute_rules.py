@@ -289,6 +289,7 @@ def test_unknown_holiday_key_is_rejected():
 
 @pytest.mark.xfail(
     reason="법제처 원문 대조 전. 전부 verified: true 가 되면 xpass 로 바뀐다.",
+    strict=True,
 )
 def test_every_rule_is_verified_against_the_source_text():
     pending = TABLE.unverified()
