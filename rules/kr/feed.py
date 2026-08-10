@@ -22,6 +22,7 @@ KASI 에서 가져오지 않는다 — 법령과 계산으로 유도하고 KASI 
 
 from __future__ import annotations
 
+import os
 import re
 from datetime import date
 from pathlib import Path
@@ -234,11 +235,49 @@ def build(*, today: date, dtstamp, previous: bytes = None) -> bytes:
 FEED_PATH = Path(__file__).resolve().parents[2] / "feeds" / "kr.ics"
 
 
+def publish(*, today: date, dtstamp, path: Path = None) -> Path:
+    """피드를 파일로 낸다. 이전 발행본을 읽고, 새로 만들고, 원자적으로 바꾼다.
+
+    ----------------------------------------------------------------------
+    왜 stdout 리다이렉션을 쓰지 않는가
+    ----------------------------------------------------------------------
+    이 피드는 자기 자신의 직전 판을 입력으로 받는다. 그래서
+
+        python -m rules.kr.feed > feeds/kr.ics
+
+    는 쓸 수 없다. 셸이 프로세스를 띄우기 전에 feeds/kr.ics 를 먼저 비우므로,
+    읽을 이전 발행본이 사라진 뒤에 프로그램이 시작한다. 지금 구현에서는 빈
+    파일이 파싱에 실패해 빌드가 멈추지만, 그때는 이미 발행본이 지워진 뒤라
+    git 말고는 되돌릴 방법이 없다.
+
+    읽기와 쓰기를 한 함수 안에서 순서대로 하고, 쓰기는 같은 디렉터리의 임시
+    파일에 한 뒤 os.replace 로 바꾼다. 같은 파일시스템 안의 replace 는
+    원자적이라 중간에 죽어도 반쪽짜리 피드가 남지 않는다.
+
+    임시 파일을 같은 디렉터리에 두는 것도 그 때문이다. /tmp 에 만들면 파일
+    시스템이 달라질 수 있고, 그러면 replace 가 복사로 떨어져 원자성이 깨진다.
+    """
+    path = path or FEED_PATH
+    previous = path.read_bytes() if path.exists() else None
+    body = build(today=today, dtstamp=dtstamp, previous=previous)
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f".{path.name}.tmp")
+    tmp.write_bytes(body)
+    os.replace(tmp, path)
+    return path
+
+
 if __name__ == "__main__":  # pragma: no cover
     import datetime as _dt
-    import sys
+    import sys as _sys
 
-    # 시계와 파일을 읽는 곳은 여기 하나다. 모듈 안에서는 읽지 않는다.
-    now = _dt.datetime.now(_dt.UTC)
-    prior = FEED_PATH.read_bytes() if FEED_PATH.exists() else None
-    sys.stdout.buffer.write(build(today=now.date(), dtstamp=now, previous=prior))
+    # 시계를 읽는 곳은 여기 하나다. 모듈 안에서는 읽지 않는다.
+    _now = _dt.datetime.now(_dt.UTC)
+
+    # 경로를 인자로 받는다. 없으면 FEED_PATH.
+    # 리다이렉션(> feeds/kr.ics)을 쓸 수 없어서 필요한 자리다 — 셸이 프로세스
+    # 시작 전에 이전 발행본을 비운다. publish() 의 docstring 참조.
+    # 테스트가 진짜 진입점을 밟을 수 있게 하는 효과도 있다.
+    _target = Path(_sys.argv[1]) if len(_sys.argv) > 1 else FEED_PATH
+    print(f"발행: {publish(today=_now.date(), dtstamp=_now, path=_target)}")

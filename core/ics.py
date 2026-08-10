@@ -195,38 +195,107 @@ def read_published(raw: bytes) -> dict:
 
     out = {}
     for vevent in parsed.walk("VEVENT"):
-        uid = str(vevent.get("UID") or "").strip()
-        if not uid:
-            raise IcsError("이전 발행본에 UID 없는 VEVENT 가 있다.")
-        if uid in out:
+        # 필드 하나를 꺼내는 데도 라이브러리가 제 예외를 던질 수 있다. 전부
+        # IcsError 로 바꾼다 — 호출자에게 한 가지 예외만 약속했기 때문이다.
+        # 파싱만 감싸 두면 vInt 깨진 SEQUENCE 같은 것이 그대로 새어 나간다.
+        try:
+            entry = _read_published_event(vevent)
+        except IcsError:
+            raise
+        except Exception as exc:  # noqa: BLE001 - 무엇이 나오든 같은 처리다
             raise IcsError(
-                f"이전 발행본에 UID 가 중복이다: {uid}\n"
+                f"이전 발행본의 VEVENT 를 읽지 못했다: {type(exc).__name__}: {exc}\n"
+                "0 으로 다시 시작하지 않는다. 파일을 열어 확인할 것."
+            ) from None
+
+        if entry.uid in out:
+            raise IcsError(
+                f"이전 발행본에 UID 가 중복이다: {entry.uid}\n"
                 "어느 쪽이 최신인지 정할 수 없다. 파일을 확인할 것."
             )
+        out[entry.uid] = entry
 
-        dtstart, dtend = vevent.get("DTSTART"), vevent.get("DTEND")
-        if dtstart is None or dtend is None:
-            raise IcsError(f"이전 발행본의 {uid} 에 DTSTART 나 DTEND 가 없다.")
-
-        # SEQUENCE 가 없으면 RFC 5545 기본값 0 이다. 우리 피드는 항상 쓰지만
-        # 남이 손댄 파일을 받을 수도 있으므로 표준 기본값을 따른다.
-        raw_seq = vevent.get("SEQUENCE")
-        sequence = 0 if raw_seq is None else int(raw_seq)
-        if sequence < 0:
-            raise IcsError(f"이전 발행본의 {uid} 에 SEQUENCE 가 음수다: {sequence}")
-
-        out[uid] = PublishedEvent(
-            uid=uid,
-            dtstart=dtstart.dt,
-            dtend=dtend.dt,
-            sequence=sequence,
-            summary=str(vevent.get("SUMMARY") or ""),
+    if not out:
+        # 파싱은 됐는데 이벤트가 하나도 없다. 이것을 정상 이전본으로 받으면
+        # 모든 UID 가 "처음 보는 것"이 되어 SEQUENCE 가 전부 0 으로 되감긴다.
+        # 위 파싱 실패와 결과가 같으므로 같이 막는다.
+        #
+        # 첫 발행은 previous=None 으로 표현한다. 빈 파일이 아니다.
+        raise IcsError(
+            "이전 발행본에 VEVENT 가 하나도 없다.\n"
+            "이것을 이전본으로 받으면 모든 SEQUENCE 가 0 으로 되감긴다.\n"
+            "첫 발행이라면 previous 를 주지 말 것 (None). 파일이 비었다면 "
+            "덮어써졌을 수 있으니 먼저 확인할 것."
         )
     return out
 
 
+def _read_published_event(vevent) -> PublishedEvent:
+    """VEVENT 하나 → PublishedEvent. 값 검증까지 여기서 한다."""
+    uid = str(vevent.get("UID") or "").strip()
+    if not uid:
+        raise IcsError("이전 발행본에 UID 없는 VEVENT 가 있다.")
+
+    dtstart, dtend = vevent.get("DTSTART"), vevent.get("DTEND")
+    if dtstart is None or dtend is None:
+        raise IcsError(f"이전 발행본의 {uid} 에 DTSTART 나 DTEND 가 없다.")
+
+    start, end = dtstart.dt, dtend.dt
+    for label, value in (("DTSTART", start), ("DTEND", end)):
+        # datetime 은 date 의 하위 클래스라 순서가 중요하다. 먼저 걸러야 한다.
+        #
+        # 시각이 붙은 값을 그냥 통과시키면 date 와의 비교가 늘 다르다고 나와,
+        # 실제로는 바뀐 것이 없는데 SEQUENCE 가 올라간다. 예외가 아니라 조용한
+        # 오답이라 더 나쁘다.
+        if isinstance(value, datetime):
+            raise IcsError(
+                f"이전 발행본의 {uid} 에 {label} 가 종일 날짜가 아니다: {value!r}\n"
+                "이 피드는 종일 이벤트만 낸다(DTSTART;VALUE=DATE). 파일을 확인할 것."
+            )
+        if not isinstance(value, date):
+            raise IcsError(f"이전 발행본의 {uid} 에 {label} 가 날짜가 아니다: {value!r}")
+
+    # SEQUENCE 가 없으면 RFC 5545 기본값 0 이다. 우리 피드는 항상 쓰지만
+    # 남이 손댄 파일을 받을 수도 있으므로 표준 기본값을 따른다.
+    raw_seq = vevent.get("SEQUENCE")
+    if raw_seq is None:
+        sequence = 0
+    else:
+        try:
+            sequence = int(raw_seq)
+        except (TypeError, ValueError):
+            raise IcsError(
+                f"이전 발행본의 {uid} 에 SEQUENCE 가 정수가 아니다: {raw_seq!r}"
+            ) from None
+    if sequence < 0:
+        raise IcsError(f"이전 발행본의 {uid} 에 SEQUENCE 가 음수다: {sequence}")
+
+    return PublishedEvent(
+        uid=uid,
+        dtstart=start,
+        dtend=end,
+        sequence=sequence,
+        summary=str(vevent.get("SUMMARY") or ""),
+    )
+
+
 def _sequences(pairs, published: dict) -> dict:
     """{uid: SEQUENCE}. 이전 발행본이 없으면 전부 0.
+
+    ----------------------------------------------------------------------
+    현재 설계에서 SEQUENCE 는 항상 0 이다
+    ----------------------------------------------------------------------
+    아래 +1 규칙은 지금 도달하지 않는다. UID 에 날짜가 들어 있어서
+    ({YYYYMMDD}-{token}), 날짜가 바뀌면 같은 UID 의 DTSTART 가 바뀌는 것이
+    아니라 이전 UID 가 사라지고 새 UID 가 생긴다. 그러면 아래 "사라진 UID"
+    검사에 먼저 걸려 빌드가 중단된다.
+
+    그래서 이 함수가 실제로 내는 값은 0 뿐이다. +1 이 작동하고 있다고 읽지 말 것.
+
+    규칙을 남겨 두는 이유는 UID 규칙이 바뀔 경우를 위해서다. 지우면 그때
+    같은 판단을 처음부터 다시 해야 하고, 남겨 두면 UID 에서 날짜가 빠지는
+    순간 이 규칙이 그대로 살아난다.
+    DESIGN.md 의 seq-증가-도달불가 참조.
 
     ----------------------------------------------------------------------
     날짜가 바뀐 것만 올린다
@@ -239,6 +308,11 @@ def _sequences(pairs, published: dict) -> dict:
     달라진 것이 아니고, 구독자 입장에서 다시 알림을 받을 일이 아니다.
     잠정(STATUS:TENTATIVE)이 확정으로 바뀌는 것도 여기 해당한다 — 날짜가 그대로면
     구독자가 이미 잡아 둔 일정은 유효하다.
+
+    이 선택에는 반론이 있다. SEQUENCE 가 개정 순서를 뜻하므로 내용이 바뀐
+    발행본을 같은 번호로 내면 클라이언트가 어느 쪽이 최신인지 가릴 근거가
+    없고, 특히 TENTATIVE → 확정은 상태 변경이라는 것이다.
+    실제 구독으로 확인한 뒤 다시 본다. DESIGN.md 의 seq-내용변경-정책 참조.
 
     ----------------------------------------------------------------------
     이전에 있던 UID 가 사라지면 멈춘다

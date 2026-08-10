@@ -11,6 +11,9 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import subprocess
+import sys
+from pathlib import Path
 
 import pytest
 from icalendar import Calendar
@@ -643,7 +646,8 @@ def test_events_are_all_day_with_an_exclusive_end():
         assert end == (parsed + dt.timedelta(days=1)).strftime("%Y%m%d")
 
 
-def test_every_event_is_free_and_sequence_zero():
+def test_first_publication_marks_every_event_free_and_sequence_zero():
+    """previous 없는 첫 발행 기준이다. SEQUENCE 가 늘 0 이라는 뜻이 아니다."""
     for block in _events(_build()):
         assert _prop(block, "TRANSP") == "TRANSPARENT"
         assert _prop(block, "X-MICROSOFT-CDO-BUSYSTATUS") == "FREE"
@@ -851,12 +855,202 @@ def test_a_negative_sequence_in_the_previous_feed_fails_the_build():
         _render([_sample()], previous=prior)
 
 
-def test_rebuilding_the_real_feed_against_itself_changes_nothing():
-    """실제 피드를 자기 자신을 이전본으로 삼아 다시 만들면 바이트가 같다.
+def test_republishing_unchanged_content_keeps_every_sequence():
+    """내용이 그대로면 SEQUENCE 가 하나도 안 움직인다.
 
-    SEQUENCE 가 도입돼도 결정성이 유지된다는 것과, 내용이 안 바뀐 재발행이
-    diff 를 만들지 않는다는 것을 함께 확인한다.
+    두 번째 발행에 다른 DTSTAMP 를 준다. 같은 값을 쓰면 바이트가 같은 것만
+    확인하게 되는데, 실제 재발행은 시계를 다시 읽으므로 DTSTAMP 가 늘 다르다.
+    같은 값으로 확인해 놓고 "무변경 재발행은 diff 가 없다"고 적으면 코드가
+    하지 않는 주장을 하는 것이 된다.
+
+    실제로 달라지는 것은 DTSTAMP 뿐이다. 그것까지 여기서 못 박는다.
     """
+    later = dt.datetime(2026, 9, 1, 12, 0, tzinfo=dt.UTC)
+
     first = feed.build(today=TODAY, dtstamp=DTSTAMP)
-    again = feed.build(today=TODAY, dtstamp=DTSTAMP, previous=first)
-    assert again == first
+    again = feed.build(today=TODAY, dtstamp=later, previous=first)
+
+    assert _sequences(again) == _sequences(first)
+    assert set(_sequences(again).values()) == {0}
+
+    # DTSTAMP 만 빼면 완전히 같아야 한다.
+    def _without_dtstamp(raw):
+        return [ln for ln in raw.decode().split("\r\n") if not ln.startswith("DTSTAMP:")]
+
+    assert _without_dtstamp(again) == _without_dtstamp(first)
+    assert again != first, "DTSTAMP 가 반영되지 않았다"
+
+
+def test_adding_a_future_year_leaves_existing_uids_and_sequences_alone():
+    """상한이 늘어 새 연도가 들어와도 기존 UID 와 SEQUENCE 가 그대로인지.
+
+    피드는 해마다 다시 발행되고 그때마다 뒤쪽 연도가 하나씩 붙는다. 그 흔한
+    변화가 기존 이벤트를 건드리면 구독자 캘린더 전체가 흔들린다.
+    """
+    first = feed.build(today=TODAY, dtstamp=DTSTAMP)  # ~2031
+    grown = feed.build(today=dt.date(2027, 8, 10), dtstamp=DTSTAMP, previous=first)  # ~2032
+
+    before, after = _sequences(first), _sequences(grown)
+    assert set(before) < set(after), "새 연도가 붙지 않았다"
+    for uid, seq in before.items():
+        assert after[uid] == seq, f"{uid} 의 SEQUENCE 가 움직였다"
+
+    added = set(after) - set(before)
+    assert added and all(uid.startswith("2032") for uid in added), sorted(added)[:3]
+    assert all(after[uid] == 0 for uid in added)
+
+
+def test_an_empty_previous_calendar_fails_the_build():
+    """파싱은 되는데 VEVENT 가 0 건인 이전본은 받지 않는다.
+
+    받으면 모든 UID 가 "처음 보는 것"이 되어 SEQUENCE 가 전부 0 으로 되감긴다.
+    파싱 실패와 결과가 같으므로 같이 막는다. 첫 발행은 previous=None 이다.
+    """
+    empty = b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\nEND:VCALENDAR\r\n"
+    with pytest.raises(ics.IcsError, match="VEVENT 가 하나도 없다"):
+        _render([_sample()], previous=empty)
+
+
+def test_a_non_integer_sequence_in_the_previous_feed_fails_the_build():
+    """SEQUENCE 가 정수가 아니면 IcsError. 라이브러리 예외가 새어 나가면 안 된다."""
+    prior = _published(
+        "20300101-alpha@holidays.lunalism.com", dt.date(2030, 1, 1), dt.date(2030, 1, 2), 0
+    ).replace(b"SEQUENCE:0", b"SEQUENCE:abc")
+    with pytest.raises(ics.IcsError, match="SEQUENCE 가 정수가 아니다"):
+        _render([_sample()], previous=prior)
+
+
+def test_a_timed_dtstart_in_the_previous_feed_fails_the_build():
+    """DTSTART 에 시각이 붙어 있으면 IcsError.
+
+    그냥 통과시키면 date 와의 비교가 늘 다르다고 나와, 바뀐 것이 없는데도
+    SEQUENCE 가 올라간다. 예외가 아니라 조용한 오답이라 더 나쁘다.
+    """
+    timed = (
+        b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\nBEGIN:VEVENT\r\n"
+        b"UID:20300101-alpha@holidays.lunalism.com\r\n"
+        b"DTSTART:20300101T090000Z\r\nDTEND:20300101T100000Z\r\n"
+        b"SEQUENCE:2\r\nDTSTAMP:20260810T000000Z\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+    )
+    with pytest.raises(ics.IcsError, match="종일 날짜가 아니다"):
+        _render([_sample()], previous=timed)
+
+
+# ---------------------------------------------------------------------------
+# publish() — 실제 발행 경로
+#
+# stdout 리다이렉션을 쓸 수 없다. 이 피드는 자기 자신의 직전 판을 입력으로
+# 받는데, 셸의 `> feeds/kr.ics` 는 프로세스가 뜨기 전에 그 파일을 비운다.
+# 읽을 이전본이 사라진 뒤에 프로그램이 시작하는 것이다.
+# ---------------------------------------------------------------------------
+
+
+def test_publish_writes_the_feed_and_returns_the_path(tmp_path):
+    target = tmp_path / "kr.ics"
+    written = feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
+
+    assert written == target
+    assert target.read_bytes() == feed.build(today=TODAY, dtstamp=DTSTAMP)
+
+
+def test_publish_reads_the_previous_file_before_replacing_it(tmp_path):
+    """두 번째 발행이 첫 번째를 이전본으로 읽는지.
+
+    읽기가 쓰기보다 먼저여야 한다. 순서가 뒤집히면 자기가 방금 쓴 것을
+    이전본으로 읽게 되고 SEQUENCE 가 의미를 잃는다.
+    """
+    target = tmp_path / "kr.ics"
+    feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
+    first = target.read_bytes()
+
+    later = dt.datetime(2026, 9, 1, 12, 0, tzinfo=dt.UTC)
+    feed.publish(today=TODAY, dtstamp=later, path=target)
+    second = target.read_bytes()
+
+    assert _sequences(second) == _sequences(first)
+    assert second != first  # DTSTAMP 는 달라진다
+
+
+def test_publish_leaves_no_temp_file_behind(tmp_path):
+    target = tmp_path / "kr.ics"
+    feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
+    assert [p.name for p in tmp_path.iterdir()] == ["kr.ics"]
+
+
+def test_publish_does_not_destroy_the_previous_feed_when_the_build_fails(tmp_path):
+    """빌드가 실패하면 기존 발행본이 그대로 남아야 한다.
+
+    이것이 stdout 리다이렉션과 갈리는 지점이다. 셸이라면 이미 비운 뒤였다.
+    """
+    target = tmp_path / "kr.ics"
+    feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
+    intact = target.read_bytes()
+
+    with pytest.raises(ics.IcsError):
+        feed.publish(today=TODAY, dtstamp=dt.datetime(2026, 8, 10), path=target)  # naive
+
+    assert target.read_bytes() == intact
+
+
+def _run_entry_point(target: Path):
+    return subprocess.run(
+        [sys.executable, "-m", "rules.kr.feed", str(target)],
+        cwd=Path(__file__).resolve().parents[1],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+
+def test_the_module_entry_point_publishes_to_a_file(tmp_path):
+    """python -m rules.kr.feed 가 실제로 파일을 쓰는지 subprocess 로 확인한다.
+
+    진짜 __main__ 을 돌린다. 여기서 밟지 않으면 발행 경로가 통째로 검증 밖에
+    남고, 리다이렉션 사고 같은 것이 운영에서 처음 드러난다.
+
+    시계는 여기서 고정할 수 없다(진입점이 읽는다). DTSTAMP 를 뺀 나머지가
+    우리가 기대하는 피드와 같은지로 확인한다.
+    """
+    target = tmp_path / "kr.ics"
+    done = _run_entry_point(target)
+
+    assert done.returncode == 0, done.stderr
+    assert target.exists(), done.stdout + done.stderr
+    assert str(target) in done.stdout
+
+    written = target.read_bytes()
+    assert written.startswith(b"BEGIN:VCALENDAR")
+    assert set(_sequences(written).values()) == {0}
+
+
+def test_the_entry_point_can_run_twice_against_the_same_file(tmp_path):
+    """진입점을 같은 경로로 두 번 돌려도 SEQUENCE 가 흔들리지 않는지.
+
+    `python -m rules.kr.feed > feeds/kr.ics` 였다면 두 번째에 이전본이 이미
+    비워진 뒤라 빌드가 실패했을 자리다. publish() 는 읽고 나서 바꾼다.
+    """
+    target = tmp_path / "kr.ics"
+    assert _run_entry_point(target).returncode == 0
+    first = _sequences(target.read_bytes())
+
+    second_run = _run_entry_point(target)
+    assert second_run.returncode == 0, second_run.stderr
+    assert _sequences(target.read_bytes()) == first
+    assert set(first.values()) == {0}
+
+
+def test_publish_survives_being_pointed_at_its_own_output_twice(tmp_path):
+    """같은 경로로 세 번 발행해도 SEQUENCE 가 흔들리지 않는지.
+
+    stdout 리다이렉션이었다면 두 번째에 이미 깨졌을 자리다.
+    """
+    target = tmp_path / "kr.ics"
+    stamps = [
+        DTSTAMP,
+        dt.datetime(2026, 9, 1, tzinfo=dt.UTC),
+        dt.datetime(2026, 10, 1, tzinfo=dt.UTC),
+    ]
+    for stamp in stamps:
+        feed.publish(today=TODAY, dtstamp=stamp, path=target)
+
+    assert set(_sequences(target.read_bytes()).values()) == {0}
