@@ -157,6 +157,91 @@ def test_an_empty_token_is_an_error():
         ics.assign_uids([ics.Event(day=dt.date(2030, 1, 1), summary="가", kind="statutory")])
 
 
+class _FakeHoliday:
+    """Holiday 처럼 생긴 것. 달력이 만들어 주지 않는 상황을 지어내기 위한 것이다.
+
+    실제 달력에는 같은 날 대체공휴일이 둘인 자리도, 임시공휴일이 둘인 자리도
+    없다(2020~2035 전수 확인). 그래서 충돌 경로는 지어내지 않으면 밟을 수 없다.
+    """
+
+    def __init__(self, name, kind, key="", source_key=""):
+        self.name = name
+        self.kind = kind
+        self.key = key
+        self.source_key = source_key
+
+
+def _collision_message(day, holidays) -> str:
+    """feed 의 실제 Event 생성 경로를 태워서 충돌을 일으키고 메시지를 돌려준다."""
+    events = [feed._event(day, h, provisional=False) for h in holidays]
+    with pytest.raises(ics.IcsError) as exc:
+        ics.assign_uids(events)
+    return str(exc.value)
+
+
+def test_two_substitutes_on_one_day_report_what_collided():
+    """같은 날 대체공휴일 2 건 → IcsError, 메시지에 무엇이 부딪혔는지 다 나온다.
+
+    이 경우가 가장 알아보기 어렵다. name 과 kind 가 똑같고 source_key 만 다르다.
+    token 목록만 찍으면 ['sub', 'sub'] 라 어느 데이터를 봐야 할지 알 수 없다.
+    """
+    day = dt.date(2025, 5, 6)
+    message = _collision_message(
+        day,
+        [
+            _FakeHoliday("대체공휴일", "substitute", source_key="childrens_day"),
+            _FakeHoliday("대체공휴일", "substitute", source_key="buddhas_birthday"),
+        ],
+    )
+
+    assert "2025-05-06" in message
+    assert "sub" in message
+    assert message.count("name='대체공휴일'") == 2
+    assert message.count("kind='substitute'") == 2
+    assert "source_key='childrens_day'" in message
+    assert "source_key='buddhas_birthday'" in message
+    assert "key=''" in message
+
+    assert "같은 날 같은 token 은 자동 구분하지 않는다." in message
+    assert "데이터 입력 오류인지 확인하고, 실제로 별개 공휴일이라면" in message
+    assert "UID 규칙을 사람이 결정해야 한다." in message
+
+
+def test_two_temporary_holidays_on_one_day_report_what_collided():
+    """같은 날 임시공휴일 2 건도 같다. 여기서는 name 이 갈릴 수 있다."""
+    day = dt.date(2025, 1, 27)
+    message = _collision_message(
+        day,
+        [
+            _FakeHoliday("임시공휴일", "temporary"),
+            _FakeHoliday("임시공휴일(가칭)", "temporary"),
+        ],
+    )
+
+    assert "2025-01-27" in message
+    assert "tmp" in message
+    assert "name='임시공휴일'" in message
+    assert "name='임시공휴일(가칭)'" in message
+    assert message.count("kind='temporary'") == 2
+    assert "같은 날 같은 token 은 자동 구분하지 않는다." in message
+    assert "UID 규칙을 사람이 결정해야 한다." in message
+
+
+def test_the_collision_message_only_lists_the_clashing_items():
+    """충돌하지 않은 항목까지 늘어놓지 않는다. 봐야 할 것만 남긴다."""
+    day = dt.date(2025, 5, 6)
+    message = _collision_message(
+        day,
+        [
+            _FakeHoliday("어린이날", "statutory", key="childrens_day"),
+            _FakeHoliday("대체공휴일", "substitute", source_key="a"),
+            _FakeHoliday("대체공휴일", "substitute", source_key="b"),
+        ],
+    )
+    assert "어린이날" not in message
+    assert message.count("kind='substitute'") == 2
+
+
 def test_an_unmapped_kind_without_a_key_is_an_error():
     """key 도 없고 약어 규칙도 없으면 지어내지 않고 터진다."""
 

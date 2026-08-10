@@ -154,6 +154,26 @@ def _description(day: date, holiday) -> str:
     return _designated_description(day, holiday)
 
 
+def _event(day: date, holiday, provisional: bool) -> ics.Event:
+    """Holiday 하나 → Event 하나."""
+    return ics.Event(
+        day=day,
+        # SUMMARY 는 Holiday.name 그대로다. 대체공휴일은 "대체공휴일" 이고
+        # 원인 공휴일명을 붙이지 않는다(위 3호-귀속-불명).
+        summary=holiday.name,
+        kind=holiday.kind,
+        description=_description(day, holiday),
+        provisional=provisional,
+        # UID 의 뒷부분. 항목 자체에서 나오므로 같은 날 다른 항목이
+        # 생기거나 없어져도 변하지 않는다. _token() 참조.
+        token=_token(holiday),
+        # 진단 전용. token 이 겹쳐 멈출 때 어느 데이터를 봐야 하는지 알려 준다.
+        # 두 대체공휴일이 부딪히면 name·kind 는 똑같고 source_key 만 다르므로,
+        # 이 줄이 없으면 무엇이 부딪혔는지 구분되지 않는다.
+        origin=f"key={holiday.key!r} source_key={holiday.source_key!r}",
+    )
+
+
 def events(start: date, end: date) -> list:
     """구간 안의 모든 이벤트. 날짜 오름차순.
 
@@ -164,25 +184,12 @@ def events(start: date, end: date) -> list:
     out = []
     day = start
     while day <= end:
+        # 항목의 provisional 과 같은 값이지만 날짜 축에서 직접 묻는다.
+        # holidays_on() 은 확정 구간 안에서는 플래그를 찍지 않고 그대로
+        # 돌려주므로, 항목 쪽만 보면 두 경로가 생긴다.
         provisional = hc.is_provisional(day)
         for holiday in hc.holidays_on(day):
-            out.append(
-                ics.Event(
-                    day=day,
-                    # SUMMARY 는 Holiday.name 그대로다. 대체공휴일은 "대체공휴일"
-                    # 이고 원인 공휴일명을 붙이지 않는다(위 3호-귀속-불명).
-                    summary=holiday.name,
-                    kind=holiday.kind,
-                    description=_description(day, holiday),
-                    # 항목의 provisional 과 같은 값이지만 날짜 축에서 직접 묻는다.
-                    # holidays_on() 은 확정 구간 안에서는 플래그를 찍지 않고
-                    # 그대로 돌려주므로, 항목 쪽만 보면 두 경로가 생긴다.
-                    provisional=provisional,
-                    # UID 의 뒷부분. 항목 자체에서 나오므로 같은 날 다른 항목이
-                    # 생기거나 없어져도 변하지 않는다. _token() 참조.
-                    token=_token(holiday),
-                )
-            )
+            out.append(_event(day, holiday, provisional))
         day = day.fromordinal(day.toordinal() + 1)
     return out
 

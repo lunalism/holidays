@@ -75,6 +75,28 @@ class Event:
     # 생기거나 없어져도 변하지 않아야 한다. assign_uids() 참조.
     token: str = ""
 
+    # 진단 전용. token 이 겹쳐 멈출 때 무엇이 부딪혔는지 사람이 알아볼 수 있게
+    # 하는 한 줄이다. 계산에도 출력에도 쓰지 않는다 — .ics 에 실리지 않는다.
+    #
+    # 무엇을 담을지는 Event 를 짓는 쪽이 정한다. core 는 국가별 필드 이름을
+    # 알지 못하고, 알게 되면 여기에 국가 지식이 들어온다.
+    origin: str = ""
+
+
+def _describe(events) -> str:
+    """충돌한 항목들을 사람이 읽을 수 있게 늘어놓는다.
+
+    token 목록만 찍으면 ['sub', 'sub'] 가 되어 무엇이 부딪혔는지 알 수 없다.
+    멈춘 사람이 바로 데이터를 찾아갈 수 있어야 한다.
+    """
+    lines = []
+    for event in events:
+        detail = f"    name={event.summary!r} kind={event.kind!r}"
+        if event.origin:
+            detail += f" {event.origin}"
+        lines.append(f"  token={event.token!r}\n{detail}")
+    return "\n".join(lines)
+
 
 def assign_uids(events) -> list:
     """[(Event, uid)] — 파일에 실릴 순서대로.
@@ -117,13 +139,24 @@ def assign_uids(events) -> list:
         members = sorted(members, key=lambda e: e.token)
 
         tokens = [e.token for e in members]
-        if not all(tokens):
-            raise IcsError(f"{day.isoformat()}: token 이 빈 이벤트가 있다. {tokens}")
-        if len(set(tokens)) != len(tokens):
+        blank = [e for e in members if not e.token]
+        if blank:
             raise IcsError(
-                f"{day.isoformat()}: token 이 겹쳐 UID 가 같아진다.\n"
-                f"  {tokens}\n"
-                "임의로 접미사를 붙이지 않는다. 그 접미사가 다시 위치 기반이 된다."
+                f"{day.isoformat()}: token 이 빈 이벤트가 있다. UID 가 날짜만 남는다.\n"
+                + _describe(blank)
+            )
+
+        clashing = {t for t in tokens if tokens.count(t) > 1}
+        if clashing:
+            raise IcsError(
+                f"{day.isoformat()}: token 이 겹쳐 UID 가 같아진다 "
+                f"— {', '.join(sorted(clashing))}\n"
+                + _describe([e for e in members if e.token in clashing])
+                + "\n같은 날 같은 token 은 자동 구분하지 않는다.\n"
+                "데이터 입력 오류인지 확인하고, 실제로 별개 공휴일이라면\n"
+                "UID 규칙을 사람이 결정해야 한다.\n"
+                "임의로 접미사를 붙이지 않는다 — 그 접미사가 다시 위치 기반이 되어,\n"
+                "다음에 항목이 하나 늘면 남의 UID 까지 밀려난다."
             )
 
         for event in members:
