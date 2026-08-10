@@ -42,9 +42,16 @@ TZID = "Asia/Seoul"
 
 _WHITESPACE = re.compile(r"\s+")
 
-# key 가 없는 항목의 UID token. 지정 표(임시공휴일·선거일)와 대체공휴일이
-# 여기 해당한다. 셋 다 substitute_holidays.yaml 의 holidays 레지스트리에 없어서
-# key 가 빈 문자열이다.
+# 대체공휴일의 UID token. kind 에서 나오는 유일한 token 이고, 여기 남아 있는
+# 이유는 대체공휴일이 데이터가 아니라 규칙에서 유도되는 항목이라 표에 적어 둘
+# 자리가 없어서다.
+#
+# 지정 공휴일(임시공휴일·선거일)에는 전에 tmp/elc 를 썼다. 지웠다.
+# 그건 우리 판정 결과라서 kind 가 정정되면 UID 가 함께 바뀌었다. 지금은
+# designated_holidays.yaml 의 uid_token 을 쓴다.
+#
+# substitute 는 그 문제가 없다. 대체공휴일이 대체공휴일이 아니게 되는 정정은
+# 항목이 사라지는 것이지 kind 가 옮겨가는 것이 아니다.
 #
 # statutory 는 여기 없다. 양력·음력 표에서 오는 항목은 전부 key 를 갖는다.
 # 그런데도 key 없는 statutory 가 들어오면 _token() 이 터진다. 약어를 하나
@@ -52,8 +59,6 @@ _WHITESPACE = re.compile(r"\s+")
 # 같은 날 statutory 가 둘이면 UID 가 충돌한다.
 _KIND_ABBREV = {
     hc.KIND_SUBSTITUTE: "sub",
-    "temporary": "tmp",
-    "election": "elc",
 }
 
 
@@ -79,23 +84,31 @@ def _token(holiday) -> str:
     (holiday_calendar.py:524-526). 그래서 UID 에 쓰기 적합하다. 바꾸면 이미
     대체공휴일 유도가 깨지므로, UID 만 조용히 바뀌는 일이 생기지 않는다.
 
-    key 가 없으면 kind 약어를 쓴다. 지정 표와 대체공휴일이 그런데, 셋 다 같은
-    날 같은 kind 가 둘 있을 수 없어 그것으로 충분하다. 겹치면 assign_uids() 가
-    멈춘다. 2020~2035 전수로 겹치는 자리가 없음을 확인했다.
+    key 가 없으면 uid_token 을 본다. 지정 공휴일(임시공휴일·선거일)이 그렇고,
+    designated_holidays.yaml 이 항목마다 들고 있다. kind 에서 유도하지 않는
+    것이 요점이다 — 전에는 tmp/elc 를 썼는데, kind 는 우리 판정이라
+    선거일-kind-판정 이 풀려 temporary 가 election 으로 옮겨가면 UID 가 함께
+    바뀌었다. 2025-06-03 이 실제로 그 후보다.
+
+    대체공휴일만 kind 에서 나온다(sub). 규칙에서 유도되는 항목이라 표에 적어
+    둘 자리가 없고, 대체공휴일이 다른 kind 로 옮겨가는 정정은 없다.
 
     이름(name)은 쓰지 않는다. 표기가 흔들리는 값이라(신정 → 1월1일,
     석가탄신일 → 부처님오신날) 표기 정정이 UID 변경이 된다.
     """
     if holiday.key:
         return holiday.key
-    try:
+    if getattr(holiday, "uid_token", ""):
+        return holiday.uid_token
+    if holiday.kind in _KIND_ABBREV:
         return _KIND_ABBREV[holiday.kind]
-    except KeyError:
-        raise ics.IcsError(
-            f"key 가 없는데 kind {holiday.kind!r} 의 UID token 규칙이 없다: {holiday.name!r}.\n"
-            "약어를 지어 붙이지 말 것 — 어느 공휴일인지 구분되지 않는 UID 가 생기고, "
-            "같은 날 같은 kind 가 둘이면 충돌한다. _KIND_ABBREV 를 보고 판단할 것."
-        ) from None
+    raise ics.IcsError(
+        f"UID token 을 정할 수 없다: {holiday.name!r} (kind={holiday.kind!r}).\n"
+        "key 도 uid_token 도 없다. 지정 공휴일이면 designated_holidays.yaml 에 "
+        "uid_token 을 넣을 것.\n"
+        "약어를 지어 붙이지 말 것 — 어느 공휴일인지 구분되지 않는 UID 가 생기고, "
+        "같은 날 같은 kind 가 둘이면 충돌한다."
+    )
 
 
 def _substitute_description(day: date, holiday) -> str:
@@ -170,7 +183,10 @@ def _event(day: date, holiday, provisional: bool) -> ics.Event:
         # 진단 전용. token 이 겹쳐 멈출 때 어느 데이터를 봐야 하는지 알려 준다.
         # 두 대체공휴일이 부딪히면 name·kind 는 똑같고 source_key 만 다르므로,
         # 이 줄이 없으면 무엇이 부딪혔는지 구분되지 않는다.
-        origin=f"key={holiday.key!r} source_key={holiday.source_key!r}",
+        origin=(
+            f"key={holiday.key!r} uid_token={getattr(holiday, 'uid_token', '')!r} "
+            f"source_key={holiday.source_key!r}"
+        ),
     )
 
 

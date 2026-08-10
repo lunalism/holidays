@@ -32,6 +32,7 @@ substitute_holidays.yaml 의 sunday_in_output: false 가 그 결정이다.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, replace
 from datetime import date, timedelta
 from functools import lru_cache
@@ -90,6 +91,11 @@ class Holiday:
     kind: str
     key: str = ""
     source_key: str = ""  # 대체공휴일일 때 원인이 된 공휴일 키
+
+    # 지정 공휴일 전용. key 가 없는 항목의 .ics UID token 이다.
+    # designated_holidays.yaml 이 항목마다 들고 있고 로더가 검증한다.
+    # 규칙 계산에는 쓰지 않는다 — 발행에만 쓰는 값이다.
+    uid_token: str = ""
     provisional: bool = False  # 개정 확인 시점 이후라 확정이 아님
 
     # 음력 공휴일 전용. 초하루를 정한 삭이 KST 자정에 가까워 계산 오차만으로
@@ -134,6 +140,46 @@ def _designated_raw() -> dict:
     return _read(DESIGNATED_PATH)
 
 
+# uid_token 형식. 소문자·숫자·밑줄만 받는다. UID 에 그대로 실리는 값이라
+# 대문자나 기호가 섞이면 같은 공휴일이 표기만 다른 UID 로 나갈 수 있다.
+_UID_TOKEN_RE = re.compile(r"^[a-z][a-z0-9_]*$")
+
+# kind 이름과 그 약어는 token 이 될 수 없다. token 은 "그날 무슨 일이 있었나"를
+# 가리켜야 하고, kind 는 우리 판정 결과라 정정될 수 있다. kind 에서 유도한
+# token 을 쓰면 그 정정이 곧 UID 변경이 된다.
+# designated_holidays.yaml 의 uid_token 설명 참조.
+_FORBIDDEN_UID_TOKENS = frozenset({"temporary", "election", "tmp", "elc"})
+
+
+def _check_uid_token(entry: dict) -> None:
+    """지정 공휴일 항목의 uid_token 을 검증한다. 문제가 있으면 로드 시점에 멈춘다.
+
+    발행 시점이 아니라 로드 시점인 것이 요점이다. 발행까지 가면 이미 잘못된
+    UID 로 파일이 만들어진 뒤이고, 그 파일이 나가면 되돌릴 수 없다.
+    """
+    where = f"designated_holidays.yaml: {entry.get('date')} {entry.get('name')!r}"
+    token = entry.get("uid_token")
+
+    if not token:
+        raise CalendarError(
+            f"{where}: uid_token 이 없다.\n"
+            "이 표의 항목은 key 가 없으므로 UID token 을 여기서 주어야 한다. "
+            "kind 로 대신하지 말 것 — kind 는 정정될 수 있고 그때 UID 가 바뀐다."
+        )
+    if token.lower() in _FORBIDDEN_UID_TOKENS:
+        raise CalendarError(
+            f"{where}: uid_token 으로 {token!r} 를 쓸 수 없다.\n"
+            f"금지값: {', '.join(sorted(_FORBIDDEN_UID_TOKENS))}\n"
+            "kind 이름과 그 약어는 우리 판정 결과라 정정되면 UID 가 함께 바뀐다. "
+            "그날 무슨 일이 있었는지로 이름 붙일 것."
+        )
+    if not _UID_TOKEN_RE.match(token):
+        raise CalendarError(
+            f"{where}: uid_token {token!r} 이 형식에 맞지 않는다. "
+            f"소문자로 시작하는 [a-z0-9_] 만 쓸 것 ({_UID_TOKEN_RE.pattern})."
+        )
+
+
 @lru_cache(maxsize=1)
 def _solar() -> tuple:
     raw = _solar_raw()
@@ -157,7 +203,19 @@ def _designated() -> dict:
     for h in raw["holidays"]:
         if h["kind"] not in kinds:
             raise CalendarError(f"designated_holidays.yaml: 모르는 kind {h['kind']!r}")
+        _check_uid_token(h)
         by_date.setdefault(h["date"], []).append(h)
+
+    for day, entries in by_date.items():
+        tokens = [e["uid_token"] for e in entries]
+        clashing = sorted({t for t in tokens if tokens.count(t) > 1})
+        if clashing:
+            raise CalendarError(
+                f"designated_holidays.yaml: {day} 에 uid_token 이 겹친다 "
+                f"— {', '.join(clashing)}\n"
+                "같은 날 같은 token 은 UID 가 같아져 캘린더에서 하나가 덮인다. "
+                "둘 중 하나에 다른 token 을 줄 것."
+            )
     return {"kinds": kinds, "by_date": by_date}
 
 
@@ -546,7 +604,9 @@ def _base_holidays(year: int) -> dict:
         if day.year != year:
             continue
         for e in entries:
-            out.setdefault(day, []).append(Holiday(name=e["name"], kind=e["kind"], key=""))
+            out.setdefault(day, []).append(
+                Holiday(name=e["name"], kind=e["kind"], key="", uid_token=e["uid_token"])
+            )
     return out
 
 

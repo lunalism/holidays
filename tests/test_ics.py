@@ -122,26 +122,79 @@ def test_the_uid_token_comes_from_the_holiday_key():
     assert by_uid["20250505-buddhas_birthday@holidays.lunalism.com"] == "부처님오신날"
 
 
-def test_the_uid_token_falls_back_to_a_kind_abbreviation():
-    """key 가 없는 항목은 kind 약어를 쓴다. 대체공휴일·선거일·임시공휴일이다."""
+def test_designated_holidays_use_their_uid_token():
+    """key 가 없는 지정 공휴일은 designated_holidays.yaml 의 uid_token 을 쓴다."""
     text = _build()
-    assert _prop(_on(text, "20270209")[0], "UID") == "20270209-sub@holidays.lunalism.com"
-    assert _prop(_on(text, "20260603")[0], "UID") == "20260603-elc@holidays.lunalism.com"
-    assert _prop(_on(text, "20250127")[0], "UID") == "20250127-tmp@holidays.lunalism.com"
+    assert (
+        _prop(_on(text, "20260603")[0], "UID")
+        == "20260603-local_election@holidays.lunalism.com"
+    )
+    assert (
+        _prop(_on(text, "20250127")[0], "UID")
+        == "20250127-cabinet_designated@holidays.lunalism.com"
+    )
+    # 2015-08-14 은 발행 범위 밖이라 events() 로 직접 본다.
+    (liberation,) = feed.events(dt.date(2015, 8, 14), dt.date(2015, 8, 14))
+    assert liberation.token == "liberation_70th"
+
+
+def test_only_substitutes_still_take_their_token_from_kind():
+    """대체공휴일만 kind 에서 token 이 나온다. 나머지 약어는 전부 지웠다."""
+    assert feed._KIND_ABBREV == {"substitute": "sub"}
+    assert _prop(_on(_build(), "20270209")[0], "UID") == "20270209-sub@holidays.lunalism.com"
 
 
 def test_the_uid_carries_no_positional_number_and_no_kind():
-    """UID 에 위치 기반 순번도, kind 이름도 들어 있지 않은지.
+    """UID 가 위치에도 kind 에도 기대지 않는지.
 
-    순번이 들어가면 같은 날 항목이 늘고 줄 때 남의 UID 가 밀린다.
-    kind 가 들어가면 우리 판정이 바뀔 때 UID 가 바뀐다.
+    전에는 UID 문자열에 'temporary'/'election' 이 없는지만 봤다. 그때 구현은
+    약어 tmp/elc 를 쓰고 있었으므로 그 검사는 통과하면서도 kind 의존을 놓쳤다.
+    이름만 보고 안심하게 만드는 테스트였다.
+
+    이제 실제로 확인한다 — kind 만 바꾼 같은 항목이 같은 token 을 내는가.
     """
     for block in _events(_build()):
         uid = _prop(block, "UID")
         token = uid.split("@")[0].split("-", 1)[1]
         assert not token.isdigit(), f"위치 기반 순번으로 보인다: {uid}"
-        for kind in ("statutory", "substitute", "temporary", "election"):
-            assert kind not in uid, uid
+
+    # kind 만 다르고 나머지가 같은 항목 둘. token 이 같아야 한다.
+    base = dict(name="임시공휴일", key="", source_key="", uid_token="liberation_70th")
+    as_temporary = feed._token(_FakeHoliday(kind="temporary", **base))
+    as_election = feed._token(_FakeHoliday(kind="election", **base))
+    assert as_temporary == as_election == "liberation_70th"
+
+
+def test_reclassifying_2025_06_03_does_not_change_its_uid():
+    """2025-06-03 을 temporary 에서 election 으로 바꿔도 UID 가 그대로인지.
+
+    designated_holidays.yaml 의 선거일-kind-판정 이 실제로 이 항목을 가리킨다.
+    제21대 대통령선거일인데 궐위 선거라 지금은 temporary 로 두었고, 그 해석이
+    정정되면 election 이 된다. 그때 UID 가 바뀌면 구독자 캘린더에서 이벤트가
+    지워졌다가 새로 생긴다.
+
+    uid_token 이 'presidential_election' 인 이유가 이것이다 — 우리 분류가
+    아니라 그날 있었던 일을 가리킨다.
+    """
+    day = dt.date(2025, 6, 3)
+    (real,) = feed.events(day, day)
+    assert real.kind == "temporary", "전제가 바뀌었다. 이 테스트를 다시 볼 것."
+    assert real.token == "presidential_election"
+
+    reclassified = feed._event(
+        day,
+        _FakeHoliday(
+            name="제21대 대통령선거",
+            kind="election",
+            uid_token="presidential_election",
+        ),
+        provisional=False,
+    )
+    assert reclassified.token == real.token
+    assert ics.assign_uids([reclassified])[0][1] == ics.assign_uids([real])[0][1]
+    assert ics.assign_uids([real])[0][1] == (
+        "20250603-presidential_election@holidays.lunalism.com"
+    )
 
 
 def test_a_duplicate_token_on_one_day_is_an_error():
@@ -164,11 +217,12 @@ class _FakeHoliday:
     없다(2020~2035 전수 확인). 그래서 충돌 경로는 지어내지 않으면 밟을 수 없다.
     """
 
-    def __init__(self, name, kind, key="", source_key=""):
+    def __init__(self, name="무언가", kind="temporary", key="", source_key="", uid_token=""):
         self.name = name
         self.kind = kind
         self.key = key
         self.source_key = source_key
+        self.uid_token = uid_token
 
 
 def _collision_message(day, holidays) -> str:
@@ -208,18 +262,18 @@ def test_two_substitutes_on_one_day_report_what_collided():
 
 
 def test_two_temporary_holidays_on_one_day_report_what_collided():
-    """같은 날 임시공휴일 2 건도 같다. 여기서는 name 이 갈릴 수 있다."""
+    """같은 날 임시공휴일 2 건도 같다. 여기서는 uid_token 이 같아야 부딪힌다."""
     day = dt.date(2025, 1, 27)
     message = _collision_message(
         day,
         [
-            _FakeHoliday("임시공휴일", "temporary"),
-            _FakeHoliday("임시공휴일(가칭)", "temporary"),
+            _FakeHoliday("임시공휴일", "temporary", uid_token="cabinet_designated"),
+            _FakeHoliday("임시공휴일(가칭)", "temporary", uid_token="cabinet_designated"),
         ],
     )
 
     assert "2025-01-27" in message
-    assert "tmp" in message
+    assert "cabinet_designated" in message
     assert "name='임시공휴일'" in message
     assert "name='임시공휴일(가칭)'" in message
     assert message.count("kind='temporary'") == 2
@@ -242,16 +296,104 @@ def test_the_collision_message_only_lists_the_clashing_items():
     assert message.count("kind='substitute'") == 2
 
 
-def test_an_unmapped_kind_without_a_key_is_an_error():
-    """key 도 없고 약어 규칙도 없으면 지어내지 않고 터진다."""
+def test_a_non_substitute_without_key_or_uid_token_is_an_error():
+    """key 도 uid_token 도 없는 non-substitute 는 지어내지 않고 터진다."""
+    with pytest.raises(ics.IcsError, match="UID token 을 정할 수 없다"):
+        feed._token(_FakeHoliday(name="무언가", kind="brand_new_kind"))
 
-    class _Fake:
-        key = ""
-        kind = "brand_new_kind"
-        name = "무언가"
+    # temporary 도 예외가 아니다. 약어 폴백을 지웠으므로 uid_token 이 필수다.
+    with pytest.raises(ics.IcsError, match="UID token 을 정할 수 없다"):
+        feed._token(_FakeHoliday(name="임시공휴일", kind="temporary"))
 
-    with pytest.raises(ics.IcsError, match="UID token 규칙이 없다"):
-        feed._token(_Fake())
+
+# ---------------------------------------------------------------------------
+# designated_holidays.yaml 의 uid_token 검증 — 로드 시점에 막는다
+#
+# 발행 시점이 아니라 로드 시점이어야 한다. 발행까지 가면 잘못된 UID 로 파일이
+# 이미 만들어진 뒤이고, 그 파일이 나가면 되돌릴 수 없다.
+# ---------------------------------------------------------------------------
+
+
+def _entry(day, name="임시공휴일", kind="temporary", **extra):
+    return {"date": day, "name": name, "kind": kind, **extra}
+
+
+def _load_designated(entries):
+    """_designated() 의 검증을 임의 항목으로 태운다. 실제 YAML 은 건드리지 않는다."""
+    raw = {
+        "kinds": {"temporary": {}, "election": {}},
+        "holidays": entries,
+    }
+    hc._designated.cache_clear()
+    hc._designated_raw.cache_clear()
+    original = hc._designated_raw
+    hc._designated_raw = lambda: raw
+    try:
+        return hc._designated()
+    finally:
+        hc._designated_raw = original
+        hc._designated.cache_clear()
+        hc._designated_raw.cache_clear()
+
+
+@pytest.mark.parametrize("token", ["temporary", "election", "tmp", "elc", "ELECTION", "Tmp"])
+def test_a_forbidden_uid_token_is_rejected_at_load_time(token):
+    """kind 이름과 그 약어는 uid_token 이 될 수 없다. 대소문자도 가리지 않는다.
+
+    kind 는 우리 판정 결과라 정정될 수 있고, kind 에서 유도한 token 을 쓰면
+    그 정정이 곧 UID 변경이 된다. 그게 이 규칙이 있는 이유다.
+    """
+    with pytest.raises(hc.CalendarError, match="쓸 수 없다"):
+        _load_designated([_entry(dt.date(2030, 1, 1), uid_token=token)])
+
+
+@pytest.mark.parametrize("token", ["Liberation", "70th_liberation", "has-dash", "has space", "_x"])
+def test_a_malformed_uid_token_is_rejected_at_load_time(token):
+    """소문자로 시작하는 [a-z0-9_] 만 받는다. UID 에 그대로 실리는 값이다."""
+    with pytest.raises(hc.CalendarError, match="형식에 맞지 않는다"):
+        _load_designated([_entry(dt.date(2030, 1, 1), uid_token=token)])
+
+
+def test_a_missing_uid_token_is_rejected_at_load_time():
+    """지정 공휴일에는 uid_token 이 필수다. key 가 없으므로 대신할 것이 없다."""
+    with pytest.raises(hc.CalendarError, match="uid_token 이 없다"):
+        _load_designated([_entry(dt.date(2030, 1, 1))])
+
+
+def test_two_entries_on_one_day_may_not_share_a_uid_token():
+    """같은 날 uid_token 이 겹치면 로드 시점에 막는다. UID 가 같아진다."""
+    with pytest.raises(hc.CalendarError, match="uid_token 이 겹친다"):
+        _load_designated(
+            [
+                _entry(dt.date(2030, 1, 1), name="가", uid_token="cabinet_designated"),
+                _entry(dt.date(2030, 1, 1), name="나", uid_token="cabinet_designated"),
+            ]
+        )
+
+
+def test_the_same_token_on_different_days_is_fine():
+    """다른 날이면 같은 token 을 써도 된다. 날짜가 UID 를 갈라 준다.
+
+    cabinet_designated 5 건이 실제로 그렇다.
+    """
+    loaded = _load_designated(
+        [
+            _entry(dt.date(2030, 1, 1), uid_token="cabinet_designated"),
+            _entry(dt.date(2030, 2, 2), uid_token="cabinet_designated"),
+        ]
+    )
+    assert len(loaded["by_date"]) == 2
+
+
+def test_the_real_table_has_a_uid_token_on_every_entry():
+    """실제 표 17 건이 전부 검증을 통과하고 금지값을 쓰지 않는지."""
+    entries = [e for day in hc._designated()["by_date"].values() for e in day]
+    assert len(entries) == 17
+    for entry in entries:
+        token = entry["uid_token"]
+        assert token
+        assert token.lower() not in {"temporary", "election", "tmp", "elc"}
+        assert re.fullmatch(r"[a-z][a-z0-9_]*", token), token
 
 
 # ---------------------------------------------------------------------------

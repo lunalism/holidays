@@ -41,6 +41,7 @@ token 을 무엇으로 할지는 국가별 결정이라 여기서 정하지 않�
 
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 
@@ -146,7 +147,7 @@ def assign_uids(events) -> list:
                 + _describe(blank)
             )
 
-        clashing = {t for t in tokens if tokens.count(t) > 1}
+        clashing = {t for t, n in Counter(tokens).items() if n > 1}
         if clashing:
             raise IcsError(
                 f"{day.isoformat()}: token 이 겹쳐 UID 가 같아진다 "
