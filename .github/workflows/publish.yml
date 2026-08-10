@@ -126,10 +126,12 @@ jobs:
           PREV="${RUNNER_TEMP}/prev.ics"
           FEED_CHANGED=0
           if [ -f feeds/kr.ics ]; then
-            if git diff --quiet -- feeds/kr.ics; then
-              # git 이 보기에도 변화가 없다(첫 발행이면 untracked 라 여기 안 온다).
-              FEED_CHANGED=0
-            elif git show HEAD:feeds/kr.ics > "$PREV" 2>/dev/null; then
+            # 추적 여부를 먼저 본다. git diff 는 untracked 파일을 아예 보지
+            # 않으므로, 첫 발행처럼 파일이 새로 생긴 경우에도 --quiet 가
+            # "변화 없음"으로 성공한다. 그걸 믿으면 첫 피드가 영원히
+            # 스테이징되지 않고, 러너가 바뀌어도 같은 일이 반복된다.
+            if git cat-file -e HEAD:feeds/kr.ics 2>/dev/null; then
+              git show HEAD:feeds/kr.ics > "$PREV"
               if diff -q <(grep -v '^DTSTAMP:' "$PREV") \
                          <(grep -v '^DTSTAMP:' feeds/kr.ics) > /dev/null; then
                 # DTSTAMP 말고는 같다. 원복해서 diff 를 남기지 않는다.
@@ -139,7 +141,7 @@ jobs:
                 FEED_CHANGED=1
               fi
             else
-              # HEAD 에 없다 = 첫 발행.
+              # HEAD 에 없다 = 첫 발행. untracked 라 git diff 로는 안 잡힌다.
               FEED_CHANGED=1
               : > "$PREV"
             fi
@@ -149,10 +151,39 @@ jobs:
           # status.json 은 generated_at 이 매번 바뀌므로 늘 커밋거리가 되고,
           # 그 커밋이 저장소를 살아 있게 해 Actions 의 60 일 비활성화를 막는다.
           # DESIGN.md 의 발행 파이프라인 참조.
-          git add -- status.json logs/build.jsonl 2>/dev/null || true
+          #
+          # 한 번에 여러 경로를 주지 않는다. git add 는 pathspec 하나가 안
+          # 맞으면 전부 취소하므로, 앞 스텝이 실패해 status.json 이 없으면
+          # build.jsonl 까지 함께 빠진다. 그러면 실패 기록이 러너를 넘어
+          # 남지 않고 연속 실패 집계가 영원히 2 에 닿지 않는다 — 실패를
+          # 시끄럽게 만들려고 넣은 장치가 통째로 죽는다.
+          #
+          # 실패를 삼키지도 않는다. || true 로 뭉개면 위와 같은 사고가 조용히
+          # 반복된다. 있는 파일만 골라 넣고, 넣은 것이 실제로 스테이징됐는지
+          # 확인한다.
+          # stage_one: 파일 하나를 인덱스에 넣고, 실제로 들어갔는지 확인한다.
+          #
+          # 확인에 git diff --cached 를 쓰지 않는다. 내용이 HEAD 와 같은 파일은
+          # 정상적으로 add 되어도 diff 에 안 나타나므로 성공과 실패를 가르지
+          # 못한다. "인덱스에 이 경로가 있는가"를 직접 묻는다.
+          stage_one() {
+            git add -- "$1"
+            if ! git ls-files --error-unmatch -- "$1" > /dev/null 2>&1; then
+              echo "스테이징에 실패했다: $1" >&2
+              return 1
+            fi
+          }
+
+          for TARGET in status.json logs/build.jsonl; do
+            if [ ! -e "$TARGET" ]; then
+              echo "없어서 건너뜀: $TARGET"
+              continue
+            fi
+            stage_one "$TARGET"
+          done
 
           if [ "$FEED_CHANGED" = "1" ]; then
-            git add -- feeds/kr.ics
+            stage_one feeds/kr.ics
             SUMMARY="$(uv run python -m core.ics "$PREV" feeds/kr.ics || echo '내용 변경')"
             MESSAGE="feat(kr): 피드 갱신 — ${SUMMARY}"
           else
