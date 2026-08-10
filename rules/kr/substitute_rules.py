@@ -31,17 +31,34 @@ class RuleTableError(ValueError):
     """규칙 테이블 자체가 잘못되었다."""
 
 
+class MappingUnresolved(RuleTableError):
+    """조문의 호 번호를 공휴일로 옮기는 매핑이 아직 확인되지 않았다.
+
+    원문은 적용 대상을 제2조의 호 번호로 규정한다. 그 배열을 모르면 어느 공휴일이
+    대상인지 알 수 없다. 이때 "대상 아님"으로 답하면 없는 확신을 만들어내는 것이다.
+    모른다는 사실을 예외로 드러낸다. LunarNotImplemented 와 같은 성격이다.
+    """
+
+
 @dataclass(frozen=True)
 class Clause:
     """조문의 한 호."""
 
     id: str
     overlaps: tuple
-    applies_to: frozenset
+    applies_to: frozenset  # None 이면 호 번호 ↔ 공휴일 매핑 미확인
+    article2_items: tuple
     verified: bool
     source_todo: str
+    unresolved_reason: str = ""
+
+    @property
+    def resolved(self) -> bool:
+        return self.applies_to is not None
 
     def covers(self, holiday: str) -> bool:
+        if self.applies_to is None:
+            raise MappingUnresolved(f"{self.id}: {self.unresolved_reason.strip()}")
         return holiday in self.applies_to
 
 
@@ -56,8 +73,20 @@ class Ruleset:
     source: str
     verified: bool
     source_todo: str
+    provisions: tuple = ()   # 조항별 시행일이 갈릴 때만 채운다
+
+    @property
+    def resolved(self) -> bool:
+        """모든 호의 적용 대상을 공휴일로 옮길 수 있는가."""
+        return all(c.resolved for c in self.clauses)
 
     def clauses_for(self, holiday: str) -> tuple:
+        if not self.resolved:
+            unresolved = [c.id for c in self.clauses if not c.resolved]
+            raise MappingUnresolved(
+                f"{self.id}: {', '.join(unresolved)} 의 적용 대상이 미확인이라 "
+                f"{holiday} 의 대체공휴일 대상 여부를 유도할 수 없다."
+            )
         return tuple(c for c in self.clauses if c.covers(holiday))
 
 
@@ -76,12 +105,84 @@ class Eligibility:
 
 
 @dataclass(frozen=True)
+class Coverage:
+    """데이터를 신뢰할 수 있는 구간. 축이 셋이고 서로 다른 것을 보증한다.
+
+        start              완결성 경계의 아래쪽. 이전은 조회를 거부한다.
+        confirmed_through  규칙 축. 이 날짜까지의 규칙 개정을 확인했다.
+                           이후는 답하되 provisional 로 표시한다.
+        last_synced_at     반영 축. 이 시점에 소스와 맞췄다.
+                           이후 날짜는 목록이 더 늘어날 수 있다.
+
+    --------------------------------------------------------------------
+    왜 두 축을 한 필드로 합치지 않는가
+    --------------------------------------------------------------------
+    보증하는 내용이 다르다.
+
+    규칙 축이 깨지면 이미 낸 답이 틀린다. 개정이 들어오면 같은 날짜의 대체공휴일
+    유도 결과 자체가 달라지기 때문이다. 그래서 항목마다 provisional 을 붙인다.
+
+    반영 축이 깨져도 이미 낸 항목은 그대로다. 대신 목록이 짧을 수 있다.
+    임시공휴일은 국무회의 의결로 짧은 예고 후 정해지므로, 오늘 시점에 2027 년의
+    임시공휴일을 다 아는 것은 원리적으로 불가능하다. 이건 누락이 아니라
+    아직 지정되지 않은 상태다.
+
+    "항목이 틀릴 수 있다"와 "항목이 더 생길 수 있다"는 다른 주장이다.
+    한 필드로 합치면 어느 쪽도 정확히 뜻하지 않는 값이 된다. 규칙 표에
+    last_synced_at 을 적으면 개정 확인을 안 했는데 한 척이 되고, 지정 표에
+    confirmed_through 를 적으면 앞으로 지정될 임시공휴일까지 다 안다는 주장이 된다.
+    후자가 실제로 이 레포에 있던 상태다.
+
+    한 표는 둘 중 하나만 선언한다. read_coverage() 가 강제한다.
+    표를 합칠 때(coverage 교집합)만 두 축이 한 Coverage 에 함께 실린다.
+
+    상한을 거부로 두지 않는 이유는 어느 축이든 같다. 피드가 몇 년치를 미리
+    발행해야 하는데 상한을 거부로 두면 발행 자체가 막힌다.
+    반대로 start 이전은 있었어야 할 데이터가 없는 것이라 성격이 다르다.
+    """
+
+    start: date
+    confirmed_through: date = None
+    last_synced_at: date = None
+
+    def contains(self, day: date) -> bool:
+        """조회 가능한가. 상한은 보지 않는다."""
+        return day >= self.start
+
+    def is_provisional(self, day: date) -> bool:
+        """규칙 축 밖인가. 이미 낸 답이 개정으로 달라질 수 있다.
+
+        규칙 축을 선언하지 않은 표는 False 다. 규칙을 담고 있지 않으므로
+        개정으로 답이 달라질 일이 없다. 모른다가 아니라 해당 없음이다.
+        """
+        return self.confirmed_through is not None and day > self.confirmed_through
+
+    def may_grow(self, day: date) -> bool:
+        """반영 축 밖인가. 목록에 항목이 더 생길 수 있다.
+
+        is_provisional 과 섞지 말 것. 여기 걸린 항목은 틀린 것이 아니라
+        옆에 다른 항목이 빠져 있을 수 있다는 뜻이다.
+        """
+        return self.last_synced_at is not None and day > self.last_synced_at
+
+    def __str__(self) -> str:
+        marks = []
+        if self.confirmed_through is not None:
+            marks.append(f"규칙 확정 {self.confirmed_through.isoformat()}")
+        if self.last_synced_at is not None:
+            marks.append(f"지정 반영 {self.last_synced_at.isoformat()}")
+        return f"{self.start.isoformat()} ~ [{' / '.join(marks)}] ~ (열림)"
+
+
+@dataclass(frozen=True)
 class RuleTable:
+    coverage: Coverage
     weekly_holidays: frozenset
     sunday_in_output: bool
     overlap_vocabulary: frozenset
     placement_rules: tuple
     holidays: dict
+    article2: dict        # 제2조 각 호의 배열 (현행)
     rulesets: tuple       # effective_from 오름차순
     open_questions: tuple
 
@@ -111,9 +212,10 @@ class RuleTable:
         ruleset = self.ruleset_on(day)
         if ruleset is None:
             # 제도 도입 전. 규칙 부재는 대체공휴일 없음이다.
+            # 매핑 미확인과 다르다. 이쪽은 "없다"를 아는 것이다.
             return Eligibility(holiday, False, False, None, ())
 
-        matched = ruleset.clauses_for(holiday)
+        matched = ruleset.clauses_for(holiday)  # 매핑 미확인이면 MappingUnresolved
         return Eligibility(
             holiday=holiday,
             saturday=any(SATURDAY in c.overlaps for c in matched),
@@ -139,40 +241,161 @@ class RuleTable:
         return out
 
 
-def _clause(raw: dict) -> Clause:
+def _arrangement_on(article2, day: date):
+    """그 시점에 유효했던 제2조 배열.
+
+    배열은 개정마다 바뀐다. ruleset 의 시행일이 속한 배열로만 호 번호를 풀어야
+    한다. 다른 시점 배열을 갖다 쓰면 같은 호 번호가 다른 공휴일을 가리킬 수 있다.
+    """
+    if not article2:
+        return None
+    for a in article2.get("arrangements") or ():
+        start, end = a["effective_from"], a.get("effective_until")
+        if start <= day and (end is None or day <= end):
+            return a
+    return None
+
+
+def _clause(raw: dict, article2, ruleset_from: date) -> Clause:
+    """조문의 한 호를 읽는다. 적용 대상을 푸는 경로는 셋이다.
+
+    1) applies_to 가 직접 적혀 있으면 그대로 쓴다.
+    2) article2_items 가 있고 그 ruleset 이 현행 호 번호 체계 안에 있으면
+       article2 표를 거쳐 공휴일 키로 푼다.
+    3) 둘 다 아니면 미해결. 이유를 반드시 적어야 한다.
+
+    2번에서 번호 체계를 확인하는 것이 핵심이다. 제36290호가 노동절을 제6호로
+    끼워 넣으면서 뒤 번호가 밀렸다. 현행 배열을 그 이전 ruleset 에 갖다 쓰면
+    조용히 다른 공휴일을 가리키게 된다.
+    """
+    applies_to = raw.get("applies_to")
+    items = tuple(raw.get("article2_items") or ())
+    reason = raw.get("unresolved_reason") or ""
+    arrangement = _arrangement_on(article2, ruleset_from)
+
+    if applies_to is not None:
+        resolved = frozenset(applies_to)
+    elif items and arrangement is not None:
+        missing = [i for i in items if i not in arrangement["items"]]
+        if missing:
+            raise RuleTableError(
+                f"{raw['id']}: {arrangement['id']} 에 없는 호 번호 {missing}"
+            )
+        resolved = frozenset(
+            key for item in items for key in arrangement["items"][item]["holidays"]
+        )
+    elif items:
+        resolved = None
+        reason = reason or (
+            f"제2조 호 번호 {list(items)} 로 규정되어 있으나 {ruleset_from} 시점의 "
+            "제2조 배열이 article2.arrangements 에 없어 풀 수 없다."
+        )
+    else:
+        resolved = None
+        if not reason:
+            raise RuleTableError(
+                f"{raw['id']}: applies_to 도 article2_items 도 없는데 "
+                "unresolved_reason 이 비어 있다. 왜 못 푸는지 적어야 한다."
+            )
+
     return Clause(
         id=raw["id"],
         overlaps=tuple(raw["overlaps"]),
-        applies_to=frozenset(raw["applies_to"]),
+        applies_to=resolved,
+        article2_items=items,
         verified=bool(raw.get("verified")),
         source_todo=raw.get("source_todo") or "",
+        unresolved_reason=reason,
     )
 
 
-def _ruleset(raw: dict) -> Ruleset:
+def _ruleset(raw: dict, article2) -> Ruleset:
+    effective_from = raw["effective_from"]
+    # 타입 검사가 먼저다. 연도(int)가 섞이면 아래 배열 조회에서 date 와 비교하다가
+    # TypeError 로 터져서, 정작 원인인 "날짜가 아니다"라는 메시지를 못 보게 된다.
+    if not isinstance(effective_from, date):
+        raise RuleTableError(
+            f"{raw['id']}: effective_from 이 날짜가 아니다({effective_from!r}). "
+            "연 단위로 두면 2021-08-04 같은 연중 개정을 표현할 수 없다."
+        )
+    provisions = tuple(raw.get("provisions") or ())
+    if provisions:
+        # 한 개정령 안에서 조항별 시행일이 갈릴 수 있다. ruleset 의 effective_from 은
+        # 그중 가장 이른 것이어야 한다. 어긋나면 어느 쪽이 맞는지 알 수 없다.
+        earliest = min(p["effective_from"] for p in provisions)
+        if effective_from != earliest:
+            raise RuleTableError(
+                f"{raw['id']}: effective_from({effective_from}) 이 provisions 의 "
+                f"가장 이른 시행일({earliest}) 과 다르다."
+            )
     return Ruleset(
         id=raw["id"],
-        effective_from=raw["effective_from"],
+        effective_from=effective_from,
         summary=raw.get("summary") or "",
-        clauses=tuple(_clause(c) for c in raw["clauses"]),
+        clauses=tuple(_clause(c, article2, effective_from) for c in raw["clauses"]),
         source=raw.get("source") or "",
         verified=bool(raw.get("verified")),
         source_todo=raw.get("source_todo") or "",
+        provisions=provisions,
     )
+
+
+AXES = ("confirmed_through", "last_synced_at")
+
+
+def read_coverage(raw: dict, where) -> Coverage:
+    """coverage 블록을 읽는다. 상한 축을 하나만 선언하게 강제한다.
+
+    규칙 표(rules/kr/*.yaml)와 지정 표가 같은 함수를 쓴다. 축 선택 규칙이
+    한 군데에만 있어야 표마다 다르게 흘러가지 않는다.
+    """
+    block = raw.get("coverage")
+    if not block:
+        raise RuleTableError(
+            f"{where}: coverage 선언이 없다. 신뢰 구간을 밝히지 않은 표는 쓸 수 없다."
+        )
+
+    start = block.get("from")
+    if not isinstance(start, date):
+        raise RuleTableError(f"{where}: coverage.from 이 날짜가 아니다({start!r}).")
+
+    declared = {axis: block[axis] for axis in AXES if block.get(axis) is not None}
+    if len(declared) != 1:
+        raise RuleTableError(
+            f"{where}: coverage 는 {' 와 '.join(AXES)} 중 정확히 하나를 선언해야 한다"
+            f"(지금: {sorted(declared) or '없음'}).\n"
+            "  confirmed_through — 규칙 축. 이 날짜까지의 규칙 개정을 확인했다.\n"
+            "                      규칙을 담은 표가 쓴다(양력 고정 공휴일, 대체공휴일 규칙).\n"
+            "  last_synced_at    — 반영 축. 이 시점에 소스와 맞췄다.\n"
+            "                      규칙 없이 날짜를 하나씩 적는 표가 쓴다(지정 공휴일).\n"
+            "두 값은 다른 보증이다. 규칙 축은 '이미 낸 답이 틀릴 수 있다'를, 반영 축은\n"
+            "'항목이 더 생길 수 있다'를 뜻한다. 한 필드로 합치면 어느 쪽도 참이 아니다.\n"
+            "Coverage 의 docstring 참조."
+        )
+
+    axis, value = next(iter(declared.items()))
+    if not isinstance(value, date):
+        raise RuleTableError(f"{where}: coverage.{axis} 가 날짜가 아니다({value!r}).")
+    if start > value:
+        raise RuleTableError(f"{where}: coverage 구간이 뒤집혀 있다({start} > {value}).")
+    return Coverage(start=start, **{axis: value})
 
 
 def load(path=None) -> RuleTable:
     """규칙 테이블을 읽고 검증한다. 구조가 깨져 있으면 RuleTableError."""
     path = Path(path) if path else DEFAULT_PATH
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    article2 = raw.get("article2")
 
     table = RuleTable(
+        coverage=read_coverage(raw, path),
         weekly_holidays=frozenset(raw["weekly_holidays"]),
         sunday_in_output=bool(raw["sunday_in_output"]),
         overlap_vocabulary=frozenset(raw["overlap_vocabulary"]),
         placement_rules=tuple(raw["placement_rules"]),
         holidays=dict(raw["holidays"]),
-        rulesets=tuple(_ruleset(r) for r in raw["rulesets"]),
+        article2=article2,
+        rulesets=tuple(_ruleset(r, article2) for r in raw["rulesets"]),
         open_questions=tuple(raw.get("open_questions") or ()),
     )
     _validate(table)
@@ -206,6 +429,8 @@ def _validate(table: RuleTable) -> None:
             unknown = set(c.overlaps) - table.overlap_vocabulary
             if unknown:
                 raise RuleTableError(f"{rs.id} / {c.id}: 모르는 겹침 조건 {sorted(unknown)}")
+            if not c.resolved:
+                continue  # 호 번호만 있는 호. 검증할 키가 없다.
             missing = c.applies_to - set(table.holidays)
             if missing:
                 raise RuleTableError(

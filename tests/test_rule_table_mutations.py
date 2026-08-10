@@ -67,9 +67,14 @@ def _effective_from_as_year(data):
 
 
 def _typo_in_applies_to(data):
-    """레지스트리에 없는 키를 넣는다. 조용히 적용 대상에서 빠지는 사고."""
+    """레지스트리에 없는 키를 넣는다. 조용히 적용 대상에서 빠지는 사고.
+
+    applies_to 가 없는 호(제36290호처럼 제2조 호 번호로만 규정된 것)는 건너뛴다.
+    """
     for rs in data["rulesets"]:
         for c in rs["clauses"]:
+            if "applies_to" not in c:
+                continue
             c["applies_to"] = ["chusoek" if h == "chuseok" else h for h in c["applies_to"]]
 
 
@@ -82,6 +87,26 @@ def _delete_clause_3(data):
     """제1항제3호를 지운다. 공휴일끼리 겹치는 경로가 통째로 사라진다."""
     for rs in data["rulesets"]:
         rs["clauses"] = [c for c in rs["clauses"] if c["overlaps"] != ["other_holiday_on_weekday"]]
+
+
+def _invent_the_article2_mapping(data):
+    """미확인 매핑을 지어내서 채운다.
+
+    제36290호의 각 호는 적용 대상이 제2조 호 번호로만 규정되어 있고 그 배열이
+    미확인이라 applies_to 가 비어 있다. 그럴듯한 값을 넣으면 2026-05-11 이후가
+    갑자기 답을 내기 시작한다. 그 답이 맞는지는 아무도 모른다.
+    이 변이는 "모르는 것을 채워 넣으면 테스트가 알아채는가"를 본다.
+    """
+    for rs in data["rulesets"]:
+        if rs["id"] != "제36290호":
+            continue
+        for c in rs["clauses"]:
+            if "applies_to" in c:
+                continue
+            c["applies_to"] = ["seollal", "chuseok"] if c["overlaps"] == ["sunday"] else [
+                "samiljeol", "childrens_day", "gwangbokjeol", "gaecheonjeol",
+                "hangeul_day", "buddhas_birthday", "christmas", "constitution_day",
+            ]
 
 
 def _delete_placement_paragraph_3(data):
@@ -121,6 +146,14 @@ MUTATIONS = [
         ("1항3호-삭제", _delete_clause_3, MISMATCH),
         id="1항3호-삭제",
     ),
+    # 지어낸 매핑은 test_constitution_day_enforcement_boundary 가 잡는다.
+    # 그 테스트가 2026-05-11 에서 MappingUnresolved 를 요구하기 때문이다.
+    # 정답 픽스처는 그 구간의 답을 모르므로 여기서는 도움이 되지 않는다.
+    # "모른다"를 테스트로 고정해 두지 않았다면 이 변이는 조용히 통과했을 것이다.
+    pytest.param(
+        ("제2조-매핑-지어내기", _invent_the_article2_mapping, MISMATCH),
+        id="제2조-매핑-지어내기",
+    ),
     pytest.param(
         ("3항-토요일-재배치-삭제", _delete_placement_paragraph_3, MISMATCH),
         id="3항-토요일-재배치-삭제",
@@ -131,6 +164,7 @@ MUTATIONS = [
                 "검증 케이스는 배치 계산 구현 후 스캔으로 뽑아 원문 확인을 거쳐 넣는다. "
                 "open_questions 의 픽스처구멍-배치규칙-미검증 참조."
             ),
+            strict=True,
         ),
     ),
 ]
