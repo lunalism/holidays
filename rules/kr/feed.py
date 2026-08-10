@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import re
 from datetime import date
+from pathlib import Path
 
 from core import ics
 from rules.kr import holiday_calendar as hc
@@ -210,8 +211,12 @@ def events(start: date, end: date) -> list:
     return out
 
 
-def build(*, today: date, dtstamp) -> bytes:
-    """피드 한 벌. 같은 (today, dtstamp) 면 같은 바이트가 나온다."""
+def build(*, today: date, dtstamp, previous: bytes = None) -> bytes:
+    """피드 한 벌. 같은 (today, dtstamp, previous) 면 같은 바이트가 나온다.
+
+    previous 는 직전에 발행한 .ics 의 바이트다. SEQUENCE 를 정하는 데만 쓴다.
+    None 이면 첫 발행으로 보고 전부 0 이 나간다.
+    """
     start, end = feed_range(today)
     return ics.render(
         events(start, end),
@@ -219,13 +224,21 @@ def build(*, today: date, dtstamp) -> bytes:
         prodid=PRODID,
         calname=CALNAME,
         tzid=TZID,
+        previous=previous,
     )
+
+
+# 발행 위치. SEQUENCE 의 진실 공급원은 여기 있는 직전 발행본이다.
+# 상태 파일을 따로 두지 않는다 — 두면 파일과 발행본이 어긋날 수 있고,
+# 어긋났을 때 어느 쪽이 맞는지 정할 근거가 없다. 발행본이 사실이다.
+FEED_PATH = Path(__file__).resolve().parents[2] / "feeds" / "kr.ics"
 
 
 if __name__ == "__main__":  # pragma: no cover
     import datetime as _dt
     import sys
 
-    # 시계를 읽는 곳은 여기 하나다. 모듈 안에서는 읽지 않는다.
+    # 시계와 파일을 읽는 곳은 여기 하나다. 모듈 안에서는 읽지 않는다.
     now = _dt.datetime.now(_dt.UTC)
-    sys.stdout.buffer.write(build(today=now.date(), dtstamp=now))
+    prior = FEED_PATH.read_bytes() if FEED_PATH.exists() else None
+    sys.stdout.buffer.write(build(today=now.date(), dtstamp=now, previous=prior))

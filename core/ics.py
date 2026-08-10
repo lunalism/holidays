@@ -165,7 +165,127 @@ def assign_uids(events) -> list:
     return out
 
 
-def _vevent(event: Event, uid: str, dtstamp: datetime) -> VEvent:
+@dataclass(frozen=True)
+class PublishedEvent:
+    """이전 발행본에서 읽어 온 이벤트 하나. SEQUENCE 계산의 입력이다."""
+
+    uid: str
+    dtstart: date
+    dtend: date
+    sequence: int
+    summary: str
+
+
+def read_published(raw: bytes) -> dict:
+    """이전에 발행한 .ics → {uid: PublishedEvent}.
+
+    읽지 못하면 IcsError. 빈 결과로 넘어가지 않는다 — 그러면 모든 SEQUENCE 가
+    0 으로 되돌아가고, 구독자 캘린더는 이미 올라간 개정본을 헌 것으로 보고
+    되돌릴 수 있다. 읽을 수 없는 이전 발행본은 사람이 봐야 한다.
+    """
+    try:
+        parsed = Calendar.from_ical(raw)
+    except Exception as exc:  # noqa: BLE001 - 라이브러리가 무엇을 던지든 같은 처리다
+        raise IcsError(
+            f"이전 발행본을 읽지 못했다: {type(exc).__name__}: {exc}\n"
+            "0 으로 다시 시작하지 않는다. SEQUENCE 가 되감기면 구독자 캘린더가 "
+            "이미 받은 개정본을 헌 것으로 본다.\n"
+            "파일을 열어 무엇이 깨졌는지 확인할 것."
+        ) from None
+
+    out = {}
+    for vevent in parsed.walk("VEVENT"):
+        uid = str(vevent.get("UID") or "").strip()
+        if not uid:
+            raise IcsError("이전 발행본에 UID 없는 VEVENT 가 있다.")
+        if uid in out:
+            raise IcsError(
+                f"이전 발행본에 UID 가 중복이다: {uid}\n"
+                "어느 쪽이 최신인지 정할 수 없다. 파일을 확인할 것."
+            )
+
+        dtstart, dtend = vevent.get("DTSTART"), vevent.get("DTEND")
+        if dtstart is None or dtend is None:
+            raise IcsError(f"이전 발행본의 {uid} 에 DTSTART 나 DTEND 가 없다.")
+
+        # SEQUENCE 가 없으면 RFC 5545 기본값 0 이다. 우리 피드는 항상 쓰지만
+        # 남이 손댄 파일을 받을 수도 있으므로 표준 기본값을 따른다.
+        raw_seq = vevent.get("SEQUENCE")
+        sequence = 0 if raw_seq is None else int(raw_seq)
+        if sequence < 0:
+            raise IcsError(f"이전 발행본의 {uid} 에 SEQUENCE 가 음수다: {sequence}")
+
+        out[uid] = PublishedEvent(
+            uid=uid,
+            dtstart=dtstart.dt,
+            dtend=dtend.dt,
+            sequence=sequence,
+            summary=str(vevent.get("SUMMARY") or ""),
+        )
+    return out
+
+
+def _sequences(pairs, published: dict) -> dict:
+    """{uid: SEQUENCE}. 이전 발행본이 없으면 전부 0.
+
+    ----------------------------------------------------------------------
+    날짜가 바뀐 것만 올린다
+    ----------------------------------------------------------------------
+    SEQUENCE 는 "같은 이벤트의 몇 번째 개정인가"다. 캘린더 클라이언트는 이
+    값으로 어느 쪽이 최신인지 정한다.
+
+    올리는 기준은 DTSTART/DTEND 변경뿐이다. SUMMARY·DESCRIPTION·STATUS 가
+    바뀌어도 올리지 않는다. 그쪽은 표기나 우리 확신도가 달라진 것이지 일정이
+    달라진 것이 아니고, 구독자 입장에서 다시 알림을 받을 일이 아니다.
+    잠정(STATUS:TENTATIVE)이 확정으로 바뀌는 것도 여기 해당한다 — 날짜가 그대로면
+    구독자가 이미 잡아 둔 일정은 유효하다.
+
+    ----------------------------------------------------------------------
+    이전에 있던 UID 가 사라지면 멈춘다
+    ----------------------------------------------------------------------
+    발행된 이벤트를 그냥 빼면 구독자 캘린더에는 그대로 남는다. 없어졌다는
+    사실이 전달되지 않는다. 정말 취소된 공휴일이라면 STATUS:CANCELLED 로
+    내보내야 하고, 그건 아직 정하지 않은 정책이다. 그때까지는 멈춘다.
+    """
+    if published is None:
+        return {uid: 0 for _, uid in pairs}
+
+    current = {uid for _, uid in pairs}
+    dropped = [p for uid, p in published.items() if uid not in current]
+    if dropped:
+        raise IcsError(
+            f"이전 발행본에 있던 UID {len(dropped)} 건이 새 피드에 없다:\n"
+            + "\n".join(f"  {p.uid}\n    SUMMARY={p.summary!r}" for p in sorted(
+                dropped, key=lambda p: p.uid
+            ))
+            + "\n발행된 이벤트를 그냥 빼면 구독자 캘린더에는 그대로 남는다.\n"
+            "정말 없어진 것이라면 STATUS:CANCELLED 정책을 먼저 정할 것."
+        )
+
+    out = {}
+    for event, uid in pairs:
+        prev = published.get(uid)
+        if prev is None:
+            out[uid] = 0  # 이전에 없던 이벤트. 첫 발행이다.
+            continue
+
+        moved = prev.dtstart != event.day or prev.dtend != event.day + timedelta(days=1)
+        sequence = prev.sequence + 1 if moved else prev.sequence
+
+        # 방어. 위 계산으로는 줄어들 수 없지만, 이 값이 줄어드는 순간 구독자
+        # 캘린더가 이미 받은 개정본을 헌 것으로 보고 되돌린다. 되돌린 뒤에는
+        # 어느 쪽이 맞는지 우리 쪽에서 알 방법이 없다. 규칙을 고칠 사람이
+        # 여기서 걸리도록 남겨 둔다.
+        if sequence < prev.sequence:
+            raise IcsError(
+                f"{uid}: SEQUENCE 가 {prev.sequence} 에서 {sequence} 로 줄어든다. "
+                "SEQUENCE 는 감소할 수 없다."
+            )
+        out[uid] = sequence
+    return out
+
+
+def _vevent(event: Event, uid: str, dtstamp: datetime, sequence: int) -> VEvent:
     out = VEvent()
     out.add("uid", uid)
     out.add("dtstamp", dtstamp)
@@ -183,9 +303,8 @@ def _vevent(event: Event, uid: str, dtstamp: datetime) -> VEvent:
     out.add("transp", "TRANSPARENT")
     out.add("x-microsoft-cdo-busystatus", "FREE")
 
-    # 0 고정. 증가 로직은 이번 범위가 아니다. 이벤트 내용이 바뀌었을 때 올려야
-    # 하는데, 무엇을 "바뀜"으로 볼지가 정해져 있지 않다.
-    out.add("sequence", 0)
+    # 이전 발행본과 대조해 정한 값. _sequences() 참조.
+    out.add("sequence", sequence)
 
     if event.description:
         out.add("description", event.description)
@@ -196,10 +315,24 @@ def _vevent(event: Event, uid: str, dtstamp: datetime) -> VEvent:
     return out
 
 
-def render(events, *, dtstamp: datetime, prodid: str, calname: str, tzid: str) -> bytes:
+def render(
+    events,
+    *,
+    dtstamp: datetime,
+    prodid: str,
+    calname: str,
+    tzid: str,
+    previous: bytes = None,
+) -> bytes:
     """VCALENDAR 한 덩어리. 같은 인자면 같은 바이트가 나온다.
 
-    dtstamp 를 인자로 받는 이유는 모듈 docstring 에 있다.
+    previous 는 이전에 발행한 .ics 의 바이트다. SEQUENCE 를 정하는 데만 쓴다.
+    None 이면 첫 발행으로 보고 전부 0 을 준다.
+
+    파일을 여기서 읽지 않는 것은 dtstamp 와 같은 이유다 — 읽는 순간 같은
+    인자로 같은 결과가 나온다는 보장이 사라진다. 읽는 것은 호출자의 일이다.
+    다만 "읽어 봤더니 깨졌다"는 호출자가 판단할 일이 아니므로, 넘어온 바이트를
+    해석하지 못하면 여기서 멈춘다.
     """
     if dtstamp.tzinfo is None:
         raise IcsError("dtstamp 에 타임존이 없다. UTC 로 줄 것 — DTSTAMP 는 UTC 여야 한다.")
@@ -211,6 +344,9 @@ def render(events, *, dtstamp: datetime, prodid: str, calname: str, tzid: str) -
     cal.add("x-wr-calname", calname)
     cal.add("x-wr-timezone", tzid)
 
-    for event, uid in assign_uids(events):
-        cal.add_component(_vevent(event, uid, dtstamp))
+    pairs = assign_uids(events)
+    sequences = _sequences(pairs, read_published(previous) if previous is not None else None)
+
+    for event, uid in pairs:
+        cal.add_component(_vevent(event, uid, dtstamp, sequences[uid]))
     return cal.to_ical()

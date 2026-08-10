@@ -666,3 +666,197 @@ def test_the_upper_bound_follows_the_given_today():
     later = _build(today=dt.date(2030, 3, 2))
     days = sorted(re.search(r"DTSTART;VALUE=DATE:(\d{8})", b).group(1) for b in _events(later))
     assert days[-1].startswith("2035"), days[-1]
+
+
+# ---------------------------------------------------------------------------
+# SEQUENCE — 진실 공급원은 이전 발행본이다
+#
+# 상태 파일을 두지 않는다. 발행본이 사실이고, 그것과 어긋날 수 있는 사본을
+# 만들지 않는다. build() 는 그 바이트를 인자로 받는다 — dtstamp 와 같은 이유로
+# 모듈 안에서 파일을 읽지 않는다.
+# ---------------------------------------------------------------------------
+
+
+def _render(events, previous=None) -> bytes:
+    return ics.render(
+        events,
+        dtstamp=DTSTAMP,
+        prodid=feed.PRODID,
+        calname=feed.CALNAME,
+        tzid=feed.TZID,
+        previous=previous,
+    )
+
+
+def _sequences(raw: bytes) -> dict:
+    return {
+        str(v["UID"]): int(v["SEQUENCE"]) for v in Calendar.from_ical(raw).walk("VEVENT")
+    }
+
+
+def _sample(day=dt.date(2030, 1, 1), summary="가", token="alpha", **kw):
+    return ics.Event(day=day, summary=summary, kind="statutory", token=token, **kw)
+
+
+def _published(uid, dtstart, dtend, sequence, summary="가") -> bytes:
+    """이전 발행본을 손으로 짓는다.
+
+    UID 와 DTSTART 를 따로 줄 수 있어야 "같은 UID 인데 날짜가 바뀐" 상태를
+    만들 수 있다. 우리 생성기로는 그 상태가 나오지 않는다 — UID 에 날짜가
+    들어 있기 때문이다(아래 test_moving_a_date_shows_up_as_a_dropped_uid 참조).
+    """
+    return (
+        "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\n"
+        "BEGIN:VEVENT\r\n"
+        f"UID:{uid}\r\n"
+        f"DTSTART;VALUE=DATE:{dtstart:%Y%m%d}\r\n"
+        f"DTEND;VALUE=DATE:{dtend:%Y%m%d}\r\n"
+        f"SUMMARY:{summary}\r\n"
+        f"SEQUENCE:{sequence}\r\n"
+        "DTSTAMP:20260810T000000Z\r\n"
+        "END:VEVENT\r\nEND:VCALENDAR\r\n"
+    ).encode()
+
+
+def test_without_a_previous_feed_every_sequence_is_zero():
+    """첫 발행이면 전부 0 이다."""
+    raw = _render([_sample(), _sample(token="beta", summary="나")])
+    assert set(_sequences(raw).values()) == {0}
+
+
+def test_the_real_feed_starts_at_sequence_zero():
+    assert {int(_prop(b, "SEQUENCE")) for b in _events(_build())} == {0}
+
+
+def test_an_unchanged_date_keeps_the_previous_sequence():
+    """날짜가 그대로면 SEQUENCE 를 물려받는다. 0 으로도, +1 로도 가지 않는다."""
+    uid = "20300101-alpha@holidays.lunalism.com"
+    prior = _published(uid, dt.date(2030, 1, 1), dt.date(2030, 1, 2), sequence=3)
+    assert _sequences(_render([_sample()], previous=prior)) == {uid: 3}
+
+
+def test_a_changed_date_bumps_the_sequence_by_one():
+    """DTSTART 가 바뀌면 이전 값 + 1.
+
+    우리 생성기로는 이 상태가 나오지 않는다 — UID 에 날짜가 들어 있어 날짜가
+    바뀌면 UID 도 바뀐다. 그래서 이전 발행본을 손으로 지어 이 경로를 태운다.
+    규칙 자체는 고정해 둔다. UID 규칙이 바뀌면 그때 살아나는 경로다.
+    """
+    uid = "20300101-alpha@holidays.lunalism.com"
+    prior = _published(uid, dt.date(2029, 12, 25), dt.date(2029, 12, 26), sequence=2)
+    assert _sequences(_render([_sample()], previous=prior)) == {uid: 3}
+
+
+def test_bumping_one_event_leaves_the_others_alone():
+    """한 건이 올라가도 나머지는 그대로다."""
+    moved_uid = "20300101-alpha@holidays.lunalism.com"
+    kept_uid = "20300101-beta@holidays.lunalism.com"
+    prior = (
+        _published(moved_uid, dt.date(2029, 1, 1), dt.date(2029, 1, 2), sequence=1).replace(
+            b"END:VCALENDAR\r\n", b""
+        )
+        + _published(kept_uid, dt.date(2030, 1, 1), dt.date(2030, 1, 2), sequence=5, summary="나")
+        .replace(b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\n", b"")
+    )
+    got = _sequences(_render([_sample(), _sample(token="beta", summary="나")], previous=prior))
+    assert got == {moved_uid: 2, kept_uid: 5}
+
+
+@pytest.mark.parametrize(
+    "changed",
+    [
+        {"summary": "다른 이름"},
+        {"description": "다른 근거"},
+        {"provisional": True},
+    ],
+    ids=["summary", "description", "status"],
+)
+def test_non_date_changes_do_not_bump_the_sequence(changed):
+    """SUMMARY·DESCRIPTION·STATUS 가 바뀌어도 올리지 않는다.
+
+    표기나 우리 확신도가 달라진 것이지 일정이 달라진 것이 아니다. 구독자가
+    다시 알림을 받을 일이 아니다. 잠정이 확정으로 바뀌는 것도 마찬가지다 —
+    날짜가 그대로면 이미 잡아 둔 일정은 유효하다.
+    """
+    uid = "20300101-alpha@holidays.lunalism.com"
+    prior = _published(uid, dt.date(2030, 1, 1), dt.date(2030, 1, 2), sequence=4)
+    assert _sequences(_render([_sample(**changed)], previous=prior)) == {uid: 4}
+
+
+def test_a_uid_that_disappears_fails_the_build():
+    """이전 발행본에 있던 UID 가 새 피드에 없으면 멈춘다.
+
+    그냥 빼면 구독자 캘린더에는 그대로 남는다. 없어졌다는 사실이 전달되지 않는다.
+    """
+    gone = "20300101-alpha@holidays.lunalism.com"
+    prior = _published(gone, dt.date(2030, 1, 1), dt.date(2030, 1, 2), 0, summary="사라질 것")
+
+    with pytest.raises(ics.IcsError) as exc:
+        _render([_sample(token="beta", summary="남을 것")], previous=prior)
+
+    message = str(exc.value)
+    assert gone in message
+    assert "SUMMARY='사라질 것'" in message
+    assert "STATUS:CANCELLED" in message
+
+
+def test_moving_a_date_shows_up_as_a_dropped_uid():
+    """날짜를 옮기면 SEQUENCE 가 오르는 게 아니라 UID 가 사라진 것으로 잡힌다.
+
+    UID 에 날짜가 들어 있기 때문이다. 지금 규칙에서는 이것이 날짜 변경의
+    실제 모습이고, +1 경로는 정상 운영에서 밟히지 않는다.
+    이 테스트는 그 사실 자체를 고정해 둔다.
+    """
+    v1 = _render([_sample(day=dt.date(2030, 1, 1))])
+    with pytest.raises(ics.IcsError, match="새 피드에 없다"):
+        _render([_sample(day=dt.date(2030, 1, 2))], previous=v1)
+
+
+def test_an_unreadable_previous_feed_fails_the_build():
+    """읽지 못하는 이전 발행본은 0 으로 재시작하지 않고 멈춘다."""
+    with pytest.raises(ics.IcsError, match="이전 발행본을 읽지 못했다"):
+        _render([_sample()], previous="이건 ics 가 아니다".encode())
+
+    message = ""
+    try:
+        _render([_sample()], previous=b"\x00\x01\x02")
+    except ics.IcsError as exc:
+        message = str(exc)
+    assert "0 으로 다시 시작하지 않는다" in message
+
+
+def test_a_previous_feed_missing_required_fields_fails_the_build():
+    broken = (
+        b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\n"
+        b"BEGIN:VEVENT\r\nDTSTAMP:20260810T000000Z\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+    )
+    with pytest.raises(ics.IcsError, match="UID 없는 VEVENT"):
+        _render([_sample()], previous=broken)
+
+
+def test_a_previous_feed_with_a_duplicate_uid_fails_the_build():
+    uid = "20300101-alpha@holidays.lunalism.com"
+    one = _published(uid, dt.date(2030, 1, 1), dt.date(2030, 1, 2), 0)
+    doubled = one.replace(b"END:VCALENDAR\r\n", b"") + one.replace(
+        b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//t//t//KO\r\n", b""
+    )
+    with pytest.raises(ics.IcsError, match="UID 가 중복"):
+        _render([_sample()], previous=doubled)
+
+
+def test_a_negative_sequence_in_the_previous_feed_fails_the_build():
+    uid = "20300101-alpha@holidays.lunalism.com"
+    prior = _published(uid, dt.date(2030, 1, 1), dt.date(2030, 1, 2), sequence=-1)
+    with pytest.raises(ics.IcsError, match="SEQUENCE 가 음수"):
+        _render([_sample()], previous=prior)
+
+
+def test_rebuilding_the_real_feed_against_itself_changes_nothing():
+    """실제 피드를 자기 자신을 이전본으로 삼아 다시 만들면 바이트가 같다.
+
+    SEQUENCE 가 도입돼도 결정성이 유지된다는 것과, 내용이 안 바뀐 재발행이
+    diff 를 만들지 않는다는 것을 함께 확인한다.
+    """
+    first = feed.build(today=TODAY, dtstamp=DTSTAMP)
+    again = feed.build(today=TODAY, dtstamp=DTSTAMP, previous=first)
+    assert again == first
