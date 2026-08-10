@@ -36,6 +36,26 @@ def _error_bodies() -> list:
     return sorted(ERROR_DIR.glob("*.xml"))
 
 
+def _populated_body(count: int) -> str:
+    """항목이 count 건 실린 정상 응답.
+
+    NORMAL_BODY 는 이름과 달리 항목이 0 건이다(<items/>, totalCount 0).
+    빈 응답과 항목 있는 응답을 갈라야 하는 테스트에서는 그걸로 부족하다.
+    """
+    items = "".join(
+        "<item><dateKind>01</dateKind><dateName>1월1일</dateName>"
+        f"<isHoliday>Y</isHoliday><locdate>2026010{n + 1}</locdate><seq>1</seq></item>"
+        for n in range(count)
+    )
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        "<response><header><resultCode>00</resultCode>"
+        "<resultMsg>NORMAL SERVICE.</resultMsg></header>"
+        f"<body><items>{items}</items><numOfRows>100</numOfRows><pageNo>1</pageNo>"
+        f"<totalCount>{count}</totalCount></body></response>"
+    )
+
+
 @pytest.fixture(autouse=True)
 def _isolate(tmp_path, monkeypatch):
     """캐시 디렉터리와 호출 카운터를 테스트마다 격리한다.
@@ -279,3 +299,114 @@ def test_the_committed_cache_is_clean():
         + "\n".join(broken)
         + "\n자동으로 지우지 말 것. 파일을 열어 무엇이 저장됐는지 확인할 것."
     )
+
+
+# ---------------------------------------------------------------------------
+# 빈 응답이 항목 있는 캐시를 덮지 않는가
+#
+# resultCode 00 에 항목만 0 건인 응답은 봉투 검사를 통과한다. 위 P2 검사로는
+# 걸리지 않는 경로이고, force=True 를 준 순간 아무 방어 없이 덮어써졌다.
+#
+# 빈 응답 자체는 정상이다. 2029~2031 이 실제로 그렇게 온다. 갈라야 하는 것은
+# "원래 없었다"와 "있었는데 없어졌다"이며, 후자만 막는다.
+# ---------------------------------------------------------------------------
+
+
+def test_an_empty_response_does_not_overwrite_a_populated_cache(monkeypatch):
+    """기존 캐시에 항목이 있는데 빈 응답이 오면 쓰지 않고 터진다.
+
+    로그 경고로 두면 안 된다. force=True 를 준 사람은 이미 덮어쓸 작정이라
+    경고는 스크롤백에 묻히고 파일은 그대로 덮인다. 되돌릴 방법은 git 뿐이다.
+    """
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    existing = _populated_body(5)
+    kc.cache_path(2028).write_text(existing, encoding="utf-8")
+    _respond(monkeypatch, status=200, body=NORMAL_BODY)  # 항목 0 건
+
+    with pytest.raises(kc.CacheWouldLoseData) as exc:
+        kc.fetch_year(2028, force=True)
+
+    message = str(exc.value)
+    assert "2028" in message, "연도가 메시지에 없다"
+    assert "5" in message, "기존 항목 수가 메시지에 없다"
+    assert "0" in message, "새 응답 항목 수가 메시지에 없다"
+
+    assert kc.cache_path(2028).read_text(encoding="utf-8") == existing, (
+        "빈 응답이 기존 캐시를 덮었다"
+    )
+
+
+def test_an_empty_response_is_stored_when_there_is_no_cache_yet(monkeypatch):
+    """받아 본 적 없는 해에 빈 응답이 오면 그대로 저장한다.
+
+    2029~2031 이 이 경우다. 아직 발표되지 않은 구간이라 빈 것이 정상이고,
+    그 빈 응답이 저장되어야 "받아 봤더니 없더라"가 기록으로 남는다.
+    막아 버리면 미조회와 구분되지 않는다.
+
+    본문은 실제로 커밋된 2029 캐시를 그대로 쓴다. 지어낸 것으로 확인하면
+    실물이 이 모양이 아닐 때 테스트만 통과한다.
+    """
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    real_2029 = (
+        Path(__file__).parent.parent / "sources" / "kr" / "cache" / f"{kc.OPERATION}_2029.xml"
+    )
+    body = real_2029.read_text(encoding="utf-8")
+    assert kp.item_count(body) == 0, "실물 2029 캐시가 빈 응답이 아니다. 전제가 바뀌었다."
+
+    _respond(monkeypatch, status=200, body=body)
+
+    assert kc.fetch_year(2029) == body
+    assert kc.cache_path(2029).read_text(encoding="utf-8") == body
+
+
+def test_a_populated_response_overwrites_a_populated_cache(monkeypatch):
+    """항목이 있는 응답은 그대로 덮어쓴다. 가드가 정상 갱신을 막으면 안 된다."""
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    kc.cache_path(2028).write_text(_populated_body(5), encoding="utf-8")
+    fresh = _populated_body(7)
+    _respond(monkeypatch, status=200, body=fresh)
+
+    assert kc.fetch_year(2028, force=True) == fresh
+    assert kc.cache_path(2028).read_text(encoding="utf-8") == fresh
+
+
+def test_a_smaller_but_nonempty_response_still_overwrites(monkeypatch):
+    """5 → 3 하향은 통과시킨다.
+
+    지정 취소나 표기 변경으로 실제로 줄 수 있고, 어디까지가 정상인지 정할
+    근거가 없다. 임계값을 지어내면 그 값이 곧 규칙이 되는데 근거가 없다.
+    0 만 다르다 — 한 해에 공휴일이 하나도 없는 일은 없으므로 그건 부재다.
+    """
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    kc.cache_path(2028).write_text(_populated_body(5), encoding="utf-8")
+    smaller = _populated_body(3)
+    _respond(monkeypatch, status=200, body=smaller)
+
+    assert kc.fetch_year(2028, force=True) == smaller
+    assert kc.cache_path(2028).read_text(encoding="utf-8") == smaller
+
+
+def test_an_empty_response_may_overwrite_an_empty_cache(monkeypatch):
+    """빈 캐시를 빈 응답으로 다시 받는 것은 막지 않는다. 잃을 것이 없다."""
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    kc.cache_path(2029).write_text(NORMAL_BODY, encoding="utf-8")
+    _respond(monkeypatch, status=200, body=NORMAL_BODY)
+
+    assert kc.fetch_year(2029, force=True) == NORMAL_BODY
+
+
+def test_a_broken_cache_can_still_be_replaced_by_an_empty_response(monkeypatch):
+    """깨진 캐시는 빈 응답으로도 덮을 수 있어야 한다.
+
+    audit_cache_report 가 안내하는 복구 경로가 force=True 다. 항목 수를 셀 수
+    없는 파일을 지키느라 그 경로를 막으면, 오류 응답이 굳은 파일이 영영
+    남는다. 지킬 값이 없는 파일이다.
+    """
+    monkeypatch.setenv(kc.ENV_VAR, FAKE_KEY)
+    kc.cache_path(2028).write_text(
+        _error_bodies()[0].read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    _respond(monkeypatch, status=200, body=NORMAL_BODY)
+
+    assert kc.fetch_year(2028, force=True) == NORMAL_BODY
+    assert kc.cache_path(2028).read_text(encoding="utf-8") == NORMAL_BODY

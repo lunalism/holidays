@@ -31,6 +31,7 @@
 예외를 던진다. 정상적인 사용은 연도당 한 번이므로 이 상한에 닿을 일이 없다.
 
 캐시가 있으면 호출하지 않는다. 같은 연도를 다시 부르려면 force=True 를 줘야 한다.
+force=True 라도 빈 응답이 항목 있는 캐시를 덮는 것은 막는다(CacheWouldLoseData).
 """
 
 from __future__ import annotations
@@ -81,6 +82,15 @@ class MissingServiceKey(KasiError):
 
 class CallBudgetExceeded(KasiError):
     """한 프로세스에서 너무 많이 불렀다. 루프를 의심할 것."""
+
+
+class CacheWouldLoseData(KasiError):
+    """빈 응답이 항목 있는 캐시를 덮으려 했다. 쓰지 않았다.
+
+    resultCode 00 에 항목만 0 건인 응답은 봉투 검사를 통과한다. 그래서
+    check_envelope 로는 걸리지 않는다. 관측 기록이 조용히 지워지는 것을
+    막는 것은 이 예외의 몫이다.
+    """
 
 
 # ---------------------------------------------------------------------------
@@ -302,6 +312,22 @@ def cache_path(year: int) -> Path:
     return CACHE_DIR / f"{OPERATION}_{year}.xml"
 
 
+def _cached_item_count(path: Path) -> int:
+    """기존 캐시의 항목 수. 셀 수 없으면 None.
+
+    None 은 "비교할 수 없다"는 뜻이고, 그때 가드는 비켜선다. 깨진 캐시를
+    force=True 로 덮어써 복구하는 경로가 있고(audit_cache_report 참조),
+    읽히지도 않는 파일을 지키느라 그 경로를 막으면 안 된다.
+
+    0 과 None 을 구분해 둘 필요는 없다. 둘 다 덮어쓰기를 허용하는 쪽이다.
+    호출부에서 truthy 검사 하나로 처리한다.
+    """
+    try:
+        return kasi_parser.item_count(path.read_text(encoding="utf-8"))
+    except (OSError, kasi_parser.KasiParseError):
+        return None
+
+
 def fetch_year(year: int, *, key_mode: str = None, force: bool = False) -> str:
     """그 해 공휴일 원시 XML. 캐시가 있으면 호출하지 않는다.
 
@@ -332,6 +358,35 @@ def fetch_year(year: int, *, key_mode: str = None, force: bool = False) -> str:
         raise KasiError(
             f"{year} 년 응답이 정상 봉투가 아니다. 캐시에 쓰지 않았다.\n  {exc}"
         ) from exc
+
+    # 봉투는 멀쩡한데 항목만 0 건인 응답이 있다. 2029~2031 이 실제로 그렇다
+    # (resultCode 00 / NORMAL SERVICE / totalCount 0). 아직 발표되지 않은
+    # 구간에서는 그것이 정상이므로 빈 응답 자체를 거부할 수는 없다.
+    #
+    # 거부해야 하는 것은 그 빈 응답이 "항목이 있던 캐시"를 덮는 경우다.
+    # 그 순간 관측 기록이 사라지고, 남는 것은 다른 해의 빈 캐시와 구분되지 않는
+    # 249 바이트짜리 파일뿐이다. "원래 없었다"와 "받아 왔는데 없어졌다"가
+    # 합쳐져 버리고, 되돌리려면 git 을 뒤지는 수밖에 없다.
+    #
+    # 실제로 밟힐 수 있는 경로다. 특일정보 활용기간 만료일이 2028-08-08 이고
+    # (kasi_names.yaml 참조), 만료 후 응답이 어떤 모양인지는 확인되지 않았다.
+    #
+    # 하향은 막지 않는다. 5 → 3 은 지정 취소나 표기 변경으로 실제로 일어날 수
+    # 있는 일이고, 어디까지가 정상인지 정할 근거가 없다. 0 만 다르다 —
+    # 한 해에 공휴일이 하나도 없는 일은 없으므로 그건 데이터가 아니라 부재다.
+    new_count = kasi_parser.item_count(body)
+    if new_count == 0:
+        old_count = _cached_item_count(path) if path.exists() else None
+        if old_count:
+            raise CacheWouldLoseData(
+                f"{year} 년 새 응답이 0 건인데 기존 캐시에는 {old_count} 건이 있다. "
+                f"캐시에 쓰지 않았다 (기존 {old_count} 건 → 새 응답 {new_count} 건).\n"
+                f"  {path}\n"
+                "빈 응답이 관측 기록을 덮는 것을 막았다. 응답을 먼저 확인할 것 — "
+                "활용기간 만료나 키 문제라면 다시 받아도 같은 것이 온다.\n"
+                "그래도 덮어써야 한다면 파일을 직접 지우고 다시 받을 것. "
+                "지우는 것은 사람이 판단할 일이다."
+            )
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(body, encoding="utf-8")

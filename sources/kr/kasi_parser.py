@@ -162,6 +162,22 @@ def check_envelope(xml: str):
     return root
 
 
+def item_count(xml: str) -> int:
+    """응답에 실린 item 개수. 봉투가 정상이 아니면 KasiParseError.
+
+    parse() 로 세지 않는 이유가 있다. parse() 는 이름을 전부 매핑해야 통과하므로
+    kasi_names.yaml 에 없는 이름이 하나만 있어도 터진다. 여기서 필요한 것은
+    "이 응답에 몇 건이 실려 있나"뿐이고, 그 답은 이름을 몰라도 낼 수 있다.
+    매핑 여부에 세는 일이 걸리면 캐시 보호가 이름 표 상태에 끌려다니게 된다.
+
+    totalCount 가 아니라 item 을 직접 센다. totalCount 는 없을 수도 있는
+    엘리먼트라 없으면 0 인지 미상인지 갈리지 않는다. item 은 세면 그만이다.
+    둘이 어긋나는 경우는 parse() 가 페이지네이션으로 잡는다.
+    """
+    root = check_envelope(xml)
+    return len(root.findall("body/items/item"))
+
+
 def parse(xml: str, table: dict = None) -> tuple:
     """원시 XML → KasiHoliday 목록. 날짜 오름차순.
 
