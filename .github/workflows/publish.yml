@@ -89,9 +89,11 @@ jobs:
           set -o pipefail
           uv run python -m sources.kr.key_expiry 2>&1 | tee -a "$BUILD_LOG_PATH"
 
+      # KASI_SERVICE_KEY 를 주입하지 않는다. 이 스텝은 커밋된 YAML 과 계산만
+      # 쓰고 네트워크를 타지 않아서, 넣어 두어도 읽는 곳이 없었다.
+      # 없는 비밀값은 샐 수도 없다. 조회 스텝이 생기면 그때 다시 넣을 것 —
+      # 그때는 core/buildlog.py 가 error 필드에서 그 값을 지운다.
       - name: 피드 생성
-        env:
-          KASI_SERVICE_KEY: ${{ secrets.KASI_SERVICE_KEY }}
         run: |
           set -o pipefail
           uv run python -m rules.kr.feed feeds/kr.ics 2>&1 | tee -a "$BUILD_LOG_PATH"
