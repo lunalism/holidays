@@ -945,7 +945,7 @@ def test_a_timed_dtstart_in_the_previous_feed_fails_the_build():
 # ---------------------------------------------------------------------------
 
 
-def test_publish_writes_the_feed_and_returns_the_path(tmp_path):
+def test_publish_writes_the_feed_and_returns_the_path(tmp_path, confirmed_domain):
     target = tmp_path / "kr.ics"
     written = feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
 
@@ -953,7 +953,7 @@ def test_publish_writes_the_feed_and_returns_the_path(tmp_path):
     assert target.read_bytes() == feed.build(today=TODAY, dtstamp=DTSTAMP)
 
 
-def test_publish_reads_the_previous_file_before_replacing_it(tmp_path):
+def test_publish_reads_the_previous_file_before_replacing_it(tmp_path, confirmed_domain):
     """두 번째 발행이 첫 번째를 이전본으로 읽는지.
 
     읽기가 쓰기보다 먼저여야 한다. 순서가 뒤집히면 자기가 방금 쓴 것을
@@ -971,13 +971,15 @@ def test_publish_reads_the_previous_file_before_replacing_it(tmp_path):
     assert second != first  # DTSTAMP 는 달라진다
 
 
-def test_publish_leaves_no_temp_file_behind(tmp_path):
+def test_publish_leaves_no_temp_file_behind(tmp_path, confirmed_domain):
     target = tmp_path / "kr.ics"
     feed.publish(today=TODAY, dtstamp=DTSTAMP, path=target)
     assert [p.name for p in tmp_path.iterdir()] == ["kr.ics"]
 
 
-def test_publish_does_not_destroy_the_previous_feed_when_the_build_fails(tmp_path):
+def test_publish_does_not_destroy_the_previous_feed_when_the_build_fails(
+    tmp_path, confirmed_domain
+):
     """빌드가 실패하면 기존 발행본이 그대로 남아야 한다.
 
     이것이 stdout 리다이렉션과 갈리는 지점이다. 셸이라면 이미 비운 뒤였다.
@@ -992,14 +994,77 @@ def test_publish_does_not_destroy_the_previous_feed_when_the_build_fails(tmp_pat
     assert target.read_bytes() == intact
 
 
-def _run_entry_point(target: Path):
+@pytest.fixture
+def confirmed_domain(monkeypatch):
+    """UID 네임스페이스를 확정된 것으로 두고 발행을 허용한다.
+
+    core/ics.py 의 UID_DOMAIN_CONFIRMED 는 지금 False 라 publish() 가 거부한다.
+    도메인이 잠정인 동안 밖으로 나가는 것을 막는 장치다(README 의 이벤트 UID).
+
+    발행 로직 자체는 그와 별개로 검증해야 하므로 테스트에서만 연다.
+    프로덕션 코드에 우회 인자를 두지 않은 이유는 그쪽 주석에 있다.
+    """
+    monkeypatch.setattr(ics, "UID_DOMAIN_CONFIRMED", True)
+
+
+def _run_entry_point(target: Path, *, confirmed=True):
+    """python -m rules.kr.feed 를 자식 프로세스에서 돌린다.
+
+    confirmed=True 면 자식 안에서 UID_DOMAIN_CONFIRMED 를 켠 뒤 진입점을
+    실행한다. monkeypatch 는 자식에 닿지 않고, 그렇다고 프로덕션에 환경변수
+    우회를 만들면 그것이 곧 상시 우회 경로가 된다. 테스트가 자기 자식에서만
+    여는 편이 낫다.
+    """
+    if confirmed:
+        code = (
+            "import sys, runpy, core.ics;"
+            "core.ics.UID_DOMAIN_CONFIRMED = True;"
+            f"sys.argv = ['rules.kr.feed', {str(target)!r}];"
+            "runpy.run_module('rules.kr.feed', run_name='__main__')"
+        )
+        argv = [sys.executable, "-c", code]
+    else:
+        argv = [sys.executable, "-m", "rules.kr.feed", str(target)]
+
     return subprocess.run(
-        [sys.executable, "-m", "rules.kr.feed", str(target)],
+        argv,
         cwd=Path(__file__).resolve().parents[1],
         capture_output=True,
         text=True,
         check=False,
     )
+
+
+def test_publish_refuses_while_the_uid_domain_is_provisional():
+    """도메인이 확정되지 않은 동안 발행을 거부하는지.
+
+    UID 는 한 번 나가면 바꿀 수 없다. 지금 네임스페이스는 잠정이고
+    (README 의 이벤트 UID, CLAUDE.md) 확정 전에 나가면 되돌릴 방법이 없다.
+
+    build() 는 막지 않는다 — 막아야 하는 것은 만드는 것이 아니라 나가는 것이다.
+    """
+    assert ics.UID_DOMAIN_CONFIRMED is False, (
+        "도메인을 확정했다면 이 테스트와 아래 진입점 테스트를 함께 갱신할 것."
+    )
+
+    with pytest.raises(ics.IcsError, match="확정되지 않아 발행하지 않는다"):
+        feed.publish(today=TODAY, dtstamp=DTSTAMP, path=Path("/tmp/should-not-exist.ics"))
+
+    # 만드는 쪽은 막히지 않는다.
+    assert feed.build(today=TODAY, dtstamp=DTSTAMP).startswith(b"BEGIN:VCALENDAR")
+
+
+def test_the_entry_point_refuses_while_the_uid_domain_is_provisional(tmp_path):
+    """진입점도 같은 자리에서 멈추는지. 워크플로가 실제로 밟는 경로다.
+
+    지금 workflow_dispatch 로 발행을 돌리면 여기서 실패한다. 의도한 것이다.
+    """
+    target = tmp_path / "kr.ics"
+    done = _run_entry_point(target, confirmed=False)
+
+    assert done.returncode != 0
+    assert "확정되지 않아 발행하지 않는다" in done.stderr
+    assert not target.exists(), "거부했는데 파일이 생겼다"
 
 
 def test_the_module_entry_point_publishes_to_a_file(tmp_path):
@@ -1039,7 +1104,7 @@ def test_the_entry_point_can_run_twice_against_the_same_file(tmp_path):
     assert set(first.values()) == {0}
 
 
-def test_publish_survives_being_pointed_at_its_own_output_twice(tmp_path):
+def test_publish_survives_being_pointed_at_its_own_output_twice(tmp_path, confirmed_domain):
     """같은 경로로 세 번 발행해도 SEQUENCE 가 흔들리지 않는지.
 
     stdout 리다이렉션이었다면 두 번째에 이미 깨졌을 자리다.

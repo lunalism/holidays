@@ -257,6 +257,16 @@ def publish(*, today: date, dtstamp, path: Path = None) -> Path:
     임시 파일을 같은 디렉터리에 두는 것도 그 때문이다. /tmp 에 만들면 파일
     시스템이 달라질 수 있고, 그러면 replace 가 복사로 떨어져 원자성이 깨진다.
     """
+    if not ics.UID_DOMAIN_CONFIRMED:
+        raise ics.IcsError(
+            f"UID 네임스페이스 {ics.UID_DOMAIN!r} 가 확정되지 않아 발행하지 않는다.\n"
+            "한 번 발행하면 UID 를 바꿀 수 없다. 바꾸면 구독자 캘린더에서 모든 "
+            "공휴일이 삭제 + 재생성으로 나타난다.\n"
+            "확정했다면 core/ics.py 의 UID_DOMAIN_CONFIRMED 를 True 로 둘 것. "
+            "그 커밋이 곧 확정 기록이다.\n"
+            "발행 없이 내용만 보려면 build() 를 쓸 것 — 그쪽은 막지 않는다."
+        )
+
     path = path or FEED_PATH
     previous = path.read_bytes() if path.exists() else None
     body = build(today=today, dtstamp=dtstamp, previous=previous)

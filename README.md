@@ -51,9 +51,13 @@ Python 3.12 이상, 패키지 관리는 [uv](https://docs.astral.sh/uv/).
 >
 > 만료되면 인증이 거부되고 갱신 파이프라인이 멈춥니다. 문제는 조용히 멈춘다는
 > 점입니다 — 이미 발행된 `.ics` 는 그대로 남아 있어서 구독자 쪽에서는 아무 일도
-> 없어 보입니다. 만료 전에 연장하고, 만료 감지를 사람의 기억에 맡기지 마세요.
-> 인증 실패를 빌드 실패로 올리는 장치가 아직 없습니다
-> (`sources/kr/kasi_names.yaml` 의 `api-활용기간-만료` 참조).
+> 없어 보입니다.
+>
+> 만료를 사람의 기억에 맡기지 않습니다. 만료일은
+> `sources/kr/kasi_names.yaml` 의 `service.expires_on` 에 값으로 있고,
+> 발행 워크플로가 매번 `sources/kr/key_expiry.py` 로 확인합니다.
+> **남은 기간이 60일 미만이면 발행하지 않고 실패합니다.** 연장한 뒤
+> `service.expires_on` 을 갱신하세요.
 
 인증키는 Encoding 키(퍼센트 인코딩된 형태)를 씁니다. 쿼리 문자열을 직접 조립해
 그대로 붙여야 하며, HTTP 클라이언트의 `params` 인자로 넘기면 이중 인코딩되어
@@ -64,6 +68,40 @@ Python 3.12 이상, 패키지 관리는 [uv](https://docs.astral.sh/uv/).
 API 키는 **코드에 절대 두지 않습니다.** 로컬에서는 `.env.example` 을 `.env` 로
 복사해서 사용하고(`.env` 는 gitignore 대상), 운영 환경에서는 GitHub Actions
 Secret 으로만 주입합니다. 커밋 전에 인증정보가 섞이지 않았는지 확인하세요.
+
+### 필요한 GitHub 설정
+
+| 항목 | 값 | 위치 |
+|---|---|---|
+| Secret | `KASI_SERVICE_KEY` | Settings → Secrets and variables → Actions → New repository secret |
+| 워크플로 권한 | Read and write permissions | Settings → Actions → General → Workflow permissions |
+
+Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 형태)를 그대로
+붙여 넣습니다. Decoding 키를 넣으면 `+` 가 공백으로 해석되어 인증에 실패합니다.
+
+워크플로 권한이 필요한 이유는 산출물(`feeds/kr.ics`, `status.json`,
+`logs/build.jsonl`)을 커밋해야 하기 때문입니다. `publish.yml` 이
+`permissions: contents: write` 를 선언하지만, 저장소 기본 설정이 read-only 면
+그 선언도 무시됩니다.
+
+## 발행
+
+`.github/workflows/publish.yml` 이 피드를 만들고 커밋합니다.
+
+**지금은 수동 실행만 됩니다.** UID 네임스페이스가 잠정이라 첫 발행을
+보류했습니다 — `schedule` 이 주석 처리되어 있고, `core/ics.py` 의
+`UID_DOMAIN_CONFIRMED` 가 `False` 인 동안 `publish()` 자체가 거부합니다.
+수동 실행(`workflow_dispatch`)을 걸면 그 자리에서 실패합니다. 의도한 동작입니다.
+
+발행을 열려면 두 가지를 함께 해야 합니다.
+
+1. `core/ics.py` 의 `UID_DOMAIN_CONFIRMED` 를 `True` 로
+2. `publish.yml` 의 `schedule` 주석 해제 (매주 월요일 09:00 KST)
+
+1 없이 2 만 풀면 워크플로가 실패합니다. 순서를 강제하려고 그렇게 두었습니다.
+
+파이프라인이 쓰는 세 파일의 성격과 갱신 시점은
+[`DESIGN.md`](DESIGN.md) 의 "발행 파이프라인" 절에 있습니다.
 
 ## 호환성 원칙
 

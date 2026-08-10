@@ -82,6 +82,23 @@ def load_names(path: Path = None) -> dict:
     }
 
 
+def load_service(path: Path = None) -> dict:
+    """활용 서비스 정보(operation, expires_on).
+
+    이름 매핑과 같은 파일에 있지만 성격이 다르다. 이름 표는 응답을 읽는 데
+    쓰이고, 이쪽은 그 응답을 받을 자격이 언제까지인지를 말한다.
+    같은 파일에 두는 이유는 둘 다 같은 활용신청에 매여 있어서다 —
+    다른 서비스를 신청하면 둘 다 새로 생긴다.
+    """
+    raw = yaml.safe_load((path or NAMES_PATH).read_text(encoding="utf-8"))
+    service = raw.get("service")
+    if not service:
+        raise KasiParseError(
+            "kasi_names.yaml 에 service 블록이 없다. 활용기간 만료일을 확인할 수 없다."
+        )
+    return service
+
+
 def _parse_locdate(value: str) -> date:
     if not re.fullmatch(r"\d{8}", value):
         raise KasiParseError(f"locdate 형식이 아니다: {value!r}")

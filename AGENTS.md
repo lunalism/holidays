@@ -16,10 +16,13 @@ uv run ruff check .  # 린트
 
 ## 인증키
 
-- KASI 인증키는 환경변수 `KASI_SERVICE_KEY` 또는 `.env` 에서만 읽는다.
-  지금은 이것이 전부다. **CI 가 없다** — `.github/` 자체가 없고 캐시 갱신은
-  `fetch_year()` 를 사람이 직접 부르는 수동 작업이다.
-  CI 를 도입하면 그때 Actions Secret 주입으로 바꾼다. 아직 아니다.
+- KASI 인증키는 환경변수 `KASI_SERVICE_KEY` 에서 읽는다.
+  로컬에서는 `.env` 로 대신할 수 있다(`.env` 는 gitignore 대상).
+  CI 에서는 GitHub Actions Secret `KASI_SERVICE_KEY` 로 주입한다 —
+  `.github/workflows/publish.yml` 의 "피드 생성" 스텝이 그 자리다.
+  설정 방법은 README 의 "발행" 절에 있다.
+- 발행 워크플로는 아직 `schedule` 이 비활성이다. UID 네임스페이스가 잠정이라
+  첫 발행을 보류했다. 자세한 것은 `DESIGN.md` 의 발행 파이프라인 참조.
 - 코드·커밋·테스트 픽스처에 키를 넣지 말 것.
 - **로그와 예외 메시지에 키가 실리지 않게 할 것.** 이 API 는 인증키를 쿼리
   문자열로 받으므로, 요청 URL 이 그대로 올라가면 키가 그대로 노출된다.

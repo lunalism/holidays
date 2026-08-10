@@ -50,6 +50,20 @@ from icalendar import Event as VEvent
 
 UID_DOMAIN = "holidays.lunalism.com"
 
+# UID 네임스페이스가 확정되었는가.
+#
+# False 인 동안 발행이 거부된다(rules/kr/feed.py 의 publish()). 지금 도메인은
+# 잠정이고(README 의 이벤트 UID, CLAUDE.md 참조) 한 번 발행하면 UID 를 바꿀 수
+# 없으므로, 확정 전에 나가는 것을 코드가 막는다.
+#
+# build() 와 render() 는 막지 않는다. 테스트와 검토는 계속 돌아야 하고,
+# 막아야 하는 것은 "만드는 것"이 아니라 "밖으로 나가는 것"이다.
+#
+# 우회 인자를 두지 않았다. 두면 CI 가 그 인자를 쓰게 되고 이 플래그는 장식이
+# 된다. 확정되면 이 값을 True 로 바꾸는 커밋 하나가 발행을 여는 것이고,
+# 그 커밋이 곧 "도메인을 확정했다"는 기록이 된다.
+UID_DOMAIN_CONFIRMED = False
+
 VERSION = "2.0"
 CALSCALE = "GREGORIAN"
 
@@ -424,3 +438,40 @@ def render(
     for event, uid in pairs:
         cal.add_component(_vevent(event, uid, dtstamp, sequences[uid]))
     return cal.to_ical()
+
+
+def summarize_change(previous: bytes, current: bytes) -> str:
+    """두 발행본의 차이를 커밋 제목 한 줄로.
+
+    DTSTAMP 는 보지 않는다. 그것만 다른 재발행은 "변경 없음"이다.
+    커밋 제목에 들어가므로 짧게 낸다 — 자세한 것은 diff 를 보면 된다.
+    """
+    before = read_published(previous) if previous else {}
+    after = read_published(current)
+
+    added = sorted(set(after) - set(before))
+    removed = sorted(set(before) - set(after))
+    changed = sorted(
+        uid
+        for uid in set(before) & set(after)
+        if (before[uid].dtstart, before[uid].summary) != (after[uid].dtstart, after[uid].summary)
+    )
+
+    parts = []
+    if added:
+        years = sorted({uid[:4] for uid in added})
+        parts.append(f"추가 {len(added)}건({', '.join(years)})")
+    if removed:
+        parts.append(f"삭제 {len(removed)}건")
+    if changed:
+        parts.append(f"변경 {len(changed)}건")
+    return " / ".join(parts) or "내용 변경 없음"
+
+
+if __name__ == "__main__":  # pragma: no cover
+    import sys
+    from pathlib import Path as _Path
+
+    _old, _new = _Path(sys.argv[1]), _Path(sys.argv[2])
+    _before = _old.read_bytes() if _old.exists() else b""
+    print(summarize_change(_before, _new.read_bytes()))
