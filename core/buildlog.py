@@ -19,6 +19,15 @@ append 만 하면 되고 병합 충돌이 줄 단위로 끝난다. 하나의 JSO
 
 기록은 지우지 않는다. 커지면 연 단위로 잘라 보관할 것 — 지금 규모로는
 주 1 회 한 줄이라 문제가 되지 않는다.
+
+--------------------------------------------------------------------------
+error 는 공개된다고 보고 쓴다
+--------------------------------------------------------------------------
+이 파일은 저장소에 커밋되고, Pages 를 붙이면 공개 URL 로 그대로 서빙된다.
+error 필드에는 빌드 로그 끝부분이 실리므로 무엇이 들어올지 알 수 없다.
+
+그래서 기록 직전에 core/secrets.py 의 scrub 을 통과시킨다. AGENTS.md 의
+"외부로 나가는 문자열" 규약이 이 파일에도 걸린다.
 """
 
 from __future__ import annotations
@@ -26,6 +35,8 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+
+from core import secrets
 
 # 실패 시 로그에 남길 오류 문자열의 최대 길이. 스택 전체를 넣으면 한 줄이
 # 수천 자가 되어 파일을 사람이 읽을 수 없게 된다. 원문은 Actions 로그에 있다.
@@ -71,7 +82,21 @@ def record_from_env(env: dict = None) -> dict:
     if record["result"] != "success":
         log_path = (env.get("BUILD_LOG_PATH") or "").strip()
         error = tail_error(Path(log_path)) if log_path else ""
-        record["error"] = error or (env.get("BUILD_ERROR") or "").strip() or "원인 미상"
+        error = error or (env.get("BUILD_ERROR") or "").strip() or "원인 미상"
+
+        # 이 파일은 저장소에 커밋되고 Pages 를 붙이면 공개 URL 로 서빙된다.
+        # error 에는 빌드 로그 끝부분이 그대로 실리므로, 무엇이 들어왔든
+        # 비밀값 형태는 먼저 지운다.
+        #
+        # 지금 발행 파이프라인은 네트워크를 타지 않아 키가 흘러들 원천이 없다.
+        # 그래도 거르는 이유는, 나중에 조회 스텝이 하나 들어오는 순간 스크럽을
+        # 빠뜨린 예외 한 줄이 공개 파일에 박히기 때문이다. 그때는 git 히스토리에
+        # 남고 이미 크롤링된 뒤일 수 있어 되돌릴 수가 없다.
+        #
+        # 어느 환경변수가 비밀값인지는 이름으로 찾는다. 목록으로 관리하면
+        # 새 비밀값을 추가할 때 갱신을 잊고, 잊었다는 사실은 유출 뒤에 드러난다.
+        # core/secrets.py 참조.
+        record["error"] = secrets.scrub(error, *secrets.secrets_from_env(env))
     return record
 
 

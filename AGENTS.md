@@ -26,7 +26,16 @@ uv run ruff check .  # 린트
 - 코드·커밋·테스트 픽스처에 키를 넣지 말 것.
 - **로그와 예외 메시지에 키가 실리지 않게 할 것.** 이 API 는 인증키를 쿼리
   문자열로 받으므로, 요청 URL 이 그대로 올라가면 키가 그대로 노출된다.
-  외부로 나가는 문자열은 `sources/kr/kasi_client.py` 의 `scrub()` 을 통과시킨다.
+  외부로 나가는 문자열은 `core/secrets.py` 의 `scrub()` 을 통과시킨다.
+  (`sources/kr/kasi_client.py` 의 `scrub()`·`mask()`·`key_forms()` 는 그것을
+  KASI 키에 맞춰 부르는 얇은 껍데기다.)
+- **저장소에 커밋되는 산출물도 "외부로 나가는 문자열"이다.**
+  `logs/build.jsonl` 의 `error` 필드가 그렇다. 이 파일은 커밋되고 Pages 를
+  붙이면 공개 URL 로 서빙되므로, `core/buildlog.py` 가 기록 직전에 `scrub()`
+  을 건다. 지울 대상은 환경변수 **이름**으로 찾는다(`KEY`·`TOKEN`·`SECRET`·
+  `PASSWORD`·`CREDENTIAL` 포함). 목록으로 관리하면 새 비밀값을 넣을 때 갱신을
+  잊고, 잊은 것은 유출된 뒤에야 드러난다.
+  산출물을 늘릴 때는 그것도 공개된다고 보고 같은 규약을 적용할 것.
 
 ## 그 밖의 규약
 

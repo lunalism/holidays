@@ -43,6 +43,7 @@ from urllib.parse import quote, unquote
 
 import httpx
 
+from core import secrets
 from sources.kr import kasi_parser
 
 log = logging.getLogger(__name__)
@@ -123,10 +124,8 @@ def load_service_key() -> str:
 
 
 def mask(key: str) -> str:
-    """로그용. 앞뒤 4자만 남긴다."""
-    if len(key) <= 12:
-        return "*" * len(key)
-    return f"{key[:4]}...{key[-4:]}({len(key)}자)"
+    """로그용. 앞뒤 4자만 남긴다. 구현은 core/secrets.py 에 있다."""
+    return secrets.mask(key)
 
 
 def looks_percent_encoded(key: str) -> bool:
@@ -181,16 +180,13 @@ def key_forms(key: str) -> set:
     이중 인코딩까지 포함해야 한다. 라이브러리가 인코딩 키를 한 번 더 인코딩하면
     '%2B' 가 '%252B' 가 되는데, 그 형태가 예외 메시지에 실려 나온다.
     실제로 params 모드의 403 메시지에 그 형태로 키가 통째로 들어 있었다.
+
+    구현은 core/secrets.py 로 옮겼다. 이 함수들에 KASI 지식이 없고, 같은 것을
+    core/buildlog.py 도 써야 하기 때문이다. core 는 sources/kr 을 import 할 수
+    없으므로 아래쪽에 두는 수밖에 없었다. 이름은 남겨 둔다 — 호출부와
+    AGENTS.md 가 이 이름을 가리킨다.
     """
-    raw = key
-    once = quote(key, safe="")
-    return {
-        raw,
-        once,
-        quote(once, safe=""),
-        unquote(key),
-        quote(unquote(key), safe=""),
-    }
+    return secrets.forms(key)
 
 
 def scrub(text: str, key: str) -> str:
@@ -199,11 +195,7 @@ def scrub(text: str, key: str) -> str:
     로그·출력·예외 메시지에 넣기 전에 반드시 통과시킬 것.
     긴 형태부터 지워야 짧은 형태가 먼저 걸려 부분 치환되는 일이 없다.
     """
-    masked = mask(key)
-    for form in sorted(key_forms(key), key=len, reverse=True):
-        if form:
-            text = text.replace(form, masked)
-    return text
+    return secrets.scrub(text, key)
 
 
 def _request(url: str, key: str, timeout: float = 20.0, params: dict = None) -> str:

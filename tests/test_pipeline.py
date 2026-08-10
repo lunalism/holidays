@@ -13,7 +13,7 @@ import json
 
 import pytest
 
-from core import buildlog, ics
+from core import buildlog, ics, secrets
 from rules.kr import status
 from sources.kr import kasi_parser, key_expiry
 
@@ -226,3 +226,116 @@ def test_summarize_change_counts_added_years():
     summary = ics.summarize_change(before, after)
     assert summary.startswith("추가 ")
     assert "2032" in summary
+
+
+# ---------------------------------------------------------------------------
+# build.jsonl 의 error 는 공개된다고 보고 쓴다
+#
+# 이 파일은 저장소에 커밋되고 Pages 를 붙이면 공개 URL 로 서빙된다.
+# error 에는 빌드 로그 끝부분이 실리므로 무엇이 들어올지 알 수 없다.
+# ---------------------------------------------------------------------------
+
+# 진짜처럼 생긴 가짜 키. 실제 키는 테스트에 절대 들이지 않는다.
+FAKE_KEY = "aB3%2FxQ9zK1pL7mN4vR8t%2BwY6uE0sD5fG2hJ"
+
+
+def _record(log_text, env_extra=None, tmp_path=None):
+    log = tmp_path / "build.log"
+    log.write_text(log_text, encoding="utf-8")
+    env = {"BUILD_RESULT": "failure", "BUILD_LOG_PATH": str(log)}
+    env.update(env_extra or {})
+    return buildlog.record_from_env(env)
+
+
+def test_a_key_in_the_build_log_is_masked_in_the_record(tmp_path):
+    """빌드 로그에 키가 섞여 들어와도 기록에는 마스킹돼 남는다."""
+    leaked = f"KasiError: HTTPStatusError 403 for url ...?serviceKey={FAKE_KEY}&solYear=2026"
+    record = _record(leaked, {"KASI_SERVICE_KEY": FAKE_KEY}, tmp_path)
+
+    assert FAKE_KEY not in record["error"]
+    assert "aB3%...G2hJ" in record["error"]
+    # 무엇이 실패했는지는 남아야 한다. 통째로 지우는 것이 목적이 아니다.
+    assert "403" in record["error"]
+    assert "solYear=2026" in record["error"]
+
+
+@pytest.mark.parametrize(
+    "form",
+    [
+        "raw",  # 원본 그대로
+        "once",  # 한 번 인코딩
+        "twice",  # 이중 인코딩 — 라이브러리가 인코딩 키를 또 인코딩한 형태
+        "decoded",  # 디코딩된 형태
+    ],
+)
+def test_every_encoding_of_the_key_is_masked(form, tmp_path):
+    """키가 어떤 형태로 나타나든 지워지는지.
+
+    이중 인코딩이 특히 중요하다. params 모드의 403 메시지에 '%2B' 가
+    '%252B' 로 바뀐 형태로 키가 통째로 들어 있던 것이 실제로 관측됐다
+    (sources/kr/kasi_client.py 의 key_forms 주석).
+    """
+    from urllib.parse import quote, unquote
+
+    variants = {
+        "raw": FAKE_KEY,
+        "once": quote(FAKE_KEY, safe=""),
+        "twice": quote(quote(FAKE_KEY, safe=""), safe=""),
+        "decoded": unquote(FAKE_KEY),
+    }
+    appearing = variants[form]
+
+    record = _record(f"오류: {appearing} 끝", {"KASI_SERVICE_KEY": FAKE_KEY}, tmp_path)
+    assert appearing not in record["error"], f"{form} 형태가 남았다"
+
+
+def test_a_secret_is_found_by_the_name_of_its_env_var(tmp_path):
+    """환경변수 이름으로 비밀값을 찾는지. 목록을 따로 관리하지 않는다.
+
+    목록 방식이면 새 비밀값을 스텝에 추가하면서 갱신을 잊고, 잊었다는 사실은
+    유출된 뒤에야 드러난다.
+    """
+    for name in ("SOME_API_KEY", "MY_TOKEN", "X_SECRET", "DB_PASSWORD", "A_CREDENTIAL"):
+        value = f"{name.lower()}-abcdefghijklmnop"
+        record = _record(f"터졌다: {value}", {name: value}, tmp_path)
+        assert value not in record["error"], name
+
+
+def test_a_value_that_is_not_secret_shaped_is_left_alone(tmp_path):
+    """이름에 힌트가 없으면 지우지 않는다. 오류 메시지가 읽혀야 한다."""
+    record = _record("경로: /home/runner/work/holidays", {"HOME": "/home/runner"}, tmp_path)
+    assert "/home/runner/work/holidays" in record["error"]
+
+
+def test_a_short_value_is_left_alone_even_with_a_secret_name(tmp_path):
+    """짧은 값은 이름이 걸려도 지우지 않는다.
+
+    'true' 나 '1' 같은 값까지 마스킹하면 오류 메시지가 읽히지 않게 된다.
+    """
+    record = _record("설정: DEBUG_TOKEN=1 이라서 실패", {"DEBUG_TOKEN": "1"}, tmp_path)
+    assert "DEBUG_TOKEN=1" in record["error"]
+
+
+def test_the_github_token_is_masked_too(tmp_path):
+    """GITHUB_TOKEN 도 이름 규칙에 걸린다. 별도로 적어 두지 않아도 걸러진다."""
+    token = "ghs_" + "x" * 36
+    record = _record(f"remote: {token} rejected", {"GITHUB_TOKEN": token}, tmp_path)
+    assert token not in record["error"]
+
+
+def test_a_success_record_has_no_error_to_scrub():
+    """성공에는 error 자체가 없다. 스크럽할 것도 없다."""
+    record = buildlog.record_from_env({"BUILD_RESULT": "success", "KASI_SERVICE_KEY": FAKE_KEY})
+    assert "error" not in record
+    assert FAKE_KEY not in json.dumps(record, ensure_ascii=False)
+
+
+def test_scrub_moved_to_core_but_the_kasi_names_still_work():
+    """kasi_client 의 이름들이 그대로 도는지. AGENTS.md 와 호출부가 가리킨다."""
+    from sources.kr import kasi_client as kc
+
+    assert kc.scrub(f"url?serviceKey={FAKE_KEY}", FAKE_KEY) == (
+        f"url?serviceKey={secrets.mask(FAKE_KEY)}"
+    )
+    assert kc.mask(FAKE_KEY) == secrets.mask(FAKE_KEY) == f"aB3%...G2hJ({len(FAKE_KEY)}자)"
+    assert kc.key_forms(FAKE_KEY) == secrets.forms(FAKE_KEY)
