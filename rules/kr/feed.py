@@ -42,6 +42,20 @@ TZID = "Asia/Seoul"
 
 _WHITESPACE = re.compile(r"\s+")
 
+# key 가 없는 항목의 UID token. 지정 표(임시공휴일·선거일)와 대체공휴일이
+# 여기 해당한다. 셋 다 substitute_holidays.yaml 의 holidays 레지스트리에 없어서
+# key 가 빈 문자열이다.
+#
+# statutory 는 여기 없다. 양력·음력 표에서 오는 항목은 전부 key 를 갖는다.
+# 그런데도 key 없는 statutory 가 들어오면 _token() 이 터진다. 약어를 하나
+# 지어 붙이면 그 순간 어느 공휴일인지 구분되지 않는 UID 가 생기고,
+# 같은 날 statutory 가 둘이면 UID 가 충돌한다.
+_KIND_ABBREV = {
+    hc.KIND_SUBSTITUTE: "sub",
+    "temporary": "tmp",
+    "election": "elc",
+}
+
 
 def feed_range(today: date) -> tuple:
     """(시작일, 종료일). 종료일은 today 기준 YEARS_AHEAD 년 뒤의 12-31.
@@ -54,6 +68,34 @@ def feed_range(today: date) -> tuple:
 
 def _one_line(text: str) -> str:
     return _WHITESPACE.sub(" ", (text or "").strip())
+
+
+def _token(holiday) -> str:
+    """UID 의 뒷부분.
+
+    key 가 있으면 key 를 그대로 쓴다. key 는 규칙 조회용 식별자라 이미 함부로
+    바꿀 수 없는 값이다 — 대체공휴일 판정이 이 값으로 호 소속을 찾고, 연휴가
+    명절 당일과 같은 key 를 공유하는 것도 그 때문이다
+    (holiday_calendar.py:524-526). 그래서 UID 에 쓰기 적합하다. 바꾸면 이미
+    대체공휴일 유도가 깨지므로, UID 만 조용히 바뀌는 일이 생기지 않는다.
+
+    key 가 없으면 kind 약어를 쓴다. 지정 표와 대체공휴일이 그런데, 셋 다 같은
+    날 같은 kind 가 둘 있을 수 없어 그것으로 충분하다. 겹치면 assign_uids() 가
+    멈춘다. 2020~2035 전수로 겹치는 자리가 없음을 확인했다.
+
+    이름(name)은 쓰지 않는다. 표기가 흔들리는 값이라(신정 → 1월1일,
+    석가탄신일 → 부처님오신날) 표기 정정이 UID 변경이 된다.
+    """
+    if holiday.key:
+        return holiday.key
+    try:
+        return _KIND_ABBREV[holiday.kind]
+    except KeyError:
+        raise ics.IcsError(
+            f"key 가 없는데 kind {holiday.kind!r} 의 UID token 규칙이 없다: {holiday.name!r}.\n"
+            "약어를 지어 붙이지 말 것 — 어느 공휴일인지 구분되지 않는 UID 가 생기고, "
+            "같은 날 같은 kind 가 둘이면 충돌한다. _KIND_ABBREV 를 보고 판단할 것."
+        ) from None
 
 
 def _substitute_description(day: date, holiday) -> str:
@@ -136,9 +178,9 @@ def events(start: date, end: date) -> list:
                     # holidays_on() 은 확정 구간 안에서는 플래그를 찍지 않고
                     # 그대로 돌려주므로, 항목 쪽만 보면 두 경로가 생긴다.
                     provisional=provisional,
-                    # seq 를 정하는 값. 표의 나열 순서가 아니라 내용에서 나온다.
-                    # core.ics.assign_uids() 의 설명 참조.
-                    order_key=(holiday.key, holiday.source_key, holiday.name),
+                    # UID 의 뒷부분. 항목 자체에서 나오므로 같은 날 다른 항목이
+                    # 생기거나 없어져도 변하지 않는다. _token() 참조.
+                    token=_token(holiday),
                 )
             )
         day = day.fromordinal(day.toordinal() + 1)

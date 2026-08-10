@@ -13,6 +13,7 @@ import datetime as dt
 import re
 
 import pytest
+from icalendar import Calendar
 
 from core import ics
 from rules.kr import feed
@@ -91,8 +92,8 @@ def test_overlapping_holidays_become_two_events_with_distinct_uids():
     uids = [_prop(b, "UID") for b in blocks]
     assert len(set(uids)) == 2, f"UID 가 겹친다: {uids}"
     assert set(uids) == {
-        "20250505-1@holidays.lunalism.com",
-        "20250505-2@holidays.lunalism.com",
+        "20250505-buddhas_birthday@holidays.lunalism.com",
+        "20250505-childrens_day@holidays.lunalism.com",
     }
 
     summaries = {_prop(b, "SUMMARY") for b in blocks}
@@ -106,71 +107,125 @@ def test_every_uid_in_the_feed_is_unique():
     assert not dupes, f"중복 UID: {sorted(dupes)}"
 
 
-def test_seq_does_not_follow_the_order_the_calendar_returned():
-    """seq 는 order_key 순이지 holidays_on() 이 준 순서가 아니다.
+def test_the_uid_token_comes_from_the_holiday_key():
+    """key 가 있으면 UID 에 key 가 그대로 들어간다.
 
-    holidays_on() 은 표를 읽은 순서로 쌓는다. 2025-05-05 에서는 양력 표의
-    어린이날이 음력 표의 부처님오신날보다 먼저 나온다. 그 순서를 그대로 쓰면
-    누가 YAML 줄 순서를 바꿨을 때 UID 가 조용히 뒤바뀐다.
-
-    order_key 는 (key, source_key, name) 이므로 buddhas_birthday <
-    childrens_day 가 되어 순서가 뒤집힌다. 그 뒤집힘이 바로 "표 순서를 쓰지
-    않았다"는 증거다.
+    holidays_on() 이 준 순서와도, 그 날 몇 번째인지와도 무관하다.
+    2025-05-05 은 양력 표의 어린이날이 음력 표의 부처님오신날보다 먼저 나오는데
+    UID 는 그 순서를 전혀 반영하지 않는다.
     """
     returned = [h.name for h in hc.holidays_on(dt.date(2025, 5, 5))]
     assert returned == ["어린이날", "부처님오신날"], "전제가 바뀌었다. 이 테스트를 다시 볼 것."
 
-    blocks = _on(_build(), "20250505")
-    by_uid = {_prop(b, "UID"): _prop(b, "SUMMARY") for b in blocks}
-    assert by_uid["20250505-1@holidays.lunalism.com"] == "부처님오신날"
-    assert by_uid["20250505-2@holidays.lunalism.com"] == "어린이날"
+    by_uid = {_prop(b, "UID"): _prop(b, "SUMMARY") for b in _on(_build(), "20250505")}
+    assert by_uid["20250505-childrens_day@holidays.lunalism.com"] == "어린이날"
+    assert by_uid["20250505-buddhas_birthday@holidays.lunalism.com"] == "부처님오신날"
 
 
-def test_the_uid_does_not_carry_the_kind():
-    """UID 에 kind 가 들어 있지 않은지.
+def test_the_uid_token_falls_back_to_a_kind_abbreviation():
+    """key 가 없는 항목은 kind 약어를 쓴다. 대체공휴일·선거일·임시공휴일이다."""
+    text = _build()
+    assert _prop(_on(text, "20270209")[0], "UID") == "20270209-sub@holidays.lunalism.com"
+    assert _prop(_on(text, "20260603")[0], "UID") == "20260603-elc@holidays.lunalism.com"
+    assert _prop(_on(text, "20250127")[0], "UID") == "20250127-tmp@holidays.lunalism.com"
 
-    kind 는 우리 판정 결과다. open_questions 가 풀리면 어떤 항목의 kind 가
-    바뀔 수 있고, kind 가 UID 에 있으면 그 판정 변경이 구독자 캘린더에서
-    이벤트 삭제 + 생성으로 나타난다. SEQUENCE 로 수습되지 않는다.
+
+def test_the_uid_carries_no_positional_number_and_no_kind():
+    """UID 에 위치 기반 순번도, kind 이름도 들어 있지 않은지.
+
+    순번이 들어가면 같은 날 항목이 늘고 줄 때 남의 UID 가 밀린다.
+    kind 가 들어가면 우리 판정이 바뀔 때 UID 가 바뀐다.
     """
     for block in _events(_build()):
         uid = _prop(block, "UID")
-        assert re.fullmatch(r"\d{8}-\d+@holidays\.lunalism\.com", uid), uid
+        token = uid.split("@")[0].split("-", 1)[1]
+        assert not token.isdigit(), f"위치 기반 순번으로 보인다: {uid}"
         for kind in ("statutory", "substitute", "temporary", "election"):
             assert kind not in uid, uid
 
 
-def test_seq_runs_across_the_whole_day_not_per_kind():
-    """seq 는 그 날 전체 순번이다. kind 별로 세면 같은 UID 가 두 번 나온다.
-
-    지금 달력에는 한 날짜에 kind 가 섞이는 자리가 없다(2020~2035 전수 확인).
-    그래서 실제 피드로는 이 규칙을 확인할 수 없고, Event 를 직접 지어 본다.
-    """
-    day = dt.date(2030, 3, 1)
-    substitute = ics.Event(
-        day=day, summary="대체공휴일", kind="substitute", order_key=("", "z", "대")
-    )
-    statutory = ics.Event(
-        day=day, summary="삼일절", kind="statutory", order_key=("samiljeol", "", "삼")
-    )
-    made = ics.assign_uids([substitute, statutory])
-    uids = [uid for _, uid in made]
-    assert uids == [
-        "20300301-1@holidays.lunalism.com",
-        "20300301-2@holidays.lunalism.com",
-    ], uids
-    assert len(set(uids)) == 2
-
-
-def test_a_tie_in_order_key_is_an_error_not_a_coin_flip():
-    """order_key 가 겹치면 seq 를 임의로 고르지 않고 멈춘다.
-
-    임의로 고르면 그 선택이 다음 실행에서 뒤집힐 수 있고, 뒤집히는 순간
-    UID 가 바뀐다. 그건 조용히 넘어가면 안 되는 종류다.
-    """
-    same = dict(day=dt.date(2030, 1, 1), kind="statutory", order_key=("k", "", "이름"))
-    with pytest.raises(ics.IcsError, match="order_key"):
+def test_a_duplicate_token_on_one_day_is_an_error():
+    """같은 날 token 이 겹치면 멈춘다. 넘어가면 공휴일 하나가 덮여 사라진다."""
+    same = dict(day=dt.date(2030, 1, 1), kind="statutory", token="dup")
+    with pytest.raises(ics.IcsError, match="token 이 겹쳐"):
         ics.assign_uids([ics.Event(summary="가", **same), ics.Event(summary="나", **same)])
+
+
+def test_an_empty_token_is_an_error():
+    """token 이 비면 UID 가 날짜만 남는다. 그것도 멈춘다."""
+    with pytest.raises(ics.IcsError, match="token 이 빈"):
+        ics.assign_uids([ics.Event(day=dt.date(2030, 1, 1), summary="가", kind="statutory")])
+
+
+def test_an_unmapped_kind_without_a_key_is_an_error():
+    """key 도 없고 약어 규칙도 없으면 지어내지 않고 터진다."""
+
+    class _Fake:
+        key = ""
+        kind = "brand_new_kind"
+        name = "무언가"
+
+    with pytest.raises(ics.IcsError, match="UID token 규칙이 없다"):
+        feed._token(_Fake())
+
+
+# ---------------------------------------------------------------------------
+# UID 안정성 — 같은 날 항목이 늘고 줄어도 남의 UID 가 밀리지 않는가
+# ---------------------------------------------------------------------------
+
+
+def _uids_by_summary(events) -> dict:
+    return {event.summary: uid for event, uid in ics.assign_uids(events)}
+
+
+def test_adding_or_removing_a_sibling_never_moves_another_uid():
+    """같은 날에 항목을 앞·중간·뒤로 넣고 빼도 나머지 UID 가 전부 그대로인지.
+
+    이것이 위치 기반 순번을 버린 이유다. 순번이었다면 앞에 하나 끼우는 것만으로
+    뒤 항목들의 UID 가 전부 밀리고, 구독자 캘린더에서는 손대지 않은 공휴일이
+    지워졌다가 새로 생긴 것으로 보인다.
+
+    임시공휴일이 기존 공휴일과 같은 날 지정되면 실제로 밟히는 경로다.
+    """
+    day = dt.date(2030, 5, 5)
+
+    def event(summary, token):
+        return ics.Event(day=day, summary=summary, kind="statutory", token=token)
+
+    base = [event("중간", "mmm"), event("끝", "zzz")]
+    baseline = _uids_by_summary(base)
+    assert baseline == {
+        "중간": "20300505-mmm@holidays.lunalism.com",
+        "끝": "20300505-zzz@holidays.lunalism.com",
+    }
+
+    # 앞 / 중간 / 뒤 어디에 끼워도 기존 둘은 그대로여야 한다.
+    for label, token in (("맨앞", "aaa"), ("사이", "ppp"), ("맨뒤", "zzzz")):
+        grown = _uids_by_summary([*base, event(label, token)])
+        for summary, uid in baseline.items():
+            assert grown[summary] == uid, f"{label} 추가에 {summary} 의 UID 가 밀렸다"
+
+    # 빼는 방향도 같다. 앞엣것을 지워도 뒤엣것이 당겨지지 않는다.
+    shrunk = _uids_by_summary([event("끝", "zzz")])
+    assert shrunk["끝"] == baseline["끝"]
+
+
+def test_a_new_holiday_on_a_busy_day_leaves_the_real_feed_uids_alone():
+    """실제 피드에 임시공휴일 하나를 끼워도 그 날 기존 UID 가 안 바뀌는지.
+
+    2025-05-05 은 이미 두 건이 있는 날이다. 여기에 세 번째가 생기는 상황이
+    가장 위험한 자리라 실제 이벤트로 확인한다.
+    """
+    real = feed.events(dt.date(2025, 5, 5), dt.date(2025, 5, 5))
+    before = _uids_by_summary(real)
+    assert len(before) == 2
+
+    extra = ics.Event(day=dt.date(2025, 5, 5), summary="임시공휴일", kind="temporary", token="tmp")
+    after = _uids_by_summary([*real, extra])
+
+    for summary, uid in before.items():
+        assert after[summary] == uid, f"{summary} 의 UID 가 바뀌었다"
+    assert after["임시공휴일"] == "20250505-tmp@holidays.lunalism.com"
 
 
 # ---------------------------------------------------------------------------
@@ -276,6 +331,63 @@ def test_the_provisional_marker_never_leaks_into_description_or_summary():
             assert word not in _prop(block, "SUMMARY"), block
             if word != "PROVISIONAL":  # X-HOLIDAY-STATUS 는 별도 속성이라 제외
                 assert word not in _prop(block, "DESCRIPTION"), block
+
+
+# ---------------------------------------------------------------------------
+# 직렬화 — 접지 않은 원본 바이트를 본다
+#
+# 아래 셋은 _unfold() 를 쓰지 않는다. 헬퍼로 줄을 펴 버리면 접기 자체가
+# 검사 대상에서 사라진다. 지금은 icalendar 라이브러리가 처리하고 있어 맞지만,
+# 업그레이드나 호출 방식 변경으로 깨져도 펴 놓고 보면 통과한다.
+# 한글은 문자 수와 UTF-8 옥텟 수가 달라 특히 위험한 자리다.
+# ---------------------------------------------------------------------------
+
+
+def test_every_line_ends_with_crlf():
+    raw = feed.build(today=TODAY, dtstamp=DTSTAMP)
+    assert raw.count(b"\n") == raw.count(b"\r\n"), "CR 없는 LF 가 있다"
+    assert raw.endswith(b"\r\n")
+
+
+def test_no_physical_line_exceeds_75_octets():
+    """RFC 5545 의 접기 한계. 문자 수가 아니라 옥텟 수다."""
+    raw = feed.build(today=TODAY, dtstamp=DTSTAMP)
+    too_long = [line for line in raw.split(b"\r\n") if len(line) > 75]
+    assert not too_long, "75 옥텟을 넘는 줄:\n" + "\n".join(
+        f"  {len(line)}옥텟 {line[:40]!r}" for line in too_long[:5]
+    )
+
+
+def test_special_characters_survive_a_round_trip():
+    """쉼표·세미콜론·역슬래시·개행이 든 값이 원문 그대로 돌아오는지.
+
+    RFC 5545 의 TEXT 는 이 넷을 이스케이프해야 한다. 이스케이프가 빠지면
+    쉼표에서 값이 잘리고, 과하면 역슬래시가 불어난다. 둘 다 왕복으로 잡힌다.
+
+    긴 한글을 함께 넣는 이유는 접기와 겹쳐서 깨지는지 보기 위해서다.
+    코드포인트 중간에서 접히면 왕복이 실패한다.
+    """
+    nasty = "쉼표, 세미콜론; 역슬래시\\ 그리고\n줄바꿈"
+    long_korean = "대체공휴일 근거 문장을 길게 늘여 접기 경계를 넘긴다 " * 4
+    events = [
+        ics.Event(
+            day=dt.date(2030, 1, 1),
+            summary=nasty,
+            kind="statutory",
+            description=long_korean + nasty,
+            token="nasty",
+        )
+    ]
+    raw = ics.render(
+        events, dtstamp=DTSTAMP, prodid=feed.PRODID, calname=feed.CALNAME, tzid=feed.TZID
+    )
+
+    assert not [line for line in raw.split(b"\r\n") if len(line) > 75]
+
+    parsed = Calendar.from_ical(raw)
+    (vevent,) = parsed.walk("VEVENT")
+    assert str(vevent["SUMMARY"]) == nasty
+    assert str(vevent["DESCRIPTION"]) == long_korean + nasty
 
 
 # ---------------------------------------------------------------------------

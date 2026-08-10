@@ -18,25 +18,30 @@ diff 가 뜬다. 그러면 "무엇이 실제로 바뀌었나"를 diff 로 볼 �
 --------------------------------------------------------------------------
 UID
 --------------------------------------------------------------------------
-    {YYYYMMDD}-{seq}@holidays.lunalism.com
+    {YYYYMMDD}-{token}@holidays.lunalism.com
 
 한 번 공개되면 바꿀 수 없다. UID 가 바뀌면 캘린더 앱이 같은 공휴일을 새
 이벤트로 인식해 중복이 생긴다(README 의 이벤트 UID 참조).
 
-날짜와 순번만 넣는다. kind 는 넣지 않는다 — 우리 판정 결과이기 때문이다.
-지금도 확정되지 않은 것들이 있고(선거일-가지번호, 3호-귀속-불명 등)
-open_questions 가 풀리면 어떤 항목의 kind 가 바뀔 수 있다. kind 가 UID 에
-들어가 있으면 그 판정 변경이 구독자 캘린더에서 "이벤트 삭제 + 새 이벤트 생성"
-으로 나타난다. SEQUENCE 를 올려도 수습되지 않는다 — SEQUENCE 는 같은 UID
-안에서의 개정이고, UID 가 달라지면 캘린더는 애초에 다른 이벤트로 본다.
+token 은 그 이벤트 자체에서 나온 값이다. 위치 기반 순번(seq)을 쓰지 않는다 —
+같은 날 항목이 추가되거나 빠지면 그 앞뒤 항목의 순번이 밀리고, 밀리는 순간
+손대지 않은 이벤트의 UID 까지 바뀐다. 임시공휴일이 기존 공휴일과 같은 날
+지정되면 실제로 밟히는 경로다. token 은 형제 항목의 수나 정렬 위치와 무관하다.
 
-날짜는 우리 판정이 아니라 사실이고, 순번은 내용에서 유도한다.
-그래서 seq 를 정하는 규칙이 중요하다. assign_uids() 의 주석을 볼 것.
+kind 도 넣지 않는다. 우리 판정 결과이기 때문이다. 지금도 확정되지 않은 것들이
+있고(선거일-가지번호, 3호-귀속-불명 등) open_questions 가 풀리면 어떤 항목의
+kind 가 바뀔 수 있다. kind 가 UID 에 들어가 있으면 그 판정 변경이 구독자
+캘린더에서 "이벤트 삭제 + 새 이벤트 생성"으로 나타난다. SEQUENCE 를 올려도
+수습되지 않는다 — SEQUENCE 는 같은 UID 안에서의 개정이고, UID 가 달라지면
+캘린더는 애초에 다른 이벤트로 본다.
+
+token 을 무엇으로 할지는 국가별 결정이라 여기서 정하지 않는다. Event 를 짓는
+쪽이 채워 넣는다(rules/kr/feed.py 의 _token 참조).
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 
 from icalendar import Calendar
@@ -66,42 +71,42 @@ class Event:
     # 규칙 개정 확인 시점 이후. STATUS:TENTATIVE 가 붙는다.
     provisional: bool = False
 
-    # UID 의 seq 를 정하는 값. assign_uids() 참조.
-    # 내용에서 유도한 값이어야 하고 표의 나열 순서에 기대면 안 된다.
-    order_key: tuple = field(default_factory=tuple)
+    # UID 의 뒷부분. 그 이벤트 자체에서 나온 값이어야 하고, 같은 날 다른 항목이
+    # 생기거나 없어져도 변하지 않아야 한다. assign_uids() 참조.
+    token: str = ""
 
 
 def assign_uids(events) -> list:
     """[(Event, uid)] — 파일에 실릴 순서대로.
 
     ----------------------------------------------------------------------
-    seq 는 그 날 전체의 순번이다. kind 로 가르지 않는다
+    위치 기반 순번을 쓰지 않는다
     ----------------------------------------------------------------------
-    kind 별로 seq 를 매기면 UID 에 kind 가 없어도 같은 값이 두 번 나온다.
-    한 날짜 안에서 1 부터 센다.
+    한 날짜 안에서 1, 2, 3 을 세어 붙이는 방식은 쓰지 않는다. 그렇게 하면 같은
+    날에 항목이 하나 추가되거나 빠질 때 그 뒤 항목들의 번호가 전부 밀리고,
+    손대지 않은 이벤트의 UID 까지 함께 바뀐다. 임시공휴일이 기존 공휴일과 같은
+    날 지정되면 바로 밟히는 경로이고, 그때 구독자 캘린더에는 멀쩡하던 공휴일이
+    지워졌다가 새로 생긴 것으로 나타난다.
 
-    kind 를 UID 에서 뺀 이유는 모듈 docstring 에 있다. 정렬 키에서도 뺀다 —
-    정렬에 남겨 두면 kind 판정이 바뀔 때 순서가 밀려 seq 가 바뀌고, UID 에서
-    뺀 의미가 없어진다.
+    token 은 그 이벤트 자체에서 나온다. 옆에 무엇이 있든 없든 같은 값이다.
 
     ----------------------------------------------------------------------
-    seq 는 order_key 오름차순이다. 목록에 담겨 온 순서를 쓰지 않는다
+    담겨 온 순서도 쓰지 않는다
     ----------------------------------------------------------------------
     rules.kr 의 holidays_on() 은 표를 읽은 순서대로 항목을 쌓는다
-    (양력 표 → 음력 표 → 지정 표 → 대체공휴일). 그 순서는 한 번의 실행 안에서는
-    물론 실행 사이에도 재현되지만, 표의 나열 순서에 매여 있다.
+    (양력 표 → 음력 표 → 지정 표 → 대체공휴일). 실행 사이에 재현되기는 하지만
+    표의 나열 순서에 매여 있어, 누가 YAML 줄 순서를 바꾸면 같이 바뀐다.
 
-    그것에 seq 를 걸면 안 된다. 누가 solar_holidays.yaml 의 줄 순서를 바꾸거나
-    공휴일이 표 사이를 옮겨 가면 seq 가 조용히 뒤바뀌고, UID 가 바뀐 이벤트는
-    구독자 캘린더에서 중복으로 나타난다. 코드 리뷰에서 잡히지도 않는다 —
-    YAML 줄 하나를 옮긴 것이 UID 변경으로 보이지 않기 때문이다.
+    파일에 실리는 순서는 (날짜, token) 오름차순으로 다시 정한다. UID 는 이미
+    token 에서 나오므로 이 정렬은 UID 에 영향을 주지 않는다 — 출력이 실행마다
+    같도록 고정하는 용도다.
 
-    그래서 정렬은 내용에서 유도한 order_key 로 한다. 표를 어떻게 재배열해도,
-    공휴일이 어느 표에서 오든 같은 값이 나온다.
-
-    한 날짜 안에서 order_key 가 겹치면 seq 를 정할 수 없다. 그때는 임의로
-    고르지 않고 IcsError 로 멈춘다. 임의로 고르면 그 선택이 다음 실행에서
-    뒤집힐 수 있고, 뒤집히는 순간 UID 가 바뀐다.
+    ----------------------------------------------------------------------
+    같은 날 token 이 겹치면 멈춘다
+    ----------------------------------------------------------------------
+    UID 가 같은 이벤트가 둘 생긴다는 뜻이고, 캘린더는 뒤엣것으로 앞엣것을
+    덮어쓴다. 공휴일 하나가 조용히 사라지는 것이라 임의로 접미사를 붙여
+    넘기지 않는다 — 붙이는 순간 그 접미사가 다시 위치 기반이 된다.
     """
     groups = {}
     for event in events:
@@ -109,18 +114,20 @@ def assign_uids(events) -> list:
 
     out = []
     for day, members in sorted(groups.items()):
-        members = sorted(members, key=lambda e: e.order_key)
+        members = sorted(members, key=lambda e: e.token)
 
-        keys = [e.order_key for e in members]
-        if len(set(keys)) != len(keys):
+        tokens = [e.token for e in members]
+        if not all(tokens):
+            raise IcsError(f"{day.isoformat()}: token 이 빈 이벤트가 있다. {tokens}")
+        if len(set(tokens)) != len(tokens):
             raise IcsError(
-                f"{day.isoformat()}: order_key 가 겹쳐 seq 를 정할 수 없다.\n"
-                f"  {keys}\n"
-                "임의로 고르면 다음 실행에서 뒤집힐 수 있고, 그때 UID 가 바뀐다."
+                f"{day.isoformat()}: token 이 겹쳐 UID 가 같아진다.\n"
+                f"  {tokens}\n"
+                "임의로 접미사를 붙이지 않는다. 그 접미사가 다시 위치 기반이 된다."
             )
 
-        for seq, event in enumerate(members, start=1):
-            out.append((event, f"{day:%Y%m%d}-{seq}@{UID_DOMAIN}"))
+        for event in members:
+            out.append((event, f"{day:%Y%m%d}-{event.token}@{UID_DOMAIN}"))
     return out
 
 
