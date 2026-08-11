@@ -334,7 +334,7 @@ holidays:
     uid_token: national_assembly_election
     kind: election
     verified: false
-    source:
+    source: 「관공서의 공휴일에 관한 규정」 제2조 — 임기만료에 의한 선거의 선거일
     source_todo: |
       KASI 특일정보 2028 응답에서 발견해 넣었다(dateName "국회의원선거일", 조회 2026-08-08).
       회차(제23대)는 임기 주기로 붙인 것이며 선거관리위원회 공고로 확인하지 않았다.
