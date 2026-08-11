@@ -12,9 +12,11 @@ import datetime as dt
 import json
 
 import pytest
+import yaml
 
 from core import buildlog, ics, secrets
-from rules.kr import status
+from rules.kr import holiday_calendar as hc
+from rules.kr import status, substitute_rules
 from sources.kr import kasi_parser, key_expiry
 
 TODAY = dt.date(2026, 8, 10)
@@ -99,6 +101,59 @@ def test_status_exposes_whether_the_uid_domain_is_confirmed():
     got = status.status(today=TODAY, dtstamp=DTSTAMP)
     assert got["uid"]["domain"] == ics.UID_DOMAIN
     assert got["uid"]["confirmed"] is ics.UID_DOMAIN_CONFIRMED
+
+
+def test_status_reports_the_unverified_backlog():
+    """원문 대조가 남은 항목 수가 실린다. 랜딩 페이지가 이 값을 읽는다."""
+    got = status.status(today=TODAY, dtstamp=DTSTAMP)["verification"]
+
+    assert got["unverified_count"] == hc.unverified_count()
+    assert got["unverified_count"] == sum(got["unverified_by_table"].values())
+
+    # coverage 와 같은 표 이름을 써야 나란히 읽을 수 있다.
+    assert set(got["unverified_by_table"]) == set(hc.coverage()["sources"])
+
+
+def test_the_unverified_count_is_the_verified_false_count():
+    """세는 대상이 verified: false 인지. 다른 축을 세면 랜딩 문구가 거짓이 된다.
+
+    랜딩(index.html)은 이 숫자를 "법령·관보 원문까지 확인한 항목을 따로 세는
+    것으로, 아직 확인하지 못한 수"라고 설명한다. 그 문장이 참이 되려면 세는
+    것이 verified 여야 한다.
+
+    source 가 빈 항목 수(tests/test_designated_sources.py 의 SOURCE_PENDING)
+    를 세면 안 된다. 그건 "근거를 아예 못 적었다"이고 이쪽은 "적었으나 원문을
+    못 봤다"라서 다른 축이다. YAML 을 직접 세어 대조한다.
+    """
+    tables = {
+        "solar_holidays.yaml": hc.SOLAR_PATH,
+        "lunar_holidays.yaml": hc.LUNAR_PATH,
+        "designated_holidays.yaml": hc.DESIGNATED_PATH,
+    }
+    for name, path in tables.items():
+        raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+        expected = sum(1 for e in raw["holidays"] if not e.get("verified"))
+        assert len(hc.unverified()[name]) == expected, name
+
+    # 규칙 표는 제 감사 API 가 답한다. 그 답을 그대로 실어야 한다.
+    assert len(hc.unverified()["substitute_holidays.yaml"]) == len(
+        substitute_rules.load().unverified()
+    )
+
+
+def test_the_unverified_backlog_names_the_items():
+    """숫자만 두지 않는다. 무엇이 남았는지 식별자로 나와야 확인할 수 있다."""
+    items = hc.unverified()
+
+    # 지정 표는 날짜가 식별자다. 아직 한 건도 원문 대조를 하지 않았다.
+    assert "2020-08-17" in items["designated_holidays.yaml"]
+    # 양력 표는 key 가 식별자다.
+    assert "new_years_day" in items["solar_holidays.yaml"]
+    # 이미 대조를 마친 항목은 빠져 있어야 한다.
+    assert "labor_day" not in items["solar_holidays.yaml"]
+
+    for name, entries in items.items():
+        assert all(isinstance(e, str) and e for e in entries), name
 
 
 def test_status_renders_stable_json():

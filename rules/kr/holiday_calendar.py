@@ -328,6 +328,58 @@ def coverage() -> dict:
     return {"sources": sources, "effective": effective, "unresolved": unresolved_holidays()}
 
 
+@lru_cache(maxsize=1)
+def unverified() -> dict:
+    """법령·관보 원문 대조가 남은 항목. {표 이름: (식별자, ...)}.
+
+    coverage() 와 같은 키(YAML 파일 이름)를 쓴다. 두 함수가 같은 표를 다른
+    이름으로 부르면 나란히 읽을 수 없다.
+
+    ----------------------------------------------------------------------
+    verified 는 source 와 다른 축이다
+    ----------------------------------------------------------------------
+    source 는 "근거를 무엇으로 적었는가"이고 verified 는 "그 근거를 원문으로
+    대조했는가"다. source 가 채워져 있어도 verified: false 면 아직 2차 출처
+    수준이라는 뜻이다(substitute_holidays.yaml 의 머리말 참조).
+
+    그래서 이 함수의 답은 tests/test_designated_sources.py 의 SOURCE_PENDING
+    과 겹치지 않는다. 그쪽은 근거를 아예 적지 못한 항목이고 이쪽은 적었으나
+    원문을 못 본 항목이다. 한 항목이 양쪽에 다 들 수도 있다.
+
+    ----------------------------------------------------------------------
+    테스트 픽스처는 세지 않는다
+    ----------------------------------------------------------------------
+    tests/fixtures/kr.yaml 에도 verified 가 있지만 그건 정답 픽스처의 검증
+    상태이지 발행되는 데이터의 검증 상태가 아니다. 섞으면 이 숫자가 무엇을
+    뜻하는지 말할 수 없게 된다. 그쪽은 test_kr_fixtures.py 가 따로 추적한다.
+    """
+    out = {
+        "solar_holidays.yaml": tuple(
+            e["key"] for e in _solar_raw()["holidays"] if not e.get("verified")
+        ),
+        "lunar_holidays.yaml": tuple(
+            e["key"] for e in _lunar_raw()["holidays"] if not e.get("verified")
+        ),
+        # 지정 표에는 key 가 없다. 날짜가 그 표의 식별자다.
+        "designated_holidays.yaml": tuple(
+            e["date"].isoformat()
+            for e in _designated_raw()["holidays"]
+            if not e.get("verified")
+        ),
+        # 규칙 표는 제 감사 API 를 갖고 있다. 종류가 셋(ruleset/clause/placement)
+        # 이라 여기서 다시 세지 않고 그쪽 답을 그대로 쓴다.
+        "substitute_holidays.yaml": tuple(
+            f"{kind}: {ident}" for kind, ident in _rules().unverified()
+        ),
+    }
+    return out
+
+
+def unverified_count() -> int:
+    """원문 대조가 남은 항목 수. status.json 에 실리는 값이다."""
+    return sum(len(v) for v in unverified().values())
+
+
 def coverage_report() -> str:
     """사람이 읽는 coverage 요약. 로그·CLI 용."""
     cov = coverage()
