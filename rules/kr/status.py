@@ -74,6 +74,12 @@ def status(*, today: date, dtstamp) -> dict:
             # 표별 내역을 함께 싣는다. 숫자 하나만 두면 그것이 무엇을 세는지
             # 밖에서 확인할 방법이 없고, 확인할 수 없는 숫자를 공개 페이지에
             # 띄우는 것은 이 저장소가 하려는 것과 반대다.
+            # 분모. 랜딩이 "규칙표 N 건 중 M 건 확인 대기" 로 쓴다.
+            #
+            # feed.events 를 분모로 쓰면 안 된다. 그건 VEVENT 개수라 같은
+            # 공휴일이 해마다 다시 세어지고, 규칙표 항목과 단위가 다르다.
+            # hc.verifiable_items() docstring 참조.
+            "item_count": hc.verifiable_item_count(),
             "unverified_count": hc.unverified_count(),
             "unverified_by_table": {
                 name: len(items) for name, items in hc.unverified().items()

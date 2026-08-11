@@ -141,6 +141,44 @@ def test_the_unverified_count_is_the_verified_false_count():
     )
 
 
+def test_status_reports_the_denominator_for_the_backlog():
+    """분모가 실린다. 분모 없는 분자는 실제보다 나쁜 인상을 준다."""
+    got = status.status(today=TODAY, dtstamp=DTSTAMP)["verification"]
+
+    assert got["item_count"] == hc.verifiable_item_count()
+    assert got["item_count"] >= got["unverified_count"]
+    # 분자와 분모가 같은 표를 세야 분수가 성립한다.
+    assert set(hc.verifiable_items()) == set(hc.unverified())
+
+
+def test_the_denominator_counts_table_items_not_ics_events():
+    """분모가 .ics 이벤트 수가 아닌지.
+
+    feed.events 는 발행 구간의 VEVENT 개수라 같은 공휴일이 해마다 다시
+    세어진다(설날 하나가 12 년치면 36 건). 그것을 분모로 쓰면 랜딩의
+    "규칙표 N 건 중 M 건 확인 대기" 가 거짓이 된다 — 나머지를 원문 대조한
+    적이 없기 때문이다.
+
+    두 값이 우연히 같아지면 이 테스트는 의미를 잃는다. 자릿수가 다르므로
+    지금은 그럴 일이 없고, 같아지는 날이 오면 여기서 걸린다.
+    """
+    got = status.status(today=TODAY, dtstamp=DTSTAMP)
+    assert got["verification"]["item_count"] != got["feed"]["events"]
+
+    # 표에 적힌 항목 수와 맞는지 직접 센다.
+    expected = sum(
+        len(yaml.safe_load(path.read_text(encoding="utf-8"))["holidays"])
+        for path in (hc.SOLAR_PATH, hc.LUNAR_PATH, hc.DESIGNATED_PATH)
+    )
+    table = substitute_rules.load()
+    expected += (
+        len(table.rulesets)
+        + sum(len(rs.clauses) for rs in table.rulesets)
+        + len(table.placement_rules)
+    )
+    assert got["verification"]["item_count"] == expected
+
+
 def test_the_unverified_backlog_names_the_items():
     """숫자만 두지 않는다. 무엇이 남았는지 식별자로 나와야 확인할 수 있다."""
     items = hc.unverified()
