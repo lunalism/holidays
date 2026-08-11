@@ -28,7 +28,12 @@ uv run ruff check .  # 린트
   문자열로 받으므로, 요청 URL 이 그대로 올라가면 키가 그대로 노출된다.
   외부로 나가는 문자열은 `sources/kr/kasi_client.py` 의 `scrub()` 을 통과시킨다.
 
-## 브랜치·PR (정본: `docs/branch-rules.md`)
+## 브랜치·PR
+
+정본은 `CLAUDE.md` 의 같은 절이고, 전문은 `docs/branch-rules.md` 에 있다.
+아래 네 줄은 **의도한 중복**이다 — 이 파일만 읽고 `CLAUDE.md` 는 읽지 않는
+도구가 있을 수 있어서 요약만 둔다. 어긋나면 `CLAUDE.md` 가 맞다.
+늘리지 말 것. 늘어나면 아래 "옮겨 적지 말 것"이 무너진다.
 
 - 접두사 4종만: `feat/` `fix/` `docs/` `data/`. 이슈 번호는 이름에 넣지 않는다.
 - `data/` 포함 모든 브랜치는 PR 을 거친다. `main` 직푸시 금지, 긴급 예외 없음.

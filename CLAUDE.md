@@ -1,4 +1,4 @@
-## 브랜치·PR (정본: `docs/branch-rules.md`)
+## 브랜치·PR (전문: `docs/branch-rules.md`)
 - 접두사 4종만: `feat/` `fix/` `docs/` `data/`. 이슈 번호는 이름에 넣지 않는다.
 - `data/` 포함 모든 브랜치는 PR 을 거친다. `main` 직푸시 금지, 긴급 예외 없음.
 - 병합은 merge commit 고정. squash 금지 — 개별 커밋의 근거가 뭉개진다.
