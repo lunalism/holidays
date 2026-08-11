@@ -253,8 +253,11 @@ def test_two_substitutes_on_one_day_report_what_collided():
 
     assert "2025-05-06" in message
     assert "sub" in message
-    assert message.count("name='대체공휴일'") == 2
+    # SUMMARY 에 원인이 붙으므로 name 은 서로 다르게 찍힌다. 그래도 둘 다
+    # 대체공휴일이라는 것과 어느 데이터를 봐야 하는지는 남아야 한다.
     assert message.count("kind='substitute'") == 2
+    assert "name='대체공휴일(어린이날)'" in message
+    assert "name='대체공휴일(부처님오신날)'" in message
     assert "source_key='childrens_day'" in message
     assert "source_key='buddhas_birthday'" in message
     assert "key=''" in message
@@ -285,17 +288,22 @@ def test_two_temporary_holidays_on_one_day_report_what_collided():
 
 
 def test_the_collision_message_only_lists_the_clashing_items():
-    """충돌하지 않은 항목까지 늘어놓지 않는다. 봐야 할 것만 남긴다."""
+    """충돌하지 않은 항목까지 늘어놓지 않는다. 봐야 할 것만 남긴다.
+
+    source_key 는 실재하는 공휴일 키를 쓴다. SUMMARY 가 그 키로 이름을 찾으므로
+    아무 문자열이나 넣으면 이름 조회에서 먼저 멈춘다 — 그건 이 테스트가 보려는
+    것이 아니다.
+    """
     day = dt.date(2025, 5, 6)
     message = _collision_message(
         day,
         [
-            _FakeHoliday("어린이날", "statutory", key="childrens_day"),
-            _FakeHoliday("대체공휴일", "substitute", source_key="a"),
-            _FakeHoliday("대체공휴일", "substitute", source_key="b"),
+            _FakeHoliday("제헌절", "statutory", key="constitution_day"),
+            _FakeHoliday("대체공휴일", "substitute", source_key="gwangbokjeol"),
+            _FakeHoliday("대체공휴일", "substitute", source_key="hangeul_day"),
         ],
     )
-    assert "어린이날" not in message
+    assert "제헌절" not in message
     assert message.count("kind='substitute'") == 2
 
 
@@ -463,16 +471,85 @@ def test_a_new_holiday_on_a_busy_day_leaves_the_real_feed_uids_alone():
 # ---------------------------------------------------------------------------
 
 
-def test_a_substitute_holiday_summary_is_just_the_generic_name():
-    """2027-02-09 대체공휴일의 SUMMARY 는 "대체공휴일" 이다.
+def test_a_substitute_holiday_summary_names_its_origin():
+    """대체공휴일 SUMMARY 에 원인이 붙는다.
 
-    원인 공휴일명을 붙이지 않는다. source_key 는 겹침 사례에서 확정된 트리거가
-    아니다(substitute_holidays.yaml 의 3호-귀속-불명).
+    "대체공휴일" 만으로는 어느 공휴일 때문에 쉬는지 알 수 없고, 같은 이름이
+    한 해에 여러 번 나와 캘린더에서 구분도 되지 않는다.
     """
     blocks = _on(_build(), "20270209")
     assert len(blocks) == 1
-    assert _prop(blocks[0], "SUMMARY") == "대체공휴일"
-    assert "설날" not in blocks[0], "원인 공휴일명이 새어 나왔다"
+    assert _prop(blocks[0], "SUMMARY") == "대체공휴일(설날)"
+
+
+def test_the_origin_name_drops_the_holiday_run_suffix():
+    """레지스트리 이름이 "설날 연휴" 여도 "대체공휴일(설날)" 로 나간다.
+
+    연휴 중 하루가 주말에 걸려 생긴 것이라도 사람이 부르는 이름은 명절 이름이다.
+    feed.SUBSTITUTE_ORIGIN_NAMES 가 그 매핑이다.
+    """
+    text = _build()
+    assert hc.holiday_name("seollal") == "설날 연휴"
+    assert hc.holiday_name("chuseok") == "추석 연휴"
+    assert "대체공휴일(설날 연휴)" not in text
+    assert "대체공휴일(추석 연휴)" not in text
+    assert _prop(_on(text, "20220912")[0], "SUMMARY") == "대체공휴일(추석)"
+
+
+def test_an_overlap_substitute_names_every_candidate():
+    """평일 겹침으로 생긴 대체공휴일은 겹친 대상을 모두 적는다.
+
+    어느 쪽이 트리거인지 법이 정하지 않았다(3호-귀속-불명). 하나를 골라 적으면
+    우리가 고른 것이 확인된 사실처럼 읽힌다. 실제로 2028-10-05 는 KASI 가
+    추석으로, 우리 대표값은 개천절로 갈린다.
+
+    발행 범위 안의 겹침은 이 두 건뿐이다.
+    """
+    text = _build()
+    assert _prop(_on(text, "20250506")[0], "SUMMARY") == "대체공휴일(어린이날·부처님오신날)"
+    assert _prop(_on(text, "20281005")[0], "SUMMARY") == "대체공휴일(개천절·추석)"
+
+
+def test_the_origin_comes_from_source_keys_not_the_representative():
+    """SUMMARY 는 대표값(source_key)이 아니라 관측(source_keys)을 쓴다.
+
+    대표값만 보면 겹침에서 한쪽이 조용히 사라진다. 2028-10-05 의 대표값은
+    개천절 하나이고, 그것만 적으면 KASI 와 갈린 채로 발행된다.
+    """
+    day = dt.date(2028, 10, 5)
+    (sub,) = [h for h in hc.holidays_on(day) if h.kind == hc.KIND_SUBSTITUTE]
+
+    assert sub.source_key == "gaecheonjeol"
+    assert sub.source_keys == ("gaecheonjeol", "chuseok")
+    assert feed._substitute_origin(sub) == "개천절·추석"
+
+
+def test_every_substitute_in_range_carries_its_candidates():
+    """범위 안 모든 대체공휴일이 source_keys 를 갖는다. 대표값도 그 안에 있다."""
+    start, end = feed.feed_range(TODAY)
+    seen = 0
+    day = start
+    while day <= end:
+        for holiday in hc.holidays_on(day):
+            if holiday.kind != hc.KIND_SUBSTITUTE:
+                continue
+            seen += 1
+            assert holiday.source_keys, f"{day}: source_keys 가 비었다"
+            assert holiday.source_key in holiday.source_keys, day
+            for key in holiday.source_keys:
+                hc.holiday_name(key)  # 레지스트리에 없으면 여기서 터진다
+        day += dt.timedelta(days=1)
+    assert seen == 31, f"범위 안 대체공휴일이 {seen} 건이다"
+
+
+def test_the_origin_never_reaches_the_uid():
+    """원인이 정정되어도 UID 가 바뀌면 안 된다. token 은 'sub' 하나다."""
+    text = _unfold(_build())
+    subs = [b for b in _events(text) if "SUMMARY:대체공휴일" in b]
+    assert len(subs) == 31
+    for block in subs:
+        uid = _prop(block, "UID")
+        assert uid.split("-", 1)[1].startswith("sub@"), uid
 
 
 def test_a_substitute_description_cites_the_decree_number():

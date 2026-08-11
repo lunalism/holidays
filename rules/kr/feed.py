@@ -113,17 +113,79 @@ def _token(holiday) -> str:
     )
 
 
+# 대체공휴일 SUMMARY 에 넣을 원인 공휴일 이름.
+#
+# 기본은 공휴일 레지스트리의 이름(hc.holiday_name)이고, 여기 적힌 것만 다르게
+# 쓴다. 연휴 중 하루가 주말에 걸려 생긴 대체공휴일이라도 사람이 부르는 이름은
+# 명절 이름이다 — "대체공휴일(설날 연휴)" 는 어색하다.
+#
+# aliases 를 자동으로 쓰지 않는 이유: 그쪽을 따르면 기독탄신일 → 성탄절,
+# 노동절 → 근로자의 날 로 바뀌어 같은 피드 안에서 표기가 갈린다. 바꿀 항목만
+# 손으로 적는다.
+#
+# new_years_day 는 레지스트리 이름이 "1월 1일" 이라 "대체공휴일(1월 1일)" 이
+# 된다. 그것도 어색해서 넣었다. 다만 그 날 자체의 SUMMARY 는 여전히 "1월 1일"
+# 이므로 이 한 건은 표기가 갈린다. 지금 발행 범위에는 이 원인의 대체공휴일이
+# 없고, 생기면 그때 그 날의 이름과 함께 다시 볼 것.
+SUBSTITUTE_ORIGIN_NAMES = {
+    "seollal": "설날",
+    "chuseok": "추석",
+    "new_years_day": "신정",
+}
+
+# 원인이 둘 이상일 때의 구분자.
+#
+# 가운뎃점은 이미 공휴일 이름 안에 쓰인다(3·1절). 그래서 3·1절이 다른 공휴일과
+# 평일에 겹치면 "대체공휴일(3·1절·어린이날)" 이 되어 원인이 셋처럼 읽힌다.
+# 지금 겹침 2 건에는 3·1절이 없어 실제로 밟히지 않는다. 밟히면 구분자를 바꿀 것.
+SUBSTITUTE_ORIGIN_SEPARATOR = "·"
+
+
+def _origin_name(key: str) -> str:
+    return SUBSTITUTE_ORIGIN_NAMES.get(key) or hc.holiday_name(key)
+
+
+def _substitute_origin(holiday) -> str:
+    """대체공휴일 SUMMARY 의 괄호 안. 원인이 없으면 빈 문자열.
+
+    ----------------------------------------------------------------------
+    겹침이면 둘 다 적는다
+    ----------------------------------------------------------------------
+    제3조제1항제3호로 생긴 대체공휴일은 그 날 겹친 공휴일 중 어느 쪽이
+    트리거인지 법이 정하지 않았다(3호-귀속-불명). 하나를 골라 적으면 우리가
+    고른 것이 확인된 사실처럼 읽힌다. 실제로 2028-10-05 는 KASI 가 추석으로,
+    우리 코드의 대표값은 개천절로 갈린다.
+
+    둘 다 적으면 그 날의 실제 상태를 그대로 쓰는 것이 된다. 법이 귀속을 정하지
+    않았다는 사실 자체가 정보이고, 표기가 둘을 포함하므로 위 불일치도 사라진다.
+
+    source_key(대표값)가 아니라 source_keys(관측)를 쓰는 것이 요점이다.
+    """
+    keys = tuple(getattr(holiday, "source_keys", ()) or ())
+    if not keys and holiday.source_key:
+        keys = (holiday.source_key,)
+    if not keys:
+        return ""
+    return SUBSTITUTE_ORIGIN_SEPARATOR.join(_origin_name(k) for k in keys)
+
+
 def _substitute_description(day: date, holiday) -> str:
     """대체공휴일의 근거. ruleset 호수까지만 적는다.
 
     조문(제3조제1항제n호)은 적지 않는다. substitute_eligibility() 가 돌려주는
     clauses 는 "이 공휴일이 대체공휴일 대상이 되는 근거 조항들"이지 "이 날짜의
     대체공휴일을 실제로 발생시킨 호"가 아니다. 둘을 같은 것으로 적으면 겹침
-    사례에서 틀린다 — 2025-05-06 이 그 경우이고, 어느 호가 트리거인지는
-    substitute_holidays.yaml 의 open_questions 3호-귀속-불명 으로 남아 있다.
+    사례에서 틀린다. 발행 범위(2020~2031) 안의 겹침은 2 건이다 —
+    2025-05-06(어린이날+부처님오신날)과 2028-10-05(개천절+추석)이고, 어느 호가
+    트리거인지는 substitute_holidays.yaml 의 open_questions 3호-귀속-불명 으로
+    남아 있다.
 
-    원인 공휴일 이름도 적지 않는다. 같은 이유다. source_key 는 겹침 사례에서
-    "대상인 것 중 하나"일 뿐 확정된 트리거가 아니다.
+    여기서 source_key 를 쓰는 것은 호수 조회에 키가 하나 필요해서다. 그 값은
+    겹침에서 "대상인 것 중 하나"일 뿐이고, 지금 두 사례는 어느 쪽을 넣어도
+    ruleset 이 같아 결과가 갈리지 않는다. 갈리는 표가 생기면 여기를 다시 볼 것.
+
+    SUMMARY 쪽은 다르게 간다. 원인을 적되 겹침이면 둘 다 적는다 —
+    _substitute_origin() 참조.
 
     호수는 대체공휴일이 놓인 날짜로 찾는다. 원래 공휴일 날짜와 다를 수 있으나
     (대체공휴일은 며칠 뒤로 밀린다) 지금 표의 시행일은 2013-11-05 · 2021-08-04 ·
@@ -169,13 +231,26 @@ def _description(day: date, holiday) -> str:
     return _designated_description(day, holiday)
 
 
+def _summary(holiday) -> str:
+    """SUMMARY. 대체공휴일만 원인을 괄호로 덧붙인다.
+
+    "대체공휴일" 만으로는 구독자가 어느 공휴일 때문에 쉬는지 알 수 없다.
+    같은 이름이 한 해에 여러 번 나오므로 캘린더에서 구분도 되지 않는다.
+
+    UID 에는 들어가지 않는다. token 은 'sub' 하나이고 원인이 정정되어도
+    UID 가 바뀌지 않는다(_token() 참조).
+    """
+    if holiday.kind != hc.KIND_SUBSTITUTE:
+        return holiday.name
+    origin = _substitute_origin(holiday)
+    return f"{holiday.name}({origin})" if origin else holiday.name
+
+
 def _event(day: date, holiday, provisional: bool) -> ics.Event:
     """Holiday 하나 → Event 하나."""
     return ics.Event(
         day=day,
-        # SUMMARY 는 Holiday.name 그대로다. 대체공휴일은 "대체공휴일" 이고
-        # 원인 공휴일명을 붙이지 않는다(위 3호-귀속-불명).
-        summary=holiday.name,
+        summary=_summary(holiday),
         kind=holiday.kind,
         description=_description(day, holiday),
         provisional=provisional,
