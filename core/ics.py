@@ -62,7 +62,7 @@ UID_DOMAIN = "holidays.lunalism.com"
 # 우회 인자를 두지 않았다. 두면 CI 가 그 인자를 쓰게 되고 이 플래그는 장식이
 # 된다. 확정되면 이 값을 True 로 바꾸는 커밋 하나가 발행을 여는 것이고,
 # 그 커밋이 곧 "도메인을 확정했다"는 기록이 된다.
-UID_DOMAIN_CONFIRMED = False
+UID_DOMAIN_CONFIRMED = True
 
 VERSION = "2.0"
 CALSCALE = "GREGORIAN"
