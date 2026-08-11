@@ -5,7 +5,7 @@
 - 데이터 근거의 정본은 커밋 메시지가 아니라 YAML 의 `source` 필드다.
 
 ## 이 레포 고유 사항
-- UID 네임스페이스: @holidays.lunalism.com (잠정, 출시 전 재확인)
+- UID 네임스페이스: @holidays.lunalism.com (확정). 구독 URL: https://holidays.lunalism.com/feeds/kr.ics
 - 구독 URL과 UID는 한 번 공개되면 변경 불가. 관련 값을 바꾸는 제안은 먼저 경고할 것.
 - 커밋 전 반드시: API 키·인증정보가 코드에 섞이지 않았는지 확인할 것.
 - 실행 명령(`uv run pytest` 등)과 키 취급 규약은 AGENTS.md 에 있다.

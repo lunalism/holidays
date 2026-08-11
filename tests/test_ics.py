@@ -996,13 +996,12 @@ def test_publish_does_not_destroy_the_previous_feed_when_the_build_fails(
 
 @pytest.fixture
 def confirmed_domain(monkeypatch):
-    """UID 네임스페이스를 확정된 것으로 두고 발행을 허용한다.
+    """발행이 열린 상태를 명시적으로 둔다.
 
-    core/ics.py 의 UID_DOMAIN_CONFIRMED 는 지금 False 라 publish() 가 거부한다.
-    도메인이 잠정인 동안 밖으로 나가는 것을 막는 장치다(README 의 이벤트 UID).
-
-    발행 로직 자체는 그와 별개로 검증해야 하므로 테스트에서만 연다.
-    프로덕션 코드에 우회 인자를 두지 않은 이유는 그쪽 주석에 있다.
+    도메인을 확정한 뒤로 core/ics.py 의 UID_DOMAIN_CONFIRMED 는 True 라 이
+    픽스처는 지금 값을 바꾸지 않는다. 그래도 남겨 두는 것은 아래 발행
+    테스트들이 그 전역값에 매이지 않게 하기 위해서다 — 누가 플래그를 다시
+    내려도 발행 로직 자체의 검증은 계속 돌아야 한다.
     """
     monkeypatch.setattr(ics, "UID_DOMAIN_CONFIRMED", True)
 
@@ -1010,24 +1009,19 @@ def confirmed_domain(monkeypatch):
 def _run_entry_point(target: Path, *, confirmed=True):
     """python -m rules.kr.feed 를 자식 프로세스에서 돌린다.
 
-    confirmed=True 면 자식 안에서 UID_DOMAIN_CONFIRMED 를 켠 뒤 진입점을
-    실행한다. monkeypatch 는 자식에 닿지 않고, 그렇다고 프로덕션에 환경변수
-    우회를 만들면 그것이 곧 상시 우회 경로가 된다. 테스트가 자기 자식에서만
-    여는 편이 낫다.
+    confirmed 값을 자식 안에서 UID_DOMAIN_CONFIRMED 에 넣고 진입점을 실행한다.
+    monkeypatch 는 자식에 닿지 않고, 그렇다고 프로덕션에 환경변수 우회를
+    만들면 그것이 곧 상시 우회 경로가 된다. 테스트가 자기 자식에서만 바꾸는
+    편이 낫다.
     """
-    if confirmed:
-        code = (
-            "import sys, runpy, core.ics;"
-            "core.ics.UID_DOMAIN_CONFIRMED = True;"
-            f"sys.argv = ['rules.kr.feed', {str(target)!r}];"
-            "runpy.run_module('rules.kr.feed', run_name='__main__')"
-        )
-        argv = [sys.executable, "-c", code]
-    else:
-        argv = [sys.executable, "-m", "rules.kr.feed", str(target)]
-
+    code = (
+        "import sys, runpy, core.ics;"
+        f"core.ics.UID_DOMAIN_CONFIRMED = {bool(confirmed)!r};"
+        f"sys.argv = ['rules.kr.feed', {str(target)!r}];"
+        "runpy.run_module('rules.kr.feed', run_name='__main__')"
+    )
     return subprocess.run(
-        argv,
+        [sys.executable, "-c", code],
         cwd=Path(__file__).resolve().parents[1],
         capture_output=True,
         text=True,
@@ -1035,30 +1029,40 @@ def _run_entry_point(target: Path, *, confirmed=True):
     )
 
 
-def test_publish_refuses_while_the_uid_domain_is_provisional():
-    """도메인이 확정되지 않은 동안 발행을 거부하는지.
+def test_the_uid_namespace_is_confirmed_and_frozen():
+    """발행이 열려 있다는 사실을 못 박는다.
 
-    UID 는 한 번 나가면 바꿀 수 없다. 지금 네임스페이스는 잠정이고
-    (README 의 이벤트 UID, CLAUDE.md) 확정 전에 나가면 되돌릴 방법이 없다.
+    holidays.lunalism.com 을 확정하고 이 플래그를 올린 시점부터 UID 는 영구
+    고정이다. 되돌리면 이미 나간 구독자 캘린더에서 모든 공휴일이 삭제 +
+    재생성으로 나타나고, SEQUENCE 를 올려도 수습되지 않는다 — UID 가 달라지면
+    캘린더는 애초에 다른 이벤트로 본다(core/ics.py 의 UID 절 참조).
+
+    이 테스트는 값이 실수로 다시 내려가거나 도메인 문자열이 바뀌는 것을 잡는다.
+    정말 바꿔야 한다면 구독자 영향을 먼저 확인하고 여기를 함께 고칠 것.
+    """
+    assert ics.UID_DOMAIN == "holidays.lunalism.com"
+    assert ics.UID_DOMAIN_CONFIRMED is True
+
+
+def test_publish_refuses_when_the_uid_domain_is_not_confirmed(monkeypatch):
+    """플래그를 내리면 발행이 멈추는지. 가드가 장식이 아닌지 확인한다.
+
+    확정한 뒤에도 이 검증을 남기는 이유는, 이 자리가 다음 국가 피드나 네임
+    스페이스를 다시 손대는 상황에서 그대로 다시 쓰이기 때문이다. 지금 통과한다고
+    지워 두면 그때 가드가 살아 있는지 아무도 모른다.
 
     build() 는 막지 않는다 — 막아야 하는 것은 만드는 것이 아니라 나가는 것이다.
     """
-    assert ics.UID_DOMAIN_CONFIRMED is False, (
-        "도메인을 확정했다면 이 테스트와 아래 진입점 테스트를 함께 갱신할 것."
-    )
+    monkeypatch.setattr(ics, "UID_DOMAIN_CONFIRMED", False)
 
     with pytest.raises(ics.IcsError, match="확정되지 않아 발행하지 않는다"):
         feed.publish(today=TODAY, dtstamp=DTSTAMP, path=Path("/tmp/should-not-exist.ics"))
 
-    # 만드는 쪽은 막히지 않는다.
     assert feed.build(today=TODAY, dtstamp=DTSTAMP).startswith(b"BEGIN:VCALENDAR")
 
 
-def test_the_entry_point_refuses_while_the_uid_domain_is_provisional(tmp_path):
-    """진입점도 같은 자리에서 멈추는지. 워크플로가 실제로 밟는 경로다.
-
-    지금 workflow_dispatch 로 발행을 돌리면 여기서 실패한다. 의도한 것이다.
-    """
+def test_the_entry_point_refuses_when_the_uid_domain_is_not_confirmed(tmp_path):
+    """진입점도 같은 자리에서 멈추는지. 워크플로가 실제로 밟는 경로다."""
     target = tmp_path / "kr.ics"
     done = _run_entry_point(target, confirmed=False)
 
