@@ -97,7 +97,7 @@ def test_status_reports_what_the_repository_currently_claims():
 
 
 def test_status_exposes_whether_the_uid_domain_is_confirmed():
-    """확정 여부가 밖에서도 보여야 한다. 아직 발행 전이라는 사실의 근거다."""
+    """확정 여부가 밖에서도 보여야 한다. 발행이 열려 있다는 사실의 근거다."""
     got = status.status(today=TODAY, dtstamp=DTSTAMP)
     assert got["uid"]["domain"] == ics.UID_DOMAIN
     assert got["uid"]["confirmed"] is ics.UID_DOMAIN_CONFIRMED

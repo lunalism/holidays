@@ -88,17 +88,13 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 
 `.github/workflows/publish.yml` 이 피드를 만들고 커밋합니다.
 
-**지금은 수동 실행만 됩니다.** UID 네임스페이스가 잠정이라 첫 발행을
-보류했습니다 — `schedule` 이 주석 처리되어 있고, `core/ics.py` 의
-`UID_DOMAIN_CONFIRMED` 가 `False` 인 동안 `publish()` 자체가 거부합니다.
-수동 실행(`workflow_dispatch`)을 걸면 그 자리에서 실패합니다. 의도한 동작입니다.
+**매주 월요일 09:00 KST 에 자동 실행됩니다.** 수동 실행(`workflow_dispatch`)도
+그대로 됩니다.
 
-발행을 열려면 두 가지를 함께 해야 합니다.
-
-1. `core/ics.py` 의 `UID_DOMAIN_CONFIRMED` 를 `True` 로
-2. `publish.yml` 의 `schedule` 주석 해제 (매주 월요일 09:00 KST)
-
-1 없이 2 만 풀면 워크플로가 실패합니다. 순서를 강제하려고 그렇게 두었습니다.
+UID 네임스페이스를 `holidays.lunalism.com` 으로 확정하면서 발행을 열었습니다.
+`core/ics.py` 의 `UID_DOMAIN_CONFIRMED` 가 `False` 로 돌아가면 `publish()` 가
+다시 거부하고 워크플로는 "피드 생성" 스텝에서 실패합니다 — 가드는 확정 후에도
+그대로 남아 있습니다.
 
 파이프라인이 쓰는 세 파일의 성격과 갱신 시점은
 [`DESIGN.md`](DESIGN.md) 의 "발행 파이프라인" 절에 있습니다.
@@ -107,11 +103,12 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 
 한 번 공개된 값은 되돌릴 수 없습니다. 아래 두 가지는 특히 주의합니다.
 
-- **구독 URL** — 구독자의 캘린더 앱에 그대로 박히므로 경로를 바꾸면 전부 끊깁니다.
-- **이벤트 UID** — 네임스페이스는 `@holidays.lunalism.com` (잠정, 출시 전 재확인).
+- **구독 URL** — `https://holidays.lunalism.com/feeds/kr.ics`. 구독자의 캘린더 앱에
+  그대로 박히므로 경로를 바꾸면 전부 끊깁니다.
+- **이벤트 UID** — 네임스페이스는 `@holidays.lunalism.com` 으로 **확정**되었습니다.
   UID가 바뀌면 캘린더 앱이 같은 공휴일을 새 이벤트로 인식해 중복이 생깁니다.
 
-두 값의 형식은 첫 공개 이전에 확정해야 합니다.
+두 값은 확정되었습니다. 바꾸는 제안은 구독자 영향을 먼저 확인해야 합니다.
 
 ## 라이선스
 
