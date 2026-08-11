@@ -117,6 +117,9 @@ jobs:
 
       - name: 커밋 & 푸시
         if: always()
+        env:
+          # 커밋 메시지가 이 실행의 결과를 말해야 한다. 아래 MESSAGE 참조.
+          BUILD_RESULT: ${{ job.status }}
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
@@ -184,12 +187,36 @@ jobs:
             stage_one "$TARGET"
           done
 
+          # 스테이징은 실행 결과와 무관하다. 바뀐 것은 올린다.
+          # 여기서 결과를 보기 시작하면 "실패했지만 피드는 멀쩡한" 실행에서
+          # 만들어 둔 피드가 조용히 버려진다.
           if [ "$FEED_CHANGED" = "1" ]; then
             stage_one feeds/kr.ics
             SUMMARY="$(uv run python -m core.ics "$PREV" feeds/kr.ics || echo '내용 변경')"
-            MESSAGE="feat(kr): 피드 갱신 — ${SUMMARY}"
+          fi
+
+          # 커밋 메시지는 이 실행이 실제로 한 일을 말해야 한다.
+          #
+          # 전에는 FEED_CHANGED 만 보고 정했다. 그래서 발행이 실패한 실행도
+          # "chore: status 갱신" 으로 나갔다 — 그 커밋에 담긴 것은 실패 기록
+          # 한 줄뿐이고, status.json 은 앞 스텝이 건너뛰어져 아예 없는데도
+          # 그렇게 적혔다. 감사 로그가 거짓을 말하는 커밋이다.
+          #
+          # 이 저장소는 근거를 들고 있다고 주장한다. 그 주장은 기계가 쓰는
+          # 커밋에도 걸린다. 실패를 성공처럼 적으면 나중에 히스토리로
+          # "언제부터 갱신이 끊겼나" 를 물을 수 없다.
+          if [ "${BUILD_RESULT}" = "success" ]; then
+            if [ "$FEED_CHANGED" = "1" ]; then
+              MESSAGE="feat(kr): 피드 갱신 — ${SUMMARY}"
+            else
+              MESSAGE="chore: status 갱신 $(date -u +%Y-%m-%d)"
+            fi
           else
-            MESSAGE="chore: status 갱신 $(date -u +%Y-%m-%d)"
+            MESSAGE="chore: 발행 실패 기록 $(date -u +%Y-%m-%d) (${BUILD_RESULT})"
+            if [ "$FEED_CHANGED" = "1" ]; then
+              # 실패했지만 피드는 만들어졌다. 둘 다 커밋되므로 둘 다 적는다.
+              MESSAGE="${MESSAGE} — 피드 변경 포함"
+            fi
           fi
 
           if git diff --cached --quiet; then
@@ -215,9 +242,26 @@ jobs:
             echo "2 회 미만이라 이슈를 만들지 않는다."
             exit 0
           fi
-          EXISTING="$(gh issue list --state open \
-            --search "in:title \"${TITLE}\"" --json number --jq 'length')"
-          if [ "${EXISTING}" != "0" ]; then
+          # 열린 이슈 제목을 그대로 받아 클라이언트에서 맞춰 본다.
+          #
+          # --search 를 쓰지 않는다. 그건 GitHub 검색 인덱스를 타는데, 인덱스는
+          # 즉시 반영되지 않는다. 방금 만든 이슈가 아직 안 잡히면 다음 실행이
+          # 없는 줄 알고 하나 더 만든다. concurrency 는 동시 실행만 막고 연속
+          # 실행은 막지 않으므로 실제로 밟히는 경로다. 소음을 막으려고 넣은
+          # 장치가 소음을 내게 된다.
+          #
+          # 이슈 목록은 --state open 만으로 정확히 받아진다. 검색이 필요한
+          # 규모가 아니다(열린 이슈가 수백 개가 되면 --limit 를 올릴 것).
+          #
+          # 부분 일치도 피한다. --search 는 제목 일부만 겹쳐도 걸리므로,
+          # 사람이 연 다른 이슈가 우연히 이 문구를 포함하면 알림이 영영 막힌다.
+          # 여기서는 제목이 정확히 같을 때만 같은 것으로 본다.
+          # 제목 비교는 셸에서 한다. gh 의 --jq 는 표현식 하나만 받고 jq 의
+          # --arg 를 넘겨주지 못해, 제목을 표현식 안에 문자열로 끼워 넣어야
+          # 한다. 그러면 따옴표가 든 제목에서 깨진다.
+          # grep -F -x 는 고정 문자열 · 줄 전체 일치라 그 문제가 없다.
+          OPEN_TITLES="$(gh issue list --state open --limit 200 --json title --jq '.[].title')"
+          if printf '%s\n' "${OPEN_TITLES}" | grep -Fxq -- "${TITLE}"; then
             echo "같은 제목의 열린 이슈가 이미 있다."
             exit 0
           fi
