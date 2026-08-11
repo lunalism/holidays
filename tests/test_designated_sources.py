@@ -64,8 +64,18 @@ TABLE_PATH = Path(__file__).parent.parent / "rules" / "kr" / "designated_holiday
 # 말 것. 새로 넣는 항목은 근거를 확인한 뒤에 넣는 것이지, 넣어 두고 나중에
 # 확인하는 것이 아니다. 넣어 두면 확인되지 않는다 — 이 표가 그 증거다.
 #
-# 줄어드는 방향으로만 움직인다. source 를 채우면 여기서 지워야 통과한다
-# (test_source_pending_has_no_stale_entries).
+# --- 표의 빈칸 집합의 부분집합이어야 한다 (테스트가 강제한다) ---
+# test_source_pending_is_a_subset_of_the_actual_gaps 가 이 집합을 표의 "source 가
+# 빈 날짜" 집합과 대조한다. 여기 있는데 표에서 해소된 날짜가 하나라도 있으면
+# 실패한다. 해소 사유는 가리지 않는다.
+#
+#   source 를 채웠다        → 여기서 지운다
+#   항목을 표에서 지웠다    → 여기서 지운다
+#   날짜를 정정했다         → 옛 날짜를 여기서 지운다
+#
+# 그래서 이 목록은 줄어드는 방향으로만 움직인다. 죽은 날짜를 남겨 두면 나중에 그
+# 날짜에 근거 없는 항목이 새로 들어올 때 조용히 면제해 주고, 막으려고 둔 검사가
+# 통과시키는 쪽으로 뒤집힌다.
 #
 # 추정으로 채우지 말 것. 관보 원문 대조는 designated_holidays.yaml 의
 # open_questions 관보-일괄대조 로 남아 있고, 첫 발행 전에 일괄로 처리한다.
@@ -120,22 +130,51 @@ def test_every_designated_holiday_has_a_source():
     )
 
 
-def test_source_pending_has_no_stale_entries():
-    """source 를 채웠는데 SOURCE_PENDING 에 그대로 남아 있으면 실패한다.
+def test_source_pending_is_a_subset_of_the_actual_gaps():
+    """SOURCE_PENDING 이 표의 "source 가 빈 날짜"의 부분집합인지.
 
     목록이 줄어드는 방향으로만 움직이게 하려면 이쪽도 필요하다. 이 검사가 없으면
-    채운 항목이 목록에 남고, 목록은 실제 미확인 건수보다 길어진 채로 굳는다.
-    그러면 "아직 이만큼 남았다"는 신호가 사실과 어긋나고, 위 테스트의 예외 범위도
-    필요 이상으로 넓어진다.
+    해소된 항목이 목록에 남고, 목록은 실제 미확인 건수보다 길어진 채로 굳는다.
+    그러면 "아직 이만큼 남았다"는 신호가 사실과 어긋난다.
+
+    ----------------------------------------------------------------------
+    "채워졌는가"가 아니라 "빈칸 목록에 있는가"로 본다
+    ----------------------------------------------------------------------
+    전에는 source 가 채워진 항목만 훑었다. 그러면 항목이 표에서 통째로 지워지거나
+    날짜가 정정된 경우를 놓친다 — 볼 항목 자체가 없어지므로 아무것도 걸리지 않고,
+    죽은 날짜가 목록에 영구히 남는다.
+
+    남은 예외가 위험한 이유는 목록이 길어지는 것만이 아니다. 그 날짜에 나중에
+    근거 없는 항목이 새로 들어오면 죽은 예외가 그것을 조용히 면제한다. 막으려고
+    둔 검사가 통과시키는 쪽으로 뒤집힌다.
+
+    그래서 표의 빈칸 집합을 먼저 구하고 그 부분집합인지를 본다. 해소 사유가
+    무엇이든(채웠다 / 지웠다 / 날짜를 고쳤다) 전부 여기서 걸린다.
+    Codex 리뷰(2026-08-11) 지적 반영.
     """
-    filled = [
-        entry
-        for entry in _holidays()
-        if _has_source(entry) and entry["date"] in SOURCE_PENDING
+    entries = _holidays()
+    gaps = {entry["date"] for entry in entries if not _has_source(entry)}
+    stale = sorted(SOURCE_PENDING - gaps)
+    if not stale:
+        return
+
+    # 왜 stale 인지는 두 가지로 갈리고, 사람이 할 일도 갈린다.
+    # 구분해서 내지 않으면 멈춘 사람이 표부터 다시 읽어야 한다.
+    present = {entry["date"]: entry for entry in entries}
+    filled = [present[day] for day in stale if day in present]
+    absent = [day for day in stale if day not in present]
+
+    lines = ["SOURCE_PENDING 에 해소된 날짜가 남아 있다:", ""]
+    if filled:
+        lines.append("  source 가 채워졌다:")
+        lines += [f"    - {_label(e)}" for e in filled]
+    if absent:
+        lines.append(f"  {TABLE_PATH.name} 에 그 날짜의 항목이 없다 (삭제 또는 날짜 정정):")
+        lines += [f"    - {day}" for day in absent]
+    lines += [
+        "",
+        f"{Path(__file__).name} 의 SOURCE_PENDING 에서 해당 날짜를 지울 것.",
+        "이 목록은 표의 빈칸을 그대로 비추어야 한다. 남겨 두면 나중에 그 날짜에",
+        "근거 없는 항목이 들어와도 통과한다.",
     ]
-    assert not filled, (
-        "source 가 채워졌는데 SOURCE_PENDING 에 남아 있다:\n"
-        + "\n".join(f"  - {_label(e)}" for e in filled)
-        + f"\n\n{TABLE_PATH.name} 의 근거를 확인했다면 "
-        f"{Path(__file__).name} 의 SOURCE_PENDING 에서 그 날짜를 지울 것."
-    )
+    raise AssertionError("\n".join(lines))
