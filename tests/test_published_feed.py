@@ -93,6 +93,10 @@ import pytest
 
 from rules.kr import feed
 
+# 이 파일은 통째로 커밋된 산출물을 읽는다. 발행 워크플로는 이 마커를 빼고
+# 돈다 — 이유는 pyproject.toml 의 markers 설명에 있다.
+pytestmark = pytest.mark.published_artifact
+
 # 저장소 뿌리. 여기서 새로 계산하지 않고 feed 쪽 정의를 그대로 쓴다.
 # rules/kr/status.py:49 도 같은 식으로 뿌리를 잡는다.
 ROOT = feed.FEED_PATH.parents[1]
@@ -154,6 +158,12 @@ def test_the_published_feed_is_reproducible_from_the_committed_inputs():
         previous  발행본 자신. 다음 발행이 읽을 이전본이 바로 이 파일이므로
                   (rules/kr/feed.py:346), "다시 발행해도 그대로"까지 함께
                   못 박힌다. SEQUENCE 가 움직이면 여기서 걸린다.
+
+    previous 로 골든 자신을 넘기므로, SEQUENCE 에 대해 여기서 확인되는 것은
+    "무변경 재발행이 이전 값을 보존하는가" 까지다. 신규 이벤트의 최초 값이나
+    날짜가 바뀌었을 때의 증가 규칙은 이 테스트가 덮지 않는다 — 그쪽은
+    tests/test_ics.py 의 _sequences 계열이 이전본을 손으로 지어 확인한다.
+    이 테스트가 통과한다고 SEQUENCE 규칙 전체가 확인된 것으로 읽지 말 것.
 
     바이트 비교인 것이 요점이다. 파싱해서 이벤트 집합을 비교하면 UID·SUMMARY 가
     같기만 하면 통과하는데, 구독자에게 나가는 것은 파싱 결과가 아니라 바이트다.
