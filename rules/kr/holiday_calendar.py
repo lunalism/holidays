@@ -90,7 +90,22 @@ class Holiday:
     name: str
     kind: str
     key: str = ""
-    source_key: str = ""  # 대체공휴일일 때 원인이 된 공휴일 키
+
+    # 대체공휴일일 때 원인이 된 공휴일 키. 대표값 하나다.
+    #
+    # 겹침(제3조제1항제3호)에서 대상이 둘이면 이 값은 그중 하나를 고른 것이고
+    # 어느 쪽이 트리거인지는 확정되지 않았다(3호-귀속-불명). 근거로 쓰지 말 것 —
+    # 아래 source_keys 가 그 날의 실제 상태다.
+    source_key: str = ""
+
+    # 원인이 될 수 있는 공휴일 키 전부. 대개 한 개이고, 겹침에서 대상이 둘이면
+    # 둘 다 들어온다.
+    #
+    # source_key 를 두고도 이것을 따로 두는 이유는 둘의 성격이 다르기 때문이다.
+    # source_key 는 "하나만 골라야 하는 자리"(DESCRIPTION 의 호수 조회)에 쓰는
+    # 임의 선택이고, 이쪽은 "무엇이 겹쳤나"라는 관측이다. 관측을 임의 선택으로
+    # 덮으면 SUMMARY 가 근거 없는 주장을 하게 된다.
+    source_keys: tuple = ()
 
     # 지정 공휴일 전용. key 가 없는 항목의 .ics UID token 이다.
     # designated_holidays.yaml 이 항목마다 들고 있고 로더가 검증한다.
@@ -786,11 +801,13 @@ def _calendar(year: int) -> dict:
         if triggered:
             count = len(triggered) if flags["extend_on_collision"] else 1
             for offset, placed in enumerate(_place(day, count, is_rule_holiday, flags)):
+                cause = triggered[min(offset, len(triggered) - 1)]
                 span.setdefault(placed, []).append(
                     Holiday(
                         name="대체공휴일",
                         kind=KIND_SUBSTITUTE,
-                        source_key=triggered[min(offset, len(triggered) - 1)].key,
+                        source_key=cause.key,
+                        source_keys=(cause.key,),
                     )
                 )
             continue
@@ -820,7 +837,10 @@ def _calendar(year: int) -> dict:
                         Holiday(
                             name="대체공휴일",
                             kind=KIND_SUBSTITUTE,
+                            # 대표값은 여전히 임의 선택이다. 아래 source_keys 가
+                            # 그 날 겹친 대상 전부이고, SUMMARY 는 그쪽을 쓴다.
                             source_key=triggers[0].key,
+                            source_keys=tuple(h.key for h in triggers),
                         )
                     )
 
@@ -884,6 +904,18 @@ def holidays_on(day: date) -> tuple:
     # 확정 구간 밖. 답은 그대로 두되 잠정임을 항목마다 표시한다.
     # 피드 생성기가 이 값을 보고 이벤트에 표시하거나 발행 범위를 자를 수 있다.
     return tuple(replace(h, provisional=True) for h in found)
+
+
+def holiday_name(key: str) -> str:
+    """공휴일 키 → 레지스트리 이름.
+
+    발행 쪽이 원인 공휴일을 사람이 읽는 이름으로 바꿀 때 쓴다. 레지스트리를
+    직접 뒤지지 않게 하려고 여기 둔다 — 표 구조를 아는 곳은 이 모듈이다.
+    """
+    meta = _rules().holidays.get(key)
+    if meta is None:
+        raise CalendarError(f"모르는 공휴일 키: {key!r}")
+    return meta["name"]
 
 
 def substitute_eligibility(holiday: str, day: date) -> dict:
