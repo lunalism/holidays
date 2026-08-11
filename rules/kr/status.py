@@ -67,6 +67,18 @@ def status(*, today: date, dtstamp) -> dict:
             # False 인 동안 publish() 가 거부한다. 밖에서도 보이게 싣는다.
             "confirmed": ics.UID_DOMAIN_CONFIRMED,
         },
+        "verification": {
+            # 법령·관보 원문 대조가 남은 항목 수. 랜딩 페이지(index.html)가
+            # 이 값을 읽어 "확인 대기: N건" 으로 띄운다.
+            #
+            # 표별 내역을 함께 싣는다. 숫자 하나만 두면 그것이 무엇을 세는지
+            # 밖에서 확인할 방법이 없고, 확인할 수 없는 숫자를 공개 페이지에
+            # 띄우는 것은 이 저장소가 하려는 것과 반대다.
+            "unverified_count": hc.unverified_count(),
+            "unverified_by_table": {
+                name: len(items) for name, items in hc.unverified().items()
+            },
+        },
         "kasi_key": {
             "expires_on": key_expiry.expires_on().isoformat(),
             "days_left": key_expiry.days_left(today),
