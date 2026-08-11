@@ -380,6 +380,45 @@ def unverified_count() -> int:
     return sum(len(v) for v in unverified().values())
 
 
+@lru_cache(maxsize=1)
+def verifiable_items() -> dict:
+    """원문 대조 대상 항목 수. {표 이름: 개수}. unverified() 의 분모다.
+
+    분모 없는 분자는 실제보다 나쁜 인상을 준다. 랜딩(index.html)이 "규칙표
+    N 건 중 M 건 확인 대기" 로 쓰므로 N 을 여기서 낸다.
+
+    ----------------------------------------------------------------------
+    .ics 이벤트 수를 분모로 쓸 수 없다
+    ----------------------------------------------------------------------
+    status.json 의 feed.events 는 발행 구간의 VEVENT 개수다(지금 234). 같은
+    공휴일이 해마다 다시 세어지므로 — 설날 하나가 12 년치면 36 건이다 —
+    규칙표 항목 수와는 세는 단위가 다르다. 그것을 분모로 쓰면 "202 건은 원문
+    대조를 마쳤다"는 뜻이 되는데 그런 것을 센 적이 없다.
+
+    여기서 세는 단위는 unverified() 와 같다. 두 함수가 다른 단위를 쓰면
+    분수가 성립하지 않는다.
+    """
+    return {
+        "solar_holidays.yaml": len(_solar_raw()["holidays"]),
+        "lunar_holidays.yaml": len(_lunar_raw()["holidays"]),
+        "designated_holidays.yaml": len(_designated_raw()["holidays"]),
+        # ruleset / clause / placement 셋을 합친다. unverified() 가 그 셋을
+        # 한 목록으로 돌려주므로 분모도 같은 셋이어야 한다.
+        "substitute_holidays.yaml": sum(
+            (
+                len(_rules().rulesets),
+                sum(len(rs.clauses) for rs in _rules().rulesets),
+                len(_rules().placement_rules),
+            )
+        ),
+    }
+
+
+def verifiable_item_count() -> int:
+    """원문 대조 대상 항목 총수. status.json 에 실리는 값이다."""
+    return sum(verifiable_items().values())
+
+
 def coverage_report() -> str:
     """사람이 읽는 coverage 요약. 로그·CLI 용."""
     cov = coverage()
