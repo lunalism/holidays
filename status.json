@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-08-11T05:13:07.805304+00:00",
+  "feed": {
+    "path": "feeds/kr.ics",
+    "events": 234,
+    "range": {
+      "start": "2020-01-01",
+      "end": "2031-12-31"
+    },
+    "provisional_events": 57
+  },
+  "coverage": {
+    "confirmed_through": "2028-12-31",
+    "designated_last_synced_at": "2026-08-08",
+    "start": "2015-01-01"
+  },
+  "uid": {
+    "domain": "holidays.lunalism.com",
+    "confirmed": true
+  },
+  "verification": {
+    "item_count": 48,
+    "unverified_count": 32,
+    "unverified_by_table": {
+      "solar_holidays.yaml": 9,
+      "lunar_holidays.yaml": 3,
+      "designated_holidays.yaml": 16,
+      "substitute_holidays.yaml": 4
+    }
+  },
+  "kasi_key": {
+    "expires_on": "2028-08-08",
+    "days_left": 728,
+    "min_days": 60
+  }
+}
