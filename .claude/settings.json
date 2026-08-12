@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/secrets.json)",
+      "Read(./**/credentials.json)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh workflow:*)",
+      "Bash(gh api:*)"
+    ],
+    "allow": [
+      "Bash(uv run pytest:*)",
+      "Bash(uv run ruff:*)",
+      "Bash(uv run python -m rules.:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout -b:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git rev-list:*)",
+      "Bash(git diff-tree:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run list:*)",
+      "WebFetch(domain:www8.cao.go.jp)",
+      "WebFetch(domain:www.nao.ac.jp)",
+      "WebFetch(domain:eco.mtk.nao.ac.jp)",
+      "WebFetch(domain:apis.data.go.kr)",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(jq:*)",
+      "Bash(diff:*)",
+      "Bash(git check-ignore:*)"
+    ]
+  }
+}

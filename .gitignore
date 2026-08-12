@@ -66,6 +66,11 @@ Icon?
 .vscode/
 *.swp
 
+# ---- 에이전트 ----
+# .claude/settings.json 은 커밋한다 (권한 설정도 히스토리에 남긴다).
+# local 쪽은 개인 절대경로가 들어가므로 커밋하지 않는다.
+.claude/settings.local.json
+
 # ---- 로컬 작업용 ----
 tmp/
 scratch/
