@@ -2,8 +2,11 @@
   "permissions": {
     "deny": [
       "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./**/secrets*)"
+      "Read(./.env.local)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/secrets.json)",
+      "Read(./**/credentials.json)"
     ],
     "ask": [
       "Bash(git push:*)",
@@ -12,7 +15,9 @@
       "Bash(gh api:*)"
     ],
     "allow": [
-      "Bash(uv run:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv run ruff:*)",
+      "Bash(uv run python -m rules.:*)",
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git diff:*)",
@@ -35,8 +40,6 @@
       "WebFetch(domain:eco.mtk.nao.ac.jp)",
       "WebFetch(domain:apis.data.go.kr)",
       "WebSearch",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
       "Bash(ls:*)",
       "Bash(cat:*)",
       "Bash(head:*)",
