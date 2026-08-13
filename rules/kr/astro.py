@@ -60,15 +60,15 @@ KST 자정에 가까울 때만 결과를 바꾼다.
 그래서 KASI 대조가 장식이 아니라 최종 판정이다.
 
 --------------------------------------------------------------------------
-ΔT
+시각을 날짜로 옮기는 일은 여기 없다
 --------------------------------------------------------------------------
-급수는 역학시(TT)를 준다. 날짜를 뽑으려면 세계시(UT)로 옮겨야 하고 그 차이가
-ΔT 다. ΔT 는 지구 자전 변동이라 예측이 아니라 관측값이고, 미래는 추정이다.
+ΔT 를 빼서 세계시로 옮기는 것도, 율리우스일을 달력 날짜로 바꾸는 것도,
+오프셋을 더해 자정 경계를 자르는 것도 나라와 무관하다. 그래서 core/timekeeping.py
+에 있다.
 
-Espenak & Meeus 다항식을 쓴다. 2005~2050 구간 식은 실측이 그 뒤 평평해지면서
-2020 년대에 2~3 초 높게 나온다. 우리가 신경 쓰는 단위는 분이므로 이 오차는
-결과를 바꾸지 못한다. 다만 2050 년 이후는 추정 폭이 수십 초로 벌어지므로,
-그 구간을 확정처럼 다루지 말 것.
+이 파일에 남는 것은 그 계산에 한국 값을 물리는 일이다. KST_OFFSET_DAYS 가
+그 값이고 kst_moment() 가 그 바인딩이다. 즉 이 파일은 계속 한국 층이다 —
+"9 시간"이라는 선택이 어디서 내려졌는지 찾으려면 여기를 보면 된다.
 """
 
 from __future__ import annotations
@@ -76,7 +76,14 @@ from __future__ import annotations
 import math
 from datetime import date
 
+from core.timekeeping import julian_day, moment_at_offset
+
 J2000 = 2451545.0
+
+# UTC 로부터의 한국 표준시 오프셋(일). 모듈 전역인 것이 의도다 —
+# tests/test_lunar.py 가 이 값을 UTC+8 로 갈아끼워 시간대 감도를 확인한다.
+# kst_moment() 는 이 값을 호출 시점에 읽는다. import 시점에 캡처하지 말 것
+# (partial, 기본인자, 모듈 로드 시 전달 — 전부 그 테스트를 무력화한다).
 KST_OFFSET_DAYS = 9 / 24
 
 # 태양이 하루에 가는 평균 황경. 중기 시각을 뉴턴법으로 좁힐 때 기울기로 쓴다.
@@ -98,94 +105,6 @@ class AstroError(ValueError):
 
 
 # ---------------------------------------------------------------------------
-# 율리우스일 ↔ 그레고리력
-# ---------------------------------------------------------------------------
-
-
-def julian_day(day: date) -> float:
-    """그 날짜 0 시의 율리우스일. 그레고리력만 다룬다."""
-    year, month = day.year, day.month
-    if month <= 2:
-        year -= 1
-        month += 12
-    century = year // 100
-    gregorian = 2 - century + century // 4
-    return (
-        math.floor(365.25 * (year + 4716))
-        + math.floor(30.6001 * (month + 1))
-        + day.day
-        + gregorian
-        - 1524.5
-    )
-
-
-def _civil_from_day_number(number: int) -> date:
-    """floor(JD + 0.5) → 달력 날짜. Meeus 제7장."""
-    if number < 2299161:
-        a = number
-    else:
-        alpha = int((number - 1867216.25) / 36524.25)
-        a = number + 1 + alpha - alpha // 4
-    b = a + 1524
-    c = int((b - 122.1) / 365.25)
-    d = int(365.25 * c)
-    e = int((b - d) / 30.6001)
-    day = b - d - int(30.6001 * e)
-    month = e - 1 if e < 14 else e - 13
-    year = c - 4716 if month > 2 else c - 4715
-    return date(year, month, day)
-
-
-def _decimal_year(jd: float) -> float:
-    """ΔT 조회용 연도. TT/UT 차이(약 70 초)는 이 용도에 영향이 없다."""
-    day = _civil_from_day_number(math.floor(jd + 0.5))
-    return day.year + (day.month - 0.5) / 12.0
-
-
-# ---------------------------------------------------------------------------
-# ΔT — Espenak & Meeus 다항식
-# ---------------------------------------------------------------------------
-
-
-def delta_t_seconds(year: float) -> float:
-    """TT − UT, 초.
-
-    구간을 벗어나면 장기식으로 흘린다. 예외를 던지지 않는 이유는 이 값이
-    분 단위 판정에만 쓰여서, 범위 밖에서도 답이 쓸모없어지지는 않기 때문이다.
-    범위 밖을 확정처럼 다루지 않는 것은 coverage 가 맡는다.
-    """
-    if 1900 <= year < 1920:
-        t = year - 1900
-        return -2.79 + t * (1.494119 + t * (-0.0598939 + t * (0.0061966 + t * -0.000197)))
-    if 1920 <= year < 1941:
-        t = year - 1920
-        return 21.20 + t * (0.84493 + t * (-0.076100 + t * 0.0020936))
-    if 1941 <= year < 1961:
-        t = year - 1950
-        return 29.07 + 0.407 * t - t**2 / 233 + t**3 / 2547
-    if 1961 <= year < 1986:
-        t = year - 1975
-        return 45.45 + 1.067 * t - t**2 / 260 - t**3 / 718
-    if 1986 <= year < 2005:
-        t = year - 2000
-        return 63.86 + t * (
-            0.3345
-            + t * (-0.060374 + t * (0.0017275 + t * (0.000651814 + t * 0.00002373599)))
-        )
-    if 2005 <= year < 2050:
-        t = year - 2000
-        return 62.92 + t * (0.32217 + t * 0.005589)
-    if 2050 <= year <= 2150:
-        return -20 + 32 * ((year - 1820) / 100) ** 2 - 0.5628 * (2150 - year)
-    u = (year - 1820) / 100
-    return -20 + 32 * u * u
-
-
-def _delta_t_days(jd: float) -> float:
-    return delta_t_seconds(_decimal_year(jd)) / 86400.0
-
-
-# ---------------------------------------------------------------------------
 # KST 로 옮기기
 # ---------------------------------------------------------------------------
 
@@ -193,15 +112,14 @@ def _delta_t_days(jd: float) -> float:
 def kst_moment(jde: float) -> tuple:
     """역학시 율리우스일 → (KST 날짜, 그 날 자정으로부터 지난 분).
 
+    계산은 core/timekeeping.py 의 moment_at_offset() 이 한다. 여기서 하는 일은
+    거기에 한국 오프셋을 물리는 것뿐이다.
+
     분 값을 함께 돌려주는 것이 요점이다. 날짜만 돌려주면 그 날짜가 자정에서
     30 초 떨어진 아슬아슬한 값인지, 12 시간 떨어진 안전한 값인지 구분되지 않는다.
     급수 오차가 결과를 바꿀 수 있는 자리인지는 이 값으로만 판단된다.
     """
-    jd_ut = jde - _delta_t_days(jde)
-    shifted = jd_ut + KST_OFFSET_DAYS + 0.5
-    day_number = math.floor(shifted)
-    minutes = (shifted - day_number) * 1440.0
-    return _civil_from_day_number(day_number), minutes
+    return moment_at_offset(jde, KST_OFFSET_DAYS)
 
 
 def minutes_from_midnight(jde: float) -> float:
