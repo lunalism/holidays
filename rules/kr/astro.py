@@ -30,12 +30,15 @@ rules/kr/lunar.py 가 정한다. 이 파일은 "언제 삭인가", "언제 태�
 --------------------------------------------------------------------------
 쓰는 급수와 그 정확도
 --------------------------------------------------------------------------
-Meeus, Astronomical Algorithms 2판.
+이 파일이 들고 있는 급수는 삭 하나다.
 
-  삭 시각   제49장. 절단 ELP-2000/82 기반. 문헌이 밝히는 오차는 현대 구간에서
-            평균 수 초, 최대 20 초 안쪽이다.
-  태양 황경 제25장 저정밀도 식. 문헌이 밝히는 오차는 약 0.01°.
-            시간으로 환산하면 약 15 분이다(태양은 하루에 약 0.9856° 간다).
+  삭 시각   Meeus, Astronomical Algorithms 2판 제49장. 절단 ELP-2000/82 기반.
+            문헌이 밝히는 오차는 현대 구간에서 평균 수 초, 최대 20 초 안쪽이다.
+
+태양 황경(제25장 저정밀도 식)은 core/astro.py 에 있다. 나라와 무관한 값이라
+거기가 자리다. 이 파일은 winter_solstice_jde() 에서 그것을 쓰기만 한다.
+문헌 오차는 약 0.01°, 시간으로 환산하면 약 15 분이다(태양은 하루에 약
+0.9856° 간다) — 아래 자정 여유 이야기에 그 15 분이 다시 나온다.
 
 두 값의 문헌 오차는 그대로 믿지 않는다. 우리가 옮겨 적은 계수가 맞는지는 별개
 문제이고, 그건 실측 대조로만 확인된다. tests/test_astro.py 와
@@ -76,9 +79,14 @@ from __future__ import annotations
 import math
 from datetime import date
 
+# apparent_solar_longitude 는 이 파일에서 부르지 않는다. tests/ 가 astro 를
+# 통해 읽고 갈아끼우므로 이름만 남긴다 — 재수출이다.
+from core.astro import (
+    AstroError,
+    apparent_solar_longitude,  # noqa: F401 — 재수출
+    solar_term_jde,
+)
 from core.timekeeping import julian_day, moment_at_offset
-
-J2000 = 2451545.0
 
 # UTC 로부터의 한국 표준시 오프셋(일). 모듈 전역인 것이 의도다 —
 # tests/test_lunar.py 가 이 값을 UTC+8 로 갈아끼워 시간대 감도를 확인한다.
@@ -86,22 +94,17 @@ J2000 = 2451545.0
 # (partial, 기본인자, 모듈 로드 시 전달 — 전부 그 테스트를 무력화한다).
 KST_OFFSET_DAYS = 9 / 24
 
-# 태양이 하루에 가는 평균 황경. 중기 시각을 뉴턴법으로 좁힐 때 기울기로 쓴다.
-# 실제 속도는 근일점 근처에서 3% 남짓 빠르므로 반복이 필요하다.
-SOLAR_DEGREES_PER_DAY = 0.98565
-
 # 삭에서 삭까지의 평균 길이. 달 번호를 추정할 때만 쓴다.
 SYNODIC_MONTH_DAYS = 29.530588861
 
 # 중기 사이 평균 간격. 다음 중기의 초기 추정값으로만 쓴다.
 _MID_TERM_INTERVAL_DAYS = 30.44
 
-_TERM_TOLERANCE_DEG = 1e-7   # 시간으로 약 0.01 초
-_TERM_MAX_ITER = 30
-
-
-class AstroError(ValueError):
-    """천문 계산이 답을 내지 못했다."""
+# 삭망월을 걸어 찾을 때의 걸음 상한. core 의 뉴턴법 반복 상한과 값은 같지만
+# 다른 것을 센다 — 저쪽은 수렴 반복이고 이쪽은 k 를 몇 칸까지 옮겨 보는가다.
+# 우연히 같은 수라서 한 이름을 나눠 쓰면, 한쪽 사정으로 값을 바꿀 때
+# 다른 쪽이 말없이 따라 움직인다.
+_MONTH_WALK_MAX_STEPS = 30
 
 
 # ---------------------------------------------------------------------------
@@ -238,7 +241,7 @@ def month_start_k(day: date) -> int:
     추정값을 그대로 믿으면 연말·연초에서 조용히 한 달 밀린다.
     """
     k = new_moon_k_near(day)
-    for _ in range(_TERM_MAX_ITER):
+    for _ in range(_MONTH_WALK_MAX_STEPS):
         if kst_moment(new_moon_jde(k))[0] > day:
             k -= 1
         elif kst_moment(new_moon_jde(k + 1))[0] <= day:
@@ -249,37 +252,8 @@ def month_start_k(day: date) -> int:
 
 
 # ---------------------------------------------------------------------------
-# 태양 황경 — Meeus 제25장 (저정밀도)
+# 동지 — 태양 황경 급수는 core/astro.py 에 있다
 # ---------------------------------------------------------------------------
-
-
-def apparent_solar_longitude(jde: float) -> float:
-    """겉보기 태양 황경(도). 장동과 광행차를 포함한다."""
-    t = (jde - J2000) / 36525.0
-    mean_longitude = 280.46646 + 36000.76983 * t + 0.0003032 * t * t
-    anomaly = math.radians(357.52911 + 35999.05029 * t - 0.0001537 * t * t)
-    center = (
-        (1.914602 - 0.004817 * t - 0.000014 * t * t) * math.sin(anomaly)
-        + (0.019993 - 0.000101 * t) * math.sin(2 * anomaly)
-        + 0.000289 * math.sin(3 * anomaly)
-    )
-    node = math.radians(125.04 - 1934.136 * t)
-    return (mean_longitude + center - 0.00569 - 0.00478 * math.sin(node)) % 360.0
-
-
-def solar_term_jde(longitude: float, guess: float) -> float:
-    """태양 황경이 그 값이 되는 시각. guess 근처의 해를 찾는다.
-
-    guess 가 며칠 어긋나도 수렴하지만 한 달 이상 어긋나면 옆 해로 넘어간다.
-    호출자가 30 일 안쪽 추정을 주는 것을 전제로 한다.
-    """
-    jde = guess
-    for _ in range(_TERM_MAX_ITER):
-        gap = (longitude - apparent_solar_longitude(jde) + 180.0) % 360.0 - 180.0
-        if abs(gap) < _TERM_TOLERANCE_DEG:
-            return jde
-        jde += gap / SOLAR_DEGREES_PER_DAY
-    raise AstroError(f"황경 {longitude}° 시각이 수렴하지 않았다(시작 {guess}).")
 
 
 def winter_solstice_jde(year: int) -> float:

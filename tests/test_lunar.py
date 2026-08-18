@@ -27,6 +27,7 @@ from pathlib import Path
 
 import pytest
 
+from core import astro as core_astro
 from rules.kr import astro, lunar
 from rules.kr import holiday_calendar as hc
 from sources.kr import kasi_parser as kp
@@ -265,14 +266,14 @@ def perturb(monkeypatch):
     물리지 않은 것이 같은 초록으로 보인다. 그래서 "얼마나 흔들렸나"와 별개로
     "물리기는 했나"를 따로 물어야 한다.
 
-    끊기는 방식은 추상적이지 않다. 이 픽스처는 astro 모듈의 이름을 갈아끼우고,
-    astro.solar_term_jde 는 그 이름을 자기 전역에서 찾는다. 급수를 다른 모듈로
-    옮기고 astro 가 재수출만 하면 그 조회가 옮겨간 모듈의 전역으로 바뀌므로,
-    패치는 그대로 남고 아무도 읽지 않는다.
+    끊기는 방식은 추상적이지 않다. 재수출은 이름 조회를 살리지 함수의
+    __globals__ 를 공유시키지 않는다. rules.kr.astro 가 core.astro 의 이름을
+    재수출하고 있으므로, 거기를 갈아끼워도 core.astro.solar_term_jde 는 자기
+    전역에서 원본을 찾는다. 패치는 그대로 남고 아무도 읽지 않는다.
 
-    두 축을 따로 세는 것은 어느 쪽 배선이 끊겼는지 바로 보이게 하기 위해서다.
-    한쪽만 끊기는 경우가 실제로 있다 — new_moon_jde 는 astro 에 남고 태양
-    황경만 옮기면 삭 쪽은 멀쩡하고 태양 쪽만 조용히 죽는다.
+    실제로 그렇게 끊긴 적이 있다. 태양 황경 급수를 core 로 옮겼을 때
+    calls 가 {'sun': 0, 'moon': 2031} 로 나왔다 — 삭은 멀쩡하고 태양만 죽었다.
+    두 축을 따로 세는 것은 그 한쪽만 끊긴 상태를 바로 보이게 하기 위해서다.
     """
 
     def apply(solar_degrees=0.0, lunar_seconds=0.0) -> dict:
@@ -287,7 +288,11 @@ def perturb(monkeypatch):
             calls["moon"] += 1
             return moon(k) + lunar_seconds / 86400.0
 
-        monkeypatch.setattr(astro, "apparent_solar_longitude", patched_sun)
+        # 정의된 곳이 아니라 쓰이는 곳에 건다. solar_term_jde 는 core.astro 에
+        # 살면서 그 모듈 전역에서 황경 함수를 찾고, month_start_k 는 rules.kr.astro
+        # 에 살면서 그 모듈 전역에서 삭을 찾는다. 한 이름을 양쪽에 겹쳐 걸지
+        # 않는다 — 겹치면 재수출이 사라져도 통과해 이 검사가 무뎌진다.
+        monkeypatch.setattr(core_astro, "apparent_solar_longitude", patched_sun)
         monkeypatch.setattr(astro, "new_moon_jde", patched_moon)
         return calls
 
