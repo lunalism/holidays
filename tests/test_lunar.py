@@ -42,6 +42,10 @@ SPEC = {"seollal": (1, 1), "chuseok": (8, 15), "buddhas_birthday": (4, 8)}
 SOLAR_PERTURBATION_DEGREES = 0.05
 LUNAR_PERTURBATION_SECONDS = 300
 
+# 카나리아 폭. 위 섭동과 단언 방향이 반대다 — 이만큼 흔들면 반드시 바뀌어야 한다.
+# 실측 임계점(-0.06°)의 80 배 남짓이라 임계점이 흘러도 이 단언은 흔들리지 않는다.
+SOLAR_CANARY_DEGREES = 5.0
+
 # 섭동 테스트가 도는 구간. 대조 구간보다 넓게 잡는다. 대조되지 않은 구간에서
 # 여유가 어떻게 되는지도 알아야 confirmed_through 를 밀 때 근거가 된다.
 PROBE_YEARS = range(2015, 2051)
@@ -254,20 +258,64 @@ def test_mid_terms_keep_a_margin_from_kst_midnight():
 
 @pytest.fixture
 def perturb(monkeypatch):
-    """급수를 일부러 흔든 상태로 돌린다."""
+    """급수를 일부러 흔든 상태로 돌린다. 패치가 몇 번 불렸는지를 돌려준다.
 
-    def apply(solar_degrees=0.0, lunar_seconds=0.0):
+    횟수를 세는 것이 요점이다. 섭동이 배선에서 끊기면 결과가 안 바뀌고, 안
+    바뀌면 `assert not changed` 는 통과한다 — 급수가 견뎌낸 것과 섭동이 아예
+    물리지 않은 것이 같은 초록으로 보인다. 그래서 "얼마나 흔들렸나"와 별개로
+    "물리기는 했나"를 따로 물어야 한다.
+
+    끊기는 방식은 추상적이지 않다. 이 픽스처는 astro 모듈의 이름을 갈아끼우고,
+    astro.solar_term_jde 는 그 이름을 자기 전역에서 찾는다. 급수를 다른 모듈로
+    옮기고 astro 가 재수출만 하면 그 조회가 옮겨간 모듈의 전역으로 바뀌므로,
+    패치는 그대로 남고 아무도 읽지 않는다.
+
+    두 축을 따로 세는 것은 어느 쪽 배선이 끊겼는지 바로 보이게 하기 위해서다.
+    한쪽만 끊기는 경우가 실제로 있다 — new_moon_jde 는 astro 에 남고 태양
+    황경만 옮기면 삭 쪽은 멀쩡하고 태양 쪽만 조용히 죽는다.
+    """
+
+    def apply(solar_degrees=0.0, lunar_seconds=0.0) -> dict:
         sun, moon = astro.apparent_solar_longitude, astro.new_moon_jde
-        monkeypatch.setattr(
-            astro,
-            "apparent_solar_longitude",
-            lambda jde: (sun(jde) + solar_degrees) % 360.0,
-        )
-        monkeypatch.setattr(
-            astro, "new_moon_jde", lambda k: moon(k) + lunar_seconds / 86400.0
-        )
+        calls = {"sun": 0, "moon": 0}
+
+        def patched_sun(jde):
+            calls["sun"] += 1
+            return (sun(jde) + solar_degrees) % 360.0
+
+        def patched_moon(k):
+            calls["moon"] += 1
+            return moon(k) + lunar_seconds / 86400.0
+
+        monkeypatch.setattr(astro, "apparent_solar_longitude", patched_sun)
+        monkeypatch.setattr(astro, "new_moon_jde", patched_moon)
+        return calls
 
     return apply
+
+
+def _assert_perturbation_reached(calls, solar_degrees, lunar_seconds):
+    """흔든 축의 패치가 실제로 불렸는지.
+
+    흔들지 않은 축(0.0)은 묻지 않는다. 그 축의 패치도 불리기는 한다 — 파이프라인은
+    태양 황경과 삭을 매번 둘 다 부르므로 실측하면 양쪽 다 0 이 아니다. 그래도
+    단언에서 빼는 이유는, 이 케이스의 결론이 그 호출에 기대고 있지 않기 때문이다.
+    단언은 "이 케이스의 판정이 믿을 만한가"만 물어야 한다. 흔들지 않은 축까지
+    묶으면 파이프라인의 호출 구조라는 별개의 사실을 여기서 함께 주장하게 되고,
+    그 구조가 정당하게 바뀌었을 때 섭동과 무관한 이유로 빨개진다.
+    """
+    if solar_degrees:
+        assert calls["sun"] > 0, (
+            "태양 황경 섭동이 파이프라인에 물리지 않았다 — "
+            "astro.apparent_solar_longitude 를 갈아끼웠는데 한 번도 불리지 않았다.\n"
+            "이 케이스의 결과는 급수가 견뎌서가 아니라 섭동이 도달하지 않아서 나온 것이다."
+        )
+    if lunar_seconds:
+        assert calls["moon"] > 0, (
+            "삭 시각 섭동이 파이프라인에 물리지 않았다 — "
+            "astro.new_moon_jde 를 갈아끼웠는데 한 번도 불리지 않았다.\n"
+            "이 케이스의 결과는 급수가 견뎌서가 아니라 섭동이 도달하지 않아서 나온 것이다."
+        )
 
 
 @pytest.mark.parametrize(
@@ -285,24 +333,67 @@ def test_holidays_survive_perturbing_the_series(perturb, solar_degrees, lunar_se
     이것이 실제 안전 여유다. 자정 여유가 좁은 자리가 있어도, 그 자리가 우리
     세 공휴일의 경계가 아니면 결과는 흔들리지 않는다.
 
-    관측된 임계점(2026-08-08 기준):
-      태양 황경 ±0.1° 까지 무변화, ±0.2° 에서 첫 변화
-      삭 시각   ±600 초까지 무변화, -900 초에서 첫 변화
+    관측된 임계점(a172b6c 기준. PROBE_YEARS 전 구간, SPEC 3 종):
+      태양 황경 -0.058° / +0.18° 까지 무변화. -0.06° 와 +0.19° 에서 첫 변화
+      삭 시각   -740 초 / +1200 초까지 무변화. -750 초와 +1300 초에서 첫 변화
+
+    커밋 SHA 를 적는다. 앞선 주석은 "2026-08-08 기준 ±0.1° 까지 무변화"였는데
+    지금 실측은 -0.06° 에서 이미 바뀐다. 날짜만 적혀 있어 어느 리비전의 값인지
+    알 수 없었고, 그래서 언제 어긋났는지도 추적되지 않았다. 값을 갱신할 때는
+    SHA 를 같이 갈 것.
+
+    마이너스 쪽이 얇다. -0.06° 는 이 테스트가 넣는 0.05° 의 1.2 배뿐이다.
+    거기서 바뀌는 것은 (2033, chuseok) 하나로 2033-09-08 에서 2033-10-07 로
+    한 달 밀린다 — 윤달 자리가 갈리는 자리다.
 
     여기가 빨개지면 급수를 늘릴 때가 된 것이다(VSOP87).
     lunar_holidays.yaml 의 open_questions 태양-황경-정밀도 참조.
     """
     baseline = _our_dates()
-    perturb(solar_degrees=solar_degrees, lunar_seconds=lunar_seconds)
+    calls = perturb(solar_degrees=solar_degrees, lunar_seconds=lunar_seconds)
     changed = {
         key: (baseline[key], value)
         for key, value in _our_dates().items()
         if value != baseline[key]
     }
+    # 도달 여부를 먼저 본다. 배선이 끊겼으면 changed 는 어차피 비어 있고,
+    # 그때 아래 단언이 먼저 통과해 버리면 원인이 가려진다.
+    _assert_perturbation_reached(calls, solar_degrees, lunar_seconds)
     assert not changed, (
         f"섭동(태양 {solar_degrees:+}°, 삭 {lunar_seconds:+} 초)에서 "
         f"{len(changed)} 건이 바뀌었다:\n"
         + "\n".join(f"  {k}: {was} → {now}" for k, (was, now) in sorted(changed.items()))
+    )
+
+
+@pytest.mark.parametrize("solar_degrees", [SOLAR_CANARY_DEGREES, -SOLAR_CANARY_DEGREES])
+def test_a_large_solar_perturbation_does_move_dates(perturb, solar_degrees):
+    """크게 흔들면 반드시 바뀐다. 위 테스트의 초록이 무엇을 뜻하는지 확정한다.
+
+    위 테스트의 단언은 `assert not changed` 하나다. 그 단언은 섭동이 배선에서
+    끊겨도 통과하므로, 그것만으로는 "급수가 견뎠다"를 주장할 수 없다. 여기서
+    반대 방향을 한 번 확인해 둔다 — 이만큼 흔들면 결과가 반드시 움직인다.
+
+    둘을 같이 두면 초록의 뜻이 확정된다. 이 테스트가 빨개지면 섭동이 결과까지
+    가지 못하는 것이고, 그렇다면 위 테스트의 초록은 아무것도 증명하지 않는다.
+
+    건수는 박지 않는다. 임계점 근처가 아니라 한참 위(실측 -0.06° 의 80 배
+    남짓)이므로, "비어 있지 않다"만 물으면 무관한 변경에 깨지지 않는다.
+    건수를 박으면 그 순간 이 테스트가 임계점 기록이 되어 버린다 — 그건 위
+    테스트의 docstring 이 할 일이다.
+    """
+    baseline = _our_dates()
+    calls = perturb(solar_degrees=solar_degrees)
+    changed = {
+        key: (baseline[key], value)
+        for key, value in _our_dates().items()
+        if value != baseline[key]
+    }
+    _assert_perturbation_reached(calls, solar_degrees, 0)
+    assert changed, (
+        f"태양 황경을 {solar_degrees:+}° 흔들었는데 날짜가 하나도 안 바뀌었다.\n"
+        "이 폭이면 반드시 바뀐다. 섭동이 파이프라인에 도달하지 않는다는 뜻이고,\n"
+        "그렇다면 test_holidays_survive_perturbing_the_series 의 초록도 무의미하다."
     )
 
 
