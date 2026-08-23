@@ -36,7 +36,7 @@ holidays:
     uid_token: new_years_day
     kind: statutory
     verified: true
-    source: 「国民の祝日に関する法律」（昭和23年法律第178号）第2条
+    source: 「国民の祝日に関する法律」(昭和23年法律第178号) 第2条
 ```
 
 키는 3층 18종. 최상위 4종(`version`, `country`, `year`, `holidays`) / 항목 필수 6종(`date`, `name`, `uid_token`, `kind`, `verified`, `source`) / 항목 선택 2종(`source_todo`, `basis`) / `basis` 하위 6종(`rule`, `trigger_date`, `trigger_weekday`, `note`, `prev_date`, `next_date`).
@@ -52,9 +52,13 @@ holidays:
 
 ### `basis` 는 세 형태로만 나타난다
 
-1. `rule` + `trigger_date` + `trigger_weekday` — `kind: substitute` (振替休日, 第3条第2項). **16건**
+1. `rule` + `trigger_date` + `trigger_weekday` — `kind: substitute` (振替休日, 第3条第2項). **14건**
 2. `rule` + `note` — 올림픽 특별조치법 이동 축일. 2020·2021 각 3건, **6건**
 3. `rule` + `prev_date` + `next_date` — `kind: bridge` (国民の休日, 第3条第3項). **전 파일 통틀어 1건**
+
+합계는 `basis` 를 가진 항목 21건 / 없는 항목 122건 / 전체 143건이다.
+
+`kind: substitute` ⟺ `basis.trigger_date` 존재 는 143건 전체에서 반례 0건의 양방향 동치다. 다만 분기는 `basis` 키 모양이 아니라 `kind` 로 한다.
 
 bridge 유일 사례 (`data/jp/2026.yaml:102-111`):
 
@@ -64,7 +68,7 @@ bridge 유일 사례 (`data/jp/2026.yaml:102-111`):
     uid_token: kyujitsu
     kind: bridge
     verified: true
-    source: 「国民の祝日に関する法律」（昭和23年法律第178号）第3条第3項
+    source: 「国民の祝日に関する法律」(昭和23年法律第178号) 第3条第3項
     basis:
       rule: 第3条第3項
       prev_date: 2026-09-21
@@ -77,7 +81,7 @@ bridge 유일 사례 (`data/jp/2026.yaml:102-111`):
 
 | 항목 | 건수 | `source_todo` |
 |---|---|---|
-| 建国記念の日 (2/11) | 8 | 第2条は「政令で定める日」とする。当該政令（昭和41年政令第376号）を未確認。 |
+| 建国記念の日 (2/11) | 8 | 第2条は「政令で定める日」とする。当該政令(昭和41年政令第376号)を未確認。 |
 | 春分の日 | 8 | 国立天文台が前年2月1日に官報で告示する日。当該年の官報を未確認。 |
 | 秋分の日 | 8 | 国立天文台が前年2月1日に官報で告示する日。当該年の官報を未確認。 |
 
@@ -332,6 +336,29 @@ out.append((event, f"{day:%Y%m%d}-{event.token}@{UID_DOMAIN}"))
 
 **`token` 자체는 `core` 가 만들지 않는다.** `rules/kr/feed.py:259` 가 `_token(holiday)` 로 채워 넣는다. **jp 데이터는 `uid_token` 을 143건 전부에 이미 들고 있고**, 그 값이 名称에서 나온다는 규약은 `sources/jp/build_data.py:26-38` 에 적혀 있다.
 
+### `STATUS` 와 `X-HOLIDAY-STATUS`
+
+`_vevent()` 의 `if event.provisional:` 블록(`core/ics.py:419-421`)이 두 속성을 함께 넣는다. 따로 붙는 경로가 없어 항상 같이 나간다.
+
+```python
+    if event.provisional:
+        out.add("status", "TENTATIVE")
+        out.add("x-holiday-status", "PROVISIONAL")
+```
+
+**소스의 리터럴은 소문자 `x-holiday-status` 이고 직렬화 시 대문자로 나간다.** `grep 'X-HOLIDAY-STATUS' core/ics.py` 는 0건을 낸다 — 미구현으로 읽기 쉬운 자리다. 이 문서가 §5 를 쓰면서 `X-HOLIDAY-STATUS` 를 한 번도 언급하지 않은 것이 그 예다.
+
+커밋된 `feeds/kr.ics` 에 이미 나가 있다.
+
+| 속성 | 줄 수 |
+|---|---|
+| `STATUS:TENTATIVE` | 57 |
+| `X-HOLIDAY-STATUS:PROVISIONAL` | 57 |
+
+두 수가 같은 것은 위 블록의 귀결이다. 해당 이벤트의 `DTSTART` 는 최소 `20290101`, 최대 `20311225` 이고 2028 년 이전은 0건이다. 확정 구간이 `2028-12-31`(kr YAML 3종의 `confirmed_through`)이므로 `provisional` 은 그 바깥에만 붙는다.
+
+`provisional` 과 `verified` 는 다른 범주다. `core/ics.py:91` 은 `provisional` 을 "규칙 개정 확인 시점 이후"로 정의한다 — 우리가 아니라 규칙 쪽 사정이다. `verified` 는 `rules/kr/feed.py:210-212` 가 명시하듯 우리 내부 검증 상태이고 구독자에게 나가지 않는다. 한쪽을 다른 쪽 자리에 밀어 넣을 수 없다(§3-2(c)).
+
 ---
 
 ## 6. 다음 세션에서 결정해야 할 것
@@ -344,7 +371,8 @@ jp 데이터에 `provisional` 이 없다. `verified: false` 를 그 자리에 �
 
 생각해 볼 갈래 (전부 미결):
 - jp 피드에 `STATUS:TENTATIVE` 를 아예 쓰지 않는다
-- `verified: false` 3종(建国記念の日/春分の日/秋分の日)의 성격을 다시 본다 — 이들은 "우리가 확인 못 했다"이지 "정부가 확정 안 했다"가 아니다. `UNVERIFIED` 테이블이 상수로 박혀 있다는 점(§1)이 판단 재료다
+- `verified: false` 3종(建国記念の日/春分の日/秋分の日)의 성격을 다시 본다 — 이들은 "우리가 확인 못 했다"이지 "정부가 확정 안 했다"가 아니다. `UNVERIFIED` 테이블이 상수로 박혀 있다는 점(§1)이 판단 재료다. **다만 3종을 한 덩어리로 다루면 안 된다** — 아래 갈래를 참조
+- 위 3종의 성격 차이: 春分の日·秋分の日 은 매년 전년 2월 1일 관보 고시로 확정된다. 연도별 확정 절차가 실재하고, 8년치를 닫으려면 8번 확인해야 한다. 建国記念の日 은 政令이 2월 11일로 한 번 고정했고 연도별 확정 절차가 없다 — 8건이 전부 같은 政令 하나를 가리키므로 그 政令 원문을 한 번 확인하면 8건이 동시에 닫힌다. 데이터의 `source_todo` 는 그 政令을 `昭和41年政令第376号` 로 적고 있으나 **우리는 그 원문을 확인하지 않았다.** 政令 번호 자체가 확인 대상이다
 - 발행 범위(`RANGE_END = 2027-11-23`)가 이미 미확정 연도를 잘라내고 있으므로 `provisional` 이 필요 없을 수 있다
 
 ### (2) `feed_range()` 를 공유할 것인가
@@ -375,7 +403,40 @@ Holiday_05 이전 결정: **`kyujitsu` 를 振替/国民 구분 없이 단일 UI
 
 ---
 
-## 7. 확인 안 한 것
+## 7. `feat/jp-rules` 확정 사항
+
+§6 이 아직 열려 있는 것이라면 여기는 이번 조사로 닫힌 것이다.
+
+| 항목 | 값 |
+|---|---|
+| `PRODID` | `-//lunalism//holidays.lunalism.com//KO` |
+| `CALNAME` | `일본 공휴일` |
+| `TZID` | `Asia/Tokyo` |
+| 발행 범위 | `sources.jp.build_data` 의 `RANGE_START` / `RANGE_END` 를 import |
+| `feed_range()` | jp 에는 두지 않는다 |
+| `provisional` | 항상 `False`. `STATUS:TENTATIVE` · `X-HOLIDAY-STATUS` 둘 다 0줄 |
+| `publish()` | `feat/jp-rules` 에서는 jp 쪽에 복제. core 승격은 이후 별도 브랜치 |
+| SUMMARY (statutory) | `name` 그대로 (예: `元日`) |
+| SUMMARY (substitute) | `休日（建国記念の日）` |
+| SUMMARY (bridge) | `休日（敬老の日・秋分の日）` |
+| 괄호 · 구분자 | 전각 `（）` · 전각 `・`(U+30FB) |
+| DESCRIPTION (statutory) | `근거: ` + 데이터의 `source` 원문 |
+| DESCRIPTION (substitute/bridge) | 유래 문장(한국어 서술) + 근거 줄 |
+| 분기 기준 | `kind`. `basis` 키 모양이 아니다 |
+
+SUMMARY 예시의 출처: substitute 는 `data/jp/2024.yaml` 의 `2024-02-12`(`basis.trigger_date: 2024-02-11` = 建国記念の日), bridge 는 `data/jp/2026.yaml` 의 `2026-09-22`(`basis.prev_date: 2026-09-21` = 敬老の日, `basis.next_date: 2026-09-23` = 秋分の日).
+
+**표기 언어.** SUMMARY 는 일본어 원문을 유지한다. 한국어로 옮기면 `天皇誕生日` 등에서 우리가 정치적 판정을 하게 되고, 이 레포가 판정할 사안이 아니다. DESCRIPTION 의 서술문은 한국어로 쓰되 축일명과 법령명은 원문을 유지한다.
+
+**statutory 에도 DESCRIPTION 을 붙이는 이유.** `rules/kr/feed.py` 의 statutory 는 DESCRIPTION 이 비어 있으나, 그 이유는 정책이 아니라 결핍이다 — `_description()`(221-231) 주석이 "지금 표에 조문 번호가 없다"고 적는다. jp 는 143건 전부 `source` 를 갖고 있고 `tests/test_cao_source.py` 의 `test_every_entry_carries_a_source()` 가 그것을 강제한다. kr 의 공백을 따라 할 이유가 없다.
+
+**`source` 원문 보존.** 데이터의 `source` 안 괄호는 반각이다(`sources/jp/build_data.py:58` 의 `LAW` 상수). 우리가 조립하는 SUMMARY 괄호는 전각이지만, `source` 는 데이터 원문이므로 손대지 않는다. `_one_line()` 만 통과시킨다.
+
+**레이어 방향.** `rules/` → `sources/` import 는 이미 실재한다 — `rules/kr/status.py:36` 의 `from sources.kr import key_expiry`. 문서에 이 방향을 금지하는 문장은 없고, 명시적으로 금지된 것은 `core/` → 바깥 하나뿐이다(`core/__init__.py:3`, `README.md:34`, `sources/kr/kasi_client.py:184-186`). `sources.jp.build_data` 는 모듈 최상위가 docstring · import · 상수 대입 · 클래스와 함수 정의 · `__main__` 블록뿐이라 import 부수 효과가 없다.
+
+---
+
+## 8. 확인 안 한 것
 
 - **GitHub Pages 설정** — 어느 브랜치·디렉터리를 서빙하는지. 레포에 Pages 워크플로 파일이 없고(`.github/workflows/` 에 `ci.yml`, `publish.yml` 뿐) 저장소 설정은 코드에서 볼 수 없다. `CNAME` 과 `index.html:386` 주석("루트를 서빙하므로")이 근거의 전부다
 - **`Automatically delete head branches` 설정** — 이 세션에서 켰는지 확인 안 함
@@ -387,7 +448,9 @@ Holiday_05 이전 결정: **`kyujitsu` 를 振替/国民 구분 없이 단일 UI
 
 ---
 
-## 8. 이어지는 미결 (Holiday_05 에서 이월)
+## 9. 이어지는 미결
+
+Holiday_05 에서 이월된 것:
 
 - **`data/jp/*.yaml` 의 `source:` 에 law_id 를 넣을 것인가** — 넣으면 `sources/jp/build_data.py:58`(`LAW`)/`59-62`(`OLYMPIC_LAW`) → `_entry()`(193/207/213) → `_dump()`(262) → 8파일 전부 재생성. `tests/test_cao_source.py:176` 이 바이트 동일성을 본다. **`feat/jp-rules` 이전에는 하지 않는다** (정답지가 움직이면 안 된다)
 - **`363AC0000000091`** (行政機関の休日に関する法律) 미검증. 祝日法에서 `AC0` 이 404, `AC1` 이 200이었으므로 같은 의심 대상. 실측으로 닫는다. 경로: `https://laws.e-gov.go.jp/api/2/law_data/<law_id>?response_format=xml`
@@ -396,9 +459,26 @@ Holiday_05 이전 결정: **`kyujitsu` 를 振替/国民 구분 없이 단일 UI
 - `data/jp/` 의 최종 위치 (`sources/jp/` 로 이동 검토). 정해지면 `data/kr/` 존치 여부도 함께
 - `tests/test_astro.py` 분리 — core 테스트가 늘어나면
 
+이번 세션에서 추가된 것:
+
+- **춘분·추분 계산과 内閣府 CSV 의 대조 검사가 레포에 없다.** 이전 세션 기록에 "146/146 일치"라는 수치가 있으나, 레포 전체에서 그 대조를 수행하는 코드는 0줄이다. `sources/jp/` 3파일은 `core` 도 `astro` 도 import 하지 않고(import 문 전수 확인), 춘분·추분 관련 줄은 전부 문자열 매핑(`build_data.py:74, 82`)과 주석·`source_todo` 문구(`22, 92, 98, 99`)다. `tests/test_cao_source.py:272` 의 `test_the_equinoxes_are_not_claimed_as_verified()` 는 `verified: false` 여부만 단언하고 날짜를 대조하지 않는다. **현재 상태에서 그 수치는 재현 가능한 산출물이 아니다.** 검증 하니스 항목으로 남긴다
+- **`core.astro` 의 실제 소비자는 하나뿐이다.** 실제 import 는 `rules/kr/astro.py:84` 한 곳이고, 그중 `apparent_solar_longitude` 는 그 파일에서 호출되지 않는 재수출 전용 이름이다(`astro.py:82-83` 주석이 그렇게 적는다). `rules/jp/` 는 `feat/jp-rules` 범위에서 `core.astro` 를 쓰지 않는다 — jp 는 CSV 날짜를 읽고 계산하지 않는다. `feat/core-astro` 의 승격 근거 자체는 유효하나 아직 행사되지 않았다
+
 ---
 
-## 9. 작업 규약 (변함없음)
+## 10. 정정 기록
+
+**§1 의 `basis` 형태 1 을 16건으로 적었다. 실측은 14건이다.**
+
+16 이라는 수는 데이터 안에 실재한다 — 파일당 `statutory` 항목 수가 16이고 `statutory` 의 `name` 종류도 16종이다. 문서가 그 16을 잘못 끌어온 것으로 보인다.
+
+발견 경로는 문서 안의 모순이었다. §1 의 `kind` 표는 `substitute` 합계를 14로 적는데 같은 절의 `basis` 형태 1 은 16을 적었다. `kind: substitute` ⟺ `basis.trigger_date` 가 동치이므로 두 수는 같아야 한다. 실측으로 14 가 맞음이 확인되었다.
+
+같은 검토에서 §1 의 YAML 인용 3곳(`source` 2건 · `source_todo` 1건)이 괄호를 전각 `（）` 으로 적고 있는 것이 드러났다. `data/jp/` 에 전각 괄호는 0건이고 실제 데이터는 반각 `()` 이며 `第2条` 앞에 공백이 있다. 인용을 데이터와 일치시켰다.
+
+---
+
+## 11. 작업 규약 (변함없음)
 
 - 조사 프롬프트와 구현 프롬프트를 분리한다
 - 안전망은 그것이 지킬 변경보다 **먼저** 머지한다
