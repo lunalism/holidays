@@ -359,6 +359,16 @@ out.append((event, f"{day:%Y%m%d}-{event.token}@{UID_DOMAIN}"))
 
 `provisional` 과 `verified` 는 다른 범주다. `core/ics.py:91` 은 `provisional` 을 "규칙 개정 확인 시점 이후"로 정의한다 — 우리가 아니라 규칙 쪽 사정이다. `verified` 는 `rules/kr/feed.py:210-212` 가 명시하듯 우리 내부 검증 상태이고 구독자에게 나가지 않는다. 한쪽을 다른 쪽 자리에 밀어 넣을 수 없다(§3-2(c)).
 
+**두 범주의 분리는 `core/ics.py` 안에도 이미 적혀 있다.** `_vevent()`(395) 의 `out.add("summary", ...)`(406) 바로 위 주석(404-405)이 한 자리에서 둘을 다 말한다:
+
+```python
+    # 잠정·미검증 표시를 붙이지 않는다. 구독자 캘린더에 그대로 뜨는 문자열이고,
+    # 우리 내부 검증 상태는 구독자가 알 바가 아니다. 잠정은 STATUS 로 나간다.
+    out.add("summary", event.summary)
+```
+
+즉 `core` 는 국가별 규칙을 모르면서도 이 구분만은 알고 있다 — 미검증은 SUMMARY 에 실리지 않고, 잠정은 `STATUS` 로 나간다. jp 가 `verified: false` 를 `provisional` 자리에 밀어 넣으면 이 주석이 금지하는 것을 하게 된다.
+
 ---
 
 ## 6. 다음 세션에서 결정해야 할 것
