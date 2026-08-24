@@ -37,13 +37,13 @@ SUMMARY 는 일본어 원문을 유지한다
 
 from __future__ import annotations
 
-import os
 import re
 from datetime import date, datetime
 from pathlib import Path
 
 import yaml
 
+from core import feed as core_feed
 from core import ics
 from sources.jp.build_data import (
     KIND_BRIDGE,
@@ -338,43 +338,18 @@ FEED_PATH = Path(__file__).resolve().parents[2] / "feeds" / "jp.ics"
 
 
 def publish(*, dtstamp, path: Path = None) -> Path:
-    """피드를 파일로 낸다. 이전 발행본을 읽고, 새로 만들고, 원자적으로 바꾼다.
+    """피드를 파일로 낸다. 읽기·쓰기의 순서와 원자성은 core.feed 가 맡는다.
 
-    ----------------------------------------------------------------------
-    왜 stdout 리다이렉션을 쓰지 않는가
-    ----------------------------------------------------------------------
-    이 피드는 자기 자신의 직전 판을 입력으로 받는다. 그래서
+    여기 남는 것은 국가별인 것 둘뿐이다 — 어느 파일에 낼 것인가(FEED_PATH)와
+    무엇을 만들 것인가(build).
 
-        python -m rules.jp.feed > feeds/jp.ics
+    kr 과 달리 today 가 없다. 아래 클로저가 시계를 들고 가지 않는 것이 그
+    차이의 전부다 — jp 의 발행 범위는 상수라 시계가 관여하지 않는다.
 
-    는 쓸 수 없다. 셸이 프로세스를 띄우기 전에 feeds/jp.ics 를 먼저 비우므로,
-    읽을 이전 발행본이 사라진 뒤에 프로그램이 시작한다. 지금 구현에서는 빈
-    파일이 파싱에 실패해 빌드가 멈추지만, 그때는 이미 발행본이 지워진 뒤라
-    git 말고는 되돌릴 방법이 없다.
-
-    읽기와 쓰기를 한 함수 안에서 순서대로 하고, 쓰기는 같은 디렉터리의 임시
-    파일에 한 뒤 os.replace 로 바꾼다. 같은 파일시스템 안의 replace 는
-    원자적이라 중간에 죽어도 반쪽짜리 피드가 남지 않는다.
-
-    임시 파일을 같은 디렉터리에 두는 것도 그 때문이다. /tmp 에 만들면 파일
-    시스템이 달라질 수 있고, 그러면 replace 가 복사로 떨어져 원자성이 깨진다.
+    바깥에서 보이는 모양은 바뀌지 않았다. 테스트가 부르는 시그니처 그대로다.
     """
-    if not ics.UID_DOMAIN_CONFIRMED:
-        raise ics.IcsError(
-            f"UID 네임스페이스 {ics.UID_DOMAIN!r} 가 확정되지 않아 발행하지 않는다.\n"
-            "한 번 발행하면 UID 를 바꿀 수 없다. 바꾸면 구독자 캘린더에서 모든 "
-            "공휴일이 삭제 + 재생성으로 나타난다.\n"
-            "확정했다면 core/ics.py 의 UID_DOMAIN_CONFIRMED 를 True 로 둘 것. "
-            "그 커밋이 곧 확정 기록이다.\n"
-            "발행 없이 내용만 보려면 build() 를 쓸 것 — 그쪽은 막지 않는다."
-        )
-
     path = path or FEED_PATH
-    previous = path.read_bytes() if path.exists() else None
-    body = build(dtstamp=dtstamp, previous=previous)
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(f".{path.name}.tmp")
-    tmp.write_bytes(body)
-    os.replace(tmp, path)
-    return path
+    return core_feed.publish(
+        lambda previous: build(dtstamp=dtstamp, previous=previous),
+        path,
+    )
