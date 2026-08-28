@@ -80,7 +80,7 @@ print(icalendar.__version__)"` 를 볼 것.
 그 다음이 규칙·데이터 변경이다. rules/ 의 YAML 이나 계산을 건드렸으면 이
 테스트는 깨지는 것이 정상이고, 고칠 곳은 코드가 아니라 발행본이다 —
 `uv run python -m rules.kr.feed feeds/kr.ics` 와
-`uv run python -m rules.kr.status status.json` 을 돌려 함께 커밋할 것.
+`uv run python -m rules.status status.json` 을 돌려 함께 커밋할 것.
 """
 
 from __future__ import annotations
@@ -178,7 +178,7 @@ def test_the_published_feed_is_reproducible_from_the_committed_inputs():
         f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
         "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
         "  uv run python -m rules.kr.feed feeds/kr.ics\n"
-        "  uv run python -m rules.kr.status status.json\n"
+        "  uv run python -m rules.status status.json\n"
         "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
         "(이 파일의 모듈 docstring 참조)."
     )

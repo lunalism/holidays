@@ -27,7 +27,6 @@
 
 from __future__ import annotations
 
-import json
 from datetime import date
 
 from core import ics
@@ -36,23 +35,27 @@ from rules.kr import holiday_calendar as hc
 from sources.kr import key_expiry
 
 
-def status(*, today: date, dtstamp) -> dict:
-    """지금 상태 한 덩어리. 시계는 인자로 받는다."""
+def feed_status(*, today: date) -> dict:
+    """kr 피드 한 벌의 상태. status.json 의 feeds.kr 에 그대로 들어간다."""
     start, end = feed.feed_range(today)
     events = feed.events(start, end)
-    coverage = hc.coverage()["effective"]
-
     provisional = [e for e in events if e.provisional]
     return {
-        "generated_at": dtstamp.isoformat(),
-        "feeds": {
-            "kr": {
-                "path": str(feed.FEED_PATH.relative_to(feed.FEED_PATH.parents[1])),
-                "events": len(events),
-                "range": {"start": start.isoformat(), "end": end.isoformat()},
-                "provisional_events": len(provisional),
-            },
-        },
+        "path": str(feed.FEED_PATH.relative_to(feed.FEED_PATH.parents[1])),
+        "events": len(events),
+        "range": {"start": start.isoformat(), "end": end.isoformat()},
+        "provisional_events": len(provisional),
+    }
+
+
+def top_level_sections(*, today: date) -> dict:
+    """status.json 의 최상위 절들 — coverage, uid, verification, kasi_key.
+
+    kr 전용이지만 아직 국가 키 밑으로 들어가지 않았다. jp 검증 상태를 status 에
+    실을 때 함께 옮긴다.
+    """
+    coverage = hc.coverage()["effective"]
+    return {
         "coverage": {
             # 규칙 개정을 확인한 시점. 이후 항목은 provisional 로 나간다.
             "confirmed_through": (
@@ -93,19 +96,3 @@ def status(*, today: date, dtstamp) -> dict:
             "min_days": key_expiry.MIN_DAYS,
         },
     }
-
-
-def render(*, today: date, dtstamp) -> str:
-    """파일에 쓸 문자열. 키를 정렬해 diff 가 값 변화만 보여주게 한다."""
-    return json.dumps(status(today=today, dtstamp=dtstamp), ensure_ascii=False, indent=2) + "\n"
-
-
-if __name__ == "__main__":  # pragma: no cover
-    import datetime as _dt
-    import sys
-    from pathlib import Path
-
-    _now = _dt.datetime.now(_dt.UTC)
-    _target = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("status.json")
-    _target.write_text(render(today=_now.date(), dtstamp=_now), encoding="utf-8")
-    print(f"[status] {_target}")

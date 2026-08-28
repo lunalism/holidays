@@ -15,8 +15,9 @@ import pytest
 import yaml
 
 from core import buildlog, ics, secrets
+from rules import status
 from rules.kr import holiday_calendar as hc
-from rules.kr import status, substitute_rules
+from rules.kr import substitute_rules
 from sources.kr import kasi_parser, key_expiry
 
 TODAY = dt.date(2026, 8, 10)

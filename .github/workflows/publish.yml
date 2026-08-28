@@ -113,7 +113,7 @@ jobs:
       - name: status.json 생성
         run: |
           set -o pipefail
-          uv run python -m rules.kr.status status.json 2>&1 | tee -a "$BUILD_LOG_PATH"
+          uv run python -m rules.status status.json 2>&1 | tee -a "$BUILD_LOG_PATH"
 
       # ---------------------------------------------------------------
       # 여기부터 always(). 위에서 무엇이 실패했든 기록은 남는다.
