@@ -16,7 +16,7 @@
 # 자동 커밋이 데이터 근거를 대체하지 않는다
 # ---------------------------------------------------------------------------
 # 이 워크플로가 쓰는 것은 산출물 세 개뿐이다.
-#   feeds/kr.ics        생성된 피드
+#   feeds/<국가>.ics    생성된 피드
 #   status.json         지금 상태
 #   logs/build.jsonl    발행 기록
 #
@@ -49,6 +49,11 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      # 발행하는 나라 목록. 생성 스텝과 커밋 스텝이 같은 목록을 돈다 —
+      # 여기가 단일 공급원이다. 나라를 더하면 rules/<나라>/feed.py 의
+      # __main__ 과 feeds/<나라>.ics 경로가 있어야 한다.
+      FEEDS: kr
     steps:
       - name: 체크아웃
         uses: actions/checkout@v4
@@ -108,7 +113,9 @@ jobs:
       - name: 피드 생성
         run: |
           set -o pipefail
-          uv run python -m rules.kr.feed feeds/kr.ics 2>&1 | tee -a "$BUILD_LOG_PATH"
+          for C in $FEEDS; do
+            uv run python -m "rules.${C}.feed" "feeds/${C}.ics" 2>&1 | tee -a "$BUILD_LOG_PATH"
+          done
 
       - name: status.json 생성
         run: |
