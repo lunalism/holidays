@@ -257,3 +257,35 @@ def test_the_status_counts_are_not_trivially_zero(field):
     안 보인다. 실제 값이 있다는 것을 따로 못 박는다.
     """
     assert _published_status()["feeds"]["kr"][field] > 0
+
+
+def test_the_published_status_describes_the_published_jp_feed():
+    """status.json 의 feeds.jp 가 그 옆의 feeds/jp.ics 를 실제로 설명하는가.
+
+    kr 검사와 같은 단언인데 범위만 다르게 얻는다 — jp 의 발행 범위는
+    feed_range(today) 가 아니라 상수다. 상수를 여기 다시 적지 않고 소스
+    모듈의 값을 그대로 쓴다(범위 규칙을 두 군데 만들지 않는다는 원칙은
+    kr 검사의 docstring 과 같다).
+    """
+    raw = jp_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+
+    assert status["feeds"]["jp"]["range"] == {
+        "start": jp_feed.RANGE_START.isoformat(),
+        "end": jp_feed.RANGE_END.isoformat(),
+    }
+    assert status["feeds"]["jp"]["path"] == str(jp_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["jp"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["jp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+
+
+def test_the_jp_status_counts_match_the_spec():
+    """jp 의 0 == 0 방지는 kr 과 반씩 다르다.
+
+    events 는 kr 처럼 실제 값이 있어야 한다. provisional_events 는 반대로
+    0 이 사양이다(tests/test_jp_feed.py 의 잠정 표시 절) — 위 비교가 0 == 0
+    으로 통과하는 것이 맞고, 여기서는 그 0 이 사양임을 못 박는다.
+    """
+    jp = _published_status()["feeds"]["jp"]
+    assert jp["events"] > 0
+    assert jp["provisional_events"] == 0

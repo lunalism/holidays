@@ -46,6 +46,7 @@ from __future__ import annotations
 import json
 from datetime import date
 
+from rules.jp import status as jp
 from rules.kr import status as kr
 
 
@@ -56,7 +57,7 @@ def status(*, today: date, dtstamp) -> dict:
     """
     return {
         "generated_at": dtstamp.isoformat(),
-        "feeds": {"kr": kr.feed_status(today=today)},
+        "feeds": {"kr": kr.feed_status(today=today), "jp": jp.feed_status()},
         **kr.top_level_sections(today=today),
     }
 
