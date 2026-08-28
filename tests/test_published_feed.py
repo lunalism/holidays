@@ -43,7 +43,7 @@ today 를 status.json 이 아니라 피드에서 읽는 이유
 --------------------------------------------------------------------------
 feeds/kr.ics 와 status.json 은 서로 다른 프로세스가 만든다. 워크플로의
 "피드 생성" 스텝과 "status.json 생성" 스텝이고(.github/workflows/publish.yml),
-각자 자기 시계를 읽는다 — rules/kr/feed.py:361 과 rules/kr/status.py:106.
+각자 자기 시계를 읽는다 — rules/kr/feed.py:361 과 rules/status.py:84.
 generated_at 은 그래서 피드에 넘어간 today 와 같은 시계 읽기가 아니다.
 
 더 큰 문제는 커밋 규칙이다. 워크플로는 DTSTAMP 말고 달라진 것이 없으면
@@ -80,7 +80,7 @@ print(icalendar.__version__)"` 를 볼 것.
 그 다음이 규칙·데이터 변경이다. rules/ 의 YAML 이나 계산을 건드렸으면 이
 테스트는 깨지는 것이 정상이고, 고칠 곳은 코드가 아니라 발행본이다 —
 `uv run python -m rules.kr.feed feeds/kr.ics` 와
-`uv run python -m rules.kr.status status.json` 을 돌려 함께 커밋할 것.
+`uv run python -m rules.status status.json` 을 돌려 함께 커밋할 것.
 """
 
 from __future__ import annotations
@@ -98,7 +98,7 @@ from rules.kr import feed
 pytestmark = pytest.mark.published_artifact
 
 # 저장소 뿌리. 여기서 새로 계산하지 않고 feed 쪽 정의를 그대로 쓴다.
-# rules/kr/status.py:49 도 같은 식으로 뿌리를 잡는다.
+# rules/kr/status.py:22 도 같은 식으로 뿌리를 잡는다.
 ROOT = feed.FEED_PATH.parents[1]
 STATUS_PATH = ROOT / "status.json"
 
@@ -178,7 +178,7 @@ def test_the_published_feed_is_reproducible_from_the_committed_inputs():
         f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
         "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
         "  uv run python -m rules.kr.feed feeds/kr.ics\n"
-        "  uv run python -m rules.kr.status status.json\n"
+        "  uv run python -m rules.status status.json\n"
         "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
         "(이 파일의 모듈 docstring 참조)."
     )
@@ -212,14 +212,14 @@ def test_the_published_status_describes_the_published_feed():
     today = _feed_dtstamp(raw).date()
 
     start, end = feed.feed_range(today)
-    assert status["feed"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}, (
+    assert status["feeds"]["kr"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}, (
         "status.json 의 발행 범위가 피드의 것과 다르다. "
         "둘이 서로 다른 해에 만들어졌는지 확인할 것."
     )
 
-    assert status["feed"]["path"] == str(feed.FEED_PATH.relative_to(ROOT))
-    assert status["feed"]["events"] == raw.count(b"BEGIN:VEVENT")
-    assert status["feed"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"]["kr"]["path"] == str(feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["kr"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["kr"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
 
 
 @pytest.mark.parametrize("field", ["events", "provisional_events"])
@@ -229,4 +229,4 @@ def test_the_status_counts_are_not_trivially_zero(field):
     피드가 비었거나 카운트 문자열이 바뀌면 양쪽이 나란히 0 이 되어 어긋남이
     안 보인다. 실제 값이 있다는 것을 따로 못 박는다.
     """
-    assert _published_status()["feed"][field] > 0
+    assert _published_status()["feeds"]["kr"][field] > 0

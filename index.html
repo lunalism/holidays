@@ -459,9 +459,9 @@
     // coverage.start(2015-01-01)는 규칙표가 답할 수 있는 하한이고, 피드는
     // RANGE_START(2020-01-01) 부터만 싣는다. 규칙표 쪽을 적으면 구독자가
     // 캘린더에서 볼 수 없는 기간을 수록했다고 말하는 것이 된다.
-    var from = status.feed.range.start;
+    var from = status.feeds.kr.range.start;
     var confirmed = status.coverage.confirmed_through;
-    var until = status.feed.range.end;
+    var until = status.feeds.kr.range.end;
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);

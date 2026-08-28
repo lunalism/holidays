@@ -21,7 +21,7 @@
 # 그 말을 듣고 할 일은 둘 중 하나다.
 #   의도한 변경이면  발행본을 함께 갱신해 커밋한다.
 #                    uv run python -m rules.kr.feed feeds/kr.ics
-#                    uv run python -m rules.kr.status status.json
+#                    uv run python -m rules.status status.json
 #   의도하지 않았으면 무엇이 출력을 움직였는지 먼저 본다.
 #
 # 갱신하지 않고 머지해도 다음 발행이 발행본을 맞춘다. 다만 그 사이에는

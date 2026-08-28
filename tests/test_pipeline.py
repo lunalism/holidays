@@ -15,8 +15,9 @@ import pytest
 import yaml
 
 from core import buildlog, ics, secrets
+from rules import status
 from rules.kr import holiday_calendar as hc
-from rules.kr import status, substitute_rules
+from rules.kr import substitute_rules
 from sources.kr import kasi_parser, key_expiry
 
 TODAY = dt.date(2026, 8, 10)
@@ -84,9 +85,9 @@ def test_status_reports_what_the_repository_currently_claims():
     got = status.status(today=TODAY, dtstamp=DTSTAMP)
 
     assert got["generated_at"] == "2026-08-10T00:00:00+00:00"
-    assert got["feed"]["range"] == {"start": "2020-01-01", "end": "2031-12-31"}
-    assert got["feed"]["events"] > 0
-    assert got["feed"]["provisional_events"] > 0
+    assert got["feeds"]["kr"]["range"] == {"start": "2020-01-01", "end": "2031-12-31"}
+    assert got["feeds"]["kr"]["events"] > 0
+    assert got["feeds"]["kr"]["provisional_events"] > 0
     assert got["coverage"]["confirmed_through"] == "2028-12-31"
     assert got["coverage"]["designated_last_synced_at"] == "2026-08-08"
     assert got["kasi_key"] == {
@@ -163,7 +164,7 @@ def test_the_denominator_counts_table_items_not_ics_events():
     지금은 그럴 일이 없고, 같아지는 날이 오면 여기서 걸린다.
     """
     got = status.status(today=TODAY, dtstamp=DTSTAMP)
-    assert got["verification"]["item_count"] != got["feed"]["events"]
+    assert got["verification"]["item_count"] != got["feeds"]["kr"]["events"]
 
     # 표에 적힌 항목 수와 맞는지 직접 센다.
     expected = sum(
