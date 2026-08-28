@@ -353,3 +353,18 @@ def publish(*, dtstamp, path: Path = None) -> Path:
         lambda previous: build(dtstamp=dtstamp, previous=previous),
         path,
     )
+
+
+if __name__ == "__main__":  # pragma: no cover
+    import datetime as _dt
+    import sys as _sys
+
+    # 시계를 읽는 곳은 여기 하나다. 모듈 안에서는 읽지 않는다.
+    _now = _dt.datetime.now(_dt.UTC)
+
+    # 경로를 인자로 받는다. 없으면 FEED_PATH.
+    # 리다이렉션(> feeds/jp.ics)을 쓸 수 없어서 필요한 자리다 — 셸이 프로세스
+    # 시작 전에 이전 발행본을 비운다. publish() 의 docstring 참조.
+    # 테스트가 진짜 진입점을 밟을 수 있게 하는 효과도 있다.
+    _target = Path(_sys.argv[1]) if len(_sys.argv) > 1 else FEED_PATH
+    print(f"발행: {publish(dtstamp=_now, path=_target)}")
