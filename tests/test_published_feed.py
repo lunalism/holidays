@@ -212,14 +212,14 @@ def test_the_published_status_describes_the_published_feed():
     today = _feed_dtstamp(raw).date()
 
     start, end = feed.feed_range(today)
-    assert status["feed"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}, (
+    assert status["feeds"]["kr"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}, (
         "status.json 의 발행 범위가 피드의 것과 다르다. "
         "둘이 서로 다른 해에 만들어졌는지 확인할 것."
     )
 
-    assert status["feed"]["path"] == str(feed.FEED_PATH.relative_to(ROOT))
-    assert status["feed"]["events"] == raw.count(b"BEGIN:VEVENT")
-    assert status["feed"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"]["kr"]["path"] == str(feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["kr"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["kr"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
 
 
 @pytest.mark.parametrize("field", ["events", "provisional_events"])
@@ -229,4 +229,4 @@ def test_the_status_counts_are_not_trivially_zero(field):
     피드가 비었거나 카운트 문자열이 바뀌면 양쪽이 나란히 0 이 되어 어긋남이
     안 보인다. 실제 값이 있다는 것을 따로 못 박는다.
     """
-    assert _published_status()["feed"][field] > 0
+    assert _published_status()["feeds"]["kr"][field] > 0

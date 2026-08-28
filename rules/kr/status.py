@@ -45,11 +45,13 @@ def status(*, today: date, dtstamp) -> dict:
     provisional = [e for e in events if e.provisional]
     return {
         "generated_at": dtstamp.isoformat(),
-        "feed": {
-            "path": str(feed.FEED_PATH.relative_to(feed.FEED_PATH.parents[1])),
-            "events": len(events),
-            "range": {"start": start.isoformat(), "end": end.isoformat()},
-            "provisional_events": len(provisional),
+        "feeds": {
+            "kr": {
+                "path": str(feed.FEED_PATH.relative_to(feed.FEED_PATH.parents[1])),
+                "events": len(events),
+                "range": {"start": start.isoformat(), "end": end.isoformat()},
+                "provisional_events": len(provisional),
+            },
         },
         "coverage": {
             # 규칙 개정을 확인한 시점. 이후 항목은 provisional 로 나간다.

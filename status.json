@@ -1,13 +1,15 @@
 {
   "generated_at": "2026-08-24T01:41:35.240741+00:00",
-  "feed": {
-    "path": "feeds/kr.ics",
-    "events": 234,
-    "range": {
-      "start": "2020-01-01",
-      "end": "2031-12-31"
-    },
-    "provisional_events": 57
+  "feeds": {
+    "kr": {
+      "path": "feeds/kr.ics",
+      "events": 234,
+      "range": {
+        "start": "2020-01-01",
+        "end": "2031-12-31"
+      },
+      "provisional_events": 57
+    }
   },
   "coverage": {
     "confirmed_through": "2028-12-31",
