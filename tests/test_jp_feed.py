@@ -385,12 +385,6 @@ def test_publish_writes_and_replaces(tmp_path):
     assert ics.summarize_change(body, target.read_bytes()) == "내용 변경 없음"
 
 
-def test_publish_does_not_touch_the_repo_feeds_dir():
-    """기본 경로가 feeds/jp.ics 를 가리키되, 이 브랜치는 그 파일을 만들지 않는다."""
-    assert feed.FEED_PATH.name == "jp.ics"
-    assert not feed.FEED_PATH.exists()
-
-
 # ---------------------------------------------------------------------------
 # 헤더
 # ---------------------------------------------------------------------------

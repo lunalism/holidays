@@ -91,6 +91,7 @@ import re
 
 import pytest
 
+from rules.jp import feed as jp_feed
 from rules.kr import feed
 
 # 이 파일은 통째로 커밋된 산출물을 읽는다. 발행 워크플로는 이 마커를 빼고
@@ -179,6 +180,32 @@ def test_the_published_feed_is_reproducible_from_the_committed_inputs():
         "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
         "  uv run python -m rules.kr.feed feeds/kr.ics\n"
         "  uv run python -m rules.status status.json\n"
+        "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
+        "(이 파일의 모듈 docstring 참조)."
+    )
+
+
+def test_the_published_jp_feed_is_reproducible_from_the_committed_inputs():
+    """커밋된 feeds/jp.ics 가 지금 코드·데이터로 바이트까지 다시 나오는가.
+
+    kr 재현 테스트와 같은 구조인데 입력이 하나 적다 — jp 의 build() 는 today
+    를 받지 않는다. 발행 범위가 상수라 시계가 관여하지 않기 때문이다
+    (rules/jp/feed.py 의 publish() docstring). 그래서 DTSTAMP 에서 꺼내는
+    것은 dtstamp 하나다.
+
+    previous 로 골든 자신을 넘기는 의미와 바이트 비교인 이유는 위 kr 테스트의
+    docstring 에 있다 — 같은 논리가 그대로 적용된다.
+    """
+    raw = jp_feed.FEED_PATH.read_bytes()
+    stamp = _feed_dtstamp(raw)
+
+    rebuilt = jp_feed.build(dtstamp=stamp, previous=raw)
+
+    assert rebuilt == raw, (
+        "커밋된 feeds/jp.ics 가 지금 코드로 재현되지 않는다.\n"
+        f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
+        "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
+        "  uv run python -m rules.jp.feed feeds/jp.ics\n"
         "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
         "(이 파일의 모듈 docstring 참조)."
     )
