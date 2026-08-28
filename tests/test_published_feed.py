@@ -43,7 +43,7 @@ today 를 status.json 이 아니라 피드에서 읽는 이유
 --------------------------------------------------------------------------
 feeds/kr.ics 와 status.json 은 서로 다른 프로세스가 만든다. 워크플로의
 "피드 생성" 스텝과 "status.json 생성" 스텝이고(.github/workflows/publish.yml),
-각자 자기 시계를 읽는다 — rules/kr/feed.py:361 과 rules/kr/status.py:106.
+각자 자기 시계를 읽는다 — rules/kr/feed.py:361 과 rules/status.py:84.
 generated_at 은 그래서 피드에 넘어간 today 와 같은 시계 읽기가 아니다.
 
 더 큰 문제는 커밋 규칙이다. 워크플로는 DTSTAMP 말고 달라진 것이 없으면
@@ -98,7 +98,7 @@ from rules.kr import feed
 pytestmark = pytest.mark.published_artifact
 
 # 저장소 뿌리. 여기서 새로 계산하지 않고 feed 쪽 정의를 그대로 쓴다.
-# rules/kr/status.py:49 도 같은 식으로 뿌리를 잡는다.
+# rules/kr/status.py:22 도 같은 식으로 뿌리를 잡는다.
 ROOT = feed.FEED_PATH.parents[1]
 STATUS_PATH = ROOT / "status.json"
 
