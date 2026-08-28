@@ -81,8 +81,8 @@ Secret 으로만 주입합니다. 커밋 전에 인증정보가 섞이지 않았
 Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 형태)를 그대로
 붙여 넣습니다. Decoding 키를 넣으면 `+` 가 공백으로 해석되어 인증에 실패합니다.
 
-워크플로 권한이 필요한 이유는 산출물(`feeds/kr.ics`, `status.json`,
-`logs/build.jsonl`)을 커밋해야 하기 때문입니다. `publish.yml` 이
+워크플로 권한이 필요한 이유는 산출물(`feeds/kr.ics`, `feeds/jp.ics`,
+`status.json`, `logs/build.jsonl`)을 커밋해야 하기 때문입니다. `publish.yml` 이
 `permissions: contents: write` 를 선언하지만, 저장소 기본 설정이 read-only 면
 그 선언도 무시됩니다.
 
@@ -105,8 +105,9 @@ UID 네임스페이스를 `holidays.lunalism.com` 으로 확정하면서 발행�
 
 한 번 공개된 값은 되돌릴 수 없습니다. 아래 두 가지는 특히 주의합니다.
 
-- **구독 URL** — `https://holidays.lunalism.com/feeds/kr.ics`. 구독자의 캘린더 앱에
-  그대로 박히므로 경로를 바꾸면 전부 끊깁니다.
+- **구독 URL** — `https://holidays.lunalism.com/feeds/kr.ics` 와
+  `https://holidays.lunalism.com/feeds/jp.ics`. `webcal://` 로도 같은 경로입니다.
+  구독자의 캘린더 앱에 그대로 박히므로 경로를 바꾸면 전부 끊깁니다.
 - **이벤트 UID** — 네임스페이스는 `@holidays.lunalism.com` 으로 **확정**되었습니다.
   UID가 바뀌면 캘린더 앱이 같은 공휴일을 새 이벤트로 인식해 중복이 생깁니다.
 

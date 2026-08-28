@@ -38,7 +38,7 @@ git checkout -b docs/... origin/main
 나란히 보이고 이름도 비슷하기 때문이다.
 
 거기서 따면 낡은 `main` 위에서 작업하게 된다. 이 레포는 그 대가가 특히
-분명하다 — 발행 워크플로가 매주 `feeds/kr.ics` 와 `status.json` 을 `main` 에
+분명하다 — 발행 워크플로가 매주 `feeds/*.ics` 와 `status.json` 을 `main` 에
 커밋하므로, 사람이 아무것도 하지 않아도 `main` 은 계속 움직인다. 몇 주 전
 지점에서 딴 브랜치는 그만큼 뒤처진 상태로 검사를 받는다.
 
