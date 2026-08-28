@@ -38,7 +38,17 @@ def status(*, today: date, dtstamp) -> dict:
 
 
 def render(*, today: date, dtstamp) -> str:
-    """파일에 쓸 문자열. 키를 정렬해 diff 가 값 변화만 보여주게 한다."""
+    """파일에 쓸 문자열.
+
+    sort_keys 를 쓰지 않는다. 키 순서는 status() 의 dict 리터럴 순서 그대로이고,
+    그 순서가 코드에 고정되어 있어 diff 는 값 변화만 보여준다. 정렬로 얻는 것이
+    아니라 리터럴이 고정이라 얻는 성질이다.
+
+    지금 와서 sort_keys 를 켜면 안 된다. 커밋된 status.json 은 리터럴 순서로
+    쓰여 있어(generated_at, feeds, coverage, uid, verification, kasi_key —
+    알파벳순이 아니다) 켜는 순간 전 파일이 한 번 재정렬되고, 값이 하나도 바뀌지
+    않은 발행에서 diff 가 통째로 튄다.
+    """
     return json.dumps(status(today=today, dtstamp=dtstamp), ensure_ascii=False, indent=2) + "\n"
 
 
