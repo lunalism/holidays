@@ -309,7 +309,7 @@
     </div>
     <code class="url" id="feed-url-jp"></code>
     <p class="note" style="margin-top:0.75rem">
-      일본 피드의 항목 이름은 일본어 원문(元日, 休日 등)으로 표기됩니다.
+      일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
     </p>
 
     <p class="note" style="margin-top:0.75rem">
@@ -317,19 +317,23 @@
     </p>
   </section>
 
-  <!-- 3. 커버리지 -->
-  <section aria-labelledby="h-coverage">
-    <h2 id="h-coverage">수록 기간</h2>
+  <!-- 3. 대한민국 -->
+  <section aria-labelledby="h-kr">
+    <h2 id="h-kr">대한민국</h2>
 
-    <div id="coverage-ok">
+    <div id="kr-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">확정</p>
+          <p class="range-label">수록 기간 · 확정</p>
           <p class="range-value" id="range-confirmed" data-pending>불러오는 중</p>
         </div>
         <div class="range">
-          <p class="range-label">잠정</p>
+          <p class="range-label">수록 기간 · 잠정</p>
           <p class="range-value" id="range-provisional" data-pending>불러오는 중</p>
+        </div>
+        <div class="range">
+          <p class="range-label">수록 항목</p>
+          <p class="range-value" id="kr-events" data-pending>불러오는 중</p>
         </div>
       </div>
       <p class="note">
@@ -338,12 +342,12 @@
       </p>
     </div>
 
-    <div class="failed" id="coverage-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="kr-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
   </section>
 
-  <!-- 3.5 일본 피드 -->
+  <!-- 3.5 일본 -->
   <section aria-labelledby="h-jp">
-    <h2 id="h-jp">일본 피드</h2>
+    <h2 id="h-jp">일본</h2>
 
     <div id="jp-ok">
       <div class="ranges">
@@ -490,13 +494,13 @@
 
   function render(status) {
     // 하나라도 빠지면 그 블록만 실패로 넘긴다. 지어내지 않는다.
-    try { renderCoverage(status); } catch (e) { fail("coverage"); }
+    try { renderKr(status); } catch (e) { fail("kr"); }
     try { renderUpdated(status); } catch (e) { fail("updated"); }
     try { renderJp(status); } catch (e) { fail("jp"); }
     try { renderUnverified(status); } catch (e) { /* 숫자는 없으면 없는 대로 둔다. */ }
   }
 
-  function renderCoverage(status) {
+  function renderKr(status) {
     // 확정 구간의 시작은 coverage.start 가 아니라 피드가 실제로 담는 시작이다.
     // coverage.start(2015-01-01)는 규칙표가 답할 수 있는 하한이고, 피드는
     // RANGE_START(2020-01-01) 부터만 싣는다. 규칙표 쪽을 적으면 구독자가
@@ -507,6 +511,7 @@
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);
+    set("kr-events", status.feeds.kr.events + "건");
   }
 
   function renderJp(status) {
@@ -543,7 +548,7 @@
   }
 
   function showFailed() {
-    fail("coverage");
+    fail("kr");
     fail("updated");
     fail("jp");
   }
