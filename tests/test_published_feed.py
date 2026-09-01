@@ -303,6 +303,27 @@ def test_the_published_status_describes_the_published_jp_feed():
     assert status["feeds"]["jp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
 
 
+def test_the_published_status_describes_the_published_kr_jp_feed():
+    """status.json 의 feeds.kr_jp 가 그 옆의 feeds/kr_jp.ics 를 설명하는가.
+
+    kr 검사와 같은 단언이다 — 범위도 kr 처럼 feed_range(today) 에서 얻는다.
+    today 를 kr_jp 발행본 자신의 DTSTAMP 에서 읽는 이유는 모듈 docstring 과
+    같다.
+    """
+    raw = kr_jp_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = kr_jp_feed.feed_range(today)
+    assert status["feeds"]["kr_jp"]["range"] == {
+        "start": start.isoformat(),
+        "end": end.isoformat(),
+    }
+    assert status["feeds"]["kr_jp"]["path"] == str(kr_jp_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["kr_jp"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["kr_jp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+
+
 def test_the_jp_status_counts_match_the_spec():
     """jp 의 0 == 0 방지는 kr 과 반씩 다르다.
 
