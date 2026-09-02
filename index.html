@@ -359,6 +359,13 @@
       <button type="button" class="btn btn-primary" id="copy-btn-jp">구독 주소 복사</button>
       <a class="btn" id="webcal-btn-jp" href="#">캘린더 앱에서 열기</a>
     </div>
+
+    <div class="feed-row">
+      <p class="feed-label">대한민국·일본</p>
+      <code class="url" id="feed-url-krjp"></code>
+      <button type="button" class="btn btn-primary" id="copy-btn-krjp">구독 주소 복사</button>
+      <a class="btn" id="webcal-btn-krjp" href="#">캘린더 앱에서 열기</a>
+    </div>
     <p class="note" style="margin-top:0.75rem">
       일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
     </p>
@@ -420,6 +427,37 @@
     </div>
 
     <div class="failed" id="jp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+  </section>
+
+  <!-- 3.7 대한민국·일본 -->
+  <section aria-labelledby="h-krjp">
+    <h2 id="h-krjp">대한민국·일본</h2>
+
+    <div id="krjp-ok">
+      <div class="ranges">
+        <div class="range">
+          <p class="range-label">수록 기간</p>
+          <div class="range-row">
+            <p class="range-sublabel">확정</p>
+            <p class="range-value" id="krjp-range-confirmed" data-pending>불러오는 중</p>
+          </div>
+          <div class="range-row">
+            <p class="range-sublabel">잠정</p>
+            <p class="range-value" id="krjp-range-provisional" data-pending>불러오는 중</p>
+          </div>
+        </div>
+        <div class="range">
+          <p class="range-label">수록 항목</p>
+          <p class="range-value" id="krjp-events" data-pending>불러오는 중</p>
+        </div>
+      </div>
+      <p class="note">
+        항목 이름 앞의 [KR]·[JP] 는 어느 나라의 공휴일인지 표시합니다.
+        수록 기간은 두 나라 피드 중 짧은 쪽까지입니다.
+      </p>
+    </div>
+
+    <div class="failed" id="krjp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
   </section>
 
   <!-- 4. 마지막 갱신 -->
@@ -488,12 +526,14 @@
    * ------------------------------------------------------------------ */
   var FEED_URL = "https://holidays.lunalism.com/feeds/kr.ics";
   var FEED_URL_JP = "https://holidays.lunalism.com/feeds/jp.ics";
+  var FEED_URL_KRJP = "https://holidays.lunalism.com/feeds/kr_jp.ics";
 
   var $ = function (id) { return document.getElementById(id); };
 
   /* --- 구독 영역부터 세운다. 아래 fetch 가 어떻게 되든 이건 끝나 있다. --- */
   wireFeed("feed-url", "webcal-btn", "copy-btn", FEED_URL);
   wireFeed("feed-url-jp", "webcal-btn-jp", "copy-btn-jp", FEED_URL_JP);
+  wireFeed("feed-url-krjp", "webcal-btn-krjp", "copy-btn-krjp", FEED_URL_KRJP);
 
   function wireFeed(urlId, webcalId, copyId, url) {
     $(urlId).textContent = url;
@@ -551,6 +591,7 @@
     try { renderKr(status); } catch (e) { fail("kr"); }
     try { renderUpdated(status); } catch (e) { fail("updated"); }
     try { renderJp(status); } catch (e) { fail("jp"); }
+    try { renderKrJp(status); } catch (e) { fail("krjp"); }
     try { renderUnverified(status); } catch (e) { /* 숫자는 없으면 없는 대로 둔다. */ }
   }
 
@@ -574,6 +615,25 @@
     var jp = status.feeds.jp;
     setRange("jp-range", jp.range.start, jp.range.end);
     set("jp-events", jp.events + "건");
+  }
+
+  function renderKrJp(status) {
+    // 합집합 피드. 잠정 경계는 kr 규칙표의 confirmed_through 다 — jp 는 전
+    // 구간 확정이라(일본 절 참조) 잠정이 생길 수 있는 쪽은 kr 항목뿐이다.
+    // 범위 끝이 두 나라 중 짧은 쪽이라, 경계가 범위 끝 뒤면 전 구간이 확정이다.
+    var krjp = status.feeds.kr_jp;
+    var from = krjp.range.start;
+    var until = krjp.range.end;
+    var confirmed = status.coverage.confirmed_through;
+
+    if (confirmed && confirmed < until) {
+      setRange("krjp-range-confirmed", from, confirmed);
+      setRange("krjp-range-provisional", nextDay(confirmed), until);
+    } else {
+      setRange("krjp-range-confirmed", from, until);
+      set("krjp-range-provisional", "없음");
+    }
+    set("krjp-events", krjp.events + "건");
   }
 
   function renderUpdated(status) {
@@ -605,6 +665,7 @@
     fail("kr");
     fail("updated");
     fail("jp");
+    fail("krjp");
   }
 
   function fail(name) {
