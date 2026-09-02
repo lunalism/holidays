@@ -67,7 +67,8 @@ index.html     랜딩 페이지. CNAME 이 holidays.lunalism.com 을 이 저장�
 
 국가를 추가할 때 반드시 늘리는 것은 `sources/<코드>/` 와 `rules/<코드>/`
 입니다. `data/<코드>/` 는 필수가 아니라 그 나라의 소스 사정에 따릅니다 —
-kr 은 없고 jp 는 있습니다. 이 둘을 늘리고 `core/` 는 국가 중립으로 유지합니다.
+kr 은 비어 있고(국가별 디렉터리 대칭을 위해 `.gitkeep` 으로 자리만 유지)
+jp 는 있습니다. 이 둘을 늘리고 `core/` 는 국가 중립으로 유지합니다.
 
 피드 단위 범위 결정은 [`DESIGN.md`](DESIGN.md) 에 있습니다. 규칙 하나에 붙는
 결정은 해당 YAML 의 주석과 `open_questions` 에 있습니다.
