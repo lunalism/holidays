@@ -1,0 +1,48 @@
+# 독일 전국 공통 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# 표에 없고 rules/de/feed.py 가 python-dateutil 의 easter() 로 계산한다
+# (그레고리력 computus, Meeus/Jones/Butcher — 가우스/리히텐베르크 공식과 같은
+# 결과. 1990~2100 의 111 개 연도를 feiertage-api.de 와 대조해 불일치 0).
+#
+# Ostersonntag(오프셋 0)·Pfingstsonntag(+49)은 브란덴부르크만의 공휴일이라
+# 여기 없다. Fronleichnam(+60)은 8 개 주라 여기 없다.
+#
+# key·name·verified 규약은 solar_holidays.yaml 머리 주석과 같다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    easter_offset: -2
+    verified: false
+    source: >-
+      BMI 공식 서술(주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 +
+      독립 소스 3종 교차 실측 일치
+    source_todo: 주법 원문 15벌 개별 확인 후 승격
+
+  - key: ostermontag
+    name: Ostermontag
+    easter_offset: 1
+    verified: false
+    source: >-
+      BMI 공식 서술(주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 +
+      독립 소스 3종 교차 실측 일치
+    source_todo: 주법 원문 15벌 개별 확인 후 승격
+
+  - key: christi_himmelfahrt
+    name: Christi Himmelfahrt
+    easter_offset: 39
+    verified: false
+    source: >-
+      BMI 공식 서술(주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 +
+      독립 소스 3종 교차 실측 일치
+    source_todo: 주법 원문 15벌 개별 확인 후 승격
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    easter_offset: 50
+    verified: false
+    source: >-
+      BMI 공식 서술(주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 +
+      독립 소스 3종 교차 실측 일치
+    source_todo: 주법 원문 15벌 개별 확인 후 승격
