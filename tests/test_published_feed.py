@@ -92,8 +92,10 @@ import re
 import pytest
 
 from rules.jp import feed as jp_feed
+from rules.jp_only import feed as jp_only_feed
 from rules.kr import feed
 from rules.kr_jp import feed as kr_jp_feed
+from rules.kr_only import feed as kr_only_feed
 
 # 이 파일은 통째로 커밋된 산출물을 읽는다. 발행 워크플로는 이 마커를 빼고
 # 돈다 — 이유는 pyproject.toml 의 markers 설명에 있다.
@@ -235,6 +237,36 @@ def test_the_published_kr_jp_feed_is_reproducible_from_the_committed_inputs():
     )
 
 
+@pytest.mark.parametrize(
+    "diff_feed",
+    [pytest.param(kr_only_feed, id="kr_only"), pytest.param(jp_only_feed, id="jp_only")],
+)
+def test_the_published_diff_feed_is_reproducible_from_the_committed_inputs(diff_feed):
+    """커밋된 feeds/kr_only.ics·feeds/jp_only.ics 가 지금 코드·데이터로
+    바이트까지 다시 나오는가.
+
+    kr_jp 재현 테스트와 같은 구조다 — 두 피드의 build() 는 kr 형이라 today
+    를 받고, 그 today 는 DTSTAMP 의 UTC 날짜에서 얻는다(kr 테스트의
+    docstring). previous 로 골든 자신을 넘기는 의미와 바이트 비교인 이유도
+    그쪽에 있다.
+    """
+    raw = diff_feed.FEED_PATH.read_bytes()
+    stamp = _feed_dtstamp(raw)
+    name = diff_feed.FEED_PATH.name
+
+    rebuilt = diff_feed.build(today=stamp.date(), dtstamp=stamp, previous=raw)
+
+    assert rebuilt == raw, (
+        f"커밋된 feeds/{name} 가 지금 코드로 재현되지 않는다.\n"
+        f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
+        "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
+        f"  uv run python -m {diff_feed.__name__} feeds/{name}\n"
+        "  uv run python -m rules.status status.json\n"
+        "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
+        "(이 파일의 모듈 docstring 참조)."
+    )
+
+
 def test_the_published_status_describes_the_published_feed():
     """status.json 이 그 옆의 feeds/kr.ics 를 실제로 설명하고 있는가.
 
@@ -324,6 +356,31 @@ def test_the_published_status_describes_the_published_kr_jp_feed():
     assert status["feeds"]["kr_jp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
 
 
+@pytest.mark.parametrize(
+    "name, diff_feed",
+    [("kr_only", kr_only_feed), ("jp_only", jp_only_feed)],
+)
+def test_the_published_status_describes_the_published_diff_feed(name, diff_feed):
+    """status.json 의 feeds.kr_only·feeds.jp_only 가 그 옆의 발행본을 설명하는가.
+
+    kr_jp 검사와 같은 단언이다 — 범위는 feed_range(today) 에서, today 는
+    발행본 자신의 DTSTAMP 에서 읽는다(모듈 docstring).
+    """
+    raw = diff_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = diff_feed.feed_range(today)
+    assert status["feeds"][name]["range"] == {
+        "start": start.isoformat(),
+        "end": end.isoformat(),
+    }
+    assert status["feeds"][name]["path"] == str(diff_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"][name]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"][name]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"][name]["events"] > 0
+
+
 def test_the_jp_status_counts_match_the_spec():
     """jp 의 0 == 0 방지는 kr 과 반씩 다르다.
 
@@ -334,3 +391,36 @@ def test_the_jp_status_counts_match_the_spec():
     jp = _published_status()["feeds"]["jp"]
     assert jp["events"] > 0
     assert jp["provisional_events"] == 0
+
+
+# UID 값만 본다. 줄 끝이 CRLF 라 $ 앞에 \r 이 남는다.
+_UID = re.compile(rb"(?m)^UID:(.+?)\r?$")
+
+
+def _published_uids(path) -> set:
+    uids = set(_UID.findall(path.read_bytes()))
+    assert uids, f"{path.name} 에서 UID 를 하나도 읽지 못했다"
+    return uids
+
+
+@pytest.mark.parametrize(
+    "diff_feed",
+    [pytest.param(kr_only_feed, id="kr_only"), pytest.param(jp_only_feed, id="jp_only")],
+)
+def test_the_published_diff_feed_shares_no_uid_with_the_published_feeds(diff_feed):
+    """발행된 feeds/kr_only.ics·feeds/jp_only.ics 의 UID 가 발행된 kr·jp·kr_jp
+    의 어떤 UID 와도 겹치지 않는가.
+
+    UID 는 영구값이다. 다섯 피드를 함께 구독한 캘린더에서 같은 UID 는 서로를
+    덮어쓴다. tests/test_kr_jp_feed.py 의 같은 이름 계열 테스트는 build() 가
+    지금 내놓는 값을 발행본과 대조하는데, 여기서는 양쪽 다 커밋된 실파일을
+    읽는다 — 구독자에게 나간 것은 build() 결과가 아니라 파일이다.
+
+    kr.ics 와 jp.ics 사이의 기존 겹침은 보지 않는다(test_kr_jp_feed.py 의
+    docstring). 이 두 피드가 지킬 것은 거기에 하나도 더하지 않는 것이다.
+    """
+    published = set()
+    for other in (feed, jp_feed, kr_jp_feed):
+        published |= _published_uids(other.FEED_PATH)
+
+    assert _published_uids(diff_feed.FEED_PATH) & published == set()
