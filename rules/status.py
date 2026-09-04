@@ -30,10 +30,11 @@
 --------------------------------------------------------------------------
 왜 rules/ 인가
 --------------------------------------------------------------------------
-rules/ 아래 여러 나라를 함께 import 하는 자리는 둘뿐이다 — 이 파일
-(rules/status.py)과 합집합 피드(rules/kr_jp/)다. 나라별 모듈은 자기 조각만
-내고 서로를 모른다 — kr 이 jp 를 import 하기 시작하면 한 나라의 문제가 다른
-나라로 번지고, 나라를 하나 빼는 일이 남은 나라의 수정이 된다.
+rules/ 아래 여러 나라를 함께 import 하는 자리는 이 파일(rules/status.py)과
+교차 피드(합집합 rules/kr_jp/, 차집합 rules/kr_only/·rules/jp_only/)뿐이다.
+나라별 모듈은 자기 조각만 내고 서로를 모른다 — kr 이 jp 를 import 하기
+시작하면 한 나라의 문제가 다른 나라로 번지고, 나라를 하나 빼는 일이 남은
+나라의 수정이 된다.
 
 core/ 에 두지 않는다. 의존 방향이 rules → core 한 방향이기 때문이다. core 는
 rules 를 부를 수 없다 — 조립자를 core 에 두면 core 가 rules.kr 을 import 하고
@@ -47,8 +48,10 @@ import json
 from datetime import date
 
 from rules.jp import status as jp
+from rules.jp_only import status as jp_only
 from rules.kr import status as kr
 from rules.kr_jp import status as kr_jp
+from rules.kr_only import status as kr_only
 
 
 def status(*, today: date, dtstamp) -> dict:
@@ -62,6 +65,8 @@ def status(*, today: date, dtstamp) -> dict:
             "kr": kr.feed_status(today=today),
             "jp": jp.feed_status(),
             "kr_jp": kr_jp.feed_status(today=today),
+            "kr_only": kr_only.feed_status(today=today),
+            "jp_only": jp_only.feed_status(today=today),
         },
         **kr.top_level_sections(today=today),
     }

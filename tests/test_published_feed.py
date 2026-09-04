@@ -356,6 +356,31 @@ def test_the_published_status_describes_the_published_kr_jp_feed():
     assert status["feeds"]["kr_jp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
 
 
+@pytest.mark.parametrize(
+    "name, diff_feed",
+    [("kr_only", kr_only_feed), ("jp_only", jp_only_feed)],
+)
+def test_the_published_status_describes_the_published_diff_feed(name, diff_feed):
+    """status.json 의 feeds.kr_only·feeds.jp_only 가 그 옆의 발행본을 설명하는가.
+
+    kr_jp 검사와 같은 단언이다 — 범위는 feed_range(today) 에서, today 는
+    발행본 자신의 DTSTAMP 에서 읽는다(모듈 docstring).
+    """
+    raw = diff_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = diff_feed.feed_range(today)
+    assert status["feeds"][name]["range"] == {
+        "start": start.isoformat(),
+        "end": end.isoformat(),
+    }
+    assert status["feeds"][name]["path"] == str(diff_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"][name]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"][name]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"][name]["events"] > 0
+
+
 def test_the_jp_status_counts_match_the_spec():
     """jp 의 0 == 0 방지는 kr 과 반씩 다르다.
 
