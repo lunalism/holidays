@@ -458,3 +458,22 @@ def test_the_published_de_feed_shares_no_uid_with_the_other_published_feeds():
         published |= _published_uids(other.FEED_PATH)
 
     assert _published_uids(de_feed.FEED_PATH) & published == set()
+
+
+def test_the_published_status_describes_the_published_de_feed():
+    """status.json 의 feeds.de 가 그 옆의 feeds/de.ics 를 설명하는가.
+
+    kr 검사와 같은 단언이다 — 범위는 feed_range(today) 에서, today 는 발행본
+    자신의 DTSTAMP 에서 읽는다(모듈 docstring).
+    """
+    raw = de_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = de_feed.feed_range(today)
+    assert status["feeds"]["de"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}
+    assert status["feeds"]["de"]["path"] == str(de_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["de"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["de"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"]["de"]["events"] > 0
+    assert status["feeds"]["de"]["provisional_events"] == 0
