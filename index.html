@@ -366,6 +366,20 @@
       <button type="button" class="btn btn-primary" id="copy-btn-krjp">구독 주소 복사</button>
       <a class="btn" id="webcal-btn-krjp" href="#">캘린더 앱에서 열기</a>
     </div>
+
+    <div class="feed-row">
+      <p class="feed-label">대한민국만</p>
+      <code class="url" id="feed-url-kronly"></code>
+      <button type="button" class="btn btn-primary" id="copy-btn-kronly">구독 주소 복사</button>
+      <a class="btn" id="webcal-btn-kronly" href="#">캘린더 앱에서 열기</a>
+    </div>
+
+    <div class="feed-row">
+      <p class="feed-label">일본만</p>
+      <code class="url" id="feed-url-jponly"></code>
+      <button type="button" class="btn btn-primary" id="copy-btn-jponly">구독 주소 복사</button>
+      <a class="btn" id="webcal-btn-jponly" href="#">캘린더 앱에서 열기</a>
+    </div>
     <p class="note" style="margin-top:0.75rem">
       일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
     </p>
@@ -460,6 +474,64 @@
     <div class="failed" id="krjp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
   </section>
 
+  <!-- 3.8 대한민국만 쉬는 날 -->
+  <section aria-labelledby="h-kronly">
+    <h2 id="h-kronly">대한민국만 쉬는 날</h2>
+
+    <div id="kronly-ok">
+      <div class="ranges">
+        <div class="range">
+          <p class="range-label">수록 기간</p>
+          <div class="range-row">
+            <p class="range-sublabel">확정</p>
+            <p class="range-value" id="kronly-range-confirmed" data-pending>불러오는 중</p>
+          </div>
+          <div class="range-row">
+            <p class="range-sublabel">잠정</p>
+            <p class="range-value" id="kronly-range-provisional" data-pending>불러오는 중</p>
+          </div>
+        </div>
+        <div class="range">
+          <p class="range-label">수록 항목</p>
+          <p class="range-value" id="kronly-events" data-pending>불러오는 중</p>
+        </div>
+      </div>
+      <p class="note">
+        대한민국 공휴일 중 양국이 함께 쉬는 날짜는 포함하지 않습니다.
+        이름이 다른 공휴일이라도 같은 날이면 빠집니다. 판정 기준은 일본의
+        공휴일뿐이며 주말은 보지 않습니다. 수록 기간은 두 나라 피드 중 짧은 쪽까지입니다.
+      </p>
+    </div>
+
+    <div class="failed" id="kronly-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+  </section>
+
+  <!-- 3.9 일본만 쉬는 날 -->
+  <section aria-labelledby="h-jponly">
+    <h2 id="h-jponly">일본만 쉬는 날</h2>
+
+    <div id="jponly-ok">
+      <div class="ranges">
+        <div class="range">
+          <p class="range-label">수록 기간</p>
+          <p class="range-value" id="jponly-range" data-pending>불러오는 중</p>
+        </div>
+        <div class="range">
+          <p class="range-label">수록 항목</p>
+          <p class="range-value" id="jponly-events" data-pending>불러오는 중</p>
+        </div>
+      </div>
+      <p class="note">
+        일본 공휴일 중 양국이 함께 쉬는 날짜는 포함하지 않습니다.
+        이름이 다른 공휴일이라도 같은 날이면 빠집니다. 판정 기준은 대한민국의
+        공휴일뿐이며 주말은 보지 않습니다. 전 구간이 확정 항목이고, 수록 기간은
+        두 나라 피드 중 짧은 쪽까지입니다.
+      </p>
+    </div>
+
+    <div class="failed" id="jponly-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+  </section>
+
   <!-- 4. 마지막 갱신 -->
   <section aria-labelledby="h-updated">
     <h2 id="h-updated">마지막 갱신</h2>
@@ -527,6 +599,8 @@
   var FEED_URL = "https://holidays.lunalism.com/feeds/kr.ics";
   var FEED_URL_JP = "https://holidays.lunalism.com/feeds/jp.ics";
   var FEED_URL_KRJP = "https://holidays.lunalism.com/feeds/kr_jp.ics";
+  var FEED_URL_KRONLY = "https://holidays.lunalism.com/feeds/kr_only.ics";
+  var FEED_URL_JPONLY = "https://holidays.lunalism.com/feeds/jp_only.ics";
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -534,6 +608,8 @@
   wireFeed("feed-url", "webcal-btn", "copy-btn", FEED_URL);
   wireFeed("feed-url-jp", "webcal-btn-jp", "copy-btn-jp", FEED_URL_JP);
   wireFeed("feed-url-krjp", "webcal-btn-krjp", "copy-btn-krjp", FEED_URL_KRJP);
+  wireFeed("feed-url-kronly", "webcal-btn-kronly", "copy-btn-kronly", FEED_URL_KRONLY);
+  wireFeed("feed-url-jponly", "webcal-btn-jponly", "copy-btn-jponly", FEED_URL_JPONLY);
 
   function wireFeed(urlId, webcalId, copyId, url) {
     $(urlId).textContent = url;
@@ -592,6 +668,8 @@
     try { renderUpdated(status); } catch (e) { fail("updated"); }
     try { renderJp(status); } catch (e) { fail("jp"); }
     try { renderKrJp(status); } catch (e) { fail("krjp"); }
+    try { renderKrOnly(status); } catch (e) { fail("kronly"); }
+    try { renderJpOnly(status); } catch (e) { fail("jponly"); }
     try { renderUnverified(status); } catch (e) { /* 숫자는 없으면 없는 대로 둔다. */ }
   }
 
@@ -636,6 +714,33 @@
     set("krjp-events", krjp.events + "건");
   }
 
+  function renderKrOnly(status) {
+    // 차집합 피드(kr − jp). 항목이 전부 kr 이라 잠정 경계는 kr 규칙표의
+    // confirmed_through 이고, 경계 처리는 renderKrJp 와 같다.
+    var kronly = status.feeds.kr_only;
+    var from = kronly.range.start;
+    var until = kronly.range.end;
+    var confirmed = status.coverage.confirmed_through;
+
+    if (confirmed && confirmed < until) {
+      setRange("kronly-range-confirmed", from, confirmed);
+      setRange("kronly-range-provisional", nextDay(confirmed), until);
+    } else {
+      setRange("kronly-range-confirmed", from, until);
+      set("kronly-range-provisional", "없음");
+    }
+    set("kronly-events", kronly.events + "건");
+  }
+
+  function renderJpOnly(status) {
+    // 차집합 피드(jp − kr). 항목이 전부 jp 라 잠정이 없다 — 일본 절과 같이
+    // 기간과 항목 수만 싣는다. 범위는 jp 상수가 아니라 status 의 것이다
+    // (끝이 두 나라 중 짧은 쪽).
+    var jponly = status.feeds.jp_only;
+    setRange("jponly-range", jponly.range.start, jponly.range.end);
+    set("jponly-events", jponly.events + "건");
+  }
+
   function renderUpdated(status) {
     var at = new Date(status.generated_at);
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
@@ -666,6 +771,8 @@
     fail("updated");
     fail("jp");
     fail("krjp");
+    fail("kronly");
+    fail("jponly");
   }
 
   function fail(name) {
