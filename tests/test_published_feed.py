@@ -391,3 +391,36 @@ def test_the_jp_status_counts_match_the_spec():
     jp = _published_status()["feeds"]["jp"]
     assert jp["events"] > 0
     assert jp["provisional_events"] == 0
+
+
+# UID 값만 본다. 줄 끝이 CRLF 라 $ 앞에 \r 이 남는다.
+_UID = re.compile(rb"(?m)^UID:(.+?)\r?$")
+
+
+def _published_uids(path) -> set:
+    uids = set(_UID.findall(path.read_bytes()))
+    assert uids, f"{path.name} 에서 UID 를 하나도 읽지 못했다"
+    return uids
+
+
+@pytest.mark.parametrize(
+    "diff_feed",
+    [pytest.param(kr_only_feed, id="kr_only"), pytest.param(jp_only_feed, id="jp_only")],
+)
+def test_the_published_diff_feed_shares_no_uid_with_the_published_feeds(diff_feed):
+    """발행된 feeds/kr_only.ics·feeds/jp_only.ics 의 UID 가 발행된 kr·jp·kr_jp
+    의 어떤 UID 와도 겹치지 않는가.
+
+    UID 는 영구값이다. 다섯 피드를 함께 구독한 캘린더에서 같은 UID 는 서로를
+    덮어쓴다. tests/test_kr_jp_feed.py 의 같은 이름 계열 테스트는 build() 가
+    지금 내놓는 값을 발행본과 대조하는데, 여기서는 양쪽 다 커밋된 실파일을
+    읽는다 — 구독자에게 나간 것은 build() 결과가 아니라 파일이다.
+
+    kr.ics 와 jp.ics 사이의 기존 겹침은 보지 않는다(test_kr_jp_feed.py 의
+    docstring). 이 두 피드가 지킬 것은 거기에 하나도 더하지 않는 것이다.
+    """
+    published = set()
+    for other in (feed, jp_feed, kr_jp_feed):
+        published |= _published_uids(other.FEED_PATH)
+
+    assert _published_uids(diff_feed.FEED_PATH) & published == set()
