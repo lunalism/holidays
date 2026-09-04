@@ -92,8 +92,10 @@ import re
 import pytest
 
 from rules.jp import feed as jp_feed
+from rules.jp_only import feed as jp_only_feed
 from rules.kr import feed
 from rules.kr_jp import feed as kr_jp_feed
+from rules.kr_only import feed as kr_only_feed
 
 # 이 파일은 통째로 커밋된 산출물을 읽는다. 발행 워크플로는 이 마커를 빼고
 # 돈다 — 이유는 pyproject.toml 의 markers 설명에 있다.
@@ -229,6 +231,36 @@ def test_the_published_kr_jp_feed_is_reproducible_from_the_committed_inputs():
         f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
         "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
         "  uv run python -m rules.kr_jp.feed feeds/kr_jp.ics\n"
+        "  uv run python -m rules.status status.json\n"
+        "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
+        "(이 파일의 모듈 docstring 참조)."
+    )
+
+
+@pytest.mark.parametrize(
+    "diff_feed",
+    [pytest.param(kr_only_feed, id="kr_only"), pytest.param(jp_only_feed, id="jp_only")],
+)
+def test_the_published_diff_feed_is_reproducible_from_the_committed_inputs(diff_feed):
+    """커밋된 feeds/kr_only.ics·feeds/jp_only.ics 가 지금 코드·데이터로
+    바이트까지 다시 나오는가.
+
+    kr_jp 재현 테스트와 같은 구조다 — 두 피드의 build() 는 kr 형이라 today
+    를 받고, 그 today 는 DTSTAMP 의 UTC 날짜에서 얻는다(kr 테스트의
+    docstring). previous 로 골든 자신을 넘기는 의미와 바이트 비교인 이유도
+    그쪽에 있다.
+    """
+    raw = diff_feed.FEED_PATH.read_bytes()
+    stamp = _feed_dtstamp(raw)
+    name = diff_feed.FEED_PATH.name
+
+    rebuilt = diff_feed.build(today=stamp.date(), dtstamp=stamp, previous=raw)
+
+    assert rebuilt == raw, (
+        f"커밋된 feeds/{name} 가 지금 코드로 재현되지 않는다.\n"
+        f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
+        "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
+        f"  uv run python -m {diff_feed.__name__} feeds/{name}\n"
         "  uv run python -m rules.status status.json\n"
         "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
         "(이 파일의 모듈 docstring 참조)."
