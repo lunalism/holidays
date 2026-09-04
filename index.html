@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공휴일 캘린더</title>
-<meta name="description" content="대한민국·일본 공휴일 iCalendar 구독 피드. 법령과 계산으로 유도하고 근거를 함께 둡니다.">
+<meta name="description" content="대한민국·일본 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 합니다. 항목마다 근거를 함께 둡니다.">
 
 <!--
   한 파일로 끝낸다. 빌드 스텝도 npm 도 없다.
@@ -119,30 +119,55 @@
    * 구독
    * ------------------------------------------------------------------ */
 
-  /* 나라 하나가 한 줄: [라벨] [URL] [복사] [앱에서 열기].
-     680px 컨테이너에 네 조각을 넣으려면 이 줄 안의 것들은 본문보다 한 단계
-     작아야 한다. 크기 조정은 전부 .feed-row 범위로 가둔다 — 카드나 다른
-     절의 버튼·URL 표기에는 손대지 않기 위해서다. */
-  .feed-row {
+  /* 피드 하나가 두 줄: 머리줄 [라벨] [설명], 조작줄 [URL] [복사] [앱에서 열기].
+     피드는 용도별 묶음 셋으로 나뉜다. 680px 컨테이너에 조작줄 세 조각을
+     넣으려면 이 줄 안의 것들은 본문보다 한 단계 작아야 한다. 크기 조정은
+     전부 .feed-row 범위로 가둔다 — 카드나 다른 절의 버튼·URL 표기에는
+     손대지 않기 위해서다. */
+  .feed-group { margin-bottom: 1.75rem; }
+  .feed-group:last-of-type { margin-bottom: 0; }
+
+  .feed-group-title {
+    margin: 0 0 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  .feed-row { margin-bottom: 1rem; }
+  .feed-row:last-child { margin-bottom: 0; }
+
+  .feed-head {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.625rem;
+    margin-bottom: 0.375rem;
   }
 
   .feed-label {
     margin: 0;
-    flex: none;
-    width: 3.5rem;   /* "대한민국" 이 들어가는 고정 폭. 두 줄의 URL 상자를 정렬한다. */
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 600;
+  }
+
+  .feed-desc {
+    margin: 0;
+    font-size: 0.8125rem;
     color: var(--muted);
+  }
+
+  .feed-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   /* URL 상자가 남는 폭을 전부 가진다. min-width:0 이 없으면 flex 항목의
      최소 폭이 내용 폭이 되어 줄이 컨테이너를 뚫는다. 그래도 모자라면
      가로 스크롤 — 주소를 자르거나 숨기지 않는다. */
-  .feed-row .url {
+  .feed-controls .url {
     flex: 1 1 auto;
     min-width: 0;
     padding: 0.5rem 0.625rem;
@@ -151,18 +176,17 @@
     overflow-x: auto;
   }
 
-  .feed-row .btn {
+  .feed-controls .btn {
     flex: none;
     padding: 0.5rem 0.75rem;
     font-size: 0.8125rem;
   }
-  .feed-row .btn-primary { min-width: 7.5rem; }
+  .feed-controls .btn-primary { min-width: 7.5rem; }
 
-  /* 좁은 화면: 라벨·URL 이 각자 한 줄, 버튼 둘이 마지막 줄. */
+  /* 좁은 화면: URL 이 한 줄, 버튼 둘이 마지막 줄. */
   @media (max-width: 660px) {
-    .feed-row { flex-wrap: wrap; }
-    .feed-label { width: 100%; }
-    .feed-row .url { flex: 1 1 100%; }
+    .feed-controls { flex-wrap: wrap; }
+    .feed-controls .url { flex: 1 1 100%; }
   }
 
   .btn {
@@ -323,6 +347,8 @@
     transition: text-decoration-color 150ms ease;
   }
   footer a:hover { text-decoration-color: var(--muted); }
+  footer p { margin: 0 0 0.5rem; }
+  footer p:last-child { margin-bottom: 0; }
 
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
@@ -338,7 +364,8 @@
     <h1>공휴일 캘린더</h1>
     <p class="lead">
       캘린더 앱에서 구독하면 대한민국과 일본의 공휴일이 자동으로 들어옵니다.
-      나라별 피드를 따로 구독합니다. 날짜는 법령과 천문 계산으로 유도하고,
+      대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와
+      대조하고, 일본은 内閣府「国民の祝日について」데이터를 기준으로 합니다.
       항목마다 근거를 함께 둡니다.
     </p>
   </header>
@@ -346,40 +373,73 @@
   <!-- 2. 구독 -->
   <section aria-labelledby="h-subscribe">
     <h2 id="h-subscribe">구독</h2>
-    <div class="feed-row">
-      <p class="feed-label">대한민국</p>
-      <code class="url" id="feed-url"></code>
-      <button type="button" class="btn btn-primary" id="copy-btn">구독 주소 복사</button>
-      <a class="btn" id="webcal-btn" href="#">캘린더 앱에서 열기</a>
+    <div class="feed-group">
+      <p class="feed-group-title">나라별 전체</p>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">대한민국</p>
+          <p class="feed-desc">대한민국 공휴일 전체</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">일본</p>
+          <p class="feed-desc">일본 공휴일 전체</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-jp"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-jp">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-jp" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
     </div>
 
-    <div class="feed-row">
-      <p class="feed-label">일본</p>
-      <code class="url" id="feed-url-jp"></code>
-      <button type="button" class="btn btn-primary" id="copy-btn-jp">구독 주소 복사</button>
-      <a class="btn" id="webcal-btn-jp" href="#">캘린더 앱에서 열기</a>
+    <div class="feed-group">
+      <p class="feed-group-title">한 피드로 합침</p>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">대한민국·일본</p>
+          <p class="feed-desc">양국 공휴일 전체. 항목마다 [KR]·[JP] 표기</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-krjp"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-krjp">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-krjp" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
     </div>
 
-    <div class="feed-row">
-      <p class="feed-label">대한민국·일본</p>
-      <code class="url" id="feed-url-krjp"></code>
-      <button type="button" class="btn btn-primary" id="copy-btn-krjp">구독 주소 복사</button>
-      <a class="btn" id="webcal-btn-krjp" href="#">캘린더 앱에서 열기</a>
+    <div class="feed-group">
+      <p class="feed-group-title">겹치지 않는 날만</p>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">대한민국만</p>
+          <p class="feed-desc">대한민국 공휴일 중 일본이 쉬지 않는 날</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-kronly"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-kronly">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-kronly" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">일본만</p>
+          <p class="feed-desc">일본 공휴일 중 대한민국이 쉬지 않는 날</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-jponly"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-jponly">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-jponly" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
     </div>
 
-    <div class="feed-row">
-      <p class="feed-label">대한민국만</p>
-      <code class="url" id="feed-url-kronly"></code>
-      <button type="button" class="btn btn-primary" id="copy-btn-kronly">구독 주소 복사</button>
-      <a class="btn" id="webcal-btn-kronly" href="#">캘린더 앱에서 열기</a>
-    </div>
-
-    <div class="feed-row">
-      <p class="feed-label">일본만</p>
-      <code class="url" id="feed-url-jponly"></code>
-      <button type="button" class="btn btn-primary" id="copy-btn-jponly">구독 주소 복사</button>
-      <a class="btn" id="webcal-btn-jponly" href="#">캘린더 앱에서 열기</a>
-    </div>
     <p class="note" style="margin-top:0.75rem">
       일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
     </p>
@@ -573,8 +633,14 @@
 
   <!-- 6. 레포 -->
   <footer>
-    규칙표·근거·생성 코드는 모두 공개되어 있습니다 —
-    <a href="https://github.com/lunalism/holidays">github.com/lunalism/holidays</a>
+    <p>
+      규칙표·근거·생성 코드는 모두 공개되어 있습니다 —
+      <a href="https://github.com/lunalism/holidays">github.com/lunalism/holidays</a>
+    </p>
+    <p>
+      문제 제보와 제안:
+      <a href="https://github.com/lunalism/holidays/issues">GitHub Issues</a>
+    </p>
   </footer>
 
 </main>
