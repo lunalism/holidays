@@ -124,15 +124,22 @@
      넣으려면 이 줄 안의 것들은 본문보다 한 단계 작아야 한다. 크기 조정은
      전부 .feed-row 범위로 가둔다 — 카드나 다른 절의 버튼·URL 표기에는
      손대지 않기 위해서다. */
-  .feed-group { margin-bottom: 1.75rem; }
+  /* 묶음 셋의 위계: 제목은 본문색·굵게로 행 라벨보다 한 단계 위에 서고,
+     묶음 사이는 얇은 선 하나가 가른다. 행 사이(1rem)보다 묶음 사이가
+     확실히 넓어야 어느 행이 어느 묶음인지 읽힌다. 색은 기존 토큰만 쓴다. */
+  .feed-group { margin-bottom: 2rem; }
+  .feed-group + .feed-group {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
   .feed-group:last-of-type { margin-bottom: 0; }
 
   .feed-group-title {
-    margin: 0 0 0.625rem;
-    font-size: 0.75rem;
-    font-weight: 600;
+    margin: 0 0 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
     letter-spacing: 0.04em;
-    color: var(--muted);
+    color: var(--fg);
   }
 
   .feed-row { margin-bottom: 1rem; }
