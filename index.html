@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공휴일 캘린더</title>
-<meta name="description" content="대한민국·일본 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 합니다. 항목마다 근거를 함께 둡니다.">
+<meta name="description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 항목마다 근거를 함께 둡니다.">
 <meta property="og:title" content="공휴일 캘린더 — holidays.lunalism.com">
-<meta property="og:description" content="대한민국·일본 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 합니다. 항목마다 근거를 함께 둡니다.">
+<meta property="og:description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 항목마다 근거를 함께 둡니다.">
 <meta property="og:image" content="https://holidays.lunalism.com/assets/og.png">
 <meta property="og:url" content="https://holidays.lunalism.com/">
 <meta property="og:type" content="website">
@@ -410,6 +410,17 @@
           <a class="btn" id="webcal-btn-jp" href="#">캘린더 앱에서 열기</a>
         </div>
       </div>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">독일</p>
+          <p class="feed-desc">전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-de"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-de">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-de" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
     </div>
 
     <div class="feed-group">
@@ -514,6 +525,30 @@
     </div>
 
     <div class="failed" id="jp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+  </section>
+
+  <!-- 3.6 독일 -->
+  <section aria-labelledby="h-de">
+    <h2 id="h-de">독일</h2>
+
+    <div id="de-ok">
+      <div class="ranges">
+        <div class="range">
+          <p class="range-label">수록 기간</p>
+          <p class="range-value" id="de-range" data-pending>불러오는 중</p>
+        </div>
+        <div class="range">
+          <p class="range-label">수록 항목</p>
+          <p class="range-value" id="de-events" data-pending>불러오는 중</p>
+        </div>
+      </div>
+      <p class="note">
+        16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 주별 공휴일은
+        들어 있지 않습니다. 전 구간이 확정 항목입니다. 잠정 구간은 두지 않습니다.
+      </p>
+    </div>
+
+    <div class="failed" id="de-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
   </section>
 
   <!-- 3.7 대한민국·일본 -->
@@ -680,6 +715,7 @@
   var FEED_URL_KRJP = "https://holidays.lunalism.com/feeds/kr_jp.ics";
   var FEED_URL_KRONLY = "https://holidays.lunalism.com/feeds/kr_only.ics";
   var FEED_URL_JPONLY = "https://holidays.lunalism.com/feeds/jp_only.ics";
+  var FEED_URL_DE = "https://holidays.lunalism.com/feeds/de.ics";
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -689,6 +725,7 @@
   wireFeed("feed-url-krjp", "webcal-btn-krjp", "copy-btn-krjp", FEED_URL_KRJP);
   wireFeed("feed-url-kronly", "webcal-btn-kronly", "copy-btn-kronly", FEED_URL_KRONLY);
   wireFeed("feed-url-jponly", "webcal-btn-jponly", "copy-btn-jponly", FEED_URL_JPONLY);
+  wireFeed("feed-url-de", "webcal-btn-de", "copy-btn-de", FEED_URL_DE);
 
   function wireFeed(urlId, webcalId, copyId, url) {
     $(urlId).textContent = url;
@@ -749,6 +786,7 @@
     try { renderKrJp(status); } catch (e) { fail("krjp"); }
     try { renderKrOnly(status); } catch (e) { fail("kronly"); }
     try { renderJpOnly(status); } catch (e) { fail("jponly"); }
+    try { renderDe(status); } catch (e) { fail("de"); }
     try { renderUnverified(status); } catch (e) { /* 숫자는 없으면 없는 대로 둔다. */ }
   }
 
@@ -820,6 +858,14 @@
     set("jponly-events", jponly.events + "건");
   }
 
+  function renderDe(status) {
+    // 전국 공통 피드. 항목이 전부 확정이라(provisional_events 0) 잠정 경계가
+    // 없다 — 일본 절과 같이 기간과 항목 수만 싣는다.
+    var de = status.feeds.de;
+    setRange("de-range", de.range.start, de.range.end);
+    set("de-events", de.events + "건");
+  }
+
   function renderUpdated(status) {
     var at = new Date(status.generated_at);
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
@@ -852,6 +898,7 @@
     fail("krjp");
     fail("kronly");
     fail("jponly");
+    fail("de");
   }
 
   function fail(name) {
