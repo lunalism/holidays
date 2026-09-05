@@ -451,8 +451,11 @@ def _table(tmp_path, key: str):
         pytest.param("Achter_Mai_2025", id="대문자"),
         pytest.param("mariä_himmelfahrt", id="비ASCII 움라우트"),
         pytest.param("8_mai_2025", id="서수를 숫자로"),
+        pytest.param("8_mai_2020", id="서수를 숫자로 (2020)"),
         pytest.param("achter_mai_25", id="연도 두 자리"),
+        pytest.param("achter_mai_20255", id="연도 다섯 자리"),
         pytest.param("achter_mai_2025_", id="연도 뒤 꼬리"),
+        pytest.param("_2025\n", id="이름 없이 연도만, 끝 개행"),
     ],
 )
 def test_a_key_outside_the_charset_stops_the_load(tmp_path, bad_key):
@@ -463,3 +466,13 @@ def test_a_key_outside_the_charset_stops_the_load(tmp_path, bad_key):
 def test_a_key_with_a_trailing_year_loads(tmp_path):
     [entry] = feed._load(_table(tmp_path, "achter_mai_2025"), "date")
     assert entry["key"] == "achter_mai_2025"
+
+
+
+def test_a_designated_key_whose_year_differs_from_its_date_stops_the_load(tmp_path, monkeypatch):
+    """key 의 연도 접미사는 그 항목 date 의 연도여야 한다. achter_mai_2024 에
+    2025-05-08 을 붙이면 로드 시점에 멈춘다 — 잘못 붙은 채 나가면 표를 읽는
+    사람이 근거를 엉뚱한 해에서 찾는다."""
+    monkeypatch.setattr(feed, "DESIGNATED_PATH", _table(tmp_path, "achter_mai_2024"))
+    with pytest.raises(ics.IcsError, match="연도 접미사 _2025"):
+        feed._designated()
