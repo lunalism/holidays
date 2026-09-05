@@ -1,8 +1,9 @@
 # holidays
 
 대한민국과 일본의 공휴일을 캘린더 앱에서 구독할 수 있는 iCalendar(`.ics`)
-피드로 발행합니다. 피드는 셋입니다 — 대한민국(`kr`), 일본(`jp`), 두 나라를
-한 캘린더로 합친 `kr_jp`. 매주 월요일에 자동 갱신됩니다.
+피드로 발행합니다. 피드는 여섯입니다 — 대한민국(`kr`), 일본(`jp`), 독일 전국
+공통(`de`), 두 나라를 한 캘린더로 합친 `kr_jp`, 한쪽만 쉬는 날만 모은
+`kr_only`·`jp_only`. 매주 월요일에 자동 갱신됩니다.
 
 수록 기간·항목 수·마지막 갱신 시각은
 [holidays.lunalism.com](https://holidays.lunalism.com) 에 표시됩니다.
@@ -12,13 +13,19 @@
 캘린더 앱에 아래 주소를 넣습니다. Google 캘린더는 "URL로 추가", Apple
 캘린더는 "새로운 캘린더 구독"입니다. `webcal://` 로도 같은 경로입니다.
 
-| 피드 | 구독 주소 |
-|---|---|
-| 대한민국 | `https://holidays.lunalism.com/feeds/kr.ics` |
-| 일본 | `https://holidays.lunalism.com/feeds/jp.ics` |
-| 대한민국·일본 | `https://holidays.lunalism.com/feeds/kr_jp.ics` |
+| 묶음 | 피드 | 구독 주소 |
+|---|---|---|
+| 나라별 전체 | 대한민국 | `https://holidays.lunalism.com/feeds/kr.ics` |
+| | 일본 | `https://holidays.lunalism.com/feeds/jp.ics` |
+| | 독일 — 전국 공통(주별 공휴일 제외) | `https://holidays.lunalism.com/feeds/de.ics` |
+| 한 피드로 합침 | 대한민국·일본 | `https://holidays.lunalism.com/feeds/kr_jp.ics` |
+| 겹치지 않는 날만 | 대한민국만 | `https://holidays.lunalism.com/feeds/kr_only.ics` |
+| | 일본만 | `https://holidays.lunalism.com/feeds/jp_only.ics` |
 
 - 일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
+- 독일 피드는 16개 주 전체에서 유효한 법정 공휴일(연 9건)만 싣습니다. 주별
+  공휴일(Fronleichnam, Reformationstag 등)은 들어 있지 않습니다. 항목 이름은
+  법조문 표기(Neujahr, 1. Mai 등)입니다.
 - 합집합 피드는 항목 이름 앞의 `[KR]`·`[JP]` 로 어느 나라의 공휴일인지
   표시합니다. 수록 기간은 두 나라 피드 중 짧은 쪽까지입니다 — 한쪽만 있는
   구간을 실으면 다른 나라의 공휴일이 없는 것처럼 읽히기 때문입니다.
@@ -51,13 +58,13 @@ sources/       원천 데이터 수집 (kr: KASI API, jp: 内閣府 CSV). 수집
                해석은 하지 않는다.
 sources/*/cache/  원시 응답을 받은 그대로. 커밋 대상이다 — 변화를 diff 로
                추적하기 위한 관측 기록이며, 테스트가 이 파일들을 입력으로 쓴다.
-rules/         나라별 공휴일 규칙과 피드 조립 (kr, jp, kr_jp).
+rules/         나라별 공휴일 규칙과 피드 조립 (kr, jp, de, kr_jp, kr_only, jp_only).
                status.py 가 status.json 을 조립한다.
 core/          국가 공통 로직 (날짜 모델, UID 생성, iCalendar 직렬화, 피드 쓰기)
 data/          jp: 캐시된 CSV 에서 생성한 연도별 YAML. kr: 비어 있다 —
                rules/kr/*.yaml 규칙표에서 날짜를 유도하므로 중간 산출물을
                두지 않는다.
-feeds/         발행되는 .ics 파일 (kr.ics, jp.ics, kr_jp.ics)
+feeds/         발행되는 .ics 파일 (kr, jp, de, kr_jp, kr_only, jp_only 의 .ics)
 tests/         테스트
 docs/          브랜치 운영 규칙, 작업 세션 기록
 logs/          build.jsonl — 발행 시도 기록. 실패도 남는다.
@@ -150,8 +157,8 @@ Secret 으로만 주입합니다. 커밋 전에 인증정보가 섞이지 않았
 Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 형태)를 그대로
 붙여 넣습니다. Decoding 키를 넣으면 `+` 가 공백으로 해석되어 인증에 실패합니다.
 
-워크플로 권한이 필요한 이유는 산출물(`feeds/kr.ics`, `feeds/jp.ics`,
-`feeds/kr_jp.ics`, `status.json`, `logs/build.jsonl`)을 커밋해야 하기
+워크플로 권한이 필요한 이유는 산출물(`feeds/*.ics` 여섯 벌, `status.json`,
+`logs/build.jsonl`)을 커밋해야 하기
 때문입니다. `publish.yml` 이 `permissions: contents: write` 를 선언하지만,
 저장소 기본 설정이 read-only 면 그 선언도 무시됩니다.
 
