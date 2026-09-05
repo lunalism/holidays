@@ -44,6 +44,7 @@ from core import ics
 from rules.de import feed as de_feed
 from rules.de_be import feed
 from rules.de_be import status as de_be_status
+from rules.de_by import feed as de_by_feed
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
 TODAY = dt.date(2026, 1, 1)
@@ -217,9 +218,9 @@ def test_the_dates_agree_with_python_holidays_berlin(events, year):
     assert ours == theirs
 
 
-# 주 피드 목록. 두 번째 주 피드가 생기면 여기에 더한다 — 그 순간 아래 교집합
-# 테스트가 켜진다.
-STATE_FEEDS = {"de_be": feed}
+# 주 피드 목록. 주 피드가 생길 때마다 여기에 더한다. 둘째(de_by)가 들어오면서
+# 아래 교집합 테스트가 켜졌다 — BE ∩ BY 는 전국 공통 9 건이어야 한다.
+STATE_FEEDS = {"de_be": feed, "de_by": de_by_feed}
 
 
 @pytest.mark.parametrize("year", range(2020, 2032))

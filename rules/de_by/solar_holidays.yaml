@@ -1,0 +1,119 @@
+# 독일·바이에른 주 공휴일 — 고정 날짜 7 건.
+#
+# 근거: Gesetz über den Schutz der Sonn- und Feiertage (Feiertagsgesetz – FTG, BayFTG)
+# Art. 1 Abs. 1 Nr. 1 — "Gesetzliche Feiertage sind 1. im ganzen Staatsgebiet Neujahr,
+# Heilige Drei Könige (Epiphanias), Karfreitag, Ostermontag, der 1. Mai, Christi
+# Himmelfahrt, Pfingstmontag, Fronleichnam, der 3. Oktober als Tag der Deutschen
+# Einheit, Allerheiligen, Erster Weihnachtstag, Zweiter Weihnachtstag".
+# 전국 공통 5 건에 Heilige Drei Könige(1. 6.)·Allerheiligen(1. 11.)이 더해진다.
+#
+# --- 범위 밖 ---
+# 같은 조의 Abs. 1 Nr. 2 Mariä Himmelfahrt(가톨릭 다수 지자체만), Abs. 2 Friedensfest
+# (아우크스부르크 시만), Art. 4 의 Buß- und Bettag(휴교일이지 공휴일이 아님)는
+# 주 전역이 아니라 싣지 않는다. feiertage-api 2026 BY 15 건 중 이 셋에만 hinweis
+# 가 붙어 있고, 나머지 12 건이 이 표와 easter_holidays.yaml 이다.
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# BayFTG Art. 1~9 에 이동 조항이 없다(rules/de/solar_holidays.yaml 에서 확인한
+# 전문). feiertage-api BY 2020–2031 실측에서 일요일 겹침 연도 7 개(2020 Allerheiligen,
+# 2021 3. Oktober·2. Weihnachtstag, 2022 1. Mai·1. Weihnachtstag, 2023 Neujahr,
+# 2026 Allerheiligen, 2027 3. Oktober·2. Weihnachtstag, 2030 Heilige Drei Könige)
+# 모두 보상 휴일 0 건. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de_be/solar_holidays.yaml 의 규약과 같다 — 소문자 ASCII 와 밑줄, 서수는
+# 풀어 쓰고(erster_mai), 움라우트·ß 는 ae/oe/ue/ss 로. ö→oe 의 첫 실적용이
+# heilige_drei_koenige 다. 일회성 연도 접미사(_YYYY)는 허용하되 이 표에는 없다.
+#
+# 발행되는 UID 의 token 은 이 key 앞에 "de_by-" 가 붙는다(rules/de_by/feed.py).
+# 전국 공통 9 건은 de.ics(접두사 없음)·de_be.ics(de_be-)와 같은 날 같은 항목이라
+# 접두사 없이는 UID 가 겹친다. key 자체는 접두사 없이 쓴다 — de 와 같은 key 다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. Art. 1 Abs. 1 Nr. 1 의 조문 표기에서 정관사(der)와
+# 서술부(als …)·괄호 별칭((Epiphanias))을 뺀 것이다. 움라우트는 그대로 둔다.
+# de.ics 도 BayFTG 표기를 따르므로 전국 공통 9 건의 name 은 de.ics 와 같다.
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. 공식 포털 gesetze-bayern.de(BAYERN.RECHT, Bayerische
+# Staatskanzlei)의 BayFTG-1 문서가 정적 HTML 로 Art. 1 전문을 돌려주어 2026-09-06 에
+# 열람했다(표시: "Text gilt ab: 01.08.2013, Fassung: 21.05.1980"). 12 건 전부 그
+# 열거에 있어 전부 true 다. 조문은 이름을 열거할 뿐 달력 날짜를 적지 않으므로,
+# 날짜는 항목마다 feiertage-api 2026 BY 와 python-holidays 0.102 BY 로 대조했다
+# (12/12 일치). source 필드에 항목별로 확인 경로를 남긴다 — 조 단위 일괄 인용이
+# 아니라 자기 항목의 조문 표기를 따옴표로 담는다.
+#
+# verified 는 피드에 나가지 않는다(rules/de_by/feed.py).
+
+holidays:
+  - key: neujahr
+    name: Neujahr
+    month: 1
+    day: 1
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 1번째 'Neujahr' — gesetze-bayern.de BayFTG-1
+      원문 2026-09-06 열람(Text gilt ab 01.08.2013). 날짜 1. 1. 은 feiertage-api 2026
+      BY·python-holidays 0.102 BY 대조 일치
+
+  - key: heilige_drei_koenige
+    name: Heilige Drei Könige
+    month: 1
+    day: 6
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 2번째 'Heilige Drei Könige (Epiphanias)' —
+      gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013).
+      날짜 6. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 대조 일치
+
+  - key: erster_mai
+    name: 1. Mai
+    month: 5
+    day: 1
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 5번째 'der 1. Mai' — gesetze-bayern.de BayFTG-1
+      원문 2026-09-06 열람(Text gilt ab 01.08.2013). 날짜는 조문에 박혀 있고
+      feiertage-api 2026 BY(Tag der Arbeit)·python-holidays 0.102 BY 대조 일치
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der Deutschen Einheit
+    month: 10
+    day: 3
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 9번째 'der 3. Oktober als Tag der Deutschen
+      Einheit' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+      01.08.2013). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는
+      조문에 박혀 있고 feiertage-api 2026 BY·python-holidays 0.102 BY 대조 일치
+
+  - key: allerheiligen
+    name: Allerheiligen
+    month: 11
+    day: 1
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 10번째 'Allerheiligen' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 날짜 1. 11. 은
+      feiertage-api 2026 BY·python-holidays 0.102 BY 대조 일치
+
+  - key: erster_weihnachtstag
+    name: Erster Weihnachtstag
+    month: 12
+    day: 25
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 11번째 'Erster Weihnachtstag' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 날짜 25. 12. 은
+      feiertage-api 2026 BY(1. Weihnachtstag)·python-holidays 0.102 BY 대조 일치
+
+  - key: zweiter_weihnachtstag
+    name: Zweiter Weihnachtstag
+    month: 12
+    day: 26
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 12번째 'Zweiter Weihnachtstag' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 날짜 26. 12. 은
+      feiertage-api 2026 BY(2. Weihnachtstag)·python-holidays 0.102 BY 대조 일치

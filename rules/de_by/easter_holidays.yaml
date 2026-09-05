@@ -1,0 +1,58 @@
+# 독일·바이에른 주 공휴일 — 부활절 기준 이동 5 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_by/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 Fronleichnam(+60)이 더해진다. Ostersonntag(0)·Pfingstsonntag
+# (+49)은 BayFTG Art. 1 Abs. 1 Nr. 1 의 열거에 없다.
+#
+# key·name·verified 규약과 확인 경로는 solar_holidays.yaml 머리 주석과 같다.
+# name 은 BayFTG 표기라 de.ics 와 같다(de_be.ics 의 Himmelfahrtstag 와 다르다 —
+# 각 피드는 자기 근거 조문의 표기를 쓴다).
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    easter_offset: -2
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 3번째 'Karfreitag' — gesetze-bayern.de BayFTG-1
+      원문 2026-09-06 열람(Text gilt ab 01.08.2013). 부활절 −2 일은 feiertage-api 2026
+      BY(4. 3.)·python-holidays 0.102 BY 대조 일치
+
+  - key: ostermontag
+    name: Ostermontag
+    easter_offset: 1
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 4번째 'Ostermontag' — gesetze-bayern.de BayFTG-1
+      원문 2026-09-06 열람(Text gilt ab 01.08.2013). 부활절 +1 일은 feiertage-api 2026
+      BY(6. 4.)·python-holidays 0.102 BY 대조 일치
+
+  - key: christi_himmelfahrt
+    name: Christi Himmelfahrt
+    easter_offset: 39
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 6번째 'Christi Himmelfahrt' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 부활절 +39 일은
+      feiertage-api 2026 BY(14. 5.)·python-holidays 0.102 BY 대조 일치
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    easter_offset: 50
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 7번째 'Pfingstmontag' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 부활절 +50 일은
+      feiertage-api 2026 BY(25. 5.)·python-holidays 0.102 BY 대조 일치
+
+  - key: fronleichnam
+    name: Fronleichnam
+    easter_offset: 60
+    verified: true
+    source: >-
+      BayFTG Art. 1 Abs. 1 Nr. 1, 열거 8번째 'Fronleichnam' — gesetze-bayern.de
+      BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08.2013). 부활절 +60 일은
+      feiertage-api 2026 BY(4. 6.)·python-holidays 0.102 BY 대조 일치
