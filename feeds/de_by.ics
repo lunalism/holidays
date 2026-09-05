@@ -1,0 +1,2035 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lunalism//holidays.lunalism.com//KO
+CALSCALE:GREGORIAN
+X-WR-CALNAME:독일·바이에른 공휴일
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20200101
+DTEND;VALUE=DATE:20200102
+DTSTAMP:20260905T231739Z
+UID:20200101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20200106
+DTEND;VALUE=DATE:20200107
+DTSTAMP:20260905T231739Z
+UID:20200106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20200410
+DTEND;VALUE=DATE:20200411
+DTSTAMP:20260905T231739Z
+UID:20200410-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20200413
+DTEND;VALUE=DATE:20200414
+DTSTAMP:20260905T231739Z
+UID:20200413-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20200501
+DTEND;VALUE=DATE:20200502
+DTSTAMP:20260905T231739Z
+UID:20200501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20200521
+DTEND;VALUE=DATE:20200522
+DTSTAMP:20260905T231739Z
+UID:20200521-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20200601
+DTEND;VALUE=DATE:20200602
+DTSTAMP:20260905T231739Z
+UID:20200601-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20200611
+DTEND;VALUE=DATE:20200612
+DTSTAMP:20260905T231739Z
+UID:20200611-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20201003
+DTEND;VALUE=DATE:20201004
+DTSTAMP:20260905T231739Z
+UID:20201003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20201101
+DTEND;VALUE=DATE:20201102
+DTSTAMP:20260905T231739Z
+UID:20201101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20201225
+DTEND;VALUE=DATE:20201226
+DTSTAMP:20260905T231739Z
+UID:20201225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20201226
+DTEND;VALUE=DATE:20201227
+DTSTAMP:20260905T231739Z
+UID:20201226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20210101
+DTEND;VALUE=DATE:20210102
+DTSTAMP:20260905T231739Z
+UID:20210101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20210106
+DTEND;VALUE=DATE:20210107
+DTSTAMP:20260905T231739Z
+UID:20210106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20210402
+DTEND;VALUE=DATE:20210403
+DTSTAMP:20260905T231739Z
+UID:20210402-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20210405
+DTEND;VALUE=DATE:20210406
+DTSTAMP:20260905T231739Z
+UID:20210405-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20210501
+DTEND;VALUE=DATE:20210502
+DTSTAMP:20260905T231739Z
+UID:20210501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20210513
+DTEND;VALUE=DATE:20210514
+DTSTAMP:20260905T231739Z
+UID:20210513-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20210524
+DTEND;VALUE=DATE:20210525
+DTSTAMP:20260905T231739Z
+UID:20210524-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20210603
+DTEND;VALUE=DATE:20210604
+DTSTAMP:20260905T231739Z
+UID:20210603-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20211003
+DTEND;VALUE=DATE:20211004
+DTSTAMP:20260905T231739Z
+UID:20211003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20211101
+DTEND;VALUE=DATE:20211102
+DTSTAMP:20260905T231739Z
+UID:20211101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20211225
+DTEND;VALUE=DATE:20211226
+DTSTAMP:20260905T231739Z
+UID:20211225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20211226
+DTEND;VALUE=DATE:20211227
+DTSTAMP:20260905T231739Z
+UID:20211226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20220101
+DTEND;VALUE=DATE:20220102
+DTSTAMP:20260905T231739Z
+UID:20220101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20220106
+DTEND;VALUE=DATE:20220107
+DTSTAMP:20260905T231739Z
+UID:20220106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20220415
+DTEND;VALUE=DATE:20220416
+DTSTAMP:20260905T231739Z
+UID:20220415-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20220418
+DTEND;VALUE=DATE:20220419
+DTSTAMP:20260905T231739Z
+UID:20220418-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20220501
+DTEND;VALUE=DATE:20220502
+DTSTAMP:20260905T231739Z
+UID:20220501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20220526
+DTEND;VALUE=DATE:20220527
+DTSTAMP:20260905T231739Z
+UID:20220526-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20220606
+DTEND;VALUE=DATE:20220607
+DTSTAMP:20260905T231739Z
+UID:20220606-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20220616
+DTEND;VALUE=DATE:20220617
+DTSTAMP:20260905T231739Z
+UID:20220616-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20221003
+DTEND;VALUE=DATE:20221004
+DTSTAMP:20260905T231739Z
+UID:20221003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20221101
+DTEND;VALUE=DATE:20221102
+DTSTAMP:20260905T231739Z
+UID:20221101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20221225
+DTEND;VALUE=DATE:20221226
+DTSTAMP:20260905T231739Z
+UID:20221225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20221226
+DTEND;VALUE=DATE:20221227
+DTSTAMP:20260905T231739Z
+UID:20221226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20230101
+DTEND;VALUE=DATE:20230102
+DTSTAMP:20260905T231739Z
+UID:20230101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20230106
+DTEND;VALUE=DATE:20230107
+DTSTAMP:20260905T231739Z
+UID:20230106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20230407
+DTEND;VALUE=DATE:20230408
+DTSTAMP:20260905T231739Z
+UID:20230407-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20230410
+DTEND;VALUE=DATE:20230411
+DTSTAMP:20260905T231739Z
+UID:20230410-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20230501
+DTEND;VALUE=DATE:20230502
+DTSTAMP:20260905T231739Z
+UID:20230501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20230518
+DTEND;VALUE=DATE:20230519
+DTSTAMP:20260905T231739Z
+UID:20230518-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20230529
+DTEND;VALUE=DATE:20230530
+DTSTAMP:20260905T231739Z
+UID:20230529-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20230608
+DTEND;VALUE=DATE:20230609
+DTSTAMP:20260905T231739Z
+UID:20230608-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20231003
+DTEND;VALUE=DATE:20231004
+DTSTAMP:20260905T231739Z
+UID:20231003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20231101
+DTEND;VALUE=DATE:20231102
+DTSTAMP:20260905T231739Z
+UID:20231101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20231225
+DTEND;VALUE=DATE:20231226
+DTSTAMP:20260905T231739Z
+UID:20231225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20231226
+DTEND;VALUE=DATE:20231227
+DTSTAMP:20260905T231739Z
+UID:20231226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20240101
+DTEND;VALUE=DATE:20240102
+DTSTAMP:20260905T231739Z
+UID:20240101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20240106
+DTEND;VALUE=DATE:20240107
+DTSTAMP:20260905T231739Z
+UID:20240106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20240329
+DTEND;VALUE=DATE:20240330
+DTSTAMP:20260905T231739Z
+UID:20240329-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20240401
+DTEND;VALUE=DATE:20240402
+DTSTAMP:20260905T231739Z
+UID:20240401-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20240501
+DTEND;VALUE=DATE:20240502
+DTSTAMP:20260905T231739Z
+UID:20240501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20240509
+DTEND;VALUE=DATE:20240510
+DTSTAMP:20260905T231739Z
+UID:20240509-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20240520
+DTEND;VALUE=DATE:20240521
+DTSTAMP:20260905T231739Z
+UID:20240520-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20240530
+DTEND;VALUE=DATE:20240531
+DTSTAMP:20260905T231739Z
+UID:20240530-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20241003
+DTEND;VALUE=DATE:20241004
+DTSTAMP:20260905T231739Z
+UID:20241003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20241101
+DTEND;VALUE=DATE:20241102
+DTSTAMP:20260905T231739Z
+UID:20241101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20241225
+DTEND;VALUE=DATE:20241226
+DTSTAMP:20260905T231739Z
+UID:20241225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20241226
+DTEND;VALUE=DATE:20241227
+DTSTAMP:20260905T231739Z
+UID:20241226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20250101
+DTEND;VALUE=DATE:20250102
+DTSTAMP:20260905T231739Z
+UID:20250101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20250106
+DTEND;VALUE=DATE:20250107
+DTSTAMP:20260905T231739Z
+UID:20250106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20250418
+DTEND;VALUE=DATE:20250419
+DTSTAMP:20260905T231739Z
+UID:20250418-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20250421
+DTEND;VALUE=DATE:20250422
+DTSTAMP:20260905T231739Z
+UID:20250421-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20250501
+DTEND;VALUE=DATE:20250502
+DTSTAMP:20260905T231739Z
+UID:20250501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20250529
+DTEND;VALUE=DATE:20250530
+DTSTAMP:20260905T231739Z
+UID:20250529-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20250609
+DTEND;VALUE=DATE:20250610
+DTSTAMP:20260905T231739Z
+UID:20250609-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20250619
+DTEND;VALUE=DATE:20250620
+DTSTAMP:20260905T231739Z
+UID:20250619-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20251003
+DTEND;VALUE=DATE:20251004
+DTSTAMP:20260905T231739Z
+UID:20251003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20251101
+DTEND;VALUE=DATE:20251102
+DTSTAMP:20260905T231739Z
+UID:20251101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251226
+DTSTAMP:20260905T231739Z
+UID:20251225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20251226
+DTEND;VALUE=DATE:20251227
+DTSTAMP:20260905T231739Z
+UID:20251226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260102
+DTSTAMP:20260905T231739Z
+UID:20260101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20260106
+DTEND;VALUE=DATE:20260107
+DTSTAMP:20260905T231739Z
+UID:20260106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260404
+DTSTAMP:20260905T231739Z
+UID:20260403-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20260406
+DTEND;VALUE=DATE:20260407
+DTSTAMP:20260905T231739Z
+UID:20260406-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+DTSTAMP:20260905T231739Z
+UID:20260501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260515
+DTSTAMP:20260905T231739Z
+UID:20260514-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+DTSTAMP:20260905T231739Z
+UID:20260525-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20260604
+DTEND;VALUE=DATE:20260605
+DTSTAMP:20260905T231739Z
+UID:20260604-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+DTSTAMP:20260905T231739Z
+UID:20261003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+DTSTAMP:20260905T231739Z
+UID:20261101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+DTSTAMP:20260905T231739Z
+UID:20261225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+DTSTAMP:20260905T231739Z
+UID:20261226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+DTSTAMP:20260905T231739Z
+UID:20270101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+DTSTAMP:20260905T231739Z
+UID:20270106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+DTSTAMP:20260905T231739Z
+UID:20270326-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+DTSTAMP:20260905T231739Z
+UID:20270329-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+DTSTAMP:20260905T231739Z
+UID:20270501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+DTSTAMP:20260905T231739Z
+UID:20270506-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+DTSTAMP:20260905T231739Z
+UID:20270517-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+DTSTAMP:20260905T231739Z
+UID:20270527-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+DTSTAMP:20260905T231739Z
+UID:20271003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+DTSTAMP:20260905T231739Z
+UID:20271101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20271225
+DTEND;VALUE=DATE:20271226
+DTSTAMP:20260905T231739Z
+UID:20271225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20271226
+DTEND;VALUE=DATE:20271227
+DTSTAMP:20260905T231739Z
+UID:20271226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20280101
+DTEND;VALUE=DATE:20280102
+DTSTAMP:20260905T231739Z
+UID:20280101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20280106
+DTEND;VALUE=DATE:20280107
+DTSTAMP:20260905T231739Z
+UID:20280106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20280414
+DTEND;VALUE=DATE:20280415
+DTSTAMP:20260905T231739Z
+UID:20280414-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20280417
+DTEND;VALUE=DATE:20280418
+DTSTAMP:20260905T231739Z
+UID:20280417-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280502
+DTSTAMP:20260905T231739Z
+UID:20280501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20280525
+DTEND;VALUE=DATE:20280526
+DTSTAMP:20260905T231739Z
+UID:20280525-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20280605
+DTEND;VALUE=DATE:20280606
+DTSTAMP:20260905T231739Z
+UID:20280605-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20280615
+DTEND;VALUE=DATE:20280616
+DTSTAMP:20260905T231739Z
+UID:20280615-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20281003
+DTEND;VALUE=DATE:20281004
+DTSTAMP:20260905T231739Z
+UID:20281003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20281101
+DTEND;VALUE=DATE:20281102
+DTSTAMP:20260905T231739Z
+UID:20281101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20281225
+DTEND;VALUE=DATE:20281226
+DTSTAMP:20260905T231739Z
+UID:20281225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20281226
+DTEND;VALUE=DATE:20281227
+DTSTAMP:20260905T231739Z
+UID:20281226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20290101
+DTEND;VALUE=DATE:20290102
+DTSTAMP:20260905T231739Z
+UID:20290101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20290106
+DTEND;VALUE=DATE:20290107
+DTSTAMP:20260905T231739Z
+UID:20290106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20290330
+DTEND;VALUE=DATE:20290331
+DTSTAMP:20260905T231739Z
+UID:20290330-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20290402
+DTEND;VALUE=DATE:20290403
+DTSTAMP:20260905T231739Z
+UID:20290402-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20290501
+DTEND;VALUE=DATE:20290502
+DTSTAMP:20260905T231739Z
+UID:20290501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20290510
+DTEND;VALUE=DATE:20290511
+DTSTAMP:20260905T231739Z
+UID:20290510-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20290521
+DTEND;VALUE=DATE:20290522
+DTSTAMP:20260905T231739Z
+UID:20290521-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20290531
+DTEND;VALUE=DATE:20290601
+DTSTAMP:20260905T231739Z
+UID:20290531-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20291003
+DTEND;VALUE=DATE:20291004
+DTSTAMP:20260905T231739Z
+UID:20291003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20291101
+DTEND;VALUE=DATE:20291102
+DTSTAMP:20260905T231739Z
+UID:20291101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20291225
+DTEND;VALUE=DATE:20291226
+DTSTAMP:20260905T231739Z
+UID:20291225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20291226
+DTEND;VALUE=DATE:20291227
+DTSTAMP:20260905T231739Z
+UID:20291226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20300101
+DTEND;VALUE=DATE:20300102
+DTSTAMP:20260905T231739Z
+UID:20300101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20300106
+DTEND;VALUE=DATE:20300107
+DTSTAMP:20260905T231739Z
+UID:20300106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20300419
+DTEND;VALUE=DATE:20300420
+DTSTAMP:20260905T231739Z
+UID:20300419-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20300422
+DTEND;VALUE=DATE:20300423
+DTSTAMP:20260905T231739Z
+UID:20300422-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20300501
+DTEND;VALUE=DATE:20300502
+DTSTAMP:20260905T231739Z
+UID:20300501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20300530
+DTEND;VALUE=DATE:20300531
+DTSTAMP:20260905T231739Z
+UID:20300530-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20300610
+DTEND;VALUE=DATE:20300611
+DTSTAMP:20260905T231739Z
+UID:20300610-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20300620
+DTEND;VALUE=DATE:20300621
+DTSTAMP:20260905T231739Z
+UID:20300620-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20301003
+DTEND;VALUE=DATE:20301004
+DTSTAMP:20260905T231739Z
+UID:20301003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20301101
+DTEND;VALUE=DATE:20301102
+DTSTAMP:20260905T231739Z
+UID:20301101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20301225
+DTEND;VALUE=DATE:20301226
+DTSTAMP:20260905T231739Z
+UID:20301225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20301226
+DTEND;VALUE=DATE:20301227
+DTSTAMP:20260905T231739Z
+UID:20301226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20310101
+DTEND;VALUE=DATE:20310102
+DTSTAMP:20260905T231739Z
+UID:20310101-de_by-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 1번째 'Neujahr' 
+ — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01.08
+ .2013). 날짜 1. 1. 은 feiertage-api 2026 BY·python-holidays 0.102 BY 
+ 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Heilige Drei Könige
+DTSTART;VALUE=DATE:20310106
+DTEND;VALUE=DATE:20310107
+DTSTAMP:20260905T231739Z
+UID:20310106-de_by-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 2번째 'Heilige D
+ rei Könige (Epiphanias)' — gesetze-bayern.de BayFTG-1 원문 2026-09-06
+  열람(Text gilt ab 01.08.2013). 날짜 6. 1. 은 feiertage-api 2026 BY·
+ python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20310411
+DTEND;VALUE=DATE:20310412
+DTSTAMP:20260905T231739Z
+UID:20310411-de_by-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 3번째 'Karfreita
+ g' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 부활절 −2 일은 feiertage-api 2026 BY(4. 3.)·python-holi
+ days 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20310414
+DTEND;VALUE=DATE:20310415
+DTSTAMP:20260905T231739Z
+UID:20310414-de_by-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 4번째 'Ostermont
+ ag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 0
+ 1.08.2013). 부활절 +1 일은 feiertage-api 2026 BY(6. 4.)·python-holid
+ ays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20310501
+DTEND;VALUE=DATE:20310502
+DTSTAMP:20260905T231739Z
+UID:20310501-de_by-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 5번째 'der 1. Ma
+ i' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 01
+ .08.2013). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY(Tag der
+  Arbeit)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20310522
+DTEND;VALUE=DATE:20310523
+DTSTAMP:20260905T231739Z
+UID:20310522-de_by-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 6번째 'Christi H
+ immelfahrt' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text g
+ ilt ab 01.08.2013). 부활절 +39 일은 feiertage-api 2026 BY(14. 5.)·py
+ thon-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20310602
+DTEND;VALUE=DATE:20310603
+DTSTAMP:20260905T231739Z
+UID:20310602-de_by-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 7번째 'Pfingstmo
+ ntag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
+  01.08.2013). 부활절 +50 일은 feiertage-api 2026 BY(25. 5.)·python-h
+ olidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20310612
+DTEND;VALUE=DATE:20310613
+DTSTAMP:20260905T231739Z
+UID:20310612-de_by-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 8번째 'Fronleich
+ nam' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab 
+ 01.08.2013). 부활절 +60 일은 feiertage-api 2026 BY(4. 6.)·python-hol
+ idays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20311003
+DTEND;VALUE=DATE:20311004
+DTSTAMP:20260905T231739Z
+UID:20311003-de_by-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 9번째 'der 3. Ok
+ tober als Tag der Deutschen Einheit' — gesetze-bayern.de BayFTG-1 원문
+  2026-09-06 열람(Text gilt ab 01.08.2013). 연방 근거는 Einigungsver
+ trag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage
+ -api 2026 BY·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20311101
+DTEND;VALUE=DATE:20311102
+DTSTAMP:20260905T231739Z
+UID:20311101-de_by-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 10번째 'Allerhei
+ ligen' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt a
+ b 01.08.2013). 날짜 1. 11. 은 feiertage-api 2026 BY·python-holidays 0.
+ 102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20311225
+DTEND;VALUE=DATE:20311226
+DTSTAMP:20260905T231739Z
+UID:20311225-de_by-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 11번째 'Erster W
+ eihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text
+  gilt ab 01.08.2013). 날짜 25. 12. 은 feiertage-api 2026 BY(1. Weihnach
+ tstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20311226
+DTEND;VALUE=DATE:20311227
+DTSTAMP:20260905T231739Z
+UID:20311226-de_by-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:근거: BayFTG Art. 1 Abs. 1 Nr. 1\, 열거 12번째 'Zweiter 
+ Weihnachtstag' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Tex
+ t gilt ab 01.08.2013). 날짜 26. 12. 은 feiertage-api 2026 BY(2. Weihnac
+ htstag)·python-holidays 0.102 BY 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+END:VCALENDAR
