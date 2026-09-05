@@ -330,3 +330,47 @@ def test_the_status_piece_follows_the_kr_contract():
     assert got["events"] == 9 * 12
     assert got["range"] == {"start": "2020-01-01", "end": "2031-12-31"}
     assert got["provisional_events"] == 0
+
+
+# ---------------------------------------------------------------------------
+# key 경계 — 로드 시점에 거부한다 (Codex 지적: $ 앵커가 끝 개행을 허용했다)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "bad_key",
+    [
+        pytest.param("neujahr\n", id="끝 개행"),
+        pytest.param("neu jahr", id="공백 포함"),
+        pytest.param("Neujahr", id="대문자"),
+        pytest.param("mariä_himmelfahrt", id="비ASCII 움라우트"),
+    ],
+)
+def test_a_key_outside_the_charset_stops_the_load(tmp_path, bad_key):
+    """key 는 UID token 이 된다. 규약 밖 값은 _load() 에서 멈춰야 한다 —
+    발행까지 가면 잘못된 영구 식별자가 나간다.
+
+    끝 개행 케이스가 핵심이다. `^...$` 와 match() 는 문자열 끝의 개행 하나를
+    통과시킨다. fullmatch() 여야 한다.
+    """
+    path = tmp_path / "solar_holidays.yaml"
+    path.write_text(
+        yaml.safe_dump(
+            {
+                "holidays": [
+                    {
+                        "key": bad_key,
+                        "name": "Neujahr",
+                        "month": 1,
+                        "day": 1,
+                        "verified": False,
+                        "source": "test",
+                    }
+                ]
+            },
+            allow_unicode=True,
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(ics.IcsError, match="key 가 규약 밖"):
+        feed._load(path, "month", "day")
