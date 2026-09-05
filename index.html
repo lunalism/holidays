@@ -422,6 +422,17 @@
           <a class="btn" id="webcal-btn-de" href="#">캘린더 앱에서 열기</a>
         </div>
       </div>
+      <div class="feed-row">
+        <div class="feed-head">
+          <p class="feed-label">독일·베를린</p>
+          <p class="feed-desc">전국 공통에 베를린 주법 공휴일을 더한 상위집합</p>
+        </div>
+        <div class="feed-controls">
+          <code class="url" id="feed-url-de-be"></code>
+          <button type="button" class="btn btn-primary" id="copy-btn-de-be">구독 주소 복사</button>
+          <a class="btn" id="webcal-btn-de-be" href="#">캘린더 앱에서 열기</a>
+        </div>
+      </div>
     </div>
 
     <div class="feed-group">
@@ -718,6 +729,7 @@
   var FEED_URL_KRONLY = "https://holidays.lunalism.com/feeds/kr_only.ics";
   var FEED_URL_JPONLY = "https://holidays.lunalism.com/feeds/jp_only.ics";
   var FEED_URL_DE = "https://holidays.lunalism.com/feeds/de.ics";
+  var FEED_URL_DE_BE = "https://holidays.lunalism.com/feeds/de_be.ics";
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -728,6 +740,7 @@
   wireFeed("feed-url-kronly", "webcal-btn-kronly", "copy-btn-kronly", FEED_URL_KRONLY);
   wireFeed("feed-url-jponly", "webcal-btn-jponly", "copy-btn-jponly", FEED_URL_JPONLY);
   wireFeed("feed-url-de", "webcal-btn-de", "copy-btn-de", FEED_URL_DE);
+  wireFeed("feed-url-de-be", "webcal-btn-de-be", "copy-btn-de-be", FEED_URL_DE_BE);
 
   function wireFeed(urlId, webcalId, copyId, url) {
     $(urlId).textContent = url;
