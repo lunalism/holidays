@@ -92,6 +92,7 @@ import re
 import pytest
 
 from rules.de import feed as de_feed
+from rules.de_be import feed as de_be_feed
 from rules.jp import feed as jp_feed
 from rules.jp_only import feed as jp_only_feed
 from rules.kr import feed
@@ -450,11 +451,12 @@ def test_the_published_de_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de.ics 의 UID 가 다른 다섯 발행본의 어떤 UID 와도 겹치지
+    """발행된 feeds/de.ics 의 UID 가 다른 여섯 발행본의 어떤 UID 와도 겹치지
     않는가. de 의 token 은 접두사 없이 독일어 식별자라 구조적으로 겹치지
-    않지만, 그것은 현행 token 체계가 유지되는 동안만 참이다."""
+    않지만, 그것은 현행 token 체계가 유지되는 동안만 참이다. de_be 와는
+    같은 날 같은 항목이 있어 접두사(de_be-)가 유일한 방벽이다."""
     published = set()
-    for other in (feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed):
+    for other in (feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed, de_be_feed):
         published |= _published_uids(other.FEED_PATH)
 
     assert _published_uids(de_feed.FEED_PATH) & published == set()
@@ -477,3 +479,50 @@ def test_the_published_status_describes_the_published_de_feed():
     assert status["feeds"]["de"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
     assert status["feeds"]["de"]["events"] > 0
     assert status["feeds"]["de"]["provisional_events"] == 0
+
+
+def test_the_published_de_be_feed_is_reproducible_from_the_committed_inputs():
+    """커밋된 feeds/de_be.ics 가 지금 코드·데이터로 바이트까지 다시 나오는가.
+    de 재현 테스트와 같은 구조다."""
+    raw = de_be_feed.FEED_PATH.read_bytes()
+    stamp = _feed_dtstamp(raw)
+
+    rebuilt = de_be_feed.build(today=stamp.date(), dtstamp=stamp, previous=raw)
+
+    assert rebuilt == raw, (
+        "커밋된 feeds/de_be.ics 가 지금 코드로 재현되지 않는다.\n"
+        f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
+        "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
+        "  uv run python -m rules.de_be.feed feeds/de_be.ics\n"
+        "  uv run python -m rules.status status.json\n"
+        "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
+        "(이 파일의 모듈 docstring 참조)."
+    )
+
+
+def test_the_published_de_be_feed_shares_no_uid_with_the_other_published_feeds():
+    """발행된 feeds/de_be.ics 의 UID 가 다른 여섯 발행본과 겹치지 않는가.
+    특히 de.ics 와는 전국 공통 9 건이 같은 날 같은 항목이라, token 접두사
+    de_be- 가 없으면 반드시 겹친다."""
+    published = set()
+    for other in (feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed, de_feed):
+        published |= _published_uids(other.FEED_PATH)
+
+    ours = _published_uids(de_be_feed.FEED_PATH)
+    assert ours, "de_be 발행본이 비었다 — 비교가 공허하다"
+    assert ours & published == set()
+
+
+def test_the_published_status_describes_the_published_de_be_feed():
+    """status.json 의 feeds.de_be 가 그 옆의 feeds/de_be.ics 를 설명하는가."""
+    raw = de_be_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = de_be_feed.feed_range(today)
+    assert status["feeds"]["de_be"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}
+    assert status["feeds"]["de_be"]["path"] == str(de_be_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["de_be"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["de_be"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"]["de_be"]["events"] > 0
+    assert status["feeds"]["de_be"]["provisional_events"] == 0

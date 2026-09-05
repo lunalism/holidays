@@ -1,0 +1,98 @@
+# 독일·베를린 주 공휴일 — 고정 날짜 6 건.
+#
+# 근거: Gesetz über die Sonn- und Feiertage (Berlin) § 1 Abs. 1. 전국 공통 5 건에
+# Frauentag(8. März, 2019-01-30 개정 GVBl. S. 22 로 도입)이 더해진다.
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# § 1 에 이동 조항이 없다. feiertage-api 2026 BE 실측(03-08 이 일요일)에서
+# 보상 휴일 항목 0 건. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de/solar_holidays.yaml 의 규약과 같다 — 소문자 ASCII 와 밑줄, 서수는
+# 풀어 쓰고(erster_mai), 움라우트·ß 는 ae/oe/ue/ss 로.
+#
+# 여기서 처음 적용하는 것 하나: 일회성 항목의 key 는 연도를 접미사로 단다
+# (designated_holidays.yaml 의 achter_mai_2025). 숫자는 그 자리(끝의 네 자리
+# 연도)에만 허용한다 — 서수를 숫자로 적는 것(8_mai)은 여전히 막는다.
+# 이유는 designated_holidays.yaml 머리 주석에.
+#
+# 발행되는 UID 의 token 은 이 key 앞에 "de_be-" 가 붙는다(rules/de_be/feed.py).
+# de.ics 와 같은 날 같은 항목이 같은 UID 로 나가면 두 피드를 함께 구독한
+# 캘린더에서 서로를 덮어쓰기 때문이다. key 자체는 접두사 없이 쓴다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. § 1 Abs. 1 의 조문 표기에서 정관사 der 를 뺀 것이다.
+# 전국 공통 피드(de.ics)의 표기(BayFTG 기준: Neujahr, Erster Weihnachtstag)와
+# 다른 항목이 있다 — Neujahrstag, 1. Weihnachtstag. 베를린 조문이 그렇다.
+# "Tag der deutschen Einheit" 의 소문자 d 도 조문 그대로다.
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. 공식 포털(gesetze.berlin.de)은 JS 셸만 돌아와
+# 열람하지 못했고(/tmp/report_de_laender.md BE §1), 현행 § 1 은 비공식 현행판
+# (umwelt-online)과 berlin.de 정부 안내의 열거, feiertage-api 2026 대조로
+# 확인한 것이라 전부 false 다.
+#
+# verified 와 source_todo 는 피드에 나가지 않는다(rules/de_be/feed.py).
+
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 1 + berlin.de 공식 안내 열거 +
+      feiertage-api 2026 날짜 대조 10/10
+    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+
+  - key: frauentag
+    name: Frauentag
+    month: 3
+    day: 8
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 2 'der Frauentag (8. März)' + berlin.de
+      공식 안내 열거 + feiertage-api 2026 날짜 대조 10/10. 도입은 Drittes Gesetz
+      zur Änderung vom 30. Januar 2019 (GVBl. S. 22)
+    source_todo: 2019-01-30 개정 관보 GVBl. S. 22 원문
+
+  - key: erster_mai
+    name: 1. Mai
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 5 + berlin.de 공식 안내 열거 +
+      feiertage-api 2026 날짜 대조 10/10
+    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der deutschen Einheit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 8 + berlin.de 공식 안내 열거 +
+      feiertage-api 2026 날짜 대조 10/10
+    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtstag
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 9 + berlin.de 공식 안내 열거 +
+      feiertage-api 2026 날짜 대조 10/10
+    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtstag
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      umwelt-online 현행판 § 1 Abs. 1 Nr. 10 + berlin.de 공식 안내 열거 +
+      feiertage-api 2026 날짜 대조 10/10
+    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
