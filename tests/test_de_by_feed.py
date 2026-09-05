@@ -316,14 +316,15 @@ def _raw_entries() -> list:
 
 def test_the_tables_hold_twelve_entries_each_citing_its_own_line_of_art_1(events):
     """조 단위 일괄 인용이 아니라 항목별 인용이다. 각 source 는 Art. 1 Abs. 1 Nr. 1
-    을 대고 자기 항목의 조문 표기를 따옴표로 담는다."""
+    을 대고 자기 항목의 조문 표기(정관사·서술부 포함 가능)를 따옴표로 담는다."""
     entries = _raw_entries()
     assert len(entries) == 12
     assert {e["key"] for e in entries} == {key for _, _, key in EXPECTED_2026}
     name_of = {key: name for _, name, key in EXPECTED_2026}
     for entry in entries:
         assert "Art. 1 Abs. 1 Nr. 1" in entry["source"], entry["key"]
-        assert f"'{name_of[entry['key']]}" in entry["source"], entry["key"]
+        quoted = re.findall(r"'([^']+)'", entry["source"])
+        assert quoted and any(name_of[entry["key"]] in q for q in quoted), entry["key"]
 
 
 def test_every_entry_is_verified_against_the_official_portal_and_says_where():

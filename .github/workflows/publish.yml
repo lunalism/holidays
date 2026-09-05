@@ -53,7 +53,7 @@ jobs:
       # 발행하는 나라 목록. 생성 스텝과 커밋 스텝이 같은 목록을 돈다 —
       # 여기가 단일 공급원이다. 나라를 더하면 rules/<나라>/feed.py 의
       # __main__ 과 feeds/<나라>.ics 경로가 있어야 한다.
-      FEEDS: kr jp kr_jp kr_only jp_only de de_be
+      FEEDS: kr jp kr_jp kr_only jp_only de de_be de_by
     steps:
       - name: 체크아웃
         uses: actions/checkout@v4
