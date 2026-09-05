@@ -74,7 +74,11 @@ _WHITESPACE = re.compile(r"\s+")
 
 # key 규약. solar_holidays.yaml 머리 주석 참조. UID 에 그대로 실리는 값이라
 # 로드 시점에 거른다 — 발행까지 가면 잘못된 UID 로 파일이 나간다.
-_KEY_RE = re.compile(r"^[a-z][a-z_]*$")
+#
+# fullmatch() 로 검사한다. ^...$ 와 match() 는 문자열 끝의 개행 하나를
+# 통과시킨다 — "neujahr\n" 이 규약을 지난다. 앵커를 쓰지 않고 전체 일치를
+# 요구한다(tests/test_de_feed.py 의 key 경계 절).
+_KEY_RE = re.compile(r"[a-z][a-z_]*")
 
 
 def feed_range(today: date) -> tuple:
@@ -96,7 +100,7 @@ def _checked(entry: dict, path: Path, *fields) -> dict:
     for field in ("key", "name", "source", *fields):
         if entry.get(field) in (None, ""):
             raise ics.IcsError(f"{where}: {field} 가 비었다.")
-    if not _KEY_RE.match(entry["key"]):
+    if not _KEY_RE.fullmatch(entry["key"]):
         raise ics.IcsError(
             f"{where}: key 가 규약 밖이다. [a-z][a-z_]* 만 허용한다 — "
             "서수는 풀어 쓰고 움라우트는 ae/oe/ue/ss 로 옮길 것."
