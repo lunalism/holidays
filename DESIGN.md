@@ -147,7 +147,7 @@ SEQUENCE 의 진실 공급원은 `feeds/` 의 직전 발행본이다. 상태 파
 
 | 파일 | 무엇인가 | 언제 갱신되나 | 변화 없으면 |
 |---|---|---|---|
-| `feeds/*.ics` (지금은 kr, jp, de, de_be, de_by, kr_jp, kr_only, jp_only) | 구독자가 실제로 받는 것 | 내용이 실제로 바뀔 때만 | 원복. 커밋하지 않는다 |
+| `feeds/*.ics` (지금은 kr, jp, de, de_be, de_by, de_he, kr_jp, kr_only, jp_only) | 구독자가 실제로 받는 것 | 내용이 실제로 바뀔 때만 | 원복. 커밋하지 않는다 |
 | `status.json` | 지금 저장소가 주장하는 상태 | 매 실행 | 그래도 커밋한다 |
 | `logs/build.jsonl` | 발행 시도 기록 | 매 실행 (실패 포함) | 해당 없음 — 늘 한 줄 는다 |
 

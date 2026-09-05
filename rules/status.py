@@ -50,6 +50,7 @@ from datetime import date
 from rules.de import status as de
 from rules.de_be import status as de_be
 from rules.de_by import status as de_by
+from rules.de_he import status as de_he
 from rules.jp import status as jp
 from rules.jp_only import status as jp_only
 from rules.kr import status as kr
@@ -73,6 +74,7 @@ def status(*, today: date, dtstamp) -> dict:
             "de": de.feed_status(today=today),
             "de_be": de_be.feed_status(today=today),
             "de_by": de_by.feed_status(today=today),
+            "de_he": de_he.feed_status(today=today),
         },
         **kr.top_level_sections(today=today),
     }
