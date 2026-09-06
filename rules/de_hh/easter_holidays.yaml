@@ -1,0 +1,50 @@
+# 독일·함부르크 주 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_hh/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건 그대로다. 함부르크는 Fronleichnam(+60)·Ostersonntag(0)·
+# Pfingstsonntag(+49)이 없다 — § 1 의 열거에 없다.
+#
+# key·name·verified 규약과 확인 경로는 solar_holidays.yaml 머리 주석과 같다.
+# name 은 함부르크 조문 표기라 de.ics 의 "Christi Himmelfahrt" 가 여기서는
+# "Himmelfahrtstag" 다(de_be·de_he 와 같음).
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    easter_offset: -2
+    verified: false
+    source: >-
+      Feiertagsgesetz(HH) § 1 Nr. 2 'Karfreitag' — umwelt-online 현행판(Stand
+      28.08.2023). 부활절 −2 일은 feiertage-api 2026 HH(04-03) 대조 일치
+    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+
+  - key: ostermontag
+    name: Ostermontag
+    easter_offset: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(HH) § 1 Nr. 3 'Ostermontag' — umwelt-online 현행판(Stand
+      28.08.2023). 부활절 +1 일은 feiertage-api 2026 HH(04-06) 대조 일치
+    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+
+  - key: christi_himmelfahrt
+    name: Himmelfahrtstag
+    easter_offset: 39
+    verified: false
+    source: >-
+      Feiertagsgesetz(HH) § 1 Nr. 5 'Himmelfahrtstag' — umwelt-online 현행판(Stand
+      28.08.2023). 부활절 +39 일은 feiertage-api 2026 HH(05-14, Christi
+      Himmelfahrt) 대조 일치
+    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    easter_offset: 50
+    verified: false
+    source: >-
+      Feiertagsgesetz(HH) § 1 Nr. 6 'Pfingstmontag' — umwelt-online 현행판(Stand
+      28.08.2023). 부활절 +50 일은 feiertage-api 2026 HH(05-25) 대조 일치
+    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
