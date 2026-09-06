@@ -1,0 +1,68 @@
+# 독일·헤센 주 공휴일 — 부활절 기준 이동 5 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_he/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 Fronleichnamstag(+60, § 1 Abs. 1 Nr. 7)이 더해진다. 조문은
+# 이름만 열거하고 날짜를 정의하지 않는다 — 오프셋은 교회력 관습(삼위일체 주일
+# 다음 목요일 = 부활절 +60)이고, innen.hessen.de 2026(04.06)·feiertage-api 2026
+# HE(06-04)·python-holidays 0.102 HE 로 대조했다.
+#
+# key·name·verified 규약과 확인 경로는 solar_holidays.yaml 머리 주석과 같다.
+# name 은 헤센 조문 표기라 de.ics 의 "Christi Himmelfahrt"·de_by.ics 의
+# "Fronleichnam" 과 다르다(Himmelfahrtstag, Fronleichnamstag) — 각 피드는 자기
+# 근거 조문의 표기를 쓴다(de_be 의 Himmelfahrtstag 와 같은 결정).
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    easter_offset: -2
+    verified: false
+    source: >-
+      HFeiertagsG § 1 Abs. 1 Nr. 2 'der Karfreitag' — umwelt-online 현행판(Stand
+      28.08.2023) + Bistum Fulda PDF 동일 자구. 부활절 −2 일은 innen.hessen.de
+      2026(03.04)·feiertage-api 2026 HE 대조 일치
+    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+
+  - key: ostermontag
+    name: Ostermontag
+    easter_offset: 1
+    verified: false
+    source: >-
+      HFeiertagsG § 1 Abs. 1 Nr. 3 'der Ostermontag' — umwelt-online 현행판(Stand
+      28.08.2023) + Bistum Fulda PDF 동일 자구. 부활절 +1 일은 innen.hessen.de
+      2026(06.04)·feiertage-api 2026 HE 대조 일치
+    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+
+  - key: christi_himmelfahrt
+    name: Himmelfahrtstag
+    easter_offset: 39
+    verified: false
+    source: >-
+      HFeiertagsG § 1 Abs. 1 Nr. 5 'der Himmelfahrtstag' — umwelt-online 현행판
+      (Stand 28.08.2023) + Bistum Fulda PDF 동일 자구. 부활절 +39 일은
+      innen.hessen.de 2026(14.05)·feiertage-api 2026 HE(Christi Himmelfahrt) 대조
+      일치
+    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    easter_offset: 50
+    verified: false
+    source: >-
+      HFeiertagsG § 1 Abs. 1 Nr. 6 'der Pfingstmontag' — umwelt-online 현행판(Stand
+      28.08.2023) + Bistum Fulda PDF 동일 자구. 부활절 +50 일은 innen.hessen.de
+      2026(25.05)·feiertage-api 2026 HE 대조 일치
+    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+
+  - key: fronleichnam
+    name: Fronleichnamstag
+    easter_offset: 60
+    verified: false
+    source: >-
+      HFeiertagsG § 1 Abs. 1 Nr. 7 'der Fronleichnamstag' — umwelt-online 현행판
+      (Stand 28.08.2023) + Bistum Fulda PDF 동일 자구. 조문에 날짜 정의 없음 —
+      부활절 +60 은 교회력 관습 계산. innen.hessen.de 2026(04.06)·feiertage-api
+      2026 HE(Fronleichnam)·python-holidays 0.102 HE 대조 일치
+    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
