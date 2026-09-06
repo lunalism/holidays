@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공휴일 캘린더</title>
-<meta name="description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 항목마다 근거를 함께 둡니다.">
+<meta name="description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다. 항목마다 근거를 함께 둡니다.">
 <meta property="og:title" content="공휴일 캘린더 — holidays.lunalism.com">
-<meta property="og:description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 항목마다 근거를 함께 둡니다.">
+<meta property="og:description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다. 항목마다 근거를 함께 둡니다.">
 <meta property="og:image" content="https://holidays.lunalism.com/assets/og.png">
 <meta property="og:url" content="https://holidays.lunalism.com/">
 <meta property="og:type" content="website">
@@ -150,6 +150,51 @@
 
   .feed-row { margin-bottom: 1rem; }
   .feed-row:last-child { margin-bottom: 0; }
+
+  /* 주별 피드 아코디언. 뼈대는 네이티브 details/summary 다 — 키보드 포커스·
+     Enter/Space 토글·보조기술 상태 안내를 브라우저가 맡는다. 여기서 하는 것은
+     마커를 화살표 아이콘으로 바꾸고(열리면 90° 회전), 내용물을 옅게 들어오게
+     하는 것뿐이다. 높이 슬라이드는 넣지 않는다 — 네이티브 details 는 열리는
+     순간 높이가 정해지므로 슬라이드를 흉내 내려면 JS 로 높이를 재야 하고,
+     그 순간 "네이티브" 가 아니게 된다. 색·크기는 기존 토큰과 .feed-row 안의
+     단계를 그대로 쓴다. */
+  .feed-accordion { margin-top: 1rem; }
+  .feed-accordion > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--fg);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 150ms ease;
+  }
+  .feed-accordion > summary::-webkit-details-marker { display: none; }
+  .feed-accordion > summary:hover { background: var(--surface-hover); }
+  .feed-accordion > summary:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+  .feed-accordion .chevron {
+    flex: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--muted);
+    transition: transform 200ms ease;
+  }
+  .feed-accordion[open] > summary .chevron { transform: rotate(90deg); }
+  .feed-accordion-body {
+    margin: 1rem 0 0 0.625rem;
+    padding-left: 0.875rem;
+    border-left: 2px solid var(--border);
+  }
+  .feed-accordion[open] > .feed-accordion-body { animation: feed-fade-in 200ms ease; }
+  @keyframes feed-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 
   .feed-head {
     display: flex;
@@ -364,7 +409,7 @@
   footer p:last-child { margin-bottom: 0; }
 
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+    * { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
@@ -379,7 +424,7 @@
       캘린더 앱에서 구독하면 대한민국·일본·독일의 공휴일이 자동으로 들어옵니다.
       대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와
       대조하고, 일본은 内閣府「国民の祝日について」데이터를 기준으로 하며,
-      독일은 16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다.
+      독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다.
       항목마다 근거를 함께 둡니다.
     </p>
   </header>
@@ -422,17 +467,71 @@
           <a class="btn" id="webcal-btn-de" href="#">캘린더 앱에서 열기</a>
         </div>
       </div>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">독일·베를린</p>
-          <p class="feed-desc">전국 공통에 베를린 주법 공휴일을 더한 상위집합</p>
+      <details class="feed-accordion">
+        <summary>
+          <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          독일 주별 피드 (5)
+        </summary>
+        <div class="feed-accordion-body">
+          <div class="feed-row">
+            <div class="feed-head">
+              <p class="feed-label">독일·베를린</p>
+              <p class="feed-desc">전국 공통에 베를린 주법 공휴일을 더한 상위집합</p>
+            </div>
+            <div class="feed-controls">
+              <code class="url" id="feed-url-de-be"></code>
+              <button type="button" class="btn btn-primary" id="copy-btn-de-be">구독 주소 복사</button>
+              <a class="btn" id="webcal-btn-de-be" href="#">캘린더 앱에서 열기</a>
+            </div>
+          </div>
+          <div class="feed-row">
+            <div class="feed-head">
+              <p class="feed-label">독일·바이에른</p>
+              <p class="feed-desc">전국 공통에 바이에른 주법 공휴일을 더한 상위집합</p>
+            </div>
+            <div class="feed-controls">
+              <code class="url" id="feed-url-de-by"></code>
+              <button type="button" class="btn btn-primary" id="copy-btn-de-by">구독 주소 복사</button>
+              <a class="btn" id="webcal-btn-de-by" href="#">캘린더 앱에서 열기</a>
+            </div>
+          </div>
+          <div class="feed-row">
+            <div class="feed-head">
+              <p class="feed-label">독일·헤센</p>
+              <p class="feed-desc">전국 공통에 헤센 주법 공휴일을 더한 상위집합</p>
+            </div>
+            <div class="feed-controls">
+              <code class="url" id="feed-url-de-he"></code>
+              <button type="button" class="btn btn-primary" id="copy-btn-de-he">구독 주소 복사</button>
+              <a class="btn" id="webcal-btn-de-he" href="#">캘린더 앱에서 열기</a>
+            </div>
+          </div>
+          <div class="feed-row">
+            <div class="feed-head">
+              <p class="feed-label">독일·함부르크</p>
+              <p class="feed-desc">전국 공통에 함부르크 주법 공휴일을 더한 상위집합</p>
+            </div>
+            <div class="feed-controls">
+              <code class="url" id="feed-url-de-hh"></code>
+              <button type="button" class="btn btn-primary" id="copy-btn-de-hh">구독 주소 복사</button>
+              <a class="btn" id="webcal-btn-de-hh" href="#">캘린더 앱에서 열기</a>
+            </div>
+          </div>
+          <div class="feed-row">
+            <div class="feed-head">
+              <p class="feed-label">독일·노르트라인베스트팔렌</p>
+              <p class="feed-desc">전국 공통에 노르트라인베스트팔렌 주법 공휴일을 더한 상위집합</p>
+            </div>
+            <div class="feed-controls">
+              <code class="url" id="feed-url-de-nw"></code>
+              <button type="button" class="btn btn-primary" id="copy-btn-de-nw">구독 주소 복사</button>
+              <a class="btn" id="webcal-btn-de-nw" href="#">캘린더 앱에서 열기</a>
+            </div>
+          </div>
         </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-de-be"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-de-be">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-de-be" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
+      </details>
     </div>
 
     <div class="feed-group">
@@ -730,6 +829,10 @@
   var FEED_URL_JPONLY = "https://holidays.lunalism.com/feeds/jp_only.ics";
   var FEED_URL_DE = "https://holidays.lunalism.com/feeds/de.ics";
   var FEED_URL_DE_BE = "https://holidays.lunalism.com/feeds/de_be.ics";
+  var FEED_URL_DE_BY = "https://holidays.lunalism.com/feeds/de_by.ics";
+  var FEED_URL_DE_HE = "https://holidays.lunalism.com/feeds/de_he.ics";
+  var FEED_URL_DE_HH = "https://holidays.lunalism.com/feeds/de_hh.ics";
+  var FEED_URL_DE_NW = "https://holidays.lunalism.com/feeds/de_nw.ics";
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -741,6 +844,10 @@
   wireFeed("feed-url-jponly", "webcal-btn-jponly", "copy-btn-jponly", FEED_URL_JPONLY);
   wireFeed("feed-url-de", "webcal-btn-de", "copy-btn-de", FEED_URL_DE);
   wireFeed("feed-url-de-be", "webcal-btn-de-be", "copy-btn-de-be", FEED_URL_DE_BE);
+  wireFeed("feed-url-de-by", "webcal-btn-de-by", "copy-btn-de-by", FEED_URL_DE_BY);
+  wireFeed("feed-url-de-he", "webcal-btn-de-he", "copy-btn-de-he", FEED_URL_DE_HE);
+  wireFeed("feed-url-de-hh", "webcal-btn-de-hh", "copy-btn-de-hh", FEED_URL_DE_HH);
+  wireFeed("feed-url-de-nw", "webcal-btn-de-nw", "copy-btn-de-nw", FEED_URL_DE_NW);
 
   function wireFeed(urlId, webcalId, copyId, url) {
     $(urlId).textContent = url;
