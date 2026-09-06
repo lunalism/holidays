@@ -1,0 +1,70 @@
+# 독일·노르트라인베스트팔렌 주 공휴일 — 부활절 기준 이동 5 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_nw/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 Fronleichnamstag(+60, § 2 Abs. 1 Nr. 7)이 더해진다. HE 와 달리
+# NW 조문은 괄호로 날짜를 정의한다 — "Donnerstag nach dem Sonntag Trinitatis".
+# Trinitatis 는 Pfingsten(+49) 다음 일요일(+56)이고 그 다음 목요일이 +60 이라
+# 부활절 +60 과 등가다. 2026 실측: Trinitatis 05-31, 다음 목요일 06-04 = 부활절
+# (04-05) +60. feiertage-api 2026 NW(06-04)와 일치.
+#
+# key·name·verified 규약과 확인 경로는 solar_holidays.yaml 머리 주석과 같다.
+# name 은 NW 조문 표기라 Nr. 5 가 "Christi-Himmelfahrts-Tag"(하이픈, 조문 그대로),
+# Nr. 7 이 "Fronleichnamstag"(괄호 정의 제외)이다. token 은 기존 확립값
+# (christi_himmelfahrt, fronleichnam) — 신규 명명 없음.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    easter_offset: -2
+    verified: false
+    source: >-
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 2 'der Karfreitag' — lexmea 현행판(Imported
+      21.10.2025), IHK Köln 동일 자구. 부활절 −2 일은 feiertage-api 2026 NW(04-03)
+      대조 일치
+    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+
+  - key: ostermontag
+    name: Ostermontag
+    easter_offset: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 3 'der Ostermontag' — lexmea 현행판(Imported
+      21.10.2025), IHK Köln 동일 자구. 부활절 +1 일은 feiertage-api 2026 NW(04-06)
+      대조 일치
+    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+
+  - key: christi_himmelfahrt
+    name: Christi-Himmelfahrts-Tag
+    easter_offset: 39
+    verified: false
+    source: >-
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 5 'der Christi-Himmelfahrts-Tag' — lexmea
+      현행판(Imported 21.10.2025), IHK Köln 동일 자구(하이픈 표기 그대로). 부활절
+      +39 일은 feiertage-api 2026 NW(05-14, Christi Himmelfahrt) 대조 일치
+    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    easter_offset: 50
+    verified: false
+    source: >-
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 6 'der Pfingstmontag' — lexmea 현행판
+      (Imported 21.10.2025), IHK Köln 동일 자구. 부활절 +50 일은 feiertage-api 2026
+      NW(05-25) 대조 일치
+    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+
+  - key: fronleichnam
+    name: Fronleichnamstag
+    easter_offset: 60
+    verified: false
+    source: >-
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 7 'der Fronleichnamstag (Donnerstag nach dem
+      Sonntag Trinitatis)' — lexmea 현행판(Imported 21.10.2025). IHK Köln 은 'der
+      Fronleichnamstag'(괄호 없음)로 자구가 다르다 — lexmea 를 따름. SUMMARY 는 괄호
+      정의를 뺀 'Fronleichnamstag'. 조문의 정의(Trinitatis 다음 목요일)는 부활절 +60
+      과 등가 — Trinitatis 가 부활절 +56 일요일이라서. 2026 실측 Trinitatis 05-31 →
+      06-04, feiertage-api 2026 NW(Fronleichnam 06-04) 대조 일치
+    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
