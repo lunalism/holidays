@@ -69,8 +69,9 @@ Codex 리뷰는 정적 분석으로 취급한다. exit 2 로 끝나도 리뷰 �
   CI 에서는 GitHub Actions Secret `KASI_SERVICE_KEY` 로 주입한다 —
   `.github/workflows/publish.yml` 의 "피드 생성" 스텝이 그 자리다.
   설정 방법은 README 의 "발행" 절에 있다.
-- 발행 워크플로는 매주 월요일 09:00 KST 에 자동 실행된다. UID 네임스페이스는
-  `holidays.lunalism.com` 으로 확정됐다. 자세한 것은 `DESIGN.md` 의 발행 파이프라인 참조.
+- 발행 워크플로는 매주 월·수·금 06:23 KST (일·화·목 21:23 UTC) 에 자동 실행된다.
+  UID 네임스페이스는 `holidays.lunalism.com` 으로 확정됐다. 자세한 것은
+  `DESIGN.md` 의 발행 파이프라인 참조.
 - 코드·커밋·테스트 픽스처에 키를 넣지 말 것.
 - **로그와 예외 메시지에 키가 실리지 않게 할 것.** 이 API 는 인증키를 쿼리
   문자열로 받으므로, 요청 URL 이 그대로 올라가면 키가 그대로 노출된다.

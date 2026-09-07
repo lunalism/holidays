@@ -62,10 +62,13 @@ status.json 안에서 today 를 가장 정확히 담은 필드는 feed.range.end
 아래 test_the_published_status_describes_the_published_feed 가 feed_range() 를
 직접 불러 맞춰 본다.
 
-09:00 KST 경계는 걸리지 않는다. today 는 UTC 날짜이고 cron 은 00:00 UTC 인데,
-09:00 KST 와 00:00 UTC 는 같은 날짜다. 게다가 피드 출력이 today 에서 보는 것은
-연도뿐이라(feed_range), 하루 어긋나도 12-31/01-01 을 건너뛸 때만 결과가 갈린다.
-그 경우는 피드에 한 해가 통째로 붙어 내용이 바뀌므로 피드가 반드시 재커밋된다.
+KST 날짜 경계는 걸리지 않는다. cron 은 일·화·목 21:23 UTC 라 KST 로는 다음 날
+06:23 이고 UTC 날짜와 KST 날짜가 다르지만, 발행 경로는 KST 를 읽지 않는다 —
+today 는 UTC 시계(각 feed.py __main__ 의 datetime.now(UTC))의 날짜이고 이
+테스트도 DTSTAMP 의 UTC 날짜를 today 로 쓴다. 같은 UTC 값끼리 맞춘다. 게다가
+피드 출력이 today 에서 보는 것은 연도뿐이라(feed_range), 12-31/01-01 을 건너뛸
+때만 결과가 갈린다. 그 경우는 피드에 한 해가 통째로 붙어 내용이 바뀌므로
+피드가 반드시 재커밋된다.
 
 --------------------------------------------------------------------------
 깨졌을 때 먼저 의심할 것
