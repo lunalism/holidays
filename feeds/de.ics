@@ -8,11 +8,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20200101
 DTEND;VALUE=DATE:20200102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -20,11 +21,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20200410
 DTEND;VALUE=DATE:20200411
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200410-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -32,11 +34,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20200413
 DTEND;VALUE=DATE:20200414
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200413-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -44,11 +47,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20200501
 DTEND;VALUE=DATE:20200502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -56,11 +60,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20200521
 DTEND;VALUE=DATE:20200522
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200521-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -68,11 +73,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20200601
 DTEND;VALUE=DATE:20200602
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20200601-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -80,12 +86,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20201003
 DTEND;VALUE=DATE:20201004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20201003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -93,11 +99,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20201225
 DTEND;VALUE=DATE:20201226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20201225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -105,11 +112,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20201226
 DTEND;VALUE=DATE:20201227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20201226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -117,11 +125,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20210101
 DTEND;VALUE=DATE:20210102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -129,11 +138,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20210402
 DTEND;VALUE=DATE:20210403
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210402-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -141,11 +151,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20210405
 DTEND;VALUE=DATE:20210406
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210405-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -153,11 +164,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20210501
 DTEND;VALUE=DATE:20210502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -165,11 +177,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20210513
 DTEND;VALUE=DATE:20210514
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210513-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -177,11 +190,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20210524
 DTEND;VALUE=DATE:20210525
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20210524-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -189,12 +203,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20211003
 DTEND;VALUE=DATE:20211004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20211003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -202,11 +216,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20211225
 DTEND;VALUE=DATE:20211226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20211225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -214,11 +229,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20211226
 DTEND;VALUE=DATE:20211227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20211226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -226,11 +242,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20220101
 DTEND;VALUE=DATE:20220102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -238,11 +255,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20220415
 DTEND;VALUE=DATE:20220416
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220415-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -250,11 +268,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20220418
 DTEND;VALUE=DATE:20220419
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220418-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -262,11 +281,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20220501
 DTEND;VALUE=DATE:20220502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -274,11 +294,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20220526
 DTEND;VALUE=DATE:20220527
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220526-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -286,11 +307,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20220606
 DTEND;VALUE=DATE:20220607
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20220606-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -298,12 +320,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20221003
 DTEND;VALUE=DATE:20221004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20221003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -311,11 +333,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20221225
 DTEND;VALUE=DATE:20221226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20221225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -323,11 +346,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20221226
 DTEND;VALUE=DATE:20221227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20221226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -335,11 +359,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20230101
 DTEND;VALUE=DATE:20230102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -347,11 +372,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20230407
 DTEND;VALUE=DATE:20230408
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230407-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -359,11 +385,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20230410
 DTEND;VALUE=DATE:20230411
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230410-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -371,11 +398,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20230501
 DTEND;VALUE=DATE:20230502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -383,11 +411,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20230518
 DTEND;VALUE=DATE:20230519
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230518-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -395,11 +424,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20230529
 DTEND;VALUE=DATE:20230530
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20230529-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -407,12 +437,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20231003
 DTEND;VALUE=DATE:20231004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20231003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -420,11 +450,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20231225
 DTEND;VALUE=DATE:20231226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20231225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -432,11 +463,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20231226
 DTEND;VALUE=DATE:20231227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20231226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -444,11 +476,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20240101
 DTEND;VALUE=DATE:20240102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -456,11 +489,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20240329
 DTEND;VALUE=DATE:20240330
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240329-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -468,11 +502,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20240401
 DTEND;VALUE=DATE:20240402
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240401-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -480,11 +515,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20240501
 DTEND;VALUE=DATE:20240502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -492,11 +528,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20240509
 DTEND;VALUE=DATE:20240510
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240509-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -504,11 +541,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20240520
 DTEND;VALUE=DATE:20240521
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20240520-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -516,12 +554,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20241003
 DTEND;VALUE=DATE:20241004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20241003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -529,11 +567,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20241225
 DTEND;VALUE=DATE:20241226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20241225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -541,11 +580,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20241226
 DTEND;VALUE=DATE:20241227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20241226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -553,11 +593,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20250101
 DTEND;VALUE=DATE:20250102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -565,11 +606,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20250418
 DTEND;VALUE=DATE:20250419
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250418-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -577,11 +619,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20250421
 DTEND;VALUE=DATE:20250422
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250421-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -589,11 +632,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20250501
 DTEND;VALUE=DATE:20250502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -601,11 +645,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20250529
 DTEND;VALUE=DATE:20250530
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250529-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -613,11 +658,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20250609
 DTEND;VALUE=DATE:20250610
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20250609-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -625,12 +671,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20251003
 DTEND;VALUE=DATE:20251004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20251003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -638,11 +684,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20251225
 DTEND;VALUE=DATE:20251226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20251225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -650,11 +697,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20251226
 DTEND;VALUE=DATE:20251227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20251226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -662,11 +710,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20260101
 DTEND;VALUE=DATE:20260102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -674,11 +723,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260404
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260403-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -686,11 +736,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260406-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -698,11 +749,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -710,11 +762,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260515
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260514-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -722,11 +775,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20260525-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -734,12 +788,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20261003
 DTEND;VALUE=DATE:20261004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20261003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -747,11 +801,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20261225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -759,11 +814,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20261226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -771,11 +827,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -783,11 +840,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20270326
 DTEND;VALUE=DATE:20270327
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270326-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -795,11 +853,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20270329
 DTEND;VALUE=DATE:20270330
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270329-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -807,11 +866,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -819,11 +879,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20270506
 DTEND;VALUE=DATE:20270507
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270506-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -831,11 +892,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20270517
 DTEND;VALUE=DATE:20270518
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20270517-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -843,12 +905,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20271003
 DTEND;VALUE=DATE:20271004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20271003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -856,11 +918,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20271225
 DTEND;VALUE=DATE:20271226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20271225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -868,11 +931,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20271226
 DTEND;VALUE=DATE:20271227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20271226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -880,11 +944,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20280101
 DTEND;VALUE=DATE:20280102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -892,11 +957,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20280414
 DTEND;VALUE=DATE:20280415
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280414-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -904,11 +970,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20280417
 DTEND;VALUE=DATE:20280418
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280417-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -916,11 +983,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20280501
 DTEND;VALUE=DATE:20280502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -928,11 +996,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20280525
 DTEND;VALUE=DATE:20280526
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280525-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -940,11 +1009,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20280605
 DTEND;VALUE=DATE:20280606
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20280605-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -952,12 +1022,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20281003
 DTEND;VALUE=DATE:20281004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20281003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -965,11 +1035,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20281225
 DTEND;VALUE=DATE:20281226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20281225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -977,11 +1048,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20281226
 DTEND;VALUE=DATE:20281227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20281226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -989,11 +1061,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20290101
 DTEND;VALUE=DATE:20290102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1001,11 +1074,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20290330
 DTEND;VALUE=DATE:20290331
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290330-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1013,11 +1087,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20290402
 DTEND;VALUE=DATE:20290403
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290402-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1025,11 +1100,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20290501
 DTEND;VALUE=DATE:20290502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1037,11 +1113,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20290510
 DTEND;VALUE=DATE:20290511
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290510-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1049,11 +1126,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20290521
 DTEND;VALUE=DATE:20290522
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20290521-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1061,12 +1139,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20291003
 DTEND;VALUE=DATE:20291004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20291003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1074,11 +1152,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20291225
 DTEND;VALUE=DATE:20291226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20291225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1086,11 +1165,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20291226
 DTEND;VALUE=DATE:20291227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20291226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1098,11 +1178,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20300101
 DTEND;VALUE=DATE:20300102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1110,11 +1191,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20300419
 DTEND;VALUE=DATE:20300420
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300419-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1122,11 +1204,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20300422
 DTEND;VALUE=DATE:20300423
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300422-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1134,11 +1217,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20300501
 DTEND;VALUE=DATE:20300502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1146,11 +1230,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20300530
 DTEND;VALUE=DATE:20300531
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300530-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1158,11 +1243,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20300610
 DTEND;VALUE=DATE:20300611
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20300610-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1170,12 +1256,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20301003
 DTEND;VALUE=DATE:20301004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20301003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1183,11 +1269,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20301225
 DTEND;VALUE=DATE:20301226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20301225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1195,11 +1282,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20301226
 DTEND;VALUE=DATE:20301227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20301226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1207,11 +1295,12 @@ BEGIN:VEVENT
 SUMMARY:Neujahr
 DTSTART;VALUE=DATE:20310101
 DTEND;VALUE=DATE:20310102
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310101-neujahr@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1219,11 +1308,12 @@ BEGIN:VEVENT
 SUMMARY:Karfreitag
 DTSTART;VALUE=DATE:20310411
 DTEND;VALUE=DATE:20310412
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310411-karfreitag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1231,11 +1321,12 @@ BEGIN:VEVENT
 SUMMARY:Ostermontag
 DTSTART;VALUE=DATE:20310414
 DTEND;VALUE=DATE:20310415
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310414-ostermontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1243,11 +1334,12 @@ BEGIN:VEVENT
 SUMMARY:1. Mai
 DTSTART;VALUE=DATE:20310501
 DTEND;VALUE=DATE:20310502
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310501-erster_mai@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1255,11 +1347,12 @@ BEGIN:VEVENT
 SUMMARY:Christi Himmelfahrt
 DTSTART;VALUE=DATE:20310522
 DTEND;VALUE=DATE:20310523
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310522-christi_himmelfahrt@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1267,11 +1360,12 @@ BEGIN:VEVENT
 SUMMARY:Pfingstmontag
 DTSTART;VALUE=DATE:20310602
 DTEND;VALUE=DATE:20310603
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20310602-pfingstmontag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1279,12 +1373,12 @@ BEGIN:VEVENT
 SUMMARY:Tag der Deutschen Einheit
 DTSTART;VALUE=DATE:20311003
 DTEND;VALUE=DATE:20311004
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20311003-tag_der_deutschen_einheit@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist
-  als Tag der Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-interne
- t.de)
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de)
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1292,11 +1386,12 @@ BEGIN:VEVENT
 SUMMARY:Erster Weihnachtstag
 DTSTART;VALUE=DATE:20311225
 DTEND;VALUE=DATE:20311226
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20311225-erster_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
@@ -1304,11 +1399,12 @@ BEGIN:VEVENT
 SUMMARY:Zweiter Weihnachtstag
 DTSTART;VALUE=DATE:20311226
 DTEND;VALUE=DATE:20311227
-DTSTAMP:20260904T233454Z
+DTSTAMP:20260907T100006Z
 UID:20311226-zweiter_weihnachtstag@holidays.lunalism.com
 SEQUENCE:0
-DESCRIPTION:근거: BMI 공식 서술(주법 16벌에 의한 전국 공통
-  9건) + BayFTG Art. 1 원문 + 독립 소스 3종 교차 실측 일치
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: BMI 공식 서술
+ (주법 16벌에 의한 전국 공통 9건) + BayFTG Art. 1 원문 + 독
+ 립 소스 3종 교차 실측 일치
 TRANSP:TRANSPARENT
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
 END:VEVENT
