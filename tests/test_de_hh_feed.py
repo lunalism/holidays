@@ -10,10 +10,11 @@
     Sonderfeiertag 명령이 조사에서 확인된 것 없음). 대체공휴일(이동) 규칙도 없다.
 
 근거는 /tmp/report_de_laender.md 의 HH 절이고, 요지는 rules/de_hh/ 의 YAML
-source 필드에 옮겨 적었다. 공식 포털(landesrecht-hamburg)은 열람에 실패해 10 건
-전부 verified: false 다 — BE 기저 9 건과 같은 관례(xfail 없음, source_todo 필수,
-상태를 고정하는 테스트 하나). 31. Oktober 만 2018 개정안(의회 Drucksache
-21/12153)을 봤지만 의결 전 안이라 승격하지 않는다.
+source 필드에 옮겨 적었다. 공식 포털(landesrecht-hamburg)은 열람에 실패해 9 건이
+verified: false 다 — BE 기저 9 건과 같은 관례(xfail 없음, source_todo 필수,
+상태를 고정하는 테스트 하나). 31. Oktober 는 공포 관보 원문(HmbGVBl. 2018 Nr. 9
+S. 63, Fünftes Gesetz zur Änderung des Feiertagsgesetzes vom 12.03.2018)을 직접
+읽어 true 다 — de_hh 의 첫 true 항목이다.
 
 Nr. 8 은 조문에 이름이 없고 날짜뿐이다. SUMMARY 는 조문 표기 "31. Oktober"
 그대로, token 은 통칭 reformationstag — key charset 이 날짜형을 허용하지 않아
@@ -307,7 +308,7 @@ def test_every_event_falls_inside_the_range(events):
 
 
 # ---------------------------------------------------------------------------
-# 근거 — 항목별 호 인용, verified 전건 false (BE 기저 9 건 관례)
+# 근거 — 항목별 호 인용, verified 는 31. Oktober 하나만 true (나머지는 BE 기저 9 건 관례)
 # ---------------------------------------------------------------------------
 
 
@@ -338,32 +339,41 @@ def test_the_unity_day_source_quotes_the_parenthesised_date_but_the_summary_drop
     assert entry["name"] == "Tag der Deutschen Einheit"
 
 
-def test_the_31st_of_october_entry_documents_the_coined_token_and_the_bill():
-    """조문 표기·통칭·식별자 채택 근거·개정 문서·미열람 관보가 모두 한 항목에
-    남아야 한다. true 승격은 하지 않는다 — Drucksache 는 의결 전 안이다."""
+def test_the_31st_of_october_entry_cites_the_gazette_and_is_verified():
+    """de_hh 의 첫 true 항목. 근거는 공포 관보 원문이다 — Fünftes Gesetz zur Änderung
+    des Feiertagsgesetzes vom 12. März 2018, HmbGVBl. 2018 Nr. 9 S. 63(20.03.2018
+    공포). 의결 전 안(Drucksache 21/12153)은 공포본이 상위 근거라 더 적지 않는다.
+    통칭 Reformationstag 와 식별자 채택 근거는 표의 머리 주석과 feed.py 가 든다."""
     by_key = {e["key"]: e for e in _raw_entries()}
     entry = by_key["reformationstag"]
     assert entry["name"] == "31. Oktober"
     assert (entry["month"], entry["day"]) == (10, 31)
-    assert "'31. Oktober'" in entry["source"]
-    assert "Reformationstag" in entry["source"]
-    assert "Drucksache 21/12153" in entry["source"]
-    assert "charset" in entry["source"] or "날짜형" in entry["source"]
-    assert entry["verified"] is False
-    assert "HmbGVBl. 2018 S. 63" in entry["source_todo"]
+    assert "§ 1 Nr. 8 '31. Oktober'" in entry["source"]
+    assert "Fünftes Gesetz zur Änderung des Feiertagsgesetzes" in entry["source"]
+    assert "12.03.2018" in entry["source"]
+    assert "HmbGVBl. 2018 Nr. 9 S. 63" in entry["source"]
+    assert "20.03.2018" in entry["source"]
+    assert "feiertage-api 2026 HH" in entry["source"]
+    assert "Drucksache" not in entry["source"]
+    assert entry["verified"] is True
+    assert "source_todo" not in entry, "해소된 항목에 source_todo 가 남아 있다"
 
 
-def test_nothing_is_verified_and_every_entry_says_what_is_missing():
-    """공식 포털(landesrecht-hamburg)을 열람하지 못했으므로 10 건 전부 false 다.
+def test_only_the_31st_of_october_is_verified_and_the_rest_say_what_is_missing():
+    """9 false + 1 true. 공식 포털(landesrecht-hamburg)을 열람하지 못한 9 건은
     BE 기저 9 건과 같은 관례 — xfail 이 아니라 source_todo 로 남기고 여기서 상태를
-    고정한다."""
-    for entry in _raw_entries():
+    고정한다. 31. Oktober 는 공포 관보를 읽어 true(위 테스트)."""
+    entries = _raw_entries()
+    assert [e["key"] for e in entries if e["verified"]] == ["reformationstag"]
+    for entry in entries:
+        assert "feiertage-api" in entry["source"], entry["key"]
+        if entry["key"] == "reformationstag":
+            continue
         assert entry["verified"] is False, entry["key"]
         assert entry.get("source_todo"), entry["key"]
         todo = entry["source_todo"]
         assert "landesrecht-hamburg" in todo or "HmbGVBl" in todo, entry["key"]
         assert "umwelt-online" in entry["source"], entry["key"]
-        assert "feiertage-api" in entry["source"], entry["key"]
 
 
 def test_every_description_carries_the_source(events):
