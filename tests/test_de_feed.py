@@ -299,9 +299,9 @@ def test_only_the_unity_day_is_verified():
 def test_every_description_carries_the_source(events):
     by_key = {e["key"]: e for e in _raw_entries()}
     for e in events:
-        assert e.description.startswith("근거: "), e
+        assert "\n\n근거: " in e.description, e  # 첫 줄은 tests/test_de_scope.py
         assert " ".join(by_key[e.token]["source"].split()) in e.description
-        assert "\n" not in e.description
+        assert e.description.split("\n")[-1].startswith("근거: "), e
 
 
 def test_our_verification_state_never_reaches_the_feed(rendered):
