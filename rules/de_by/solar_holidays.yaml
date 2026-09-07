@@ -46,9 +46,17 @@
 #
 # verified 는 피드에 나가지 않는다(rules/de_by/feed.py).
 
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
 holidays:
   - key: neujahr
     name: Neujahr
+    scope: bundesweit
     month: 1
     day: 1
     verified: true
@@ -59,6 +67,7 @@ holidays:
 
   - key: heilige_drei_koenige
     name: Heilige Drei Könige
+    scope: land
     month: 1
     day: 6
     verified: true
@@ -69,6 +78,7 @@ holidays:
 
   - key: erster_mai
     name: 1. Mai
+    scope: bundesweit
     month: 5
     day: 1
     verified: true
@@ -79,6 +89,7 @@ holidays:
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
+    scope: bundesweit
     month: 10
     day: 3
     verified: true
@@ -90,6 +101,7 @@ holidays:
 
   - key: allerheiligen
     name: Allerheiligen
+    scope: land
     month: 11
     day: 1
     verified: true
@@ -100,6 +112,7 @@ holidays:
 
   - key: erster_weihnachtstag
     name: Erster Weihnachtstag
+    scope: bundesweit
     month: 12
     day: 25
     verified: true
@@ -110,6 +123,7 @@ holidays:
 
   - key: zweiter_weihnachtstag
     name: Zweiter Weihnachtstag
+    scope: bundesweit
     month: 12
     day: 26
     verified: true

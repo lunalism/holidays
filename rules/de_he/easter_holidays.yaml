@@ -14,9 +14,17 @@
 # "Fronleichnam" 과 다르다(Himmelfahrtstag, Fronleichnamstag) — 각 피드는 자기
 # 근거 조문의 표기를 쓴다(de_be 의 Himmelfahrtstag 와 같은 결정).
 
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
 holidays:
   - key: karfreitag
     name: Karfreitag
+    scope: bundesweit
     easter_offset: -2
     verified: false
     source: >-
@@ -27,6 +35,7 @@ holidays:
 
   - key: ostermontag
     name: Ostermontag
+    scope: bundesweit
     easter_offset: 1
     verified: false
     source: >-
@@ -37,6 +46,7 @@ holidays:
 
   - key: christi_himmelfahrt
     name: Himmelfahrtstag
+    scope: bundesweit
     easter_offset: 39
     verified: false
     source: >-
@@ -48,6 +58,7 @@ holidays:
 
   - key: pfingstmontag
     name: Pfingstmontag
+    scope: bundesweit
     easter_offset: 50
     verified: false
     source: >-
@@ -58,6 +69,7 @@ holidays:
 
   - key: fronleichnam
     name: Fronleichnamstag
+    scope: land
     easter_offset: 60
     verified: false
     source: >-

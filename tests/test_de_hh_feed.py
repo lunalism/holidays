@@ -369,9 +369,9 @@ def test_nothing_is_verified_and_every_entry_says_what_is_missing():
 def test_every_description_carries_the_source(events):
     by_key = {e["key"]: e for e in _raw_entries()}
     for e in events:
-        assert e.description.startswith("근거: "), e
+        assert "\n\n근거: " in e.description, e  # 첫 줄은 tests/test_de_scope.py
         assert " ".join(by_key[e.token.removeprefix(PREFIX)]["source"].split()) in e.description
-        assert "\n" not in e.description
+        assert e.description.split("\n")[-1].startswith("근거: "), e
 
 
 def test_our_verification_state_never_reaches_the_feed(rendered):
@@ -412,7 +412,7 @@ def _table(tmp_path, key: str):
     path.write_text(
         yaml.safe_dump(
             {"holidays": [{"key": key, "name": "31. Oktober", "month": 10, "day": 31,
-                           "verified": False, "source": "test"}]},
+                           "verified": False, "source": "test", "scope": "land"}]},
             allow_unicode=True,
         ),
         encoding="utf-8",

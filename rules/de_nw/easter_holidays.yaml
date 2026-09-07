@@ -15,9 +15,17 @@
 # Nr. 7 이 "Fronleichnamstag"(괄호 정의 제외)이다. token 은 기존 확립값
 # (christi_himmelfahrt, fronleichnam) — 신규 명명 없음.
 
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
 holidays:
   - key: karfreitag
     name: Karfreitag
+    scope: bundesweit
     easter_offset: -2
     verified: false
     source: >-
@@ -28,6 +36,7 @@ holidays:
 
   - key: ostermontag
     name: Ostermontag
+    scope: bundesweit
     easter_offset: 1
     verified: false
     source: >-
@@ -38,6 +47,7 @@ holidays:
 
   - key: christi_himmelfahrt
     name: Christi-Himmelfahrts-Tag
+    scope: bundesweit
     easter_offset: 39
     verified: false
     source: >-
@@ -48,6 +58,7 @@ holidays:
 
   - key: pfingstmontag
     name: Pfingstmontag
+    scope: bundesweit
     easter_offset: 50
     verified: false
     source: >-
@@ -58,6 +69,7 @@ holidays:
 
   - key: fronleichnam
     name: Fronleichnamstag
+    scope: land
     easter_offset: 60
     verified: false
     source: >-

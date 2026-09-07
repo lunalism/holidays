@@ -66,6 +66,10 @@ TZID = "Europe/Berlin"
 
 KIND_STATUTORY = "statutory"
 
+# DESCRIPTION 첫 줄. 전국 피드는 전 항목이 이 문장이고, 주 피드는 scope 가
+# bundesweit 인 항목에 같은 문장을 쓴다(rules/de_*/feed.py 가 여기서 가져간다).
+BUNDESWEIT_SENTENCE = "독일 전국 공휴일입니다."
+
 _HERE = Path(__file__).resolve().parent
 SOLAR_PATH = _HERE / "solar_holidays.yaml"
 EASTER_PATH = _HERE / "easter_holidays.yaml"
@@ -107,6 +111,12 @@ def _checked(entry: dict, path: Path, *fields) -> dict:
         )
     if not isinstance(entry.get("verified"), bool):
         raise ics.IcsError(f"{where}: verified 는 true/false 여야 한다.")
+    # 전국 피드에는 scope 를 두지 않는다. 정의상 전부 bundesweit 라 필드가 있으면
+    # 주 피드의 표를 잘못 복사한 것이다(rules/de_*/feed.py 의 SCOPES 참조).
+    if "scope" in entry:
+        raise ics.IcsError(
+            f"{where}: scope 는 전국 피드에 두지 않는다 — 전 항목이 정의상 bundesweit 다."
+        )
     return entry
 
 
@@ -131,8 +141,9 @@ def _event(day: date, entry: dict) -> ics.Event:
         day=day,
         summary=entry["name"],
         kind=KIND_STATUTORY,
-        # 근거는 데이터의 source 원문 그대로, 한 줄로.
-        description=f"근거: {_one_line(entry['source'])}",
+        # 구독자용 문장 / 빈 줄 / 근거. 근거는 데이터의 source 원문 그대로, 한 줄로.
+        # 개행은 core/ics.py 가 RFC 5545 의 \n 으로 이스케이프한다.
+        description=f"{BUNDESWEIT_SENTENCE}\n\n근거: {_one_line(entry['source'])}",
         # 항상 False. 모듈 docstring 참조.
         provisional=False,
         token=entry["key"],
