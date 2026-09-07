@@ -362,7 +362,12 @@ def test_the_31st_of_october_entry_cites_the_gazette_and_is_verified():
 def test_only_the_31st_of_october_is_verified_and_the_rest_say_what_is_missing():
     """9 false + 1 true. 공식 포털(landesrecht-hamburg)을 열람하지 못한 9 건은
     BE 기저 9 건과 같은 관례 — xfail 이 아니라 source_todo 로 남기고 여기서 상태를
-    고정한다. 31. Oktober 는 공포 관보를 읽어 true(위 테스트)."""
+    고정한다. 31. Oktober 는 공포 관보를 읽어 true(위 테스트).
+
+    아홉 건의 source_todo 는 막연한 "포털 열람" 이 아니라 실측된 경계를 말해야
+    한다: § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존하고
+    (디지털 공개는 1995 년부터), 2018-03-12 (S. 63) 이후 § 1 무변경은 공포본
+    체인으로 확인됐다(/tmp/report_hh_gesetz_chain.md·report_hh_chain_forward.md)."""
     entries = _raw_entries()
     assert [e["key"] for e in entries if e["verified"]] == ["reformationstag"]
     for entry in entries:
@@ -372,7 +377,9 @@ def test_only_the_31st_of_october_is_verified_and_the_rest_say_what_is_missing()
         assert entry["verified"] is False, entry["key"]
         assert entry.get("source_todo"), entry["key"]
         todo = entry["source_todo"]
-        assert "landesrecht-hamburg" in todo or "HmbGVBl" in todo, entry["key"]
+        assert "S. 441" in todo and "1994" in todo, entry["key"]  # 자구가 의존하는 경계
+        assert "2018" in todo and "S. 63" in todo, entry["key"]  # 그 뒤 § 1 무변경 확인
+        assert "Sammlung" in todo or "Staatsarchiv" in todo, entry["key"]  # 잔존 경로
         assert "umwelt-online" in entry["source"], entry["key"]
 
 
