@@ -48,6 +48,7 @@ from dateutil.easter import easter
 
 from core import feed as core_feed
 from core import ics
+from rules.de.feed import BUNDESWEIT_SENTENCE
 
 # 하한·상한 정책은 kr·de 와 주 피드 넷과 같다.
 RANGE_START = date(2020, 1, 1)
@@ -61,6 +62,15 @@ KIND_STATUTORY = "statutory"
 
 # UID token 접두사. 모듈 docstring 참조.
 TOKEN_PREFIX = "de_nw-"
+
+# scope — YAML 전 항목 필수, 닫힌 집합. 전국 공통 9 건이 bundesweit, 나머지가
+# land 다(근거는 YAML 머리 주석의 scope 절). DESCRIPTION 첫 줄이 여기서 갈린다.
+SCOPES = frozenset({"bundesweit", "land"})
+LAND_NAME = "노르트라인베스트팔렌"
+SCOPE_SENTENCE = {
+    "bundesweit": BUNDESWEIT_SENTENCE,
+    "land": f"{LAND_NAME} 주 공휴일입니다.",
+}
 
 _HERE = Path(__file__).resolve().parent
 SOLAR_PATH = _HERE / "solar_holidays.yaml"
@@ -85,9 +95,14 @@ def _one_line(text: str) -> str:
 def _checked(entry: dict, path: Path, *fields) -> dict:
     """항목 하나를 검사해 그대로 돌려준다. 손대지 않는다."""
     where = f"{path.name}: {entry.get('key')!r}"
-    for field in ("key", "name", "source", *fields):
+    for field in ("key", "name", "source", "scope", *fields):
         if entry.get(field) in (None, ""):
             raise ics.IcsError(f"{where}: {field} 가 비었다.")
+    if entry["scope"] not in SCOPES:
+        raise ics.IcsError(
+            f"{where}: scope 가 규약 밖이다 — {entry['scope']!r}. "
+            f"{sorted(SCOPES)} 중 하나여야 한다."
+        )
     if not _KEY_RE.fullmatch(entry["key"]):
         raise ics.IcsError(
             f"{where}: key 가 규약 밖이다. [a-z][a-z_]* 에 연도 접미사 _YYYY 만 "
@@ -119,7 +134,8 @@ def _event(day: date, entry: dict) -> ics.Event:
         day=day,
         summary=entry["name"],
         kind=KIND_STATUTORY,
-        description=f"근거: {_one_line(entry['source'])}",
+        # 구독자용 문장 / 빈 줄 / 근거. 개행은 core/ics.py 가 \n 으로 이스케이프한다.
+        description=f"{SCOPE_SENTENCE[entry['scope']]}\n\n근거: {_one_line(entry['source'])}",
         provisional=False,
         token=TOKEN_PREFIX + entry["key"],
         origin=f"key={entry['key']!r}",
