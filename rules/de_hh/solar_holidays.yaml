@@ -52,6 +52,20 @@
 # 이 표의 Nr. 9·10 인용은 그 재번호 후 체계다. 의결 전 안(Drucksache 21/12153)은
 # 공포본이 상위 근거라 더 적지 않는다.
 #
+# --- 개정 체인 (공포본, luewu 1995–2026 Nr. 26 실측) ---
+# § 1 에 닿은 개정은 2018-03-12 (S. 63, Nr. 8 삽입·재번호) 하나뿐이다.
+#   2000-12-06 S. 358  Drittes Gesetz            § 2a 신설      ← zuletzt geändert 1994-12-20 (S. 441)
+#   2013-06-19 S. 304  Viertes Gesetz            § 3a 신설
+#   2017-12-12 S. 386, 388  Glücksspiel-Art.gesetz Art. 3  § 2a 문장 추가
+#   2018-03-12 S. 63   Fünftes Gesetz            § 1 Nr. 8 삽입  ← 유일한 § 1 개정
+#   2019-12-19 S. 516  Glücksspiel-Art.gesetz Art. 3  § 2a Satz 3 삭제
+#   2021-02-17 S. 75, 77  Glücksspiel-Art.gesetz Art. 3  § 2a Satz 2 문구 치환
+#   2022–2026 Nr. 26  법 개정 없음(2022 S. 581 은 8. Mai Gedenktag 시행령, 2024 S. 74 는
+#   Feiertagsschutzverordnung — 둘 다 § 1 무관)
+# 따라서 Nr. 1–7·9·10 의 자구는 1994-12-20 이전 공포본에 의존하고, 그 호는 디지털
+# 공개(luewu·Transparenzportal 공히 1995~)가 없다. 아홉 항목의 source_todo 가 그
+# 경계와 잔존 경로(실물 HmbGVBl.·Sammlung I 113-a)를 적는다.
+#
 # verified 와 source_todo 는 피드에 나가지 않는다(rules/de_hh/feed.py).
 
 # --- scope ---
@@ -71,7 +85,14 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 1 'Neujahrstag' — umwelt-online 현행판(Stand
       28.08.2023). 날짜 1. 1. 은 feiertage-api 2026 HH 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: erster_mai
     name: 1. Mai
@@ -82,7 +103,14 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 4 '1. Mai' — umwelt-online 현행판(Stand 28.08.2023).
       날짜는 조문에 박혀 있고 feiertage-api 2026 HH(Tag der Arbeit) 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
@@ -95,7 +123,14 @@ holidays:
       umwelt-online 현행판(Stand 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기
       (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2
       (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 HH 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: reformationstag
     name: 31. Oktober
@@ -118,7 +153,14 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 9 '1. Weihnachtstag' — umwelt-online 현행판
       (Stand 28.08.2023). 날짜 25. 12. 은 feiertage-api 2026 HH 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: zweiter_weihnachtstag
     name: 2. Weihnachtstag
@@ -129,4 +171,11 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 10 '2. Weihnachtstag' — umwelt-online 현행판
       (Stand 28.08.2023). 날짜 26. 12. 은 feiertage-api 2026 HH 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.

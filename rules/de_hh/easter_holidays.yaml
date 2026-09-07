@@ -27,7 +27,14 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 2 'Karfreitag' — umwelt-online 현행판(Stand
       28.08.2023). 부활절 −2 일은 feiertage-api 2026 HH(04-03) 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: ostermontag
     name: Ostermontag
@@ -37,7 +44,14 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 3 'Ostermontag' — umwelt-online 현행판(Stand
       28.08.2023). 부활절 +1 일은 feiertage-api 2026 HH(04-06) 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: christi_himmelfahrt
     name: Himmelfahrtstag
@@ -48,7 +62,14 @@ holidays:
       Feiertagsgesetz(HH) § 1 Nr. 5 'Himmelfahrtstag' — umwelt-online 현행판(Stand
       28.08.2023). 부활절 +39 일은 feiertage-api 2026 HH(05-14, Christi
       Himmelfahrt) 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
 
   - key: pfingstmontag
     name: Pfingstmontag
@@ -58,4 +79,11 @@ holidays:
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 6 'Pfingstmontag' — umwelt-online 현행판(Stand
       28.08.2023). 부활절 +50 일은 feiertage-api 2026 HH(05-25) 대조 일치
-    source_todo: 공식 포털 landesrecht-hamburg(jlr-FeiertGHArahmen) 열람 또는 HmbGVBl. 원본
+    source_todo: >-
+      § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
+      디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
+      HmbGVBl. 데이터셋은 temporal_coverage_from 1995-01-01 이고 내용 검색은 luewu
+      로 연결). 잔존 경로: Staatsarchiv Hamburg·주립도서관의 실물 HmbGVBl. 또는
+      Sammlung des bereinigten hamburgischen Landesrechts I 113-a 열람.
+      2018-03-12 (S. 63) 이후 § 1 무변경은 공포본 체인으로 확인됨 — 2019 S. 516·
+      2021 S. 75, 77 은 § 2a 만, 2026 Nr. 26 (28.08.2026) 까지 무개정.
