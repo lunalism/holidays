@@ -28,9 +28,17 @@
 # /tmp/report_de_laender.md BE §2). 2020 건은 2019 개정문을 비공식 사본으로만
 # 읽어 false.
 
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
 holidays:
   - key: achter_mai_2020
     name: 8. Mai 2020
+    scope: land
     date: 2020-05-08
     verified: false
     source: >-
@@ -43,6 +51,7 @@ holidays:
 
   - key: achter_mai_2025
     name: 8. Mai 2025
+    scope: land
     date: 2025-05-08
     verified: true
     source: >-
@@ -54,6 +63,7 @@ holidays:
 
   - key: siebzehnter_juni_2028
     name: 17. Juni 2028
+    scope: land
     date: 2028-06-17
     verified: true
     source: >-
