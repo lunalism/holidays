@@ -34,7 +34,7 @@ on:
   # 훑는 것이 낫다. 09:00 KST 는 사람이 실패 알림을 볼 수 있는 시각이다.
   #
   schedule:
-    - cron: "0 0 * * 1"
+    - cron: "23 21 * * 0,2,4"
   workflow_dispatch:
 
 permissions:
