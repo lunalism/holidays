@@ -1,0 +1,200 @@
+# 독일·바덴뷔르템베르크 주 공휴일 — 고정 날짜 7 건.
+#
+# 근거: Gesetz über die Sonntage und Feiertage (Feiertagsgesetz – FTG) in der Fassung
+# vom 8. Mai 1995 § 1 — "Gesetzliche Feiertage sind: Neujahr, Erscheinungsfest
+# (6. Januar), Karfreitag, Ostermontag, 1. Mai, Christi Himmelfahrt, Pfingstmontag,
+# Fronleichnam, Allerheiligen (1. November), Erster Weihnachtstag, Zweiter
+# Weihnachtstag." — 호 번호 없는 열거 11 건. 고정 날짜는 열거 1·2·5·9·10·11번째.
+# 여기에 § 1 밖의 3. Oktober(Einigungsvertrag Art. 2 Abs. 2)를 더해 7 건이다. 전국
+# 공통 5 건에 Erscheinungsfest(1. 6.)·Allerheiligen(1. 11.)이 더해진다.
+#
+# --- 공포본 (전부 Landtag Baden-Württemberg 호별 PDF, 2026-09-09 열람) ---
+# 현행 자구의 인쇄본: Bekanntmachung der Neufassung des Feiertagsgesetzes vom
+#   8. Mai 1995, GBl. 1995 Nr. 17 (30.06.1995) S. 450–452, Gliederungs-Nr. 1134.
+#   https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+#   sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94 (2,407,426 B,
+#   OCR 텍스트층 + S. 450 페이지 이미지 육안 대조, 구현 세션에서 재수령해 sha256 일치).
+#   수권: 1994-12-12 개정법 Art. 2 Neubekanntmachung. 정정(Berichtigung) 없음.
+# 입법 뿌리 세 벌(Neufassung 전문이 열거, § 1 을 건드린 것들):
+#   1970-11-28 Neufassung, GBl. 1971 Nr. 1 S. 1 — § 1 열거 12 건(Pfingstmontag·Buß- und
+#     Bettag 포함). https://www.landtag-bw.de/resource/blob/73302/cb1ae2d1d5343cdbdf149d8a7360d948/GBl197101.pdf
+#     sha256 fb8355a0e8cb74117bffe8f23026174ecaf113382cd0ee770fdbf675c5465ece
+#   1994-12-12 Gesetz zur Änderung des Feiertagsgesetzes, GBl. 1994 Nr. 27 (23.12.1994)
+#     S. 631 — Art. 1 Nr. 1 "In § 1 wird das Wort „Pfingstmontag,“ gestrichen."
+#     https://www.landtag-bw.de/resource/blob/74982/444fad4d45d1c0c3eb90ec3abc9b1db9/GBl199427.pdf
+#     sha256 3ab1b6d6b17486981b8a0fb6e98e89216d6db9d7733354cd39ea0e96f27afbfa (텍스트층 없음, 이미지)
+#   1995-03-23 Gesetz zur Änderung des Feiertagsgesetzes, GBl. 1995 Nr. 11 (31.03.1995)
+#     S. 293 — Art. 1 Nr. 1 a) "Pfingstmontag," 재삽입, b) "Allgemeiner Buß- und Bettag
+#     (…)," 삭제. https://www.landtag-bw.de/resource/blob/75092/47692b125dc782b2d06ad75b3b849fbf/GBl199511.pdf
+#     sha256 d262fb06fb4361435d0c56c1e1124927823d2fa59868e6447472e1f3c455687b
+#   1970 § 1 − Pfingstmontag(1994) + Pfingstmontag(1995, 같은 자리) − Buß- und Bettag
+#   (1995) = Neufassung § 1 — 항목·자구·순서가 인쇄본과 일치한다.
+# 이후: 2014-11-25 (GBl. 2014 Nr. 21 S. 548) § 1a 한시 신설(Reformationsfest 2017,
+#   2017-11-01 실효), 2015-12-01 (GBl. 2015 Nr. 22 S. 1034) §§ 8·10·11·13 — 둘 다 § 1 무관.
+#   1995 Nr. 1~2013 전 호·2016~2023 전 호(Landtag 아카이브)·2024~ 전자 관보 GBl. 2026
+#   Nr. 79 (08.09.2026) 까지 § 1 개정 없음. 체인 전문은 /tmp/report_bw_gesetz_chain.md.
+#
+# --- 3. Oktober 는 § 1 에 없다 ---
+# FTG 는 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des 3. Oktober" 등에서 전제만 한다
+# (1994 개정법 Art. 1 Nr. 4 가 "und des 3. Oktober" 를 넣고 Nr. 6 이 §§ 10·11 의 "am Tag
+# der Deutschen Einheit" 를 지운 흔적). 근거는 Einigungsvertrag Art. 2 Abs. 2 — 이 표의
+# tag_der_deutschen_einheit 는 rules/de 의 같은 항목을 미러한다. FTG § 1 을 근거로 적지
+# 않는다. tests/test_de_scope.py 의 교차 검증(bundesweit key 집합 == de 9 key)이 이
+# 항목의 존재를 요구한다.
+#
+# --- 범위 밖 ---
+# § 2 kirchliche Feiertage(Gründonnerstag, Reformationsfest (31. Oktober), Allgemeiner
+# Buß- und Bettag)는 공휴일이 아니다. § 4 Abs. 3 의 schulfrei(Gründonnerstag·
+# Reformationsfest)는 학교 규정 — feiertage-api BW 가 'Reformationstag' 을 hinweis 와
+# 함께 13 번째 항목으로 싣는 이유이고, 대조에서 제외한다. § 1a 는 실효.
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# § 1 에 이동 조항이 없다. python-holidays 0.102 BW 2020–2031 실측에서 일요일 겹침
+# (2021 10-03·12-26, 2022 05-01·12-25, 2023 01-01, 2026 11-01, 2027 10-03·12-26, 2030
+# 01-06) 모두 보상 휴일 0 건. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de_be/solar_holidays.yaml 의 규약과 같다. 이 표의 key 는 전부 기존 확립값 —
+# 1월 6일도 de_by 의 heilige_drei_koenige 를 쓴다(조문 표기 Erscheinungsfest 를 따라
+# 새로 파지 않는다 — token 은 내부 식별자, de_hh 의 reformationstag 건에서 확립된
+# 원칙). 신규 명명 0. 발행되는 UID 의 token 은 이 key 앞에 "de_bw-" 가 붙는다
+# (rules/de_bw/feed.py). 접두사 없이는 일곱 독일 피드와 UID 가 겹친다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. § 1 의 조문 표기(Neufassung 인쇄본)에서 괄호 날짜만 뺐다 —
+# "Erscheinungsfest (6. Januar)" → "Erscheinungsfest", "Allerheiligen (1. November)" →
+# "Allerheiligen". de.ics 가 BayFTG 의 서술부를 뺀 전례와 동형. 3. Oktober 는 rules/de
+# 의 "Tag der Deutschen Einheit". 원문은 각 항목 source 에 그대로 남긴다.
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. 여기서는 7 건 전부 true 다 — 6 건은 Neufassung 인쇄본
+# (입법 뿌리 세 벌 병기), tag_der_deutschen_einheit 는 Einigungsvertrag(rules/de 미러).
+# 항목별 source 에 "§ 1, 열거 n번째" 와 그 자구를 따옴표로 담고, 공포 서지·공포일·
+# 연도판 PDF URL·sha256·열람일을 잇는다. source_todo 는 없다. 날짜는 feiertage-api
+# 2026 BW(hinweis 공란 12 건)·python-holidays 0.102 BW 로 대조했다(12/12).
+#
+# verified 는 피드에 나가지 않는다(rules/de_bw/feed.py).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: neujahr
+    name: Neujahr
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage-api 2026 BW 대조 일치
+
+  - key: heilige_drei_koenige
+    name: Erscheinungsfest
+    scope: land
+    month: 1
+    day: 6
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmachung der
+      Neufassung des Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+      공포; Landtag BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest'
+      (통칭 Heilige Drei Könige 는 조문에 없음). key 는 de_by 와 같은
+      heilige_drei_koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage-api 2026
+      BW(Heilige Drei Könige) 대조 일치
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW
+      (Tag der Arbeit) 대조 일치
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der Deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: true
+    source: >-
+      Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit
+      gesetzlicher Feiertag.' (gesetze-im-internet.de; rules/de 의 같은 항목을 미러).
+      FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des
+      3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S. 450). 날짜는 조문에 박혀 있고
+      feiertage-api 2026 BW 대조 일치
+
+  - key: allerheiligen
+    name: Allerheiligen
+    scope: land
+    month: 11
+    day: 1
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachung der
+      Neufassung des Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+      공포; Landtag BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는
+      de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api 2026
+      BW 대조 일치
+
+  - key: erster_weihnachtstag
+    name: Erster Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung
+      des Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포;
+      Landtag BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 은 feiertage-api 2026 BW 대조 일치
+
+  - key: zweiter_weihnachtstag
+    name: Zweiter Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung
+      des Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포;
+      Landtag BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 은 feiertage-api 2026 BW 대조 일치

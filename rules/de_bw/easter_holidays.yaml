@@ -1,0 +1,99 @@
+# 독일·바덴뷔르템베르크 주 공휴일 — 부활절 기준 이동 5 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_bw/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 Fronleichnam(+60, de_by·de_he·de_nw 와 같은 오프셋)이 더해진다.
+# BW 는 Ostersonntag(0)·Pfingstsonntag(+49)이 없다 — § 1 의 열거에 없다.
+#
+# key·name·verified 규약과 공포본 서지·sha256·확인 경로는 solar_holidays.yaml 머리
+# 주석과 같다. 다섯 건 모두 Neufassung 1995 인쇄본이 자구 근거이고 조문 그대로가
+# SUMMARY 다. Pfingstmontag 은 1994-12-12 개정(GBl. S. 631)으로 § 1 에서 지워졌다가
+# 1995-03-23 개정(GBl. S. 293)으로 같은 자리("Christi Himmelfahrt," 뒤)에 재삽입됐다 —
+# Neufassung 이 그 결과를 싣는다.
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feiertage-api 2026 BW(04-03) 대조 일치
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feiertage-api 2026 BW(04-06) 대조 일치
+
+  - key: christi_himmelfahrt
+    name: Christi Himmelfahrt
+    scope: bundesweit
+    easter_offset: 39
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 일은 feiertage-api 2026 BW(05-14) 대조 일치
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631, § 1 에서 삭제)·1995-03-23 개정(GBl. S. 293,
+      "Christi Himmelfahrt," 뒤에 재삽입), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지).
+      부활절 +50 일은 feiertage-api 2026 BW(05-25) 대조 일치
+
+  - key: fronleichnam
+    name: Fronleichnam
+    scope: land
+    easter_offset: 60
+    verified: true
+    source: >-
+      FTG(BW) § 1, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassung des
+      Feiertagsgesetzes vom 08.05.1995, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포; Landtag
+      BW 아카이브 PDF
+      https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+      sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
+      2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
+      무개정(GBl. 2026 Nr. 79 까지). key 는 de_by·de_he·de_nw 와 같은 fronleichnam.
+      부활절 +60 일(Donnerstag nach Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
