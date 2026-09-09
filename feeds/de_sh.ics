@@ -1,0 +1,2311 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lunalism//holidays.lunalism.com//KO
+CALSCALE:GREGORIAN
+X-WR-CALNAME:독일·슐레스비히홀슈타인 공휴일
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20200101
+DTEND;VALUE=DATE:20200102
+DTSTAMP:20260909T072824Z
+UID:20200101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20200410
+DTEND;VALUE=DATE:20200411
+DTSTAMP:20260909T072824Z
+UID:20200410-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20200413
+DTEND;VALUE=DATE:20200414
+DTSTAMP:20260909T072824Z
+UID:20200413-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20200501
+DTEND;VALUE=DATE:20200502
+DTSTAMP:20260909T072824Z
+UID:20200501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20200521
+DTEND;VALUE=DATE:20200522
+DTSTAMP:20260909T072824Z
+UID:20200521-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20200601
+DTEND;VALUE=DATE:20200602
+DTSTAMP:20260909T072824Z
+UID:20200601-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20201003
+DTEND;VALUE=DATE:20201004
+DTSTAMP:20260909T072824Z
+UID:20201003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20201031
+DTEND;VALUE=DATE:20201101
+DTSTAMP:20260909T072824Z
+UID:20201031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20201225
+DTEND;VALUE=DATE:20201226
+DTSTAMP:20260909T072824Z
+UID:20201225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20201226
+DTEND;VALUE=DATE:20201227
+DTSTAMP:20260909T072824Z
+UID:20201226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20210101
+DTEND;VALUE=DATE:20210102
+DTSTAMP:20260909T072824Z
+UID:20210101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20210402
+DTEND;VALUE=DATE:20210403
+DTSTAMP:20260909T072824Z
+UID:20210402-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20210405
+DTEND;VALUE=DATE:20210406
+DTSTAMP:20260909T072824Z
+UID:20210405-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20210501
+DTEND;VALUE=DATE:20210502
+DTSTAMP:20260909T072824Z
+UID:20210501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20210513
+DTEND;VALUE=DATE:20210514
+DTSTAMP:20260909T072824Z
+UID:20210513-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20210524
+DTEND;VALUE=DATE:20210525
+DTSTAMP:20260909T072824Z
+UID:20210524-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20211003
+DTEND;VALUE=DATE:20211004
+DTSTAMP:20260909T072824Z
+UID:20211003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20211031
+DTEND;VALUE=DATE:20211101
+DTSTAMP:20260909T072824Z
+UID:20211031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20211225
+DTEND;VALUE=DATE:20211226
+DTSTAMP:20260909T072824Z
+UID:20211225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20211226
+DTEND;VALUE=DATE:20211227
+DTSTAMP:20260909T072824Z
+UID:20211226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20220101
+DTEND;VALUE=DATE:20220102
+DTSTAMP:20260909T072824Z
+UID:20220101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20220415
+DTEND;VALUE=DATE:20220416
+DTSTAMP:20260909T072824Z
+UID:20220415-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20220418
+DTEND;VALUE=DATE:20220419
+DTSTAMP:20260909T072824Z
+UID:20220418-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20220501
+DTEND;VALUE=DATE:20220502
+DTSTAMP:20260909T072824Z
+UID:20220501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20220526
+DTEND;VALUE=DATE:20220527
+DTSTAMP:20260909T072824Z
+UID:20220526-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20220606
+DTEND;VALUE=DATE:20220607
+DTSTAMP:20260909T072824Z
+UID:20220606-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20221003
+DTEND;VALUE=DATE:20221004
+DTSTAMP:20260909T072824Z
+UID:20221003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20221031
+DTEND;VALUE=DATE:20221101
+DTSTAMP:20260909T072824Z
+UID:20221031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20221225
+DTEND;VALUE=DATE:20221226
+DTSTAMP:20260909T072824Z
+UID:20221225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20221226
+DTEND;VALUE=DATE:20221227
+DTSTAMP:20260909T072824Z
+UID:20221226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20230101
+DTEND;VALUE=DATE:20230102
+DTSTAMP:20260909T072824Z
+UID:20230101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20230407
+DTEND;VALUE=DATE:20230408
+DTSTAMP:20260909T072824Z
+UID:20230407-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20230410
+DTEND;VALUE=DATE:20230411
+DTSTAMP:20260909T072824Z
+UID:20230410-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20230501
+DTEND;VALUE=DATE:20230502
+DTSTAMP:20260909T072824Z
+UID:20230501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20230518
+DTEND;VALUE=DATE:20230519
+DTSTAMP:20260909T072824Z
+UID:20230518-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20230529
+DTEND;VALUE=DATE:20230530
+DTSTAMP:20260909T072824Z
+UID:20230529-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20231003
+DTEND;VALUE=DATE:20231004
+DTSTAMP:20260909T072824Z
+UID:20231003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20231031
+DTEND;VALUE=DATE:20231101
+DTSTAMP:20260909T072824Z
+UID:20231031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20231225
+DTEND;VALUE=DATE:20231226
+DTSTAMP:20260909T072824Z
+UID:20231225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20231226
+DTEND;VALUE=DATE:20231227
+DTSTAMP:20260909T072824Z
+UID:20231226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20240101
+DTEND;VALUE=DATE:20240102
+DTSTAMP:20260909T072824Z
+UID:20240101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20240329
+DTEND;VALUE=DATE:20240330
+DTSTAMP:20260909T072824Z
+UID:20240329-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20240401
+DTEND;VALUE=DATE:20240402
+DTSTAMP:20260909T072824Z
+UID:20240401-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20240501
+DTEND;VALUE=DATE:20240502
+DTSTAMP:20260909T072824Z
+UID:20240501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20240509
+DTEND;VALUE=DATE:20240510
+DTSTAMP:20260909T072824Z
+UID:20240509-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20240520
+DTEND;VALUE=DATE:20240521
+DTSTAMP:20260909T072824Z
+UID:20240520-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20241003
+DTEND;VALUE=DATE:20241004
+DTSTAMP:20260909T072824Z
+UID:20241003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20241031
+DTEND;VALUE=DATE:20241101
+DTSTAMP:20260909T072824Z
+UID:20241031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20241225
+DTEND;VALUE=DATE:20241226
+DTSTAMP:20260909T072824Z
+UID:20241225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20241226
+DTEND;VALUE=DATE:20241227
+DTSTAMP:20260909T072824Z
+UID:20241226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20250101
+DTEND;VALUE=DATE:20250102
+DTSTAMP:20260909T072824Z
+UID:20250101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20250418
+DTEND;VALUE=DATE:20250419
+DTSTAMP:20260909T072824Z
+UID:20250418-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20250421
+DTEND;VALUE=DATE:20250422
+DTSTAMP:20260909T072824Z
+UID:20250421-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20250501
+DTEND;VALUE=DATE:20250502
+DTSTAMP:20260909T072824Z
+UID:20250501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20250529
+DTEND;VALUE=DATE:20250530
+DTSTAMP:20260909T072824Z
+UID:20250529-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20250609
+DTEND;VALUE=DATE:20250610
+DTSTAMP:20260909T072824Z
+UID:20250609-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20251003
+DTEND;VALUE=DATE:20251004
+DTSTAMP:20260909T072824Z
+UID:20251003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20251031
+DTEND;VALUE=DATE:20251101
+DTSTAMP:20260909T072824Z
+UID:20251031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251226
+DTSTAMP:20260909T072824Z
+UID:20251225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20251226
+DTEND;VALUE=DATE:20251227
+DTSTAMP:20260909T072824Z
+UID:20251226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260102
+DTSTAMP:20260909T072824Z
+UID:20260101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260404
+DTSTAMP:20260909T072824Z
+UID:20260403-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20260406
+DTEND;VALUE=DATE:20260407
+DTSTAMP:20260909T072824Z
+UID:20260406-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+DTSTAMP:20260909T072824Z
+UID:20260501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260515
+DTSTAMP:20260909T072824Z
+UID:20260514-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+DTSTAMP:20260909T072824Z
+UID:20260525-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+DTSTAMP:20260909T072824Z
+UID:20261003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+DTSTAMP:20260909T072824Z
+UID:20261031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+DTSTAMP:20260909T072824Z
+UID:20261225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+DTSTAMP:20260909T072824Z
+UID:20261226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+DTSTAMP:20260909T072824Z
+UID:20270101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+DTSTAMP:20260909T072824Z
+UID:20270326-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+DTSTAMP:20260909T072824Z
+UID:20270329-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+DTSTAMP:20260909T072824Z
+UID:20270501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+DTSTAMP:20260909T072824Z
+UID:20270506-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+DTSTAMP:20260909T072824Z
+UID:20270517-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+DTSTAMP:20260909T072824Z
+UID:20271003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20271031
+DTEND;VALUE=DATE:20271101
+DTSTAMP:20260909T072824Z
+UID:20271031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20271225
+DTEND;VALUE=DATE:20271226
+DTSTAMP:20260909T072824Z
+UID:20271225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20271226
+DTEND;VALUE=DATE:20271227
+DTSTAMP:20260909T072824Z
+UID:20271226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20280101
+DTEND;VALUE=DATE:20280102
+DTSTAMP:20260909T072824Z
+UID:20280101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20280414
+DTEND;VALUE=DATE:20280415
+DTSTAMP:20260909T072824Z
+UID:20280414-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20280417
+DTEND;VALUE=DATE:20280418
+DTSTAMP:20260909T072824Z
+UID:20280417-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280502
+DTSTAMP:20260909T072824Z
+UID:20280501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20280525
+DTEND;VALUE=DATE:20280526
+DTSTAMP:20260909T072824Z
+UID:20280525-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20280605
+DTEND;VALUE=DATE:20280606
+DTSTAMP:20260909T072824Z
+UID:20280605-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20281003
+DTEND;VALUE=DATE:20281004
+DTSTAMP:20260909T072824Z
+UID:20281003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20281031
+DTEND;VALUE=DATE:20281101
+DTSTAMP:20260909T072824Z
+UID:20281031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20281225
+DTEND;VALUE=DATE:20281226
+DTSTAMP:20260909T072824Z
+UID:20281225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20281226
+DTEND;VALUE=DATE:20281227
+DTSTAMP:20260909T072824Z
+UID:20281226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20290101
+DTEND;VALUE=DATE:20290102
+DTSTAMP:20260909T072824Z
+UID:20290101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20290330
+DTEND;VALUE=DATE:20290331
+DTSTAMP:20260909T072824Z
+UID:20290330-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20290402
+DTEND;VALUE=DATE:20290403
+DTSTAMP:20260909T072824Z
+UID:20290402-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20290501
+DTEND;VALUE=DATE:20290502
+DTSTAMP:20260909T072824Z
+UID:20290501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20290510
+DTEND;VALUE=DATE:20290511
+DTSTAMP:20260909T072824Z
+UID:20290510-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20290521
+DTEND;VALUE=DATE:20290522
+DTSTAMP:20260909T072824Z
+UID:20290521-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20291003
+DTEND;VALUE=DATE:20291004
+DTSTAMP:20260909T072824Z
+UID:20291003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20291031
+DTEND;VALUE=DATE:20291101
+DTSTAMP:20260909T072824Z
+UID:20291031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20291225
+DTEND;VALUE=DATE:20291226
+DTSTAMP:20260909T072824Z
+UID:20291225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20291226
+DTEND;VALUE=DATE:20291227
+DTSTAMP:20260909T072824Z
+UID:20291226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20300101
+DTEND;VALUE=DATE:20300102
+DTSTAMP:20260909T072824Z
+UID:20300101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20300419
+DTEND;VALUE=DATE:20300420
+DTSTAMP:20260909T072824Z
+UID:20300419-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20300422
+DTEND;VALUE=DATE:20300423
+DTSTAMP:20260909T072824Z
+UID:20300422-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20300501
+DTEND;VALUE=DATE:20300502
+DTSTAMP:20260909T072824Z
+UID:20300501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20300530
+DTEND;VALUE=DATE:20300531
+DTSTAMP:20260909T072824Z
+UID:20300530-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20300610
+DTEND;VALUE=DATE:20300611
+DTSTAMP:20260909T072824Z
+UID:20300610-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20301003
+DTEND;VALUE=DATE:20301004
+DTSTAMP:20260909T072824Z
+UID:20301003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20301031
+DTEND;VALUE=DATE:20301101
+DTSTAMP:20260909T072824Z
+UID:20301031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20301225
+DTEND;VALUE=DATE:20301226
+DTSTAMP:20260909T072824Z
+UID:20301225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20301226
+DTEND;VALUE=DATE:20301227
+DTSTAMP:20260909T072824Z
+UID:20301226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20310101
+DTEND;VALUE=DATE:20310102
+DTSTAMP:20260909T072824Z
+UID:20310101-de_sh-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1.
+  1. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20310411
+DTEND;VALUE=DATE:20310412
+DTSTAMP:20260909T072824Z
+UID:20310411-de_sh-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 2 'Karfreitag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.
+ 06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündu
+ ngsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/m
+ m/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e
+ 4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정
+ (GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 
+ −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20310414
+DTEND;VALUE=DATE:20310415
+DTSTAMP:20260909T072824Z
+UID:20310414-de_sh-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 3 'Ostermontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 28
+ .06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkünd
+ ungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/
+ mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2
+ e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절
+  +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20310501
+DTEND;VALUE=DATE:20310502
+DTSTAMP:20260909T072824Z
+UID:20310501-de_sh-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG) vom 28.06.2
+ 004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52f2e4f4d
+ ab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개정(GVO
+ Bl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20310522
+DTEND;VALUE=DATE:20310523
+DTSTAMP:20260909T072824Z
+UID:20310522-de_sh-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 5 'Himmelfahrtstag' — Gesetz über Sonn- und Feiertage (SFTG) vo
+ m 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verk
+ ündungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein
+ .de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c
+ 52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 
+ 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활
+ 절 +39 일은 feiertage-api 2026 SH(05-14\, Christi Himmelfahrt) 대조 
+ 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20310602
+DTEND;VALUE=DATE:20310603
+DTSTAMP:20260909T072824Z
+UID:20310602-de_sh-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 6 'Pfingstmontag' — Gesetz über Sonn- und Feiertage (SFTG) vom 
+ 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\; Verkü
+ ndungsportal 연도판 PDF https://verkuendungsportal.schleswig-holstein.d
+ e/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10bf991211a29d6f6c52
+ f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열람). 2018-03-21 개
+ 정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절
+  +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20311003
+DTEND;VALUE=DATE:20311004
+DTSTAMP:20260909T072824Z
+UID:20311003-de_sh-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz über Sonn
+ - und Feiertage (SFTG) vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 
+ (15.07.2004 공포\; Verkündungsportal 연도판 PDF https://verkuendungs
+ portal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 
+ dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09
+ -09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+  Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'
+ (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Ar
+ t. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 202
+ 6 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20311031
+DTEND;VALUE=DATE:20311101
+DTSTAMP:20260909T072824Z
+UID:20311031-de_sh-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:슐레스비히홀슈타인 주 공휴일입니다.\n\n근거:
+  SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz z
+ ur Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 
+ Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입\, 구 Nr. 8·9 → 9·10)\, GVOBl. Schl.-
+ H. 2018 Nr. 6 S. 69 (29.03.2018 공포\, 30.03.2018 시행\; Verkündungsp
+ ortal 연도판 PDF https://verkuendungsportal.schleswig-holstein.de/mm/gv
+ obl_jahrgang_2018/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d
+ 6b1c331a068fd21aa9322e7102d44b\, 2026-09-09 열람\, 재수령 대조 일
+ 치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 f
+ eiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20311225
+DTEND;VALUE=DATE:20311226
+DTSTAMP:20260909T072824Z
+UID:20311225-de_sh-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) v
+ om 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 당
+ 시 Nr. 8\; Verkündungsportal 연도판 PDF https://verkuendungsportal.sc
+ hleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1a10
+ bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 열
+ 람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 →
+  9\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 PDF 
+ https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GV
+ OBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa932
+ 2e7102d44b). 날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20311226
+DTEND;VALUE=DATE:20311227
+DTSTAMP:20260909T072824Z
+UID:20311226-de_sh-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: SFTG(SH) § 2 Abs
+ . 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage (SFTG) 
+ vom 28.06.2004\, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포\, 
+ 당시 Nr. 9\; Verkündungsportal 연도판 PDF https://verkuendungsportal
+ .schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf sha256 dba6f1
+ a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41\, 2026-09-09 
+ 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 
+ → 10\, GVOBl. Schl.-H. 2018 Nr. 6 S. 69\, 29.03.2018 공포\, 연도판 
+ PDF https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_201
+ 8/GVOBl_2018.pdf sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21a
+ a9322e7102d44b). 날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+END:VCALENDAR

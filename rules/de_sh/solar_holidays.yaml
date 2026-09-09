@@ -1,0 +1,164 @@
+# 독일·슐레스비히홀슈타인 주 공휴일 — 고정 날짜 6 건.
+#
+# 근거: Gesetz über Sonn- und Feiertage (SFTG) vom 28. Juni 2004 § 2 Abs. 1 —
+# "Gesetzliche Feiertage sind 1. Neujahrstag, 2. Karfreitag, 3. Ostermontag,
+# 4. 1. Mai, 5. Himmelfahrtstag, 6. Pfingstmontag, 7. 3. Oktober - Tag der
+# Deutschen Einheit -, 8. 31. Oktober - Reformationstag -, 9. 1. Weihnachtstag,
+# 10. 2. Weihnachtstag." (2018 재번호 후 체계). 고정 날짜는 Nr. 1·4·7·8·9·10.
+# 전국 공통 5 건에 Nr. 8 "31. Oktober - Reformationstag -" 가 더해진다.
+#
+# --- 공포본 두 벌 ---
+# 제정: GVOBl. Schl.-H. 2004 Nr. 8 (15.07.2004) S. 213, Lfd. Nr. 1220/2004,
+#   GS Schl.-H. II Gl.Nr. 1136-2. 당시 § 2 Abs. 1 은 Nr. 1~9(Reformationstag 없음,
+#   Weihnachtstage 가 Nr. 8·9). 1953 년 법을 전면 대체한 신법이라(§ 10) 자구가 구법에
+#   의존하지 않는다.
+# 개정: Gesetz zur Änderung des Gesetzes über Sonn- und Feiertage vom 21. März 2018,
+#   GVOBl. Schl.-H. 2018 Nr. 6 (29.03.2018) S. 69, Lfd. Nr. 1756/2018, 시행 30.03.2018.
+#   Art. 1 Nr. 1: "a. Nach Nummer 7 wird folgende Nummer 8 eingefügt: „8. 31. Oktober
+#   - Reformationstag -,“ b. Die bisherigen Nummern 8 und 9 werden die Nummern 9 und
+#   10." § 2 를 건드린 개정은 이것 하나다(2005 Art. 11 은 § 9, 2016 은 § 6 Abs. 1).
+# 둘 다 Verkündungsportal Schleswig-Holstein 의 연도판 PDF(OCR 텍스트층 + 페이지
+# 이미지 육안 대조)로 2026-09-09 에 읽었다. sha256 은 각 항목 source 에 있다. 개정
+# 체인의 양방향 마감(2026/81 까지 무개정)은 /tmp/report_sh_gesetz_chain.md.
+#
+# --- 범위 밖 ---
+# § 2 Abs. 1 에 지자체·집단 한정 항목이 없다. Abs. 3 의 kirchliche Feiertage 와 § 6·
+# § 7 의 Buß- und Bettag·stille Feiertage 는 보호·편의 조항이지 공휴일이 아니다.
+# Abs. 2 의 일회성 공휴일 수권에 따른 명령은 2019~2026 공포본에 없어 일회성 표를
+# 두지 않는다.
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# § 2 에 이동 조항이 없다. feiertage-api SH 2020–2031 실측에서 일요일 겹침(2021
+# 10-03·10-31·12-26, 2022 05-01·12-25, 2023 01-01, 2027 10-03·10-31·12-26) 모두
+# 보상 휴일 0 건. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de_be/solar_holidays.yaml 의 규약과 같다. 이 표의 key 는 전부 기존 확립값 —
+# Nr. 8 도 de_hh 의 reformationstag 를 쓴다(신규 명명 0). 발행되는 UID 의 token 은
+# 이 key 앞에 "de_sh-" 가 붙는다(rules/de_sh/feed.py). 접두사 없이는 여섯 독일
+# 피드와 UID 가 겹친다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. § 2 Abs. 1 의 조문 표기(공포본)에서 Nr. 7·8 의 날짜부와
+# 대시만 뺐다 — de.ics 가 BayFTG 의 "der 3. Oktober als …" 서술부를 뺀 전례와 동형.
+# Nr. 7 → "Tag der Deutschen Einheit", Nr. 8 → "Reformationstag". HH 의 Nr. 8 이
+# "31. Oktober" 인 것과 다른 이유는 SH 조문에 통칭이 들어 있어서다. 원문은 각 항목
+# source 에 그대로 남긴다.
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. 여기서는 10 건 전부 true 다 — 9 건은 2004 S. 213,
+# reformationstag 는 2018 S. 69 가 자구 근거이고, Nr. 9·10 의 번호는 2018 재번호다.
+# 항목별 source 에 자기 호 번호(§ 2 Abs. 1 Nr. n)와 그 호의 조문 표기를 따옴표로
+# 담고, 공포 서지·공포일·연도판 PDF URL·sha256·열람일을 잇는다. source_todo 는 없다.
+# 날짜는 feiertage-api 2026 SH 로 대조했다(10/10).
+#
+# verified 는 피드에 나가지 않는다(rules/de_sh/feed.py).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 1 'Neujahrstag' — Gesetz über Sonn- und Feiertage (SFTG)
+      vom 28.06.2004, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포;
+      Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
+      sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
+      2026-09-09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+      Nr. 1 그대로. 날짜 1. 1. 은 feiertage-api 2026 SH 대조 일치
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 4 '1. Mai' — Gesetz über Sonn- und Feiertage (SFTG)
+      vom 28.06.2004, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포;
+      Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
+      sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
+      2026-09-09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+      Nr. 4 그대로. 날짜는 조문에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit)
+      대조 일치
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der Deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 7 '3. Oktober - Tag der Deutschen Einheit -' — Gesetz
+      über Sonn- und Feiertage (SFTG) vom 28.06.2004, GVOBl. Schl.-H. 2004 Nr. 8
+      S. 213 (15.07.2004 공포; Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
+      sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
+      2026-09-09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
+      Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의
+      서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de). 날짜는
+      조문에 박혀 있고 feiertage-api 2026 SH 대조 일치
+
+  - key: reformationstag
+    name: Reformationstag
+    scope: land
+    month: 10
+    day: 31
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 8 '31. Oktober - Reformationstag -' — Gesetz zur
+      Änderung des Gesetzes über Sonn- und Feiertage vom 21.03.2018 Art. 1 Nr. 1
+      (Nr. 7 뒤에 Nr. 8 삽입, 구 Nr. 8·9 → 9·10), GVOBl. Schl.-H. 2018 Nr. 6 S. 69
+      (29.03.2018 공포, 30.03.2018 시행; Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GVOBl_2018.pdf
+      sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa9322e7102d44b,
+      2026-09-09 열람, 재수령 대조 일치). SUMMARY 는 날짜부를 뺀 'Reformationstag'.
+      날짜 31. 10. 은 feiertage-api 2026 SH 대조 일치
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 9 '1. Weihnachtstag' — Gesetz über Sonn- und Feiertage
+      (SFTG) vom 28.06.2004, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포, 당시
+      Nr. 8; Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
+      sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
+      2026-09-09 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 8 → 9,
+      GVOBl. Schl.-H. 2018 Nr. 6 S. 69, 29.03.2018 공포, 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GVOBl_2018.pdf
+      sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa9322e7102d44b).
+      날짜 25. 12. 은 feiertage-api 2026 SH 대조 일치
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: true
+    source: >-
+      SFTG(SH) § 2 Abs. 1 Nr. 10 '2. Weihnachtstag' — Gesetz über Sonn- und Feiertage
+      (SFTG) vom 28.06.2004, GVOBl. Schl.-H. 2004 Nr. 8 S. 213 (15.07.2004 공포, 당시
+      Nr. 9; Verkündungsportal 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
+      sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
+      2026-09-09 열람). 번호는 2018-03-21 개정 Art. 1 Nr. 1 의 재번호(구 Nr. 9 → 10,
+      GVOBl. Schl.-H. 2018 Nr. 6 S. 69, 29.03.2018 공포, 연도판 PDF
+      https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2018/GVOBl_2018.pdf
+      sha256 c50173af93e2e6a02bc33789c0e610df5d6b1c331a068fd21aa9322e7102d44b).
+      날짜 26. 12. 은 feiertage-api 2026 SH 대조 일치
