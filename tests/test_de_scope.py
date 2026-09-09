@@ -1,9 +1,9 @@
-"""독일 계열 여섯 피드 — scope 필드와 DESCRIPTION 첫 줄.
+"""독일 계열 일곱 피드 — scope 필드와 DESCRIPTION 첫 줄.
 
 --------------------------------------------------------------------------
 이 파일이 지키는 명제
 --------------------------------------------------------------------------
-    주 피드 다섯(de_be·de_by·de_he·de_hh·de_nw)의 YAML 전 항목에는 scope 가
+    주 피드 여섯(de_be·de_by·de_he·de_hh·de_nw·de_sh)의 YAML 전 항목에는 scope 가
     있고 값은 {bundesweit, land} 뿐이다. bundesweit 인 key 집합은 전국 피드
     rules/de/ 의 key 집합과 같다(9 건). 전국 피드 YAML 에는 scope 를 두지
     않는다 — 정의상 전부 bundesweit 라 필드가 있으면 오히려 오류다.
@@ -19,8 +19,8 @@ bundesweit 9 건의 근거는 /tmp/report_bundesweit.md — feiertage-api 2025·
 key 집합이 rules/de 의 key 집합과 다르면(전국 항목을 land 로, 주 항목을
 bundesweit 로 잘못 적으면) 어느 쪽이든 집합이 어긋나 깨진다.
 
-    a. 교차 검증 — 다섯 피드 각각의 bundesweit key 집합 == rules/de key 집합
-    b. 로더 — scope 누락·미정의 값은 다섯 로더 전부에서 실패, de 는 scope 존재가 실패
+    a. 교차 검증 — 여섯 피드 각각의 bundesweit key 집합 == rules/de key 집합
+    b. 로더 — scope 누락·미정의 값은 여섯 로더 전부에서 실패, de 는 scope 존재가 실패
     c. DESCRIPTION — 첫 줄 문장·빈 줄·"근거: " 유지, 직렬화(\\n 이스케이프·75 옥텟
        접기)가 한글에서 깨지지 않음
 
@@ -43,6 +43,7 @@ from rules.de_by import feed as de_by_feed
 from rules.de_he import feed as de_he_feed
 from rules.de_hh import feed as de_hh_feed
 from rules.de_nw import feed as de_nw_feed
+from rules.de_sh import feed as de_sh_feed
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
 TODAY = dt.date(2026, 1, 1)
@@ -53,6 +54,7 @@ STATE_FEEDS = {
     "de_he": de_he_feed,
     "de_hh": de_hh_feed,
     "de_nw": de_nw_feed,
+    "de_sh": de_sh_feed,
 }
 
 # 주명은 여기서 고정한다. feed.py 의 상수가 바뀌면 여기가 먼저 깨진다.
@@ -62,6 +64,7 @@ LAND_NAMES = {
     "de_he": "헤센",
     "de_hh": "함부르크",
     "de_nw": "노르트라인베스트팔렌",
+    "de_sh": "슐레스비히홀슈타인",
 }
 
 BUNDESWEIT_SENTENCE = "독일 전국 공휴일입니다."
@@ -129,7 +132,7 @@ def test_land_keys_never_overlap_the_nationwide_keys(name):
 
 
 # ---------------------------------------------------------------------------
-# b. 로더 — 다섯 로더의 scope 검증, de 의 금지 단언
+# b. 로더 — 여섯 로더의 scope 검증, de 의 금지 단언
 # ---------------------------------------------------------------------------
 
 
