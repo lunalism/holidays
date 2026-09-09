@@ -50,6 +50,7 @@ from rules.de_he import feed as de_he_feed
 from rules.de_hh import feed as de_hh_feed
 from rules.de_ni import feed as de_ni_feed
 from rules.de_nw import feed as de_nw_feed
+from rules.de_rp import feed as de_rp_feed
 from rules.de_sh import feed as de_sh_feed
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
@@ -226,8 +227,8 @@ def test_the_dates_agree_with_python_holidays_berlin(events, year):
 
 # 주 피드 목록. 주 피드가 생길 때마다 여기에 더한다. 둘째(de_by)가 들어오면서
 # 아래 교집합 테스트가 켜졌고, 셋째(de_he)·넷째(de_hh)·다섯째(de_nw)·여섯째(de_sh)·
-# 일곱째(de_bw)·여덟째(de_ni)로 교집합이 넓어진다 — BE ∩ BW ∩ BY ∩ HE ∩ HH ∩ NI ∩ NW
-# ∩ SH 는 전국 공통 9 건이어야 한다.
+# 일곱째(de_bw)·여덟째(de_ni)·아홉째(de_rp)로 교집합이 넓어진다 — BE ∩ BW ∩ BY ∩ HE ∩ HH
+# ∩ NI ∩ NW ∩ RP ∩ SH 는 전국 공통 9 건이어야 한다.
 STATE_FEEDS = {
     "de_be": feed,
     "de_bw": de_bw_feed,
@@ -236,6 +237,7 @@ STATE_FEEDS = {
     "de_hh": de_hh_feed,
     "de_ni": de_ni_feed,
     "de_nw": de_nw_feed,
+    "de_rp": de_rp_feed,
     "de_sh": de_sh_feed,
 }
 
