@@ -1,0 +1,179 @@
+# 독일·라인란트팔츠 주 공휴일 — 부활절 기준 이동 5 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_rp/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 Nr. 7 "der Fronleichnamstag"(+60) 가 더해진다 — NI 와 달리 RP 는
+# 주 전역 법정 공휴일이다. Ostersonntag(0)·Pfingstsonntag(+49)은 § 2 열거에 없다.
+#
+# key·name·verified 규약과 공포본·디지털 경계·확인 경로는 solar_holidays.yaml 머리
+# 주석과 같다. 다섯 건 모두 자구가 1970·1990·1993·1994 공포본(디지털 부재)에 의존해
+# verified: false + source_todo 다. name 은 RP 조문 표기에서 관사 "der" 만 뺀 것이라
+# de.ics 의 "Christi Himmelfahrt" 가 여기서는 "Tag Christi Himmelfahrt", de_bw 의
+# "Fronleichnam" 이 "Fronleichnamstag" 다(각 피드는 자기 조문의 표기).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      LFtG § 2 Abs. 1 Nr. 2 'der Karfreitag' — 현행 자구는 2차 소스 넷(datumsrechner.de·
+      Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·kirchenrecht-evpfalz.de
+      14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl. S. 225)의 것이고 1994-12-20
+      개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 2 그대로, 2009-10-27 개정(GVBl. S. 358)은
+      § 10 만. SUMMARY 는 관사를 뺀 'Karfreitag'. 부활절 −2 일은 feiertage-api 2026
+      RP(04-03) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
+      1993-06-08(GVBl. S. 314, Art. 2)·1994-12-20(GVBl. S. 474) 개정이 얹힌 것이다. GVBl.
+      Rheinland-Pfalz 의 디지털 공개는 2004 년부터(gvbl.rlp.de 온라인 아카이브 2004 Nr. 1~
+      2026 Nr. 11, 2026-07-01 부터 verkuendung.rlp.de)라 네 공포본 모두 읽지 못했다 —
+      현행 자구는 [2차] 넷(datumsrechner.de·Bistum Speyer OVB 2007/08·kirchenrecht-ekhn.de·
+      kirchenrecht-evpfalz.de)의 글자 단위 일치에 의존한다. 1994 개정의 § 2 지시문(Nr. 10
+      Buß- und Bettag 삭제, Nr. 9 말미 "und", 구 Nr. 11 → 10)은 Landtag Drs. 12/5573
+      [2차]로만 있고 1990·1993 의 내용은 [2차] 인용조차 없다. 공포본으로 닫힌 구간:
+      2003-12-22 개정(GVBl. S. 396) → 2009-10-27 개정(GVBl. S. 358 Art. 2, § 10 만)은 2009
+      공포본의 인용문("zuletzt geändert durch Artikel 1 des Gesetzes vom 22. Dezember 2003")
+      이 닫고, 2009 → 현재는 2004~2026 전 호 스캔이 § 2 무변경과 § 2 Abs. 2 LVO 가
+      2015-11-27(GVBl. S. 433, 2017-10-31 한 날, 발행 범위 밖) 하나뿐임을 GVBl. 2026 Nr. 22
+      까지 닫는다. [2차] 로만 닫힌 것: 1994 → 2003 사이 무개정(Landtag WD 2003-06-11 의
+      인용 "zuletzt geändert durch Gesetz vom 20. Dezember 1994 (GVBl. S. 474)")과 2003
+      개정의 내용이 § 4(Videotheken)뿐이라 § 2 무관이라는 점. 잔존 경로: GVBl. 1970 S. 225·
+      1990 S. 289·1993 S. 314·1994 S. 474 실물(Landtagsbibliothek Rheinland-Pfalz) 또는
+      juris 유료 GVBl. 아카이브 열람.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      LFtG § 2 Abs. 1 Nr. 3 'der Ostermontag' — 현행 자구는 2차 소스 넷(datumsrechner.de·
+      Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·kirchenrecht-evpfalz.de
+      14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl. S. 225)의 것이고 1994-12-20
+      개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 3 그대로, 2009-10-27 개정(GVBl. S. 358)은
+      § 10 만. SUMMARY 는 관사를 뺀 'Ostermontag'. 부활절 +1 일은 feiertage-api 2026
+      RP(04-06) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
+      1993-06-08(GVBl. S. 314, Art. 2)·1994-12-20(GVBl. S. 474) 개정이 얹힌 것이다. GVBl.
+      Rheinland-Pfalz 의 디지털 공개는 2004 년부터(gvbl.rlp.de 온라인 아카이브 2004 Nr. 1~
+      2026 Nr. 11, 2026-07-01 부터 verkuendung.rlp.de)라 네 공포본 모두 읽지 못했다 —
+      현행 자구는 [2차] 넷(datumsrechner.de·Bistum Speyer OVB 2007/08·kirchenrecht-ekhn.de·
+      kirchenrecht-evpfalz.de)의 글자 단위 일치에 의존한다. 1994 개정의 § 2 지시문(Nr. 10
+      Buß- und Bettag 삭제, Nr. 9 말미 "und", 구 Nr. 11 → 10)은 Landtag Drs. 12/5573
+      [2차]로만 있고 1990·1993 의 내용은 [2차] 인용조차 없다. 공포본으로 닫힌 구간:
+      2003-12-22 개정(GVBl. S. 396) → 2009-10-27 개정(GVBl. S. 358 Art. 2, § 10 만)은 2009
+      공포본의 인용문("zuletzt geändert durch Artikel 1 des Gesetzes vom 22. Dezember 2003")
+      이 닫고, 2009 → 현재는 2004~2026 전 호 스캔이 § 2 무변경과 § 2 Abs. 2 LVO 가
+      2015-11-27(GVBl. S. 433, 2017-10-31 한 날, 발행 범위 밖) 하나뿐임을 GVBl. 2026 Nr. 22
+      까지 닫는다. [2차] 로만 닫힌 것: 1994 → 2003 사이 무개정(Landtag WD 2003-06-11 의
+      인용 "zuletzt geändert durch Gesetz vom 20. Dezember 1994 (GVBl. S. 474)")과 2003
+      개정의 내용이 § 4(Videotheken)뿐이라 § 2 무관이라는 점. 잔존 경로: GVBl. 1970 S. 225·
+      1990 S. 289·1993 S. 314·1994 S. 474 실물(Landtagsbibliothek Rheinland-Pfalz) 또는
+      juris 유료 GVBl. 아카이브 열람.
+
+  - key: christi_himmelfahrt
+    name: Tag Christi Himmelfahrt
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      LFtG § 2 Abs. 1 Nr. 5 'der Tag Christi Himmelfahrt' — 현행 자구는 2차 소스 넷
+      (datumsrechner.de·Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·
+      kirchenrecht-evpfalz.de 14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl.
+      S. 225)의 것이고 1994-12-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 5 그대로,
+      2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Tag Christi
+      Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이).
+      부활절 +39 일은 feiertage-api 2026 RP(05-14, Christi Himmelfahrt) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
+      1993-06-08(GVBl. S. 314, Art. 2)·1994-12-20(GVBl. S. 474) 개정이 얹힌 것이다. GVBl.
+      Rheinland-Pfalz 의 디지털 공개는 2004 년부터(gvbl.rlp.de 온라인 아카이브 2004 Nr. 1~
+      2026 Nr. 11, 2026-07-01 부터 verkuendung.rlp.de)라 네 공포본 모두 읽지 못했다 —
+      현행 자구는 [2차] 넷(datumsrechner.de·Bistum Speyer OVB 2007/08·kirchenrecht-ekhn.de·
+      kirchenrecht-evpfalz.de)의 글자 단위 일치에 의존한다. 1994 개정의 § 2 지시문(Nr. 10
+      Buß- und Bettag 삭제, Nr. 9 말미 "und", 구 Nr. 11 → 10)은 Landtag Drs. 12/5573
+      [2차]로만 있고 1990·1993 의 내용은 [2차] 인용조차 없다. 공포본으로 닫힌 구간:
+      2003-12-22 개정(GVBl. S. 396) → 2009-10-27 개정(GVBl. S. 358 Art. 2, § 10 만)은 2009
+      공포본의 인용문("zuletzt geändert durch Artikel 1 des Gesetzes vom 22. Dezember 2003")
+      이 닫고, 2009 → 현재는 2004~2026 전 호 스캔이 § 2 무변경과 § 2 Abs. 2 LVO 가
+      2015-11-27(GVBl. S. 433, 2017-10-31 한 날, 발행 범위 밖) 하나뿐임을 GVBl. 2026 Nr. 22
+      까지 닫는다. [2차] 로만 닫힌 것: 1994 → 2003 사이 무개정(Landtag WD 2003-06-11 의
+      인용 "zuletzt geändert durch Gesetz vom 20. Dezember 1994 (GVBl. S. 474)")과 2003
+      개정의 내용이 § 4(Videotheken)뿐이라 § 2 무관이라는 점. 잔존 경로: GVBl. 1970 S. 225·
+      1990 S. 289·1993 S. 314·1994 S. 474 실물(Landtagsbibliothek Rheinland-Pfalz) 또는
+      juris 유료 GVBl. 아카이브 열람.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      LFtG § 2 Abs. 1 Nr. 6 'der Pfingstmontag' — 현행 자구는 2차 소스 넷(datumsrechner.de·
+      Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·kirchenrecht-evpfalz.de
+      14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl. S. 225)의 것이고 1994-12-20
+      개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 6 그대로, 2009-10-27 개정(GVBl. S. 358)은
+      § 10 만. SUMMARY 는 관사를 뺀 'Pfingstmontag'. 부활절 +50 일은 feiertage-api 2026
+      RP(05-25) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
+      1993-06-08(GVBl. S. 314, Art. 2)·1994-12-20(GVBl. S. 474) 개정이 얹힌 것이다. GVBl.
+      Rheinland-Pfalz 의 디지털 공개는 2004 년부터(gvbl.rlp.de 온라인 아카이브 2004 Nr. 1~
+      2026 Nr. 11, 2026-07-01 부터 verkuendung.rlp.de)라 네 공포본 모두 읽지 못했다 —
+      현행 자구는 [2차] 넷(datumsrechner.de·Bistum Speyer OVB 2007/08·kirchenrecht-ekhn.de·
+      kirchenrecht-evpfalz.de)의 글자 단위 일치에 의존한다. 1994 개정의 § 2 지시문(Nr. 10
+      Buß- und Bettag 삭제, Nr. 9 말미 "und", 구 Nr. 11 → 10)은 Landtag Drs. 12/5573
+      [2차]로만 있고 1990·1993 의 내용은 [2차] 인용조차 없다. 공포본으로 닫힌 구간:
+      2003-12-22 개정(GVBl. S. 396) → 2009-10-27 개정(GVBl. S. 358 Art. 2, § 10 만)은 2009
+      공포본의 인용문("zuletzt geändert durch Artikel 1 des Gesetzes vom 22. Dezember 2003")
+      이 닫고, 2009 → 현재는 2004~2026 전 호 스캔이 § 2 무변경과 § 2 Abs. 2 LVO 가
+      2015-11-27(GVBl. S. 433, 2017-10-31 한 날, 발행 범위 밖) 하나뿐임을 GVBl. 2026 Nr. 22
+      까지 닫는다. [2차] 로만 닫힌 것: 1994 → 2003 사이 무개정(Landtag WD 2003-06-11 의
+      인용 "zuletzt geändert durch Gesetz vom 20. Dezember 1994 (GVBl. S. 474)")과 2003
+      개정의 내용이 § 4(Videotheken)뿐이라 § 2 무관이라는 점. 잔존 경로: GVBl. 1970 S. 225·
+      1990 S. 289·1993 S. 314·1994 S. 474 실물(Landtagsbibliothek Rheinland-Pfalz) 또는
+      juris 유료 GVBl. 아카이브 열람.
+
+  - key: fronleichnam
+    name: Fronleichnamstag
+    scope: land
+    easter_offset: 60
+    verified: false
+    source: >-
+      LFtG § 2 Abs. 1 Nr. 7 'der Fronleichnamstag' — 현행 자구는 2차 소스 넷(datumsrechner.de·
+      Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·kirchenrecht-evpfalz.de
+      14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl. S. 225)의 것이고 1994-12-20
+      개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 7 그대로, 2009-10-27 개정(GVBl. S. 358)은
+      § 10 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'(de_bw 의 'Fronleichnam' 과 갈림은
+      조문 표기 차이). key 는 de_bw·de_by·de_nw 와 같은 fronleichnam. 부활절 +60 일
+      (Donnerstag nach Trinitatis)은 feiertage-api 2026 RP(06-04) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
+      1993-06-08(GVBl. S. 314, Art. 2)·1994-12-20(GVBl. S. 474) 개정이 얹힌 것이다. GVBl.
+      Rheinland-Pfalz 의 디지털 공개는 2004 년부터(gvbl.rlp.de 온라인 아카이브 2004 Nr. 1~
+      2026 Nr. 11, 2026-07-01 부터 verkuendung.rlp.de)라 네 공포본 모두 읽지 못했다 —
+      현행 자구는 [2차] 넷(datumsrechner.de·Bistum Speyer OVB 2007/08·kirchenrecht-ekhn.de·
+      kirchenrecht-evpfalz.de)의 글자 단위 일치에 의존한다. 1994 개정의 § 2 지시문(Nr. 10
+      Buß- und Bettag 삭제, Nr. 9 말미 "und", 구 Nr. 11 → 10)은 Landtag Drs. 12/5573
+      [2차]로만 있고 1990·1993 의 내용은 [2차] 인용조차 없다. 공포본으로 닫힌 구간:
+      2003-12-22 개정(GVBl. S. 396) → 2009-10-27 개정(GVBl. S. 358 Art. 2, § 10 만)은 2009
+      공포본의 인용문("zuletzt geändert durch Artikel 1 des Gesetzes vom 22. Dezember 2003")
+      이 닫고, 2009 → 현재는 2004~2026 전 호 스캔이 § 2 무변경과 § 2 Abs. 2 LVO 가
+      2015-11-27(GVBl. S. 433, 2017-10-31 한 날, 발행 범위 밖) 하나뿐임을 GVBl. 2026 Nr. 22
+      까지 닫는다. [2차] 로만 닫힌 것: 1994 → 2003 사이 무개정(Landtag WD 2003-06-11 의
+      인용 "zuletzt geändert durch Gesetz vom 20. Dezember 1994 (GVBl. S. 474)")과 2003
+      개정의 내용이 § 4(Videotheken)뿐이라 § 2 무관이라는 점. 잔존 경로: GVBl. 1970 S. 225·
+      1990 S. 289·1993 S. 314·1994 S. 474 실물(Landtagsbibliothek Rheinland-Pfalz) 또는
+      juris 유료 GVBl. 아카이브 열람.
