@@ -1,0 +1,196 @@
+"""독일·니더작센 주 공휴일 → core.ics.Event.
+
+직렬화는 하지 않는다. 그건 core/ics.py 다. 계약은 rules/de_hh/feed.py 와 같다 —
+feed_range(today) / events(start, end) / build(...) / publish(...).
+
+--------------------------------------------------------------------------
+두 표, 한 계산
+--------------------------------------------------------------------------
+    solar_holidays.yaml       월·일 고정 6 건
+    easter_holidays.yaml      부활절 오프셋 4 건
+부활절은 python-dateutil 의 easter() 로 계산한다(rules/de/feed.py 의 근거).
+일회성 표는 두지 않는다 — 2013 개정(Nds. GVBl. S. 131)의 2017 한시 Satz 2 는 실효해
+발행 하한(2020) 밖이다. 사례가 오면 de_be 의 로더를 그때 이식한다. key 규약은 그때를
+위해 연도 접미사까지 지금부터 허용한다(_KEY_RE).
+
+--------------------------------------------------------------------------
+UID token 에 접두사를 단다
+--------------------------------------------------------------------------
+token 은 "de_ni-" + key 다. 주 피드 규약 {피드토큰}-{key} (docs/holiday_12.md §6).
+key 는 전부 기존 확립값(공통 9 종은 de·일곱 주 피드와, reformationstag 은 de_hh·de_sh
+와 같다)이라 접두사가 없으면 같은 날 같은 항목이 같은 UID 로 나간다. 함께 구독한
+캘린더에서 같은 UID 는 서로를 덮어쓴다(rules/kr_only/feed.py 의 같은 절). 한 번
+발행되면 이 접두사도 영구값이다.
+
+--------------------------------------------------------------------------
+대체공휴일이 없고 provisional 은 항상 False
+--------------------------------------------------------------------------
+rules/de/feed.py 와 같다. verified 는 별개의 축이고 피드에 나가지 않는다 — 이
+피드는 h 하나만 true, 아홉이 false + source_todo 지만 그 사실도 나가지 않는다.
+
+--------------------------------------------------------------------------
+SUMMARY 는 NI 조문 표기에서 서술부를 정리한 것
+--------------------------------------------------------------------------
+YAML 의 name 그대로 — § 2 Abs. 1 의 열거에서 Buchst. d "der 1. Mai" → "1. Mai",
+Buchst. g "der 3. Oktober, als Tag der Deutschen Einheit" → "Tag der Deutschen Einheit",
+Buchst. h "der 31. Oktober, als Reformationstag" → "Reformationstag". de.ics 가 BayFTG 의
+"der 3. Oktober als …" 서술부를 뺀 전례와 동형. 나머지 일곱 호는 조문 그대로
+(Neujahrstag·Himmelfahrtstag·1. Weihnachtstag 등, HH·SH 표기와 같다). 각 피드는 자기
+근거 조문의 표기를 쓴다(de_be·de_he·de_hh·de_nw·de_sh·de_bw 와 같은 결정).
+"""
+
+from __future__ import annotations
+
+import re
+from datetime import date, timedelta
+from pathlib import Path
+
+import yaml
+from dateutil.easter import easter
+
+from core import feed as core_feed
+from core import ics
+from rules.de.feed import BUNDESWEIT_SENTENCE
+
+# 하한·상한 정책은 kr·de 와 주 피드 일곱과 같다.
+RANGE_START = date(2020, 1, 1)
+YEARS_AHEAD = 5
+
+PRODID = "-//lunalism//holidays.lunalism.com//KO"
+CALNAME = "독일·니더작센 공휴일"
+TZID = "Europe/Berlin"
+
+KIND_STATUTORY = "statutory"
+
+# UID token 접두사. 모듈 docstring 참조.
+TOKEN_PREFIX = "de_ni-"
+
+# scope — YAML 전 항목 필수, 닫힌 집합. 전국 공통 9 건이 bundesweit, 나머지가
+# land 다(근거는 YAML 머리 주석의 scope 절). DESCRIPTION 첫 줄이 여기서 갈린다.
+SCOPES = frozenset({"bundesweit", "land"})
+LAND_NAME = "니더작센"
+SCOPE_SENTENCE = {
+    "bundesweit": BUNDESWEIT_SENTENCE,
+    "land": f"{LAND_NAME} 주 공휴일입니다.",
+}
+
+_HERE = Path(__file__).resolve().parent
+SOLAR_PATH = _HERE / "solar_holidays.yaml"
+EASTER_PATH = _HERE / "easter_holidays.yaml"
+
+_WHITESPACE = re.compile(r"\s+")
+
+# key 규약. rules/de_be/feed.py 와 같다 — [a-z][a-z_]* 에 일회성용 연도 접미사
+# (_YYYY)만 허용. 날짜형(31_oktober)은 숫자 시작이라 막힌다. fullmatch() 인 이유도
+# 같다(끝 개행이 새지 않게).
+_KEY_RE = re.compile(r"[a-z][a-z_]*(?:_\d{4})?")
+
+
+def feed_range(today: date) -> tuple:
+    """(시작일, 종료일). 종료일은 today 기준 YEARS_AHEAD 년 뒤의 12-31."""
+    return RANGE_START, date(today.year + YEARS_AHEAD, 12, 31)
+
+
+def _one_line(text: str) -> str:
+    return _WHITESPACE.sub(" ", (text or "").strip())
+
+
+def _checked(entry: dict, path: Path, *fields) -> dict:
+    """항목 하나를 검사해 그대로 돌려준다. 손대지 않는다."""
+    where = f"{path.name}: {entry.get('key')!r}"
+    for field in ("key", "name", "source", "scope", *fields):
+        if entry.get(field) in (None, ""):
+            raise ics.IcsError(f"{where}: {field} 가 비었다.")
+    if entry["scope"] not in SCOPES:
+        raise ics.IcsError(
+            f"{where}: scope 가 규약 밖이다 — {entry['scope']!r}. "
+            f"{sorted(SCOPES)} 중 하나여야 한다."
+        )
+    if not _KEY_RE.fullmatch(entry["key"]):
+        raise ics.IcsError(
+            f"{where}: key 가 규약 밖이다. [a-z][a-z_]* 에 연도 접미사 _YYYY 만 "
+            "허용한다 — 서수는 풀어 쓰고 움라우트는 ae/oe/ue/ss 로 옮길 것."
+        )
+    if not isinstance(entry.get("verified"), bool):
+        raise ics.IcsError(f"{where}: verified 는 true/false 여야 한다.")
+    return entry
+
+
+def _load(path: Path, *fields) -> list:
+    doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    entries = doc.get("holidays") or ()
+    if not entries:
+        raise ics.IcsError(f"{path} 에 holidays 가 비었다.")
+    return [_checked(e, path, *fields) for e in entries]
+
+
+def _solar() -> list:
+    return _load(SOLAR_PATH, "month", "day")
+
+
+def _easter_based() -> list:
+    return _load(EASTER_PATH, "easter_offset")
+
+
+def _event(day: date, entry: dict) -> ics.Event:
+    return ics.Event(
+        day=day,
+        summary=entry["name"],
+        kind=KIND_STATUTORY,
+        # 구독자용 문장 / 빈 줄 / 근거. 개행은 core/ics.py 가 \n 으로 이스케이프한다.
+        description=f"{SCOPE_SENTENCE[entry['scope']]}\n\n근거: {_one_line(entry['source'])}",
+        provisional=False,
+        token=TOKEN_PREFIX + entry["key"],
+        origin=f"key={entry['key']!r}",
+    )
+
+
+def _year(year: int) -> list:
+    """한 해의 10 건. 날짜 오름차순."""
+    out = [_event(date(year, e["month"], e["day"]), e) for e in _solar()]
+    sunday = easter(year)
+    out += [_event(sunday + timedelta(days=e["easter_offset"]), e) for e in _easter_based()]
+    out.sort(key=lambda e: e.day)
+    return out
+
+
+def events(start: date, end: date) -> list:
+    """구간 안의 모든 이벤트. 날짜 오름차순."""
+    out = []
+    for year in range(start.year, end.year + 1):
+        out += [e for e in _year(year) if start <= e.day <= end]
+    return out
+
+
+def build(*, today: date, dtstamp, previous: bytes = None) -> bytes:
+    """피드 한 벌. 같은 (today, dtstamp, previous) 면 같은 바이트가 나온다."""
+    start, end = feed_range(today)
+    return ics.render(
+        events(start, end),
+        dtstamp=dtstamp,
+        prodid=PRODID,
+        calname=CALNAME,
+        tzid=TZID,
+        previous=previous,
+    )
+
+
+FEED_PATH = Path(__file__).resolve().parents[2] / "feeds" / "de_ni.ics"
+
+
+def publish(*, today: date, dtstamp, path: Path = None) -> Path:
+    """피드를 파일로 낸다. 읽기·쓰기의 순서와 원자성은 core.feed 가 맡는다."""
+    path = path or FEED_PATH
+    return core_feed.publish(
+        lambda previous: build(today=today, dtstamp=dtstamp, previous=previous),
+        path,
+    )
+
+
+if __name__ == "__main__":  # pragma: no cover
+    import datetime as _dt
+    import sys as _sys
+
+    _now = _dt.datetime.now(_dt.UTC)
+    _target = Path(_sys.argv[1]) if len(_sys.argv) > 1 else FEED_PATH
+    print(f"발행: {publish(today=_now.date(), dtstamp=_now, path=_target)}")

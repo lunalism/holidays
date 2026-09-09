@@ -1,0 +1,221 @@
+# 독일·니더작센 주 공휴일 — 고정 날짜 6 건.
+#
+# 근거: Niedersächsisches Gesetz über die Feiertage (NFeiertagsG) in der Fassung vom
+# 7. März 1995 (Nds. GVBl. S. 50) § 2 Abs. 1 — "Staatlich anerkannte Feiertage sind:
+# a) Neujahrstag, b) Karfreitag, c) Ostermontag, d) der 1. Mai, e) Himmelfahrtstag,
+# f) Pfingstmontag, g) der 3. Oktober, als Tag der Deutschen Einheit, h) der 31. Oktober,
+# als Reformationstag, i) 1. Weihnachtstag, j) 2. Weihnachtstag." (2018 재번호 후 체계,
+# 현행 자구는 NI-VORIS § 2 문서 f74bc6e7 과 schure.de 로 읽음 — 둘 일치). 고정 날짜는
+# Buchst. a·d·g·h·i·j. 전국 공통 5 건에 Buchst. h "der 31. Oktober, als Reformationstag"
+# 가 더해진다. 3. Oktober 는 조문 열거 안에 있다(g) — BW 와 달리 rules/de 를 미러하지
+# 않고 조문이 주근거, Einigungsvertrag Art. 2 Abs. 2 는 부기다.
+#
+# --- 공포본과 디지털 경계 (/tmp/report_ni_gesetz_chain.md) ---
+# Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 "Verkündungsblätter der Vorjahre",
+# 호별 PDF, 텍스트층 있음)이고 2024-01-01 부터는 verkuendung-niedersachsen.de(전자 공포,
+# 정본, 호별 sha256 게시)다. 2003 이전은 무료 디지털 공개가 없다.
+# § 2 를 건드린 개정(공포본 실측):
+#   2013-06-05 Gesetz zur Änderung des NFeiertagsG, Nds. GVBl. 2013 Nr. 8 (11.06.2013)
+#     S. 131 — § 2 Abs. 1 에 Satz 2(2017-10-31 Reformationsjubiläum 한시) 추가, 2017-11-01
+#     실효. https://www.niedersachsen.de/download/78453/Nds._GVBl._Nr._8_2013_vom_11.06.2013_S._123-134.pdf
+#     sha256 a11a40e9e1c0fa3005991b477c5f78ca01f113d3225bc865f9a858b809ee17f0
+#   2018-06-22 Gesetz zur Änderung des NFeiertagsG(첫째), Nds. GVBl. 2018 Nr. 7 (28.06.2018)
+#     S. 122, 시행 29.06.2018 — Art. 1 Nr. 1: "a) Satz 1: aa) Es wird der folgende neue
+#     Buchstabe h eingefügt: „h) der 31. Oktober, als Reformationstag,“. bb) Die bisherigen
+#     Buchstaben h und i werden Buchstaben i und j. b) Satz 2 wird gestrichen."
+#     https://www.niedersachsen.de/download/132379/Nds._GVBl._Nr._7_2018_vom_28.06.2018_S._111-154.pdf
+#     sha256 99d4848d3b86f2bd5b7af9e33af05b75fdee7098b8cdcdd16e07a378bd378b3d (포털 직접
+#     수신 + Wayback 20240415 사본 동일; 구현 세션에서 재수령해 sha256 일치·Buchst. h
+#     지시문 자구 재확인). 같은 호 S. 123 의 둘째 개정법은 §§ 4·14 만(무관).
+# § 2 무관 개정: 2005-06-23 Art. 1 (Nds. GVBl. 2005 Nr. 14 S. 207, §§ 10·11) — 인용문
+#   "in der Fassung vom 7. März 1995 (S. 50), geändert durch Gesetz vom 24. Januar 2002
+#   (S. 17)" 이 1995~2005 사이 개정을 2002 하나로 공포본으로 닫는다.
+# 공포본으로 못 읽은 것: 1995 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50 — 아홉 항목의 자구
+#   뿌리)과 2002-01-24 Art. 1 (Nds. GVBl. 2002 Nr. 3 S. 17). 2002 의 내용이 § 2 무관임은
+#   [2차] — NI-VORIS 의 § 2 버전 이력이 01.01.1995~11.06.2013 을 단일 버전(문서 cdcb81db)
+#   으로 두고 그 자구가 현행 a)~g), i), j) 와 같다.
+# 순방향: 2004~2023 전 호 671 건 전문 스캔 + 2024~2026 플랫폼 305 건 제목·전문검색으로
+#   FTG 개정은 위 셋뿐. 확인 최신 호 Nds. GVBl. 2026 Nr. 76 (04.09.2026).
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. Buchst. h(reformationstag)만 true — 자구가 2018 S. 122
+# 공포본에 있다. 나머지 아홉은 자구가 1995 S. 50 에 의존하고 그 공포본이 디지털 부재라
+# false 다(HH #56·#57 전례). 각 항목 source 는 "§ 2 Abs. 1 Buchst. x '자구'" 와 현행
+# 자구를 읽은 2차 소스(VORIS·schure)를, source_todo 는 실측 경계(무엇이 어디까지
+# 확인되고 무엇이 부재인지)를 적는다. 재번호 항목 i·j 는 자구(1995)와 번호(2018)를 나눠
+# 적는다. 날짜는 feiertage-api 2026 NI(10/10, hinweis 전부 공란)·python-holidays 0.102 로
+# 대조했다.
+#
+# --- 범위 밖 ---
+# § 7 Abs. 1 의 kirchliche Feiertage(Fronleichnam·Allerheiligen 은 가톨릭 2/5 이상
+# 지자체 한정 kirchlicher Feiertag), §§ 10·11 의 학교·근무 편의 조항은 공휴일이 아니다.
+# 2013 개정의 2017 한시 Satz 2 는 실효(발행 하한 밖).
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# § 2 에 이동 조항이 없다. python-holidays 0.102 NI 2020–2031 실측에서 일요일 겹침(2021
+# 10-03·10-31·12-26, 2022 05-01·12-25, 2023 01-01, 2027 10-03·10-31·12-26) 모두 보상
+# 휴일 0 건. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de_be/solar_holidays.yaml 의 규약과 같다. 이 표의 key 는 전부 기존 확립값 —
+# Buchst. h 도 de_hh·de_sh 의 reformationstag 를 쓴다(신규 명명 0). 발행되는 UID 의
+# token 은 이 key 앞에 "de_ni-" 가 붙는다(rules/de_ni/feed.py). 접두사 없이는 여덟
+# 독일 피드와 UID 가 겹친다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. 조문 표기에서 "der …, als …" 서술부를 정리했다 — Buchst. d
+# → "1. Mai", g → "Tag der Deutschen Einheit", h → "Reformationstag"(de.ics 가 BayFTG 의
+# 서술부를 뺀 전례). 나머지는 조문 그대로. 원문은 각 항목 source 에 그대로 남긴다.
+#
+# verified 와 source_todo 는 피드에 나가지 않는다(rules/de_ni/feed.py).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. a 'Neujahrstag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. a 그대로.
+      날짜 1. 1. 은 feiertage-api 2026 NI 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. d 'der 1. Mai' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. d 그대로.
+      SUMMARY 는 정관사를 뺀 '1. Mai'. 날짜는 조문에 박혀 있고 feiertage-api 2026 NI(Tag
+      der Arbeit) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der Deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. g 'der 3. Oktober, als Tag der Deutschen Einheit' —
+      NI-VORIS 현행판(Rechtsstand ab 29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는
+      1995-03-07 Neufassung(Nds. GVBl. S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7
+      S. 122) 후에도 Buchst. g 그대로. SUMMARY 는 서술부를 정리한 'Tag der Deutschen
+      Einheit'(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de) — 조문
+      열거에 있으므로 여기서는 부기다. 날짜는 조문에 박혀 있고 feiertage-api 2026 NI
+      대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: reformationstag
+    name: Reformationstag
+    scope: land
+    month: 10
+    day: 31
+    verified: true
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. h 'der 31. Oktober, als Reformationstag' — Gesetz zur
+      Änderung des Niedersächsischen Gesetzes über die Feiertage vom 22.06.2018 Art. 1 Nr. 1
+      (Buchst. h 삽입, 구 Buchst. h·i → i·j, Satz 2 삭제), Nds. GVBl. 2018 Nr. 7 S. 122
+      (28.06.2018 공포, 29.06.2018 시행; 니더작센 포털 PDF
+      https://www.niedersachsen.de/download/132379/Nds._GVBl._Nr._7_2018_vom_28.06.2018_S._111-154.pdf
+      sha256 99d4848d3b86f2bd5b7af9e33af05b75fdee7098b8cdcdd16e07a378bd378b3d,
+      2026-09-09 열람, 재수령 대조 일치; Wayback 20240415 사본도 같은 sha256). SUMMARY 는
+      서술부를 정리한 'Reformationstag'. 날짜 31. 10. 은 feiertage-api 2026 NI 대조 일치
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. i '1. Weihnachtstag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것(당시 Buchst. h), Buchstabe 는 2018 개정 Art. 1 Nr. 1 의 재번호(구 Buchst.
+      h → i, Nds. GVBl. 2018 Nr. 7 S. 122, 공포본 확인). 날짜 25. 12. 은 feiertage-api 2026
+      NI 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. j '2. Weihnachtstag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것(당시 Buchst. i), Buchstabe 는 2018 개정 Art. 1 Nr. 1 의 재번호(구 Buchst.
+      i → j, Nds. GVBl. 2018 Nr. 7 S. 122, 공포본 확인). 날짜 26. 12. 은 feiertage-api 2026
+      NI 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.

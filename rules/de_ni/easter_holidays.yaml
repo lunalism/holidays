@@ -1,0 +1,114 @@
+# 독일·니더작센 주 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_ni/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건 그대로다. NI 는 Fronleichnam(+60)이 § 2 의 주 전역 공휴일이 아니라
+# § 7 Abs. 1 의 지자체 한정 kirchlicher Feiertag 라 싣지 않는다. Ostersonntag(0)·
+# Pfingstsonntag(+49)도 § 2 열거에 없다.
+#
+# key·name·verified 규약과 공포본·디지털 경계·확인 경로는 solar_holidays.yaml 머리
+# 주석과 같다. 네 건 모두 자구가 1995 Neufassung 에 의존해 verified: false +
+# source_todo 다. name 은 NI 조문 표기라 de.ics 의 "Christi Himmelfahrt" 가 여기서는
+# "Himmelfahrtstag" 다(de_be·de_he·de_hh·de_sh 와 같음).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. b 'Karfreitag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. b 그대로.
+      부활절 −2 일은 feiertage-api 2026 NI(04-03) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. c 'Ostermontag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. c 그대로.
+      부활절 +1 일은 feiertage-api 2026 NI(04-06) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: christi_himmelfahrt
+    name: Himmelfahrtstag
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. e 'Himmelfahrtstag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. e 그대로.
+      부활절 +39 일은 feiertage-api 2026 NI(05-14, Christi Himmelfahrt) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      NFeiertagsG § 2 Abs. 1 Buchst. f 'Pfingstmontag' — NI-VORIS 현행판(Rechtsstand ab
+      29.06.2018, 문서 f74bc6e7)·schure.de 일치. 자구는 1995-03-07 Neufassung(Nds. GVBl.
+      S. 50)의 것이고 2018 개정(Nds. GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. f 그대로.
+      부활절 +50 일은 feiertage-api 2026 NI(05-25) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 열거 자구는 1995-03-07 Neufassung(Nds. GVBl. 1995 Nr. 5 S. 50)에
+      의존한다. Nds. GVBl. 의 디지털 공개는 2004 년부터(니더작센 포털 호별 PDF; 2024~ 는
+      verkuendung-niedersachsen.de)라 1995 Nr. 5 와 2002-01-24 개정(Nds. GVBl. 2002 Nr. 3
+      S. 17)은 공포본을 읽지 못했다. 1995~2005 사이 개정이 2002 하나뿐임은 2005-06-23
+      개정 공포본(Nds. GVBl. 2005 Nr. 14 S. 207)의 인용문이 공포본으로 닫는다 — [2차] 에
+      남는 것은 2002 개정의 내용(§ 2 무관: NI-VORIS § 2 버전 이력 1995~2013 단일)뿐이다.
+      2018 개정 지시문(Nds. GVBl. 2018 Nr. 7 S. 122: Buchst. h 삽입, h·i → i·j)은 당시
+      열거 a)~i)와 말미 성탄절 둘을 공포본으로 전제한다. 그 뒤 § 2 무변경은 2004~2023 전
+      호 스캔과 2024~ 플랫폼 검색으로 Nds. GVBl. 2026 Nr. 76 까지 확인됐다. 잔존 경로:
+      Nds. GVBl. 1995 Nr. 5·2002 Nr. 3 실물(Landtagsbibliothek Niedersachsen·GWLB) 또는
+      juris 유료 Nds. GVBl. 아카이브 열람.
