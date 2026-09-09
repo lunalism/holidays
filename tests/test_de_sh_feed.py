@@ -407,11 +407,14 @@ def test_the_reformation_day_source_names_the_amending_act():
 
 def test_the_renumbered_christmas_entries_cite_both_gazettes():
     """Nr. 9·10 의 자구는 2004 공포본(당시 Nr. 8·9)이고 번호는 2018 개정이 매겼다.
-    source 는 둘 다 들어야 한다 — 2004 서지·URL·sha256 과 2018 서지."""
+    source 는 둘 다 같은 완전성으로 들어야 한다 — 2004 쪽은 위 테스트가, 2018 쪽은
+    여기서 서지·공포일·URL·sha256 네 값과 열람일을 전부 본다(Codex 리뷰 #60 지적)."""
     by_key = {e["key"]: e for e in _raw_entries()}
     for key in RENUMBERED_2018:
         source = by_key[key]["source"]
-        assert GAZETTE_2018["cite"] in source, key
+        for value in GAZETTE_2018.values():
+            assert value in source, (key, value)
+        assert READ_ON in source, key
         assert "재번호" in source, key
         old_nr = NR_OF[key] - 1
         assert f"Nr. {old_nr}" in source, key
