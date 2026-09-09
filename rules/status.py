@@ -53,6 +53,7 @@ from rules.de_bw import status as de_bw
 from rules.de_by import status as de_by
 from rules.de_he import status as de_he
 from rules.de_hh import status as de_hh
+from rules.de_ni import status as de_ni
 from rules.de_nw import status as de_nw
 from rules.de_sh import status as de_sh
 from rules.jp import status as jp
@@ -83,6 +84,7 @@ def status(*, today: date, dtstamp) -> dict:
             "de_nw": de_nw.feed_status(today=today),
             "de_sh": de_sh.feed_status(today=today),
             "de_bw": de_bw.feed_status(today=today),
+            "de_ni": de_ni.feed_status(today=today),
         },
         **kr.top_level_sections(today=today),
     }

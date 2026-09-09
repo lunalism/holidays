@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T09:08:39.161457+00:00",
+  "generated_at": "2026-09-09T11:23:25.820860+00:00",
   "feeds": {
     "kr": {
       "path": "feeds/kr.ics",
@@ -112,6 +112,15 @@
     "de_bw": {
       "path": "feeds/de_bw.ics",
       "events": 144,
+      "range": {
+        "start": "2020-01-01",
+        "end": "2031-12-31"
+      },
+      "provisional_events": 0
+    },
+    "de_ni": {
+      "path": "feeds/de_ni.ics",
+      "events": 120,
       "range": {
         "start": "2020-01-01",
         "end": "2031-12-31"
