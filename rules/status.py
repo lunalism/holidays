@@ -49,6 +49,7 @@ from datetime import date
 
 from rules.de import status as de
 from rules.de_be import status as de_be
+from rules.de_bw import status as de_bw
 from rules.de_by import status as de_by
 from rules.de_he import status as de_he
 from rules.de_hh import status as de_hh
@@ -81,6 +82,7 @@ def status(*, today: date, dtstamp) -> dict:
             "de_hh": de_hh.feed_status(today=today),
             "de_nw": de_nw.feed_status(today=today),
             "de_sh": de_sh.feed_status(today=today),
+            "de_bw": de_bw.feed_status(today=today),
         },
         **kr.top_level_sections(today=today),
     }
