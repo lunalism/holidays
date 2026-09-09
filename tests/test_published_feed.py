@@ -102,6 +102,7 @@ from rules.de_he import feed as de_he_feed
 from rules.de_hh import feed as de_hh_feed
 from rules.de_ni import feed as de_ni_feed
 from rules.de_nw import feed as de_nw_feed
+from rules.de_rp import feed as de_rp_feed
 from rules.de_sh import feed as de_sh_feed
 from rules.jp import feed as jp_feed
 from rules.jp_only import feed as jp_only_feed
@@ -461,7 +462,7 @@ def test_the_published_de_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de.ics 의 UID 가 다른 열세 발행본의 어떤 UID 와도 겹치지
+    """발행된 feeds/de.ics 의 UID 가 다른 열네 발행본의 어떤 UID 와도 겹치지
     않는가. de 의 token 은 접두사 없이 독일어 식별자라 구조적으로 겹치지
     않지만, 그것은 현행 token 체계가 유지되는 동안만 참이다. de_be 와는
     같은 날 같은 항목이 있어 접두사(de_be-·de_by-)가 유일한 방벽이다."""
@@ -470,6 +471,7 @@ def test_the_published_de_feed_shares_no_uid_with_the_other_published_feeds():
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed,
         de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -515,13 +517,14 @@ def test_the_published_de_be_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_be_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_be.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_be.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     특히 de.ics 와는 전국 공통 9 건이 같은 날 같은 항목이라, token 접두사
     de_be- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -565,13 +568,14 @@ def test_the_published_de_by_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_by_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_by.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_by.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     de.ics 와는 전국 공통 9 건이, de_be.ics 와도 같은 9 건이 같은 날 같은 항목이라
     token 접두사 de_by- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -616,13 +620,14 @@ def test_the_published_de_he_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_he_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_he.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_he.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·de_be·de_by 와, Fronleichnam 은 de_by 와 같은 날 같은
     항목이라 token 접두사 de_he- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -667,13 +672,14 @@ def test_the_published_de_hh_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_hh_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_hh.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_hh.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·de_be·de_by·de_he 와 같은 날 같은 항목이라 token 접두사
     de_hh- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_he_feed, de_nw_feed, de_sh_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -718,7 +724,7 @@ def test_the_published_de_nw_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_nw_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_nw.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_nw.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·de_be·de_by·de_he·de_hh 와, Fronleichnam·Allerheiligen 은
     de_by(·de_he)와 같은 날 같은 항목이라 token 접두사 de_nw- 가 없으면 반드시
     겹친다."""
@@ -726,6 +732,7 @@ def test_the_published_de_nw_feed_shares_no_uid_with_the_other_published_feeds()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_sh_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -770,13 +777,14 @@ def test_the_published_de_sh_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_sh_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_sh.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_sh.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·다섯 주 피드와, Reformationstag 은 de_hh 와 같은 날 같은
     항목이라 token 접두사 de_sh- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_bw_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -821,7 +829,7 @@ def test_the_published_de_bw_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_bw_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_bw.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_bw.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·여섯 주 피드와, Erscheinungsfest·Fronleichnam·Allerheiligen 은
     de_by(·de_he·de_nw)와 같은 날 같은 항목이라 token 접두사 de_bw- 가 없으면 반드시
     겹친다."""
@@ -829,6 +837,7 @@ def test_the_published_de_bw_feed_shares_no_uid_with_the_other_published_feeds()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_ni_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -873,13 +882,14 @@ def test_the_published_de_ni_feed_is_reproducible_from_the_committed_inputs():
 
 
 def test_the_published_de_ni_feed_shares_no_uid_with_the_other_published_feeds():
-    """발행된 feeds/de_ni.ics 의 UID 가 다른 열세 발행본과 겹치지 않는가.
+    """발행된 feeds/de_ni.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
     전국 공통 9 건은 de·일곱 주 피드와, Reformationstag 은 de_hh·de_sh 와 같은 날 같은
     항목이라 token 접두사 de_ni- 가 없으면 반드시 겹친다."""
     published = set()
     for other in (
         feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
         de_feed, de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed,
+        de_rp_feed,
     ):
         published |= _published_uids(other.FEED_PATH)
 
@@ -902,3 +912,55 @@ def test_the_published_status_describes_the_published_de_ni_feed():
     assert status["feeds"]["de_ni"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
     assert status["feeds"]["de_ni"]["events"] > 0
     assert status["feeds"]["de_ni"]["provisional_events"] == 0
+
+
+def test_the_published_de_rp_feed_is_reproducible_from_the_committed_inputs():
+    """커밋된 feeds/de_rp.ics 가 지금 코드·데이터로 바이트까지 다시 나오는가.
+    de_ni 재현 테스트와 같은 구조다."""
+    raw = de_rp_feed.FEED_PATH.read_bytes()
+    stamp = _feed_dtstamp(raw)
+
+    rebuilt = de_rp_feed.build(today=stamp.date(), dtstamp=stamp, previous=raw)
+
+    assert rebuilt == raw, (
+        "커밋된 feeds/de_rp.ics 가 지금 코드로 재현되지 않는다.\n"
+        f"발행본 {len(raw)} bytes / 재생성 {len(rebuilt)} bytes\n"
+        "규칙이나 데이터를 바꿨다면 발행본을 함께 갱신할 것:\n"
+        "  uv run python -m rules.de_rp.feed feeds/de_rp.ics\n"
+        "  uv run python -m rules.status status.json\n"
+        "아무것도 안 바꿨는데 깨졌다면 icalendar 버전을 먼저 볼 것 "
+        "(이 파일의 모듈 docstring 참조)."
+    )
+
+
+def test_the_published_de_rp_feed_shares_no_uid_with_the_other_published_feeds():
+    """발행된 feeds/de_rp.ics 의 UID 가 다른 열네 발행본과 겹치지 않는가.
+    전국 공통 9 건은 de·여덟 주 피드와, Fronleichnam·Allerheiligen 은 de_bw·de_by·de_nw 와
+    같은 날 같은 항목이라 token 접두사 de_rp- 가 없으면 반드시 겹친다."""
+    published = set()
+    for other in (
+        feed, jp_feed, kr_jp_feed, kr_only_feed, jp_only_feed,
+        de_feed, de_be_feed, de_by_feed, de_he_feed, de_hh_feed, de_nw_feed, de_sh_feed, de_bw_feed,
+        de_ni_feed,
+    ):
+        published |= _published_uids(other.FEED_PATH)
+
+    ours = _published_uids(de_rp_feed.FEED_PATH)
+    assert ours, "de_rp 발행본이 비었다 — 비교가 공허하다"
+    assert all(b"-de_rp-" in uid for uid in ours)
+    assert ours & published == set()
+
+
+def test_the_published_status_describes_the_published_de_rp_feed():
+    """status.json 의 feeds.de_rp 가 그 옆의 feeds/de_rp.ics 를 설명하는가."""
+    raw = de_rp_feed.FEED_PATH.read_bytes()
+    status = _published_status()
+    today = _feed_dtstamp(raw).date()
+
+    start, end = de_rp_feed.feed_range(today)
+    assert status["feeds"]["de_rp"]["range"] == {"start": start.isoformat(), "end": end.isoformat()}
+    assert status["feeds"]["de_rp"]["path"] == str(de_rp_feed.FEED_PATH.relative_to(ROOT))
+    assert status["feeds"]["de_rp"]["events"] == raw.count(b"BEGIN:VEVENT")
+    assert status["feeds"]["de_rp"]["provisional_events"] == raw.count(b"STATUS:TENTATIVE")
+    assert status["feeds"]["de_rp"]["events"] > 0
+    assert status["feeds"]["de_rp"]["provisional_events"] == 0
