@@ -26,6 +26,18 @@ rules/ 에 추가하고 발행본을 커밋하면서 랜딩 줄을 빠뜨리면 
 이 테스트다.
 
 --------------------------------------------------------------------------
+주명은 왜 feed.py 에서 가져오는가
+--------------------------------------------------------------------------
+목록만 묶으면 줄의 존재는 보장되지만 줄에 적힌 글자는 보장되지 않는다. 주명은
+이미 rules/de_<주>/feed.py 의 CALNAME·LAND_NAME 이 갖고 있고, 발행본의
+X-WR-CALNAME 과 DESCRIPTION 첫 줄이 거기서 나온다. 랜딩의 label·desc 는 그
+세 번째 사본이다.
+
+사본인 이상 어긋날 수 있고, 어긋나면 구독 버튼에 적힌 이름과 구독한 뒤
+캘린더에 뜨는 이름이 달라진다. 그래서 여기서는 문구의 존재가 아니라 유도식을
+못 박는다 — 진실 공급원은 feed.py 다.
+
+--------------------------------------------------------------------------
 published_artifact 마커
 --------------------------------------------------------------------------
 이 테스트는 커밋된 산출물(index.html, status.json, feeds/)을 읽는다. 규칙을
@@ -36,6 +48,7 @@ published_artifact 마커
 
 from __future__ import annotations
 
+import importlib
 import json
 import re
 from pathlib import Path
@@ -132,6 +145,27 @@ def test_labels_and_descriptions_are_present():
         assert feed["file"].endswith(".ics"), feed
         assert isinstance(feed["label"], str) and feed["label"].strip(), feed
         assert isinstance(feed["desc"], str) and feed["desc"].strip(), feed
+
+
+def test_state_labels_and_descs_are_derived_from_the_feed_modules():
+    # 위 테스트는 문구가 비어 있지 않은지만 본다. 여기서는 그 문구가 어디서
+    # 왔는지를 본다 — 주 피드의 label·desc 는 지어내는 것이 아니라
+    # rules/de_<주>/feed.py 에서 유도되는 것이다.
+    #
+    #     label == CALNAME 에서 " 공휴일" 을 뗀 것
+    #     desc  == "전국 공통에 {LAND_NAME} 주법 공휴일을 더한 상위집합"
+    #
+    # 주를 늘릴 때 블록에 새 줄을 쓰는 사람이 주명을 옮겨 적다 틀리면 여기서
+    # 걸린다. 목록 일치(위 두 테스트)는 줄이 있는지를, 이 테스트는 줄에 뭐라고
+    # 적혀 있는지를 맡는다.
+    _, data = _html_and_data()
+    state_rows = [feed for feed, _ in _rows(data) if feed["key"].startswith("de_")]
+    assert state_rows, "주 피드 줄이 하나도 없다"
+    for feed in state_rows:
+        module = importlib.import_module(f"rules.{feed['key']}.feed")
+        assert feed["label"] == module.CALNAME.removesuffix(" 공휴일"), feed["key"]
+        expected_desc = f"전국 공통에 {module.LAND_NAME} 주법 공휴일을 더한 상위집합"
+        assert feed["desc"] == expected_desc, feed["key"]
 
 
 def test_groups_keep_their_titles():
