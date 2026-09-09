@@ -1,0 +1,2935 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lunalism//holidays.lunalism.com//KO
+CALSCALE:GREGORIAN
+X-WR-CALNAME:독일·바덴뷔르템베르크 공휴일
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20200101
+DTEND;VALUE=DATE:20200102
+DTSTAMP:20260909T090838Z
+UID:20200101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20200106
+DTEND;VALUE=DATE:20200107
+DTSTAMP:20260909T090838Z
+UID:20200106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20200410
+DTEND;VALUE=DATE:20200411
+DTSTAMP:20260909T090838Z
+UID:20200410-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20200413
+DTEND;VALUE=DATE:20200414
+DTSTAMP:20260909T090838Z
+UID:20200413-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20200501
+DTEND;VALUE=DATE:20200502
+DTSTAMP:20260909T090838Z
+UID:20200501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20200521
+DTEND;VALUE=DATE:20200522
+DTSTAMP:20260909T090838Z
+UID:20200521-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20200601
+DTEND;VALUE=DATE:20200602
+DTSTAMP:20260909T090838Z
+UID:20200601-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20200611
+DTEND;VALUE=DATE:20200612
+DTSTAMP:20260909T090838Z
+UID:20200611-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20201003
+DTEND;VALUE=DATE:20201004
+DTSTAMP:20260909T090838Z
+UID:20201003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20201101
+DTEND;VALUE=DATE:20201102
+DTSTAMP:20260909T090838Z
+UID:20201101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20201225
+DTEND;VALUE=DATE:20201226
+DTSTAMP:20260909T090838Z
+UID:20201225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20201226
+DTEND;VALUE=DATE:20201227
+DTSTAMP:20260909T090838Z
+UID:20201226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20210101
+DTEND;VALUE=DATE:20210102
+DTSTAMP:20260909T090838Z
+UID:20210101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20210106
+DTEND;VALUE=DATE:20210107
+DTSTAMP:20260909T090838Z
+UID:20210106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20210402
+DTEND;VALUE=DATE:20210403
+DTSTAMP:20260909T090838Z
+UID:20210402-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20210405
+DTEND;VALUE=DATE:20210406
+DTSTAMP:20260909T090838Z
+UID:20210405-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20210501
+DTEND;VALUE=DATE:20210502
+DTSTAMP:20260909T090838Z
+UID:20210501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20210513
+DTEND;VALUE=DATE:20210514
+DTSTAMP:20260909T090838Z
+UID:20210513-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20210524
+DTEND;VALUE=DATE:20210525
+DTSTAMP:20260909T090838Z
+UID:20210524-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20210603
+DTEND;VALUE=DATE:20210604
+DTSTAMP:20260909T090838Z
+UID:20210603-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20211003
+DTEND;VALUE=DATE:20211004
+DTSTAMP:20260909T090838Z
+UID:20211003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20211101
+DTEND;VALUE=DATE:20211102
+DTSTAMP:20260909T090838Z
+UID:20211101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20211225
+DTEND;VALUE=DATE:20211226
+DTSTAMP:20260909T090838Z
+UID:20211225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20211226
+DTEND;VALUE=DATE:20211227
+DTSTAMP:20260909T090838Z
+UID:20211226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20220101
+DTEND;VALUE=DATE:20220102
+DTSTAMP:20260909T090838Z
+UID:20220101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20220106
+DTEND;VALUE=DATE:20220107
+DTSTAMP:20260909T090838Z
+UID:20220106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20220415
+DTEND;VALUE=DATE:20220416
+DTSTAMP:20260909T090838Z
+UID:20220415-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20220418
+DTEND;VALUE=DATE:20220419
+DTSTAMP:20260909T090838Z
+UID:20220418-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20220501
+DTEND;VALUE=DATE:20220502
+DTSTAMP:20260909T090838Z
+UID:20220501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20220526
+DTEND;VALUE=DATE:20220527
+DTSTAMP:20260909T090838Z
+UID:20220526-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20220606
+DTEND;VALUE=DATE:20220607
+DTSTAMP:20260909T090838Z
+UID:20220606-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20220616
+DTEND;VALUE=DATE:20220617
+DTSTAMP:20260909T090838Z
+UID:20220616-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20221003
+DTEND;VALUE=DATE:20221004
+DTSTAMP:20260909T090838Z
+UID:20221003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20221101
+DTEND;VALUE=DATE:20221102
+DTSTAMP:20260909T090838Z
+UID:20221101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20221225
+DTEND;VALUE=DATE:20221226
+DTSTAMP:20260909T090838Z
+UID:20221225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20221226
+DTEND;VALUE=DATE:20221227
+DTSTAMP:20260909T090838Z
+UID:20221226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20230101
+DTEND;VALUE=DATE:20230102
+DTSTAMP:20260909T090838Z
+UID:20230101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20230106
+DTEND;VALUE=DATE:20230107
+DTSTAMP:20260909T090838Z
+UID:20230106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20230407
+DTEND;VALUE=DATE:20230408
+DTSTAMP:20260909T090838Z
+UID:20230407-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20230410
+DTEND;VALUE=DATE:20230411
+DTSTAMP:20260909T090838Z
+UID:20230410-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20230501
+DTEND;VALUE=DATE:20230502
+DTSTAMP:20260909T090838Z
+UID:20230501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20230518
+DTEND;VALUE=DATE:20230519
+DTSTAMP:20260909T090838Z
+UID:20230518-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20230529
+DTEND;VALUE=DATE:20230530
+DTSTAMP:20260909T090838Z
+UID:20230529-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20230608
+DTEND;VALUE=DATE:20230609
+DTSTAMP:20260909T090838Z
+UID:20230608-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20231003
+DTEND;VALUE=DATE:20231004
+DTSTAMP:20260909T090838Z
+UID:20231003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20231101
+DTEND;VALUE=DATE:20231102
+DTSTAMP:20260909T090838Z
+UID:20231101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20231225
+DTEND;VALUE=DATE:20231226
+DTSTAMP:20260909T090838Z
+UID:20231225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20231226
+DTEND;VALUE=DATE:20231227
+DTSTAMP:20260909T090838Z
+UID:20231226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20240101
+DTEND;VALUE=DATE:20240102
+DTSTAMP:20260909T090838Z
+UID:20240101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20240106
+DTEND;VALUE=DATE:20240107
+DTSTAMP:20260909T090838Z
+UID:20240106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20240329
+DTEND;VALUE=DATE:20240330
+DTSTAMP:20260909T090838Z
+UID:20240329-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20240401
+DTEND;VALUE=DATE:20240402
+DTSTAMP:20260909T090838Z
+UID:20240401-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20240501
+DTEND;VALUE=DATE:20240502
+DTSTAMP:20260909T090838Z
+UID:20240501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20240509
+DTEND;VALUE=DATE:20240510
+DTSTAMP:20260909T090838Z
+UID:20240509-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20240520
+DTEND;VALUE=DATE:20240521
+DTSTAMP:20260909T090838Z
+UID:20240520-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20240530
+DTEND;VALUE=DATE:20240531
+DTSTAMP:20260909T090838Z
+UID:20240530-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20241003
+DTEND;VALUE=DATE:20241004
+DTSTAMP:20260909T090838Z
+UID:20241003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20241101
+DTEND;VALUE=DATE:20241102
+DTSTAMP:20260909T090838Z
+UID:20241101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20241225
+DTEND;VALUE=DATE:20241226
+DTSTAMP:20260909T090838Z
+UID:20241225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20241226
+DTEND;VALUE=DATE:20241227
+DTSTAMP:20260909T090838Z
+UID:20241226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20250101
+DTEND;VALUE=DATE:20250102
+DTSTAMP:20260909T090838Z
+UID:20250101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20250106
+DTEND;VALUE=DATE:20250107
+DTSTAMP:20260909T090838Z
+UID:20250106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20250418
+DTEND;VALUE=DATE:20250419
+DTSTAMP:20260909T090838Z
+UID:20250418-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20250421
+DTEND;VALUE=DATE:20250422
+DTSTAMP:20260909T090838Z
+UID:20250421-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20250501
+DTEND;VALUE=DATE:20250502
+DTSTAMP:20260909T090838Z
+UID:20250501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20250529
+DTEND;VALUE=DATE:20250530
+DTSTAMP:20260909T090838Z
+UID:20250529-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20250609
+DTEND;VALUE=DATE:20250610
+DTSTAMP:20260909T090838Z
+UID:20250609-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20250619
+DTEND;VALUE=DATE:20250620
+DTSTAMP:20260909T090838Z
+UID:20250619-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20251003
+DTEND;VALUE=DATE:20251004
+DTSTAMP:20260909T090838Z
+UID:20251003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20251101
+DTEND;VALUE=DATE:20251102
+DTSTAMP:20260909T090838Z
+UID:20251101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251226
+DTSTAMP:20260909T090838Z
+UID:20251225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20251226
+DTEND;VALUE=DATE:20251227
+DTSTAMP:20260909T090838Z
+UID:20251226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260102
+DTSTAMP:20260909T090838Z
+UID:20260101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20260106
+DTEND;VALUE=DATE:20260107
+DTSTAMP:20260909T090838Z
+UID:20260106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260404
+DTSTAMP:20260909T090838Z
+UID:20260403-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20260406
+DTEND;VALUE=DATE:20260407
+DTSTAMP:20260909T090838Z
+UID:20260406-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+DTSTAMP:20260909T090838Z
+UID:20260501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260515
+DTSTAMP:20260909T090838Z
+UID:20260514-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+DTSTAMP:20260909T090838Z
+UID:20260525-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20260604
+DTEND;VALUE=DATE:20260605
+DTSTAMP:20260909T090838Z
+UID:20260604-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+DTSTAMP:20260909T090838Z
+UID:20261003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+DTSTAMP:20260909T090838Z
+UID:20261101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+DTSTAMP:20260909T090838Z
+UID:20261225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+DTSTAMP:20260909T090838Z
+UID:20261226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+DTSTAMP:20260909T090838Z
+UID:20270101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+DTSTAMP:20260909T090838Z
+UID:20270106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+DTSTAMP:20260909T090838Z
+UID:20270326-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+DTSTAMP:20260909T090838Z
+UID:20270329-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+DTSTAMP:20260909T090838Z
+UID:20270501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+DTSTAMP:20260909T090838Z
+UID:20270506-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+DTSTAMP:20260909T090838Z
+UID:20270517-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20270527
+DTEND;VALUE=DATE:20270528
+DTSTAMP:20260909T090838Z
+UID:20270527-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+DTSTAMP:20260909T090838Z
+UID:20271003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20271101
+DTEND;VALUE=DATE:20271102
+DTSTAMP:20260909T090838Z
+UID:20271101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20271225
+DTEND;VALUE=DATE:20271226
+DTSTAMP:20260909T090838Z
+UID:20271225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20271226
+DTEND;VALUE=DATE:20271227
+DTSTAMP:20260909T090838Z
+UID:20271226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20280101
+DTEND;VALUE=DATE:20280102
+DTSTAMP:20260909T090838Z
+UID:20280101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20280106
+DTEND;VALUE=DATE:20280107
+DTSTAMP:20260909T090838Z
+UID:20280106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20280414
+DTEND;VALUE=DATE:20280415
+DTSTAMP:20260909T090838Z
+UID:20280414-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20280417
+DTEND;VALUE=DATE:20280418
+DTSTAMP:20260909T090838Z
+UID:20280417-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280502
+DTSTAMP:20260909T090838Z
+UID:20280501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20280525
+DTEND;VALUE=DATE:20280526
+DTSTAMP:20260909T090838Z
+UID:20280525-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20280605
+DTEND;VALUE=DATE:20280606
+DTSTAMP:20260909T090838Z
+UID:20280605-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20280615
+DTEND;VALUE=DATE:20280616
+DTSTAMP:20260909T090838Z
+UID:20280615-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20281003
+DTEND;VALUE=DATE:20281004
+DTSTAMP:20260909T090838Z
+UID:20281003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20281101
+DTEND;VALUE=DATE:20281102
+DTSTAMP:20260909T090838Z
+UID:20281101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20281225
+DTEND;VALUE=DATE:20281226
+DTSTAMP:20260909T090838Z
+UID:20281225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20281226
+DTEND;VALUE=DATE:20281227
+DTSTAMP:20260909T090838Z
+UID:20281226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20290101
+DTEND;VALUE=DATE:20290102
+DTSTAMP:20260909T090838Z
+UID:20290101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20290106
+DTEND;VALUE=DATE:20290107
+DTSTAMP:20260909T090838Z
+UID:20290106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20290330
+DTEND;VALUE=DATE:20290331
+DTSTAMP:20260909T090838Z
+UID:20290330-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20290402
+DTEND;VALUE=DATE:20290403
+DTSTAMP:20260909T090838Z
+UID:20290402-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20290501
+DTEND;VALUE=DATE:20290502
+DTSTAMP:20260909T090838Z
+UID:20290501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20290510
+DTEND;VALUE=DATE:20290511
+DTSTAMP:20260909T090838Z
+UID:20290510-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20290521
+DTEND;VALUE=DATE:20290522
+DTSTAMP:20260909T090838Z
+UID:20290521-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20290531
+DTEND;VALUE=DATE:20290601
+DTSTAMP:20260909T090838Z
+UID:20290531-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20291003
+DTEND;VALUE=DATE:20291004
+DTSTAMP:20260909T090838Z
+UID:20291003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20291101
+DTEND;VALUE=DATE:20291102
+DTSTAMP:20260909T090838Z
+UID:20291101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20291225
+DTEND;VALUE=DATE:20291226
+DTSTAMP:20260909T090838Z
+UID:20291225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20291226
+DTEND;VALUE=DATE:20291227
+DTSTAMP:20260909T090838Z
+UID:20291226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20300101
+DTEND;VALUE=DATE:20300102
+DTSTAMP:20260909T090838Z
+UID:20300101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20300106
+DTEND;VALUE=DATE:20300107
+DTSTAMP:20260909T090838Z
+UID:20300106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20300419
+DTEND;VALUE=DATE:20300420
+DTSTAMP:20260909T090838Z
+UID:20300419-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20300422
+DTEND;VALUE=DATE:20300423
+DTSTAMP:20260909T090838Z
+UID:20300422-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20300501
+DTEND;VALUE=DATE:20300502
+DTSTAMP:20260909T090838Z
+UID:20300501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20300530
+DTEND;VALUE=DATE:20300531
+DTSTAMP:20260909T090838Z
+UID:20300530-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20300610
+DTEND;VALUE=DATE:20300611
+DTSTAMP:20260909T090838Z
+UID:20300610-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20300620
+DTEND;VALUE=DATE:20300621
+DTSTAMP:20260909T090838Z
+UID:20300620-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20301003
+DTEND;VALUE=DATE:20301004
+DTSTAMP:20260909T090838Z
+UID:20301003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20301101
+DTEND;VALUE=DATE:20301102
+DTSTAMP:20260909T090838Z
+UID:20301101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20301225
+DTEND;VALUE=DATE:20301226
+DTSTAMP:20260909T090838Z
+UID:20301225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20301226
+DTEND;VALUE=DATE:20301227
+DTSTAMP:20260909T090838Z
+UID:20301226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahr
+DTSTART;VALUE=DATE:20310101
+DTEND;VALUE=DATE:20310102
+DTSTAMP:20260909T090838Z
+UID:20310101-de_bw-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 1번째 'Neujahr' — Bekanntmachung der Neufassung des Feiertagsge
+ setzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landt
+ ag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739
+ a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc24
+ 17aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 
+ 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)
+ ·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage
+ -api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erscheinungsfest
+DTSTART;VALUE=DATE:20310106
+DTEND;VALUE=DATE:20310107
+DTSTAMP:20260909T090838Z
+UID:20310106-de_bw-heilige_drei_koenige@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 2번째 'Erscheinungsfest (6. Januar)' — Bekanntmach
+ ung der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17
+  S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landt
+ ag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pd
+ f sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\
+ , 2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는
+  1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-
+ 23 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까
+ 지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige 
+ Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_
+ koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage
+ -api 2026 BW(Heilige Drei Könige) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20310411
+DTEND;VALUE=DATE:20310412
+DTSTAMP:20260909T090838Z
+UID:20310411-de_bw-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 3번째 'Karfreitag' — Bekanntmachung der Neufassung des Feiertag
+ sgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; La
+ ndtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19
+ 739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ff
+ c2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령
+  대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1
+ )·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 
+ 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feie
+ rtage-api 2026 BW(04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20310414
+DTEND;VALUE=DATE:20310415
+DTSTAMP:20260909T090838Z
+UID:20310414-de_bw-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 4번째 'Ostermontag' — Bekanntmachung der Neufassung des Feierta
+ gsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; L
+ andtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/1
+ 9739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9f
+ fc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 
+ 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feie
+ rtage-api 2026 BW(04-06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20310501
+DTEND;VALUE=DATE:20310502
+DTSTAMP:20260909T090838Z
+UID:20310501-de_bw-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 5번째 '1. Mai' — Bekanntmachung der Neufassung des Feiertagsges
+ etzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\; Landta
+ g BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054/19739a
+ 8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f9ffc241
+ 7aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수령 대
+ 조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S. 1)·1
+ 994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293)\, § 1 은 
+ 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있
+ 고 feiertage-api 2026 BW (Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Christi Himmelfahrt
+DTSTART;VALUE=DATE:20310522
+DTEND;VALUE=DATE:20310523
+DTSTAMP:20260909T090838Z
+UID:20310522-de_bw-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 6번째 'Christi Himmelfahrt' — Bekanntmachung der Neufassung des
+  Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 
+ 일은 feiertage-api 2026 BW(05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20310602
+DTEND;VALUE=DATE:20310603
+DTSTAMP:20260909T090838Z
+UID:20310602-de_bw-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 7번째 'Pfingstmontag' — Bekanntmachung der Neufassung des Feier
+ tagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 공포\;
+  Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/blob/75054
+ /19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039ac0a2df4f
+ 9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\, 재수
+ 령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971 S
+ . 1)·1994-12-12 개정(GBl. S. 631\, § 1 에서 삭제)·1995-03-23 개
+ 정(GBl. S. 293\, "Christi Himmelfahrt\," 뒤에 재삽입)\, § 1 은 그
+  뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-ap
+ i 2026 BW(05-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fronleichnam
+DTSTART;VALUE=DATE:20310612
+DTEND;VALUE=DATE:20310613
+DTSTAMP:20260909T090838Z
+UID:20310612-de_bw-fronleichnam@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 8번째 'Fronleichnam' — Bekanntmachung der Neufassu
+ ng des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1
+ 995 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resourc
+ e/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3
+ 039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열
+ 람\, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung
+ (GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S
+ . 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_b
+ y·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag nach
+  Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der Deutschen Einheit
+DTSTART;VALUE=DATE:20311003
+DTEND;VALUE=DATE:20311004
+DTSTAMP:20260909T090838Z
+UID:20311003-de_bw-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Einigungsvertrag 
+ Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit gesetz
+ licher Feiertag.' (gesetze-im-internet.de\; rules/de 의 같은 항목을 
+ 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme de
+ s 1. Mai und des 3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S
+ . 450). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW 대조 일
+ 치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Allerheiligen
+DTSTART;VALUE=DATE:20311101
+DTEND;VALUE=DATE:20311102
+DTSTAMP:20260909T090838Z
+UID:20311101-de_bw-allerheiligen@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:바덴뷔르템베르크 주 공휴일입니다.\n\n근거: FT
+ G(BW) § 1\, 열거 9번째 'Allerheiligen (1. November)' — Bekanntmachu
+ ng der Neufassung des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 
+ S. 450 (30.06.1995 공포\; Landtag BW 아카이브 PDF https://www.landta
+ g-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
+  sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\,
+  2026-09-09 열람\, 재수령 대조 일치). 자구의 입법 뿌리는 
+ 1970 Neufassung(GBl. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-2
+ 3 개정(GBl. S. 293)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지
+ ). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 
+ 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api
+  2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Erster Weihnachtstag
+DTSTART;VALUE=DATE:20311225
+DTEND;VALUE=DATE:20311226
+DTSTAMP:20260909T090838Z
+UID:20311225-de_bw-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 10번째 'Erster Weihnachtstag' — Bekanntmachung der Neufassung d
+ es Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995 
+ 공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/bl
+ ob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039a
+ c0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람\
+ , 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl
+ . 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 29
+ 3)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Zweiter Weihnachtstag
+DTSTART;VALUE=DATE:20311226
+DTEND;VALUE=DATE:20311227
+DTSTAMP:20260909T090838Z
+UID:20311226-de_bw-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: FTG(BW) § 1\, 
+ 열거 11번째 'Zweiter Weihnachtstag' — Bekanntmachung der Neufassung 
+ des Feiertagsgesetzes vom 08.05.1995\, GBl. 1995 Nr. 17 S. 450 (30.06.1995
+  공포\; Landtag BW 아카이브 PDF https://www.landtag-bw.de/resource/b
+ lob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf sha256 98f68c3039
+ ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94\, 2026-09-09 열람
+ \, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GB
+ l. 1971 S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 2
+ 93)\, § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 
+ 은 feiertage-api 2026 BW 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+END:VCALENDAR
