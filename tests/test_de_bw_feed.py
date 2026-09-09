@@ -407,8 +407,10 @@ def test_the_tables_hold_twelve_entries_and_the_eleven_statute_lines_cite_their_
         source = entry["source"]
         quoted = re.findall(r"'([^']+)'", source)
         if key == "tag_der_deutschen_einheit":
-            assert "열거" not in source, key
+            # § 1 밖 — "§ 1, 열거 n번째" 인용을 가지면 안 된다. "§ 1 열거에는 없고" 라는
+            # 부기는 허용한다(닫힌 결정: 전제 조항 수준의 부기만).
             assert "FTG(BW) § 1," not in source, key
+            assert not re.search(r"열거 \d+번째", source), key
             continue
         assert f"FTG(BW) § 1, 열거 {ORDINAL_OF[key]}번째 '{STATUTE_TEXT[key]}'" in source, key
         assert STATUTE_TEXT[key] in quoted, key
