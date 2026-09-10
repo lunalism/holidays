@@ -211,11 +211,25 @@ rules/de_*/feed.py 에서 유도됨)와 정렬 테스트(아코디언 key 알파
   현재 rules/de 와 de_bw 가 gesetze-im-internet 통합본을 근거로 들고 있어
   #56 서지 형식(공포본 PDF + sha256)에 못 미친다. 10-03 을 든 전 피드에
   일괄 해당.
+- **DESIGN.md 에 피드 추가 규약이 없다.** README 2차가 드러냈다 — 개정 전
+  README 는 "국가를 추가할 때 반드시 늘리는 것은 sources/<코드>/ 와
+  rules/<코드>/" 라고 적고 있었으나 독일 10피드는 sources/ 없이 서 있었다.
+  README 는 "rules/ 는 필수, sources/ 는 갱신되는 외부 원천이 있을 때만"
+  으로 고쳤는데, DESIGN.md 에는 그 축이 없다 — 절이 셋(kr/seasonal,
+  SEQUENCE, 발행 파이프라인)뿐이고 피드 추가 규약 절 자체가 없다(실측).
+  설계 결정의 정본이 DESIGN.md 이므로 축이 README 에만 사는 것은 자리가
+  틀렸다.
+- **독일 verified 가 status.json 에 집계되지 않는다.** verification 은
+  집계 대상 표 넷이 전부 rules/kr/ 의 것이고(solar·lunar·designated·
+  substitute), feeds.de_* 항목은 path·events·range·provisional_events
+  뿐이다. 주 피드 아홉의 true 36 / false 60 을 밖에서 볼 방법이 지금은
+  없다. README 2차에서 둘이 다른 것임을 문장으로 갈라 두었으므로(#66),
+  집계를 신설한다면 이름을 어떻게 가를지가 함께 정해져야 한다.
 - 이슈 **#64**(JS-off 구독 절), **#40**(독일 피드 검토 — 기존).
-- README 2차(운영자 전용 절을 docs/operations.md 로, 실기기 스크린샷,
-  "발표는 어디서" 방 문답 반영), verified 기준 확장 (b)안 보류(실물 열람
-  경로 부재), 방·Issues 회신 대기, attribution 판정 보류, 이월 잔여
-  (holiday_13 §5).
+- README 2차 — 운영자 전용 절의 docs/operations.md 분리는 #66 에서
+  실행됐다. 실기기 스크린샷과 "발표는 어디서" 방 문답 반영은 미결로
+  남는다. 그 밖에 verified 기준 확장 (b)안 보류(실물 열람 경로 부재),
+  방·Issues 회신 대기, attribution 판정 보류, 이월 잔여(holiday_13 §5).
 
 ## 6. 규약
 
