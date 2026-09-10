@@ -17,10 +17,16 @@
   CSS·JS 를 별도 파일로 쪼개지 않는 것은 그 순간 이 페이지가 유지보수 대상이
   되기 때문이다. 여기는 구독 주소를 건네주는 자리이고 그 이상이 되면 안 된다.
 
-  값은 status.json 에서 읽는다. HTML 에 박지 않는다 — status.json 은 매주
+  상태 값은 status.json 에서 읽는다. HTML 에 박지 않는다 — status.json 은 매주
   커밋되므로, 값을 여기 적어 두면 이 파일도 매주 바뀌어 diff 가 지저분해진다.
-  예외는 구독 URL 하나다(아래 FEED_URL 참조). 그건 상태가 아니라 주소이고,
-  status.json 을 못 읽어도 구독은 되어야 한다.
+  구독 절의 피드 목록은 예외다. 목록은 매주 바뀌는 상태가 아니라 구조라서
+  페이지 안 JSON 블록(id="feed-data") 이 갖고 있고 스크립트가 그걸로 줄을
+  짠다. 피드를 늘릴 때 손대는 곳은 그 블록 한 줄이다 — 발행본·status.json
+  과의 어긋남은 tests/test_landing.py 가 잡는다.
+
+  구독 URL 은 그 블록의 site_base 와 file 로 조립한다. 상태가 아니라
+  주소이고, status.json 을 못 읽어도 구독은 되어야 하므로 fetch 보다
+  먼저, 동기적으로 화면에 들어간다.
 -->
 
 <!-- 버전 고정. @latest 를 쓰면 업스트림이 바뀔 때 이 페이지가 같이 바뀐다. -->
@@ -432,148 +438,12 @@
   <!-- 2. 구독 -->
   <section aria-labelledby="h-subscribe">
     <h2 id="h-subscribe">구독</h2>
-    <div class="feed-group">
-      <p class="feed-group-title">나라별 전체</p>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">대한민국</p>
-          <p class="feed-desc">대한민국 공휴일 전체</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">일본</p>
-          <p class="feed-desc">일본 공휴일 전체</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-jp"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-jp">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-jp" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">독일</p>
-          <p class="feed-desc">전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-de"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-de">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-de" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-      <details class="feed-accordion">
-        <summary>
-          <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          독일 주별 피드 (5)
-        </summary>
-        <div class="feed-accordion-body">
-          <div class="feed-row">
-            <div class="feed-head">
-              <p class="feed-label">독일·베를린</p>
-              <p class="feed-desc">전국 공통에 베를린 주법 공휴일을 더한 상위집합</p>
-            </div>
-            <div class="feed-controls">
-              <code class="url" id="feed-url-de-be"></code>
-              <button type="button" class="btn btn-primary" id="copy-btn-de-be">구독 주소 복사</button>
-              <a class="btn" id="webcal-btn-de-be" href="#">캘린더 앱에서 열기</a>
-            </div>
-          </div>
-          <div class="feed-row">
-            <div class="feed-head">
-              <p class="feed-label">독일·바이에른</p>
-              <p class="feed-desc">전국 공통에 바이에른 주법 공휴일을 더한 상위집합</p>
-            </div>
-            <div class="feed-controls">
-              <code class="url" id="feed-url-de-by"></code>
-              <button type="button" class="btn btn-primary" id="copy-btn-de-by">구독 주소 복사</button>
-              <a class="btn" id="webcal-btn-de-by" href="#">캘린더 앱에서 열기</a>
-            </div>
-          </div>
-          <div class="feed-row">
-            <div class="feed-head">
-              <p class="feed-label">독일·헤센</p>
-              <p class="feed-desc">전국 공통에 헤센 주법 공휴일을 더한 상위집합</p>
-            </div>
-            <div class="feed-controls">
-              <code class="url" id="feed-url-de-he"></code>
-              <button type="button" class="btn btn-primary" id="copy-btn-de-he">구독 주소 복사</button>
-              <a class="btn" id="webcal-btn-de-he" href="#">캘린더 앱에서 열기</a>
-            </div>
-          </div>
-          <div class="feed-row">
-            <div class="feed-head">
-              <p class="feed-label">독일·함부르크</p>
-              <p class="feed-desc">전국 공통에 함부르크 주법 공휴일을 더한 상위집합</p>
-            </div>
-            <div class="feed-controls">
-              <code class="url" id="feed-url-de-hh"></code>
-              <button type="button" class="btn btn-primary" id="copy-btn-de-hh">구독 주소 복사</button>
-              <a class="btn" id="webcal-btn-de-hh" href="#">캘린더 앱에서 열기</a>
-            </div>
-          </div>
-          <div class="feed-row">
-            <div class="feed-head">
-              <p class="feed-label">독일·노르트라인베스트팔렌</p>
-              <p class="feed-desc">전국 공통에 노르트라인베스트팔렌 주법 공휴일을 더한 상위집합</p>
-            </div>
-            <div class="feed-controls">
-              <code class="url" id="feed-url-de-nw"></code>
-              <button type="button" class="btn btn-primary" id="copy-btn-de-nw">구독 주소 복사</button>
-              <a class="btn" id="webcal-btn-de-nw" href="#">캘린더 앱에서 열기</a>
-            </div>
-          </div>
-        </div>
-      </details>
-    </div>
-
-    <div class="feed-group">
-      <p class="feed-group-title">한 피드로 합침</p>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">대한민국·일본</p>
-          <p class="feed-desc">양국 공휴일 전체. 항목마다 [KR]·[JP] 표기</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-krjp"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-krjp">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-krjp" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="feed-group">
-      <p class="feed-group-title">겹치지 않는 날만</p>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">대한민국만</p>
-          <p class="feed-desc">대한민국 공휴일 중 일본이 쉬지 않는 날</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-kronly"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-kronly">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-kronly" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-      <div class="feed-row">
-        <div class="feed-head">
-          <p class="feed-label">일본만</p>
-          <p class="feed-desc">일본 공휴일 중 대한민국이 쉬지 않는 날</p>
-        </div>
-        <div class="feed-controls">
-          <code class="url" id="feed-url-jponly"></code>
-          <button type="button" class="btn btn-primary" id="copy-btn-jponly">구독 주소 복사</button>
-          <a class="btn" id="webcal-btn-jponly" href="#">캘린더 앱에서 열기</a>
-        </div>
-      </div>
-    </div>
+    <!--
+      피드 줄은 아래 스크립트가 feed-data 블록에서 짠다. 여기 남는 것은
+      묶음이 담길 그릇과 안내문뿐이다. 묶음 셋의 구조(나라별 전체 — 그 안에
+      주별 아코디언, 합침, 겹치지 않는 날만)도 데이터가 같이 들고 있다.
+    -->
+    <div id="feed-groups"></div>
 
     <p class="note" style="margin-top:0.75rem">
       일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
@@ -805,15 +675,63 @@
 
 </main>
 
+<script type="application/json" id="feed-data">
+{
+  "site_base": "https://holidays.lunalism.com/",
+  "groups": [
+    {
+      "title": "나라별 전체",
+      "feeds": [
+        { "key": "kr", "file": "kr.ics", "label": "대한민국", "desc": "대한민국 공휴일 전체" },
+        { "key": "jp", "file": "jp.ics", "label": "일본", "desc": "일본 공휴일 전체" },
+        { "key": "de", "file": "de.ics", "label": "독일", "desc": "전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)" }
+      ],
+      "accordion": {
+        "title": "독일 주별 피드",
+        "feeds": [
+          { "key": "de_be", "file": "de_be.ics", "label": "독일·베를린", "desc": "전국 공통에 베를린 주법 공휴일을 더한 상위집합" },
+          { "key": "de_bw", "file": "de_bw.ics", "label": "독일·바덴뷔르템베르크", "desc": "전국 공통에 바덴뷔르템베르크 주법 공휴일을 더한 상위집합" },
+          { "key": "de_by", "file": "de_by.ics", "label": "독일·바이에른", "desc": "전국 공통에 바이에른 주법 공휴일을 더한 상위집합" },
+          { "key": "de_he", "file": "de_he.ics", "label": "독일·헤센", "desc": "전국 공통에 헤센 주법 공휴일을 더한 상위집합" },
+          { "key": "de_hh", "file": "de_hh.ics", "label": "독일·함부르크", "desc": "전국 공통에 함부르크 주법 공휴일을 더한 상위집합" },
+          { "key": "de_ni", "file": "de_ni.ics", "label": "독일·니더작센", "desc": "전국 공통에 니더작센 주법 공휴일을 더한 상위집합" },
+          { "key": "de_nw", "file": "de_nw.ics", "label": "독일·노르트라인베스트팔렌", "desc": "전국 공통에 노르트라인베스트팔렌 주법 공휴일을 더한 상위집합" },
+          { "key": "de_rp", "file": "de_rp.ics", "label": "독일·라인란트팔츠", "desc": "전국 공통에 라인란트팔츠 주법 공휴일을 더한 상위집합" },
+          { "key": "de_sh", "file": "de_sh.ics", "label": "독일·슐레스비히홀슈타인", "desc": "전국 공통에 슐레스비히홀슈타인 주법 공휴일을 더한 상위집합" }
+        ]
+      }
+    },
+    {
+      "title": "한 피드로 합침",
+      "feeds": [
+        { "key": "kr_jp", "file": "kr_jp.ics", "label": "대한민국·일본", "desc": "양국 공휴일 전체. 항목마다 [KR]·[JP] 표기" }
+      ]
+    },
+    {
+      "title": "겹치지 않는 날만",
+      "feeds": [
+        { "key": "kr_only", "file": "kr_only.ics", "label": "대한민국만", "desc": "대한민국 공휴일 중 일본이 쉬지 않는 날" },
+        { "key": "jp_only", "file": "jp_only.ics", "label": "일본만", "desc": "일본 공휴일 중 대한민국이 쉬지 않는 날" }
+      ]
+    }
+  ]
+}
+</script>
+
 <script>
 (function () {
   "use strict";
 
   /* ------------------------------------------------------------------ *
-   * 구독 URL
+   * 구독 절
    *
-   * 확정된 주소다. CNAME 이 이 도메인을 이 저장소로 붙이고, Pages 가 브랜치
-   * 루트를 서빙하므로 feeds/kr.ics 가 그대로 이 경로가 된다.
+   * 피드 목록은 위 feed-data 블록이 정의하고 이 스크립트가 짠다. 줄을
+   * 늘리거나 줄이는 변경은 그 블록에서만 일어난다 — 마크업도 여기도 피드
+   * 개수를 모른다. 주별 아코디언의 "(5)" 도 적어두는 것이 아니라 세는 것이다.
+   *
+   * 구독 URL 은 site_base + "feeds/" + file 로 조립한다. CNAME 이 이 도메인을
+   * 이 저장소로 붙이고, Pages 가 브랜치 루트를 서빙하므로 feeds/kr.ics 가
+   * 그대로 이 경로가 된다.
    *
    * 한 번 공개된 구독 URL 은 바꾸기 어렵다. 구독자가 이미 등록한 주소는
    * 우리가 갱신해 줄 수 없고, 주소가 죽으면 캘린더가 조용히 멈춘다.
@@ -822,43 +740,123 @@
    * status.json 과 무관하다. 상태를 못 읽어도 구독은 되어야 하므로
    * fetch 보다 먼저, 동기적으로 화면에 넣는다.
    * ------------------------------------------------------------------ */
-  var FEED_URL = "https://holidays.lunalism.com/feeds/kr.ics";
-  var FEED_URL_JP = "https://holidays.lunalism.com/feeds/jp.ics";
-  var FEED_URL_KRJP = "https://holidays.lunalism.com/feeds/kr_jp.ics";
-  var FEED_URL_KRONLY = "https://holidays.lunalism.com/feeds/kr_only.ics";
-  var FEED_URL_JPONLY = "https://holidays.lunalism.com/feeds/jp_only.ics";
-  var FEED_URL_DE = "https://holidays.lunalism.com/feeds/de.ics";
-  var FEED_URL_DE_BE = "https://holidays.lunalism.com/feeds/de_be.ics";
-  var FEED_URL_DE_BY = "https://holidays.lunalism.com/feeds/de_by.ics";
-  var FEED_URL_DE_HE = "https://holidays.lunalism.com/feeds/de_he.ics";
-  var FEED_URL_DE_HH = "https://holidays.lunalism.com/feeds/de_hh.ics";
-  var FEED_URL_DE_NW = "https://holidays.lunalism.com/feeds/de_nw.ics";
-
   var $ = function (id) { return document.getElementById(id); };
 
   /* --- 구독 영역부터 세운다. 아래 fetch 가 어떻게 되든 이건 끝나 있다. --- */
-  wireFeed("feed-url", "webcal-btn", "copy-btn", FEED_URL);
-  wireFeed("feed-url-jp", "webcal-btn-jp", "copy-btn-jp", FEED_URL_JP);
-  wireFeed("feed-url-krjp", "webcal-btn-krjp", "copy-btn-krjp", FEED_URL_KRJP);
-  wireFeed("feed-url-kronly", "webcal-btn-kronly", "copy-btn-kronly", FEED_URL_KRONLY);
-  wireFeed("feed-url-jponly", "webcal-btn-jponly", "copy-btn-jponly", FEED_URL_JPONLY);
-  wireFeed("feed-url-de", "webcal-btn-de", "copy-btn-de", FEED_URL_DE);
-  wireFeed("feed-url-de-be", "webcal-btn-de-be", "copy-btn-de-be", FEED_URL_DE_BE);
-  wireFeed("feed-url-de-by", "webcal-btn-de-by", "copy-btn-de-by", FEED_URL_DE_BY);
-  wireFeed("feed-url-de-he", "webcal-btn-de-he", "copy-btn-de-he", FEED_URL_DE_HE);
-  wireFeed("feed-url-de-hh", "webcal-btn-de-hh", "copy-btn-de-hh", FEED_URL_DE_HH);
-  wireFeed("feed-url-de-nw", "webcal-btn-de-nw", "copy-btn-de-nw", FEED_URL_DE_NW);
+  renderSubscribe();
 
-  function wireFeed(urlId, webcalId, copyId, url) {
-    $(urlId).textContent = url;
-    $(webcalId).href = url.replace(/^https:/, "webcal:");
-    $(copyId).addEventListener("click", function () {
+  function renderSubscribe() {
+    var data = JSON.parse($("feed-data").textContent);
+    var host = $("feed-groups");
+    data.groups.forEach(function (group) {
+      host.appendChild(buildGroup(group, data.site_base));
+    });
+  }
+
+  function buildGroup(group, base) {
+    var el = document.createElement("div");
+    el.className = "feed-group";
+
+    var title = document.createElement("p");
+    title.className = "feed-group-title";
+    title.textContent = group.title;
+    el.appendChild(title);
+
+    group.feeds.forEach(function (feed) {
+      el.appendChild(buildRow(feed, base));
+    });
+    if (group.accordion) {
+      el.appendChild(buildAccordion(group.accordion, base));
+    }
+    return el;
+  }
+
+  function buildAccordion(accordion, base) {
+    var details = document.createElement("details");
+    details.className = "feed-accordion";
+
+    var summary = document.createElement("summary");
+    summary.appendChild(chevron());
+    summary.appendChild(document.createTextNode(accordion.title + " ("));
+    var count = document.createElement("span");
+    count.textContent = String(accordion.feeds.length);
+    summary.appendChild(count);
+    summary.appendChild(document.createTextNode(")"));
+    details.appendChild(summary);
+
+    var body = document.createElement("div");
+    body.className = "feed-accordion-body";
+    accordion.feeds.forEach(function (feed) {
+      body.appendChild(buildRow(feed, base));
+    });
+    details.appendChild(body);
+    return details;
+  }
+
+  function chevron() {
+    // 문자열을 마크업으로 해석시키지 않는다는 이 페이지의 규칙을 여기서도
+    // 지킨다 — 아이콘도 요소로 만든다.
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "chevron");
+    svg.setAttribute("viewBox", "0 0 16 16");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M6 3.5 10.5 8 6 12.5");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", "1.75");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function buildRow(feed, base) {
+    var url = base + "feeds/" + feed.file;
+
+    var row = document.createElement("div");
+    row.className = "feed-row";
+
+    var head = document.createElement("div");
+    head.className = "feed-head";
+    var label = document.createElement("p");
+    label.className = "feed-label";
+    label.textContent = feed.label;
+    var desc = document.createElement("p");
+    desc.className = "feed-desc";
+    desc.textContent = feed.desc;
+    head.appendChild(label);
+    head.appendChild(desc);
+
+    var controls = document.createElement("div");
+    controls.className = "feed-controls";
+    var urlBox = document.createElement("code");
+    urlBox.className = "url";
+    urlBox.textContent = url;
+    var copyBtn = document.createElement("button");
+    copyBtn.type = "button";
+    copyBtn.className = "btn btn-primary";
+    copyBtn.textContent = "구독 주소 복사";
+    copyBtn.addEventListener("click", function () {
       var btn = this;
       copy(url).then(function (ok) {
         btn.textContent = ok ? "복사됨" : "복사하지 못했습니다";
         setTimeout(function () { btn.textContent = "구독 주소 복사"; }, 2000);
       });
     });
+    var webcal = document.createElement("a");
+    webcal.className = "btn";
+    webcal.href = url.replace(/^https:/, "webcal:");
+    webcal.textContent = "캘린더 앱에서 열기";
+
+    controls.appendChild(urlBox);
+    controls.appendChild(copyBtn);
+    controls.appendChild(webcal);
+
+    row.appendChild(head);
+    row.appendChild(controls);
+    return row;
   }
 
   function copy(text) {
