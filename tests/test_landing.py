@@ -168,6 +168,19 @@ def test_state_labels_and_descs_are_derived_from_the_feed_modules():
         assert feed["desc"] == expected_desc, feed["key"]
 
 
+def test_the_accordion_is_sorted_by_key():
+    # 표시 순서는 등록순이 아니라 key 알파벳순이다. status.json 의 feeds 키
+    # 순서(rules/status.py 의 리터럴 = 등록순)와 일부러 갈라 둔 값이라, 아무도
+    # 지키지 않으면 다음 주가 그냥 끝에 붙는다. 기계가 읽는 순서와 사람이 훑는
+    # 순서는 목적이 다르다 — 등록순은 "언제 추가됐나"를 말할 뿐이다.
+    #
+    # 멤버십은 test_state_feeds_live_in_the_accordion_and_de_does_not 이 집합으로
+    # 본다. 집합은 순서를 잃는다. 순서는 여기서 맡는다.
+    _, data = _html_and_data()
+    keys = [feed["key"] for feed in data["groups"][0]["accordion"]["feeds"]]
+    assert keys == sorted(keys), keys
+
+
 def test_groups_keep_their_titles():
     # 묶음 셋의 순서는 용도별 위계다(holiday_10 §5). 데이터가 이끌게 바뀌어도
     # 이 순서만은 바뀌지 않는다고 못 박는다.
