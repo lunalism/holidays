@@ -656,8 +656,7 @@
       조문) 단위로 세며, 아래는 규칙표 <span data-item-count>48</span>건 중 아직
       확인하지 못한 수입니다.
     </p>
-    <p class="stat" id="unverified">규칙표 <span data-item-count>48</span>건 중 <span
-      data-unverified-count>32</span>건 확인 대기</p>
+    <p class="stat" id="unverified">규칙표 <span data-item-count>48</span>건 중 <span data-unverified-count>32</span>건 확인 대기</p>
     <p>
       대조가 항상 일치하는 것은 아닙니다. 2015년 8월 14일(광복 70주년
       임시공휴일)은 특일정보 API에 포함돼 있지 않습니다. 2015년 8월 4일
@@ -925,7 +924,7 @@
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);
-    set("kr-events", status.feeds.kr.events + "건");
+    set("kr-events", fmt("{n}건", { n: status.feeds.kr.events }));
   }
 
   function renderJp(status) {
@@ -933,7 +932,7 @@
     // kr 규칙표의 개념이라 jp 에는 해당 절이 없다.
     var jp = status.feeds.jp;
     setRange("jp-range", jp.range.start, jp.range.end);
-    set("jp-events", jp.events + "건");
+    set("jp-events", fmt("{n}건", { n: jp.events }));
   }
 
   function renderKrJp(status) {
@@ -952,7 +951,7 @@
       setRange("krjp-range-confirmed", from, until);
       set("krjp-range-provisional", "없음");
     }
-    set("krjp-events", krjp.events + "건");
+    set("krjp-events", fmt("{n}건", { n: krjp.events }));
   }
 
   function renderKrOnly(status) {
@@ -970,7 +969,7 @@
       setRange("kronly-range-confirmed", from, until);
       set("kronly-range-provisional", "없음");
     }
-    set("kronly-events", kronly.events + "건");
+    set("kronly-events", fmt("{n}건", { n: kronly.events }));
   }
 
   function renderJpOnly(status) {
@@ -979,7 +978,7 @@
     // (끝이 두 나라 중 짧은 쪽).
     var jponly = status.feeds.jp_only;
     setRange("jponly-range", jponly.range.start, jponly.range.end);
-    set("jponly-events", jponly.events + "건");
+    set("jponly-events", fmt("{n}건", { n: jponly.events }));
   }
 
   function renderDe(status) {
@@ -987,7 +986,7 @@
     // 없다 — 일본 절과 같이 기간과 항목 수만 싣는다.
     var de = status.feeds.de;
     setRange("de-range", de.range.start, de.range.end);
-    set("de-events", de.events + "건");
+    set("de-events", fmt("{n}건", { n: de.events }));
   }
 
   function renderUpdated(status) {
@@ -995,8 +994,8 @@
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
 
     var days = Math.floor((Date.now() - at.getTime()) / DAY);
-    set("updated-value", days <= 0 ? "오늘" : days + "일 전");
-    $("updated-at").textContent = ko(status.generated_at) + " 갱신";
+    set("updated-value", days <= 0 ? "오늘" : fmt("{n}일 전", { n: days }));
+    $("updated-at").textContent = fmt("{date} 갱신", { date: ko(status.generated_at) });
 
     if (days > STALE_DAYS) { $("updated-warn").hidden = false; }
   }
@@ -1046,6 +1045,12 @@
     el.appendChild(document.createTextNode(" ~ "));
     el.appendChild(span(ko(to)));
     el.removeAttribute("data-pending");
+  }
+
+  /* locale 문구의 {이름} 자리를 값으로 채운다. 어순은 문구가 정한다 —
+     "{n}건" 이든 "{n} items" 든 여기는 모른다. */
+  function fmt(template, vars) {
+    return template.replace(/\{(\w+)\}/g, function (_, key) { return String(vars[key]); });
   }
 
   function span(text) {
