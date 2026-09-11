@@ -30,15 +30,19 @@ from landing import render
 pytestmark = pytest.mark.published_artifact
 
 ROOT = Path(__file__).resolve().parents[1]
-LANDING = ROOT / "index.html"
 
 
-def test_the_committed_landing_is_reproducible_from_landing_inputs():
-    committed = LANDING.read_text(encoding="utf-8")
-    rebuilt = render.render()
+# 언어마다 한 건. 목록은 render 가 locales/ 에서 스캔한 것 — 언어를 늘리면
+# 그 페이지가 자동으로 검사에 든다. 한 언어 페이지만 낡아도 여기서 걸린다.
+@pytest.mark.parametrize("lang", render.languages())
+def test_the_committed_landing_is_reproducible_from_landing_inputs(lang):
+    page = render.output_path(lang)
+    assert page.is_file(), f"{page.relative_to(ROOT)} 이 없다 — 생성해서 커밋할 것"
+    committed = page.read_text(encoding="utf-8")
+    rebuilt = render.render(lang)
     assert rebuilt == committed, (
-        "커밋된 index.html 이 지금 landing/ 으로 재현되지 않는다.\n"
+        f"커밋된 {page.relative_to(ROOT)} 이 지금 landing/ 으로 재현되지 않는다.\n"
         f"커밋본 {len(committed)} chars / 재생성 {len(rebuilt)} chars\n"
         "layout·locale·template 을 바꿨다면 페이지를 함께 갱신할 것:\n"
-        "  uv run python -m landing.render index.html"
+        "  uv run python -m landing.render"
     )

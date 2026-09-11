@@ -92,7 +92,7 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 |---|---|---|
 | 5 | `feeds/<코드>.ics` — `uv run python -m rules.<코드>.feed feeds/<코드>.ics` 로 생성해 커밋 | `test_feed_set.py::test_the_published_feeds_match_feeds`, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`, `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
 | 6 | `status.json` — `uv run python -m rules.status status.json` 으로 재생성해 커밋 | `test_landing.py::test_feed_rows_match_status_json_feed_keys` 가 실패합니다 |
-| 7 | `index.html` — `uv run python -m landing.render index.html` 로 재생성해 커밋. 주 피드가 아니면 `landing/locales/ko.yaml` 의 `feeds` 에 desc(필요하면 label)를 먼저 적습니다 | 재생성을 빠뜨리면 `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 와 `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 가 실패합니다. locale 에 desc 가 없으면 render 가 `ValueError` 로 죽습니다(4 와 같은 경로) |
+| 7 | `index.html`(과 언어 디렉터리의 `index.html`) — `uv run python -m landing.render` 로 재생성해 커밋. 주 피드가 아니면 `landing/locales/ko.yaml` 의 `feeds` 에 desc(필요하면 label)를 먼저 적습니다 | 재생성을 빠뜨리면 `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 와 `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 가 실패합니다. locale 에 desc 가 없으면 render 가 `ValueError` 로 죽습니다(4 와 같은 경로) |
 | 8 | `README.md` "구독" 절 표에 행 추가 | `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
 
 5 가 발행 run 에서 잡히지 않는 것은 의도입니다 — 발행본 없이 1~4 만 main 에
