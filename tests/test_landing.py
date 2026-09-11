@@ -165,11 +165,16 @@ def test_labels_and_descriptions_are_present(lang):
 
 
 def test_state_labels_and_descs_are_derived_from_the_feed_modules():
-    """ko 만 본다. 유도식이 한국어다 — CALNAME 에서 " 공휴일" 을 떼고,
-    LAND_NAME(한국어 주 이름)을 한국어 문장 틀에 넣는다. 다른 언어 페이지는
-    같은 유도식으로 같은 한국어 문구가 나오는데(의도된 미완 — 독일어 주 이름
-    근거가 레포에 없어 유도를 언어 중립으로 바꾸지 못했다), 그것을 "맞다" 로
-    검사하면 미완을 고정하게 된다. 언어 중립 유도로 바뀌면 그때 every_page 로."""
+    """ko 만 본다. 유도식 자체는 이제 언어 중립이다 — locale 의 label·desc 틀에
+    land_lang 이 고른 주 이름을 넣는다(ko→LAND_NAME, de→LAND_NAME_DE). ko 전용인
+    이유는 유도식이 아니라 **기대값**이다: 아래 두 리터럴이 한국어라서 ja 에
+    그대로 쓸 수 없다.
+
+    ja 의 기대값을 locale 에서 만들어 every_page 로 옮기지 않는다. 그러면 locale
+    을 locale 로 검사하는 동어반복이 되고, 이 테스트가 지키려는 명제 — 주 이름은
+    feed.py 에서 온다 — 를 오히려 놓친다. ja 쪽은 그 명제를 다른 각도로 지킨다:
+    locale 의 ko label 틀이 CALNAME 과 같은 값을 내는 관계를
+    test_the_korean_label_template_matches_the_calname 이 고정한다."""
     # 위 테스트는 문구가 비어 있지 않은지만 본다. 여기서는 그 문구가 어디서
     # 왔는지를 본다 — 주 피드의 label·desc 는 지어내는 것이 아니라
     # rules/de_<주>/feed.py 에서 유도되는 것이다.
@@ -188,6 +193,54 @@ def test_state_labels_and_descs_are_derived_from_the_feed_modules():
         assert feed["label"] == module.CALNAME.removesuffix(" 공휴일"), feed["key"]
         expected_desc = f"전국 공통에 {module.LAND_NAME} 주법 공휴일을 더한 상위집합"
         assert feed["desc"] == expected_desc, feed["key"]
+
+
+DE_STATE_CODES = sorted(c for c in landing_render.feed_codes() if c.startswith("de_"))
+
+# 독일어 주 이름을 여기서 고정한다. feed.py 의 LAND_NAME_DE 가 바뀌면 여기가 먼저
+# 깨진다 — tests/test_de_scope.py 의 LAND_NAMES 와 같은 방식이고, 자리만 다르다.
+# 그 파일의 명제는 "피드에 나가는 것"(scope·DESCRIPTION)이고 LAND_NAME_DE 는 피드에
+# 나가지 않는다. 소비처가 랜딩이므로 랜딩 테스트가 든다.
+#
+# 표기 근거는 독일 기본법 전문(rules/de/feed.py 의 LAND_NAME_DE 절). 아홉 모듈에
+# 손으로 옮겨 적은 값이라 오타가 그대로 랜딩에 나간다 — Nordrhein-Westphalen 처럼
+# 한 글자 틀린 것을 잡는 것이 여기의 일이다.
+LAND_NAMES_DE = {
+    "de_be": "Berlin",
+    "de_bw": "Baden-Württemberg",
+    "de_by": "Bayern",
+    "de_he": "Hessen",
+    "de_hh": "Hamburg",
+    "de_ni": "Niedersachsen",
+    "de_nw": "Nordrhein-Westfalen",
+    "de_rp": "Rheinland-Pfalz",
+    "de_sh": "Schleswig-Holstein",
+}
+
+
+@pytest.mark.parametrize("code", DE_STATE_CODES)
+def test_german_land_names_are_fixed(code):
+    module = importlib.import_module(f"rules.{code}.feed")
+    assert module.LAND_NAME_DE == LAND_NAMES_DE[code]
+
+
+
+@pytest.mark.parametrize("code", DE_STATE_CODES)
+def test_the_korean_label_template_matches_the_calname(code):
+    """랜딩의 ko label 이 CALNAME 에서 갈라지지 않게 못 박는다.
+
+    label 은 CALNAME 에서 " 공휴일" 을 떼어 만들던 것이다. 그 방식으로는 한국어
+    label 만 낼 수 있어(CALNAME 이 한국어다) locale 의 "독일·{land}" 틀로 바뀌었고,
+    그 순간 랜딩 label 과 CALNAME 을 잇는 끈이 끊어졌다 — 둘이 갈라져도 아무
+    테스트가 깨지지 않는다. 갈라지면 구독 버튼의 이름과 구독 뒤 캘린더에 뜨는
+    X-WR-CALNAME 이 달라진다(이 파일 머리의 "주명은 왜 feed.py 에서" 절).
+
+    지금 아홉 주 전부 참인 관계라 그대로 단언한다. 새 주를 더하면서 CALNAME 을
+    다른 모양으로 적으면(예: "독일 베를린 공휴일") 여기서 걸린다. 리터럴 둘은
+    ko.yaml 의 label 틀·label_suffix 와 같은 값이어야 하고, 그 일치는 위
+    test_state_labels_and_descs_are_derived_from_the_feed_modules 가 본다."""
+    module = importlib.import_module(f"rules.{code}.feed")
+    assert module.CALNAME.removesuffix(" 공휴일") == f"독일·{module.LAND_NAME}"
 
 
 @every_page

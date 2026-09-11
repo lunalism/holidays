@@ -70,6 +70,27 @@ KIND_STATUTORY = "statutory"
 # bundesweit 인 항목에 같은 문장을 쓴다(rules/de_*/feed.py 가 여기서 가져간다).
 BUNDESWEIT_SENTENCE = "독일 전국 공휴일입니다."
 
+# --- LAND_NAME_DE — 주 피드의 독일어 주 이름 ---
+#
+# 근거는 여기 한 번만 적는다. 주 피드 아홉(rules/de_*/feed.py)의 LAND_NAME_DE 는
+# 전부 이 절을 가리킨다 — 같은 한 조문이 16 개를 전부 덮으므로 2 차 배치 주가
+# 들어와도 출처를 다시 찾지 않는다.
+#
+# 표기는 독일 기본법 전문(Grundgesetz, Präambel)의 열거다. 16 개 주가 명사형으로
+# 열거된 곳은 기본법에서 이 전문뿐이다:
+#
+#     Baden-Württemberg, Bayern, Berlin, Brandenburg, Bremen, Hamburg, Hessen,
+#     Mecklenburg-Vorpommern, Niedersachsen, Nordrhein-Westfalen,
+#     Rheinland-Pfalz, Saarland, Sachsen, Sachsen-Anhalt, Schleswig-Holstein,
+#     Thüringen
+#
+# https://www.gesetze-im-internet.de/gg/BJNR000010949.html
+# 1990-08-31 개정, 1990-10-03 발효 — 이미 3. Oktober 의 근거로 쓰는
+# Einigungsvertrag 과 같은 계보다. 전문은 효력 있는 헌법 규범이다.
+#
+# 이 상수는 피드에 나가지 않는다. DESCRIPTION 을 만드는 것은 각 모듈의
+# LAND_NAME(한국어)이고, 이쪽은 landing/render.py 만 읽는다.
+
 _HERE = Path(__file__).resolve().parent
 SOLAR_PATH = _HERE / "solar_holidays.yaml"
 EASTER_PATH = _HERE / "easter_holidays.yaml"

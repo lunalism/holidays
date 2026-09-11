@@ -111,14 +111,17 @@ groups:
   merged: { title: "一つのフィードに統合" }
   disjoint: { title: "重ならない日のみ" }
 
-# 주 피드 유도 규칙.
-#   label: CALNAME 에서 label_suffix 를 뗀 것
-#   desc:  desc 의 {land} 에 LAND_NAME 을 넣은 것
+# 주 피드 유도 규칙. 자세한 것은 ko.yaml 의 같은 절.
+#   land_lang: de — {land} 에 독일어 주 이름(feed.py 의 LAND_NAME_DE)이 들어간다.
+#              표기 근거는 독일 기본법 전문이고 rules/de/feed.py 가 든다.
+#   label:     "ドイツ・{land}" — CALNAME 에서 떼는 방식은 못 쓴다(CALNAME 이 한국어다).
 #
-# label_suffix 는 한국어로 둔다 — feed.py 의 CALNAME 이 한국어여서,
-# 일본어로 바꾸면 접미가 잘리지 않고 CALNAME 전문이 label 이 된다.
-# {land} 도 한국어 LAND_NAME 이 들어간다. 독일어 표기 근거가 서면 바뀐다.
+# label_suffix 는 한국어로 둔다 — 주 피드가 아닌 kr·jp·kr_jp 의 폴백에 쓰이는
+# 값이고(render.py), feed.py 의 CALNAME 이 한국어라 이 접미만 한국어여야 잘린다.
+# ja 는 그 셋의 label 을 아래에서 명시하므로 실제로는 폴백을 타지 않는다.
 state_feed:
+  land_lang: de
+  label: "ドイツ・{land}"
   label_suffix: " 공휴일"
   desc: "全国共通に{land}州法の祝日を加えた上位集合"
 

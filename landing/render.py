@@ -7,8 +7,10 @@
                        공급원이지만 워크플로를 파싱하지 않는다 — 둘이 같은
                        집합인 것은 tests/test_feed_set.py 가 고정한다.
     file · site_base   각 feed.py 의 FEED_PATH 이름, CNAME.
-    주 피드 label·desc rules/de_<주>/feed.py 의 CALNAME·LAND_NAME 에서 유도.
-                       tests/test_landing.py 의 결속 테스트와 같은 식이다.
+    주 피드 label·desc locale 의 state_feed 틀에 rules/de_<주>/feed.py 의 주
+                       이름을 넣은 것. 어느 표기를 쓸지는 locale 의 land_lang 이
+                       고른다(ko→LAND_NAME, de→LAND_NAME_DE). tests/test_landing.py
+                       의 결속 테스트와 같은 식이다.
     그 밖의 label·desc·그룹 제목
                        locales/<언어>.yaml — 유도할 데가 없어 사람이 적는다.
     그룹 소속·순서     layout.yaml — 언어와 무관하다.
@@ -139,12 +141,35 @@ def _load_yaml(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
+# state_feed.land_lang 이 고르는 것 — 주 이름을 어느 표기에서 가져올지. 값은
+# 언어 코드가 아니라 표기 이름이고, 그래서 언어가 늘어도 이 표는 늘지 않는다
+# (언어를 늘리는 것은 locales/ 에 파일 하나를 더하는 일이어야 한다 — 위 언어 절).
+# 늘어나는 경우는 주 이름의 새 표기가 생길 때뿐이고, 그때는 아홉 모듈에 상수를
+# 더하는 일이 먼저다.
+LAND_NAME_ATTR = {"ko": "LAND_NAME", "de": "LAND_NAME_DE"}
+
+
+def _land_name(module, locale: dict) -> str:
+    """주 피드 label·desc 의 {land} 에 들어갈 주 이름."""
+    tag = locale["state_feed"]["land_lang"]
+    if tag not in LAND_NAME_ATTR:
+        raise ValueError(
+            f"state_feed.land_lang 이 닫힌 집합 밖이다: {tag!r} — "
+            f"{sorted(LAND_NAME_ATTR)} 중 하나여야 한다"
+        )
+    return getattr(module, LAND_NAME_ATTR[tag])
+
+
 def _row(code: str, locale: dict, *, state: bool) -> dict:
     module = _module(code)
     suffix = locale["state_feed"]["label_suffix"]
     if state:
-        label = module.CALNAME.removesuffix(suffix)
-        desc = locale["state_feed"]["desc"].format(land=module.LAND_NAME)
+        # label 도 desc 와 같은 {land} 로 만든다. CALNAME 에서 접미를 떼는 방식은
+        # CALNAME 이 한국어여서 한국어 label 만 낼 수 있었다. 두 방식이 ko 에서
+        # 같은 값인 것은 tests/test_de_scope.py 가 고정한다.
+        land = _land_name(module, locale)
+        label = locale["state_feed"]["label"].format(land=land)
+        desc = locale["state_feed"]["desc"].format(land=land)
     else:
         entry = locale["feeds"].get(code)
         if not entry or "desc" not in entry:
