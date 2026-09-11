@@ -855,7 +855,7 @@
   var DAY = 86400000;
   var STALE_DAYS = 14;  // 주 1 회 발행이므로 2 주를 넘기면 멈춘 것으로 본다.
 
-  fetch("./status.json", { cache: "no-store" })
+  fetch("/status.json", { cache: "no-store" })
     .then(function (res) {
       if (!res.ok) { throw new Error("HTTP " + res.status); }
       return res.json();

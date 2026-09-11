@@ -94,7 +94,7 @@ def test_the_page_still_reads_status_json():
     # 이 리팩터링이 건드리는 것은 구독 절뿐이어야 한다. 상태 영역의 fetch 가
     # 그대로 있는지를 같이 못 박는다.
     html, _ = _html_and_data()
-    assert 'fetch("./status.json"' in html
+    assert 'fetch("/status.json"' in html
 
 
 def test_every_published_feed_has_a_row_and_vice_versa():
