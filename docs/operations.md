@@ -83,6 +83,8 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 | 2 | `.github/workflows/publish.yml` 의 `FEEDS` 에 코드 추가 | `test_every_rules_package_is_in_feeds_and_vice_versa` 와 `test_the_status_registry_matches_feeds` 가 실패합니다 |
 | 3 | `rules/status.py` — import 와 `"feeds"` 리터럴 등록 | `test_the_status_registry_matches_feeds` 가 실패합니다 |
 | 4 | `landing/layout.yaml` 에 자리 — 어느 묶음에 설지. 독일 주 피드(`de_*`)는 접두사 규칙으로 자동 편입되므로 손댈 것이 없습니다 | 테스트가 아니라 생성 스텝이 잡습니다 — `landing/render.py` 가 `ValueError: rules/ 에 있는데 layout 에 자리가 없는 피드` 로 죽어 발행 run 의 "랜딩 생성" 스텝이 실패합니다. CI 에서는 `test_landing_render.py` 가 같은 예외로 실패합니다 |
+| 5 | 주 피드가 아니면 `landing/locales/` **전 언어**의 `feeds` 에 desc(필요하면 label) — 지금은 `ko.yaml`·`ja.yaml` 둘 | 4 와 같은 경로입니다. 한 언어라도 빠지면 그 언어를 만들 때 `landing/render.py` 가 `ValueError: locale 에 <코드> 의 desc 가 없다` 로 죽어 "랜딩 생성" 스텝이 실패합니다. ko 만 적고 끝내는 것이 흔한 빠뜨림입니다 |
+| 6 | (독일 주 피드) `rules/de_<주>/feed.py` 에 `LAND_NAME_DE` — 독일어 주 이름. 표기 근거는 `rules/de/feed.py` 의 같은 이름 절(기본법 전문) | 4 와 같은 경로입니다. 독일어 표기를 쓰는 언어(`land_lang: de` — 지금은 ja)를 만들 때 render 가 `AttributeError: … has no attribute 'LAND_NAME_DE'` 로 죽습니다 |
 
 `sources/<코드>/`·`data/<코드>/` 는 조건부입니다 — 조건은 `DESIGN.md` 에 있습니다.
 
@@ -90,23 +92,24 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 
 | 순서 | 무엇을 | 빠뜨리면 |
 |---|---|---|
-| 5 | `feeds/<코드>.ics` — `uv run python -m rules.<코드>.feed feeds/<코드>.ics` 로 생성해 커밋 | `test_feed_set.py::test_the_published_feeds_match_feeds`, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`, `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
-| 6 | `status.json` — `uv run python -m rules.status status.json` 으로 재생성해 커밋 | `test_landing.py::test_feed_rows_match_status_json_feed_keys` 가 실패합니다 |
-| 7 | `index.html`(과 언어 디렉터리의 `index.html`) — `uv run python -m landing.render` 로 재생성해 커밋. 주 피드가 아니면 `landing/locales/ko.yaml` 의 `feeds` 에 desc(필요하면 label)를 먼저 적습니다 | 재생성을 빠뜨리면 `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 와 `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 가 실패합니다. locale 에 desc 가 없으면 render 가 `ValueError` 로 죽습니다(4 와 같은 경로) |
-| 8 | `README.md` "구독" 절 표에 행 추가 | `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
+| 7 | `feeds/<코드>.ics` — `uv run python -m rules.<코드>.feed feeds/<코드>.ics` 로 생성해 커밋 | `test_feed_set.py::test_the_published_feeds_match_feeds`, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`, `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
+| 8 | `status.json` — `uv run python -m rules.status status.json` 으로 재생성해 커밋 | `test_landing.py::test_feed_rows_match_status_json_feed_keys` 가 실패합니다 |
+| 9 | `index.html` 과 언어 디렉터리의 `index.html`(지금은 `ja/`) — `uv run python -m landing.render` 로 전 언어를 재생성해 커밋 | `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 가 **언어마다 한 건** 실패하고, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 도 실패합니다. 입력(층 1 의 5·6)이 비어 있으면 여기까지 오지 못하고 생성 자체가 죽습니다 |
+| 10 | (독일 주 피드) `tests/test_landing.py` 의 `LAND_NAMES_DE` 표에 주 추가 | `test_german_land_names_are_fixed[<코드>]` 가 `KeyError` 로 실패합니다. 이 표는 `rules/` 스캔이 parametrize 를 이끌고 표는 조회 대상이라 새 주가 조용히 빠지지 않습니다 — 아래 14 의 `LAND_NAMES` 와 다른 점입니다 |
+| 11 | `README.md` "구독" 절 표에 행 추가 | `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
 
-5 가 발행 run 에서 잡히지 않는 것은 의도입니다 — 발행본 없이 1~4 만 main 에
+7 이 발행 run 에서 잡히지 않는 것은 의도입니다 — 발행본 없이 1~6 만 main 에
 들어온 상태에서 발행 run 이 첫 발행을 만들 수 있어야 하기 때문입니다.
-7 도 발행 run 에서 잡지 않습니다 — 랜딩이 낡은 것은 피드가 틀린 것이 아니고,
+9 도 발행 run 에서 잡지 않습니다 — 랜딩이 낡은 것은 피드가 틀린 것이 아니고,
 발행 run 이 index.html 을 스스로 다시 만들어 올립니다.
 
 ### 3. 아무것도 잡지 않는 것 — 사람 몫
 
 | 순서 | 무엇을 | 빠뜨리면 |
 |---|---|---|
-| 9 | `README.md` "구조" 절 — `rules/` 줄의 피드 열거 | 잡는 테스트가 없습니다. 문장이 낡은 채로 남습니다 |
-| 10 | `tests/test_published_feed.py` — 잠정 건수가 사양상 0 인 피드면 `test_the_status_publishes_no_provisional_events` 의 리터럴 목록에 코드 추가. 재현성·status 서술·UID 배타는 `rules/` 스캔으로 자동 편입되므로 손댈 것이 없습니다 | 잡는 테스트가 없습니다. 그 피드의 잠정 건수가 0 이라는 사양이 검사되지 않습니다 |
-| 11 | (독일 주 피드) `tests/test_de_scope.py` 의 `STATE_FEEDS`·`LAND_NAMES` | 잡는 테스트가 없습니다. 새 주가 scope 검사에서 빠집니다 |
+| 12 | `README.md` "구조" 절 — `rules/` 줄의 피드 열거 | 잡는 테스트가 없습니다. 문장이 낡은 채로 남습니다 |
+| 13 | `tests/test_published_feed.py` — 잠정 건수가 사양상 0 인 피드면 `test_the_status_publishes_no_provisional_events` 의 리터럴 목록에 코드 추가. 재현성·status 서술·UID 배타는 `rules/` 스캔으로 자동 편입되므로 손댈 것이 없습니다 | 잡는 테스트가 없습니다. 그 피드의 잠정 건수가 0 이라는 사양이 검사되지 않습니다 |
+| 14 | (독일 주 피드) `tests/test_de_scope.py` 의 `STATE_FEEDS`·`LAND_NAMES` | 잡는 테스트가 없습니다. 새 주가 scope 검사에서 빠집니다 |
 
 ### 커밋 전
 
