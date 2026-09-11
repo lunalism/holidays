@@ -230,7 +230,8 @@ rules/de_*/feed.py 에서 유도됨)와 정렬 테스트(아코디언 key 알파
   으로 고쳤는데, DESIGN.md 에는 그 축이 없다 — 절이 셋(kr/seasonal,
   SEQUENCE, 발행 파이프라인)뿐이고 피드 추가 규약 절 자체가 없다(실측).
   설계 결정의 정본이 DESIGN.md 이므로 축이 README 에만 사는 것은 자리가
-  틀렸다.
+  틀렸다. **— 2026-09-11 닫힘.** #69 가 DESIGN.md 에 결정 절을 세우고,
+  #70 이 docs/operations.md 에 절차를 세웠다(§7).
 - **독일 verified 가 status.json 에 집계되지 않는다.** verification 은
   집계 대상 표 넷이 전부 rules/kr/ 의 것이고(solar·lunar·designated·
   substitute), feeds.de_* 항목은 path·events·range·provisional_events
@@ -247,6 +248,16 @@ rules/de_*/feed.py 에서 유도됨)와 정렬 테스트(아코디언 key 알파
   랜딩(되돌리기 쉬움)과 피드 내용(CALNAME·DESCRIPTION 이 한국어, 바꾸면
   SEQUENCE 상승이 전 구독자에게 나간다)은 비용이 다르며, 후자는 이번 범위
   밖이다.
+- **(2026-09-11 추가) tests/ 안 피드 리터럴이 무방비다.** test_published_feed
+  의 피드당 3함수와 UID 배타 튜플, test_de_scope 의 STATE_FEEDS·LAND_NAMES.
+  새 피드를 여기 안 더하면 그 피드가 재현성·UID 배타·scope 검사에서 빠지고
+  CI 는 녹색이다. 집합 일치 테스트(#68)로는 잡히지 않는다. `rules/` 스캔
+  기반 parametrize 리팩터가 답으로 보이나 덩치가 달라 범위 밖이었다.
+- **(2026-09-11 추가) README 구조 절(산문)도 무방비다.** 기계 추출이 불가해
+  테스트로 고정할 수 없다. #70 체크리스트에서 사람 몫으로 적었다.
+- **(2026-09-11 추가) 로컬 pytest 녹색이 CI 녹색을 뜻하지 않는다.** #68 에서
+  docstring 한 줄이 E501 로 CI 에서만 걸렸다. lint 가 로컬 테스트 경로에
+  붙어 있지 않다.
 - 이슈 **#64**(JS-off 구독 절), **#40**(독일 피드 검토 — 기존).
 - README 2차 — 운영자 전용 절의 docs/operations.md 분리는 #66 에서
   실행됐다. 실기기 스크린샷과 "발표는 어디서" 방 문답 반영은 미결로
@@ -280,3 +291,42 @@ rules/de_*/feed.py 에서 유도됨)와 정렬 테스트(아코디언 key 알파
 - Holiday_07 §7 의 셋과 Holiday_08 §6 의 다섯 줄 규칙 — **이전 완료.**
   8세션 만에 AGENTS.md 「조사와 보고」 로 옮겼다. 정본은 이제 그 절이고,
   다음 세션 문서에 이 항목을 다시 적지 않는다.
+
+## 7. 이 문서 이후 — 2026-09-11 후속
+
+같은 날 세션 문서(#67) 뒤에 이어진 작업이다. §0~§6 은 당시 서술을 그대로
+둔다.
+
+**한 일**
+
+1. **PR #68 — 피드 집합 정합 테스트** (54f3b51). `tests/test_feed_set.py`.
+   네 지점(rules/ · publish.yml FEEDS · rules/status.py · feeds/)이 같은
+   피드 코드 집합을 드는지를 **FEEDS 를 허브**로 양방향 비교한다. 마커 없음
+   2건(rules/ · status.py) + `published_artifact` 1건(feeds/).
+   - **허브를 처음 feeds/ 로 잡았다가 Codex P1 을 받아 FEEDS 로 옮겼다.**
+     지적: feeds/ 허브를 마커 없이 두면 "입력은 머지됐고 발행본은 아직 없는"
+     상태에서 발행 run 의 테스트 스텝이 생성 스텝보다 먼저 실패해 첫 발행이
+     막힌다. 수용 근거는 실측 — feeds/ 15개를 전부 치운 상태에서
+     `-m "not published_artifact"` 가 1272 passed.
+   - red 재현 셋(rules/ 고아 · status.py 등록 제거 · feeds/ 파일 제거), 마커
+     분리 2/3. 재리뷰 지적 없음(정적 분석 한정).
+   - 다음 예약 run(2026-09-13T21:23Z)부터 마커 없는 2건이 발행 run 에서 돈다.
+2. **PR #69 — DESIGN.md** (5d1cac2). 피드 추가 결정 절 신설(sources/ 조건부 ·
+   랜딩은 자동으로 따라오지 않음 · 표시 순서≠기계 순서 · 단일 공급원은
+   FEEDS), L150 표의 인라인 15피드 열거 제거, DESIGN→README 역참조 0→1.
+3. **PR #70 — docs/operations.md** (53fded1). 피드 추가 절차 체크리스트 열
+   항목. 층 셋 — 발행 run 과 CI 가 모두 잡는 것 / CI 만 잡는 것(마커) /
+   아무것도 잡지 않는 것(사람 몫) — 과 커밋 전 lint 항목.
+4. **무방비 지점의 변화.** 조사 시점 다섯 → 현재 둘.
+   - publish.yml FEEDS — #68 (허브가 됐다)
+   - rules/ 고아 패키지 — #68 `test_every_rules_package_is_in_feeds_and_vice_versa`
+   - DESIGN.md L150 열거 — #69 (열거 자체를 걷었다)
+   - 남은 둘: README 구조 절(산문) · tests/ 리터럴 — §5 에 2026-09-11 추가
+     항목으로 있다.
+
+**남은 미결** — §5. 여기서 반복하지 않는다.
+
+**다음 큐** — 이슈 #64(JS-off 구독 절) → 랜딩 다국어(수요 확인됨, #64 뒤)
+→ BGBl. 1990 II S. 889 공포본 확보 → 승격 백로그 → 2차 배치 조사 7개 주.
+2차 배치가 큐 뒤인 것은 발행 중인 피드의 근거 품질이 확장보다 먼저이기
+때문이다.
