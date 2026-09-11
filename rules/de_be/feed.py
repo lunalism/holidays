@@ -70,6 +70,11 @@ SCOPE_SENTENCE = {
     "land": f"{LAND_NAME} 주 공휴일입니다.",
 }
 
+# 랜딩에 쓰는 독일어 주 이름. 피드에 나가지 않는다 — landing/render.py 만 읽고,
+# 위 LAND_NAME(한국어)은 DESCRIPTION 을 만들므로 그대로 둔다. 표기 근거는
+# rules/de/feed.py 의 같은 이름 절(기본법 전문).
+LAND_NAME_DE = "Berlin"
+
 _HERE = Path(__file__).resolve().parent
 SOLAR_PATH = _HERE / "solar_holidays.yaml"
 EASTER_PATH = _HERE / "easter_holidays.yaml"
