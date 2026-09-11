@@ -21,8 +21,12 @@
   커밋되므로, 값을 여기 적어 두면 이 파일도 매주 바뀌어 diff 가 지저분해진다.
   구독 절의 피드 목록은 예외다. 목록은 매주 바뀌는 상태가 아니라 구조라서
   페이지 안 JSON 블록(id="feed-data") 이 갖고 있고 스크립트가 그걸로 줄을
-  짠다. 피드를 늘릴 때 손대는 곳은 그 블록 한 줄이다 — 발행본·status.json
-  과의 어긋남은 tests/test_landing.py 가 잡는다.
+  짠다. 그 블록은 사람이 쓰지 않는다 — landing/render.py 가 rules/ 의 피드
+  목록과 landing/layout.yaml·locales/ 로 만들고, 이 파일은 그 생성물이다
+  (원본은 landing/template.html). 피드를 늘릴 때 손대는 곳은 layout 의
+  자리 하나(주 피드는 그마저 없다)이고, 발행본·status.json 과의 어긋남은
+  tests/test_landing.py 가, 생성물이 낡은 것은 tests/test_landing_render.py
+  가 잡는다.
 
   구독 URL 은 그 블록의 site_base 와 file 로 조립한다. 상태가 아니라
   주소이고, status.json 을 못 읽어도 구독은 되어야 하므로 fetch 보다
