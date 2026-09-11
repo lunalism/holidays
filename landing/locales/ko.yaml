@@ -1,0 +1,42 @@
+# 랜딩 구독 절의 한국어 문구.
+#
+# 여기 있는 것은 데이터에서 유도되지 않는 것뿐이다. 주 피드(de_*)의 표시명과
+# 설명은 rules/<코드>/feed.py 의 CALNAME·LAND_NAME 에서 아래 규칙으로
+# 유도하므로 적지 않는다 — tests/test_landing.py 의 결속 테스트가 그 규칙을
+# 검사한다.
+#
+# 값은 2026-09-11 시점의 index.html feed-data 블록에서 그대로 옮겼다.
+
+groups:
+  countries: { title: "나라별 전체" }
+  de_states: { title: "독일 주별 피드" }
+  merged: { title: "한 피드로 합침" }
+  disjoint: { title: "겹치지 않는 날만" }
+
+# 주 피드 유도 규칙.
+#   label: CALNAME 에서 label_suffix 를 뗀 것
+#   desc:  desc 의 {land} 에 LAND_NAME 을 넣은 것
+state_feed:
+  label_suffix: " 공휴일"
+  desc: "전국 공통에 {land} 주법 공휴일을 더한 상위집합"
+
+# 주 피드가 아닌 것.
+#   label 이 없으면 CALNAME 에서 label_suffix 를 뗀 것을 쓴다(kr·jp·kr_jp).
+#   그 규칙으로 안 나오는 셋(de·kr_only·jp_only)만 label 을 적는다.
+#   desc 는 유도할 데가 없어 전부 적는다.
+feeds:
+  kr:
+    desc: "대한민국 공휴일 전체"
+  jp:
+    desc: "일본 공휴일 전체"
+  de:
+    label: "독일"
+    desc: "전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)"
+  kr_jp:
+    desc: "양국 공휴일 전체. 항목마다 [KR]·[JP] 표기"
+  kr_only:
+    label: "대한민국만"
+    desc: "대한민국 공휴일 중 일본이 쉬지 않는 날"
+  jp_only:
+    label: "일본만"
+    desc: "일본 공휴일 중 대한민국이 쉬지 않는 날"
