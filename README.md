@@ -148,8 +148,11 @@ feeds/         발행되는 .ics 파일 열다섯 벌
 tests/         테스트
 docs/          운영 문서, 브랜치 운영 규칙, 작업 세션 기록
 logs/          build.jsonl — 발행 시도 기록. 실패도 남는다.
+landing/       랜딩 페이지의 원본 — layout.yaml(구독 절의 묶음 구조),
+               locales/(언어별 문구), template.html, render.py(생성기).
 status.json    지금 저장소가 주장하는 상태. 랜딩 페이지가 읽는다.
-index.html     랜딩 페이지. CNAME 이 holidays.lunalism.com 을 이 저장소에 붙인다.
+index.html     랜딩 페이지. landing/ 에서 생성된 산출물이라 직접 고치지 않는다.
+               CNAME 이 holidays.lunalism.com 을 이 저장소에 붙인다.
 ```
 
 피드를 추가할 때 반드시 늘리는 것은 `rules/<코드>/` 이고, `sources/<코드>/` 는
