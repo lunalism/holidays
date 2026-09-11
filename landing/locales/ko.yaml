@@ -109,9 +109,16 @@ groups:
   disjoint: { title: "겹치지 않는 날만" }
 
 # 주 피드 유도 규칙.
-#   label: CALNAME 에서 label_suffix 를 뗀 것
-#   desc:  desc 의 {land} 에 LAND_NAME 을 넣은 것
+#   land_lang: {land} 에 넣을 주 이름을 어느 표기에서 가져올지. 닫힌 집합이고
+#              render.py 가 표기별 상수로 옮긴다 — ko 는 feed.py 의 LAND_NAME,
+#              de 는 LAND_NAME_DE(기본법 전문 표기, 근거는 rules/de/feed.py).
+#              언어 코드가 아니라 표기 이름이다. 언어가 늘어도 이 집합은 안 늘어난다.
+#   label:     {land} 를 넣어 만든다. "독일·{land}" 는 CALNAME 에서 " 공휴일" 을
+#              떼던 것과 아홉 주 전부 같은 값이다(tests/test_de_scope.py 가 고정).
+#   desc:      {land} 에 같은 값을 넣은 것
 state_feed:
+  land_lang: ko
+  label: "독일·{land}"
   label_suffix: " 공휴일"
   desc: "전국 공통에 {land} 주법 공휴일을 더한 상위집합"
 
