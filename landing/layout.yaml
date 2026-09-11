@@ -1,0 +1,23 @@
+# 랜딩 구독 절의 구조 — 언어와 무관한 것만 둔다.
+#
+#   그룹의 순서, 그룹 안 피드의 순서, 아코디언 여부.
+#   제목·표시명·설명 같은 문구는 locales/<언어>.yaml 에 있다.
+#
+# 피드 코드는 rules/<코드>/ 와 같다. 여기 적힌 코드는 rules/ 에 있어야 하고,
+# rules/ 의 모든 피드는 여기 어딘가에 놓여야 한다 — 어느 쪽이 어긋나도
+# landing/render.py 가 멈춘다. 새 피드를 어디에 둘지는 사람이 정한다.
+#
+# 아코디언은 목록이 아니라 규칙(prefix)으로 든다. 그 접두사를 가진 피드는
+# 전부 아코디언에 들어가고 key 순으로 선다. 주 피드를 늘릴 때 여기를
+# 손대지 않기 위해서다.
+
+groups:
+  - id: countries
+    feeds: [kr, jp, de]
+    accordion:
+      id: de_states
+      prefix: de_
+  - id: merged
+    feeds: [kr_jp]
+  - id: disjoint
+    feeds: [kr_only, jp_only]

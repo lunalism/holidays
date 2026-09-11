@@ -680,46 +680,7 @@
 </main>
 
 <script type="application/json" id="feed-data">
-{
-  "site_base": "https://holidays.lunalism.com/",
-  "groups": [
-    {
-      "title": "나라별 전체",
-      "feeds": [
-        { "key": "kr", "file": "kr.ics", "label": "대한민국", "desc": "대한민국 공휴일 전체" },
-        { "key": "jp", "file": "jp.ics", "label": "일본", "desc": "일본 공휴일 전체" },
-        { "key": "de", "file": "de.ics", "label": "독일", "desc": "전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)" }
-      ],
-      "accordion": {
-        "title": "독일 주별 피드",
-        "feeds": [
-          { "key": "de_be", "file": "de_be.ics", "label": "독일·베를린", "desc": "전국 공통에 베를린 주법 공휴일을 더한 상위집합" },
-          { "key": "de_bw", "file": "de_bw.ics", "label": "독일·바덴뷔르템베르크", "desc": "전국 공통에 바덴뷔르템베르크 주법 공휴일을 더한 상위집합" },
-          { "key": "de_by", "file": "de_by.ics", "label": "독일·바이에른", "desc": "전국 공통에 바이에른 주법 공휴일을 더한 상위집합" },
-          { "key": "de_he", "file": "de_he.ics", "label": "독일·헤센", "desc": "전국 공통에 헤센 주법 공휴일을 더한 상위집합" },
-          { "key": "de_hh", "file": "de_hh.ics", "label": "독일·함부르크", "desc": "전국 공통에 함부르크 주법 공휴일을 더한 상위집합" },
-          { "key": "de_ni", "file": "de_ni.ics", "label": "독일·니더작센", "desc": "전국 공통에 니더작센 주법 공휴일을 더한 상위집합" },
-          { "key": "de_nw", "file": "de_nw.ics", "label": "독일·노르트라인베스트팔렌", "desc": "전국 공통에 노르트라인베스트팔렌 주법 공휴일을 더한 상위집합" },
-          { "key": "de_rp", "file": "de_rp.ics", "label": "독일·라인란트팔츠", "desc": "전국 공통에 라인란트팔츠 주법 공휴일을 더한 상위집합" },
-          { "key": "de_sh", "file": "de_sh.ics", "label": "독일·슐레스비히홀슈타인", "desc": "전국 공통에 슐레스비히홀슈타인 주법 공휴일을 더한 상위집합" }
-        ]
-      }
-    },
-    {
-      "title": "한 피드로 합침",
-      "feeds": [
-        { "key": "kr_jp", "file": "kr_jp.ics", "label": "대한민국·일본", "desc": "양국 공휴일 전체. 항목마다 [KR]·[JP] 표기" }
-      ]
-    },
-    {
-      "title": "겹치지 않는 날만",
-      "feeds": [
-        { "key": "kr_only", "file": "kr_only.ics", "label": "대한민국만", "desc": "대한민국 공휴일 중 일본이 쉬지 않는 날" },
-        { "key": "jp_only", "file": "jp_only.ics", "label": "일본만", "desc": "일본 공휴일 중 대한민국이 쉬지 않는 날" }
-      ]
-    }
-  ]
-}
+{{FEED_DATA}}
 </script>
 
 <script>
