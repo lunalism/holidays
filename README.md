@@ -151,8 +151,10 @@ logs/          build.jsonl — 발행 시도 기록. 실패도 남는다.
 landing/       랜딩 페이지의 원본 — layout.yaml(구독 절의 묶음 구조),
                locales/(언어별 문구), template.html, render.py(생성기).
 status.json    지금 저장소가 주장하는 상태. 랜딩 페이지가 읽는다.
-index.html     랜딩 페이지. landing/ 에서 생성된 산출물이라 직접 고치지 않는다.
-               CNAME 이 holidays.lunalism.com 을 이 저장소에 붙인다.
+index.html     랜딩 페이지(한국어, 루트). landing/ 에서 생성된 산출물이라 직접
+               고치지 않는다. CNAME 이 holidays.lunalism.com 을 이 저장소에 붙인다.
+ja/index.html  같은 페이지의 일본어판. 언어마다 landing/locales/ 에 파일 하나가
+               있고 경로는 거기서 유도된다 — 루트는 ko 다.
 ```
 
 피드를 추가할 때 반드시 늘리는 것은 `rules/<코드>/` 이고, `sources/<코드>/` 는
