@@ -55,10 +55,20 @@ from pathlib import Path
 
 import pytest
 
+from landing import render as landing_render
+
 pytestmark = pytest.mark.published_artifact
 
 ROOT = Path(__file__).resolve().parents[1]
-LANDING = ROOT / "index.html"
+
+# 언어별 페이지. 목록은 landing/render.py 가 locales/ 에서 스캔한 것과 같다 —
+# 언어를 늘리면 여기 손대지 않아도 그 페이지가 검사에 든다.
+LANGS = landing_render.languages()
+ROOT_LANG = landing_render.ROOT_LANG
+
+# 언어와 무관한 검사는 페이지 전부를 본다. 문구를 보는 검사는 ko 만 본다 —
+# 각 함수의 docstring 참조.
+every_page = pytest.mark.parametrize("lang", LANGS)
 FEEDS_DIR = ROOT / "feeds"
 STATUS = ROOT / "status.json"
 CNAME = ROOT / "CNAME"
@@ -74,10 +84,11 @@ DATA_BLOCK = re.compile(
 CANONICAL_KR_URL = "https://holidays.lunalism.com/feeds/kr.ics"
 
 
-def _html_and_data():
-    html = LANDING.read_text(encoding="utf-8")
+def _html_and_data(lang: str = ROOT_LANG):
+    page = landing_render.output_path(lang)
+    html = page.read_text(encoding="utf-8")
     m = DATA_BLOCK.search(html)
-    assert m, 'index.html 에 id="feed-data" JSON 블록이 없다'
+    assert m, f'{page.relative_to(ROOT)} 에 id="feed-data" JSON 블록이 없다'
     return html, json.loads(m.group(1))
 
 
@@ -90,46 +101,51 @@ def _rows(data):
             yield feed, True
 
 
-def test_the_page_still_reads_status_json():
+@every_page
+def test_the_page_still_reads_status_json(lang):
     # 이 리팩터링이 건드리는 것은 구독 절뿐이어야 한다. 상태 영역의 fetch 가
     # 그대로 있는지를 같이 못 박는다.
-    html, _ = _html_and_data()
+    html, _ = _html_and_data(lang)
     assert 'fetch("/status.json"' in html
 
 
-def test_every_published_feed_has_a_row_and_vice_versa():
+@every_page
+def test_every_published_feed_has_a_row_and_vice_versa(lang):
     # 양방향으로 잡는다. 발행본이 있는데 줄이 없으면 구독 주소를 건네주는
     # 페이지가 거짓말을 하는 것이고, 줄이 있는데 발행본이 없으면 죽은 주소를
     # 건네주는 것이다.
-    _, data = _html_and_data()
+    _, data = _html_and_data(lang)
     listed = {feed["file"] for feed, _ in _rows(data)}
     published = {path.name for path in FEEDS_DIR.glob("*.ics")}
     assert listed == published
 
 
-def test_feed_rows_match_status_json_feed_keys():
-    _, data = _html_and_data()
+@every_page
+def test_feed_rows_match_status_json_feed_keys(lang):
+    _, data = _html_and_data(lang)
     keys = [feed["key"] for feed, _ in _rows(data)]
     assert len(keys) == len(set(keys)), "피드 키가 중복된다"
     status = json.loads(STATUS.read_text(encoding="utf-8"))
     assert set(keys) == set(status["feeds"])
 
 
-def test_the_kr_subscription_url_is_derived_from_the_cname():
+@every_page
+def test_the_kr_subscription_url_is_derived_from_the_cname(lang):
     # URL 은 페이지 안에서 site_base + "feeds/" + file 로 조립된다. 그 규칙이
     # CNAME(서빙 도메인) 과 어긋나면 절반의 구독자에게 죽은 주소를 준다.
     # 기준점은 kr — CLAUDE.md·DESIGN.md 이 약속한 영구값과 글자 하나까지
     # 같아야 한다.
-    _, data = _html_and_data()
+    _, data = _html_and_data(lang)
     assert data["site_base"] == f"https://{CNAME.read_text(encoding='utf-8').strip()}/"
     kr = next(feed for feed, _ in _rows(data) if feed["key"] == "kr")
     assert data["site_base"] + "feeds/" + kr["file"] == CANONICAL_KR_URL
 
 
-def test_state_feeds_live_in_the_accordion_and_de_does_not():
+@every_page
+def test_state_feeds_live_in_the_accordion_and_de_does_not(lang):
     # de_ 접두사 피드는 아코디언 안에만, 전국 피드 de 는 아코디언 밖 나라별
     # 그룹의 한 줄로만 선다. SH 를 추가할 때 이 구조가 스스로 유지된다.
-    _, data = _html_and_data()
+    _, data = _html_and_data(lang)
     rows = list(_rows(data))
     de_state_keys = {feed["key"] for feed, _ in rows if feed["key"].startswith("de_")}
     in_accordion = {feed["key"] for feed, accordion in rows if accordion}
@@ -139,8 +155,9 @@ def test_state_feeds_live_in_the_accordion_and_de_does_not():
     assert de_rows[0][1] is False
 
 
-def test_labels_and_descriptions_are_present():
-    _, data = _html_and_data()
+@every_page
+def test_labels_and_descriptions_are_present(lang):
+    _, data = _html_and_data(lang)
     for feed, _ in _rows(data):
         assert feed["file"].endswith(".ics"), feed
         assert isinstance(feed["label"], str) and feed["label"].strip(), feed
@@ -148,6 +165,11 @@ def test_labels_and_descriptions_are_present():
 
 
 def test_state_labels_and_descs_are_derived_from_the_feed_modules():
+    """ko 만 본다. 유도식이 한국어다 — CALNAME 에서 " 공휴일" 을 떼고,
+    LAND_NAME(한국어 주 이름)을 한국어 문장 틀에 넣는다. 다른 언어 페이지는
+    같은 유도식으로 같은 한국어 문구가 나오는데(의도된 미완 — 독일어 주 이름
+    근거가 레포에 없어 유도를 언어 중립으로 바꾸지 못했다), 그것을 "맞다" 로
+    검사하면 미완을 고정하게 된다. 언어 중립 유도로 바뀌면 그때 every_page 로."""
     # 위 테스트는 문구가 비어 있지 않은지만 본다. 여기서는 그 문구가 어디서
     # 왔는지를 본다 — 주 피드의 label·desc 는 지어내는 것이 아니라
     # rules/de_<주>/feed.py 에서 유도되는 것이다.
@@ -168,7 +190,8 @@ def test_state_labels_and_descs_are_derived_from_the_feed_modules():
         assert feed["desc"] == expected_desc, feed["key"]
 
 
-def test_the_accordion_is_sorted_by_key():
+@every_page
+def test_the_accordion_is_sorted_by_key(lang):
     # 표시 순서는 등록순이 아니라 key 알파벳순이다. status.json 의 feeds 키
     # 순서(rules/status.py 의 리터럴 = 등록순)와 일부러 갈라 둔 값이라, 아무도
     # 지키지 않으면 다음 주가 그냥 끝에 붙는다. 기계가 읽는 순서와 사람이 훑는
@@ -176,12 +199,16 @@ def test_the_accordion_is_sorted_by_key():
     #
     # 멤버십은 test_state_feeds_live_in_the_accordion_and_de_does_not 이 집합으로
     # 본다. 집합은 순서를 잃는다. 순서는 여기서 맡는다.
-    _, data = _html_and_data()
+    _, data = _html_and_data(lang)
     keys = [feed["key"] for feed in data["groups"][0]["accordion"]["feeds"]]
     assert keys == sorted(keys), keys
 
 
 def test_groups_keep_their_titles():
+    """ko 만 본다. 제목 문자열 자체가 한국어 리터럴이라 다른 언어에서는 다른
+    문자열이 정상이다. 묶음의 순서(용도별 위계, holiday_10 §5)는 언어 무관이지만
+    그것은 landing/layout.yaml 이 들고 있고, 여기서는 ko 문구로 그 순서를 못
+    박는다."""
     # 묶음 셋의 순서는 용도별 위계다(holiday_10 §5). 데이터가 이끌게 바뀌어도
     # 이 순서만은 바뀌지 않는다고 못 박는다.
     _, data = _html_and_data()
@@ -193,20 +220,22 @@ def test_groups_keep_their_titles():
     assert data["groups"][0]["accordion"]["title"] == "독일 주별 피드"
 
 
-def test_no_per_feed_markup_remains():
+@every_page
+def test_no_per_feed_markup_remains(lang):
     # 줄마다 id 를 붙이고 상수·호출을 하나씩 쓰던 이전 구조가 돌아오면
     # 피드를 늘릴 때 다시 여섯 군데를 손대게 된다. 대소문자 무시 검색까지
     # 돌린다(AGENTS.md — 소스가 소문자인데 대문자로 찾아 0건으로 믿은
     # 사례가 있다).
-    html, _ = _html_and_data()
+    html, _ = _html_and_data(lang)
     assert re.search(r'id="feed-url', html, re.IGNORECASE) is None
     assert "FEED_URL" not in html
 
 
-def test_the_feed_list_is_read_from_the_data_block():
+@every_page
+def test_the_feed_list_is_read_from_the_data_block(lang):
     # 목록이 데이터 블록에서 읽히는지. 블록(script 태그) 도, 읽는 쪽
     # (getElementById) 도 있어야 한다.
-    html, data = _html_and_data()
+    html, data = _html_and_data(lang)
     assert 'id="feed-data"' in html
     assert '$("feed-data")' in html
     # 주별 피드 개수가 마크업에 박혀 있으면 피드를 늘릴 때 그 숫자만 남는다.

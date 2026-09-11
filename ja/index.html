@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
 <meta property="og:title" content="공휴일 캘린더 — holidays.lunalism.com">
 <meta property="og:description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다. 항목마다 근거를 함께 둡니다.">
 <meta property="og:image" content="https://holidays.lunalism.com/assets/og.png">
-<meta property="og:url" content="https://holidays.lunalism.com/">
+<meta property="og:url" content="https://holidays.lunalism.com/ja/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -441,8 +441,8 @@
       aria-current 로 표시한다. 표시명은 각 언어가 자기 언어로 적은 이름이다.
     -->
     <nav class="lang" aria-label="언어">
-      <a href="/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
-      <a href="/ja/" lang="ja" hreflang="ja">日本語</a>
+      <a href="/" lang="ko" hreflang="ko">한국어</a>
+      <a href="/ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
     </nav>
     <p class="lead">
       캘린더 앱에서 구독하면 대한민국·일본·독일의 공휴일이 자동으로 들어옵니다.
@@ -1078,7 +1078,7 @@
   function ko(value) {
     var d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(value) ? value + "T00:00:00Z" : value);
     if (isNaN(d.getTime())) { throw new Error("date: " + value); }
-    return d.toLocaleDateString("ko-KR", {
+    return d.toLocaleDateString("ja-JP", {
       year: "numeric", month: "long", day: "numeric", timeZone: "UTC"
     });
   }

@@ -1,4 +1,7 @@
-# 랜딩의 한국어 문구.
+# 랜딩의 일본어 문구 — 아직 번역 전이다.
+#
+# ko.yaml 을 그대로 복사해 자리만 만들었다(구조가 도는지 먼저 확인한다).
+# 번역은 별도 PR 에서 한다. lang·locale·name 만 일본어에 맞다.
 #
 # feed-data(groups·state_feed·feeds)와 UI 문구(ui)가 함께 산다. ui 아래의 키는
 # landing/template.html 의 {{t:키}}·{{j:키}} 마커와 양방향으로 맞아야 한다 —
@@ -7,11 +10,11 @@
 # 값은 2026-09-11 시점의 index.html 에서 그대로 옮겼다. 여러 줄 값은 원문의 줄
 # 나눔을 유지한 것이고, render.py 가 마커 자리의 들여쓰기로 이어 붙인다.
 
-lang: ko
+lang: ja
 # 언어 전환 링크에 뜨는 자기 이름. 자기 언어로 적는다 — 번역 대상이 아니다.
-name: 한국어
+name: 日本語
 # toLocaleDateString 의 로케일 — 날짜 표기(2026년 9월 11일).
-locale: ko-KR
+locale: ja-JP
 
 ui:
   # <title> 과 <h1> 둘 다.

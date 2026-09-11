@@ -130,10 +130,11 @@ jobs:
       # 만든다. 피드나 status.json 을 읽지 않으므로 순서 의존은 없다 — 산출물
       # 셋 뒤에 두는 것은 읽는 순서 때문이다. 같은 입력이면 같은 출력이라
       # 보통은 바뀌지 않고, 바뀐 실행에서만 아래 커밋 스텝이 올린다.
+      # 인자 없이 돌면 locales/ 의 언어 전부를 각자 경로(/, /ja/ …)에 쓴다.
       - name: 랜딩 생성
         run: |
           set -o pipefail
-          uv run python -m landing.render index.html 2>&1 | tee -a "$BUILD_LOG_PATH"
+          uv run python -m landing.render 2>&1 | tee -a "$BUILD_LOG_PATH"
 
       # ---------------------------------------------------------------
       # 여기부터 always(). 위에서 무엇이 실패했든 기록은 남는다.
@@ -248,14 +249,21 @@ jobs:
             fi
           done
 
-          # index.html 은 피드처럼 변화가 있을 때만 올린다. 생성이 결정적이라
+          # 랜딩 페이지들은 피드처럼 변화가 있을 때만 올린다. 생성이 결정적이라
           # 보통은 HEAD 와 같고, 같은 파일을 add 해도 무해하지만 CHANGED 계열이
           # 커밋 메시지를 정하므로 바뀐 것만 센다. 생성 스텝이 안 돌았으면
           # (앞 스텝 실패) 파일은 HEAD 그대로라 여기서도 걸리지 않는다.
-          if [ -f index.html ] && ! git diff --quiet -- index.html; then
-            stage_one index.html
-            LANDING_CHANGED=1
-          fi
+          # 루트 index.html 과 언어 디렉터리의 index.html 을 같이 본다 — 경로는
+          # landing/render.py 가 언어에서 유도하므로 여기에 목록을 적지 않는다.
+          # 첫 발행(HEAD 에 없음)은 untracked 라 git diff 로 안 잡힌다 — 피드와
+          # 같은 이유로 따로 본다.
+          for PAGE in index.html */index.html; do
+            [ -f "$PAGE" ] || continue
+            if ! git cat-file -e "HEAD:${PAGE}" 2>/dev/null || ! git diff --quiet -- "$PAGE"; then
+              stage_one "$PAGE"
+              LANDING_CHANGED=1
+            fi
+          done
 
           # 커밋 메시지는 이 실행이 실제로 한 일을 말해야 한다.
           #
