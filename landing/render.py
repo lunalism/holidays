@@ -204,8 +204,17 @@ def _html_text(value: str, column: int) -> str:
 
 
 def _js_string(value: str) -> str:
-    """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫)."""
-    return json.dumps(value, ensure_ascii=False)
+    """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
+
+    json.dumps 만으로는 JS 문자열 리터럴로서 안전하지 않다. 이 리터럴은
+    <script> 안에 놓이는데, HTML 파서는 문자열 안이든 밖이든 "</script>" 를
+    보면 블록을 닫는다 — JSON 은 "<" 를 이스케이프하지 않는다. U+2028·U+2029
+    는 JSON 문자열에서 유효하지만 옛 JS 파서가 줄바꿈으로 읽는다. 셋 다
+    유니코드 이스케이프(\\uXXXX)로 바꾼다. ko 문구에는 해당 문자가 없어 지금 드러나지 않을 뿐이고,
+    이것은 미래 대비가 아니라 함수 계약의 구멍을 메우는 것이다.
+    """
+    literal = json.dumps(value, ensure_ascii=False)
+    return literal.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
 def _fill_markers(template: str, strings: dict[str, str]) -> str:
