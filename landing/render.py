@@ -12,6 +12,29 @@
     그 밖의 label·desc·그룹 제목
                        locales/<언어>.yaml — 유도할 데가 없어 사람이 적는다.
     그룹 소속·순서     layout.yaml — 언어와 무관하다.
+    UI 문구            locales/<언어>.yaml 의 ui — 템플릿의 {{t:키}}·{{j:키}}
+                       마커 자리에 들어간다. 템플릿은 구조만 들고 문구는 전부
+                       locale 이 든다. 언어별 템플릿을 두지 않는다 — 마크업을
+                       고칠 때 언어 수만큼 고치게 되는 종류의 중복이다.
+
+--------------------------------------------------------------------------
+마커 — 문맥은 템플릿이 말한다
+--------------------------------------------------------------------------
+    {{t:키}}   HTML 텍스트·속성값. html.escape 로 이스케이프한다.
+    {{j:키}}   JS 문자열 리터럴. json.dumps 로 따옴표까지 만든다 — 문구에
+               따옴표·백슬래시가 있어도 스크립트가 깨지지 않는다.
+    {{FEED_DATA}}  구독 절 JSON 블록. 제3의 문맥이라 따로 채운다.
+
+locale 은 문맥을 모른다. 같은 키를 t 와 j 양쪽에서 써도 된다.
+
+문구 안의 {이름} 자리는 둘로 갈린다. {item_count}·{unverified_count} 는
+status.json 을 못 읽었을 때의 폴백 숫자라 render 가 <span data-*> 로 채운다 —
+스크립트가 그 셀렉터로 덮어쓴다. {n}·{date} 는 실행 시 값이라 스크립트의
+fmt() 가 채운다. render 는 그 둘을 건드리지 않고 그대로 낸다.
+
+양방향 검사 — 템플릿의 모든 키가 locale 에 있고, locale ui 의 모든 키가
+템플릿에 쓰여야 한다. 키가 수십 개라 한쪽만 보면 누락이 조용히 지나간다.
+어긋나면 ValueError 다.
 
 layout 과 locale 을 가른 것은 언어를 늘릴 때 구조가 언어 수만큼 복제되지
 않게 하기 위해서다. 언어를 늘리는 것은 locales/ 에 파일 하나를 더하는 일이어야
@@ -35,8 +58,10 @@ rules/ 에 있는데 layout 에 자리가 없는 피드, layout 에 있는데 ru
 
 from __future__ import annotations
 
+import html
 import importlib
 import json
+import re
 from pathlib import Path
 
 import yaml
@@ -50,6 +75,12 @@ LAYOUT_PATH = HERE / "layout.yaml"
 LOCALES_DIR = HERE / "locales"
 
 PLACEHOLDER = "{{FEED_DATA}}"
+MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
+
+# 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
+# 못 읽으면 이 값이 그대로 보인다. status 에서 유도하지 않는다 — 그러면 매
+# 발행마다 index.html 이 바뀐다(DESIGN.md 발행 파이프라인).
+FALLBACK_COUNTS = {"item_count": 48, "unverified_count": 32}
 
 
 def feed_codes() -> list[str]:
@@ -151,12 +182,66 @@ def _dumps_feed_data(data: dict) -> str:
     return "\n".join(lines)
 
 
+def _ui_strings(locale: dict) -> dict[str, str]:
+    """마커가 참조할 수 있는 키 전부 — ui 아래와 최상위 lang·locale."""
+    strings = dict(locale["ui"])
+    for key in ("lang", "locale"):
+        if key in strings:
+            raise ValueError(f"locale ui 에 예약된 키가 있다: {key}")
+        strings[key] = locale[key]
+    return strings
+
+
+def _html_text(value: str, column: int) -> str:
+    """HTML 텍스트·속성값. 여러 줄 문구는 마커가 선 열에 맞춰 이어 붙여 원문의
+    줄 나눔과 들여쓰기를 되살린다 — 그래야 생성물 diff 가 문구 변경만 보인다."""
+    escaped = html.escape(value, quote=True)
+    for name, number in FALLBACK_COUNTS.items():
+        escaped = escaped.replace(
+            "{" + name + "}", f'<span data-{name.replace("_", "-")}>{number}</span>'
+        )
+    return escaped.replace("\n", "\n" + " " * column)
+
+
+def _js_string(value: str) -> str:
+    """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫)."""
+    return json.dumps(value, ensure_ascii=False)
+
+
+def _fill_markers(template: str, strings: dict[str, str]) -> str:
+    used: set[str] = set()
+
+    def sub(match: re.Match) -> str:
+        kind, key = match.group(1), match.group(2)
+        if key not in strings:
+            raise ValueError(f"템플릿의 {{{{{kind}:{key}}}}} 가 locale 에 없다")
+        used.add(key)
+        value = strings[key]
+        if kind == "j":
+            return _js_string(value)
+        column = match.start() - template.rfind("\n", 0, match.start()) - 1
+        return _html_text(value, column)
+
+    out = MARKER.sub(sub, template)
+    unused = sorted(set(strings) - used)
+    if unused:
+        raise ValueError(f"locale 에 있는데 템플릿이 쓰지 않는 키: {unused}")
+    leftover = [m for m in re.findall(r"\{\{[^}]*\}\}", out) if m != PLACEHOLDER]
+    if leftover:
+        raise ValueError(f"치환되지 않은 마커: {sorted(set(leftover))}")
+    return out
+
+
 def render(lang: str = "ko") -> str:
-    """파일에 쓸 문자열. 템플릿에 플레이스홀더가 정확히 하나여야 한다."""
+    """파일에 쓸 문자열. 템플릿에 FEED_DATA 플레이스홀더가 정확히 하나여야 한다."""
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
     if template.count(PLACEHOLDER) != 1:
         raise ValueError(f"template.html 에 {PLACEHOLDER} 가 {template.count(PLACEHOLDER)}개다")
-    return template.replace(PLACEHOLDER, _dumps_feed_data(feed_data(lang)))
+    locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
+    # 문구 마커를 먼저 채우고 feed-data 를 넣는다. 잔존 마커 검사가 JSON 의
+    # 중괄호를 보지 않게 하기 위해서다(FEED_DATA 자체는 검사에서 뺀다).
+    page = _fill_markers(template, _ui_strings(locale))
+    return page.replace(PLACEHOLDER, _dumps_feed_data(feed_data(lang)))
 
 
 if __name__ == "__main__":  # pragma: no cover
