@@ -18,12 +18,29 @@
                        고칠 때 언어 수만큼 고치게 되는 종류의 중복이다.
 
 --------------------------------------------------------------------------
+언어 — locale 파일 하나가 페이지 하나다
+--------------------------------------------------------------------------
+locales/<lang>.yaml 이 있는 언어마다 페이지를 만든다. 목록은 디렉터리
+스캔이다(rules/ 스캔과 같은 꼴) — 언어를 늘리는 것은 파일 하나를 더하는
+일이어야 한다.
+
+경로는 lang 에서 유도한다. ROOT_LANG(ko)은 "/" 에 남고 — 루트 URL 은 이미
+발행돼 있고 발행된 것은 바꾸지 않는다 — 그 밖은 "/<lang>/" 이다. og:url 과
+언어 전환 링크가 이 경로에서 나온다. 전환 링크는 <a href> 다: JS 없이
+동작해야 하고, 현재 언어는 aria-current 로 표시한다. 표시명은 각 locale 의
+name(자기 언어로 적은 자기 이름)이라 번역 대상이 아니다.
+
+--------------------------------------------------------------------------
 마커 — 문맥은 템플릿이 말한다
 --------------------------------------------------------------------------
     {{t:키}}   HTML 텍스트·속성값. html.escape 로 이스케이프한다.
     {{j:키}}   JS 문자열 리터럴. json.dumps 로 따옴표까지 만든다 — 문구에
                따옴표·백슬래시가 있어도 스크립트가 깨지지 않는다.
     {{FEED_DATA}}  구독 절 JSON 블록. 제3의 문맥이라 따로 채운다.
+    {{LANG_LINKS}} 언어 전환 링크 마크업. render 가 만든다.
+
+render 가 계산해 넣는 문구 키가 있다 — og_url(이 페이지의 절대 URL). locale 에
+적지 않고, 템플릿은 반드시 써야 한다(양방향 검사에 든다).
 
 locale 은 문맥을 모른다. 같은 키를 t 와 j 양쪽에서 써도 된다.
 
@@ -75,6 +92,10 @@ LAYOUT_PATH = HERE / "layout.yaml"
 LOCALES_DIR = HERE / "locales"
 
 PLACEHOLDER = "{{FEED_DATA}}"
+LINKS_PLACEHOLDER = "{{LANG_LINKS}}"
+
+# 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
+ROOT_LANG = "ko"
 MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
 
 # 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
@@ -90,6 +111,28 @@ def feed_codes() -> list[str]:
 
 def _module(code: str):
     return importlib.import_module(f"rules.{code}.feed")
+
+
+def languages() -> list[str]:
+    """locales/*.yaml 의 언어 코드. ROOT_LANG 이 앞, 나머지는 코드순."""
+    langs = sorted(p.stem for p in LOCALES_DIR.glob("*.yaml"))
+    if ROOT_LANG not in langs:
+        raise ValueError(f"locales/ 에 {ROOT_LANG}.yaml 이 없다")
+    return [ROOT_LANG] + [lang for lang in langs if lang != ROOT_LANG]
+
+
+def page_path(lang: str) -> str:
+    """사이트 안에서 이 언어 페이지가 사는 경로. 루트 언어만 '/' 다."""
+    return "/" if lang == ROOT_LANG else f"/{lang}/"
+
+
+def output_path(lang: str) -> Path:
+    """저장소 안의 출력 파일. page_path 와 같은 모양이다."""
+    return ROOT / "index.html" if lang == ROOT_LANG else ROOT / lang / "index.html"
+
+
+def _site_base() -> str:
+    return f"https://{CNAME_PATH.read_text(encoding='utf-8').strip()}/"
 
 
 def _load_yaml(path: Path) -> dict:
@@ -144,8 +187,7 @@ def feed_data(lang: str = "ko") -> dict:
     if missing:
         raise ValueError(f"rules/ 에 있는데 layout 에 자리가 없는 피드: {missing}")
 
-    site_base = f"https://{CNAME_PATH.read_text(encoding='utf-8').strip()}/"
-    return {"site_base": site_base, "groups": groups}
+    return {"site_base": _site_base(), "groups": groups}
 
 
 def _dumps_feed_data(data: dict) -> str:
@@ -182,14 +224,31 @@ def _dumps_feed_data(data: dict) -> str:
     return "\n".join(lines)
 
 
-def _ui_strings(locale: dict) -> dict[str, str]:
-    """마커가 참조할 수 있는 키 전부 — ui 아래와 최상위 lang·locale."""
+def _ui_strings(locale: dict, lang: str) -> dict[str, str]:
+    """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
+    render 가 계산하는 og_url."""
     strings = dict(locale["ui"])
-    for key in ("lang", "locale"):
+    computed = {"lang": locale["lang"], "locale": locale["locale"],
+                "og_url": _site_base().rstrip("/") + page_path(lang)}
+    for key, value in computed.items():
         if key in strings:
             raise ValueError(f"locale ui 에 예약된 키가 있다: {key}")
-        strings[key] = locale[key]
+        strings[key] = value
+    if locale["lang"] != lang:
+        raise ValueError(f"locales/{lang}.yaml 의 lang 이 {locale['lang']!r} 다")
     return strings
+
+
+def _lang_links(current: str) -> str:
+    """언어 전환 링크. <a href> 라 JS 없이 동작하고, 현재 언어는 aria-current 다."""
+    items = []
+    for lang in languages():
+        name = html.escape(_load_yaml(LOCALES_DIR / f"{lang}.yaml")["name"], quote=True)
+        current_attr = ' aria-current="page"' if lang == current else ""
+        items.append(
+            f'<a href="{page_path(lang)}" lang="{lang}" hreflang="{lang}"{current_attr}>{name}</a>'
+        )
+    return "\n".join(items)
 
 
 def _html_text(value: str, column: int) -> str:
@@ -235,27 +294,37 @@ def _fill_markers(template: str, strings: dict[str, str]) -> str:
     unused = sorted(set(strings) - used)
     if unused:
         raise ValueError(f"locale 에 있는데 템플릿이 쓰지 않는 키: {unused}")
-    leftover = [m for m in re.findall(r"\{\{[^}]*\}\}", out) if m != PLACEHOLDER]
+    leftover = [
+        m for m in re.findall(r"\{\{[^}]*\}\}", out) if m not in (PLACEHOLDER, LINKS_PLACEHOLDER)
+    ]
     if leftover:
         raise ValueError(f"치환되지 않은 마커: {sorted(set(leftover))}")
     return out
 
 
-def render(lang: str = "ko") -> str:
-    """파일에 쓸 문자열. 템플릿에 FEED_DATA 플레이스홀더가 정확히 하나여야 한다."""
+def render(lang: str = ROOT_LANG) -> str:
+    """파일에 쓸 문자열. 템플릿에 두 플레이스홀더가 정확히 하나씩 있어야 한다."""
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    if template.count(PLACEHOLDER) != 1:
-        raise ValueError(f"template.html 에 {PLACEHOLDER} 가 {template.count(PLACEHOLDER)}개다")
+    for placeholder in (PLACEHOLDER, LINKS_PLACEHOLDER):
+        if template.count(placeholder) != 1:
+            raise ValueError(f"template.html 에 {placeholder} 가 {template.count(placeholder)}개다")
     locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
-    # 문구 마커를 먼저 채우고 feed-data 를 넣는다. 잔존 마커 검사가 JSON 의
-    # 중괄호를 보지 않게 하기 위해서다(FEED_DATA 자체는 검사에서 뺀다).
-    page = _fill_markers(template, _ui_strings(locale))
+    # 문구 마커를 먼저 채우고 feed-data·링크를 넣는다. 잔존 마커 검사가 JSON 의
+    # 중괄호를 보지 않게 하기 위해서다(두 플레이스홀더는 검사에서 뺀다).
+    page = _fill_markers(template, _ui_strings(locale, lang))
+    at = page.index(LINKS_PLACEHOLDER)
+    column = at - page.rfind("\n", 0, at) - 1
+    page = page.replace(LINKS_PLACEHOLDER, _lang_links(lang).replace("\n", "\n" + " " * column))
     return page.replace(PLACEHOLDER, _dumps_feed_data(feed_data(lang)))
 
 
 if __name__ == "__main__":  # pragma: no cover
     import sys
 
-    _target = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "index.html"
-    _target.write_text(render(), encoding="utf-8")
-    print(f"[landing] {_target}")
+    # 인자 없이 돌면 locales/ 의 언어 전부를 각자 경로에 쓴다. 인자는 언어
+    # 코드다 — 경로가 아니다. 경로는 언어에서 유도되므로 사람이 정하지 않는다.
+    for _lang in sys.argv[1:] or languages():
+        _target = output_path(_lang)
+        _target.parent.mkdir(parents=True, exist_ok=True)
+        _target.write_text(render(_lang), encoding="utf-8")
+        print(f"[landing] {_lang} → {_target.relative_to(ROOT)}")
