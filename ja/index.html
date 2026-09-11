@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>공휴일 캘린더</title>
-<meta name="description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다. 항목마다 근거를 함께 둡니다.">
-<meta property="og:title" content="공휴일 캘린더 — holidays.lunalism.com">
-<meta property="og:description" content="대한민국·일본·독일 공휴일 iCalendar 구독 피드. 대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와 대조하고, 일본은 内閣府 国民の祝日 데이터를 기준으로 하며, 독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다. 항목마다 근거를 함께 둡니다.">
+<title>祝日カレンダー</title>
+<meta name="description" content="韓国・日本・ドイツの祝日 iCalendar 購読フィード。韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。日本は内閣府「国民の祝日について」のデータに基づき、ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。項目ごとに根拠を添えています。">
+<meta property="og:title" content="祝日カレンダー — holidays.lunalism.com">
+<meta property="og:description" content="韓国・日本・ドイツの祝日 iCalendar 購読フィード。韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。日本は内閣府「国民の祝日について」のデータに基づき、ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。項目ごとに根拠を添えています。">
 <meta property="og:image" content="https://holidays.lunalism.com/assets/og.png">
 <meta property="og:url" content="https://holidays.lunalism.com/ja/">
 <meta property="og:type" content="website">
@@ -434,28 +434,28 @@
 
   <!-- 1. 제목 -->
   <header>
-    <h1>공휴일 캘린더</h1>
+    <h1>祝日カレンダー</h1>
     <!--
       언어 전환. <a href> 라 JS 없이 동작한다 — 이 페이지에서 JS 없이 되는
       유일한 이동이다. 링크는 render 가 locales/ 에서 만들고, 현재 언어는
       aria-current 로 표시한다. 표시명은 각 언어가 자기 언어로 적은 이름이다.
     -->
-    <nav class="lang" aria-label="언어">
+    <nav class="lang" aria-label="言語">
       <a href="/" lang="ko" hreflang="ko">한국어</a>
       <a href="/ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
     </nav>
     <p class="lead">
-      캘린더 앱에서 구독하면 대한민국·일본·독일의 공휴일이 자동으로 들어옵니다.
-      대한민국은 법령과 천문 계산으로 유도해 한국천문연구원 특일정보와
-      대조하고, 일본은 内閣府「国民の祝日について」데이터를 기준으로 하며,
-      독일은 전국 공통 피드와 주법상 공휴일을 더한 주별 피드를 제공합니다.
-      항목마다 근거를 함께 둡니다.
+      カレンダーアプリで購読すると、韓国・日本・ドイツの祝日が自動で入ります。
+      韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。
+      日本は内閣府「国民の祝日について」のデータに基づき、
+      ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。
+      項目ごとに根拠を添えています。
     </p>
   </header>
 
   <!-- 2. 구독 -->
   <section aria-labelledby="h-subscribe">
-    <h2 id="h-subscribe">구독</h2>
+    <h2 id="h-subscribe">購読</h2>
     <!--
       피드 줄은 아래 스크립트가 feed-data 블록에서 짠다. 여기 남는 것은
       묶음이 담길 그릇과 안내문뿐이다. 묶음 셋의 구조(나라별 전체 — 그 안에
@@ -464,200 +464,200 @@
     <div id="feed-groups"></div>
 
     <p class="note" style="margin-top:0.75rem">
-      일본 피드의 항목 이름은 일본어 원문(元日, 休日（元日） 등)으로 표기됩니다.
-      독일 피드의 항목 이름은 법조문 표기(Neujahr, 1. Mai 등)입니다.
+      日本フィードの項目名は日本語の原文（元日、休日（元日）など）で表記されます。
+      ドイツフィードの項目名は法文の表記（Neujahr、1. Mai など）です。
     </p>
 
     <p class="note" style="margin-top:0.75rem">
-      Google 캘린더는 “URL로 추가”, Apple 캘린더는 “새로운 캘린더 구독”에 위 주소를 넣습니다.
+      Google カレンダーは「URL で追加」、Apple カレンダーは「新規照会カレンダー」から上のアドレスを入力します。
     </p>
   </section>
 
   <!-- 3. 대한민국 -->
   <section aria-labelledby="h-kr">
-    <h2 id="h-kr">대한민국</h2>
+    <h2 id="h-kr">韓国</h2>
 
     <div id="kr-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
+          <p class="range-label">収録期間</p>
           <div class="range-row">
-            <p class="range-sublabel">확정</p>
-            <p class="range-value" id="range-confirmed" data-pending>불러오는 중</p>
+            <p class="range-sublabel">確定</p>
+            <p class="range-value" id="range-confirmed" data-pending>読み込み中</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">잠정</p>
-            <p class="range-value" id="range-provisional" data-pending>불러오는 중</p>
+            <p class="range-sublabel">暫定</p>
+            <p class="range-value" id="range-provisional" data-pending>読み込み中</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="kr-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="kr-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        잠정 구간은 현행 규칙으로 계산한 값입니다. 아직 확정 발표 전이며,
-        규칙이 개정되거나 임시공휴일이 지정되면 달라집니다.
+        暫定区間は現行の規則で計算した値です。まだ確定の発表前であり、
+        規則が改正されたり臨時祝日が指定されると変わります。
       </p>
     </div>
 
-    <div class="failed" id="kr-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="kr-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 3.5 일본 -->
   <section aria-labelledby="h-jp">
-    <h2 id="h-jp">일본</h2>
+    <h2 id="h-jp">日本</h2>
 
     <div id="jp-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
-          <p class="range-value" id="jp-range" data-pending>불러오는 중</p>
+          <p class="range-label">収録期間</p>
+          <p class="range-value" id="jp-range" data-pending>読み込み中</p>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="jp-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="jp-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        전 구간이 확정 항목입니다. 잠정 구간은 두지 않습니다.
+        全区間が確定項目です。暫定区間は設けていません。
       </p>
     </div>
 
-    <div class="failed" id="jp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="jp-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 3.6 독일 -->
   <section aria-labelledby="h-de">
-    <h2 id="h-de">독일</h2>
+    <h2 id="h-de">ドイツ</h2>
 
     <div id="de-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
-          <p class="range-value" id="de-range" data-pending>불러오는 중</p>
+          <p class="range-label">収録期間</p>
+          <p class="range-value" id="de-range" data-pending>読み込み中</p>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="de-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="de-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        16개 주 모두에서 유효한 전국 공통 공휴일만 싣습니다. 주별 공휴일은
-        들어 있지 않습니다. 전 구간이 확정 항목입니다. 잠정 구간은 두지 않습니다.
+        16 州すべてで有効な全国共通の祝日のみを収録します。州別の祝日は
+        含まれていません。全区間が確定項目です。暫定区間は設けていません。
       </p>
     </div>
 
-    <div class="failed" id="de-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="de-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 3.7 대한민국·일본 -->
   <section aria-labelledby="h-krjp">
-    <h2 id="h-krjp">대한민국·일본</h2>
+    <h2 id="h-krjp">韓国・日本</h2>
 
     <div id="krjp-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
+          <p class="range-label">収録期間</p>
           <div class="range-row">
-            <p class="range-sublabel">확정</p>
-            <p class="range-value" id="krjp-range-confirmed" data-pending>불러오는 중</p>
+            <p class="range-sublabel">確定</p>
+            <p class="range-value" id="krjp-range-confirmed" data-pending>読み込み中</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">잠정</p>
-            <p class="range-value" id="krjp-range-provisional" data-pending>불러오는 중</p>
+            <p class="range-sublabel">暫定</p>
+            <p class="range-value" id="krjp-range-provisional" data-pending>読み込み中</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="krjp-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="krjp-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        항목 이름 앞의 [KR]·[JP] 는 어느 나라의 공휴일인지 표시합니다.
-        수록 기간은 두 나라 피드 중 짧은 쪽까지입니다.
+        項目名の前の [KR]・[JP] は、どちらの国の祝日かを示します。
+        収録期間は両国のフィードのうち短いほうまでです。
       </p>
     </div>
 
-    <div class="failed" id="krjp-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="krjp-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 3.8 대한민국만 쉬는 날 -->
   <section aria-labelledby="h-kronly">
-    <h2 id="h-kronly">대한민국만 쉬는 날</h2>
+    <h2 id="h-kronly">韓国だけが休む日</h2>
 
     <div id="kronly-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
+          <p class="range-label">収録期間</p>
           <div class="range-row">
-            <p class="range-sublabel">확정</p>
-            <p class="range-value" id="kronly-range-confirmed" data-pending>불러오는 중</p>
+            <p class="range-sublabel">確定</p>
+            <p class="range-value" id="kronly-range-confirmed" data-pending>読み込み中</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">잠정</p>
-            <p class="range-value" id="kronly-range-provisional" data-pending>불러오는 중</p>
+            <p class="range-sublabel">暫定</p>
+            <p class="range-value" id="kronly-range-provisional" data-pending>読み込み中</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="kronly-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="kronly-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        대한민국 공휴일 중 양국이 함께 쉬는 날짜는 포함하지 않습니다.
-        이름이 다른 공휴일이라도 같은 날이면 빠집니다. 판정 기준은 일본의
-        공휴일뿐이며 주말은 보지 않습니다. 수록 기간은 두 나라 피드 중 짧은 쪽까지입니다.
+        韓国の祝日のうち、両国がともに休む日付は含みません。
+        名前が異なる祝日でも同じ日であれば除かれます。判定の基準は日本の
+        祝日のみで、週末は見ません。収録期間は両国のフィードのうち短いほうまでです。
       </p>
     </div>
 
-    <div class="failed" id="kronly-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="kronly-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 3.9 일본만 쉬는 날 -->
   <section aria-labelledby="h-jponly">
-    <h2 id="h-jponly">일본만 쉬는 날</h2>
+    <h2 id="h-jponly">日本だけが休む日</h2>
 
     <div id="jponly-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">수록 기간</p>
-          <p class="range-value" id="jponly-range" data-pending>불러오는 중</p>
+          <p class="range-label">収録期間</p>
+          <p class="range-value" id="jponly-range" data-pending>読み込み中</p>
         </div>
         <div class="range">
-          <p class="range-label">수록 항목</p>
-          <p class="range-value" id="jponly-events" data-pending>불러오는 중</p>
+          <p class="range-label">収録項目</p>
+          <p class="range-value" id="jponly-events" data-pending>読み込み中</p>
         </div>
       </div>
       <p class="note">
-        일본 공휴일 중 양국이 함께 쉬는 날짜는 포함하지 않습니다.
-        이름이 다른 공휴일이라도 같은 날이면 빠집니다. 판정 기준은 대한민국의
-        공휴일뿐이며 주말은 보지 않습니다. 전 구간이 확정 항목이고, 수록 기간은
-        두 나라 피드 중 짧은 쪽까지입니다.
+        日本の祝日のうち、両国がともに休む日付は含みません。
+        名前が異なる祝日でも同じ日であれば除かれます。判定の基準は韓国の
+        祝日のみで、週末は見ません。全区間が確定項目で、収録期間は
+        両国のフィードのうち短いほうまでです。
       </p>
     </div>
 
-    <div class="failed" id="jponly-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="jponly-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 4. 마지막 갱신 -->
   <section aria-labelledby="h-updated">
-    <h2 id="h-updated">마지막 갱신</h2>
+    <h2 id="h-updated">最終更新</h2>
 
     <div id="updated-ok">
-      <p class="big" id="updated-value" data-pending>불러오는 중</p>
+      <p class="big" id="updated-value" data-pending>読み込み中</p>
       <p class="note" id="updated-at"></p>
       <div class="warn" id="updated-warn" hidden>
-        정상적으로는 매주 갱신됩니다. 갱신이 멈춘 상태일 수 있습니다.
+        通常は毎週更新されます。更新が止まっている可能性があります。
       </div>
     </div>
 
-    <div class="failed" id="updated-failed" hidden>상태 정보를 불러오지 못했습니다.</div>
+    <div class="failed" id="updated-failed" hidden>ステータス情報を読み込めませんでした。</div>
   </section>
 
   <!-- 5. 원문 대조 -->
   <section aria-labelledby="h-verify">
-    <h2 id="h-verify">원문 대조</h2>
+    <h2 id="h-verify">原文照合</h2>
     <!--
       숫자는 status.json 이 덮어쓴다. 여기 적힌 값은 초기값이자 폴백이다.
       산문 안에도 분모가 들어가므로 이 줄을 숨길 수 없다 — 숨기면 "아래는
@@ -665,27 +665,27 @@
       커버리지·갱신 블록과 달리 이 블록은 적힌 값을 그대로 둔다.
     -->
     <p>
-      모든 날짜는 자체 계산과 한국천문연구원 특일정보 대조를 거칩니다.
-      그 위에 법령·관보 원문까지 확인하는 작업은 규칙표의 항목(공휴일 정의와
-      조문) 단위로 세며, 아래는 규칙표 <span data-item-count>48</span>건 중 아직
-      확인하지 못한 수입니다.
+      すべての日付は自前の計算と韓国天文研究院の特日情報との照合を経ています。
+      その上で法令・官報の原文まで確認する作業は規則表の項目（祝日の定義と
+      条文）単位で数えており、以下は規則表 <span data-item-count>48</span> 件のうちまだ
+      確認できていない数です。
     </p>
-    <p class="stat" id="unverified">규칙표 <span data-item-count>48</span>건 중 <span data-unverified-count>32</span>건 확인 대기</p>
+    <p class="stat" id="unverified">規則表 <span data-item-count>48</span> 件のうち <span data-unverified-count>32</span> 件が確認待ち</p>
     <p>
-      대조가 항상 일치하는 것은 아닙니다. 2015년 8월 14일(광복 70주년
-      임시공휴일)은 특일정보 API에 포함돼 있지 않습니다. 2015년 8월 4일
-      국무회의 의결과 외교부 공지로 확인해 수록했습니다.
+      照合が常に一致するとは限りません。2015年8月14日（光復70周年の
+      臨時祝日）は特日情報 API に含まれていません。2015年8月4日の
+      国務会議の議決と外交部の告知で確認して収録しました。
     </p>
   </section>
 
   <!-- 6. 레포 -->
   <footer>
     <p>
-      규칙표·근거·생성 코드는 모두 공개되어 있습니다 —
+      規則表・根拠・生成コードはすべて公開されています —
       <a href="https://github.com/lunalism/holidays">github.com/lunalism/holidays</a>
     </p>
     <p>
-      문제 제보와 제안:
+      不具合の報告と提案：
       <a href="https://github.com/lunalism/holidays/issues">GitHub Issues</a>
     </p>
   </footer>
@@ -697,38 +697,38 @@
   "site_base": "https://holidays.lunalism.com/",
   "groups": [
     {
-      "title": "나라별 전체",
+      "title": "国別すべて",
       "feeds": [
-        { "key": "kr", "file": "kr.ics", "label": "대한민국", "desc": "대한민국 공휴일 전체" },
-        { "key": "jp", "file": "jp.ics", "label": "일본", "desc": "일본 공휴일 전체" },
-        { "key": "de", "file": "de.ics", "label": "독일", "desc": "전국 공통 — 16개 주 모두 유효한 공휴일만 (주별 공휴일 제외)" }
+        { "key": "kr", "file": "kr.ics", "label": "韓国", "desc": "韓国の祝日すべて" },
+        { "key": "jp", "file": "jp.ics", "label": "日本", "desc": "日本の祝日すべて" },
+        { "key": "de", "file": "de.ics", "label": "ドイツ", "desc": "全国共通 — 16 州すべてで有効な祝日のみ（州別の祝日を除く）" }
       ],
       "accordion": {
-        "title": "독일 주별 피드",
+        "title": "ドイツ州別フィード",
         "feeds": [
-          { "key": "de_be", "file": "de_be.ics", "label": "독일·베를린", "desc": "전국 공통에 베를린 주법 공휴일을 더한 상위집합" },
-          { "key": "de_bw", "file": "de_bw.ics", "label": "독일·바덴뷔르템베르크", "desc": "전국 공통에 바덴뷔르템베르크 주법 공휴일을 더한 상위집합" },
-          { "key": "de_by", "file": "de_by.ics", "label": "독일·바이에른", "desc": "전국 공통에 바이에른 주법 공휴일을 더한 상위집합" },
-          { "key": "de_he", "file": "de_he.ics", "label": "독일·헤센", "desc": "전국 공통에 헤센 주법 공휴일을 더한 상위집합" },
-          { "key": "de_hh", "file": "de_hh.ics", "label": "독일·함부르크", "desc": "전국 공통에 함부르크 주법 공휴일을 더한 상위집합" },
-          { "key": "de_ni", "file": "de_ni.ics", "label": "독일·니더작센", "desc": "전국 공통에 니더작센 주법 공휴일을 더한 상위집합" },
-          { "key": "de_nw", "file": "de_nw.ics", "label": "독일·노르트라인베스트팔렌", "desc": "전국 공통에 노르트라인베스트팔렌 주법 공휴일을 더한 상위집합" },
-          { "key": "de_rp", "file": "de_rp.ics", "label": "독일·라인란트팔츠", "desc": "전국 공통에 라인란트팔츠 주법 공휴일을 더한 상위집합" },
-          { "key": "de_sh", "file": "de_sh.ics", "label": "독일·슐레스비히홀슈타인", "desc": "전국 공통에 슐레스비히홀슈타인 주법 공휴일을 더한 상위집합" }
+          { "key": "de_be", "file": "de_be.ics", "label": "독일·베를린", "desc": "全国共通に베를린州法の祝日を加えた上位集合" },
+          { "key": "de_bw", "file": "de_bw.ics", "label": "독일·바덴뷔르템베르크", "desc": "全国共通に바덴뷔르템베르크州法の祝日を加えた上位集合" },
+          { "key": "de_by", "file": "de_by.ics", "label": "독일·바이에른", "desc": "全国共通に바이에른州法の祝日を加えた上位集合" },
+          { "key": "de_he", "file": "de_he.ics", "label": "독일·헤센", "desc": "全国共通に헤센州法の祝日を加えた上位集合" },
+          { "key": "de_hh", "file": "de_hh.ics", "label": "독일·함부르크", "desc": "全国共通に함부르크州法の祝日を加えた上位集合" },
+          { "key": "de_ni", "file": "de_ni.ics", "label": "독일·니더작센", "desc": "全国共通に니더작센州法の祝日を加えた上位集合" },
+          { "key": "de_nw", "file": "de_nw.ics", "label": "독일·노르트라인베스트팔렌", "desc": "全国共通に노르트라인베스트팔렌州法の祝日を加えた上位集合" },
+          { "key": "de_rp", "file": "de_rp.ics", "label": "독일·라인란트팔츠", "desc": "全国共通に라인란트팔츠州法の祝日を加えた上位集合" },
+          { "key": "de_sh", "file": "de_sh.ics", "label": "독일·슐레스비히홀슈타인", "desc": "全国共通に슐레스비히홀슈타인州法の祝日を加えた上位集合" }
         ]
       }
     },
     {
-      "title": "한 피드로 합침",
+      "title": "一つのフィードに統合",
       "feeds": [
-        { "key": "kr_jp", "file": "kr_jp.ics", "label": "대한민국·일본", "desc": "양국 공휴일 전체. 항목마다 [KR]·[JP] 표기" }
+        { "key": "kr_jp", "file": "kr_jp.ics", "label": "韓国・日本", "desc": "両国の祝日すべて。項目ごとに [KR]・[JP] を表記" }
       ]
     },
     {
-      "title": "겹치지 않는 날만",
+      "title": "重ならない日のみ",
       "feeds": [
-        { "key": "kr_only", "file": "kr_only.ics", "label": "대한민국만", "desc": "대한민국 공휴일 중 일본이 쉬지 않는 날" },
-        { "key": "jp_only", "file": "jp_only.ics", "label": "일본만", "desc": "일본 공휴일 중 대한민국이 쉬지 않는 날" }
+        { "key": "kr_only", "file": "kr_only.ics", "label": "韓国のみ", "desc": "韓国の祝日のうち日本が休まない日" },
+        { "key": "jp_only", "file": "jp_only.ics", "label": "日本のみ", "desc": "日本の祝日のうち韓国が休まない日" }
       ]
     }
   ]
@@ -854,18 +854,18 @@
     var copyBtn = document.createElement("button");
     copyBtn.type = "button";
     copyBtn.className = "btn btn-primary";
-    copyBtn.textContent = "구독 주소 복사";
+    copyBtn.textContent = "購読アドレスをコピー";
     copyBtn.addEventListener("click", function () {
       var btn = this;
       copy(url).then(function (ok) {
-        btn.textContent = ok ? "복사됨" : "복사하지 못했습니다";
-        setTimeout(function () { btn.textContent = "구독 주소 복사"; }, 2000);
+        btn.textContent = ok ? "コピーしました" : "コピーできませんでした";
+        setTimeout(function () { btn.textContent = "購読アドレスをコピー"; }, 2000);
       });
     });
     var webcal = document.createElement("a");
     webcal.className = "btn";
     webcal.href = url.replace(/^https:/, "webcal:");
-    webcal.textContent = "캘린더 앱에서 열기";
+    webcal.textContent = "カレンダーアプリで開く";
 
     controls.appendChild(urlBox);
     controls.appendChild(copyBtn);
@@ -938,7 +938,7 @@
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);
-    set("kr-events", fmt("{n}건", { n: status.feeds.kr.events }));
+    set("kr-events", fmt("{n}件", { n: status.feeds.kr.events }));
   }
 
   function renderJp(status) {
@@ -946,7 +946,7 @@
     // kr 규칙표의 개념이라 jp 에는 해당 절이 없다.
     var jp = status.feeds.jp;
     setRange("jp-range", jp.range.start, jp.range.end);
-    set("jp-events", fmt("{n}건", { n: jp.events }));
+    set("jp-events", fmt("{n}件", { n: jp.events }));
   }
 
   function renderKrJp(status) {
@@ -963,9 +963,9 @@
       setRange("krjp-range-provisional", nextDay(confirmed), until);
     } else {
       setRange("krjp-range-confirmed", from, until);
-      set("krjp-range-provisional", "없음");
+      set("krjp-range-provisional", "なし");
     }
-    set("krjp-events", fmt("{n}건", { n: krjp.events }));
+    set("krjp-events", fmt("{n}件", { n: krjp.events }));
   }
 
   function renderKrOnly(status) {
@@ -981,9 +981,9 @@
       setRange("kronly-range-provisional", nextDay(confirmed), until);
     } else {
       setRange("kronly-range-confirmed", from, until);
-      set("kronly-range-provisional", "없음");
+      set("kronly-range-provisional", "なし");
     }
-    set("kronly-events", fmt("{n}건", { n: kronly.events }));
+    set("kronly-events", fmt("{n}件", { n: kronly.events }));
   }
 
   function renderJpOnly(status) {
@@ -992,7 +992,7 @@
     // (끝이 두 나라 중 짧은 쪽).
     var jponly = status.feeds.jp_only;
     setRange("jponly-range", jponly.range.start, jponly.range.end);
-    set("jponly-events", fmt("{n}건", { n: jponly.events }));
+    set("jponly-events", fmt("{n}件", { n: jponly.events }));
   }
 
   function renderDe(status) {
@@ -1000,7 +1000,7 @@
     // 없다 — 일본 절과 같이 기간과 항목 수만 싣는다.
     var de = status.feeds.de;
     setRange("de-range", de.range.start, de.range.end);
-    set("de-events", fmt("{n}건", { n: de.events }));
+    set("de-events", fmt("{n}件", { n: de.events }));
   }
 
   function renderUpdated(status) {
@@ -1008,8 +1008,8 @@
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
 
     var days = Math.floor((Date.now() - at.getTime()) / DAY);
-    set("updated-value", days <= 0 ? "오늘" : fmt("{n}일 전", { n: days }));
-    $("updated-at").textContent = fmt("{date} 갱신", { date: ko(status.generated_at) });
+    set("updated-value", days <= 0 ? "今日" : fmt("{n}日前", { n: days }));
+    $("updated-at").textContent = fmt("{date} 更新", { date: ko(status.generated_at) });
 
     if (days > STALE_DAYS) { $("updated-warn").hidden = false; }
   }
