@@ -97,10 +97,16 @@ ui:
   copy_failed: "コピーできませんでした"
   open_in_app: "カレンダーアプリで開く"
   # {n}·{date} 자리는 스크립트가 값으로 채운다(fmt). 어순은 문구가 정한다.
-  count: "{n}件"
+  # count·days_ago 는 one·other 두 갈래를 든다 — 자세한 것은 ko.yaml 의 같은 절.
+  # 일본어도 복수형이 없어 둘이 같은 값이다.
+  count:
+    one: "{n}件"
+    other: "{n}件"
   none: "なし"
   today: "今日"
-  days_ago: "{n}日前"
+  days_ago:
+    one: "{n}日前"
+    other: "{n}日前"
   updated_at: "{date} 更新"
   range_separator: " ~ "
 
