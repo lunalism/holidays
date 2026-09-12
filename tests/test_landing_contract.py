@@ -55,6 +55,7 @@ feed._load 를 부르는 것과 같은 자리).
 from __future__ import annotations
 
 import importlib
+import re
 
 import pytest
 
@@ -127,6 +128,16 @@ def test_a_plural_mapping_passes_when_it_is_well_formed():
 def test_a_text_marker_refuses_a_plural_mapping():
     # {{t:}} 는 HTML 자리라 fmt 가 닿지 않는다. 그냥 두면 html.escape 가
     # AttributeError 로 죽어 locale 의 어디가 문제인지 알려주지 않는다.
+    #
+    # **한계 — 매핑만 본다.** _html_text 는 dict 만 키 있는 ValueError 로 막고
+    # 나머지 비문자열(int·list·None·float·bool)은 html.escape 까지 흘러가
+    # AttributeError 로 죽는다. 키를 안 가리키는 예외다. {{j:}} 쪽(_js_value)은
+    # 다섯 타입을 전부 키 있는 ValueError 로 막으므로 **두 마커의 계약이
+    # 비대칭**이다.
+    #
+    # 여기서 "매핑만 막힌다" 를 고정하지 않는 것은 의도다 — 고정하면 _html_text 를
+    # 대칭으로 고칠 때 이 테스트가 걸림돌이 된다. 고치는 것은 프로덕션 변경이라
+    # 별도 PR 이고, 그때 이 테스트가 {{j:}} 쪽과 같은 모양으로 넓어져야 한다.
     with pytest.raises(ValueError, match="verify_stat"):
         render._html_text({"one": "a", "other": "b"}, 0, key="verify_stat")
 
@@ -231,3 +242,65 @@ def test_a_non_state_feed_without_a_desc_stops():
     # 빠뜨리면 그 줄이 빈 채로 나가는 것이 아니라 발행이 멈춘다.
     with pytest.raises(ValueError, match="kr"):
         render._row("kr", {"state_feed": {"label_suffix": " 공휴일"}, "feeds": {}}, state=False)
+
+
+# ---------------------------------------------------------------------------
+# 마커가 참조할 수 있는 이름 — 예약 키와 lang 일치
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("reserved", ["lang", "locale", "og_url"], ids=["lang", "locale", "og_url"])
+def test_a_locale_may_not_shadow_a_computed_key(reserved):
+    # render 가 계산해 넣는 이름 셋이다. locale 의 ui 가 같은 이름을 쓰면 어느
+    # 쪽이 이기는지가 dict 갱신 순서에 달리게 된다 — 조용히 덮이는 자리라
+    # 겹치는 것 자체를 막는다.
+    locale = {"lang": "ko", "locale": "ko-KR", "ui": {reserved: "x"}}
+    with pytest.raises(ValueError, match=reserved):
+        render._ui_strings(locale, "ko")
+
+
+def test_a_locale_lang_must_match_the_requested_language():
+    # 파일 이름이 언어를 정하고 lang 필드가 그것을 되받는다. 어긋나면 ja.yaml 이
+    # ko 페이지로 발행되는 식이 되고, 그 페이지는 html lang 과 내용이 다르다.
+    with pytest.raises(ValueError, match="ja"):
+        render._ui_strings({"lang": "ja", "locale": "ja-JP", "ui": {}}, "ko")
+
+
+def test_a_well_formed_locale_yields_the_computed_keys():
+    # 양성 대조. 위 검사들이 계산 키를 막는 것이 아니라 겹침을 막는 것임을
+    # 못 박는다.
+    strings = render._ui_strings({"lang": "ko", "locale": "ko-KR", "ui": {"a": "x"}}, "ko")
+    assert {"a", "lang", "locale", "og_url"} <= set(strings)
+
+
+# ---------------------------------------------------------------------------
+# 마커가 아닌 세 자리 — 각각 정확히 하나
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "placeholder",
+    [render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER],
+    ids=["FEED_DATA", "LANG_LINKS", "NOSCRIPT"],
+)
+@pytest.mark.parametrize("count", [0, 2], ids=["없음", "둘"])
+def test_each_placeholder_must_appear_exactly_once(placeholder, count):
+    # 없으면 그 블록이 통째로 빠진 페이지가 나가고, 둘 이상이면 str.replace 가
+    # 전부 채워 같은 블록이 두 번 실린 페이지가 나간다. 마커와 달리 이 자리들은
+    # 양방향 검사에 들지 않아 둘 다 조용하다.
+    others = [
+        p
+        for p in (render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER)
+        if p != placeholder
+    ]
+    template = " ".join(others) + " " + (placeholder + " ") * count
+    with pytest.raises(ValueError, match=re.escape(placeholder)):
+        render._check_placeholders(template)
+
+
+def test_all_three_placeholders_present_once_pass():
+    # 양성 대조. 셋이 하나씩이면 통과한다 — 실제 템플릿이 그 상태다.
+    template = " ".join(
+        (render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER)
+    )
+    assert render._check_placeholders(template) is None
