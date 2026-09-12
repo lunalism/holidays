@@ -83,7 +83,7 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 | 2 | `.github/workflows/publish.yml` 의 `FEEDS` 에 코드 추가 | `test_every_rules_package_is_in_feeds_and_vice_versa` 와 `test_the_status_registry_matches_feeds` 가 실패합니다 |
 | 3 | `rules/status.py` — import 와 `"feeds"` 리터럴 등록 | `test_the_status_registry_matches_feeds` 가 실패합니다 |
 | 4 | `landing/layout.yaml` 에 자리 — 어느 묶음에 설지. 독일 주 피드(`de_*`)는 접두사 규칙으로 자동 편입되므로 손댈 것이 없습니다 | 테스트가 아니라 생성 스텝이 잡습니다 — `landing/render.py` 가 `ValueError: rules/ 에 있는데 layout 에 자리가 없는 피드` 로 죽어 발행 run 의 "랜딩 생성" 스텝이 실패합니다. CI 에서는 `test_landing_render.py` 가 같은 예외로 실패합니다 |
-| 5 | 주 피드가 아니면 `landing/locales/` **전 언어**의 `feeds` 에 desc(필요하면 label) — 지금은 `ko.yaml`·`ja.yaml` 둘 | 4 와 같은 경로입니다. 한 언어라도 빠지면 그 언어를 만들 때 `landing/render.py` 가 `ValueError: locale 에 <코드> 의 desc 가 없다` 로 죽어 "랜딩 생성" 스텝이 실패합니다. ko 만 적고 끝내는 것이 흔한 빠뜨림입니다 |
+| 5 | 주 피드가 아니면 `landing/locales/` **전 언어**의 `feeds` 에 desc(필요하면 label). 언어 목록은 그 디렉터리가 듭니다 — 여기 적지 않습니다 | 4 와 같은 경로입니다. 한 언어라도 빠지면 그 언어를 만들 때 `landing/render.py` 가 `ValueError: locale 에 <코드> 의 desc 가 없다` 로 죽어 "랜딩 생성" 스텝이 실패합니다. ko 만 적고 끝내는 것이 흔한 빠뜨림입니다 |
 | 6 | (독일 주 피드) `rules/de_<주>/feed.py` 에 `LAND_NAME_DE` — 독일어 주 이름. 표기 근거는 `rules/de/feed.py` 의 같은 이름 절(기본법 전문) | 4 와 같은 경로입니다. 독일어 표기를 쓰는 언어(`land_lang: de` — 지금은 ja)를 만들 때 render 가 `AttributeError: … has no attribute 'LAND_NAME_DE'` 로 죽습니다 |
 
 `sources/<코드>/`·`data/<코드>/` 는 조건부입니다 — 조건은 `DESIGN.md` 에 있습니다.
@@ -94,7 +94,7 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 |---|---|---|
 | 7 | `feeds/<코드>.ics` — `uv run python -m rules.<코드>.feed feeds/<코드>.ics` 로 생성해 커밋 | `test_feed_set.py::test_the_published_feeds_match_feeds`, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`, `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
 | 8 | `status.json` — `uv run python -m rules.status status.json` 으로 재생성해 커밋 | `test_landing.py::test_feed_rows_match_status_json_feed_keys` 가 실패합니다 |
-| 9 | `index.html` 과 언어 디렉터리의 `index.html`(지금은 `ja/`) — `uv run python -m landing.render` 로 전 언어를 재생성해 커밋 | `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 가 **언어마다 한 건** 실패하고, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 도 실패합니다. 입력(층 1 의 5·6)이 비어 있으면 여기까지 오지 못하고 생성 자체가 죽습니다 |
+| 9 | `index.html` 과 언어 디렉터리의 `index.html` — `uv run python -m landing.render` 로 전 언어를 재생성해 커밋. 경로는 `landing/render.py` 가 언어에서 유도하고, 발행 워크플로의 스테이징도 `*/index.html` 로 받습니다 — 여기 목록을 적지 않습니다 | `test_landing_render.py::test_the_committed_landing_is_reproducible_from_landing_inputs` 가 **언어마다 한 건** 실패하고, `test_landing.py::test_every_published_feed_has_a_row_and_vice_versa`·`test_feed_rows_match_status_json_feed_keys` 도 실패합니다. 입력(층 1 의 5·6)이 비어 있으면 여기까지 오지 못하고 생성 자체가 죽습니다 |
 | 10 | (독일 주 피드) `tests/test_landing.py` 의 `LAND_NAMES_DE` 표에 주 추가 | `test_german_land_names_are_fixed[<코드>]` 가 `KeyError` 로 실패합니다. 이 표는 `rules/` 스캔이 parametrize 를 이끌고 표는 조회 대상이라 새 주가 조용히 빠지지 않습니다 — 아래 14 의 `LAND_NAMES` 와 다른 점입니다 |
 | 11 | `README.md` "구독" 절 표에 행 추가 | `test_readme.py::test_every_published_feed_is_in_the_table_and_vice_versa` 가 실패합니다 |
 
@@ -111,7 +111,36 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 | 13 | `tests/test_published_feed.py` — 잠정 건수가 사양상 0 인 피드면 `test_the_status_publishes_no_provisional_events` 의 리터럴 목록에 코드 추가. 재현성·status 서술·UID 배타는 `rules/` 스캔으로 자동 편입되므로 손댈 것이 없습니다 | 잡는 테스트가 없습니다. 그 피드의 잠정 건수가 0 이라는 사양이 검사되지 않습니다 |
 | 14 | (독일 주 피드) `tests/test_de_scope.py` 의 `STATE_FEEDS`·`LAND_NAMES` | 잡는 테스트가 없습니다. 새 주가 scope 검사에서 빠집니다 |
 
-### 커밋 전
+## 언어 추가 — 파일 하나
+
+사람이 하는 일은 `landing/locales/<lang>.yaml` 을 두고 `uv run python -m landing.render`
+를 돌리는 것뿐입니다. 워크플로·테스트·문서를 손대지 않습니다 — 언어 목록은
+`landing/render.py` 가 `locales/` 를 스캔해 얻고, 발행 워크플로는 인자 없이 render 를
+돌리며 스테이징을 `*/index.html` 로 받습니다. 테스트도 같은 스캔에 실려 자동으로
+편입됩니다(영어를 더한 #84 에서 `test_landing` 9 건 + `test_landing_render` 1 건이
+테스트 수정 없이 늘었습니다).
+
+새 locale 에서 사람이 틀릴 수 있는 것 여섯은 **전부 render 가 생성 시점에 멈춥니다** —
+피드 추가의 층 1(항목 4~6)과 같은 경로입니다. 발행 run 의 "랜딩 생성" 스텝이 실패하고
+CI 에서는 `test_landing_render.py` 가 같은 예외로 실패합니다.
+
+| 틀린 것 | 멈추는 메시지 |
+|---|---|
+| `ui` 키 누락·잉여(템플릿 ↔ locale 양방향) | `템플릿의 {{t:키}} 가 locale 에 없다` / `locale 에 있는데 템플릿이 쓰지 않는 키: […]` |
+| `lang` 값이 파일명과 다름 | `locales/<lang>.yaml 의 lang 이 … 다` |
+| 복수형 매핑의 갈래 빠짐·모르는 갈래 | `복수형 매핑은 ['one', 'other'] 를 정확히 들어야 한다 — 키 …: 빠진 갈래 […], 모르는 갈래 […]` |
+| 복수형 매핑 값이 문자열이 아님 | `복수형 매핑의 값은 문자열이어야 한다 — 키 … 의 […]` |
+| 매핑을 `{{t:}}` 마커 키에 씀 | `t 마커는 매핑을 받지 않는다 — 키 …` |
+| `state_feed.land_lang` 이 닫힌 집합 밖 | `state_feed.land_lang 이 닫힌 집합 밖이다 … 중 하나여야 한다` |
+
+주 피드가 아닌 피드의 `desc` 누락도 같은 경로입니다(`locale 에 <코드> 의 desc 가
+없다` — 위 피드 추가 항목 5).
+
+**잡히지 않는 것 하나는 생성물 커밋입니다.** 새 언어의 `<lang>/index.html` 을 만들어
+커밋하지 않으면 render 는 조용히 성공합니다 — 그것은 피드 추가의 항목 9 가 덮는
+자리이고(CI 의 `test_landing_render`), 발행 run 은 스스로 다시 만들어 올립니다.
+
+## 커밋 전
 
 `uv run pytest` 가 녹색이어도 CI 의 린트(`ruff`)에서 빨갈 수 있습니다 — docstring
 한 줄이 100자를 넘어 CI 에서만 걸린 일이 있습니다. 명령은
