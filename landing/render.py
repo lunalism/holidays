@@ -101,6 +101,10 @@ NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
 ROOT_LANG = "ko"
 MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
 
+# fmt() 의 첫 인자로 선 {{j:키}}. 복수형 매핑을 받을 수 있는 마커는 이 자리뿐이라
+# 템플릿에서 유도한다 — 목록을 손으로 들지 않는다(열거하면 그 자리가 낡는다).
+FMT_CALL = re.compile(r"\bfmt\(\s*\{\{j:(\w+)\}\}")
+
 # 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
 # 못 읽으면 이 값이 그대로 보인다. status 에서 유도하지 않는다 — 그러면 매
 # 발행마다 index.html 이 바뀐다(DESIGN.md 발행 파이프라인).
@@ -404,14 +408,45 @@ def _html_text(value, column: int, *, key: str) -> str:
     return escaped.replace("\n", "\n" + " " * column)
 
 
-def _js_string(value, *, key: str) -> str:
+def _fmt_keys(template: str) -> frozenset[str]:
+    """복수형 매핑을 받을 수 있는 {{j:}} 키. 템플릿이 이미 알고 있는 사실이다 —
+    fmt() 의 첫 인자로 선 마커가 곧 그 집합이다.
+
+    render 가 목록을 들지 않는 것은 의도다. 어느 키가 복수형을 **필요로 하는가**
+    (조립기 목록)는 아직 정하지 않은 미결이지만, 어느 마커가 매핑을 **받을 수
+    있는가**는 정할 것이 없다. fmt 만이 갈래를 고르고, 그 밖의 자리는 값을
+    textContent 에 그대로 넣으므로 매핑이 가면 "[object Object]" 가 찍힌다.
+
+    **이 판정은 템플릿 문면에 결합한다.** 정규식이 보는 것은 `fmt(` 바로 뒤의
+    마커뿐이다. 호출 방식이 바뀌면 — 변수에 담아 넘기거나, 이름을 바꾸거나,
+    인자 순서를 뒤집으면 — 이 스캔은 그 키를 놓친다. 놓치면 조용히 통과하는
+    것이 아니라 **매핑이 거부되어 render 가 멈춘다**. 문면이 바뀐 것을 사람이
+    알아채는 자리가 여기다.
+
+    스캔이 빈손이면 가드로 멈춘다. 조립기가 하나도 안 잡히는 것은 템플릿이
+    fmt 를 안 쓴다는 뜻이거나 이 정규식이 낡았다는 뜻인데, 둘 다 조용히 지나가면
+    복수형 검사 전체가 무력해진다(tests/test_de_scope.py 의 assert STATE_CODES 와
+    같은 형태)."""
+    keys = frozenset(FMT_CALL.findall(template))
+    if not keys:
+        raise ValueError(
+            "템플릿에서 fmt() 를 타는 {{j:}} 마커를 하나도 찾지 못했다 — "
+            "fmt 호출 방식이 바뀌었거나 FMT_CALL 이 낡았다"
+        )
+    return keys
+
+
+def _js_string(value, *, key: str, fmt_keys: frozenset[str]) -> str:
     """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
 
-    복수형 매핑(one·other)도 받는다. json.dumps 가 JS 객체 리터럴을 만들고
-    스크립트의 fmt() 가 n 을 보고 갈래를 고른다 — 파이썬은 어느 갈래가 맞는지
-    모른다. 보는 것은 형태뿐이다: 갈래가 PLURAL_FORMS 와 정확히 같고 값이 전부
-    문자열인지. 어느 키가 매핑을 들어야 하는지는 보지 않는다 — 조립기 키 목록을
-    누가 드는가는 영어가 들어오는 모습에 달려 있어 아직 정하지 않았다.
+    받는 것은 문자열과 복수형 매핑(one·other) 둘뿐이다. 그 밖의 타입은 거부한다 —
+    json.dumps 는 리스트도 숫자도 통과시키고, 그 값이 textContent 에 들어가면
+    빈 라벨이나 "7" 이 되어 나간다. 양방향 검사도 PLURAL_FORMS 도 그것을 보지
+    않으므로 생성 시점에 여기서 막는다.
+
+    매핑은 fmt() 를 타는 마커에만 허용한다(_fmt_keys). 갈래를 고르는 것은 fmt
+    뿐이고, 그 밖의 자리는 값을 그대로 쓰므로 매핑이 가면 "[object Object]" 가
+    찍힌다 — 복사 버튼 열다섯 개에 그것이 나간 것을 실측했다.
 
     형태를 보는 이유는 잘못된 형태가 조용히 지나가기 때문이다. 갈래 하나를
     빠뜨린 locale 은 render 를 멈추지 않고, 생성물도 정상으로 보이고, 테스트도
@@ -421,7 +456,18 @@ def _js_string(value, *, key: str) -> str:
     script 문맥의 이스케이프는 _script_json 이 든다 — 이 페이지의 다른 script
     문맥(feed-data 블록)과 같은 함수를 타야 해서 그쪽으로 옮겼다.
     """
+    if not isinstance(value, (str, dict)):
+        raise ValueError(
+            f"{{{{j:}}}} 마커는 문자열이나 복수형 매핑만 받는다 — "
+            f"키 {key!r} 이 {type(value).__name__} 이다"
+        )
     if isinstance(value, dict):
+        if key not in fmt_keys:
+            raise ValueError(
+                f"복수형 매핑은 fmt() 를 타는 마커에만 쓸 수 있다 — 키 {key!r} 은 "
+                f"값이 그대로 쓰이는 자리라 매핑이 가면 \"[object Object]\" 가 찍힌다. "
+                f"fmt() 를 타는 키: {sorted(fmt_keys)}"
+            )
         missing = sorted(PLURAL_FORMS - set(value))
         unknown = sorted(set(value) - PLURAL_FORMS)
         if missing or unknown:
@@ -439,6 +485,7 @@ def _js_string(value, *, key: str) -> str:
 
 def _fill_markers(template: str, strings: dict) -> str:
     used: set[str] = set()
+    fmt_keys = _fmt_keys(template)
 
     def sub(match: re.Match) -> str:
         kind, key = match.group(1), match.group(2)
@@ -447,7 +494,7 @@ def _fill_markers(template: str, strings: dict) -> str:
         used.add(key)
         value = strings[key]
         if kind == "j":
-            return _js_string(value, key=key)
+            return _js_string(value, key=key, fmt_keys=fmt_keys)
         column = match.start() - template.rfind("\n", 0, match.start()) - 1
         return _html_text(value, column, key=key)
 
