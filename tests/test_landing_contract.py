@@ -47,15 +47,22 @@ feed._load 를 부르는 것과 같은 자리).
 값이 아니라 **변환**이다 — "</script> 를 넣으면 \\u003c 가 나온다" 는 문구를
 바꿔도 변하지 않는다.
 
-예외 메시지도 전문을 박지 않는다. **어느 키가 문제인지 가리키는가**만 본다.
-문면을 통째로 고정하면 메시지를 다듬을 때마다 깨지는데, 메시지의 값은 문면이
-아니라 그것이 가리키는 자리다.
+예외 메시지는 두 가지를 본다 — **어느 검사가 잡았는가**(match 의 짧은 어구)와
+**어느 키를 가리키는가**(별도 단언). 전문을 박지는 않는다.
+
+검사를 식별하는 어구를 잡는 것은 처음부터 그랬던 것이 아니다. 처음에는 키 이름만
+봤고, 그래서 **검사를 지워도 다른 검사가 우연히 같은 키를 가리키며 터지면 녹색**
+이었다 — {{p:}} 가 dict 인지 보는 검사를 지우면 문자열이 PLURAL_FORMS 검사로
+흘러가 set("{n}건") 이 글자 집합이 되고, "빠진 갈래" 로 터진다. 키는 여전히
+count 다. 이 파일이 막으려던 종류가 이 파일 안에서 일어났다.
+
+어구는 문구가 아니라 **식별자**로 고른다. "복수형 매핑만 받는다" 는 그 검사가
+있는 한 바뀔 이유가 없고, 바뀌었다면 검사가 바뀐 것이므로 깨지는 것이 맞다.
 """
 
 from __future__ import annotations
 
 import importlib
-import re
 
 import pytest
 
@@ -75,21 +82,24 @@ def test_a_js_marker_refuses_a_non_string(value):
     # json.dumps 는 이것들을 전부 통과시킨다. 그 값이 textContent 에 들어가면
     # 빈 라벨이나 "7" 이 되어 나가고, 양방향 검사도 복수형 검사도 타입을 보지
     # 않는다. 생성 시점에 막는 자리는 여기뿐이다.
-    with pytest.raises(ValueError, match="copy_button"):
+    with pytest.raises(ValueError, match="문자열만 받는다") as caught:
         render._js_value(value, key="copy_button", plural=False)
+    assert "copy_button" in str(caught.value)
 
 
 def test_a_js_marker_refuses_a_plural_mapping():
     # 갈래를 고르는 것은 스크립트의 fmt 이고 그 자리는 {{p:}} 다. {{j:}} 자리에
     # 매핑이 가면 값이 그대로 쓰여 "[object Object]" 가 찍힌다 — 복사 버튼
     # 열다섯 개에 그것이 나간 것을 #92 에서 실측했다.
-    with pytest.raises(ValueError, match="today"):
+    with pytest.raises(ValueError, match="문자열만 받는다") as caught:
         render._js_value({"one": "오늘", "other": "오늘"}, key="today", plural=False)
+    assert "today" in str(caught.value)
 
 
 def test_a_plural_marker_refuses_a_string():
-    with pytest.raises(ValueError, match="count"):
+    with pytest.raises(ValueError, match="복수형 매핑만 받는다") as caught:
         render._js_value("{n}건", key="count", plural=True)
+    assert "count" in str(caught.value)
 
 
 @pytest.mark.parametrize(
@@ -101,22 +111,25 @@ def test_a_plural_mapping_needs_both_forms(mapping):
     # 갈래 하나를 빠뜨린 locale 은 render 를 멈추지 않고 생성물도 정상으로
     # 보이는데, 브라우저에서 fmt 가 undefined 에 걸려 그 블록이 실패로 넘어간다.
     # CI 가 녹색인데 구독자는 숫자를 못 보는 꼴이다(#83).
-    with pytest.raises(ValueError, match="count"):
+    with pytest.raises(ValueError, match="정확히 들어야 한다") as caught:
         render._js_value(mapping, key="count", plural=True)
+    assert "count" in str(caught.value)
 
 
 def test_a_plural_mapping_refuses_an_unknown_form():
     # few·many 가 필요해지면 그때 연다. 지금 통과시키면 오타(othre)가 생성물까지
     # 간다.
-    with pytest.raises(ValueError, match="few"):
+    with pytest.raises(ValueError, match="정확히 들어야 한다") as caught:
         render._js_value(
             {"one": "{n}건", "other": "{n}건", "few": "{n}건"}, key="count", plural=True
         )
+    assert "few" in str(caught.value)
 
 
 def test_a_plural_mapping_needs_string_values():
-    with pytest.raises(ValueError, match="count"):
+    with pytest.raises(ValueError, match="값은 문자열이어야 한다") as caught:
         render._js_value({"one": "{n}건", "other": 7}, key="count", plural=True)
+    assert "count" in str(caught.value)
 
 
 def test_a_plural_mapping_passes_when_it_is_well_formed():
@@ -138,8 +151,9 @@ def test_a_text_marker_refuses_a_plural_mapping():
     # 여기서 "매핑만 막힌다" 를 고정하지 않는 것은 의도다 — 고정하면 _html_text 를
     # 대칭으로 고칠 때 이 테스트가 걸림돌이 된다. 고치는 것은 프로덕션 변경이라
     # 별도 PR 이고, 그때 이 테스트가 {{j:}} 쪽과 같은 모양으로 넓어져야 한다.
-    with pytest.raises(ValueError, match="verify_stat"):
+    with pytest.raises(ValueError, match="매핑을 받지 않는다") as caught:
         render._html_text({"one": "a", "other": "b"}, 0, key="verify_stat")
+    assert "verify_stat" in str(caught.value)
 
 
 # ---------------------------------------------------------------------------
@@ -148,29 +162,33 @@ def test_a_text_marker_refuses_a_plural_mapping():
 
 
 def test_a_marker_without_a_locale_key_stops():
-    with pytest.raises(ValueError, match="title"):
+    with pytest.raises(ValueError, match="locale 에 없다") as caught:
         render._fill_markers("{{t:title}}", {})
+    assert "title" in str(caught.value)
 
 
 def test_a_locale_key_no_marker_uses_stops():
     # 키가 수십 개라 한쪽만 보면 누락이 조용히 지나간다. 양방향이라야 잡힌다.
-    with pytest.raises(ValueError, match="unused_one"):
+    with pytest.raises(ValueError, match="템플릿이 쓰지 않는 키") as caught:
         render._fill_markers("{{t:title}}", {"title": "x", "unused_one": "y"})
+    assert "unused_one" in str(caught.value)
 
 
 def test_a_leftover_marker_stops():
     # 마커 문법을 틀리게 적으면(종류 글자를 빼거나 오타) MARKER 가 못 잡고
     # 그대로 생성물에 남는다. 잔존 검사가 그것을 본다.
-    with pytest.raises(ValueError, match="zzz"):
+    with pytest.raises(ValueError, match="치환되지 않은 마커") as caught:
         render._fill_markers("{{t:title}} {{zzz}}", {"title": "x"})
+    assert "zzz" in str(caught.value)
 
 
 def test_marker_kinds_dispatch_to_their_own_contract():
     # 세 종류가 한 템플릿에 있을 때 각자의 계약으로 간다. p 자리에 문자열을 두면
     # 그 키를 가리키며 멈춘다 — 다른 종류가 먼저 통과해도 마찬가지다.
     strings = {"title": "제목", "copy": "복사", "count": "{n}건"}
-    with pytest.raises(ValueError, match="count"):
+    with pytest.raises(ValueError, match="복수형 매핑만 받는다") as caught:
         render._fill_markers("{{t:title}} {{j:copy}} {{p:count}}", strings)
+    assert "count" in str(caught.value)
 
 
 # ---------------------------------------------------------------------------
@@ -233,15 +251,17 @@ def test_a_known_land_lang_picks_a_name(tag):
 def test_an_unknown_land_lang_stops():
     # 열어 둔 집합이 아니다. 오타나 아직 없는 표기를 적으면 그 자리에서 멈춘다 —
     # 통과시키면 getattr 이 AttributeError 로 죽어 무엇이 문제인지 안 보인다.
-    with pytest.raises(ValueError, match="land_lang"):
+    with pytest.raises(ValueError, match="닫힌 집합 밖이다") as caught:
         render._land_name(_module(), {"state_feed": {"land_lang": "en"}})
+    assert "land_lang" in str(caught.value)
 
 
 def test_a_non_state_feed_without_a_desc_stops():
     # 주 피드는 label·desc 를 모듈에서 유도하지만 나머지는 유도할 데가 없다.
     # 빠뜨리면 그 줄이 빈 채로 나가는 것이 아니라 발행이 멈춘다.
-    with pytest.raises(ValueError, match="kr"):
+    with pytest.raises(ValueError, match="desc 가 없다") as caught:
         render._row("kr", {"state_feed": {"label_suffix": " 공휴일"}, "feeds": {}}, state=False)
+    assert "kr" in str(caught.value)
 
 
 # ---------------------------------------------------------------------------
@@ -255,15 +275,17 @@ def test_a_locale_may_not_shadow_a_computed_key(reserved):
     # 쪽이 이기는지가 dict 갱신 순서에 달리게 된다 — 조용히 덮이는 자리라
     # 겹치는 것 자체를 막는다.
     locale = {"lang": "ko", "locale": "ko-KR", "ui": {reserved: "x"}}
-    with pytest.raises(ValueError, match=reserved):
+    with pytest.raises(ValueError, match="예약된 키가 있다") as caught:
         render._ui_strings(locale, "ko")
+    assert reserved in str(caught.value)
 
 
 def test_a_locale_lang_must_match_the_requested_language():
     # 파일 이름이 언어를 정하고 lang 필드가 그것을 되받는다. 어긋나면 ja.yaml 이
     # ko 페이지로 발행되는 식이 되고, 그 페이지는 html lang 과 내용이 다르다.
-    with pytest.raises(ValueError, match="ja"):
+    with pytest.raises(ValueError, match="의 lang 이") as caught:
         render._ui_strings({"lang": "ja", "locale": "ja-JP", "ui": {}}, "ko")
+    assert "ja" in str(caught.value)
 
 
 def test_a_well_formed_locale_yields_the_computed_keys():
@@ -294,8 +316,9 @@ def test_each_placeholder_must_appear_exactly_once(placeholder, count):
         if p != placeholder
     ]
     template = " ".join(others) + " " + (placeholder + " ") * count
-    with pytest.raises(ValueError, match=re.escape(placeholder)):
+    with pytest.raises(ValueError, match="개다") as caught:
         render._check_placeholders(template)
+    assert placeholder in str(caught.value)
 
 
 def test_all_three_placeholders_present_once_pass():
