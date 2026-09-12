@@ -904,7 +904,7 @@
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);
-    set("kr-events", fmt({{j:count}}, { n: status.feeds.kr.events }));
+    set("kr-events", fmt({{p:count}}, { n: status.feeds.kr.events }));
   }
 
   function renderJp(status) {
@@ -912,7 +912,7 @@
     // kr 규칙표의 개념이라 jp 에는 해당 절이 없다.
     var jp = status.feeds.jp;
     setRange("jp-range", jp.range.start, jp.range.end);
-    set("jp-events", fmt({{j:count}}, { n: jp.events }));
+    set("jp-events", fmt({{p:count}}, { n: jp.events }));
   }
 
   function renderKrJp(status) {
@@ -931,7 +931,7 @@
       setRange("krjp-range-confirmed", from, until);
       set("krjp-range-provisional", {{j:none}});
     }
-    set("krjp-events", fmt({{j:count}}, { n: krjp.events }));
+    set("krjp-events", fmt({{p:count}}, { n: krjp.events }));
   }
 
   function renderKrOnly(status) {
@@ -949,7 +949,7 @@
       setRange("kronly-range-confirmed", from, until);
       set("kronly-range-provisional", {{j:none}});
     }
-    set("kronly-events", fmt({{j:count}}, { n: kronly.events }));
+    set("kronly-events", fmt({{p:count}}, { n: kronly.events }));
   }
 
   function renderJpOnly(status) {
@@ -958,7 +958,7 @@
     // (끝이 두 나라 중 짧은 쪽).
     var jponly = status.feeds.jp_only;
     setRange("jponly-range", jponly.range.start, jponly.range.end);
-    set("jponly-events", fmt({{j:count}}, { n: jponly.events }));
+    set("jponly-events", fmt({{p:count}}, { n: jponly.events }));
   }
 
   function renderDe(status) {
@@ -966,7 +966,7 @@
     // 없다 — 일본 절과 같이 기간과 항목 수만 싣는다.
     var de = status.feeds.de;
     setRange("de-range", de.range.start, de.range.end);
-    set("de-events", fmt({{j:count}}, { n: de.events }));
+    set("de-events", fmt({{p:count}}, { n: de.events }));
   }
 
   function renderUpdated(status) {
@@ -974,7 +974,7 @@
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
 
     var days = Math.floor((Date.now() - at.getTime()) / DAY);
-    set("updated-value", days <= 0 ? {{j:today}} : fmt({{j:days_ago}}, { n: days }));
+    set("updated-value", days <= 0 ? {{j:today}} : fmt({{p:days_ago}}, { n: days }));
     $("updated-at").textContent = fmt({{j:updated_at}}, { date: localeDate(status.generated_at) });
 
     if (days > STALE_DAYS) { $("updated-warn").hidden = false; }

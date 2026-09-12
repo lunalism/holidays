@@ -99,16 +99,8 @@ NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
 
 # 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
 ROOT_LANG = "ko"
-MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
+MARKER = re.compile(r"\{\{([tjp]):(\w+)\}\}")
 
-# fmt() 의 첫 인자로 선 {{j:키}}. 복수형 매핑을 받을 수 있는 마커는 이 자리뿐이라
-# 템플릿에서 유도한다 — 목록을 손으로 들지 않는다(열거하면 그 자리가 낡는다).
-# 그룹 1 이 마커 자체다. 잡는 것은 키 이름이 아니라 그 마커가 선 위치다.
-#
-# 앞의 (?<![.\w$]) 는 멤버 호출을 거른다. \bfmt\( 는 "obj.fmt(" 도 잡았다 —
-# 점과 f 사이에도 단어 경계가 서기 때문이다. 그 자리는 지역 fmt 가 아니라 다른
-# 함수라, 승인하면 객체 리터럴이 엉뚱한 곳으로 간다.
-FMT_CALL = re.compile(r"(?<![.\w$])fmt\(\s*(\{\{j:\w+\}\})")
 
 # 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
 # 못 읽으면 이 값이 그대로 보인다. status 에서 유도하지 않는다 — 그러면 매
@@ -296,8 +288,8 @@ def _ui_strings(locale: dict, lang: str) -> dict:
     """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
     render 가 계산하는 og_url.
 
-    값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{j:}} 마커에서만
-    쓸 수 있고, 그 검사는 _js_string·_html_text 가 한다."""
+    값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{p:}} 마커의 값이고,
+    마커 종류와 값이 맞는지는 _js_value·_html_text 가 본다."""
     strings = dict(locale["ui"])
     computed = {"lang": locale["lang"], "locale": locale["locale"],
                 "og_url": _site_base().rstrip("/") + page_path(lang)}
@@ -413,96 +405,50 @@ def _html_text(value, column: int, *, key: str) -> str:
     return escaped.replace("\n", "\n" + " " * column)
 
 
-def _fmt_marker_spans(template: str) -> frozenset[int]:
-    r"""복수형 매핑을 받을 수 있는 {{j:}} 마커가 선 **자리**. fmt() 의 첫 인자로
-    선 마커의 시작 오프셋이다.
+def _js_value(value, *, key: str, plural: bool) -> str:
+    r"""JS 리터럴 — {{j:}} 는 문자열, {{p:}} 는 복수형 매핑. 마커 종류가 계약을
+    말하고 여기는 그것을 읽는다.
 
-    무엇을 보장하지 않는가 — 먼저 적는다
-    -----------------------------------
-    이 판정이 보는 것은 `fmt(` 라는 **문면**이지 JS 구문이 아니다. 정규식이고,
-    파서가 아니다. 그래서 남는 것이 있다.
+    왜 추론을 그만뒀는가
+    -------------------
+    전에는 마커 하나({{j:}})로 둘을 겸하고, 매핑이 허용되는 자리인지를 render 가
+    **템플릿을 읽어 알아맞혔다.** fmt() 의 첫 인자로 선 마커만 매핑을 받는다는
+    규칙이었고, 그 판정을 정규식이 했다. 네 번 틈이 났다.
 
-        멤버 호출은 걸러진다. (?<![.\w$]) 가 "obj.fmt(" 를 막는다 — 전에는
-        통과해서 객체 리터럴이 다른 함수로 넘어갔다(실측).
-        주석·문자열 안의 `fmt(` 는 걸러지지 않는다. 그 자리는 자기 자신만
-        승인하므로 출력이 깨지지는 않지만(주석 안에 객체 리터럴이 들어갈 뿐),
-        아래 빈손 가드를 살려 두는 효과는 남는다.
+        키 이름 집합으로 판정      한 자리가 다른 자리를 승인했다
+        \bfmt\( 로 자리 판정       obj.fmt( 도 잡혔다(점과 f 사이에도 단어 경계)
+        (?<![.\w$]) 로 좁힘        obj . fmt( 가 통과했다(공백이 낀 멤버 호출)
+        더 좁히면                  obj /*c*/ . fmt( 가 남는다
 
-    주석인지 아닌지는 보지 않는다. 판별하려 들면 JS 파서를 만들게 되고, 그
-    비용은 이 파일이 질 것이 아니다.
+    **급수가 수렴하지 않았다.** 근사의 정밀도가 문제가 아니라 근사가 틀린 방법
+    이었다 — 정규식으로 JS 호출 소유를 판정할 수 없다. 그래서 추측을 그만두고
+    템플릿이 선언하게 했다. 자리를 아는 것은 템플릿을 쓰는 사람이고, 그 사람이
+    마커 종류로 적으면 render 는 읽기만 하면 된다.
 
-    이 절을 세 번 고쳤다. 세 번 다 "이제 구멍이 없다" 고 적었다가 한 층 아래를
-    못 본 것이 드러났다 — script 문맥이 둘인 것(#76), 한 자리가 다른 자리를
-    승인하는 것(키 이름 판정), 정규식이 멤버 호출을 못 거르는 것. **그래서 보장
-    대신 한계를 먼저 적는다.** 보장을 먼저 쓰면 한계가 각주가 된다.
+    덜어낸 것: fmt 호출을 잡던 정규식, 마커 자리 오프셋 집합, 그 집합이 비었을
+    때를 위한 가드, 그리고 그것들을 설명하던 절 전부. 추측할 것이 없으니 추측이
+    빗나갈 자리도 없다.
 
-    왜 키 이름이 아니라 자리인가
-    ---------------------------
-    처음에는 키 이름 집합("이 키는 fmt 를 탄다")으로 판정했다. **그것은 대리
-    지표였고 한 자리가 다른 자리를 승인했다.** 같은 키를 fmt 밖에서 한 번 더
-    쓰면 — `set("de-events", {{j:count}})` — 그 자리도 통과해 객체 리터럴이
-    textContent 에 들어가고 "[object Object]" 가 나갔다. 실측으로 재현됐다.
-    키 이름은 "어딘가에서 fmt 를 탄다" 만 말한다. 물어야 하는 것은 **지금 이
-    자리가 fmt 호출 안이냐** 하나뿐이고, 그 답은 자리로만 나온다.
+    남는 한계
+    ---------
+    마커 종류가 틀리면 — 매핑이어야 할 자리를 {{j:}} 로 적으면 — render 가
+    ValueError 로 멈춘다. locale 값과 마커 종류가 어긋나는 경우는 전부 여기서
+    걸린다. 걸리지 않는 것은 **둘 다 맞는데 자리가 틀린 경우**다: {{p:}} 를
+    fmt() 밖에 적고 locale 에 매핑을 넣으면 통과하고, 그 자리에 객체 리터럴이
+    들어간다. 그것은 템플릿을 쓰는 사람이 자기 손으로 틀리게 적은 경우이고,
+    render 가 막을 수 있는 종류가 아니다 — 막으려면 다시 JS 를 읽어야 한다.
 
-    "키 집합이 간단한데" 로 되돌리지 말 것. 간단한 쪽이 조용히 샌다.
+    앞선 네 번이 전부 "이제 구멍이 없다" 를 틀리게 적었다. 그래서 이번에는
+    한계를 먼저 적었고, 위 한 줄이 지금 아는 전부다.
 
-    정규식이 낡으면 — 그리고 빈손 가드에 대해
-    ----------------------------------------
-    호출 방식이 바뀌면(변수에 담아 넘기거나, 이름을 바꾸거나, 인자 순서를
-    뒤집으면) 그 자리가 집합에서 빠진다. 그러면 매핑이 거부되어 render 가
-    멈춘다 — 조용하지 않다.
-
-    아래 빈손 가드는 그 위의 얇은 겹이고, **주석 한 줄로 무력화된다**(살아있는
-    호출이 전부 사라져도 주석 안 `fmt(` 가 집합을 비우지 않는다). 그래도 낡음이
-    조용히 지나가지는 않는다 — `count`·`days_ago` 가 세 locale 모두 매핑이라,
-    그 살아있는 자리가 승인을 잃어 **그쪽에서 먼저 멈춘다**(실측 확인). 가드가
-    유일하게 값을 하는 경우는 어느 locale 도 매핑을 안 쓸 때인데, 그때는 잘못
-    놓일 매핑 자체가 없다.
-
-    이것을 적어 두는 것은 다음 사람이 "이 가드 안 도는데" 하고 손대지 않게
-    하기 위해서다(tests/test_de_scope.py 의 assert STATE_CODES 와 같은 형태)."""
-    spans = frozenset(m.start(1) for m in FMT_CALL.finditer(template))
-    if not spans:
-        raise ValueError(
-            "템플릿에서 fmt() 를 타는 {{j:}} 마커를 하나도 찾지 못했다 — "
-            "fmt 호출 방식이 바뀌었거나 FMT_CALL 이 낡았다"
-        )
-    return spans
-
-
-def _js_string(value, *, key: str, at_fmt: bool) -> str:
-    """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
-
-    받는 것은 문자열과 복수형 매핑(one·other) 둘뿐이다. 그 밖의 타입은 거부한다 —
-    json.dumps 는 리스트도 숫자도 통과시키고, 그 값이 textContent 에 들어가면
-    빈 라벨이나 "7" 이 되어 나간다. 양방향 검사도 PLURAL_FORMS 도 그것을 보지
-    않으므로 생성 시점에 여기서 막는다.
-
-    매핑은 fmt() 안에 선 마커에만 허용한다(at_fmt — _fmt_marker_spans 가 자리로
-    판정한다). 갈래를 고르는 것은 fmt 뿐이고, 그 밖의 자리는 값을 그대로 쓰므로
-    매핑이 가면 "[object Object]" 가 찍힌다 — 복사 버튼 열다섯 개에 그것이 나간
-    것을 실측했다.
-
-    형태를 보는 이유는 잘못된 형태가 조용히 지나가기 때문이다. 갈래 하나를
-    빠뜨린 locale 은 render 를 멈추지 않고, 생성물도 정상으로 보이고, 테스트도
-    녹색이다(ui 문구를 검사하는 테스트가 없다). 깨지는 것은 브라우저에서 그
-    블록 하나이고, 그때는 이미 발행된 뒤다.
-
-    script 문맥의 이스케이프는 _script_json 이 든다 — 이 페이지의 다른 script
-    문맥(feed-data 블록)과 같은 함수를 타야 해서 그쪽으로 옮겼다.
+    값의 이스케이프는 _script_json 이 든다 — feed-data 블록과 같은 함수다.
+    {n}·{date} 자리는 그대로 남긴다(스크립트 몫).
     """
-    if not isinstance(value, (str, dict)):
-        raise ValueError(
-            f"{{{{j:}}}} 마커는 문자열이나 복수형 매핑만 받는다 — "
-            f"키 {key!r} 이 {type(value).__name__} 이다"
-        )
-    if isinstance(value, dict):
-        if not at_fmt:
+    if plural:
+        if not isinstance(value, dict):
             raise ValueError(
-                f"복수형 매핑은 fmt() 안에 선 마커에만 쓸 수 있다 — 키 {key!r} 이 "
-                "쓰인 이 자리는 값이 그대로 들어가는 자리라 매핑이 가면 "
-                '"[object Object]" 가 찍힌다'
+                f"{{{{p:}}}} 마커는 복수형 매핑만 받는다 — 키 {key!r} 이 "
+                f"{type(value).__name__} 이다. 문자열이면 {{{{j:}}}} 로 적을 것"
             )
         missing = sorted(PLURAL_FORMS - set(value))
         unknown = sorted(set(value) - PLURAL_FORMS)
@@ -513,15 +459,17 @@ def _js_string(value, *, key: str, at_fmt: bool) -> str:
             )
         bad = sorted(k for k, v in value.items() if not isinstance(v, str))
         if bad:
-            raise ValueError(
-                f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}"
-            )
+            raise ValueError(f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}")
+    elif not isinstance(value, str):
+        raise ValueError(
+            f"{{{{j:}}}} 마커는 문자열만 받는다 — 키 {key!r} 이 "
+            f"{type(value).__name__} 이다. 복수형 매핑이면 {{{{p:}}}} 로 적을 것"
+        )
     return _script_json(value)
 
 
 def _fill_markers(template: str, strings: dict) -> str:
     used: set[str] = set()
-    fmt_spans = _fmt_marker_spans(template)
 
     def sub(match: re.Match) -> str:
         kind, key = match.group(1), match.group(2)
@@ -529,8 +477,8 @@ def _fill_markers(template: str, strings: dict) -> str:
             raise ValueError(f"템플릿의 {{{{{kind}:{key}}}}} 가 locale 에 없다")
         used.add(key)
         value = strings[key]
-        if kind == "j":
-            return _js_string(value, key=key, at_fmt=match.start() in fmt_spans)
+        if kind in ("j", "p"):
+            return _js_value(value, key=key, plural=kind == "p")
         column = match.start() - template.rfind("\n", 0, match.start()) - 1
         return _html_text(value, column, key=key)
 
