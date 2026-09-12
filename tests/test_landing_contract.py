@@ -377,12 +377,33 @@ def test_all_three_placeholders_present_once_pass():
 # 그 함수를 부르는지 알 수 없다 — json.dumps 로 바꿔치기해도 녹색이었다(변이 확인).
 # 여기서는 마커 종류 분기부터 직렬화까지 사슬 전체를 태운다.
 
+# script 문맥을 깨는 입력의 **예시**다. 목록이 계약은 아니다 — 계약은 아래
+# test_the_script_serializer_escapes_every_angle_bracket 이 적는다.
+#
+# 목록을 쫓으면 수렴하지 않는다. "</script> 를 막는다" 로 적으면 </ScRiPt> 가
+# 남고(HTML 의 종료 태그는 대소문자를 안 가린다), 그것을 더하면 </script\t> 가
+# 남는다. 실제로 _script_json 을 "소문자 </script> 만 치환" 으로 약화해도 이
+# 목록만으로는 전부 녹색이었다(변이 확인). 오늘 이 레포가 fmt 호출을 정규식으로
+# 쫓다 마커 선언으로 바꾼 것과 같은 교훈이다 — 근사를 촘촘히 하지 말고 계약을
+# 적는다.
 BREAKERS = [
     ("</script>", "\\u003c/script>"),
+    ("</ScRiPt>", "\\u003c/ScRiPt>"),
     ("\u2028", "\\u2028"),
     ("\u2029", "\\u2029"),
 ]
-BREAKER_IDS = ["script 닫기", "U+2028", "U+2029"]
+BREAKER_IDS = ["script 닫기", "혼합 대소문자", "U+2028", "U+2029"]
+
+
+def test_the_script_serializer_escapes_every_angle_bracket():
+    """계약 그 자체 — 입력의 **모든** < 가 \\u003c 로 바뀐다.
+
+    무엇이 위험한 문면인지 세지 않는다. "<" 가 하나도 원문으로 남지 않으면
+    어떤 종료 태그도 만들어질 수 없다."""
+    raw = "<a></b></script></ScRiPt></script\t><<<"
+    out = render._script_json(raw)
+    assert "<" not in out
+    assert out.count("\\u003c") == raw.count("<")
 
 
 @pytest.mark.parametrize(("raw", "escaped"), BREAKERS, ids=BREAKER_IDS)
@@ -431,7 +452,9 @@ def test_a_text_marker_value_goes_through_html_escaping(raw, escaped):
 # ---------------------------------------------------------------------------
 
 
-POISON = '</script>\u2028\u2029<tag attr="x">&'
+# 혼합 대소문자 종결자를 독립적으로 넣는다 — HTML 의 종료 태그는 대소문자를
+# 가리지 않으므로 소문자만 막는 구현은 여기서 걸려야 한다.
+POISON = '</script></ScRiPt>\u2028\u2029<tag attr="x">&'
 
 
 @pytest.fixture
@@ -444,11 +467,22 @@ def poisoned_landing(tmp_path, monkeypatch):
         groups.countries.title  {{FEED_DATA}} JSON 과 {{NOSCRIPT}} 마크업
         feeds.kr.desc           같은 둘
         name                    {{LANG_LINKS}} 의 링크 문면
+        ui.lang_nav             {{t:}} — HTML 속성
+        ui.copy_button          {{j:}} — script 안 문자열
+        ui.count.other          {{p:}} — script 안 매핑 갈래
+
+    ui 쪽 셋은 **render 가 _fill_markers 를 실제로 부르는지**를 본다. 함수를
+    직접 부르는 단위 테스트는 그 배선을 말하지 않는다.
     """
     locale = yaml.safe_load((render.LOCALES_DIR / "ko.yaml").read_text(encoding="utf-8"))
     locale["groups"]["countries"]["title"] += POISON
     locale["feeds"]["kr"]["desc"] += POISON
     locale["name"] += POISON
+    # ui 쪽 마커 셋도 오염시킨다. 이것이 없으면 render 가 _fill_markers 를
+    # 우회해도(원문 치환으로 바꿔도) 이 파일은 조용했다 — 변이로 확인했다.
+    locale["ui"]["lang_nav"] += POISON  # {{t:}} — HTML 속성(aria-label)
+    locale["ui"]["copy_button"] += POISON  # {{j:}} — script 안 문자열
+    locale["ui"]["count"]["other"] += POISON  # {{p:}} — script 안 매핑 갈래
 
     locales = tmp_path / "locales"
     locales.mkdir()
@@ -507,3 +541,21 @@ def test_the_language_links_are_html_escaped_in_the_rendered_page(poisoned_landi
     assert nav, "언어 nav 를 찾지 못했다"
     assert "&lt;tag attr=&quot;x&quot;&gt;" in nav.group(0)
     assert "<tag attr=" not in nav.group(0)
+
+
+def test_ui_values_take_their_marker_contract_in_the_rendered_page(poisoned_landing):
+    """{{t:}}·{{j:}}·{{p:}} 가 render() 를 지나며 각자의 이스케이프를 탄다.
+
+    단위 테스트는 각 함수가 일한다는 것만 말한다. render 가 그 함수들을 부르지
+    않고 원문을 치환해도 단위는 전부 녹색이었다 — 변이로 확인했다. 문맥마다
+    계약이 다르므로 구간을 갈라 본다."""
+    nav = re.search(r'<nav class="lang"[^>]*aria-label="([^"]*)"', poisoned_landing)
+    assert nav, "언어 nav 의 aria-label 을 찾지 못했다"
+    assert "&lt;/script&gt;" in nav.group(1)
+    assert "</script>" not in nav.group(1)
+
+    # copy_button 은 두 자리, count 는 한 자리에 실린다 — 셋 다 script 안이다.
+    body = re.findall(r"<script[^>]*>(.*?)</script>", poisoned_landing, re.S)[-1]
+    assert body.count("\\u003c/script>") >= 3
+    assert body.count("\\u003c/ScRiPt>") >= 3
+    assert "<tag attr=" not in body
