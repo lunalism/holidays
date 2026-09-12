@@ -105,6 +105,13 @@ MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
 # 발행마다 index.html 이 바뀐다(DESIGN.md 발행 파이프라인).
 FALLBACK_COUNTS = {"item_count": 48, "unverified_count": 32}
 
+# 복수형 갈래. 매핑으로 적은 문구는 이 둘을 **정확히** 들어야 한다. 스크립트의
+# fmt() 가 n === 1 이면 one, 아니면 other 를 고르므로 하나만 있으면 나머지 자리에서
+# undefined 를 쓰고, 그 블록이 런타임에 죽는다 — 생성물은 정상이고 테스트도 녹색인데
+# 구독자만 숫자를 못 보는 꼴이다. few·many 가 필요해지면 그때 연다. 지금 모르는
+# 갈래를 통과시키면 오타(othre)가 생성물까지 간다.
+PLURAL_FORMS = frozenset({"one", "other"})
+
 
 def feed_codes() -> list[str]:
     """rules/ 아래 feed.py 를 가진 패키지 이름. tests/test_feed_set.py 와 같은 조건."""
@@ -249,9 +256,12 @@ def _dumps_feed_data(data: dict) -> str:
     return "\n".join(lines)
 
 
-def _ui_strings(locale: dict, lang: str) -> dict[str, str]:
+def _ui_strings(locale: dict, lang: str) -> dict:
     """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
-    render 가 계산하는 og_url."""
+    render 가 계산하는 og_url.
+
+    값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{j:}} 마커에서만
+    쓸 수 있고, 그 검사는 _js_string·_html_text 가 한다."""
     strings = dict(locale["ui"])
     computed = {"lang": locale["lang"], "locale": locale["locale"],
                 "og_url": _site_base().rstrip("/") + page_path(lang)}
@@ -276,9 +286,20 @@ def _lang_links(current: str) -> str:
     return "\n".join(items)
 
 
-def _html_text(value: str, column: int) -> str:
+def _html_text(value, column: int, *, key: str) -> str:
     """HTML 텍스트·속성값. 여러 줄 문구는 마커가 선 열에 맞춰 이어 붙여 원문의
-    줄 나눔과 들여쓰기를 되살린다 — 그래야 생성물 diff 가 문구 변경만 보인다."""
+    줄 나눔과 들여쓰기를 되살린다 — 그래야 생성물 diff 가 문구 변경만 보인다.
+
+    복수형 매핑(one·other)은 받지 않는다. 고르는 일을 하는 것은 스크립트의
+    fmt() 이고 그쪽으로 가는 길은 {{j:}} 마커뿐이다. 여기로 매핑이 오면 문구를
+    쓴 사람이 마커를 잘못 골랐거나 조립기가 아닌 키를 매핑으로 바꾼 것이다 —
+    어느 키인지 말하고 죽는다. 그냥 두면 html.escape 가 AttributeError 로 죽어
+    locale 의 어디가 문제인지 알려주지 않는다."""
+    if isinstance(value, dict):
+        raise ValueError(
+            f"t 마커는 매핑을 받지 않는다 — 키 {key!r}. 복수형 매핑은 "
+            "{{j:}} 마커로만 쓸 수 있다(스크립트의 fmt 가 고른다)"
+        )
     escaped = html.escape(value, quote=True)
     for name, number in FALLBACK_COUNTS.items():
         escaped = escaped.replace(
@@ -287,8 +308,19 @@ def _html_text(value: str, column: int) -> str:
     return escaped.replace("\n", "\n" + " " * column)
 
 
-def _js_string(value: str) -> str:
+def _js_string(value, *, key: str) -> str:
     """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
+
+    복수형 매핑(one·other)도 받는다. json.dumps 가 JS 객체 리터럴을 만들고
+    스크립트의 fmt() 가 n 을 보고 갈래를 고른다 — 파이썬은 어느 갈래가 맞는지
+    모른다. 보는 것은 형태뿐이다: 갈래가 PLURAL_FORMS 와 정확히 같고 값이 전부
+    문자열인지. 어느 키가 매핑을 들어야 하는지는 보지 않는다 — 조립기 키 목록을
+    누가 드는가는 영어가 들어오는 모습에 달려 있어 아직 정하지 않았다.
+
+    형태를 보는 이유는 잘못된 형태가 조용히 지나가기 때문이다. 갈래 하나를
+    빠뜨린 locale 은 render 를 멈추지 않고, 생성물도 정상으로 보이고, 테스트도
+    녹색이다(ui 문구를 검사하는 테스트가 없다). 깨지는 것은 브라우저에서 그
+    블록 하나이고, 그때는 이미 발행된 뒤다.
 
     json.dumps 만으로는 JS 문자열 리터럴로서 안전하지 않다. 이 리터럴은
     <script> 안에 놓이는데, HTML 파서는 문자열 안이든 밖이든 "</script>" 를
@@ -297,11 +329,24 @@ def _js_string(value: str) -> str:
     유니코드 이스케이프(\\uXXXX)로 바꾼다. ko 문구에는 해당 문자가 없어 지금 드러나지 않을 뿐이고,
     이것은 미래 대비가 아니라 함수 계약의 구멍을 메우는 것이다.
     """
+    if isinstance(value, dict):
+        missing = sorted(PLURAL_FORMS - set(value))
+        unknown = sorted(set(value) - PLURAL_FORMS)
+        if missing or unknown:
+            raise ValueError(
+                f"복수형 매핑은 {sorted(PLURAL_FORMS)} 를 정확히 들어야 한다 — "
+                f"키 {key!r}: 빠진 갈래 {missing}, 모르는 갈래 {unknown}"
+            )
+        bad = sorted(k for k, v in value.items() if not isinstance(v, str))
+        if bad:
+            raise ValueError(
+                f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}"
+            )
     literal = json.dumps(value, ensure_ascii=False)
     return literal.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
-def _fill_markers(template: str, strings: dict[str, str]) -> str:
+def _fill_markers(template: str, strings: dict) -> str:
     used: set[str] = set()
 
     def sub(match: re.Match) -> str:
@@ -311,9 +356,9 @@ def _fill_markers(template: str, strings: dict[str, str]) -> str:
         used.add(key)
         value = strings[key]
         if kind == "j":
-            return _js_string(value)
+            return _js_string(value, key=key)
         column = match.start() - template.rfind("\n", 0, match.start()) - 1
-        return _html_text(value, column)
+        return _html_text(value, column, key=key)
 
     out = MARKER.sub(sub, template)
     unused = sorted(set(strings) - used)

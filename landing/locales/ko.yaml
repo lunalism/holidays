@@ -94,10 +94,20 @@ ui:
   copy_failed: "복사하지 못했습니다"
   open_in_app: "캘린더 앱에서 열기"
   # {n}·{date} 자리는 스크립트가 값으로 채운다(fmt). 어순은 문구가 정한다.
-  count: "{n}건"
+  #
+  # 숫자+단위를 한 조각으로 조립하는 키(count·days_ago)는 one·other 두 갈래를
+  # 든다. 고르는 것은 스크립트의 fmt 다 — n === 1 이면 one, 아니면 other.
+  # 한국어는 복수형이 없어 둘이 같은 값이다. 영어처럼 갈리는 언어에서 실제로
+  # 쓰인다("{n} item" / "{n} items"). 갈래가 없는 언어에서 한 줄로 적지 않는
+  # 것은, 그러면 언어를 늘릴 때 조립기의 모양이 언어마다 달라지기 때문이다.
+  count:
+    one: "{n}건"
+    other: "{n}건"
   none: "없음"
   today: "오늘"
-  days_ago: "{n}일 전"
+  days_ago:
+    one: "{n}일 전"
+    other: "{n}일 전"
   updated_at: "{date} 갱신"
   range_separator: " ~ "
 
