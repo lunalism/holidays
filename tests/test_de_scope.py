@@ -3,8 +3,7 @@
 --------------------------------------------------------------------------
 이 파일이 지키는 명제
 --------------------------------------------------------------------------
-    주 피드 아홉(de_be·de_bw·de_by·de_he·de_hh·de_ni·de_nw·de_rp·de_sh)의 YAML 전 항목에는
-    scope 가
+    주 피드(rules/de_* 전부)의 YAML 전 항목에는 scope 가
     있고 값은 {bundesweit, land} 뿐이다. bundesweit 인 key 집합은 전국 피드
     rules/de/ 의 key 집합과 같다(9 건). 전국 피드 YAML 에는 scope 를 두지
     않는다 — 정의상 전부 bundesweit 라 필드가 있으면 오히려 오류다.
@@ -32,39 +31,47 @@ bundesweit 로 잘못 적으면) 어느 쪽이든 집합이 어긋나 깨진다.
 from __future__ import annotations
 
 import datetime as dt
+import importlib
+from pathlib import Path
 
 import icalendar
 import pytest
 import yaml
 
 from core import ics
-from rules.de import feed as de_feed
-from rules.de_be import feed as de_be_feed
-from rules.de_bw import feed as de_bw_feed
-from rules.de_by import feed as de_by_feed
-from rules.de_he import feed as de_he_feed
-from rules.de_hh import feed as de_hh_feed
-from rules.de_ni import feed as de_ni_feed
-from rules.de_nw import feed as de_nw_feed
-from rules.de_rp import feed as de_rp_feed
-from rules.de_sh import feed as de_sh_feed
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
 TODAY = dt.date(2026, 1, 1)
 
-STATE_FEEDS = {
-    "de_be": de_be_feed,
-    "de_bw": de_bw_feed,
-    "de_by": de_by_feed,
-    "de_he": de_he_feed,
-    "de_hh": de_hh_feed,
-    "de_ni": de_ni_feed,
-    "de_nw": de_nw_feed,
-    "de_rp": de_rp_feed,
-    "de_sh": de_sh_feed,
-}
+ROOT = Path(__file__).resolve().parents[1]
+RULES_DIR = ROOT / "rules"
 
-# 주명은 여기서 고정한다. feed.py 의 상수가 바뀌면 여기가 먼저 깨진다.
+# 피드 코드 전수. tests/test_feed_set.py 의 _rules_packages, tests/test_published_feed.py
+# 의 FEED_CODES 와 같은 조건이다 — rules/ 아래 feed.py 를 가진 디렉터리. 세 파일이
+# 같은 스캔을 각자 든다. 공용 헬퍼로 묶는다면 이 주석이 붙은 셋을 함께 옮길 것.
+#
+# 이 스캔이 아래 parametrize 를 이끈다. 전에는 손으로 적은 dict 가 이끌었고, 그래서
+# 새 주를 더하고 그 dict 에 안 적으면 그 주가 검사에서 조용히 빠졌다(CI 는 녹색).
+# 이제 주를 더하면 자동으로 검사에 들고, LAND_NAMES 에 안 적으면 KeyError 로 터진다.
+# landing 쪽 스캔(landing.render.feed_codes)을 부르지 않는 것은 의존 방향 때문이다 —
+# 이 파일의 명제는 피드에 나가는 것(scope·DESCRIPTION)이고 랜딩과 무관하다.
+STATE_CODES = sorted(
+    p.name
+    for p in RULES_DIR.iterdir()
+    if p.is_dir() and p.name.startswith("de_") and (p / "feed.py").is_file()
+)
+assert STATE_CODES, "rules/ 에서 주 피드 패키지를 하나도 찾지 못했다"
+
+
+def _module(code: str):
+    return importlib.import_module(f"rules.{code}.feed")
+
+
+de_feed = _module("de")
+STATE_FEEDS = {code: _module(code) for code in STATE_CODES}
+
+# 주명은 여기서 고정한다. feed.py 의 상수가 바뀌면 여기가 먼저 깨진다. 스캔이
+# parametrize 를 이끌고 이 표는 조회 대상이라, 새 주가 빠지면 KeyError 다.
 LAND_NAMES = {
     "de_be": "베를린",
     "de_bw": "바덴뷔르템베르크",
