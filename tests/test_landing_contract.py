@@ -388,3 +388,17 @@ def test_filling_markers_escapes_both_js_kinds(raw, escaped):
     )
     assert raw not in out
     assert out.count(escaped) == 3
+
+
+@pytest.mark.parametrize(
+    ("raw", "escaped"),
+    [("<tag>", "&lt;tag&gt;"), ('"따옴표"', "&quot;따옴표&quot;"), ("&amp", "&amp;amp")],
+    ids=["꺾쇠", "따옴표", "앰퍼샌드"],
+)
+def test_a_text_marker_value_goes_through_html_escaping(raw, escaped):
+    # {{t:}} 의 배선. 위 t 테스트는 매핑을 거부하는지만 보므로, t 분기가
+    # _html_text 를 우회해 원문을 그대로 돌려줘도 녹색이었다(변이 확인) —
+    # 그러면 locale 의 <·"·& 가 HTML 텍스트나 속성에 그대로 들어간다.
+    # 결과 전체를 단언한다. "원문이 없다" 로는 & 를 못 본다 — &amp;amp 안에
+    # 원문 &amp 가 들어 있어 부분 문자열 검사가 성립하지 않는다.
+    assert render._fill_markers("{{t:title}}", {"title": f"앞{raw}뒤"}) == f"앞{escaped}뒤"
