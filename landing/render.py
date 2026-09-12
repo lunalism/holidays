@@ -14,8 +14,8 @@
     그 밖의 label·desc·그룹 제목
                        locales/<언어>.yaml — 유도할 데가 없어 사람이 적는다.
     그룹 소속·순서     layout.yaml — 언어와 무관하다.
-    UI 문구            locales/<언어>.yaml 의 ui — 템플릿의 {{t:키}}·{{j:키}}
-                       마커 자리에 들어간다. 템플릿은 구조만 들고 문구는 전부
+    UI 문구            locales/<언어>.yaml 의 ui — 템플릿의 {{t:키}}·{{j:키}}·
+                       {{p:키}} 마커 자리에 들어간다. 템플릿은 구조만 들고 문구는 전부
                        locale 이 든다. 언어별 템플릿을 두지 않는다 — 마크업을
                        고칠 때 언어 수만큼 고치게 되는 종류의 중복이다.
 
@@ -36,8 +36,9 @@ name(자기 언어로 적은 자기 이름)이라 번역 대상이 아니다.
 마커 — 문맥은 템플릿이 말한다
 --------------------------------------------------------------------------
     {{t:키}}   HTML 텍스트·속성값. html.escape 로 이스케이프한다.
-    {{j:키}}   JS 문자열 리터럴. json.dumps 로 따옴표까지 만든다 — 문구에
-               따옴표·백슬래시가 있어도 스크립트가 깨지지 않는다.
+    {{j:키}}   JS 문자열 리터럴. 값은 문자열이어야 한다.
+    {{p:키}}   JS 복수형 매핑 리터럴(one·other). 스크립트의 fmt 가 갈래를
+               고른다. 값은 매핑이어야 한다.
     {{FEED_DATA}}  구독 절 JSON 블록. 제3의 문맥이라 따로 채운다.
     {{LANG_LINKS}} 언어 전환 링크 마크업. render 가 만든다.
 
@@ -99,7 +100,8 @@ NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
 
 # 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
 ROOT_LANG = "ko"
-MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
+MARKER = re.compile(r"\{\{([tjp]):(\w+)\}\}")
+
 
 # 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
 # 못 읽으면 이 값이 그대로 보인다. status 에서 유도하지 않는다 — 그러면 매
@@ -223,13 +225,39 @@ def feed_data(lang: str = "ko") -> dict:
     return {"site_base": _site_base(), "groups": groups}
 
 
+def _script_json(value) -> str:
+    """<script> 안에 놓을 JSON 한 조각. 이 페이지에 script 문맥이 **둘** 있고
+    둘 다 이 함수를 타야 한다.
+
+        {{j:키}}·{{p:키}}   스크립트 안의 JS 리터럴
+        {{FEED_DATA}}      <script type="application/json"> 블록
+
+    둘을 한 함수로 묶은 것은 갈라졌던 적이 있기 때문이다. json.dumps 만으로는
+    script 문맥에서 안전하지 않은데 — HTML 파서는 문자열 안이든 밖이든
+    "</script>" 를 보면 블록을 닫고, JSON 은 "<" 를 이스케이프하지 않는다 —
+    그 사실을 알아채고 메운 것은 {{j:}} 쪽 하나뿐이었다. feed-data 블록은
+    그대로 남아, locale 문구에 "</script>" 가 들어오면 JSON 블록이 일찍 닫히고
+    JSON.parse 가 실패해 **구독 절이 빈다.** 같은 문구가 noscript 쪽은 HTML
+    이스케이프를 타므로 멀쩡하다 — JS 를 쓰는 쪽만 잃는다.
+
+    U+2028·U+2029 는 JSON 문자열에서 유효하지만 옛 JS 파서가 줄바꿈으로 읽는다.
+    셋 다 유니코드 이스케이프로 바꾼다. 지금 문구에 해당 문자가 없어 드러나지
+    않을 뿐이고, 이것은 미래 대비가 아니라 문맥의 요구다."""
+    literal = json.dumps(value, ensure_ascii=False)
+    return (
+        literal.replace("<", "\\u003c")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 def _dumps_feed_data(data: dict) -> str:
     """사람이 쓰던 모양 그대로 — 피드 한 줄에 하나. json.dumps 의 indent 는
     피드 dict 를 네 줄로 펴서 블록이 세 배로 길어진다. 읽는 쪽은 json.loads
     라 모양은 의미가 없지만, diff 를 보는 것은 사람이다."""
 
     def s(v: str) -> str:
-        return json.dumps(v, ensure_ascii=False)
+        return _script_json(v)
 
     def row(feed: dict, indent: str) -> str:
         return (
@@ -261,8 +289,8 @@ def _ui_strings(locale: dict, lang: str) -> dict:
     """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
     render 가 계산하는 og_url.
 
-    값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{j:}} 마커에서만
-    쓸 수 있고, 그 검사는 _js_string·_html_text 가 한다."""
+    값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{p:}} 마커의 값이고,
+    마커 종류와 값이 맞는지는 _js_value·_html_text 가 본다."""
     strings = dict(locale["ui"])
     computed = {"lang": locale["lang"], "locale": locale["locale"],
                 "og_url": _site_base().rstrip("/") + page_path(lang)}
@@ -360,15 +388,15 @@ def _html_text(value, column: int, *, key: str) -> str:
     """HTML 텍스트·속성값. 여러 줄 문구는 마커가 선 열에 맞춰 이어 붙여 원문의
     줄 나눔과 들여쓰기를 되살린다 — 그래야 생성물 diff 가 문구 변경만 보인다.
 
-    복수형 매핑(one·other)은 받지 않는다. 고르는 일을 하는 것은 스크립트의
-    fmt() 이고 그쪽으로 가는 길은 {{j:}} 마커뿐이다. 여기로 매핑이 오면 문구를
-    쓴 사람이 마커를 잘못 골랐거나 조립기가 아닌 키를 매핑으로 바꾼 것이다 —
-    어느 키인지 말하고 죽는다. 그냥 두면 html.escape 가 AttributeError 로 죽어
-    locale 의 어디가 문제인지 알려주지 않는다."""
+    복수형 매핑(one·other)은 받지 않는다. 갈래를 고르는 일을 하는 것은 스크립트의
+    fmt() 이고 그쪽으로 가는 길은 {{p:}} 마커다. 여기로 매핑이 오면 문구를 쓴
+    사람이 마커 종류를 잘못 골랐다 — 어느 키인지 말하고 죽는다. 그냥 두면
+    html.escape 가 AttributeError 로 죽어 locale 의 어디가 문제인지 알려주지
+    않는다."""
     if isinstance(value, dict):
         raise ValueError(
             f"t 마커는 매핑을 받지 않는다 — 키 {key!r}. 복수형 매핑은 "
-            "{{j:}} 마커로만 쓸 수 있다(스크립트의 fmt 가 고른다)"
+            "{{p:}} 마커로 적을 것"
         )
     escaped = html.escape(value, quote=True)
     for name, number in FALLBACK_COUNTS.items():
@@ -378,28 +406,64 @@ def _html_text(value, column: int, *, key: str) -> str:
     return escaped.replace("\n", "\n" + " " * column)
 
 
-def _js_string(value, *, key: str) -> str:
-    """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
+def _js_value(value, *, key: str, plural: bool) -> str:
+    r"""JS 리터럴 — {{j:}} 는 문자열, {{p:}} 는 복수형 매핑. 마커 종류가 계약을
+    말하고 여기는 그것을 읽는다.
 
-    복수형 매핑(one·other)도 받는다. json.dumps 가 JS 객체 리터럴을 만들고
-    스크립트의 fmt() 가 n 을 보고 갈래를 고른다 — 파이썬은 어느 갈래가 맞는지
-    모른다. 보는 것은 형태뿐이다: 갈래가 PLURAL_FORMS 와 정확히 같고 값이 전부
-    문자열인지. 어느 키가 매핑을 들어야 하는지는 보지 않는다 — 조립기 키 목록을
-    누가 드는가는 영어가 들어오는 모습에 달려 있어 아직 정하지 않았다.
+    왜 추론을 그만뒀는가
+    -------------------
+    전에는 마커 하나({{j:}})로 둘을 겸하고, 매핑이 허용되는 자리인지를 render 가
+    **템플릿을 읽어 알아맞혔다.** fmt() 의 첫 인자로 선 마커만 매핑을 받는다는
+    규칙이었고, 그 판정을 정규식이 했다. 네 번 틈이 났다.
 
-    형태를 보는 이유는 잘못된 형태가 조용히 지나가기 때문이다. 갈래 하나를
-    빠뜨린 locale 은 render 를 멈추지 않고, 생성물도 정상으로 보이고, 테스트도
-    녹색이다(ui 문구를 검사하는 테스트가 없다). 깨지는 것은 브라우저에서 그
-    블록 하나이고, 그때는 이미 발행된 뒤다.
+        키 이름 집합으로 판정      한 자리가 다른 자리를 승인했다
+        \bfmt\( 로 자리 판정       obj.fmt( 도 잡혔다(점과 f 사이에도 단어 경계)
+        (?<![.\w$]) 로 좁힘        obj . fmt( 가 통과했다(공백이 낀 멤버 호출)
+        더 좁히면                  obj /*c*/ . fmt( 가 남는다
 
-    json.dumps 만으로는 JS 문자열 리터럴로서 안전하지 않다. 이 리터럴은
-    <script> 안에 놓이는데, HTML 파서는 문자열 안이든 밖이든 "</script>" 를
-    보면 블록을 닫는다 — JSON 은 "<" 를 이스케이프하지 않는다. U+2028·U+2029
-    는 JSON 문자열에서 유효하지만 옛 JS 파서가 줄바꿈으로 읽는다. 셋 다
-    유니코드 이스케이프(\\uXXXX)로 바꾼다. ko 문구에는 해당 문자가 없어 지금 드러나지 않을 뿐이고,
-    이것은 미래 대비가 아니라 함수 계약의 구멍을 메우는 것이다.
+    **급수가 수렴하지 않았다.** 근사의 정밀도가 문제가 아니라 근사가 틀린 방법
+    이었다 — 정규식으로 JS 호출 소유를 판정할 수 없다. 그래서 추측을 그만두고
+    템플릿이 선언하게 했다. 자리를 아는 것은 템플릿을 쓰는 사람이고, 그 사람이
+    마커 종류로 적으면 render 는 읽기만 하면 된다.
+
+    덜어낸 것: fmt 호출을 잡던 정규식, 마커 자리 오프셋 집합, 그 집합이 비었을
+    때를 위한 가드, 그리고 그것들을 설명하던 절 전부. 추측할 것이 없으니 추측이
+    빗나갈 자리도 없다.
+
+    남는 한계 — 마커는 선언이지 검증이 아니다
+    ---------------------------------------
+    여기서 보는 것은 **마커 종류와 값이 맞는가**뿐이다. locale 값이 종류와
+    어긋나면 전부 걸린다. 걸리지 않는 것은 **마커 종류와 놓인 문맥이 어긋나는
+    경우**이고, 그것은 세 종류 전부에 걸친다. 실측 문면:
+
+        {{t:copy_button}} 을 <script> 안에 두면
+            copyBtn.textContent = 구독 주소 복사;      (JS 문법이 깨진다)
+        {{j:lang_nav}} 을 HTML 속성에 두면
+            <nav class="lang" aria-label=""언어"">     (속성이 깨진다)
+        {{p:count}} 를 fmt() 밖에 두면
+            그 자리에 객체 리터럴이 들어가 "[object Object]" 가 찍힌다
+
+    render 는 마커가 **어디에 놓였는지 보지 않는다.** 보려면 HTML 을 파싱하고
+    스크립트 안에서 JS 를 읽어야 한다 — 이 시리즈가 근거를 갖고 버린 방향이다
+    (위 "왜 추론을 그만뒀는가").
+
+    더 근본적으로, **선언을 검증하기 시작하면 선언이 무의미해진다.** 선언의
+    요점은 사람이 알고 기계는 믿는다는 것이다. 기계가 문맥을 판정할 수 있으면
+    애초에 마커 종류를 나눌 이유가 없다. 못 하니까 사람이 적는다.
+
+    이 절을 다섯 번 고치는 동안 다섯 번 다 "남는 것은 X 뿐" 을 좁게 적었다가
+    더 큰 것이 드러났다. 그래서 이번에는 한계를 종류 단위로 적는다 — 위의 셋은
+    예시이지 목록이 아니다.
+
+    값의 이스케이프는 _script_json 이 든다 — feed-data 블록과 같은 함수다.
+    {n}·{date} 자리는 그대로 남긴다(스크립트 몫).
     """
-    if isinstance(value, dict):
+    if plural:
+        if not isinstance(value, dict):
+            raise ValueError(
+                f"{{{{p:}}}} 마커는 복수형 매핑만 받는다 — 키 {key!r} 이 "
+                f"{type(value).__name__} 이다. 문자열이면 {{{{j:}}}} 로 적을 것"
+            )
         missing = sorted(PLURAL_FORMS - set(value))
         unknown = sorted(set(value) - PLURAL_FORMS)
         if missing or unknown:
@@ -409,11 +473,13 @@ def _js_string(value, *, key: str) -> str:
             )
         bad = sorted(k for k, v in value.items() if not isinstance(v, str))
         if bad:
-            raise ValueError(
-                f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}"
-            )
-    literal = json.dumps(value, ensure_ascii=False)
-    return literal.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+            raise ValueError(f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}")
+    elif not isinstance(value, str):
+        raise ValueError(
+            f"{{{{j:}}}} 마커는 문자열만 받는다 — 키 {key!r} 이 "
+            f"{type(value).__name__} 이다. 복수형 매핑이면 {{{{p:}}}} 로 적을 것"
+        )
+    return _script_json(value)
 
 
 def _fill_markers(template: str, strings: dict) -> str:
@@ -425,8 +491,8 @@ def _fill_markers(template: str, strings: dict) -> str:
             raise ValueError(f"템플릿의 {{{{{kind}:{key}}}}} 가 locale 에 없다")
         used.add(key)
         value = strings[key]
-        if kind == "j":
-            return _js_string(value, key=key)
+        if kind in ("j", "p"):
+            return _js_value(value, key=key, plural=kind == "p")
         column = match.start() - template.rfind("\n", 0, match.start()) - 1
         return _html_text(value, column, key=key)
 

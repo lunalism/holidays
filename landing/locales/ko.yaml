@@ -1,7 +1,7 @@
 # 랜딩의 한국어 문구.
 #
 # feed-data(groups·state_feed·feeds)와 UI 문구(ui)가 함께 산다. ui 아래의 키는
-# landing/template.html 의 {{t:키}}·{{j:키}} 마커와 양방향으로 맞아야 한다 —
+# landing/template.html 의 {{t:키}}·{{j:키}}·{{p:키}} 마커와 양방향으로 맞아야 한다 —
 # 어느 쪽에만 있어도 render.py 가 멈춘다. lang·locale 도 마커로 쓰인다.
 #
 # 값은 2026-09-11 시점의 index.html 에서 그대로 옮겼다. 여러 줄 값은 원문의 줄
