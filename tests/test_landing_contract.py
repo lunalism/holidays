@@ -76,13 +76,35 @@ count 다. 이 파일이 막으려던 종류가 이 파일 안에서 일어났�
 
 통과 테스트를 _js_value 가 아니라 _fill_markers 로 태우는 것은, 분기가 바뀌어
 {{p:}} 가 다른 함수로 새는 경우를 _js_value 만으로는 못 잡기 때문이다.
+
+--------------------------------------------------------------------------
+통과가 하나 더 있다 — render() 최종 조립
+--------------------------------------------------------------------------
+마커가 아닌 세 자리({{FEED_DATA}}·{{NOSCRIPT}}·{{LANG_LINKS}})는 render() 안에서
+채워진다. 그 배선은 **순수 호출로 닿지 않는다** — _dumps_feed_data 를 직접 불러
+이스케이프를 확인해도, render 가 그것 대신 json.dumps 를 부르면 여기는 조용하다.
+
+기존 그물(test_landing_render 의 커밋본 대조)도 그 경우를 다 잡지는 못한다.
+**모양이 같고 이스케이프만 빠지는 변이** — _dumps_feed_data 안의 _script_json 을
+json.dumps 로 바꾸는 것 — 은 지금 locale 에 특수문자가 없어 생성물이 바이트
+동일하다. #92 에서 가장 무거웠던 사고가 정확히 그 형태였다.
+
+그래서 통과 테스트를 하나 둔다. 실제 ko.yaml 을 읽어 몇 값만 오염시키고,
+LOCALES_DIR·TEMPLATE_PATH 를 tmp_path 사본으로 갈아끼워 render() 를 통째로
+돌린다. locale 사본을 손으로 적지 않는 것은 그 사본이 낡기 때문이다.
+
+monkeypatch 가 A(순수 단위 호출)를 부정하는 것이 아니다. **두 축 중 통과 쪽
+도구**이고, 순수 호출로 닿지 않는 자리에만 쓴다. 하나뿐인 것도 그래서다 —
+나머지는 단위가 덮고, 이 하나는 배선만 본다.
 """
 
 from __future__ import annotations
 
 import importlib
+import re
 
 import pytest
+import yaml
 
 from landing import render
 
@@ -402,3 +424,86 @@ def test_a_text_marker_value_goes_through_html_escaping(raw, escaped):
     # 결과 전체를 단언한다. "원문이 없다" 로는 & 를 못 본다 — &amp;amp 안에
     # 원문 &amp 가 들어 있어 부분 문자열 검사가 성립하지 않는다.
     assert render._fill_markers("{{t:title}}", {"title": f"앞{raw}뒤"}) == f"앞{escaped}뒤"
+
+
+# ---------------------------------------------------------------------------
+# 통과 — render() 최종 조립까지
+# ---------------------------------------------------------------------------
+
+
+POISON = '</script>\u2028\u2029<tag attr="x">&'
+
+
+@pytest.fixture
+def poisoned_landing(tmp_path, monkeypatch):
+    """실제 ko.yaml 에 특수문자를 심고 render 가 그것을 읽게 한다.
+
+    locale 을 손으로 짓지 않는다 — 44 키를 적으면 그 사본이 낡는다. 실제 파일을
+    읽어 세 자리에만 POISON 을 넣는다. 각 자리가 서로 다른 경로로 흐른다.
+
+        groups.countries.title  {{FEED_DATA}} JSON 과 {{NOSCRIPT}} 마크업
+        feeds.kr.desc           같은 둘
+        name                    {{LANG_LINKS}} 의 링크 문면
+    """
+    locale = yaml.safe_load((render.LOCALES_DIR / "ko.yaml").read_text(encoding="utf-8"))
+    locale["groups"]["countries"]["title"] += POISON
+    locale["feeds"]["kr"]["desc"] += POISON
+    locale["name"] += POISON
+
+    locales = tmp_path / "locales"
+    locales.mkdir()
+    (locales / "ko.yaml").write_text(
+        yaml.safe_dump(locale, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(render, "LOCALES_DIR", locales)
+    return render.render("ko")
+
+
+def test_the_rendered_page_never_carries_a_raw_script_terminator(poisoned_landing):
+    # 셋 다 <script> 안이나 마크업 안으로 흘러간다. 하나라도 원문으로 남으면
+    # 스크립트가 일찍 닫히거나(</script>) 옛 파서가 줄바꿈으로 읽는다(U+2028/9).
+    #
+    # 여는 태그 수와 닫는 태그 수를 맞춰 본다 — 페이지에는 <script> 가 둘 있고
+    # (feed-data JSON 블록과 본 스크립트) 정상이라면 </script> 도 둘이다.
+    # locale 값이 하나라도 원문으로 새면 닫는 쪽만 늘어난다.
+    assert poisoned_landing.count("</script>") == poisoned_landing.count("<script")
+
+    # U+2028·U+2029 는 **script 안에서만** 문제다. 옛 JS 파서가 줄바꿈으로 읽어
+    # 리터럴을 끊는다. HTML 텍스트·속성에서는 그냥 문자라 html.escape 가 건드리지
+    # 않고 그대로 남는다 — 언어 링크와 noscript 목록에 실제로 남아 있고, 그것이
+    # 정상이다. 그래서 페이지 전체가 아니라 script 구간만 본다.
+    scripts = re.findall(r"<script[^>]*>(.*?)</script>", poisoned_landing, re.S)
+    assert len(scripts) == 2, scripts
+    for block in scripts:
+        assert "\u2028" not in block
+        assert "\u2029" not in block
+
+
+def test_the_feed_data_block_is_script_safe_in_the_rendered_page(poisoned_landing):
+    # {{FEED_DATA}} 배선. render 가 _dumps_feed_data 를 안 부르거나 그 안의
+    # _script_json 을 빼면 여기서 걸린다 — 후자는 모양이 같아 커밋본 대조가
+    # 못 잡는 변이다.
+    block = re.search(
+        r'<script type="application/json" id="feed-data">(.*?)</script>',
+        poisoned_landing,
+        re.S,
+    )
+    assert block, "feed-data 블록을 찾지 못했다"
+    assert "\\u003c/script>" in block.group(1)
+    assert "</script>" not in block.group(1)
+
+
+def test_the_noscript_list_is_html_escaped_in_the_rendered_page(poisoned_landing):
+    # {{NOSCRIPT}} 배선. 같은 문구가 noscript 쪽에서는 HTML 이스케이프를 탄다.
+    segment = re.search(r"<noscript>\n(.*?)\n\s*</noscript>", poisoned_landing, re.S)
+    assert segment, "noscript 목록을 찾지 못했다"
+    assert "&lt;tag attr=&quot;x&quot;&gt;" in segment.group(1)
+    assert "<tag attr=" not in segment.group(1)
+
+
+def test_the_language_links_are_html_escaped_in_the_rendered_page(poisoned_landing):
+    # {{LANG_LINKS}} 배선. 표시명은 locale 의 name 이고 <a> 안에 놓인다.
+    nav = re.search(r'<nav class="lang".*?</nav>', poisoned_landing, re.S)
+    assert nav, "언어 nav 를 찾지 못했다"
+    assert "&lt;tag attr=&quot;x&quot;&gt;" in nav.group(0)
+    assert "<tag attr=" not in nav.group(0)
