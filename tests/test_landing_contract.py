@@ -500,13 +500,16 @@ def test_the_rendered_page_never_carries_a_raw_script_terminator(poisoned_landin
     # 여는 태그 수와 닫는 태그 수를 맞춰 본다 — 페이지에는 <script> 가 둘 있고
     # (feed-data JSON 블록과 본 스크립트) 정상이라면 </script> 도 둘이다.
     # locale 값이 하나라도 원문으로 새면 닫는 쪽만 늘어난다.
-    assert poisoned_landing.count("</script>") == poisoned_landing.count("<script")
+    # 대소문자를 무시하고 센다. HTML 의 종료 태그는 대소문자를 안 가리므로
+    # </ScRiPt> 하나가 새어도 블록은 닫힌다 — 소문자만 세면 그것을 놓친다.
+    lowered = poisoned_landing.lower()
+    assert lowered.count("</script>") == lowered.count("<script")
 
     # U+2028·U+2029 는 **script 안에서만** 문제다. 옛 JS 파서가 줄바꿈으로 읽어
     # 리터럴을 끊는다. HTML 텍스트·속성에서는 그냥 문자라 html.escape 가 건드리지
     # 않고 그대로 남는다 — 언어 링크와 noscript 목록에 실제로 남아 있고, 그것이
     # 정상이다. 그래서 페이지 전체가 아니라 script 구간만 본다.
-    scripts = re.findall(r"<script[^>]*>(.*?)</script>", poisoned_landing, re.S)
+    scripts = re.findall(r"<script[^>]*>(.*?)</script>", poisoned_landing, re.S | re.I)
     assert len(scripts) == 2, scripts
     for block in scripts:
         assert "\u2028" not in block
@@ -520,11 +523,16 @@ def test_the_feed_data_block_is_script_safe_in_the_rendered_page(poisoned_landin
     block = re.search(
         r'<script type="application/json" id="feed-data">(.*?)</script>',
         poisoned_landing,
-        re.S,
+        re.S | re.I,
     )
     assert block, "feed-data 블록을 찾지 못했다"
+
+    # 계약으로 본다 — 이 블록에 원문 "<" 가 하나도 없어야 한다. 종결자 문면을
+    # 세지 않는다. 소문자 </script> 만 보면 </ScRiPt> 가 새는 변이를 놓친다
+    # (격리 변이로 확인했다). 커밋 7 의 _script_json 계약 단언과 같은 형태다.
+    assert "<" not in block.group(1)
     assert "\\u003c/script>" in block.group(1)
-    assert "</script>" not in block.group(1)
+    assert "\\u003c/ScRiPt>" in block.group(1)
 
 
 def test_the_noscript_list_is_html_escaped_in_the_rendered_page(poisoned_landing):
