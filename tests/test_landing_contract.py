@@ -58,6 +58,24 @@ count 다. 이 파일이 막으려던 종류가 이 파일 안에서 일어났�
 
 어구는 문구가 아니라 **식별자**로 고른다. "복수형 매핑만 받는다" 는 그 검사가
 있는 한 바뀔 이유가 없고, 바뀌었다면 검사가 바뀐 것이므로 깨지는 것이 맞다.
+
+--------------------------------------------------------------------------
+단위로 검사를 식별하고, 통과로 배선을 본다
+--------------------------------------------------------------------------
+순수 단위 호출은 **어느 검사가 잡았는지**를 정확히 가리키지만, **그 검사가
+실제로 불리는지**는 말하지 않는다. _script_json 을 직접 불러 이스케이프를
+확인해도, _js_value 가 그것을 안 부르고 json.dumps 를 부르면 여기는 녹색이다 —
+변이로 확인했다. locale 문구의 "</script>" 가 스크립트를 닫는 그 사고가 그대로
+돌아온다(#92).
+
+그래서 축이 둘이다.
+
+    단위 — 검사가 이 입력을 막는가. 어느 검사인지 match 로 식별한다.
+    통과 — 그 검사와 직렬화가 실제로 사슬로 이어져 있는가. _fill_markers 로
+           마커 종류 분기부터 끝까지 태운다.
+
+통과 테스트를 _js_value 가 아니라 _fill_markers 로 태우는 것은, 분기가 바뀌어
+{{p:}} 가 다른 함수로 새는 경우를 _js_value 만으로는 못 잡기 때문이다.
 """
 
 from __future__ import annotations
@@ -327,3 +345,46 @@ def test_all_three_placeholders_present_once_pass():
         (render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER)
     )
     assert render._check_placeholders(template) is None
+
+
+# ---------------------------------------------------------------------------
+# 배선 — 마커 값이 직렬화를 실제로 타는가
+# ---------------------------------------------------------------------------
+#
+# 위의 이스케이프 테스트는 _script_json 을 직접 부른다. 그것만으로는 _js_value 가
+# 그 함수를 부르는지 알 수 없다 — json.dumps 로 바꿔치기해도 녹색이었다(변이 확인).
+# 여기서는 마커 종류 분기부터 직렬화까지 사슬 전체를 태운다.
+
+BREAKERS = [
+    ("</script>", "\\u003c/script>"),
+    ("\u2028", "\\u2028"),
+    ("\u2029", "\\u2029"),
+]
+BREAKER_IDS = ["script 닫기", "U+2028", "U+2029"]
+
+
+@pytest.mark.parametrize(("raw", "escaped"), BREAKERS, ids=BREAKER_IDS)
+def test_a_js_marker_value_goes_through_the_script_serializer(raw, escaped):
+    out = render._js_value(f"앞{raw}뒤", key="copy_button", plural=False)
+    assert raw not in out
+    assert escaped in out
+
+
+@pytest.mark.parametrize(("raw", "escaped"), BREAKERS, ids=BREAKER_IDS)
+def test_a_plural_marker_value_goes_through_the_script_serializer(raw, escaped):
+    # 갈래 값 **안에** 넣는다. 매핑이 객체 리터럴로 직렬화될 때 그 안의 문자열도
+    # 같은 이스케이프를 타야 한다.
+    out = render._js_value({"one": f"하나{raw}", "other": f"여럿{raw}"}, key="count", plural=True)
+    assert raw not in out
+    assert out.count(escaped) == 2
+
+
+@pytest.mark.parametrize(("raw", "escaped"), BREAKERS, ids=BREAKER_IDS)
+def test_filling_markers_escapes_both_js_kinds(raw, escaped):
+    # 마커 종류 분기까지 포함한다 — {{p:}} 가 다른 함수로 새면 여기서 걸린다.
+    out = render._fill_markers(
+        "{{j:copy}} {{p:count}}",
+        {"copy": f"복사{raw}", "count": {"one": f"하나{raw}", "other": f"여럿{raw}"}},
+    )
+    assert raw not in out
+    assert out.count(escaped) == 3
