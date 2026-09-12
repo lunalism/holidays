@@ -223,13 +223,39 @@ def feed_data(lang: str = "ko") -> dict:
     return {"site_base": _site_base(), "groups": groups}
 
 
+def _script_json(value) -> str:
+    """<script> 안에 놓을 JSON 한 조각. 이 페이지에 script 문맥이 **둘** 있고
+    둘 다 이 함수를 타야 한다.
+
+        {{j:키}}        스크립트 안의 JS 리터럴
+        {{FEED_DATA}}   <script type="application/json"> 블록
+
+    둘을 한 함수로 묶은 것은 갈라졌던 적이 있기 때문이다. json.dumps 만으로는
+    script 문맥에서 안전하지 않은데 — HTML 파서는 문자열 안이든 밖이든
+    "</script>" 를 보면 블록을 닫고, JSON 은 "<" 를 이스케이프하지 않는다 —
+    그 사실을 알아채고 메운 것은 {{j:}} 쪽 하나뿐이었다. feed-data 블록은
+    그대로 남아, locale 문구에 "</script>" 가 들어오면 JSON 블록이 일찍 닫히고
+    JSON.parse 가 실패해 **구독 절이 빈다.** 같은 문구가 noscript 쪽은 HTML
+    이스케이프를 타므로 멀쩡하다 — JS 를 쓰는 쪽만 잃는다.
+
+    U+2028·U+2029 는 JSON 문자열에서 유효하지만 옛 JS 파서가 줄바꿈으로 읽는다.
+    셋 다 유니코드 이스케이프로 바꾼다. 지금 문구에 해당 문자가 없어 드러나지
+    않을 뿐이고, 이것은 미래 대비가 아니라 문맥의 요구다."""
+    literal = json.dumps(value, ensure_ascii=False)
+    return (
+        literal.replace("<", "\\u003c")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 def _dumps_feed_data(data: dict) -> str:
     """사람이 쓰던 모양 그대로 — 피드 한 줄에 하나. json.dumps 의 indent 는
     피드 dict 를 네 줄로 펴서 블록이 세 배로 길어진다. 읽는 쪽은 json.loads
     라 모양은 의미가 없지만, diff 를 보는 것은 사람이다."""
 
     def s(v: str) -> str:
-        return json.dumps(v, ensure_ascii=False)
+        return _script_json(v)
 
     def row(feed: dict, indent: str) -> str:
         return (
@@ -392,12 +418,8 @@ def _js_string(value, *, key: str) -> str:
     녹색이다(ui 문구를 검사하는 테스트가 없다). 깨지는 것은 브라우저에서 그
     블록 하나이고, 그때는 이미 발행된 뒤다.
 
-    json.dumps 만으로는 JS 문자열 리터럴로서 안전하지 않다. 이 리터럴은
-    <script> 안에 놓이는데, HTML 파서는 문자열 안이든 밖이든 "</script>" 를
-    보면 블록을 닫는다 — JSON 은 "<" 를 이스케이프하지 않는다. U+2028·U+2029
-    는 JSON 문자열에서 유효하지만 옛 JS 파서가 줄바꿈으로 읽는다. 셋 다
-    유니코드 이스케이프(\\uXXXX)로 바꾼다. ko 문구에는 해당 문자가 없어 지금 드러나지 않을 뿐이고,
-    이것은 미래 대비가 아니라 함수 계약의 구멍을 메우는 것이다.
+    script 문맥의 이스케이프는 _script_json 이 든다 — 이 페이지의 다른 script
+    문맥(feed-data 블록)과 같은 함수를 타야 해서 그쪽으로 옮겼다.
     """
     if isinstance(value, dict):
         missing = sorted(PLURAL_FORMS - set(value))
@@ -412,8 +434,7 @@ def _js_string(value, *, key: str) -> str:
             raise ValueError(
                 f"복수형 매핑의 값은 문자열이어야 한다 — 키 {key!r} 의 {bad}"
             )
-    literal = json.dumps(value, ensure_ascii=False)
-    return literal.replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+    return _script_json(value)
 
 
 def _fill_markers(template: str, strings: dict) -> str:
