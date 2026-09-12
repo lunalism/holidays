@@ -510,12 +510,25 @@ def _fill_markers(template: str, strings: dict) -> str:
     return out
 
 
-def render(lang: str = ROOT_LANG) -> str:
-    """파일에 쓸 문자열. 템플릿에 두 플레이스홀더가 정확히 하나씩 있어야 한다."""
-    template = TEMPLATE_PATH.read_text(encoding="utf-8")
+def _check_placeholders(template: str) -> None:
+    """마커가 아닌 세 자리 — 각각 정확히 하나여야 한다.
+
+    셋 다 str.replace 로 채운다. 없으면 그 블록이 통째로 빠진 페이지가 나가고,
+    **둘 이상이면 replace 가 전부 채워 같은 블록이 두 번 실린 페이지가 나간다.**
+    둘 다 조용하다 — 마커와 달리 이 자리들은 양방향 검사에 들지 않는다.
+
+    render() 안에 인라인으로 두지 않고 뽑은 것은 검사가 파일 읽기에 묶여 있으면
+    입력을 주지 못하기 때문이다. 여기는 문자열만 받으므로 테스트가 곧바로 부를 수
+    있고, 발행 스크립트가 템플릿을 손볼 때도 같은 함수를 부를 수 있다."""
     for placeholder in (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER):
         if template.count(placeholder) != 1:
             raise ValueError(f"template.html 에 {placeholder} 가 {template.count(placeholder)}개다")
+
+
+def render(lang: str = ROOT_LANG) -> str:
+    """파일에 쓸 문자열. 템플릿에 세 플레이스홀더가 정확히 하나씩 있어야 한다."""
+    template = TEMPLATE_PATH.read_text(encoding="utf-8")
+    _check_placeholders(template)
     locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
     # 문구 마커를 먼저 채우고 feed-data·링크를 넣는다. 잔존 마커 검사가 JSON 의
     # 중괄호를 보지 않게 하기 위해서다(두 플레이스홀더는 검사에서 뺀다).
