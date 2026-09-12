@@ -103,7 +103,8 @@ MARKER = re.compile(r"\{\{([tj]):(\w+)\}\}")
 
 # fmt() 의 첫 인자로 선 {{j:키}}. 복수형 매핑을 받을 수 있는 마커는 이 자리뿐이라
 # 템플릿에서 유도한다 — 목록을 손으로 들지 않는다(열거하면 그 자리가 낡는다).
-FMT_CALL = re.compile(r"\bfmt\(\s*\{\{j:(\w+)\}\}")
+# 그룹 1 이 마커 자체다. 잡는 것은 키 이름이 아니라 그 마커가 선 위치다.
+FMT_CALL = re.compile(r"\bfmt\(\s*(\{\{j:\w+\}\})")
 
 # 원문 대조 절의 폴백 숫자. status.json 이 덮어쓰기 전의 초기값이고, status 를
 # 못 읽으면 이 값이 그대로 보인다. status 에서 유도하지 않는다 — 그러면 매
@@ -408,35 +409,50 @@ def _html_text(value, column: int, *, key: str) -> str:
     return escaped.replace("\n", "\n" + " " * column)
 
 
-def _fmt_keys(template: str) -> frozenset[str]:
-    """복수형 매핑을 받을 수 있는 {{j:}} 키. 템플릿이 이미 알고 있는 사실이다 —
-    fmt() 의 첫 인자로 선 마커가 곧 그 집합이다.
+def _fmt_marker_spans(template: str) -> frozenset[int]:
+    """복수형 매핑을 받을 수 있는 {{j:}} 마커가 선 **자리**. 템플릿이 이미 알고
+    있는 사실이라 유도한다 — fmt() 의 첫 인자로 선 마커의 시작 오프셋이다.
 
-    render 가 목록을 들지 않는 것은 의도다. 어느 키가 복수형을 **필요로 하는가**
-    (조립기 목록)는 아직 정하지 않은 미결이지만, 어느 마커가 매핑을 **받을 수
-    있는가**는 정할 것이 없다. fmt 만이 갈래를 고르고, 그 밖의 자리는 값을
-    textContent 에 그대로 넣으므로 매핑이 가면 "[object Object]" 가 찍힌다.
+    자리로 판정하는 이유
+    --------------------
+    처음에는 키 이름 집합("이 키는 fmt 를 탄다")으로 판정했다. **그것은 대리
+    지표였고 한 자리가 다른 자리를 승인했다.** 같은 키를 fmt 밖에서 한 번 더
+    쓰면 — `set("de-events", {{j:count}})` — 그 자리도 통과해 객체 리터럴이
+    textContent 에 들어가고 "[object Object]" 가 나갔다. 실측으로 재현됐다.
+    키 이름은 "어딘가에서 fmt 를 탄다" 만 말한다. 물어야 하는 것은 **지금 이
+    자리가 fmt 호출 안이냐** 하나뿐이고, 그 답은 자리로만 나온다.
 
-    **이 판정은 템플릿 문면에 결합한다.** 정규식이 보는 것은 `fmt(` 바로 뒤의
-    마커뿐이다. 호출 방식이 바뀌면 — 변수에 담아 넘기거나, 이름을 바꾸거나,
-    인자 순서를 뒤집으면 — 이 스캔은 그 키를 놓친다. 놓치면 조용히 통과하는
-    것이 아니라 **매핑이 거부되어 render 가 멈춘다**. 문면이 바뀐 것을 사람이
-    알아채는 자리가 여기다.
+    "키 집합이 간단한데" 로 되돌리지 말 것. 간단한 쪽이 조용히 샌다.
+
+    이 판정이 template.html 문면에 결합한다는 것
+    -------------------------------------------
+    정규식이 보는 것은 `fmt(` 바로 뒤에 선 마커뿐이다. 어긋남은 두 방향인데
+    **둘 다 조용하지 않다.**
+
+        놓치는 쪽 — 호출 방식이 바뀌면(변수에 담아 넘기거나, 이름을 바꾸거나,
+        인자 순서를 뒤집으면) 그 자리가 집합에서 빠진다. 매핑이 거부되어
+        render 가 멈춘다.
+        남는 쪽 — 이제 없다. 자리로 보므로 한 자리가 다른 자리를 승인하지
+        못한다. 주석이나 죽은 문자열 안의 `fmt(` 도 자기 자리만 허용한다.
+
+    주석인지 아닌지는 보지 않는다. 판별하려 들면 JS 파서를 만들게 되고, 그
+    비용은 이 파일이 질 것이 아니다. 근거는 "그 자리가 fmt 호출 안이냐" 하나로
+    충분하다 — 주석 안 자리가 무해한 것은 그 규칙의 **결과이지 근거가 아니다.**
 
     스캔이 빈손이면 가드로 멈춘다. 조립기가 하나도 안 잡히는 것은 템플릿이
-    fmt 를 안 쓴다는 뜻이거나 이 정규식이 낡았다는 뜻인데, 둘 다 조용히 지나가면
-    복수형 검사 전체가 무력해진다(tests/test_de_scope.py 의 assert STATE_CODES 와
-    같은 형태)."""
-    keys = frozenset(FMT_CALL.findall(template))
-    if not keys:
+    fmt 를 안 쓴다는 뜻이거나 이 정규식이 낡았다는 뜻인데, 둘 다 조용히
+    지나가면 복수형 검사 전체가 무력해진다(tests/test_de_scope.py 의
+    assert STATE_CODES 와 같은 형태)."""
+    spans = frozenset(m.start(1) for m in FMT_CALL.finditer(template))
+    if not spans:
         raise ValueError(
             "템플릿에서 fmt() 를 타는 {{j:}} 마커를 하나도 찾지 못했다 — "
             "fmt 호출 방식이 바뀌었거나 FMT_CALL 이 낡았다"
         )
-    return keys
+    return spans
 
 
-def _js_string(value, *, key: str, fmt_keys: frozenset[str]) -> str:
+def _js_string(value, *, key: str, at_fmt: bool) -> str:
     """JS 문자열 리터럴 — 따옴표까지. {n}·{date} 는 그대로 남긴다(스크립트 몫).
 
     받는 것은 문자열과 복수형 매핑(one·other) 둘뿐이다. 그 밖의 타입은 거부한다 —
@@ -444,9 +460,10 @@ def _js_string(value, *, key: str, fmt_keys: frozenset[str]) -> str:
     빈 라벨이나 "7" 이 되어 나간다. 양방향 검사도 PLURAL_FORMS 도 그것을 보지
     않으므로 생성 시점에 여기서 막는다.
 
-    매핑은 fmt() 를 타는 마커에만 허용한다(_fmt_keys). 갈래를 고르는 것은 fmt
-    뿐이고, 그 밖의 자리는 값을 그대로 쓰므로 매핑이 가면 "[object Object]" 가
-    찍힌다 — 복사 버튼 열다섯 개에 그것이 나간 것을 실측했다.
+    매핑은 fmt() 안에 선 마커에만 허용한다(at_fmt — _fmt_marker_spans 가 자리로
+    판정한다). 갈래를 고르는 것은 fmt 뿐이고, 그 밖의 자리는 값을 그대로 쓰므로
+    매핑이 가면 "[object Object]" 가 찍힌다 — 복사 버튼 열다섯 개에 그것이 나간
+    것을 실측했다.
 
     형태를 보는 이유는 잘못된 형태가 조용히 지나가기 때문이다. 갈래 하나를
     빠뜨린 locale 은 render 를 멈추지 않고, 생성물도 정상으로 보이고, 테스트도
@@ -462,11 +479,11 @@ def _js_string(value, *, key: str, fmt_keys: frozenset[str]) -> str:
             f"키 {key!r} 이 {type(value).__name__} 이다"
         )
     if isinstance(value, dict):
-        if key not in fmt_keys:
+        if not at_fmt:
             raise ValueError(
-                f"복수형 매핑은 fmt() 를 타는 마커에만 쓸 수 있다 — 키 {key!r} 은 "
-                f"값이 그대로 쓰이는 자리라 매핑이 가면 \"[object Object]\" 가 찍힌다. "
-                f"fmt() 를 타는 키: {sorted(fmt_keys)}"
+                f"복수형 매핑은 fmt() 안에 선 마커에만 쓸 수 있다 — 키 {key!r} 이 "
+                "쓰인 이 자리는 값이 그대로 들어가는 자리라 매핑이 가면 "
+                '"[object Object]" 가 찍힌다'
             )
         missing = sorted(PLURAL_FORMS - set(value))
         unknown = sorted(set(value) - PLURAL_FORMS)
@@ -485,7 +502,7 @@ def _js_string(value, *, key: str, fmt_keys: frozenset[str]) -> str:
 
 def _fill_markers(template: str, strings: dict) -> str:
     used: set[str] = set()
-    fmt_keys = _fmt_keys(template)
+    fmt_spans = _fmt_marker_spans(template)
 
     def sub(match: re.Match) -> str:
         kind, key = match.group(1), match.group(2)
@@ -494,7 +511,7 @@ def _fill_markers(template: str, strings: dict) -> str:
         used.add(key)
         value = strings[key]
         if kind == "j":
-            return _js_string(value, key=key, fmt_keys=fmt_keys)
+            return _js_string(value, key=key, at_fmt=match.start() in fmt_spans)
         column = match.start() - template.rfind("\n", 0, match.start()) - 1
         return _html_text(value, column, key=key)
 
