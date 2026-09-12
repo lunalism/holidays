@@ -1,0 +1,161 @@
+# 랜딩의 영어 문구.
+#
+# ko.yaml 과 키 구조가 같아야 한다. ui 아래의 키는 landing/template.html 의
+# {{t:키}}·{{j:키}} 마커와 양방향으로 맞아야 한다 — 어느 쪽에만 있어도
+# render.py 가 멈춘다.
+#
+# 복수형: count·days_ago 는 one/other 를 든다. 영어는 둘이 갈린다.
+# verify_intro·verify_stat 은 단위를 붙이지 않아 복수형이 걸리지 않는다 —
+# 무엇을 세는지는 verify_intro 의 앞 문장이 말한다.
+
+lang: en
+# 언어 전환 링크에 뜨는 자기 이름. 자기 언어로 적는다 — 번역 대상이 아니다.
+name: English
+# toLocaleDateString 의 로케일 — 날짜 표기(September 10, 2026).
+locale: en-US
+
+ui:
+  # <title> 과 <h1> 둘 다.
+  title: "Public Holiday Calendars"
+  # 언어 전환 nav 의 aria-label.
+  lang_nav: "Language"
+  # og:title 은 title 과 따로 든다 — 구분자(" — ")가 언어마다 다를 수 있다.
+  og_title: "Public Holiday Calendars — holidays.lunalism.com"
+  # meta description 과 og:description 은 같은 값이다.
+  description: "iCalendar subscription feeds for public holidays in South Korea, Japan, and Germany. Korean dates are derived from statute and astronomical calculation, then checked against the Korea Astronomy and Space Science Institute's special-day data. Japanese dates follow the Cabinet Office's national holiday data. German feeds cover the nationwide set plus per-state feeds that add holidays under state law. Every entry carries its source."
+  # 고유명사 유지: 内閣府「国民の祝日について」
+  lead: |-
+    Subscribe in your calendar app and public holidays for South Korea, Japan,
+    and Germany arrive automatically. Korean dates are derived from statute and
+    astronomical calculation, then checked against the Korea Astronomy and Space
+    Science Institute's special-day data. Japanese dates follow 内閣府
+    「国民の祝日について」. German feeds cover the nationwide set plus per-state
+    feeds that add holidays under state law. Every entry carries its source.
+  h_subscribe: "Subscribe"
+  # 고유명사 유지: 元日, 休日（元日）, Neujahr, 1. Mai
+  subscribe_note_names: |-
+    Entries in the Japanese feed are named in the original Japanese
+    (元日, 休日（元日）, and so on). Entries in the German feeds use the
+    wording of the statute (Neujahr, 1. Mai, and so on).
+  # 인용부 "Add by URL"·"New Calendar Subscription" 은 각 앱 영어판의 실제 UI 표기다.
+  # Google 캘린더: Other calendars ＋ → "From URL".
+  # Apple 캘린더(Mac): File ＞ "New Calendar Subscription".
+  subscribe_note_apps: "In Google Calendar use “From URL”; in Apple Calendar use “New Calendar Subscription” and paste the address above."
+  # 절 제목 여덟. feed-data 의 label 과 문자열이 같은 것이 있지만 자리가 달라 따로 든다.
+  h_kr: "South Korea"
+  h_jp: "Japan"
+  h_de: "Germany"
+  h_krjp: "South Korea and Japan"
+  h_kronly: "Days off in South Korea only"
+  h_jponly: "Days off in Japan only"
+  h_updated: "Last updated"
+  h_verify: "Source checking"
+  # 상태 블록 공통 라벨.
+  range_label: "Coverage"
+  events_label: "Entries"
+  confirmed: "Confirmed"
+  provisional: "Provisional"
+  pending: "Loading"
+  failed: "Could not load status information."
+  # 피드별 설명 단락. 문장 일부가 겹치는 단락이 있지만 단락 단위로 든다.
+  note_kr: |-
+    The provisional range is calculated from the current rules. It has not been
+    confirmed yet and will change if the rules are amended or a temporary
+    holiday is designated.
+  note_jp: "Every entry is confirmed. There is no provisional range."
+  note_de: |-
+    Only nationwide holidays that apply in all 16 states are included.
+    State-level holidays are not. Every entry is confirmed. There is no
+    provisional range.
+  # [KR]·[JP] 는 피드 항목의 실제 접두 표기 — 유지.
+  note_krjp: |-
+    The [KR] and [JP] prefix on each entry shows which country the holiday
+    belongs to. Coverage runs to whichever of the two feeds ends first.
+  note_kronly: |-
+    Korean holidays that both countries take off are excluded. A holiday is
+    dropped when it falls on the same date, even under a different name. Only
+    Japanese public holidays are used for this comparison; weekends are not
+    considered. Coverage runs to whichever of the two feeds ends first.
+  note_jponly: |-
+    Japanese holidays that both countries take off are excluded. A holiday is
+    dropped when it falls on the same date, even under a different name. Only
+    Korean public holidays are used for this comparison; weekends are not
+    considered. Every entry is confirmed, and coverage runs to whichever of the
+    two feeds ends first.
+  updated_warn: "This normally updates every week. Updates may have stopped."
+  # {item_count}·{unverified_count} 는 render.py 가 <span data-*> 로 바꾼다. 마크업을 여기 적지 않는다.
+  # 단위를 붙이지 않는다 — 무엇을 세는지는 앞 문장이 말한다. 복수형이 걸리지 않는다.
+  verify_intro: |-
+    Every date is checked against our own calculation and the Korea Astronomy
+    and Space Science Institute's special-day data. Beyond that, checking the
+    statute and gazette text is counted per entry in the rule table (a holiday
+    definition and its provision); the number below is how many of the
+    {item_count} entries have not been checked yet.
+  verify_stat: "{unverified_count} of {item_count} awaiting source checks"
+  # 날짜는 사실 — 2015-08-14, 2015-08-04.
+  verify_note: |-
+    The two do not always agree. 14 August 2015 — a temporary holiday marking
+    70 years since liberation — is absent from the special-day API. It was
+    confirmed from the 4 August 2015 cabinet resolution and the Ministry of
+    Foreign Affairs announcement, and included.
+  footer_source: "The rule tables, sources, and generating code are all public —"
+  footer_issues: "Problems and suggestions:"
+  # 스크립트 문자열. render.py 가 JS 리터럴로 이스케이프한다.
+  copy_button: "Copy subscription address"
+  copied: "Copied"
+  copy_failed: "Could not copy"
+  open_in_app: "Open in calendar app"
+  # {n}·{date} 자리는 스크립트가 값으로 채운다(fmt). 어순은 문구가 정한다.
+  # count·days_ago 는 영어에서 단수와 복수가 갈린다.
+  count:
+    one: "{n} entry"
+    other: "{n} entries"
+  none: "None"
+  today: "Today"
+  days_ago:
+    one: "{n} day ago"
+    other: "{n} days ago"
+  updated_at: "Updated {date}"
+  range_separator: " – "
+
+# ---- feed-data ----
+groups:
+  countries: { title: "Whole countries" }
+  de_states: { title: "German state feeds" }
+  merged: { title: "Merged into one feed" }
+  disjoint: { title: "Non-overlapping days only" }
+
+# 주 피드 유도 규칙.
+#   land_lang: {land} 에 넣을 주 이름을 어느 표기에서 가져올지. de 는 기본법 전문 표기.
+#   label:     {land} 를 넣어 만든다.
+#   desc:      {land} 에 같은 값을 넣은 것
+# label_suffix 는 주 피드가 아닌 쪽의 폴백으로 남는다. en 은 feeds 에 label 을
+# 전부 명시하므로 실제로 쓰이지 않지만, 키는 ko 와 맞춘다.
+state_feed:
+  land_lang: de
+  label: "Germany · {land}"
+  label_suffix: " 공휴일"
+  desc: "The nationwide set plus holidays under {land} state law"
+
+# 주 피드가 아닌 것.
+#   ko.yaml 에서는 kr·jp·kr_jp 의 label 을 CALNAME 에서 유도하지만,
+#   CALNAME 이 한국어라 여기서는 여섯 전부 label 을 적는다.
+feeds:
+  kr:
+    label: "South Korea"
+    desc: "All South Korean public holidays"
+  jp:
+    label: "Japan"
+    desc: "All Japanese public holidays"
+  de:
+    label: "Germany"
+    desc: "Nationwide — only holidays valid in all 16 states (state holidays excluded)"
+  kr_jp:
+    label: "South Korea and Japan"
+    desc: "All holidays from both countries, each marked [KR] or [JP]"
+  kr_only:
+    label: "South Korea only"
+    desc: "South Korean holidays that are not days off in Japan"
+  jp_only:
+    label: "Japan only"
+    desc: "Japanese holidays that are not days off in South Korea"

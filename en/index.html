@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>祝日カレンダー</title>
-<meta name="description" content="韓国・日本・ドイツの祝日 iCalendar 購読フィード。韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。日本は内閣府「国民の祝日について」のデータに基づき、ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。項目ごとに根拠を添えています。">
-<meta property="og:title" content="祝日カレンダー — holidays.lunalism.com">
-<meta property="og:description" content="韓国・日本・ドイツの祝日 iCalendar 購読フィード。韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。日本は内閣府「国民の祝日について」のデータに基づき、ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。項目ごとに根拠を添えています。">
+<title>Public Holiday Calendars</title>
+<meta name="description" content="iCalendar subscription feeds for public holidays in South Korea, Japan, and Germany. Korean dates are derived from statute and astronomical calculation, then checked against the Korea Astronomy and Space Science Institute&#x27;s special-day data. Japanese dates follow the Cabinet Office&#x27;s national holiday data. German feeds cover the nationwide set plus per-state feeds that add holidays under state law. Every entry carries its source.">
+<meta property="og:title" content="Public Holiday Calendars — holidays.lunalism.com">
+<meta property="og:description" content="iCalendar subscription feeds for public holidays in South Korea, Japan, and Germany. Korean dates are derived from statute and astronomical calculation, then checked against the Korea Astronomy and Space Science Institute&#x27;s special-day data. Japanese dates follow the Cabinet Office&#x27;s national holiday data. German feeds cover the nationwide set plus per-state feeds that add holidays under state law. Every entry carries its source.">
 <meta property="og:image" content="https://holidays.lunalism.com/assets/og.png">
-<meta property="og:url" content="https://holidays.lunalism.com/ja/">
+<meta property="og:url" content="https://holidays.lunalism.com/en/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -434,29 +434,30 @@
 
   <!-- 1. 제목 -->
   <header>
-    <h1>祝日カレンダー</h1>
+    <h1>Public Holiday Calendars</h1>
     <!--
       언어 전환. <a href> 라 JS 없이 동작한다 — 이 페이지에서 JS 없이 되는
       유일한 이동이다. 링크는 render 가 locales/ 에서 만들고, 현재 언어는
       aria-current 로 표시한다. 표시명은 각 언어가 자기 언어로 적은 이름이다.
     -->
-    <nav class="lang" aria-label="言語">
+    <nav class="lang" aria-label="Language">
       <a href="/" lang="ko" hreflang="ko">한국어</a>
-      <a href="/en/" lang="en" hreflang="en">English</a>
-      <a href="/ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
+      <a href="/en/" lang="en" hreflang="en" aria-current="page">English</a>
+      <a href="/ja/" lang="ja" hreflang="ja">日本語</a>
     </nav>
     <p class="lead">
-      カレンダーアプリで購読すると、韓国・日本・ドイツの祝日が自動で入ります。
-      韓国は法令と天文計算から導き、韓国天文研究院の特日情報と照合します。
-      日本は内閣府「国民の祝日について」のデータに基づき、
-      ドイツは全国共通フィードと州法上の祝日を加えた州別フィードを提供します。
-      項目ごとに根拠を添えています。
+      Subscribe in your calendar app and public holidays for South Korea, Japan,
+      and Germany arrive automatically. Korean dates are derived from statute and
+      astronomical calculation, then checked against the Korea Astronomy and Space
+      Science Institute&#x27;s special-day data. Japanese dates follow 内閣府
+      「国民の祝日について」. German feeds cover the nationwide set plus per-state
+      feeds that add holidays under state law. Every entry carries its source.
     </p>
   </header>
 
   <!-- 2. 구독 -->
   <section aria-labelledby="h-subscribe">
-    <h2 id="h-subscribe">購読</h2>
+    <h2 id="h-subscribe">Subscribe</h2>
     <!--
       피드 줄은 아래 스크립트가 feed-data 블록에서 짠다. 여기 남는 것은
       묶음이 담길 그릇과 안내문뿐이다. 묶음 셋의 구조(나라별 전체 — 그 안에
@@ -465,200 +466,205 @@
     <div id="feed-groups"></div>
 
     <p class="note" style="margin-top:0.75rem">
-      日本フィードの項目名は日本語の原文（元日、休日（元日）など）で表記されます。
-      ドイツフィードの項目名は法文の表記（Neujahr、1. Mai など）です。
+      Entries in the Japanese feed are named in the original Japanese
+      (元日, 休日（元日）, and so on). Entries in the German feeds use the
+      wording of the statute (Neujahr, 1. Mai, and so on).
     </p>
 
     <p class="note" style="margin-top:0.75rem">
-      Google カレンダーは「URL で追加」、Apple カレンダーは「新規照会カレンダー」から上のアドレスを入力します。
+      In Google Calendar use “From URL”; in Apple Calendar use “New Calendar Subscription” and paste the address above.
     </p>
   </section>
 
   <!-- 3. 대한민국 -->
   <section aria-labelledby="h-kr">
-    <h2 id="h-kr">韓国</h2>
+    <h2 id="h-kr">South Korea</h2>
 
     <div id="kr-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
+          <p class="range-label">Coverage</p>
           <div class="range-row">
-            <p class="range-sublabel">確定</p>
-            <p class="range-value" id="range-confirmed" data-pending>読み込み中</p>
+            <p class="range-sublabel">Confirmed</p>
+            <p class="range-value" id="range-confirmed" data-pending>Loading</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">暫定</p>
-            <p class="range-value" id="range-provisional" data-pending>読み込み中</p>
+            <p class="range-sublabel">Provisional</p>
+            <p class="range-value" id="range-provisional" data-pending>Loading</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="kr-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="kr-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        暫定区間は現行の規則で計算した値です。まだ確定の発表前であり、
-        規則が改正されたり臨時祝日が指定されると変わります。
+        The provisional range is calculated from the current rules. It has not been
+        confirmed yet and will change if the rules are amended or a temporary
+        holiday is designated.
       </p>
     </div>
 
-    <div class="failed" id="kr-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="kr-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 3.5 일본 -->
   <section aria-labelledby="h-jp">
-    <h2 id="h-jp">日本</h2>
+    <h2 id="h-jp">Japan</h2>
 
     <div id="jp-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
-          <p class="range-value" id="jp-range" data-pending>読み込み中</p>
+          <p class="range-label">Coverage</p>
+          <p class="range-value" id="jp-range" data-pending>Loading</p>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="jp-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="jp-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        全区間が確定項目です。暫定区間は設けていません。
+        Every entry is confirmed. There is no provisional range.
       </p>
     </div>
 
-    <div class="failed" id="jp-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="jp-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 3.6 독일 -->
   <section aria-labelledby="h-de">
-    <h2 id="h-de">ドイツ</h2>
+    <h2 id="h-de">Germany</h2>
 
     <div id="de-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
-          <p class="range-value" id="de-range" data-pending>読み込み中</p>
+          <p class="range-label">Coverage</p>
+          <p class="range-value" id="de-range" data-pending>Loading</p>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="de-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="de-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        16 州すべてで有効な全国共通の祝日のみを収録します。州別の祝日は
-        含まれていません。全区間が確定項目です。暫定区間は設けていません。
+        Only nationwide holidays that apply in all 16 states are included.
+        State-level holidays are not. Every entry is confirmed. There is no
+        provisional range.
       </p>
     </div>
 
-    <div class="failed" id="de-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="de-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 3.7 대한민국·일본 -->
   <section aria-labelledby="h-krjp">
-    <h2 id="h-krjp">韓国・日本</h2>
+    <h2 id="h-krjp">South Korea and Japan</h2>
 
     <div id="krjp-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
+          <p class="range-label">Coverage</p>
           <div class="range-row">
-            <p class="range-sublabel">確定</p>
-            <p class="range-value" id="krjp-range-confirmed" data-pending>読み込み中</p>
+            <p class="range-sublabel">Confirmed</p>
+            <p class="range-value" id="krjp-range-confirmed" data-pending>Loading</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">暫定</p>
-            <p class="range-value" id="krjp-range-provisional" data-pending>読み込み中</p>
+            <p class="range-sublabel">Provisional</p>
+            <p class="range-value" id="krjp-range-provisional" data-pending>Loading</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="krjp-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="krjp-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        項目名の前の [KR]・[JP] は、どちらの国の祝日かを示します。
-        収録期間は両国のフィードのうち短いほうまでです。
+        The [KR] and [JP] prefix on each entry shows which country the holiday
+        belongs to. Coverage runs to whichever of the two feeds ends first.
       </p>
     </div>
 
-    <div class="failed" id="krjp-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="krjp-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 3.8 대한민국만 쉬는 날 -->
   <section aria-labelledby="h-kronly">
-    <h2 id="h-kronly">韓国だけが休む日</h2>
+    <h2 id="h-kronly">Days off in South Korea only</h2>
 
     <div id="kronly-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
+          <p class="range-label">Coverage</p>
           <div class="range-row">
-            <p class="range-sublabel">確定</p>
-            <p class="range-value" id="kronly-range-confirmed" data-pending>読み込み中</p>
+            <p class="range-sublabel">Confirmed</p>
+            <p class="range-value" id="kronly-range-confirmed" data-pending>Loading</p>
           </div>
           <div class="range-row">
-            <p class="range-sublabel">暫定</p>
-            <p class="range-value" id="kronly-range-provisional" data-pending>読み込み中</p>
+            <p class="range-sublabel">Provisional</p>
+            <p class="range-value" id="kronly-range-provisional" data-pending>Loading</p>
           </div>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="kronly-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="kronly-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        韓国の祝日のうち、両国がともに休む日付は含みません。
-        名前が異なる祝日でも同じ日であれば除かれます。判定の基準は日本の
-        祝日のみで、週末は見ません。収録期間は両国のフィードのうち短いほうまでです。
+        Korean holidays that both countries take off are excluded. A holiday is
+        dropped when it falls on the same date, even under a different name. Only
+        Japanese public holidays are used for this comparison; weekends are not
+        considered. Coverage runs to whichever of the two feeds ends first.
       </p>
     </div>
 
-    <div class="failed" id="kronly-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="kronly-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 3.9 일본만 쉬는 날 -->
   <section aria-labelledby="h-jponly">
-    <h2 id="h-jponly">日本だけが休む日</h2>
+    <h2 id="h-jponly">Days off in Japan only</h2>
 
     <div id="jponly-ok">
       <div class="ranges">
         <div class="range">
-          <p class="range-label">収録期間</p>
-          <p class="range-value" id="jponly-range" data-pending>読み込み中</p>
+          <p class="range-label">Coverage</p>
+          <p class="range-value" id="jponly-range" data-pending>Loading</p>
         </div>
         <div class="range">
-          <p class="range-label">収録項目</p>
-          <p class="range-value" id="jponly-events" data-pending>読み込み中</p>
+          <p class="range-label">Entries</p>
+          <p class="range-value" id="jponly-events" data-pending>Loading</p>
         </div>
       </div>
       <p class="note">
-        日本の祝日のうち、両国がともに休む日付は含みません。
-        名前が異なる祝日でも同じ日であれば除かれます。判定の基準は韓国の
-        祝日のみで、週末は見ません。全区間が確定項目で、収録期間は
-        両国のフィードのうち短いほうまでです。
+        Japanese holidays that both countries take off are excluded. A holiday is
+        dropped when it falls on the same date, even under a different name. Only
+        Korean public holidays are used for this comparison; weekends are not
+        considered. Every entry is confirmed, and coverage runs to whichever of the
+        two feeds ends first.
       </p>
     </div>
 
-    <div class="failed" id="jponly-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="jponly-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 4. 마지막 갱신 -->
   <section aria-labelledby="h-updated">
-    <h2 id="h-updated">最終更新</h2>
+    <h2 id="h-updated">Last updated</h2>
 
     <div id="updated-ok">
-      <p class="big" id="updated-value" data-pending>読み込み中</p>
+      <p class="big" id="updated-value" data-pending>Loading</p>
       <p class="note" id="updated-at"></p>
       <div class="warn" id="updated-warn" hidden>
-        通常は毎週更新されます。更新が止まっている可能性があります。
+        This normally updates every week. Updates may have stopped.
       </div>
     </div>
 
-    <div class="failed" id="updated-failed" hidden>ステータス情報を読み込めませんでした。</div>
+    <div class="failed" id="updated-failed" hidden>Could not load status information.</div>
   </section>
 
   <!-- 5. 원문 대조 -->
   <section aria-labelledby="h-verify">
-    <h2 id="h-verify">原文照合</h2>
+    <h2 id="h-verify">Source checking</h2>
     <!--
       숫자는 status.json 이 덮어쓴다. 여기 적힌 값은 초기값이자 폴백이다.
       산문 안에도 분모가 들어가므로 이 줄을 숨길 수 없다 — 숨기면 "아래는
@@ -666,27 +672,29 @@
       커버리지·갱신 블록과 달리 이 블록은 적힌 값을 그대로 둔다.
     -->
     <p>
-      すべての日付は自前の計算と韓国天文研究院の特日情報との照合を経ています。
-      その上で法令・官報の原文まで確認する作業は規則表の項目（祝日の定義と
-      条文）単位で数えており、以下は規則表 <span data-item-count>48</span> 件のうちまだ
-      確認できていない数です。
+      Every date is checked against our own calculation and the Korea Astronomy
+      and Space Science Institute&#x27;s special-day data. Beyond that, checking the
+      statute and gazette text is counted per entry in the rule table (a holiday
+      definition and its provision); the number below is how many of the
+      <span data-item-count>48</span> entries have not been checked yet.
     </p>
-    <p class="stat" id="unverified">規則表 <span data-item-count>48</span> 件のうち <span data-unverified-count>32</span> 件が確認待ち</p>
+    <p class="stat" id="unverified"><span data-unverified-count>32</span> of <span data-item-count>48</span> awaiting source checks</p>
     <p>
-      照合が常に一致するとは限りません。2015年8月14日（光復70周年の
-      臨時祝日）は特日情報 API に含まれていません。2015年8月4日の
-      国務会議の議決と外交部の告知で確認して収録しました。
+      The two do not always agree. 14 August 2015 — a temporary holiday marking
+      70 years since liberation — is absent from the special-day API. It was
+      confirmed from the 4 August 2015 cabinet resolution and the Ministry of
+      Foreign Affairs announcement, and included.
     </p>
   </section>
 
   <!-- 6. 레포 -->
   <footer>
     <p>
-      規則表・根拠・生成コードはすべて公開されています —
+      The rule tables, sources, and generating code are all public —
       <a href="https://github.com/lunalism/holidays">github.com/lunalism/holidays</a>
     </p>
     <p>
-      不具合の報告と提案：
+      Problems and suggestions:
       <a href="https://github.com/lunalism/holidays/issues">GitHub Issues</a>
     </p>
   </footer>
@@ -698,38 +706,38 @@
   "site_base": "https://holidays.lunalism.com/",
   "groups": [
     {
-      "title": "国別すべて",
+      "title": "Whole countries",
       "feeds": [
-        { "key": "kr", "file": "kr.ics", "label": "韓国", "desc": "韓国の祝日すべて" },
-        { "key": "jp", "file": "jp.ics", "label": "日本", "desc": "日本の祝日すべて" },
-        { "key": "de", "file": "de.ics", "label": "ドイツ", "desc": "全国共通 — 16 州すべてで有効な祝日のみ（州別の祝日を除く）" }
+        { "key": "kr", "file": "kr.ics", "label": "South Korea", "desc": "All South Korean public holidays" },
+        { "key": "jp", "file": "jp.ics", "label": "Japan", "desc": "All Japanese public holidays" },
+        { "key": "de", "file": "de.ics", "label": "Germany", "desc": "Nationwide — only holidays valid in all 16 states (state holidays excluded)" }
       ],
       "accordion": {
-        "title": "ドイツ州別フィード",
+        "title": "German state feeds",
         "feeds": [
-          { "key": "de_be", "file": "de_be.ics", "label": "ドイツ・Berlin", "desc": "全国共通にBerlin州法の祝日を加えた上位集合" },
-          { "key": "de_bw", "file": "de_bw.ics", "label": "ドイツ・Baden-Württemberg", "desc": "全国共通にBaden-Württemberg州法の祝日を加えた上位集合" },
-          { "key": "de_by", "file": "de_by.ics", "label": "ドイツ・Bayern", "desc": "全国共通にBayern州法の祝日を加えた上位集合" },
-          { "key": "de_he", "file": "de_he.ics", "label": "ドイツ・Hessen", "desc": "全国共通にHessen州法の祝日を加えた上位集合" },
-          { "key": "de_hh", "file": "de_hh.ics", "label": "ドイツ・Hamburg", "desc": "全国共通にHamburg州法の祝日を加えた上位集合" },
-          { "key": "de_ni", "file": "de_ni.ics", "label": "ドイツ・Niedersachsen", "desc": "全国共通にNiedersachsen州法の祝日を加えた上位集合" },
-          { "key": "de_nw", "file": "de_nw.ics", "label": "ドイツ・Nordrhein-Westfalen", "desc": "全国共通にNordrhein-Westfalen州法の祝日を加えた上位集合" },
-          { "key": "de_rp", "file": "de_rp.ics", "label": "ドイツ・Rheinland-Pfalz", "desc": "全国共通にRheinland-Pfalz州法の祝日を加えた上位集合" },
-          { "key": "de_sh", "file": "de_sh.ics", "label": "ドイツ・Schleswig-Holstein", "desc": "全国共通にSchleswig-Holstein州法の祝日を加えた上位集合" }
+          { "key": "de_be", "file": "de_be.ics", "label": "Germany · Berlin", "desc": "The nationwide set plus holidays under Berlin state law" },
+          { "key": "de_bw", "file": "de_bw.ics", "label": "Germany · Baden-Württemberg", "desc": "The nationwide set plus holidays under Baden-Württemberg state law" },
+          { "key": "de_by", "file": "de_by.ics", "label": "Germany · Bayern", "desc": "The nationwide set plus holidays under Bayern state law" },
+          { "key": "de_he", "file": "de_he.ics", "label": "Germany · Hessen", "desc": "The nationwide set plus holidays under Hessen state law" },
+          { "key": "de_hh", "file": "de_hh.ics", "label": "Germany · Hamburg", "desc": "The nationwide set plus holidays under Hamburg state law" },
+          { "key": "de_ni", "file": "de_ni.ics", "label": "Germany · Niedersachsen", "desc": "The nationwide set plus holidays under Niedersachsen state law" },
+          { "key": "de_nw", "file": "de_nw.ics", "label": "Germany · Nordrhein-Westfalen", "desc": "The nationwide set plus holidays under Nordrhein-Westfalen state law" },
+          { "key": "de_rp", "file": "de_rp.ics", "label": "Germany · Rheinland-Pfalz", "desc": "The nationwide set plus holidays under Rheinland-Pfalz state law" },
+          { "key": "de_sh", "file": "de_sh.ics", "label": "Germany · Schleswig-Holstein", "desc": "The nationwide set plus holidays under Schleswig-Holstein state law" }
         ]
       }
     },
     {
-      "title": "一つのフィードに統合",
+      "title": "Merged into one feed",
       "feeds": [
-        { "key": "kr_jp", "file": "kr_jp.ics", "label": "韓国・日本", "desc": "両国の祝日すべて。項目ごとに [KR]・[JP] を表記" }
+        { "key": "kr_jp", "file": "kr_jp.ics", "label": "South Korea and Japan", "desc": "All holidays from both countries, each marked [KR] or [JP]" }
       ]
     },
     {
-      "title": "重ならない日のみ",
+      "title": "Non-overlapping days only",
       "feeds": [
-        { "key": "kr_only", "file": "kr_only.ics", "label": "韓国のみ", "desc": "韓国の祝日のうち日本が休まない日" },
-        { "key": "jp_only", "file": "jp_only.ics", "label": "日本のみ", "desc": "日本の祝日のうち韓国が休まない日" }
+        { "key": "kr_only", "file": "kr_only.ics", "label": "South Korea only", "desc": "South Korean holidays that are not days off in Japan" },
+        { "key": "jp_only", "file": "jp_only.ics", "label": "Japan only", "desc": "Japanese holidays that are not days off in South Korea" }
       ]
     }
   ]
@@ -855,18 +863,18 @@
     var copyBtn = document.createElement("button");
     copyBtn.type = "button";
     copyBtn.className = "btn btn-primary";
-    copyBtn.textContent = "購読アドレスをコピー";
+    copyBtn.textContent = "Copy subscription address";
     copyBtn.addEventListener("click", function () {
       var btn = this;
       copy(url).then(function (ok) {
-        btn.textContent = ok ? "コピーしました" : "コピーできませんでした";
-        setTimeout(function () { btn.textContent = "購読アドレスをコピー"; }, 2000);
+        btn.textContent = ok ? "Copied" : "Could not copy";
+        setTimeout(function () { btn.textContent = "Copy subscription address"; }, 2000);
       });
     });
     var webcal = document.createElement("a");
     webcal.className = "btn";
     webcal.href = url.replace(/^https:/, "webcal:");
-    webcal.textContent = "カレンダーアプリで開く";
+    webcal.textContent = "Open in calendar app";
 
     controls.appendChild(urlBox);
     controls.appendChild(copyBtn);
@@ -939,7 +947,7 @@
 
     setRange("range-confirmed", from, confirmed);
     setRange("range-provisional", nextDay(confirmed), until);
-    set("kr-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: status.feeds.kr.events }));
+    set("kr-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: status.feeds.kr.events }));
   }
 
   function renderJp(status) {
@@ -947,7 +955,7 @@
     // kr 규칙표의 개념이라 jp 에는 해당 절이 없다.
     var jp = status.feeds.jp;
     setRange("jp-range", jp.range.start, jp.range.end);
-    set("jp-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: jp.events }));
+    set("jp-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: jp.events }));
   }
 
   function renderKrJp(status) {
@@ -964,9 +972,9 @@
       setRange("krjp-range-provisional", nextDay(confirmed), until);
     } else {
       setRange("krjp-range-confirmed", from, until);
-      set("krjp-range-provisional", "なし");
+      set("krjp-range-provisional", "None");
     }
-    set("krjp-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: krjp.events }));
+    set("krjp-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: krjp.events }));
   }
 
   function renderKrOnly(status) {
@@ -982,9 +990,9 @@
       setRange("kronly-range-provisional", nextDay(confirmed), until);
     } else {
       setRange("kronly-range-confirmed", from, until);
-      set("kronly-range-provisional", "なし");
+      set("kronly-range-provisional", "None");
     }
-    set("kronly-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: kronly.events }));
+    set("kronly-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: kronly.events }));
   }
 
   function renderJpOnly(status) {
@@ -993,7 +1001,7 @@
     // (끝이 두 나라 중 짧은 쪽).
     var jponly = status.feeds.jp_only;
     setRange("jponly-range", jponly.range.start, jponly.range.end);
-    set("jponly-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: jponly.events }));
+    set("jponly-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: jponly.events }));
   }
 
   function renderDe(status) {
@@ -1001,7 +1009,7 @@
     // 없다 — 일본 절과 같이 기간과 항목 수만 싣는다.
     var de = status.feeds.de;
     setRange("de-range", de.range.start, de.range.end);
-    set("de-events", fmt({"one": "{n}件", "other": "{n}件"}, { n: de.events }));
+    set("de-events", fmt({"one": "{n} entry", "other": "{n} entries"}, { n: de.events }));
   }
 
   function renderUpdated(status) {
@@ -1009,8 +1017,8 @@
     if (isNaN(at.getTime())) { throw new Error("generated_at"); }
 
     var days = Math.floor((Date.now() - at.getTime()) / DAY);
-    set("updated-value", days <= 0 ? "今日" : fmt({"one": "{n}日前", "other": "{n}日前"}, { n: days }));
-    $("updated-at").textContent = fmt("{date} 更新", { date: ko(status.generated_at) });
+    set("updated-value", days <= 0 ? "Today" : fmt({"one": "{n} day ago", "other": "{n} days ago"}, { n: days }));
+    $("updated-at").textContent = fmt("Updated {date}", { date: ko(status.generated_at) });
 
     if (days > STALE_DAYS) { $("updated-warn").hidden = false; }
   }
@@ -1057,7 +1065,7 @@
     var el = $(id);
     el.textContent = "";
     el.appendChild(span(ko(from)));
-    el.appendChild(document.createTextNode(" ~ "));
+    el.appendChild(document.createTextNode(" – "));
     el.appendChild(span(ko(to)));
     el.removeAttribute("data-pending");
   }
@@ -1092,7 +1100,7 @@
   function ko(value) {
     var d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(value) ? value + "T00:00:00Z" : value);
     if (isNaN(d.getTime())) { throw new Error("date: " + value); }
-    return d.toLocaleDateString("ja-JP", {
+    return d.toLocaleDateString("en-US", {
       year: "numeric", month: "long", day: "numeric", timeZone: "UTC"
     });
   }
