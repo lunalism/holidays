@@ -13,6 +13,18 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <!--
+  JS 를 실행하지 않는 클라이언트(크롤러·프리뷰·리더 모드)를 위한 것. 상태
+  블록은 status.json 을 스크립트가 읽어 채우므로 JS 없이는 "불러오는 중" 에서
+  영원히 멈춘다 — 읽는 쪽에 의미가 없고 검색 스니펫에 뽑히면 해롭다. 마크업은
+  지우지 않고 숨기기만 한다(JS 가 있으면 그대로 동작해야 한다).
+  noscript 안의 style 은 head 에서만 표준에 맞는다. 목록 쪽 noscript 는 body 에
+  있고 그쪽은 마크업이라 여기 둘 수 없다.
+-->
+<noscript><style>
+  .ranges, #updated-ok { display: none; }
+</style></noscript>
+
+<!--
   한 파일로 끝낸다. 빌드 스텝도 npm 도 없다.
   CSS·JS 를 별도 파일로 쪼개지 않는 것은 그 순간 이 페이지가 유지보수 대상이
   되기 때문이다. 여기는 구독 주소를 건네주는 자리이고 그 이상이 되면 안 된다.
@@ -474,6 +486,172 @@
       주별 아코디언, 합침, 겹치지 않는 날만)도 데이터가 같이 들고 있다.
     -->
     <div id="feed-groups"></div>
+    <noscript>
+      <div class="feed-group">
+        <p class="feed-group-title">国別すべて</p>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">韓国</p>
+            <p class="feed-desc">韓国の祝日すべて</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/kr.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/kr.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">日本</p>
+            <p class="feed-desc">日本の祝日すべて</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/jp.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/jp.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">ドイツ</p>
+            <p class="feed-desc">全国共通 — 16 州すべてで有効な祝日のみ（州別の祝日を除く）</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/de.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/de.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+        <details class="feed-accordion">
+          <summary>ドイツ州別フィード</summary>
+          <div class="feed-accordion-body">
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Berlin</p>
+                <p class="feed-desc">全国共通にBerlin州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_be.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_be.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Baden-Württemberg</p>
+                <p class="feed-desc">全国共通にBaden-Württemberg州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_bw.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_bw.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Bayern</p>
+                <p class="feed-desc">全国共通にBayern州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_by.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_by.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Hessen</p>
+                <p class="feed-desc">全国共通にHessen州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_he.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_he.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Hamburg</p>
+                <p class="feed-desc">全国共通にHamburg州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_hh.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_hh.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Niedersachsen</p>
+                <p class="feed-desc">全国共通にNiedersachsen州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_ni.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_ni.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Nordrhein-Westfalen</p>
+                <p class="feed-desc">全国共通にNordrhein-Westfalen州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_nw.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_nw.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Rheinland-Pfalz</p>
+                <p class="feed-desc">全国共通にRheinland-Pfalz州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_rp.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_rp.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+            <div class="feed-row">
+              <div class="feed-head">
+                <p class="feed-label">ドイツ・Schleswig-Holstein</p>
+                <p class="feed-desc">全国共通にSchleswig-Holstein州法の祝日を加えた上位集合</p>
+              </div>
+              <div class="feed-controls">
+                <code class="url">https://holidays.lunalism.com/feeds/de_sh.ics</code>
+                <a class="btn" href="webcal://holidays.lunalism.com/feeds/de_sh.ics">カレンダーアプリで開く</a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+      <div class="feed-group">
+        <p class="feed-group-title">一つのフィードに統合</p>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">韓国・日本</p>
+            <p class="feed-desc">両国の祝日すべて。項目ごとに [KR]・[JP] を表記</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/kr_jp.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/kr_jp.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+      </div>
+      <div class="feed-group">
+        <p class="feed-group-title">重ならない日のみ</p>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">韓国のみ</p>
+            <p class="feed-desc">韓国の祝日のうち日本が休まない日</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/kr_only.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/kr_only.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+        <div class="feed-row">
+          <div class="feed-head">
+            <p class="feed-label">日本のみ</p>
+            <p class="feed-desc">日本の祝日のうち韓国が休まない日</p>
+          </div>
+          <div class="feed-controls">
+            <code class="url">https://holidays.lunalism.com/feeds/jp_only.ics</code>
+            <a class="btn" href="webcal://holidays.lunalism.com/feeds/jp_only.ics">カレンダーアプリで開く</a>
+          </div>
+        </div>
+      </div>
+    </noscript>
 
     <p class="note" style="margin-top:0.75rem">
       日本フィードの項目名は日本語の原文（元日、休日（元日）など）で表記されます。

@@ -95,6 +95,7 @@ LOCALES_DIR = HERE / "locales"
 
 PLACEHOLDER = "{{FEED_DATA}}"
 LINKS_PLACEHOLDER = "{{LANG_LINKS}}"
+NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
 
 # 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
 ROOT_LANG = "ko"
@@ -286,6 +287,75 @@ def _lang_links(current: str) -> str:
     return "\n".join(items)
 
 
+def _noscript(lang: str, column: int) -> str:
+    """JS 를 실행하지 않는 클라이언트가 읽을 피드 목록.
+
+    구독 절의 줄은 스크립트가 feed-data JSON 으로 그린다. 그 JSON 은 페이지에
+    있지만 스크립트를 돌리지 않는 쪽 — 크롤러·SNS 프리뷰·리더 모드·번역기 —
+    에게는 없는 것과 같다. 사람 브라우저에서 JS 가 꺼진 경우를 위한 것이 아니다.
+
+    같은 feed_data() 에서 나오므로 목록이 두 곳이 되지 않는다. 사람이 두 번
+    적는 것이 아니라 render 가 두 번 낸다 — 언어가 늘어도 같다.
+
+    복사 버튼은 넣지 않는다. navigator.clipboard 를 쓰는 핸들러라 JS 없이는
+    죽은 버튼이 되고, 죽은 버튼은 거짓말이다(이슈 #64 가 옛 마크업의 href="#"
+    을 같은 이유로 지적했다). 주소는 텍스트로 둔다 — 링크로 만들면 .ics 클릭이
+    다운로드가 되어 구독과 다른 동작이 된다. webcal 링크는 지금도 <a href> 라
+    JS 없이 동작하므로 그대로 낸다.
+
+    아코디언은 <details>/<summary> 다 — 스크립트가 만들던 것과 같은 요소이고
+    네이티브라 JS 없이 열린다. 마커(chevron)만 스크립트 몫이라 빠진다.
+    """
+    data = feed_data(lang)
+    locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
+    open_in_app = locale["ui"]["open_in_app"]
+    base = data["site_base"]
+
+    def esc(value: str) -> str:
+        return html.escape(value, quote=True)
+
+    def row(feed: dict, depth: int) -> list[str]:
+        pad = "  " * depth
+        url = f'{base}feeds/{feed["file"]}'
+        return [
+            f'{pad}<div class="feed-row">',
+            f'{pad}  <div class="feed-head">',
+            f'{pad}    <p class="feed-label">{esc(feed["label"])}</p>',
+            f'{pad}    <p class="feed-desc">{esc(feed["desc"])}</p>',
+            f'{pad}  </div>',
+            f'{pad}  <div class="feed-controls">',
+            f'{pad}    <code class="url">{esc(url)}</code>',
+            f'{pad}    <a class="btn" href="{esc(url.replace("https:", "webcal:", 1))}">'
+            f'{esc(open_in_app)}</a>',
+            f'{pad}  </div>',
+            f'{pad}</div>',
+        ]
+
+    lines = ["<noscript>"]
+    for group in data["groups"]:
+        lines.append('  <div class="feed-group">')
+        lines.append(f'    <p class="feed-group-title">{esc(group["title"])}</p>')
+        for feed in group["feeds"]:
+            lines += row(feed, 2)
+        if "accordion" in group:
+            acc = group["accordion"]
+            lines.append('    <details class="feed-accordion">')
+            # 개수를 적지 않는다. 스크립트 쪽 summary 는 "제목 (9)" 로 세어 넣지만
+            # 그것은 DOM 에서 만들어지고 내려가는 HTML 에는 없다. 여기 숫자를 적으면
+            # 내려가는 HTML 에 개수가 박히고, test_the_feed_list_is_read_from_the_data_block
+            # 이 그것을 잡는다 — render 가 세더라도 마크업에 박힌 숫자는 같은 위험
+            # (피드를 늘릴 때 숫자만 남는 것)의 자리라는 것이 그 테스트의 명제다.
+            lines.append(f'      <summary>{esc(acc["title"])}</summary>')
+            lines.append('      <div class="feed-accordion-body">')
+            for feed in acc["feeds"]:
+                lines += row(feed, 4)
+            lines.append('      </div>')
+            lines.append('    </details>')
+        lines.append('  </div>')
+    lines.append("</noscript>")
+    return ("\n" + " " * column).join(lines)
+
+
 def _html_text(value, column: int, *, key: str) -> str:
     """HTML 텍스트·속성값. 여러 줄 문구는 마커가 선 열에 맞춰 이어 붙여 원문의
     줄 나눔과 들여쓰기를 되살린다 — 그래야 생성물 diff 가 문구 변경만 보인다.
@@ -365,7 +435,9 @@ def _fill_markers(template: str, strings: dict) -> str:
     if unused:
         raise ValueError(f"locale 에 있는데 템플릿이 쓰지 않는 키: {unused}")
     leftover = [
-        m for m in re.findall(r"\{\{[^}]*\}\}", out) if m not in (PLACEHOLDER, LINKS_PLACEHOLDER)
+        m
+        for m in re.findall(r"\{\{[^}]*\}\}", out)
+        if m not in (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER)
     ]
     if leftover:
         raise ValueError(f"치환되지 않은 마커: {sorted(set(leftover))}")
@@ -375,7 +447,7 @@ def _fill_markers(template: str, strings: dict) -> str:
 def render(lang: str = ROOT_LANG) -> str:
     """파일에 쓸 문자열. 템플릿에 두 플레이스홀더가 정확히 하나씩 있어야 한다."""
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
-    for placeholder in (PLACEHOLDER, LINKS_PLACEHOLDER):
+    for placeholder in (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER):
         if template.count(placeholder) != 1:
             raise ValueError(f"template.html 에 {placeholder} 가 {template.count(placeholder)}개다")
     locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
@@ -385,6 +457,9 @@ def render(lang: str = ROOT_LANG) -> str:
     at = page.index(LINKS_PLACEHOLDER)
     column = at - page.rfind("\n", 0, at) - 1
     page = page.replace(LINKS_PLACEHOLDER, _lang_links(lang).replace("\n", "\n" + " " * column))
+    at = page.index(NOSCRIPT_PLACEHOLDER)
+    column = at - page.rfind("\n", 0, at) - 1
+    page = page.replace(NOSCRIPT_PLACEHOLDER, _noscript(lang, column))
     return page.replace(PLACEHOLDER, _dumps_feed_data(feed_data(lang)))
 
 
