@@ -34,6 +34,14 @@ Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 �
 `logs/build.jsonl`)을 커밋해야 하기 때문입니다. `publish.yml` 이 `permissions: contents: write` 를 선언하지만,
 저장소 기본 설정이 read-only 면 그 선언도 무시됩니다.
 
+### 레포 밖 수작업 — Search Console 소유 확인
+
+Google Search Console 의 소유 확인은 **DNS TXT 레코드**로 합니다. HTML 파일·메타
+태그 방식은 쓰지 않습니다 — 검증 문자열이 `landing/render.py` 산출물에 들어가야
+해서 템플릿에 검색 엔진용 값이 섞입니다. DNS 레코드는 도메인 등록처에서 손으로
+넣으며, 이 저장소에는 그 값이 남지 않습니다. 왜 측정을 하고 무엇을 보는지는
+[`docs/seo.md`](seo.md) 에 있습니다.
+
 ## 외부 데이터 출처의 운영 세부
 
 출처가 무엇이고 왜 그것을 쓰는지는 [`README.md`](../README.md) 의 "무엇을
