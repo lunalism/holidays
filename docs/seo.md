@@ -43,6 +43,21 @@
 늘리는 일의 전부이고, 색인 대상도 거기서 유도되어야 한다. 개별 URL 을
 열거하지 않는다.
 
+### 색인 대상과 크롤 전용은 다른 축이다
+
+- **색인 대상** — 검색 결과에 나오기를 기대하는 URL. 위 유도 집합뿐이다.
+- **크롤 전용** — 색인되기를 기대하지 않지만 크롤러가 가져가야 하는 URL.
+  현재 `sitemap.xml` 하나다. `Sitemap:` 지시자가 가리키는 URL 의 취득에도
+  robots 규칙이 적용되기 때문에 필요하다 — Google robots.txt 사양의
+  `sitemap` 항목("may be followed by all crawlers, provided it isn't
+  disallowed for crawling")과 Search Console 도움말("Google respects
+  robots.txt when fetching sitemaps"). 언어에서 유도되지 않는 상수이고,
+  `landing/seo.py` 의 `CRAWL_ONLY_PATHS` 가 든다.
+
+`robots.txt` 의 `Allow` 는 두 집합의 합이다. `sitemap.xml` 의 `<loc>` 은
+색인 대상뿐이다. 둘을 한 집합으로 말하면 크롤 전용이 `<loc>` 로 새거나,
+반대로 `Allow` 에서 빠져 sitemap 자체가 막힌다 — 후자가 실제로 있었다.
+
 피드 파일(`feeds/*.ics`)은 색인 대상이 아니다. 검색 결과에서 `.ics` 를
 직접 열면 파일을 내려받는 것으로 끝나고, 그것은 구독이 아니라 1 회
 임포트라 이후 갱신을 받지 못한다. 구독 주소는 랜딩이 건네준다.
@@ -62,13 +77,14 @@ GitHub Pages 는 브랜치 루트를 통째로 낸다(`Deploy from a branch`,
 
 ### robots.txt 는 허용목록이다
 
-`Disallow: /` 를 먼저 두고 색인 대상만 `Allow` 한다. 색인 대상이 로캘
-수만큼으로 한정되므로 열거가 무너지지 않고, 새 경로가 생겨도 기본값이
-차단이다. 차단목록(`Disallow` 를 경로마다 적는 것)은 경로를 더할 때마다
-빠뜨릴 자리가 늘어난다.
+`Disallow: /` 를 먼저 두고 색인 대상과 크롤 전용만 `Allow` 한다. 색인
+대상이 로캘 수만큼으로 한정되고 크롤 전용이 상수 하나뿐이므로 열거가
+무너지지 않고, 새 경로가 생겨도 기본값이 차단이다. 차단목록(`Disallow` 를
+경로마다 적는 것)은 경로를 더할 때마다 빠뜨릴 자리가 늘어난다.
 
-`Allow` 목록은 `languages()` × `page_path()` 에서 만든다 — sitemap 과
-같은 소스다. 사람이 적지 않는다.
+`Allow` 목록은 색인 대상(`languages()` × `page_path()`)과 크롤 전용
+(`CRAWL_ONLY_PATHS`)의 합이다. 앞은 sitemap 의 `<loc>` 과 같은 소스이고,
+뒤는 sitemap 에 들어가지 않는다. 사람이 적지 않는다.
 
 ### exclude 는 공개 웹 주소였던 적이 없는 경로에만 쓴다
 
@@ -106,8 +122,9 @@ GitHub Pages 는 브랜치 루트를 통째로 낸다(`Deploy from a branch`,
 쓰려면 git 히스토리가 필요한데, publish 워크플로는 `fetch-depth: 1` 이라
 워크플로 안에서 얻을 수 없다. 틀린 값보다 없는 값이 낫다.
 
-sitemap 의 URL 집합은 `languages()` × `page_path()` 에서 만든다.
-`robots.txt` 의 `Allow` 와 같은 소스이고 사람이 적지 않는다.
+sitemap 의 URL 집합은 `languages()` × `page_path()` 에서 만든다 — 색인
+대상뿐이고, 크롤 전용(`sitemap.xml` 자신)은 들어가지 않는다. `robots.txt`
+의 `Allow` 가 색인 대상에 대해 쓰는 것과 같은 소스이고 사람이 적지 않는다.
 
 ## 문구 규약
 
