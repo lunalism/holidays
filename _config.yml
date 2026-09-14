@@ -1,0 +1,30 @@
+# Jekyll 발행 설정.
+#
+# GitHub Pages 가 main 브랜치 루트를 Jekyll 로 통째로 낸다(legacy 빌드,
+# Jekyll 3.10.0 고정 — pages.github.com/versions.json). 이 파일은 그 발행
+# 대상을 정할 뿐이다. landing/render.py 의 실행과는 무관하다 — 그것은
+# GitHub Actions(publish.yml)가 돌리고 Jekyll 은 관여하지 않는다.
+#
+# exclude 된 경로는 크롤이 막히는 것이 아니라 발행 자체에서 빠져 404 가 된다.
+# 발행된 URL 은 계약이므로, 이 목록에 항목을 더할 때는 그 경로가 어떤
+# 문서·안내·링크에도 공개 주소로 적힌 적이 없음을 먼저 확인한다.
+# 판단 기준은 docs/seo.md 「exclude 는 공개 웹 주소였던 적이 없는 경로에만
+# 쓴다」. 목록은 tests/test_jekyll_config.py 가 고정한다.
+exclude:
+  # 이 레포가 더하는 것.
+  # 치환 전 마커({{t:…}}·{{FEED_DATA}})가 남은 템플릿과 그 입력.
+  # 발행되는 것은 render.py 가 만든 index.html·en/·ja/ 이지 이 원본이 아니다.
+  - landing/
+
+  # Jekyll 3.10 의 기본 제외 목록. Jekyll 3 은 사용자가 exclude 를 적으면
+  # 기본 목록을 이어붙이지 않고 대체한다(Jekyll 4 는 이어붙인다). 그래서
+  # 적지 않으면 아래가 발행 대상으로 돌아온다. 지금은 추적되는 것이 없지만
+  # 의존성 디렉터리가 생기는 순간 조용히 공개되므로 여기서 되살린다.
+  # 값은 jekyll v3.10.0 lib/jekyll/configuration.rb DEFAULTS["exclude"] 그대로.
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
