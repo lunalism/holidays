@@ -41,9 +41,13 @@ name(자기 언어로 적은 자기 이름)이라 번역 대상이 아니다.
                고른다. 값은 매핑이어야 한다.
     {{FEED_DATA}}  구독 절 JSON 블록. 제3의 문맥이라 따로 채운다.
     {{LANG_LINKS}} 언어 전환 링크 마크업. render 가 만든다.
+    {{HREFLANG}}   <head> 의 hreflang <link> 목록. render 가 만든다.
 
-render 가 계산해 넣는 문구 키가 있다 — og_url(이 페이지의 절대 URL). locale 에
-적지 않고, 템플릿은 반드시 써야 한다(양방향 검사에 든다).
+render 가 계산해 넣는 문구 키가 있다 — og_url(이 페이지의 절대 URL)과
+og_image(공유 이미지의 절대 URL). locale 에 적지 않고, 템플릿은 반드시 써야
+한다(양방향 검사에 든다). canonical 은 og_url 과 같은 값이라 템플릿이 같은
+마커를 두 번 쓴다 — 같은 값을 두 번 계산하지 않는다. <head> 의 절대 URL 은
+전부 _site_base() 에서 나온다(docs/seo.md 「언어면 관계」).
 
 locale 은 문맥을 모른다. 같은 키를 t 와 j 양쪽에서 써도 된다.
 
@@ -97,9 +101,18 @@ LOCALES_DIR = HERE / "locales"
 PLACEHOLDER = "{{FEED_DATA}}"
 LINKS_PLACEHOLDER = "{{LANG_LINKS}}"
 NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
+HREFLANG_PLACEHOLDER = "{{HREFLANG}}"
+PLACEHOLDERS = (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER, HREFLANG_PLACEHOLDER)
 
 # 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
 ROOT_LANG = "ko"
+# hreflang x-default 의 행선지 — 어느 언어도 맞지 않는 방문자가 가는 면. 상수다.
+# ROOT_LANG(ko)이나 languages() 의 순서에서 유도하지 않는다: 루트가 ko 인 것은
+# 처음 발행된 URL 을 바꾸지 않아서이지 기본 언어라서가 아니다(docs/seo.md
+# 「언어면 관계」).
+X_DEFAULT_LANG = "en"
+# 공유 이미지. 사이트 루트 기준 경로이고 절대 URL 은 _site_base() 가 붙인다.
+OG_IMAGE_PATH = "assets/og.png"
 MARKER = re.compile(r"\{\{([tjp]):(\w+)\}\}")
 
 
@@ -287,13 +300,14 @@ def _dumps_feed_data(data: dict) -> str:
 
 def _ui_strings(locale: dict, lang: str) -> dict:
     """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
-    render 가 계산하는 og_url.
+    render 가 계산하는 og_url·og_image.
 
     값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{p:}} 마커의 값이고,
     마커 종류와 값이 맞는지는 _js_value·_html_text 가 본다."""
     strings = dict(locale["ui"])
     computed = {"lang": locale["lang"], "locale": locale["locale"],
-                "og_url": _site_base().rstrip("/") + page_path(lang)}
+                "og_url": _site_base().rstrip("/") + page_path(lang),
+                "og_image": _site_base() + OG_IMAGE_PATH}
     for key, value in computed.items():
         if key in strings:
             raise ValueError(f"locale ui 에 예약된 키가 있다: {key}")
@@ -312,6 +326,20 @@ def _lang_links(current: str) -> str:
         items.append(
             f'<a href="{page_path(lang)}" lang="{lang}" hreflang="{lang}"{current_attr}>{name}</a>'
         )
+    return "\n".join(items)
+
+
+def _hreflang_links() -> str:
+    """<head> 의 hreflang <link> 목록. 모든 면이 같은 목록을 갖는다 — 자기 자신도
+    들어 있다(상호 참조라 자기 항목이 빠지면 무효다). href 는 절대 URL 이다."""
+    base = _site_base().rstrip("/")
+    items = [
+        f'<link rel="alternate" hreflang="{lang}" href="{base}{page_path(lang)}">'
+        for lang in languages()
+    ]
+    items.append(
+        f'<link rel="alternate" hreflang="x-default" href="{base}{page_path(X_DEFAULT_LANG)}">'
+    )
     return "\n".join(items)
 
 
@@ -503,7 +531,7 @@ def _fill_markers(template: str, strings: dict) -> str:
     leftover = [
         m
         for m in re.findall(r"\{\{[^}]*\}\}", out)
-        if m not in (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER)
+        if m not in PLACEHOLDERS
     ]
     if leftover:
         raise ValueError(f"치환되지 않은 마커: {sorted(set(leftover))}")
@@ -511,28 +539,29 @@ def _fill_markers(template: str, strings: dict) -> str:
 
 
 def _check_placeholders(template: str) -> None:
-    """마커가 아닌 세 자리 — 각각 정확히 하나여야 한다.
+    """마커가 아닌 네 자리 — 각각 정확히 하나여야 한다.
 
-    셋 다 str.replace 로 채운다. 없으면 그 블록이 통째로 빠진 페이지가 나가고,
+    넷 다 str.replace 로 채운다. 없으면 그 블록이 통째로 빠진 페이지가 나가고,
     **둘 이상이면 replace 가 전부 채워 같은 블록이 두 번 실린 페이지가 나간다.**
     둘 다 조용하다 — 마커와 달리 이 자리들은 양방향 검사에 들지 않는다.
 
     render() 안에 인라인으로 두지 않고 뽑은 것은 검사가 파일 읽기에 묶여 있으면
     입력을 주지 못하기 때문이다. 여기는 문자열만 받으므로 테스트가 곧바로 부를 수
     있고, 발행 스크립트가 템플릿을 손볼 때도 같은 함수를 부를 수 있다."""
-    for placeholder in (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER):
+    for placeholder in PLACEHOLDERS:
         if template.count(placeholder) != 1:
             raise ValueError(f"template.html 에 {placeholder} 가 {template.count(placeholder)}개다")
 
 
 def render(lang: str = ROOT_LANG) -> str:
-    """파일에 쓸 문자열. 템플릿에 세 플레이스홀더가 정확히 하나씩 있어야 한다."""
+    """파일에 쓸 문자열. 템플릿에 네 플레이스홀더가 정확히 하나씩 있어야 한다."""
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
     _check_placeholders(template)
     locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
     # 문구 마커를 먼저 채우고 feed-data·링크를 넣는다. 잔존 마커 검사가 JSON 의
     # 중괄호를 보지 않게 하기 위해서다(두 플레이스홀더는 검사에서 뺀다).
     page = _fill_markers(template, _ui_strings(locale, lang))
+    page = page.replace(HREFLANG_PLACEHOLDER, _hreflang_links())
     at = page.index(LINKS_PLACEHOLDER)
     column = at - page.rfind("\n", 0, at) - 1
     page = page.replace(LINKS_PLACEHOLDER, _lang_links(lang).replace("\n", "\n" + " " * column))
