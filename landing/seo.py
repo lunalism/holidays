@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from xml.sax.saxutils import escape
 
-from landing.render import ROOT, _site_base, languages, page_path
+from landing.render import OG_IMAGE_PATH, ROOT, _site_base, languages, page_path
 
 ROBOTS_PATH = ROOT / "robots.txt"
 SITEMAP_PATH = ROOT / "sitemap.xml"
@@ -30,7 +30,14 @@ SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 # Search Console 도움말(answer 7451001) "Google respects robots.txt when
 # fetching sitemaps". 이 줄이 없으면 /sitemap.xml 은 Disallow: / 에 걸려
 # Google 이 가져오지 못한다. docs/seo.md 「색인 대상」의 두 축 참조.
-CRAWL_ONLY_PATHS = ("/sitemap.xml",)
+#
+# /assets/og.png: 세 면의 <head> 가 og:image 로 가리키는 이미지(render 의
+# OG_IMAGE_PATH). 링크 프리뷰 크롤러가 이미지를 가져가려면 열려 있어야 한다 —
+# X Cards 문서(Getting started, URL Crawling & Caching) "Twitter's crawler
+# respects Google's robots.txt specification … If an image URL is blocked, no
+# thumbnail or photo will be shown". 이 줄이 없으면 Disallow: / 에 걸린다.
+# 색인 대상이 아니라 sitemap 에는 들어가지 않는다.
+CRAWL_ONLY_PATHS = ("/sitemap.xml", "/" + OG_IMAGE_PATH)
 
 
 def page_urls() -> list[str]:
