@@ -1,15 +1,23 @@
-"""robots.txt 와 sitemap.xml 은 같은 URL 집합을 말한다.
+"""robots.txt 와 sitemap.xml 은 같은 소스에서 나온 URL 집합을 말한다.
 
 --------------------------------------------------------------------------
 이 파일이 지키는 명제
 --------------------------------------------------------------------------
-    robots.txt 의 Allow 경로 집합, sitemap.xml 의 <loc> 집합, 그리고
-    languages() × page_path() 로 유도한 집합 — 셋이 같다.
+    robots.txt 의 Allow 집합 == 색인 대상 집합 ∪ 크롤 전용 집합
+    sitemap.xml 의 <loc> 집합 == 색인 대상 집합
 
-색인 대상은 docs/seo.md 「색인 대상」이 정한다: languages() × page_path() 뿐이고
-개별 URL 을 열거하지 않는다. robots.txt 와 sitemap.xml 은 그 집합을 각자의
-문법으로 적은 것이라 서로 어긋나면 안 된다 — 한쪽에만 있는 URL 은 "크롤은
-허용됐는데 sitemap 에 없다" 또는 "sitemap 에 있는데 크롤이 막혔다" 가 된다.
+두 축은 docs/seo.md 「색인 대상」이 가른다.
+
+- 색인 대상: 검색 결과에 나오기를 기대하는 URL. languages() × page_path() 로
+  유도하고 개별 URL 을 열거하지 않는다.
+- 크롤 전용: 색인되기를 기대하지 않지만 크롤러가 가져가야 하는 URL. 상수다.
+  현재 /sitemap.xml 하나 — Sitemap: 지시자가 가리키는 URL 의 취득에 Google 이
+  robots 규칙을 적용하므로(Google robots.txt 사양 sitemap 항목 "provided it
+  isn't disallowed for crawling"), Allow 가 없으면 Disallow: / 에 걸린다.
+
+크롤 전용을 "예외" 로 빼고 비교하지 않는다. 예외로 두면 다음 항목이 같은
+길로 조용히 샌다. 합집합 모델로 두면 Allow 에 무엇이 더 들어와도 두 상수
+집합 중 하나에 있어야 하고, 없으면 여기서 걸린다.
 
 --------------------------------------------------------------------------
 마커
@@ -43,9 +51,14 @@ SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 ALLOW_LINE = re.compile(r"^Allow:\s*(\S+?)\$?\s*$", re.MULTILINE)
 
 
-def _expected_paths() -> set[str]:
-    """docs/seo.md 「색인 대상」 — languages() × page_path()."""
+def _index_paths() -> set[str]:
+    """색인 대상 — languages() × page_path(). docs/seo.md 「색인 대상」."""
     return {render.page_path(lang) for lang in render.languages()}
+
+
+# 크롤 전용. 언어에서 유도되지 않는 상수라 여기 직접 적는다 — 생성기의 상수를
+# import 하면 생성기가 무엇을 넣든 통과한다.
+CRAWL_ONLY_PATHS = {"/sitemap.xml"}
 
 
 def _robots_allow_paths(text: str) -> set[str]:
@@ -58,15 +71,24 @@ def _sitemap_locs(text: str) -> set[str]:
 
 
 @pytest.mark.published_artifact
-def test_robots_allow_and_sitemap_loc_are_the_same_set_as_the_index_targets():
+def test_robots_allow_is_index_targets_plus_crawl_only():
     assert ROBOTS.is_file(), "robots.txt 가 없다 — 생성해서 커밋할 것"
-    assert SITEMAP.is_file(), "sitemap.xml 이 없다 — 생성해서 커밋할 것"
-    expected = _expected_paths()
+    expected = _index_paths() | CRAWL_ONLY_PATHS
     allow = _robots_allow_paths(ROBOTS.read_text(encoding="utf-8"))
+    assert allow == expected, (
+        f"robots.txt Allow {sorted(allow)} ≠ 색인 대상 ∪ 크롤 전용 {sorted(expected)}"
+    )
+
+
+@pytest.mark.published_artifact
+def test_sitemap_loc_is_exactly_index_targets():
+    """<loc> 는 색인 대상뿐이다. 크롤 전용(/sitemap.xml 자신)은 들어가지 않는다."""
+    assert SITEMAP.is_file(), "sitemap.xml 이 없다 — 생성해서 커밋할 것"
+    expected = _index_paths()
     base = render._site_base().rstrip("/")
     locs = {loc.removeprefix(base) for loc in _sitemap_locs(SITEMAP.read_text(encoding="utf-8"))}
-    assert allow == expected, f"robots.txt Allow {sorted(allow)} ≠ 색인 대상 {sorted(expected)}"
     assert locs == expected, f"sitemap.xml <loc> {sorted(locs)} ≠ 색인 대상 {sorted(expected)}"
+    assert not (locs & CRAWL_ONLY_PATHS), "크롤 전용 경로가 sitemap 에 들어 있다"
 
 
 # ---------------------------------------------------------------------------
@@ -116,15 +138,29 @@ def test_robots_default_is_disallow_and_every_allow_is_anchored():
     assert all(line.endswith("$") for line in allows), allows
 
 
-@pytest.mark.parametrize("path", sorted(_expected_paths()))
+@pytest.mark.parametrize("path", sorted(_index_paths()))
 def test_robots_allows_each_index_target(path):
     assert _robots_allows(seo.robots_txt(), path)
+
+
+@pytest.mark.parametrize("path", sorted(CRAWL_ONLY_PATHS))
+def test_robots_allows_each_crawl_only_path_by_its_own_line(path):
+    """크롤 전용 경로는 자기 Allow 줄로 허용된다 — Allow: /$ 가 여는 것이 아니다.
+
+    아래 하위 경로 검사가 Allow: /$ 는 /index.html 도 열지 않음을 고정하므로,
+    /sitemap.xml 이 허용된다면 그것은 자기 줄 때문일 수밖에 없다. 그 줄의
+    존재를 여기서 직접 본다.
+    """
+    text = seo.robots_txt()
+    assert f"Allow: {path}$" in text.splitlines(), f"Allow: {path}$ 줄이 없다"
+    assert _robots_allows(text, path)
 
 
 @pytest.mark.parametrize(
     "path",
     [
         # 루트 Allow 가 하위 경로를 열지 않는다 — 허용목록의 핵심 위험.
+        # /sitemap.xml 이 여기 없는 것은 자기 줄로 허용되기 때문이다(위 검사).
         "/index.html",
         "/feeds/kr.ics",
         "/status.json",
