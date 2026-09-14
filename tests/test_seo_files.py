@@ -31,7 +31,7 @@ from pathlib import Path
 
 import pytest
 
-from landing import render
+from landing import render, seo
 
 ROOT = Path(__file__).resolve().parents[1]
 ROBOTS = ROOT / "robots.txt"
@@ -67,3 +67,104 @@ def test_robots_allow_and_sitemap_loc_are_the_same_set_as_the_index_targets():
     locs = {loc.removeprefix(base) for loc in _sitemap_locs(SITEMAP.read_text(encoding="utf-8"))}
     assert allow == expected, f"robots.txt Allow {sorted(allow)} ≠ 색인 대상 {sorted(expected)}"
     assert locs == expected, f"sitemap.xml <loc> {sorted(locs)} ≠ 색인 대상 {sorted(expected)}"
+
+
+# ---------------------------------------------------------------------------
+# 생성기의 성질. 커밋본을 읽지 않으므로 마커 없음.
+# ---------------------------------------------------------------------------
+
+
+def test_generation_is_deterministic():
+    """같은 입력이면 같은 바이트. 시계를 읽으면 여기서 걸린다."""
+    assert seo.robots_txt() == seo.robots_txt()
+    assert seo.sitemap_xml() == seo.sitemap_xml()
+
+
+def _robots_allows(text: str, path: str) -> bool:
+    """Google robots.txt 문서와 RFC 9309 가 정한 판정을 그대로 옮긴 것.
+
+    규칙: 경로가 가장 긴(가장 구체적인) 규칙이 이기고, 길이가 같으면 덜
+    제한적인(Allow) 규칙이 이긴다. `$` 는 URL 의 끝이다. 어느 규칙에도 맞지
+    않으면 허용이다.
+
+    크롤러가 아니라 문서의 판정 모델이다. 고정하려는 것은 "robots.txt 가 이
+    문서의 규칙 아래서 어떻게 읽히는가" 이지 특정 크롤러의 구현이 아니다.
+    """
+    best: tuple[int, bool] | None = None  # (규칙 길이, 허용 여부)
+    for line in text.splitlines():
+        kind, _, value = line.partition(":")
+        kind, value = kind.strip().lower(), value.strip()
+        if kind not in {"allow", "disallow"} or not value:
+            continue
+        anchored = value.endswith("$")
+        pattern = value.removesuffix("$")
+        matched = path == pattern if anchored else path.startswith(pattern)
+        if not matched:
+            continue
+        candidate = (len(value), kind == "allow")
+        if best is None or candidate[0] > best[0] or (candidate[0] == best[0] and candidate[1]):
+            best = candidate
+    return True if best is None else best[1]
+
+
+def test_robots_default_is_disallow_and_every_allow_is_anchored():
+    """허용목록의 형태. Disallow: / 가 있고 Allow 는 전부 `$` 로 끝난다."""
+    text = seo.robots_txt()
+    assert "Disallow: /\n" in text
+    allows = [line for line in text.splitlines() if line.startswith("Allow:")]
+    assert allows, "Allow 가 하나도 없다"
+    assert all(line.endswith("$") for line in allows), allows
+
+
+@pytest.mark.parametrize("path", sorted(_expected_paths()))
+def test_robots_allows_each_index_target(path):
+    assert _robots_allows(seo.robots_txt(), path)
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        # 루트 Allow 가 하위 경로를 열지 않는다 — 허용목록의 핵심 위험.
+        "/index.html",
+        "/feeds/kr.ics",
+        "/status.json",
+        "/data/jp/2026.yaml",
+        "/landing/template.html",
+        "/docs/seo.md",
+        # 언어 디렉터리 Allow 도 마찬가지.
+        "/en/index.html",
+        "/ja/anything",
+    ],
+)
+def test_robots_allow_does_not_open_subpaths(path):
+    assert not _robots_allows(seo.robots_txt(), path)
+
+
+def test_sitemap_parses_and_has_only_loc():
+    """XML 로 파싱되고, <url> 아래에 <loc> 말고는 없다 — lastmod 도 없다."""
+    root = ET.fromstring(seo.sitemap_xml())
+    assert root.tag == f"{{{SITEMAP_NS}}}urlset"
+    urls = list(root)
+    assert urls, "<url> 이 없다"
+    for url in urls:
+        assert [child.tag for child in url] == [f"{{{SITEMAP_NS}}}loc"], [c.tag for c in url]
+    assert "lastmod" not in seo.sitemap_xml()
+
+
+# ---------------------------------------------------------------------------
+# 커밋된 산출물의 최신성. tests/test_landing_render.py 와 같은 질문.
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.published_artifact
+@pytest.mark.parametrize(
+    ("path", "generate"),
+    [(ROBOTS, seo.robots_txt), (SITEMAP, seo.sitemap_xml)],
+    ids=["robots.txt", "sitemap.xml"],
+)
+def test_the_committed_file_is_reproducible(path, generate):
+    assert path.is_file(), f"{path.name} 이 없다 — 생성해서 커밋할 것"
+    assert path.read_text(encoding="utf-8") == generate(), (
+        f"커밋된 {path.name} 이 지금 landing/ 으로 재현되지 않는다. 갱신할 것:\n"
+        "  uv run python -m landing.seo"
+    )
