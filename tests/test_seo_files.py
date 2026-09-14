@@ -111,6 +111,9 @@ def _robots_allows(text: str, path: str) -> bool:
 
     크롤러가 아니라 문서의 판정 모델이다. 고정하려는 것은 "robots.txt 가 이
     문서의 규칙 아래서 어떻게 읽히는가" 이지 특정 크롤러의 구현이 아니다.
+
+    생성기가 내는 부분집합 — 단일 그룹, `*` 없음, ASCII 경로 — 에 대한
+    모델이다. 생성기가 그 밖의 규칙을 내게 되면 이 모델도 함께 넓힌다.
     """
     best: tuple[int, bool] | None = None  # (규칙 길이, 허용 여부)
     for line in text.splitlines():
