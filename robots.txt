@@ -4,5 +4,6 @@ Allow: /$
 Allow: /en/$
 Allow: /ja/$
 Allow: /sitemap.xml$
+Allow: /assets/og.png$
 
 Sitemap: https://holidays.lunalism.com/sitemap.xml

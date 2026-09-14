@@ -11,9 +11,13 @@
 - 색인 대상: 검색 결과에 나오기를 기대하는 URL. languages() × page_path() 로
   유도하고 개별 URL 을 열거하지 않는다.
 - 크롤 전용: 색인되기를 기대하지 않지만 크롤러가 가져가야 하는 URL. 상수다.
-  현재 /sitemap.xml 하나 — Sitemap: 지시자가 가리키는 URL 의 취득에 Google 이
+  현재 둘. /sitemap.xml — Sitemap: 지시자가 가리키는 URL 의 취득에 Google 이
   robots 규칙을 적용하므로(Google robots.txt 사양 sitemap 항목 "provided it
   isn't disallowed for crawling"), Allow 가 없으면 Disallow: / 에 걸린다.
+  /assets/og.png — 세 면의 og:image 가 가리키는 이미지. 링크 프리뷰 크롤러가
+  robots 규칙을 적용하면(X Cards 문서 "If an image URL is blocked, no
+  thumbnail or photo will be shown") Allow 가 없는 이미지는 프리뷰에 실리지
+  않는다. 둘 다 같은 이유다 — 문서가 가리키는 URL 을 규칙이 막고 있었다.
 
 크롤 전용을 "예외" 로 빼고 비교하지 않는다. 예외로 두면 다음 항목이 같은
 길로 조용히 샌다. 합집합 모델로 두면 Allow 에 무엇이 더 들어와도 두 상수
@@ -58,7 +62,7 @@ def _index_paths() -> set[str]:
 
 # 크롤 전용. 언어에서 유도되지 않는 상수라 여기 직접 적는다 — 생성기의 상수를
 # import 하면 생성기가 무엇을 넣든 통과한다.
-CRAWL_ONLY_PATHS = {"/sitemap.xml"}
+CRAWL_ONLY_PATHS = {"/sitemap.xml", "/assets/og.png"}
 
 
 def _robots_allow_paths(text: str) -> set[str]:
@@ -157,6 +161,14 @@ def test_robots_allows_each_crawl_only_path_by_its_own_line(path):
     text = seo.robots_txt()
     assert f"Allow: {path}$" in text.splitlines(), f"Allow: {path}$ 줄이 없다"
     assert _robots_allows(text, path)
+
+
+def test_the_og_image_path_is_crawl_only():
+    """og:image 가 가리키는 경로가 크롤 전용 집합에 있다 — 페이지가 가리키는
+    리소스를 허용목록이 막지 않는다. render 의 상수를 통해 묶는다: 이미지 경로가
+    바뀌면 여기서 걸리고, 크롤 전용 집합도 같이 옮겨야 한다."""
+    assert "/" + render.OG_IMAGE_PATH in CRAWL_ONLY_PATHS
+    assert "/" + render.OG_IMAGE_PATH in seo.CRAWL_ONLY_PATHS
 
 
 @pytest.mark.parametrize(
