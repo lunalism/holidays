@@ -135,6 +135,59 @@ sitemap 의 URL 집합은 `languages()` × `page_path()` 에서 만든다 — �
 대상뿐이고, 크롤 전용(`sitemap.xml` 자신)은 들어가지 않는다. `robots.txt`
 의 `Allow` 가 색인 대상에 대해 쓰는 것과 같은 소스이고 사람이 적지 않는다.
 
+## 링크 프리뷰 표기
+
+메신저·SNS 가 링크를 펼칠 때 읽는 `<head>` 의 Open Graph·Twitter Card
+표기다. **검색이 아니다** — 목표 쿼리군·색인 대상과 무관하고, 검색 결과에
+아무 영향이 없다. 이 문서에 두는 것은 `robots.txt` 를 공유하기 때문이다:
+프리뷰 크롤러도 robots 규칙을 따르는 경우가 있어(X Cards 문서 "If an
+image URL is blocked, no thumbnail or photo will be shown"), 페이지가
+가리키는 이미지는 크롤 전용으로 열려 있어야 한다. 현재 그 대상은
+`assets/og.png` 이고 「색인 대상과 크롤 전용은 다른 축이다」가 든다.
+
+### 무엇을 두는가
+
+OG 프로토콜(ogp.me)의 필수 넷 `og:title`·`og:type`·`og:image`·`og:url` 과
+`og:description` 은 세 면에 이미 있다. 여기에 더하는 것은 **기존 값에서
+유도되는 것**뿐이다 — 새 문구를 쓰지 않는다.
+
+- **`og:locale`** — 그 면의 언어. 없으면 소비자가 기본값(`en_US`)으로
+  해석하므로 다국어 사이트에서는 세 면이 같은 언어로 읽힌다.
+- **`og:locale:alternate`** — 그 면이 아닌 나머지 언어. hreflang 과 같은
+  목록(`languages()`)에서 자기를 뺀 것이다.
+- **`og:image:width`·`og:image:height`** — 크롤러가 이미지를 내려받기 전에
+  크기를 알 수 있게 한다. 값은 `assets/og.png` 의 실제 픽셀 크기
+  (1200 × 630)이고 이미지가 바뀌면 같이 바뀐다.
+
+### 형식 — locale 키와 og:locale 은 다르다
+
+`landing/locales/*.yaml` 의 `locale` 키는 하이픈 구분(BCP 47, `ko-KR` 형)
+이고 `og:locale` 은 밑줄 구분(`language_TERRITORY`, `ko_KR` 형)이다.
+**키를 고치지 않는다** — 그 값은 스크립트의 `toLocaleDateString` 이 쓰는
+자리이고 거기서는 하이픈이 맞다. `og:locale` 은 렌더 시점에 변환한다.
+
+같은 값이 두 자리에서 다른 형식으로 쓰이는 것이며, 어느 한쪽으로 통일하지
+않는다. 형식이 다른 이유가 각각 있다.
+
+### 무엇을 두지 않는가
+
+- **`twitter:*`** — `twitter:card` 외에는 두지 않는다. X 의 카드 처리기는
+  `twitter:title`·`twitter:description`·`twitter:image` 가 없으면 각각
+  `og:title`·`og:description`·`og:image` 로 폴백한다(X Cards Markup Tag
+  Reference). 같은 값을 두 벌 두면 갈릴 자리만 늘어난다.
+- **`og:site_name`** — 두어야 할 근거가 확인되지 않았다.
+
+### 미결
+
+이 절이 닫지 않는 둘.
+
+- **`og:image:alt`** — 문구를 새로 써야 한다. 그것은 「문구 규약」이 다루는
+  사안과 같은 성격이라 유도되는 값이 아니다.
+- **면별 이미지 분화** — 현재 `og:image` 는 세 면이 같은 파일이고, 그
+  파일은 한국어 UI 의 캘린더 화면이다. 면마다 다른 이미지를 둘지는
+  결정되지 않았다. 위 `alt` 는 이 결정에 달려 있다 — 이미지가 갈리면
+  alt 도 갈린다.
+
 ## 문구 규약
 
 title·meta description·og 계열에 **보증 표현을 쓰지 않는다.** "정확한",
