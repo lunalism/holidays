@@ -309,7 +309,11 @@ def test_a_non_state_feed_without_a_desc_stops():
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("reserved", ["lang", "locale", "og_url"], ids=["lang", "locale", "og_url"])
+@pytest.mark.parametrize(
+    "reserved",
+    ["lang", "locale", "og_url", "og_image"],
+    ids=["lang", "locale", "og_url", "og_image"],
+)
 def test_a_locale_may_not_shadow_a_computed_key(reserved):
     # render 가 계산해 넣는 이름 셋이다. locale 의 ui 가 같은 이름을 쓰면 어느
     # 쪽이 이기는지가 dict 갱신 순서에 달리게 된다 — 조용히 덮이는 자리라
@@ -332,40 +336,34 @@ def test_a_well_formed_locale_yields_the_computed_keys():
     # 양성 대조. 위 검사들이 계산 키를 막는 것이 아니라 겹침을 막는 것임을
     # 못 박는다.
     strings = render._ui_strings({"lang": "ko", "locale": "ko-KR", "ui": {"a": "x"}}, "ko")
-    assert {"a", "lang", "locale", "og_url"} <= set(strings)
+    assert {"a", "lang", "locale", "og_url", "og_image"} <= set(strings)
 
 
 # ---------------------------------------------------------------------------
-# 마커가 아닌 세 자리 — 각각 정확히 하나
+# 마커가 아닌 네 자리 — 각각 정확히 하나
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.parametrize(
     "placeholder",
-    [render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER],
-    ids=["FEED_DATA", "LANG_LINKS", "NOSCRIPT"],
+    list(render.PLACEHOLDERS),
+    ids=["FEED_DATA", "LANG_LINKS", "NOSCRIPT", "HREFLANG"],
 )
 @pytest.mark.parametrize("count", [0, 2], ids=["없음", "둘"])
 def test_each_placeholder_must_appear_exactly_once(placeholder, count):
     # 없으면 그 블록이 통째로 빠진 페이지가 나가고, 둘 이상이면 str.replace 가
     # 전부 채워 같은 블록이 두 번 실린 페이지가 나간다. 마커와 달리 이 자리들은
     # 양방향 검사에 들지 않아 둘 다 조용하다.
-    others = [
-        p
-        for p in (render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER)
-        if p != placeholder
-    ]
+    others = [p for p in render.PLACEHOLDERS if p != placeholder]
     template = " ".join(others) + " " + (placeholder + " ") * count
     with pytest.raises(ValueError, match="개다") as caught:
         render._check_placeholders(template)
     assert placeholder in str(caught.value)
 
 
-def test_all_three_placeholders_present_once_pass():
-    # 양성 대조. 셋이 하나씩이면 통과한다 — 실제 템플릿이 그 상태다.
-    template = " ".join(
-        (render.PLACEHOLDER, render.LINKS_PLACEHOLDER, render.NOSCRIPT_PLACEHOLDER)
-    )
+def test_all_four_placeholders_present_once_pass():
+    # 양성 대조. 넷이 하나씩이면 통과한다 — 실제 템플릿이 그 상태다.
+    template = " ".join(render.PLACEHOLDERS)
     assert render._check_placeholders(template) is None
 
 

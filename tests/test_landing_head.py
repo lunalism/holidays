@@ -84,10 +84,12 @@ def test_og_image_is_the_site_base_plus_assets_og_png(lang):
     assert _meta(_head(lang), "og:image") == render._site_base() + "assets/og.png"
 
 
-def test_the_template_carries_no_literal_domain_in_head():
-    # 유도의 반대편 — 소스에 도메인이 글자로 있으면 CNAME 을 바꿔도 그 자리는 남는다.
+def test_the_template_carries_no_literal_site_url_in_head():
+    # 유도의 반대편 — 소스에 자기 도메인이 글자로 있으면 CNAME 을 바꿔도 그 자리는
+    # 남는다. 검사 대상은 자기 사이트의 URL 이다 — <head> 에는 폰트 CDN 의 외부
+    # URL 도 있고 그것은 CNAME 과 무관하다.
     head = HEAD.search(render.TEMPLATE_PATH.read_text(encoding="utf-8")).group(1)
-    assert "https://" not in head, "template.html 의 <head> 에 절대 URL 리터럴이 있다"
+    assert render._site_base() not in head, "template.html 의 <head> 에 자기 URL 리터럴이 있다"
 
 
 @every_page
@@ -104,4 +106,6 @@ def test_every_head_url_follows_the_cname(lang, tmp_path, monkeypatch):
     )
     assert len(urls) == 1 + len(LANGS) + 1 + 2
     assert all(u.startswith("https://example.test/") for u in urls), urls
-    assert "holidays.lunalism.com" not in head
+    # 넷 밖에서도 옛 도메인이 URL 로 남지 않는다. 도메인이 문구(og:title)에 글자로
+    # 있는 것은 URL 이 아니라 locale 의 문장이라 여기 대상이 아니다.
+    assert "https://holidays.lunalism.com/" not in head
