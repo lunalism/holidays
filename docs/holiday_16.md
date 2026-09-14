@@ -225,6 +225,16 @@ v4.3.3 은 `add_default_excludes` 로 `concat`. 이 차이가 #96 의 커밋 3·
   정상**이며, 불변이어야 할 것은 그 변경이 건드리지 않는 부분이다 — `<body>`.
   `og:url` 은 이미 `{{t:og_url}}` 마커라 그 값이 canonical 과 같아야 한다는
   것도 여기서 고정한다.
+- **OG 표면 점검 — `<head>` 의 Open Graph·Twitter 계열 표기.** 점검된 적이
+  없다. 현재 `og:title`·`og:description`·`og:image`·`og:url`·`og:type` 다섯과
+  `twitter:card` 하나(`template.html:8-13`). `og:locale` 이 없고 `twitter:card`
+  외의 `twitter:*` 가 없다. 이것은 검색 노출이 아니라 **링크 프리뷰(메신저·
+  SNS)의 사안**이며, docs/seo.md 가 근거로 들고 있지 않은 축이다 — 그 문서의
+  `og:` 언급은 「언어면 관계」의 `og:url` 한 줄뿐. 순서는 **실측 → 기대 →
+  구현** — OG 기대를 적기 전에 현재 표기 전수와 각 항목의 유무가 의도인지
+  누락인지를 먼저 확인한다(조사 프롬프트, §6). `og:image` 의 도메인
+  하드코딩(F4)은 URL 표기이므로 위 구현 3 번에서 닫히며 이 항목의 범위가
+  아니다.
 - **Search Console 등록 및 DNS TXT 설정** — 레포 밖 수작업. operations.md
   「레포 밖 수작업」. 등록 뒤 첫 확인 항목은 #97 본문의 머지 후 체크리스트다 —
   sitemap 상태가 "Couldn't fetch" 가 아닌 것.
