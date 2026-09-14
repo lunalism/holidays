@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+Allow: /$
+Allow: /en/$
+Allow: /ja/$
+
+Sitemap: https://holidays.lunalism.com/sitemap.xml
