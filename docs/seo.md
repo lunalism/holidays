@@ -47,12 +47,15 @@
 
 - **색인 대상** — 검색 결과에 나오기를 기대하는 URL. 위 유도 집합뿐이다.
 - **크롤 전용** — 색인되기를 기대하지 않지만 크롤러가 가져가야 하는 URL.
-  현재 `sitemap.xml` 하나다. `Sitemap:` 지시자가 가리키는 URL 의 취득에도
-  robots 규칙이 적용되기 때문에 필요하다 — Google robots.txt 사양의
-  `sitemap` 항목("may be followed by all crawlers, provided it isn't
-  disallowed for crawling")과 Search Console 도움말("Google respects
-  robots.txt when fetching sitemaps"). 언어에서 유도되지 않는 상수이고,
-  `landing/seo.py` 의 `CRAWL_ONLY_PATHS` 가 든다.
+  현재 `sitemap.xml` 과 `assets/og.png` 둘이다. 앞은 `Sitemap:` 지시자가
+  가리키는 URL 의 취득에도 robots 규칙이 적용되기 때문에 필요하다 — Google
+  robots.txt 사양의 `sitemap` 항목("may be followed by all crawlers,
+  provided it isn't disallowed for crawling")과 Search Console 도움말
+  ("Google respects robots.txt when fetching sitemaps"). 뒤는 세 면의
+  `og:image` 가 가리키는 이미지이고, 링크 프리뷰 크롤러가 robots 규칙을
+  적용하면 막힌 이미지는 프리뷰에 실리지 않는다 — X Cards 문서("If an
+  image URL is blocked, no thumbnail or photo will be shown"). 언어에서
+  유도되지 않는 상수이고, `landing/seo.py` 의 `CRAWL_ONLY_PATHS` 가 든다.
 
 `robots.txt` 의 `Allow` 는 두 집합의 합이다. `sitemap.xml` 의 `<loc>` 은
 색인 대상뿐이다. 둘을 한 집합으로 말하면 크롤 전용이 `<loc>` 로 새거나,
@@ -78,9 +81,15 @@ GitHub Pages 는 브랜치 루트를 통째로 낸다(`Deploy from a branch`,
 ### robots.txt 는 허용목록이다
 
 `Disallow: /` 를 먼저 두고 색인 대상과 크롤 전용만 `Allow` 한다. 색인
-대상이 로캘 수만큼으로 한정되고 크롤 전용이 상수 하나뿐이므로 열거가
+대상이 로캘 수만큼으로 한정되고 크롤 전용이 상수 몇 개뿐이므로 열거가
 무너지지 않고, 새 경로가 생겨도 기본값이 차단이다. 차단목록(`Disallow` 를
 경로마다 적는 것)은 경로를 더할 때마다 빠뜨릴 자리가 늘어난다.
+
+허용목록에서는 색인 대상만으로 충분하지 않다. 발행된 페이지가 가리키는
+리소스도 크롤 전용으로 함께 연다 — 문서가 그 URL 을 가리키는데 규칙이
+그 URL 을 막으면 가리킨 것이 쓸모없어진다. 현재 그 대상은 `sitemap.xml`
+(`Sitemap:` 지시자가 가리킨다)과 `assets/og.png`(세 면의 `og:image` 가
+가리킨다)이며, 둘 다 같은 이유로 필요하다.
 
 `Allow` 목록은 색인 대상(`languages()` × `page_path()`)과 크롤 전용
 (`CRAWL_ONLY_PATHS`)의 합이다. 앞은 sitemap 의 `<loc>` 과 같은 소스이고,
