@@ -20,6 +20,18 @@ ROBOTS_PATH = ROOT / "robots.txt"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
+# 크롤 전용 경로 — 색인되기를 기대하지 않지만 크롤러가 가져가야 하는 URL.
+# 색인 대상(languages() × page_path())과 별개 상수다. 그 유도식에 섞지
+# 않는다 — 섞으면 이 줄이 언어에서 유도되는 것으로 읽힌다.
+#
+# /sitemap.xml: Google 은 Sitemap: 지시자가 가리키는 URL 을 가져올 때도
+# robots 규칙을 적용한다 — Google robots.txt 사양 sitemap 항목 "may be
+# followed by all crawlers, provided it isn't disallowed for crawling",
+# Search Console 도움말(answer 7451001) "Google respects robots.txt when
+# fetching sitemaps". 이 줄이 없으면 /sitemap.xml 은 Disallow: / 에 걸려
+# Google 이 가져오지 못한다. docs/seo.md 「색인 대상」의 두 축 참조.
+CRAWL_ONLY_PATHS = ("/sitemap.xml",)
+
 
 def page_urls() -> list[str]:
     """색인 대상의 절대 URL. languages() 순서."""
@@ -30,8 +42,9 @@ def page_urls() -> list[str]:
 def robots_txt() -> str:
     """허용목록 robots.txt.
 
-    Disallow: / 를 먼저 두고 색인 대상만 Allow 한다. Allow 값은 page_path() 가
-    주는 디렉터리 형태에 `$` 를 붙인 것이다.
+    Disallow: / 를 먼저 두고 색인 대상과 크롤 전용만 Allow 한다. 색인 대상의
+    Allow 값은 page_path() 가 주는 디렉터리 형태에 `$` 를 붙인 것이고, 크롤
+    전용은 CRAWL_ONLY_PATHS 상수다.
 
     `$` 는 URL 의 끝을 뜻한다 — Google robots.txt 문서(developers.google.com
     /search/docs/crawling-indexing/robots/robots_txt)와 RFC 9309 §2.2.3 이
@@ -51,12 +64,13 @@ def robots_txt() -> str:
     """
     lines = ["User-agent: *", "Disallow: /"]
     lines += [f"Allow: {page_path(lang)}$" for lang in languages()]
+    lines += [f"Allow: {path}$" for path in CRAWL_ONLY_PATHS]
     lines += ["", f"Sitemap: {_site_base()}sitemap.xml"]
     return "\n".join(lines) + "\n"
 
 
 def sitemap_xml() -> str:
-    """색인 대상의 sitemap. <loc> 만 둔다.
+    """색인 대상의 sitemap. <loc> 만 둔다. 크롤 전용은 들어가지 않는다.
 
     lastmod·changefreq·priority 를 넣지 않는다. lastmod 는 발행 시각이 아니라
     실제 변경일이어야 하는데 워크플로에서 얻을 수 없고(fetch-depth: 1), 틀린

@@ -3,5 +3,6 @@ Disallow: /
 Allow: /$
 Allow: /en/$
 Allow: /ja/$
+Allow: /sitemap.xml$
 
 Sitemap: https://holidays.lunalism.com/sitemap.xml
