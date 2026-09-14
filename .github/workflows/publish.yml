@@ -136,6 +136,14 @@ jobs:
           set -o pipefail
           uv run python -m landing.render 2>&1 | tee -a "$BUILD_LOG_PATH"
 
+      # robots.txt·sitemap.xml 은 랜딩과 같은 언어 목록에서 유도된다. 랜딩과
+      # 마찬가지로 결정적이라 언어를 늘린 실행에서만 바뀐다. 별도 스텝인 것은
+      # 모듈이 다르고 실패 지점을 로그에서 가르기 위해서다.
+      - name: robots.txt·sitemap.xml 생성
+        run: |
+          set -o pipefail
+          uv run python -m landing.seo 2>&1 | tee -a "$BUILD_LOG_PATH"
+
       # ---------------------------------------------------------------
       # 여기부터 always(). 위에서 무엇이 실패했든 기록은 남는다.
       # ---------------------------------------------------------------
@@ -257,7 +265,9 @@ jobs:
           # landing/render.py 가 언어에서 유도하므로 여기에 목록을 적지 않는다.
           # 첫 발행(HEAD 에 없음)은 untracked 라 git diff 로 안 잡힌다 — 피드와
           # 같은 이유로 따로 본다.
-          for PAGE in index.html */index.html; do
+          # robots.txt·sitemap.xml 도 같은 언어 목록의 산출물이라 같은 조건으로
+          # 같은 커밋에 든다 — 언어가 늘면 페이지와 함께 바뀐다.
+          for PAGE in index.html */index.html robots.txt sitemap.xml; do
             [ -f "$PAGE" ] || continue
             if ! git cat-file -e "HEAD:${PAGE}" 2>/dev/null || ! git diff --quiet -- "$PAGE"; then
               stage_one "$PAGE"
