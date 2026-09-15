@@ -42,10 +42,12 @@ name(자기 언어로 적은 자기 이름)이라 번역 대상이 아니다.
     {{FEED_DATA}}  구독 절 JSON 블록. 제3의 문맥이라 따로 채운다.
     {{LANG_LINKS}} 언어 전환 링크 마크업. render 가 만든다.
     {{HREFLANG}}   <head> 의 hreflang <link> 목록. render 가 만든다.
+    {{OG_LOCALE_ALTERNATE}}  <head> 의 og:locale:alternate 목록. render 가 만든다.
 
-render 가 계산해 넣는 문구 키가 있다 — og_url(이 페이지의 절대 URL)과
-og_image(공유 이미지의 절대 URL). locale 에 적지 않고, 템플릿은 반드시 써야
-한다(양방향 검사에 든다). canonical 은 og_url 과 같은 값이라 템플릿이 같은
+render 가 계산해 넣는 문구 키가 있다 — og_url(이 페이지의 절대 URL),
+og_image(공유 이미지의 절대 URL), og_locale(locale 키를 OG 형식으로 바꾼 것),
+og_image_width·og_image_height(공유 이미지의 픽셀 크기). locale 에 적지 않고,
+템플릿은 반드시 써야 한다(양방향 검사에 든다). canonical 은 og_url 과 같은 값이라 템플릿이 같은
 마커를 두 번 쓴다 — 같은 값을 두 번 계산하지 않는다. <head> 의 절대 URL 은
 전부 _site_base() 에서 나온다(docs/seo.md 「언어면 관계」).
 
@@ -86,6 +88,7 @@ import html
 import importlib
 import json
 import re
+import struct
 from pathlib import Path
 
 import yaml
@@ -102,7 +105,14 @@ PLACEHOLDER = "{{FEED_DATA}}"
 LINKS_PLACEHOLDER = "{{LANG_LINKS}}"
 NOSCRIPT_PLACEHOLDER = "{{NOSCRIPT}}"
 HREFLANG_PLACEHOLDER = "{{HREFLANG}}"
-PLACEHOLDERS = (PLACEHOLDER, LINKS_PLACEHOLDER, NOSCRIPT_PLACEHOLDER, HREFLANG_PLACEHOLDER)
+OG_ALTERNATE_PLACEHOLDER = "{{OG_LOCALE_ALTERNATE}}"
+PLACEHOLDERS = (
+    PLACEHOLDER,
+    LINKS_PLACEHOLDER,
+    NOSCRIPT_PLACEHOLDER,
+    HREFLANG_PLACEHOLDER,
+    OG_ALTERNATE_PLACEHOLDER,
+)
 
 # 루트("/")에 남는 언어. 처음 발행된 페이지이고 그 URL 은 바꾸지 않는다.
 ROOT_LANG = "ko"
@@ -113,6 +123,7 @@ ROOT_LANG = "ko"
 X_DEFAULT_LANG = "en"
 # 공유 이미지. 사이트 루트 기준 경로이고 절대 URL 은 _site_base() 가 붙인다.
 OG_IMAGE_PATH = "assets/og.png"
+OG_IMAGE_FILE = ROOT / OG_IMAGE_PATH
 MARKER = re.compile(r"\{\{([tjp]):(\w+)\}\}")
 
 
@@ -158,6 +169,29 @@ def output_path(lang: str) -> Path:
 
 def _site_base() -> str:
     return f"https://{CNAME_PATH.read_text(encoding='utf-8').strip()}/"
+
+
+def _og_locale(bcp47: str) -> str:
+    """locale 키(BCP 47, `ko-KR`)를 og:locale 형식(`language_TERRITORY`, `ko_KR`)으로.
+
+    두 형식이 공존한다 — 한쪽이 틀린 것이 아니다. locale 키는 스크립트의
+    toLocaleDateString 이 쓰는 자리라 하이픈이 맞고, og:locale 은 OG 프로토콜이
+    밑줄로 정한다. 그래서 키를 고치지 않고 렌더 시점에 바꾼다(docs/seo.md
+    「링크 프리뷰 표기」 — 형식). 어느 한쪽으로 통일하지 않는다."""
+    return bcp47.replace("-", "_")
+
+
+def _png_size(path: Path) -> tuple[int, int]:
+    """PNG 의 폭·높이 — IHDR 청크(시그니처 8 바이트 뒤 첫 청크)에서 읽는다.
+
+    og:image:width/height 를 상수로 두지 않는 이유: 이미지가 바뀌었을 때 값이
+    어긋난 채로 통과한다. 파일은 CNAME·locales 와 같은 저장소 안의 입력이라
+    읽어도 "같은 입력이면 같은 출력" 이 깨지지 않는다. PNG 가 아니면 멈춘다 —
+    조용히 0×0 을 내지 않는다."""
+    head = path.read_bytes()[:24]
+    if head[:8] != b"\x89PNG\r\n\x1a\n" or head[12:16] != b"IHDR":
+        raise ValueError(f"{path.name} 이 PNG 가 아니다 — og:image 크기를 읽을 수 없다")
+    return struct.unpack(">II", head[16:24])
 
 
 def _load_yaml(path: Path) -> dict:
@@ -300,14 +334,17 @@ def _dumps_feed_data(data: dict) -> str:
 
 def _ui_strings(locale: dict, lang: str) -> dict:
     """마커가 참조할 수 있는 키 전부 — ui 아래, 최상위 lang·locale, 그리고
-    render 가 계산하는 og_url·og_image.
+    render 가 계산하는 og_url·og_image·og_locale·og_image_width·og_image_height.
 
     값은 문자열이거나 복수형 매핑(one·other)이다. 후자는 {{p:}} 마커의 값이고,
     마커 종류와 값이 맞는지는 _js_value·_html_text 가 본다."""
     strings = dict(locale["ui"])
+    width, height = _png_size(OG_IMAGE_FILE)
     computed = {"lang": locale["lang"], "locale": locale["locale"],
                 "og_url": _site_base().rstrip("/") + page_path(lang),
-                "og_image": _site_base() + OG_IMAGE_PATH}
+                "og_image": _site_base() + OG_IMAGE_PATH,
+                "og_locale": _og_locale(locale["locale"]),
+                "og_image_width": str(width), "og_image_height": str(height)}
     for key, value in computed.items():
         if key in strings:
             raise ValueError(f"locale ui 에 예약된 키가 있다: {key}")
@@ -340,6 +377,19 @@ def _hreflang_links() -> str:
     items.append(
         f'<link rel="alternate" hreflang="x-default" href="{base}{page_path(X_DEFAULT_LANG)}">'
     )
+    return "\n".join(items)
+
+
+def _og_locale_alternates(current: str) -> str:
+    """<head> 의 og:locale:alternate 목록 — 그 면이 아닌 나머지 언어. 속성을
+    반복하는 형태다(OG 프로토콜이 배열을 그렇게 표현한다). 언어 목록은 hreflang 과
+    같은 languages() 이고 값은 각 locale 의 locale 키를 _og_locale 로 바꾼 것."""
+    items = []
+    for lang in languages():
+        if lang == current:
+            continue
+        value = _og_locale(_load_yaml(LOCALES_DIR / f"{lang}.yaml")["locale"])
+        items.append(f'<meta property="og:locale:alternate" content="{value}">')
     return "\n".join(items)
 
 
@@ -539,9 +589,9 @@ def _fill_markers(template: str, strings: dict) -> str:
 
 
 def _check_placeholders(template: str) -> None:
-    """마커가 아닌 네 자리 — 각각 정확히 하나여야 한다.
+    """마커가 아닌 다섯 자리 — 각각 정확히 하나여야 한다.
 
-    넷 다 str.replace 로 채운다. 없으면 그 블록이 통째로 빠진 페이지가 나가고,
+    다섯 다 str.replace 로 채운다. 없으면 그 블록이 통째로 빠진 페이지가 나가고,
     **둘 이상이면 replace 가 전부 채워 같은 블록이 두 번 실린 페이지가 나간다.**
     둘 다 조용하다 — 마커와 달리 이 자리들은 양방향 검사에 들지 않는다.
 
@@ -554,7 +604,7 @@ def _check_placeholders(template: str) -> None:
 
 
 def render(lang: str = ROOT_LANG) -> str:
-    """파일에 쓸 문자열. 템플릿에 네 플레이스홀더가 정확히 하나씩 있어야 한다."""
+    """파일에 쓸 문자열. 템플릿에 다섯 플레이스홀더가 정확히 하나씩 있어야 한다."""
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
     _check_placeholders(template)
     locale = _load_yaml(LOCALES_DIR / f"{lang}.yaml")
@@ -562,6 +612,7 @@ def render(lang: str = ROOT_LANG) -> str:
     # 중괄호를 보지 않게 하기 위해서다(두 플레이스홀더는 검사에서 뺀다).
     page = _fill_markers(template, _ui_strings(locale, lang))
     page = page.replace(HREFLANG_PLACEHOLDER, _hreflang_links())
+    page = page.replace(OG_ALTERNATE_PLACEHOLDER, _og_locale_alternates(lang))
     at = page.index(LINKS_PLACEHOLDER)
     column = at - page.rfind("\n", 0, at) - 1
     page = page.replace(LINKS_PLACEHOLDER, _lang_links(lang).replace("\n", "\n" + " " * column))

@@ -311,8 +311,8 @@ def test_a_non_state_feed_without_a_desc_stops():
 
 @pytest.mark.parametrize(
     "reserved",
-    ["lang", "locale", "og_url", "og_image"],
-    ids=["lang", "locale", "og_url", "og_image"],
+    ["lang", "locale", "og_url", "og_image", "og_locale", "og_image_width", "og_image_height"],
+    ids=["lang", "locale", "og_url", "og_image", "og_locale", "og_image_width", "og_image_height"],
 )
 def test_a_locale_may_not_shadow_a_computed_key(reserved):
     # render 가 계산해 넣는 이름 셋이다. locale 의 ui 가 같은 이름을 쓰면 어느
@@ -336,18 +336,19 @@ def test_a_well_formed_locale_yields_the_computed_keys():
     # 양성 대조. 위 검사들이 계산 키를 막는 것이 아니라 겹침을 막는 것임을
     # 못 박는다.
     strings = render._ui_strings({"lang": "ko", "locale": "ko-KR", "ui": {"a": "x"}}, "ko")
-    assert {"a", "lang", "locale", "og_url", "og_image"} <= set(strings)
+    assert {"a", "lang", "locale", "og_url", "og_image", "og_locale"} <= set(strings)
+    assert {"og_image_width", "og_image_height"} <= set(strings)
 
 
 # ---------------------------------------------------------------------------
-# 마커가 아닌 네 자리 — 각각 정확히 하나
+# 마커가 아닌 다섯 자리 — 각각 정확히 하나
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.parametrize(
     "placeholder",
     list(render.PLACEHOLDERS),
-    ids=["FEED_DATA", "LANG_LINKS", "NOSCRIPT", "HREFLANG"],
+    ids=["FEED_DATA", "LANG_LINKS", "NOSCRIPT", "HREFLANG", "OG_LOCALE_ALTERNATE"],
 )
 @pytest.mark.parametrize("count", [0, 2], ids=["없음", "둘"])
 def test_each_placeholder_must_appear_exactly_once(placeholder, count):
@@ -361,8 +362,8 @@ def test_each_placeholder_must_appear_exactly_once(placeholder, count):
     assert placeholder in str(caught.value)
 
 
-def test_all_four_placeholders_present_once_pass():
-    # 양성 대조. 넷이 하나씩이면 통과한다 — 실제 템플릿이 그 상태다.
+def test_all_placeholders_present_once_pass():
+    # 양성 대조. 전부 하나씩이면 통과한다 — 실제 템플릿이 그 상태다.
     template = " ".join(render.PLACEHOLDERS)
     assert render._check_placeholders(template) is None
 
