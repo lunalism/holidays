@@ -18,6 +18,10 @@ dependencies = [
 [dependency-groups]
 dev = [
     "holidays==0.102",
+    # 브라우저 스모크(tests/test_landing_smoke.py). 이 패키지 버전이 브라우저
+    # 리비전을 1:1 로 정하므로 결과를 정하는 외부 기준으로 보고 holidays 와
+    # 같이 == 로 둔다. 올리면 리비전이 바뀌고 CI 캐시 키도 같이 바뀐다.
+    "playwright==1.62.0",
     "pytest>=8.0",
     "ruff>=0.6",
 ]
