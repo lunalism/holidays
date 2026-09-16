@@ -75,6 +75,47 @@ jobs:
         run: uv sync
 
       # ---------------------------------------------------------------
+      # 브라우저 스모크(tests/test_landing_smoke.py)의 바이너리.
+      # 기대와 경계는 docs/browser-smoke.md 가 든다. 여기는 그 문서가 구현에
+      # 넘긴 둘 — 캐시 키와 설치 방식 — 을 적는 자리다.
+      #
+      # 경로는 아래 스텝이 한 번 정하고 캐시·설치·테스트가 같은 환경변수
+      # (PLAYWRIGHT_BROWSERS_PATH)로 읽는다. 셋이 다른 경로를 보면 캐시는
+      # 적중하는데 launch 는 바이너리를 못 찾는다.
+      #
+      # 캐시 키는 playwright-{OS}-{아키텍처}-{playwright 패키지 버전}이다.
+      # 브라우저 리비전은 패키지 버전이 1:1 로 정하므로(패키지 안
+      # browsers.json) 버전이 곧 리비전이다. 버전은 uv sync 뒤 설치된
+      # 패키지 메타데이터에서 읽는다 — uv.lock 해시를 쓰지 않는 것은 무관한
+      # 의존 변경마다 미스가 나기 때문이다. OS·아키텍처는 zip 이 플랫폼별이라
+      # 든다.
+      #
+      # 시스템 라이브러리는 받지 않는다(--with-deps 없음). 받으면 매 run
+      # apt 저장소에 기대게 된다. 러너 이미지에 Chrome 이 apt 로 깔려 있어
+      # 같은 라이브러리가 이미 있다.
+      #
+      # 적중하면 설치 스텝은 있는 것을 다시 받지 않는다 — 네트워크 없음.
+      # 발행 run 이 주 3 회 main 스코프의 이 캐시를 읽으므로 PR 이 뜸해도
+      # 7 일 미접근 삭제에 걸리지 않는다.
+      # ---------------------------------------------------------------
+      - name: 브라우저 버전·경로
+        id: browser
+        run: |
+          echo "PLAYWRIGHT_BROWSERS_PATH=${RUNNER_TEMP}/ms-playwright" >> "$GITHUB_ENV"
+          VERSION="$(uv run python -c 'from importlib.metadata import version; print(version("playwright"))')"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: 브라우저 캐시
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+          key: playwright-${{ runner.os }}-${{ runner.arch }}-${{ steps.browser.outputs.version }}
+
+      # headless shell 만. 적중 시 무동작이다.
+      - name: 브라우저 설치
+        run: uv run playwright install --only-shell chromium
+
+      # ---------------------------------------------------------------
       # 검사가 먼저다. 깨진 상태로는 발행하지 않는다.
       # 여기서 멈추면 이전 발행본이 그대로 남는다 — 낡은 피드가 틀린
       # 피드보다 낫다.
