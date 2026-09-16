@@ -57,7 +57,7 @@ jobs:
       FEEDS: kr jp kr_jp kr_only jp_only de de_be de_by de_he de_hh de_nw de_sh de_bw de_ni de_rp
     steps:
       - name: 체크아웃
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # 이전 발행본을 읽어야 한다. SEQUENCE 의 진실 공급원이 feeds/kr.ics
           # 라서 그 파일의 내용이 필요하다.
@@ -66,8 +66,11 @@ jobs:
           # 파일 내용이고, 커밋도 그 위에 하나 쌓는 것뿐이다.
           fetch-depth: 1
 
+      # uv 는 먼저 Astral 미러(releases.astral.sh)에서 받는다. 실패하면 GitHub
+      # Releases 로 되돌아가 다시 받고 그때 경고가 남는다. 액션의 기본값이며
+      # v7 에는 끄는 입력이 없다.
       - name: uv 설치
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 

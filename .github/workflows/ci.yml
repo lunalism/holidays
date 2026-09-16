@@ -48,10 +48,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 체크아웃
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
+      # uv 는 먼저 Astral 미러(releases.astral.sh)에서 받는다. 실패하면 GitHub
+      # Releases 로 되돌아가 다시 받고 그때 경고가 남는다. 액션의 기본값이며
+      # v7 에는 끄는 입력이 없다.
       - name: uv 설치
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
