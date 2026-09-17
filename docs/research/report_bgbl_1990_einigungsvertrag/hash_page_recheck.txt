@@ -1,0 +1,8 @@
+live3_bgbl290s0885.pdf: pdf-page 6, image XObjects: 1, encrypted=True
+  /I5>/Im0 obj (35, 0) Filter=/CCITTFaxDecode 618x877 bpc=1 cs=/DeviceGray Decode=[1, 0] Length=19664 DecodeParms={'/BlackIs1': False, '/Columns': 618, '/EncodedByteAlign': True, '/EndOfLine': False, '/K': -1, '/Rows': 877}
+    (a)  decrypted, still encoded len=19643 sha256=0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af  [pikepdf]
+    (a)  decrypted, still encoded len=19643 sha256=0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af  [pypdf]  agree=True
+wayback3b_20230719131947.pdf: pdf-page 6, image XObjects: 1, encrypted=True
+  /I5>/Im0 obj (35, 0) Filter=/CCITTFaxDecode 618x877 bpc=1 cs=/DeviceGray Decode=[1, 0] Length=19664 DecodeParms={'/BlackIs1': False, '/Columns': 618, '/EncodedByteAlign': True, '/EndOfLine': False, '/K': -1, '/Rows': 877}
+    (a)  decrypted, still encoded len=19643 sha256=0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af  [pikepdf]
+    (a)  decrypted, still encoded len=19643 sha256=0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af  [pypdf]  agree=True

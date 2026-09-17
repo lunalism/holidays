@@ -59,7 +59,7 @@ EXPECTED_2026 = [
     (dt.date(2026, 12, 26), "Zweiter Weihnachtstag", "zweiter_weihnachtstag"),
 ]
 
-# 통일의 날 공포본 — ~/holidays-reports/report_bgbl_1990_einigungsvertrag.md 의 값 그대로.
+# 통일의 날 공포본 — docs/research/report_bgbl_1990_einigungsvertrag.md 의 값 그대로.
 # 이 공포본은 파일 sha256 이 재현되지 않는다(요청마다 AES 재암호화). 그래서 값은
 # 인용 면(S. 890 = PDF 6 쪽)의 이미지 스트림 sha256 이고, 그 정의는
 # rules/de/solar_holidays.yaml 머리 주석에 있다. 구현 세션에서 bgbl.de 와 Wayback
