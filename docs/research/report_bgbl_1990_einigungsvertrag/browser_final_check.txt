@@ -1,0 +1,14 @@
+=== [1] jumpTo
+    https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf
+    pdf.js pagesCount: 364
+    pdf.js url 에 bgbl290s0885.pdf 포함: True | 파일명: bgbl_Bundesgesetzblatt Teil II_1990_Nr. 35 vom 28.09.1990_bgbl290s0885.pdf
+    경로 표시: ['Nr. 35 vom 28.09.1990', 'Bundesgesetzblatt Teil II1990Nr. 35 vom 28.09.1990Gesetz zu dem Vertrag vom 31. August 1990 zwischen der Bundesrepublik Deutschland und der Deutschen ...']
+    'Linkadresse anzeigen' 이 내는 값: ['http://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf']
+    console errors: []
+=== [2] start=attr_id
+    https://www.bgbl.de/xaver/bgbl/start.xav?start=%2F%2F*%5B%40attr_id%3D%27bgbl290s0885.pdf%27%5D
+    pdf.js pagesCount: 364
+    pdf.js url 에 bgbl290s0885.pdf 포함: True | 파일명: bgbl_Bundesgesetzblatt Teil II_1990_Nr. 35 vom 28.09.1990_bgbl290s0885.pdf
+    경로 표시: ['Nr. 35 vom 28.09.1990', 'Bundesgesetzblatt Teil II1990Nr. 35 vom 28.09.1990Gesetz zu dem Vertrag vom 31. August 1990 zwischen der Bundesrepublik Deutschland und der Deutschen ...']
+    'Linkadresse anzeigen' 이 내는 값: ['http://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf']
+    console errors: []
