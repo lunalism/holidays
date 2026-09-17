@@ -59,6 +59,24 @@ EXPECTED_2026 = [
     (dt.date(2026, 12, 26), "Zweiter Weihnachtstag", "zweiter_weihnachtstag"),
 ]
 
+# 통일의 날 공포본 — ~/holidays-reports/report_bgbl_1990_einigungsvertrag.md 의 값 그대로.
+# 이 공포본은 파일 sha256 이 재현되지 않는다(요청마다 AES 재암호화). 그래서 값은
+# 인용 면(S. 890 = PDF 6 쪽)의 이미지 스트림 sha256 이고, 그 정의는
+# rules/de/solar_holidays.yaml 머리 주석에 있다. 구현 세션에서 bgbl.de 와 Wayback
+# 에서 재수령해 pikepdf·pypdf 두 도구로 같은 값을 얻었다(2026-09-17).
+BGBL_1990 = {
+    "cite": "BGBl. 1990 II Nr. 35 S. 889",
+    "article_page": "Art. 2 는 S. 890",
+    "published": "28.09.1990",
+    "attr_id": "bgbl290s0885.pdf",
+    "url": "https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf",
+    "wayback": "https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf",
+    "hash_kind": "S. 890 이미지 스트림 sha256",
+    "sha256": "0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af",
+}
+READ_ON = "2026-09-17 열람"
+UNITY_QUOTE = "'Der 3. Oktober ist als Tag der Deutschen Einheit gesetzlicher Feiertag.'"
+
 # 부활절 기준 오프셋. /tmp/report_de.md §3 — Karfreitag −2, Ostermontag +1,
 # Christi Himmelfahrt +39, Pfingstmontag +50.
 EASTER_OFFSETS = {
@@ -294,6 +312,35 @@ def test_only_the_unity_day_is_verified():
         if key != "tag_der_deutschen_einheit":
             assert entry["verified"] is False, key
             assert entry.get("source_todo"), key
+
+
+def test_the_unity_day_cites_the_federal_gazette_by_page_image_hash():
+    """통일의 날의 근거는 연방 관보 공포본이다 — BGBl. 1990 II Nr. 35, 조약 S. 889,
+    Art. 2 는 S. 890. 파일 해시가 재현되지 않는 공포본이라 S. 890 이미지 스트림의
+    sha256 을 적는다(정의는 규칙 YAML 머리 주석). 파일 해시·다른 해시는 적지 않는다."""
+    entry = {e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"]
+    source = " ".join(entry["source"].split())
+    assert source.startswith("Einigungsvertrag Art. 2 Abs. 2 — " + UNITY_QUOTE)
+    for value in BGBL_1990.values():
+        assert value in source, value
+    assert READ_ON in source
+    assert "머리 주석" in source  # 해시 정의가 사는 곳을 가리킨다
+    assert "gesetze-im-internet" not in source.split("—")[0]
+    # 64 자 hex 는 정의된 그 값 하나뿐이어야 한다 — 파일 해시나 비트맵 해시가 섞이면 안 된다.
+    assert re.findall(r"\b[0-9a-f]{64}\b", source) == [BGBL_1990["sha256"]]
+
+
+def test_the_yaml_head_comment_defines_the_page_image_hash():
+    """남이 같은 값을 얻을 수 있어야 한다. 머리 주석은 경로(6 쪽 → /I5 → /Im0)·복호화
+    (빈 비밀번호)·필터를 풀지 않은 바이트·재현 명령(도구 버전)·값을 다 적는다."""
+    head = feed.SOLAR_PATH.read_text(encoding="utf-8").split("holidays:")[0]
+    for needle in (
+        "6 쪽", "/I5", "/Im0", "객체 35 0", "빈 문자열", "CCITTFaxDecode", "풀지 않은",
+        "19,643", "read_raw_bytes", "pikepdf==9.11.0", "pypdf 6.19.0",
+        BGBL_1990["sha256"], BGBL_1990["attr_id"], BGBL_1990["wayback"], "28.09.1990",
+        READ_ON,
+    ):
+        assert needle in head, needle
 
 
 def test_every_description_carries_the_source(events):

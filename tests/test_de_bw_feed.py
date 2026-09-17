@@ -459,6 +459,23 @@ def test_unity_day_is_grounded_in_the_unification_treaty_not_in_section_1():
     assert "§ 7 Abs. 2" in entry["source"]  # 전제 조항 부기
 
 
+def test_unity_day_mirrors_the_federal_gazette_citation_of_rules_de():
+    """미러는 서지까지 같아야 한다. rules/de 가 든 공포본(BGBl. 1990 II Nr. 35, S. 890
+    이미지 스트림 sha256, 열람일)을 de_bw 도 그대로 들고, 통합본을 근거로 되돌리지
+    않는다. 값의 정본은 tests/test_de_feed.py 의 BGBL_1990 이다."""
+    from tests.test_de_feed import BGBL_1990
+    from tests.test_de_feed import READ_ON as DE_READ_ON
+
+    entry = {e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"]
+    source = " ".join(entry["source"].split())
+    for value in BGBL_1990.values():
+        assert value in source, value
+    assert DE_READ_ON in source
+    assert "rules/de" in source  # 미러라는 사실은 남긴다
+    assert "gesetze-im-internet" not in source.split("—")[0]
+    assert re.findall(r"\b[0-9a-f]{64}\b", source) == [BGBL_1990["sha256"]]
+
+
 def _de_raw_entries() -> list:
     out = []
     for path in (de_feed.SOLAR_PATH, de_feed.EASTER_PATH):

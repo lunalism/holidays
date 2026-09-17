@@ -144,8 +144,15 @@ holidays:
     verified: true
     source: >-
       Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der Deutschen Einheit
-      gesetzlicher Feiertag.' (gesetze-im-internet.de; rules/de 의 같은 항목을 미러).
-      FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des
+      gesetzlicher Feiertag.' — Vertrag vom 31.08.1990, BGBl. 1990 II Nr. 35 S. 889,
+      Art. 2 는 S. 890 (28.09.1990 공포; bgbl.de 문서 bgbl290s0885.pdf
+      https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf
+      Wayback 사본
+      https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf
+      파일 sha256 은 요청마다 달라 적지 않고 S. 890 이미지 스트림 sha256
+      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 —
+      정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 의
+      같은 항목을 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des
       3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S. 450). 날짜는 조문에 박혀 있고
       feiertage-api 2026 BW 대조 일치
 
