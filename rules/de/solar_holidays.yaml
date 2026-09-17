@@ -28,9 +28,37 @@
 # BW FTG § 1 의 열거가 일치하는 표기다. API·라이브러리의 표기(Neujahrstag,
 # Tag der Arbeit, Erster Mai, 1. Weihnachtstag 등)를 쓰지 않는다.
 #
+# --- 공포본: 통일의 날 (연방 관보, 2026-09-17 열람) ---
+# Einigungsvertrag(Vertrag vom 31.08.1990) Art. 2 Abs. 2 의 공포본은 BGBl. 1990 II
+#   Nr. 35 (28.09.1990 공포) — Einigungsvertragsgesetz S. 885, 조약 본문 S. 889,
+#   Art. 2 는 S. 890. 열람처는 Bundesanzeiger Verlag 가 운영하는 1949–2022 공개
+#   아카이브 bgbl.de(recht.bund.de 가 2023 이전분 열람처로 지정). 문서 식별자
+#   attr_id bgbl290s0885.pdf (S. 885–1248, 364 쪽, 텍스트층 없는 스캔).
+#   https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf
+#   (URL 형식은 사이트의 「Linkadresse anzeigen」 기능이 내는 것이다. 문서는 JS 가
+#   연다 — 정적 응답에는 식별자가 없고 브라우저에서 pdf.js 뷰어로 364 쪽이 뜬다.)
+#   Wayback 사본(원본 바이트):
+#   https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf
+# 파일 sha256 을 적지 않는 이유: bgbl.de 는 요청마다 PDF 를 새로 만들어 AES-128 로
+#   재암호화하므로(/ID·/Info·xref 도 바뀜) 파일 해시가 재현되지 않는다. 다섯 벌
+#   (라이브 2026 두 번, Wayback 2021·2021·2023)을 복호화해 비교하면 xref 스트림
+#   하나만 다르고 이미지 364 개를 포함한 나머지 객체는 전부 동일했다.
+# 대신 적는 값 — S. 890 이미지 스트림 sha256(복호화 후, 필터를 풀지 않은 바이트):
+#   0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af
+#   정의: PDF 6 쪽(= S. 890)의 /Resources /XObject /I5 (Form XObject) 안의
+#   /XObject /Im0 (이미지 XObject, 객체 35 0, CCITTFaxDecode 618×877 1-bit).
+#   사용자 비밀번호 빈 문자열로 복호화한 뒤, /Filter(CCITTFaxDecode)를 풀지 않은
+#   스트림 바이트 19,643 B 의 sha256. 디스크의 암호문 그대로도, 디코드한 비트맵도
+#   아니다. 재현(격리 실행, 레포 의존성 아님; pikepdf 9.11.0 / libqpdf 12.2.0):
+#     uv run --with pikepdf==9.11.0 python -c "import pikepdf,hashlib;p=pikepdf.open('bgbl290s0885.pdf');im=p.pages[5].Resources.XObject['/I5'].Resources.XObject['/Im0'];print(im.objgen,hashlib.sha256(im.read_raw_bytes()).hexdigest())"
+#     → (35, 0) 0f70b21d…a6af. pypdf 6.19.0(StreamObject._data)으로도 같은 값.
+# 자구: S. 890 스캔 판독 「Der 3. Oktober ist als Tag der Deutschen Einheit
+#   gesetzlicher Feiertag.」가 아래 source 인용 71 자와 일치. gesetze-im-internet
+#   통합본(XML builddate 20260506)에서 Art. 2 는 개정 기록 없음.
+#
 # --- verified ---
 # 원문을 직접 본 항목만 true. 통일의 날은 Einigungsvertrag Art. 2 Abs. 2 를
-# gesetze-im-internet.de(공식)에서 읽었다. 나머지는 연방내무부의 서술과
+# 위 공포본(BGBl. 1990 II S. 890)에서 읽었다. 나머지는 연방내무부의 서술과
 # BayFTG Art. 1 원문, 독립 소스 3 종(feiertage-api.de·openholidaysapi.org·
 # python-holidays)의 교차 실측이 일치하는 것까지다 — 주법 원문 16 벌 중
 # 15 벌을 아직 보지 않았으므로 false 로 둔다.
@@ -65,7 +93,15 @@ holidays:
     verified: true
     source: >-
       Einigungsvertrag Art. 2 Abs. 2 — 'Der 3. Oktober ist als Tag der
-      Deutschen Einheit gesetzlicher Feiertag.' (gesetze-im-internet.de)
+      Deutschen Einheit gesetzlicher Feiertag.' — Vertrag vom 31.08.1990,
+      BGBl. 1990 II Nr. 35 S. 889, Art. 2 는 S. 890 (28.09.1990 공포; bgbl.de
+      문서 bgbl290s0885.pdf
+      https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl290s0885.pdf
+      Wayback 사본
+      https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf
+      파일 sha256 은 요청마다 달라 적지 않고 S. 890 이미지 스트림 sha256
+      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 —
+      정의는 이 파일 머리 주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
 
   - key: erster_weihnachtstag
     name: Erster Weihnachtstag
