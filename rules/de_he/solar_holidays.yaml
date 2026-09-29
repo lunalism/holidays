@@ -3,16 +3,67 @@
 # 근거: Hessisches Feiertagsgesetz (HFeiertagsG) § 1 Abs. 1 — "Gesetzliche Feiertage
 # sind die Sonntage sowie 1. der Neujahrstag, 2. der Karfreitag, 3. der Ostermontag,
 # 4. der 1. Mai, 5. der Himmelfahrtstag, 6. der Pfingstmontag, 7. der Fronleichnamstag,
-# 8. der Tag der Deutschen Einheit, 9. der 1. und 2. Weihnachtstag."
+# 8. der Tag der Deutschen Einheit, 9. der 1. und 2. Weihnachtstag." — 아래 두
+# 공포본을 차례로 적용한 자구다(공포본 스캔 판독).
 # 고정 날짜는 Nr. 1·4·8·9 — Nr. 9 가 한 호에 이틀이라 항목은 다섯이다. 전국 공통
 # 5 건 그대로이고 헤센만의 고정 항목은 없다.
+#
+# --- 공포본 두 호 (starweb.hessen.de, 헤센 주의회 서버 PDF, 2026-09-29 열람, 재수령 대조 일치) ---
+#   1971  Bekanntmachung der Neufassung des Gesetzes über die Sonn- und Feiertage
+#         vom 29.12.1971, GVBl. 1971 I Nr. 36 S. 343(§ 1 은 S. 344, 30.12.1971 공포).
+#         § 1 Abs. 1 을 Nr. 1~10 으로 전문 공고 — Nr. 8 은 "der Tag der deutschen
+#         Einheit (17. Juni)", Nr. 9 는 Buß- und Bettag, Nr. 10 은 "der 1. und 2.
+#         Weihnachtsfeiertag". 1952 제정과 1971 이전 개정은 이 Neufassung 이 전문을
+#         실으므로 거슬러 올라가지 않는다.
+#         https://starweb.hessen.de/cache/GVBL/1971/00036.pdf
+#         sha256 fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55
+#   1994  Fünftes Gesetz zur Änderung des Hessischen Feiertagsgesetzes vom 11.10.1994
+#         Art. 1 Nr. 1 — a) Nr. 8 을 "der Tag der Deutschen Einheit," 로, b) Nr. 9·10 을
+#         새 Nr. 9 "der 1. und 2. Weihnachtstag." 로. GVBl. 1994 I Nr. 25 S. 596
+#         (19.10.1994 공포, 31.12.1994 시행).
+#         https://starweb.hessen.de/cache/GVBL/1994/00025.pdf
+#         sha256 a16fbf4cc3298d219e56cc8e0d1f7354d3d33c822058f41b3c07153ef0ef8ff5
+# 두 파일 모두 같은 URL 을 두 번 받아 sha256 이 같았고, Wayback 사본(2023–2026)의
+# digest 도 같다 — NI·BW·NW 와 같은 파일 해시형이다. 두 판 모두 CCITT G4 스캔에
+# 텍스트층이 없다. 판독 근거는 면 이미지이고 OCR 은 교차 확인에만 썼다.
+# 조사 보고·전사본: docs/research/report_he_be_gazette_access.md 와 같은 이름의 폴더.
+#
+# --- 개정 체인과 그 닫힘 ---
+# § 1 Abs. 1 에 닿은 개정으로 찾은 것은 1994 S. 596 하나다. 1971 이후 개정은 공포본
+# 서두의 자기 인용("zuletzt geändert durch …")으로 차례로 이어진다.
+#   1974  GVBl. 1974 I Nr. 17 S. 241 (Gesetz zur Änderung kommunalrechtlicher
+#         Vorschriften, 15.05.1974) — § 14·§ 16 만. 1994 서두가 인용
+#   1994  GVBl. 1994 I Nr. 25 S. 596 — § 1 Abs. 1 Nr. 8·9·10, § 7·8·9·17·18
+#   1997  GVBl. 1997 I Nr. 24 S. 396 (Sechstes Änderungsgesetz) — § 14 만. 서두가
+#         1994 를 인용
+#   2010  GVBl. 2010 I Nr. 2 S. 10 — § 6·§ 14·§ 17. 서두가 1997 을 인용
+#   2012  GVBl. 2012 Nr. 28 S. 622 (Art. 3) — § 17 Satz 2 삭제. 서두가 2010 을 인용
+#   2021  GVBl. 2021 Nr. 17 의 명령이 이 법을 "zuletzt geändert durch Gesetz vom
+#         13. Dezember 2012 (GVBl. S. 622)" 로 인용
+# 그 밖의 검색:
+#   - 1952–2009 연간 색인(inhalt.pdf, 스캔 쪽은 OCR)에서 「Feiertag」 항목을 찾았다.
+#     색인은 1974 옴니버스 개정을 이 항목에 올리지 않았다 — 체인은 서두 인용으로 세웠다.
+#   - 2013–2022 는 연간 색인(00000.pdf, 텍스트층)과 전 호 텍스트 검색, 2023–2026 은
+#     연간 색인이 없어 전 호 텍스트 검색만으로 봤다(2026 Nr. 65, 28.09.2026 까지).
+#     Feiertagsgesetz 를 개정한 호를 찾지 못했다.
+#   - 2010–2026 의 776 호 가운데 텍스트층이 없는 것은 2012 Nr. 16 하나이고, 그 호는
+#     1 쪽 목차만 OCR 로 봤다.
+#
+# --- 공포본과 비공식 사본의 차이 ---
+# 비공식 현행판 umwelt-online(Stand 28.08.2023)의 § 1 Abs. 1 은 위 공포본 자구와
+# 같다. Bistum Fulda PDF·EKHN 사본은 Nr. 8 을 소문자 "deutschen" 으로 적는다 —
+# 1971 종전 문언("der Tag der deutschen Einheit (17. Juni)")도 소문자이고, 1994 새
+# 문언은 대문자 "Deutschen" 이다. EKHN 사본은 호 번호 없이 열거한다.
 #
 # --- 범위 밖 ---
 # § 1 에 지자체·집단 한정 항목이 없다. Bistum Fulda PDF 에 실린 시행규칙
 # (Verwaltungsvorschrift zum HFeiertagsG, StAnz. 1995 S. 16) "Zu § 4" 의 학생 수업
 # 면제일(Aschermittwoch, Mariä Himmelfahrt, Reformationstag, Allerheiligen, Buß-
-# und Bettag)은 학교 한정이지 공휴일이 아니다. § 2(주 정부 명령에 의한 일회성
-# 공휴일 수권)에 따른 명령은 조사에서 확인된 것이 없어 일회성 표를 두지 않는다.
+# und Bettag)은 학교 한정이지 공휴일이 아니다.
+# 일회성: § 2(주 정부 명령에 의한 일회성 공휴일 수권)에 따른 명령으로
+# 2017-10-31(Reformationstag)이 있었다 — Verordnung zur Bestimmung des
+# Reformationstages 2017 zum gesetzlichen Feiertag vom 16.10.2013, GVBl. 2013 S. 566.
+# 피드 범위(RANGE_START 2020-01-01, rules/de_he/feed.py) 밖이라 일회성 표는 두지 않는다.
 #
 # --- 대체공휴일(이동) 규칙이 없다 ---
 # § 1 Abs. 1 은 "die Sonntage sowie …" 로 일요일 자체를 공휴일로 두고 이동 조항이
@@ -27,22 +78,22 @@
 # 겹친다.
 #
 # --- name ---
-# SUMMARY 에 그대로 실린다. § 1 Abs. 1 의 조문 표기(umwelt-online 현행판)에서
-# 정관사 der 를 뺀 것이다. de.ics(BayFTG 표기)와 다른 항목: Neujahrstag,
-# 1. Weihnachtstag, 2. Weihnachtstag — 헤센 조문이 그렇다. Bistum Fulda PDF 는
-# Nr. 8 을 "der Tag der deutschen Einheit"(소문자 d)로 적는다 — umwelt-online 의
-# 대문자 D 를 따르고 차이는 해당 항목 source 에 남긴다.
+# SUMMARY 에 그대로 실린다. § 1 Abs. 1 의 조문 표기(위 공포본 자구)에서 정관사
+# der 를 뺀 것이다. de.ics(BayFTG 표기)와 다른 항목: Neujahrstag,
+# 1. Weihnachtstag, 2. Weihnachtstag — 헤센 조문이 그렇다.
 #
 # --- verified ---
-# 원문을 직접 본 항목만 true. 공식 포털 rv.hessenrecht.hessen.de 는 JS 셸만 돌아와
-# (curl·headless 180초·WebFetch 실패, /tmp/report_de_laender.md HE §1) 열람하지
-# 못했다. 조문은 비공식 현행판 둘(umwelt-online Stand 28.08.2023, Bistum Fulda PDF)
-# 로 읽고, 날짜는 준공식 innen.hessen.de 2026 목록과 feiertage-api 2026 HE 로
-# 대조했다(10/10). 그래서 전부 false 다 — BE 기저 9 건과 같은 관례. 항목별 source
-# 에 자기 호 번호와 그 호의 조문 표기를 따옴표로 담고, source_todo 에 공식 경로를
-# 남긴다.
+# 원문을 직접 본 항목만 true. 10 건 전부 위 공포본 두 호의 면 이미지를 판독해 자구를
+# 확인했다(Nr. 1~7 은 1971, Nr. 8 은 1994, Nr. 9 는 1994 새 문언 + 1971 종전 Nr. 10).
+# 공식 통합본 포털 rv.hessenrecht.hessen.de 는 2026-09-29 에도 JS 셸만 돌려주고, 그
+# 셸이 쓰는 API(/jportal/wsrest/recherche3/)는 인증 없이 "security_notAuthenticated"
+# 로 거절한다 — 포털 통합본은 근거로 쓰지 않았다. 날짜는 준공식 innen.hessen.de 2026
+# 목록과 feiertage-api 2026 HE 로 대조했다(10/10). 항목별 source 는 자기 호 번호
+# (§ 1 Abs. 1 Nr. n)·조문 자구와 자기 공포본의 서지·공포일·PDF URL·sha256·열람일을
+# 스스로 든다 — source 는 DESCRIPTION 의 "근거:" 뒤에 그대로 실리므로 이 주석을
+# 가리키지 않는다.
 #
-# verified 와 source_todo 는 피드에 나가지 않는다(rules/de_he/feed.py).
+# verified 는 피드에 나가지 않는다(rules/de_he/feed.py).
 
 # --- scope ---
 # bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
@@ -57,61 +108,88 @@ holidays:
     scope: bundesweit
     month: 1
     day: 1
-    verified: false
+    verified: true
     source: >-
-      HFeiertagsG § 1 Abs. 1 Nr. 1 'der Neujahrstag' — umwelt-online 현행판(Stand
-      28.08.2023) + Bistum Fulda PDF 동일 자구. 날짜 1. 1. 은 innen.hessen.de 2026
+      HFeiertagsG § 1 Abs. 1 Nr. 1 'der Neujahrstag' — Bekanntmachung der Neufassung des
+      Gesetzes über die Sonn- und Feiertage vom 29.12.1971, GVBl. 1971 I Nr. 36 S. 343, §
+      1 은 S. 344 (30.12.1971 공포; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1971/00036.pdf sha256
+      fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55, 2026-09-29 열람, 재수령
+      대조 일치). 1994 개정(GVBl. 1994 I S. 596)은 이 호를 건드리지 않았고 § 1 Abs. 1 의 1994 이후 개정은 찾지
+      못함(GVBl. 2026 Nr. 65 까지, 공포본 자기 인용·연간 색인·전 호 검색). 날짜 1. 1. 은 innen.hessen.de 2026
       목록·feiertage-api 2026 HE 대조 일치
-    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
 
   - key: erster_mai
     name: 1. Mai
     scope: bundesweit
     month: 5
     day: 1
-    verified: false
+    verified: true
     source: >-
-      HFeiertagsG § 1 Abs. 1 Nr. 4 'der 1. Mai' — umwelt-online 현행판(Stand
-      28.08.2023) + Bistum Fulda PDF 동일 자구. 날짜는 조문에 박혀 있고
-      innen.hessen.de 2026 목록·feiertage-api 2026 HE(Tag der Arbeit) 대조 일치
-    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+      HFeiertagsG § 1 Abs. 1 Nr. 4 'der 1. Mai' — Bekanntmachung der Neufassung des
+      Gesetzes über die Sonn- und Feiertage vom 29.12.1971, GVBl. 1971 I Nr. 36 S. 343, §
+      1 은 S. 344 (30.12.1971 공포; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1971/00036.pdf sha256
+      fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55, 2026-09-29 열람, 재수령
+      대조 일치). 1994 개정(GVBl. 1994 I S. 596)은 이 호를 건드리지 않았고 § 1 Abs. 1 의 1994 이후 개정은 찾지
+      못함(GVBl. 2026 Nr. 65 까지, 공포본 자기 인용·연간 색인·전 호 검색). 날짜는 조문에 박혀 있고 innen.hessen.de 2026
+      목록·feiertage-api 2026 HE(Tag der Arbeit) 대조 일치
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
     scope: bundesweit
     month: 10
     day: 3
-    verified: false
+    verified: true
     source: >-
-      HFeiertagsG § 1 Abs. 1 Nr. 8 'der Tag der Deutschen Einheit' — umwelt-online
-      현행판(Stand 28.08.2023). Bistum Fulda PDF 는 'der Tag der deutschen Einheit'
-      (소문자 d)로 자구가 다르다 — umwelt-online 을 따름. 연방 근거는
-      Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜 3. 10. 은 innen.hessen.de
-      2026 목록·feiertage-api 2026 HE 대조 일치
-    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+      HFeiertagsG § 1 Abs. 1 Nr. 8 'der Tag der Deutschen Einheit' — Fünftes Gesetz zur
+      Änderung des Hessischen Feiertagsgesetzes vom 11.10.1994 Art. 1 Nr. 1 a) (Nr. 8 새
+      문언, 종전 'der Tag der deutschen Einheit (17. Juni)'), GVBl. 1994 I Nr. 25 S. 596
+      (19.10.1994 공포, 31.12.1994 시행; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1994/00025.pdf sha256
+      a16fbf4cc3298d219e56cc8e0d1f7354d3d33c822058f41b3c07153ef0ef8ff5, 2026-09-29 열람, 재수령
+      대조 일치). § 1 Abs. 1 의 1994 이후 개정은 찾지 못함(GVBl. 2026 Nr. 65 까지, 공포본 자기 인용·연간 색인·전 호
+      검색). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2. 날짜 3. 10. 은 innen.hessen.de 2026
+      목록·feiertage-api 2026 HE 대조 일치
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
     scope: bundesweit
     month: 12
     day: 25
-    verified: false
+    verified: true
     source: >-
-      HFeiertagsG § 1 Abs. 1 Nr. 9 'der 1. und 2. Weihnachtstag' — 한 호에 이틀,
-      이 항목은 그중 1. Weihnachtstag(25. 12.). umwelt-online 현행판(Stand
-      28.08.2023) + Bistum Fulda PDF 동일 자구. 날짜는 innen.hessen.de 2026 목록
-      (1. Weihnachtsfeiertag)·feiertage-api 2026 HE 대조 일치
-    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+      HFeiertagsG § 1 Abs. 1 Nr. 9 'der 1. und 2. Weihnachtstag' — 한 호에 이틀, 이 항목은 그중 1.
+      Weihnachtstag(25. 12.). Fünftes Gesetz zur Änderung des Hessischen Feiertagsgesetzes
+      vom 11.10.1994 Art. 1 Nr. 1 b) (종전 Nr. 9 Buß- und Bettag·Nr. 10 을 새 Nr. 9 로), GVBl.
+      1994 I Nr. 25 S. 596 (19.10.1994 공포, 31.12.1994 시행; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1994/00025.pdf sha256
+      a16fbf4cc3298d219e56cc8e0d1f7354d3d33c822058f41b3c07153ef0ef8ff5, 2026-09-29 열람, 재수령
+      대조 일치). 종전 Nr. 10 은 'der 1. und 2. Weihnachtsfeiertag' — Bekanntmachung der
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 29.12.1971, GVBl. 1971 I
+      Nr. 36 S. 343, § 1 은 S. 344 (30.12.1971 공포; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1971/00036.pdf sha256
+      fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55, 2026-09-29 열람, 재수령
+      대조 일치). § 1 Abs. 1 의 1994 이후 개정은 찾지 못함(GVBl. 2026 Nr. 65 까지, 공포본 자기 인용·연간 색인·전 호
+      검색). 날짜는 innen.hessen.de 2026 목록 (1. Weihnachtsfeiertag)·feiertage-api 2026 HE 대조 일치
 
   - key: zweiter_weihnachtstag
     name: 2. Weihnachtstag
     scope: bundesweit
     month: 12
     day: 26
-    verified: false
+    verified: true
     source: >-
-      HFeiertagsG § 1 Abs. 1 Nr. 9 'der 1. und 2. Weihnachtstag' — 한 호에 이틀,
-      이 항목은 그중 2. Weihnachtstag(26. 12.). umwelt-online 현행판(Stand
-      28.08.2023) + Bistum Fulda PDF 동일 자구. 날짜는 innen.hessen.de 2026 목록
-      (2. Weihnachtsfeiertag)·feiertage-api 2026 HE 대조 일치
-    source_todo: 공식 포털 hessenrecht(jlr-FeiertGHE1952pP1) 열람 또는 GVBl. 원본
+      HFeiertagsG § 1 Abs. 1 Nr. 9 'der 1. und 2. Weihnachtstag' — 한 호에 이틀, 이 항목은 그중 2.
+      Weihnachtstag(26. 12.). Fünftes Gesetz zur Änderung des Hessischen Feiertagsgesetzes
+      vom 11.10.1994 Art. 1 Nr. 1 b) (종전 Nr. 9 Buß- und Bettag·Nr. 10 을 새 Nr. 9 로), GVBl.
+      1994 I Nr. 25 S. 596 (19.10.1994 공포, 31.12.1994 시행; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1994/00025.pdf sha256
+      a16fbf4cc3298d219e56cc8e0d1f7354d3d33c822058f41b3c07153ef0ef8ff5, 2026-09-29 열람, 재수령
+      대조 일치). 종전 Nr. 10 은 'der 1. und 2. Weihnachtsfeiertag' — Bekanntmachung der
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 29.12.1971, GVBl. 1971 I
+      Nr. 36 S. 343, § 1 은 S. 344 (30.12.1971 공포; starweb.hessen.de(헤센 주의회) PDF
+      https://starweb.hessen.de/cache/GVBL/1971/00036.pdf sha256
+      fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55, 2026-09-29 열람, 재수령
+      대조 일치). § 1 Abs. 1 의 1994 이후 개정은 찾지 못함(GVBl. 2026 Nr. 65 까지, 공포본 자기 인용·연간 색인·전 호
+      검색). 날짜는 innen.hessen.de 2026 목록 (2. Weihnachtsfeiertag)·feiertage-api 2026 HE 대조 일치
