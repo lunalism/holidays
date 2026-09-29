@@ -256,7 +256,7 @@ Wayback:
 
 ## 부수 관찰
 
-1. **레포 이력의 세션 링크.** `git log --all -i --grep='claude.ai/code/session'` 이 커밋 75 개를 낸다(2026-08-23 ~ 2026-09-06, 예: `a9dc26e` feat(de_be), `fac7955` feat(de_by)). 트레일러 금지 규칙 이전 커밋으로 보인다. 이미 main 이력이라 고치려면 이력 재작성이 필요하다 — 범위 밖, 기록만.
+1. **레포 이력의 세션 링크.** `git log --all -i --grep=<세션 URL 패턴>` 이 커밋 75 개를 낸다(2026-08-23 ~ 2026-09-06, 예: `a9dc26e` feat(de_be), `fac7955` feat(de_by)). 트레일러 금지 규칙 이전 커밋으로 보인다. 이미 main 이력이라 고치려면 이력 재작성이 필요하다 — 범위 밖, 기록만. [세션 URL 패턴은 레포의 세션 링크 grep 을 0 으로 두려고 가렸다.]
 2. **HE 일회성 공휴일.**
    - GVBl. 2013 S. 566 「Verordnung zur Bestimmung des Reformationstages 2017 zum gesetzlichen Feiertag」(16.10.2013)이 있다.
    - HE YAML 「§ 2 … 에 따른 명령은 조사에서 확인된 것이 없어」와 다르다.

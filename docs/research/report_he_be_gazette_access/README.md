@@ -16,7 +16,7 @@
 | `$S/transcripts/1994_S596_artI.txt` | `1994_S596_artI.txt` | GVBl. 1994 I Nr. 25 S. 596 Art. 1(서두·§ 1 부분) 전사 |
 | `$S/transcripts/current_par1abs1_by_chain.txt` | `current_par1abs1_by_chain.txt` | 1994 를 1971 에 적용한 § 1 Abs. 1 현행 자구 |
 | `$S/png/1971_S344_par1.png`·`$S/png/1994_S596_artI.png` | (옮기지 않음) | `render_pngs.py` 로 다시 만든다(2026-09-29 대조: 두 장 모두 바이트 동일) |
-| `$S/he/issues_scan.tsv` | `scan/issues_scan.tsv` | 2010–2026 전 776 호 텍스트 검색 결과(연도, 호, 텍스트 길이, Feiertag 적중 문맥) |
+| `$S/he/issues_scan.tsv` | `scan/issues_scan.tsv` | 2010–2026 전 776 호 검색(775 호 텍스트층 전문, 2012 Nr. 16 은 1 쪽 목차 OCR) 결과(연도, 호, 텍스트 길이, Feiertag 적중 문맥) |
 | `$S/he/inhalt_ocr.tsv` | `scan/inhalt_ocr.tsv` | 1952–2009 연간 색인 777 쪽 OCR 적중(연도:쪽, 텍스트 길이, 문맥) |
 | `$S/he_scan.py` | `scan/he_scan.py` | 2010–2026 호별 검색(재시도·Content-Length 검사) |
 | `$S/ocr_inhalt.py` | `scan/ocr_inhalt.py` | 연간 색인 전 쪽 Vision OCR |
