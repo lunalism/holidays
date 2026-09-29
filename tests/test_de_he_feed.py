@@ -6,13 +6,15 @@
     de_he.ics 는 헤센 주 전역의 법정 공휴일을 싣는다.
     근거 법령은 Hessisches Feiertagsgesetz (HFeiertagsG) § 1 Abs. 1 이다 —
     Nr. 1~9 의 열거, Nr. 9 "der 1. und 2. Weihnachtstag" 가 한 호에 이틀이라
-    연 단위 구성은 고정 5 + 부활절 이동 5 = 10 건이다. 일회성은 없다(§ 2 수권에
-    따른 명령이 조사에서 확인된 것 없음). 대체공휴일(이동) 규칙도 없다.
+    연 단위 구성은 고정 5 + 부활절 이동 5 = 10 건이다. 피드 범위(2020~) 안에
+    일회성은 없다(§ 2 명령의 2017-10-31 은 범위 밖). 대체공휴일(이동) 규칙도 없다.
 
-근거는 /tmp/report_de_laender.md 의 HE 절이고, 요지는 rules/de_he/ 의 YAML
-source 필드에 옮겨 적었다. 공식 포털(hessenrecht)은 열람에 실패해 12 건이 아닌
-10 건 전부 verified: false 다 — BE 기저 9 건과 같은 관례(xfail 없음, source_todo
-필수, 상태를 고정하는 테스트 하나).
+근거는 docs/research/report_he_be_gazette_access.md 이고, 요지는 rules/de_he/ 의
+YAML source 필드에 옮겨 적었다. 조문은 공포본 두 호의 스캔 면을 판독해 읽었다 —
+1971 Neufassung(GVBl. 1971 I Nr. 36 S. 343, § 1 은 S. 344)과 1994 개정(1994 I
+Nr. 25 S. 596, Nr. 8 새 문언·Nr. 9·10 을 새 Nr. 9 로). 10 건 전부 verified: true
+이고, 각 source 는 자기 호의 서지·공포일·PDF URL·sha256·열람일을 스스로 든다
+(NW·BW 전례).
 
     a. feiertage-api 2026 HE 실측 10 건(hinweis 전부 공란) == de_he 2026 발행 집합
     b. 상위집합 — de.ics 9 건 ⊂ de_he.ics, 차집합 token 은 {fronleichnam} 하나
@@ -20,6 +22,10 @@ source 필드에 옮겨 적었다. 공식 포털(hessenrecht)은 열람에 실�
     d. UID — 전 항목 de_he- 접두사, de.ics·de_be.ics·de_by.ics 와 겹치지 않음
     e. 하니스 — python-holidays(subdiv='HE')와 연도별 날짜 집합 대조
     f. 헤더·DTEND·범위·근거 — 관례 이식. Nr. 9 한 호 이틀의 인용 처리 포함
+    g. 근거 — 10 건 전부 verified true. 자기 공포본 호의 면·sha256·열람일,
+       Nr. 8 은 1994 S. 596, Nr. 9 는 1994 새 문언 + 1971 종전 Nr. 10. source 는
+       DESCRIPTION 에 그대로 실리므로 머리 주석을 가리키지 않고 '무개정' 판정어를
+       쓰지 않는다
 
 발행하지 않는다. build() 로 메모리에서 만들어 보고, publish() 는 tmp_path 로만
 부른다. 시계를 읽지 않는다 — today·dtstamp 를 고정값으로 준다.
@@ -65,8 +71,9 @@ FEIERTAGE_API_2026_HE = {
 }
 FEIERTAGE_API_2026_HE_HINWEIS = {name: "" for name in FEIERTAGE_API_2026_HE}
 
-# HFeiertagsG § 1 Abs. 1 의 열거 순서·조문 표기(umwelt-online 현행판, 정관사 der
-# 제외). Nr. 9 "der 1. und 2. Weihnachtstag" 는 두 항목으로 갈라 각자의 표기를 쓴다.
+# HFeiertagsG § 1 Abs. 1 의 열거 순서·조문 표기(공포본 1971 S. 344 + 1994 S. 596
+# 적용 자구, 정관사 der 제외). Nr. 9 "der 1. und 2. Weihnachtstag" 는 두 항목으로 갈라
+# 각자의 표기를 쓴다.
 # token 은 전부 기존 확립값(de_be 의 9 종 + de_by 의 fronleichnam) — 신규 명명 0.
 EXPECTED_2026 = [
     (dt.date(2026, 1, 1), "Neujahrstag", "neujahr"),
@@ -281,8 +288,40 @@ def test_every_event_falls_inside_the_range(events):
 
 
 # ---------------------------------------------------------------------------
-# 근거 — 항목별 호 인용, verified 전건 false (BE 기저 9 건 관례)
+# g. 근거 — 항목별 호 인용·공포본 서지, verified 전건 true
 # ---------------------------------------------------------------------------
+
+# 공포본 두 호. 값의 정본은 rules/de_he/solar_holidays.yaml 머리 주석이고 여기는 그
+# 사본이다 — 각 source 가 자기 호의 이 값들을 스스로 들어야 한다.
+GAZETTE = {
+    1971: {
+        "issue": "GVBl. 1971 I Nr. 36 S. 343, § 1 은 S. 344",
+        "proclaimed": "30.12.1971 공포",
+        "url": "https://starweb.hessen.de/cache/GVBL/1971/00036.pdf",
+        "sha256": "fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55",
+    },
+    1994: {
+        "issue": "GVBl. 1994 I Nr. 25 S. 596",
+        "proclaimed": "19.10.1994 공포",
+        "url": "https://starweb.hessen.de/cache/GVBL/1994/00025.pdf",
+        "sha256": "a16fbf4cc3298d219e56cc8e0d1f7354d3d33c822058f41b3c07153ef0ef8ff5",
+    },
+}
+READ_ON = "2026-09-29 열람"
+
+# 1994 이후 개정이 없다는 것은 검색 사실로 적는다(NW 전례). 판정어 '무개정' 을 구독자
+# 문장에 쓰지 않는다.
+NO_LATER_AMENDMENT = (
+    "§ 1 Abs. 1 의 1994 이후 개정은 찾지 못함(GVBl. 2026 Nr. 65 까지, "
+    "공포본 자기 인용·연간 색인·전 호 검색)"
+)
+
+# 항목별로 근거가 되는 공포본 호. Nr. 8 은 1994 의 새 문언, Nr. 9 는 1994 의 새 Nr. 9 에
+# 1971 종전 Nr. 10 을 곁들이고, 나머지는 1971 의 자구 그대로다.
+OWN_ISSUES = {key: (1971,) for key in NR_OF}
+OWN_ISSUES["tag_der_deutschen_einheit"] = (1994,)
+OWN_ISSUES["erster_weihnachtstag"] = (1994, 1971)
+OWN_ISSUES["zweiter_weihnachtstag"] = (1994, 1971)
 
 
 def _raw_entries() -> list:
@@ -290,6 +329,11 @@ def _raw_entries() -> list:
     for path in (feed.SOLAR_PATH, feed.EASTER_PATH):
         out.extend(yaml.safe_load(path.read_text(encoding="utf-8"))["holidays"])
     return out
+
+
+def _source(entry) -> str:
+    """source 를 DESCRIPTION 처럼 한 줄로 편다. YAML 접힘이 URL·sha256 을 가르지 않게."""
+    return " ".join(entry["source"].split())
 
 
 def test_the_tables_hold_ten_entries_each_citing_its_own_number_of_section_1():
@@ -321,25 +365,54 @@ def test_the_two_christmas_days_share_number_nine_but_keep_their_own_names():
     assert "Nr. 9" in first["source"] and "Nr. 9" in second["source"]
 
 
-def test_nothing_is_verified_and_every_entry_says_what_is_missing():
-    """공식 포털(hessenrecht)을 열람하지 못했으므로 10 건 전부 false 다. BE 기저
-    9 건과 같은 관례 — xfail 이 아니라 source_todo 로 남기고 여기서 상태를 고정
-    한다. 포털이나 관보 원본을 확인해 true 로 올리면 이 테스트가 먼저 빨개진다."""
-    for entry in _raw_entries():
-        assert entry["verified"] is False, entry["key"]
-        assert entry.get("source_todo"), entry["key"]
-        assert "hessenrecht" in entry["source_todo"] or "GVBl" in entry["source_todo"], entry["key"]
-        assert "umwelt-online" in entry["source"], entry["key"]
+def test_all_ten_are_verified_and_nothing_is_left_to_do():
+    """공포본 두 호로 10 건 전부 확인했다. source_todo 는 남기지 않는다."""
+    entries = _raw_entries()
+    assert [e["key"] for e in entries if e["verified"] is not True] == []
+    for entry in entries:
+        assert "source_todo" not in entry, f"{entry['key']}: 전건 true 인데 source_todo 가 있다"
         assert "feiertage-api" in entry["source"], entry["key"]
 
 
-def test_the_unity_day_source_records_the_lowercase_variant():
-    """Bistum Fulda PDF 는 Nr. 8 을 'der Tag der deutschen Einheit'(소문자 d)로
-    적는다. umwelt-online 을 따르되 그 차이를 source 에 남긴다."""
+def test_each_source_carries_its_own_gazette_issue_page_hash_and_reading_date():
+    """source 는 DESCRIPTION 에 그대로 실리므로 서지를 스스로 들어야 한다(NW·BW 전례).
+    자기 호의 면·공포일·PDF URL·sha256 과 열람일, 그리고 남의 호 sha256 은 들지 않는다."""
+    for entry in _raw_entries():
+        key = entry["key"]
+        source = _source(entry)
+        for year in OWN_ISSUES[key]:
+            for field, value in GAZETTE[year].items():
+                assert value in source, (key, year, field)
+        assert READ_ON in source, key
+        assert "재수령 대조 일치" in source, key
+        own = {GAZETTE[year]["sha256"] for year in OWN_ISSUES[key]}
+        assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == own, key
+        assert NO_LATER_AMENDMENT in source, key
+
+
+def test_unity_day_cites_the_1994_wording_that_replaced_the_17th_of_june():
+    source = _source({e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"])
+    assert "Art. 1 Nr. 1 a)" in source
+    assert "'der Tag der Deutschen Einheit'" in source
+    assert "'der Tag der deutschen Einheit (17. Juni)'" in source  # 종전 문언
+
+
+def test_both_christmas_days_cite_the_new_number_nine_and_the_old_number_ten():
     by_key = {e["key"]: e for e in _raw_entries()}
-    source = by_key["tag_der_deutschen_einheit"]["source"]
-    assert "deutschen Einheit" in source and "Bistum Fulda" in source
-    assert by_key["tag_der_deutschen_einheit"]["name"] == "Tag der Deutschen Einheit"
+    for key in ("erster_weihnachtstag", "zweiter_weihnachtstag"):
+        source = _source(by_key[key])
+        assert "Art. 1 Nr. 1 b)" in source, key
+        assert "'der 1. und 2. Weihnachtstag'" in source, key
+        assert "'der 1. und 2. Weihnachtsfeiertag'" in source, key  # 1971 종전 Nr. 10
+
+
+def test_no_source_points_to_the_header_comment_or_states_a_verdict():
+    """source 는 DESCRIPTION 의 '근거:' 뒤에 그대로 나간다. 구독자는 YAML 을 볼 수 없으므로
+    머리 주석을 가리키면 안 되고, 1994 이후는 '찾지 못함' 이라는 검색 사실로 적는다."""
+    for entry in _raw_entries():
+        assert "머리 주석" not in entry["source"], entry["key"]
+        assert "solar_holidays.yaml" not in entry["source"], entry["key"]
+        assert "무개정" not in entry["source"], entry["key"]
 
 
 def test_the_corpus_christi_source_says_the_offset_is_customary():

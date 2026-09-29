@@ -30,9 +30,10 @@ rules/de/feed.py 와 같다. verified 는 별개의 축이고 피드에 나가�
 --------------------------------------------------------------------------
 SUMMARY 는 헤센 조문 표기
 --------------------------------------------------------------------------
-YAML 의 name 그대로 — § 1 Abs. 1 의 열거(umwelt-online 현행판)에서 정관사 der 를
-뺀 것이다. de.ics·de_by.ics 와 다른 표기가 있다: Neujahrstag, Himmelfahrtstag,
-Fronleichnamstag(de_by 는 BayFTG 표기 "Fronleichnam"), 1./2. Weihnachtstag.
+YAML 의 name 그대로 — § 1 Abs. 1 의 열거(공포본 GVBl. 1971 I S. 344 에 1994 I S. 596
+을 적용한 자구)에서 정관사 der 를 뺀 것이다. de.ics·de_by.ics 와 다른 표기가 있다:
+Neujahrstag, Himmelfahrtstag, Fronleichnamstag(de_by 는 BayFTG 표기 "Fronleichnam"),
+1./2. Weihnachtstag.
 맞추지 않는다 — 각 피드는 자기 근거 조문의 표기를 쓴다(de_be 의 Himmelfahrtstag
 와 같은 결정, 2026-09-06 확인).
 """
