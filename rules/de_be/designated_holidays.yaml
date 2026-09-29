@@ -24,9 +24,17 @@
 # 근거(source)에 담긴다.
 #
 # --- verified ---
-# 관보 원문을 직접 읽은 2025·2028 두 건만 true(GVBl. 2024 Nr. 28 S. 460 PDF,
-# /tmp/report_de_laender.md BE §2). 2020 건은 2019 개정문을 비공식 사본으로만
-# 읽어 false.
+# 세 건 모두 true — 도입·소멸이 함께 적힌 개정 관보 면을 직접 읽었다. 관보 면은 베를린
+# 주의회(Abgeordnetenhaus Berlin) PARDOK 의 법률 발췌 PDF 이고, 재수령 sha256 이 같다.
+#   2020  GVBl. für Berlin 2019 Nr. 3 S. 22 — Art. 1 Nr. 1 d) 추가, Art. 2 Nr. 2 삭제
+#         (Art. 3 Abs. 2: 2020-05-09 시행). PARDOK 면이 berlin.de 판 호 전체 PDF(Wayback
+#         사본)의 S. 22 와 텍스트·렌더가 같다.
+#   2025  GVBl. für Berlin 2024 Nr. 28 S. 460 — Art. 1 Nr. 2 추가, Art. 2 Nr. 1 삭제
+#         (Art. 4 Abs. 2: 2025-05-09 시행)
+#   2028  같은 호 — Art. 1 Nr. 2 로 Nr. 12 추가, Art. 2 Nr. 2 로 Nr. 11 로 재번호,
+#         Art. 3 Nr. 2 삭제(Art. 4 Abs. 3: 2028-06-18 시행)
+# 조사 기록: docs/research/report_he_be_gazette_access.md(과 같은 이름의 폴더
+# be_2019/).
 
 # --- scope ---
 # bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
@@ -40,14 +48,18 @@ holidays:
     name: 8. Mai 2020
     scope: land
     date: 2020-05-08
-    verified: false
+    verified: true
     source: >-
-      Drittes Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage vom
-      30. Januar 2019 (GVBl. S. 22) Art. 1 — § 1 Abs. 1 에 'der 8. Mai 2020
-      (75. Jahrestag der Befreiung vom Nationalsozialismus und der Beendigung des
-      Zweiten Weltkrieges in Europa)' 추가, Art. 2 로 2020-05-09 삭제.
-      umwelt-online 개정문 사본 + python-holidays 0.102 DE/BE 2020 일치
-    source_todo: 2019-01-30 개정 관보 GVBl. S. 22 원문
+      Gesetz über die Sonn- und Feiertage (Berlin) § 1 Abs. 1 Nr. 11 'der 8. Mai 2020 (75.
+      Jahrestag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten
+      Weltkrieges in Europa)' — Drittes Gesetz zur Änderung des Gesetzes über die Sonn-
+      und Feiertage vom 30.01.2019 Art. 1 Nr. 1 d) (Nr. 11 추가), Art. 2 Nr. 2 (Nr. 11
+      삭제)·Art. 3 Abs. 2 (Art. 2 는 2020-05-09 시행), GVBl. für Berlin 2019 Nr. 3 S. 22
+      (06.02.2019 공포; 베를린 주의회(Abgeordnetenhaus Berlin) 의회 문서 시스템 PARDOK 의 관보 면 사본
+      https://pardok.parlament-berlin.de/starweb/adis/citat/VT/18/gvbl/g19030022.pdf
+      sha256 714f8bfc1cb1ac1babe023519d62b02546bd2310dfe8429ce452cce380bc85e2, 2026-09-29
+      열람, 재수령 대조 일치). 2020 년 한 번의 공휴일. 날짜 8. 5. 2020 은 python-holidays 0.102 DE/BE 2020 대조
+      일치
 
   - key: achter_mai_2025
     name: 8. Mai 2025
@@ -55,11 +67,15 @@ holidays:
     date: 2025-05-08
     verified: true
     source: >-
-      GVBl. für Berlin 2024 Nr. 28 S. 460 — Viertes Gesetz zur Änderung des
-      Gesetzes über die Sonn- und Feiertage vom 10. Juli 2024 Art. 1: § 1 Abs. 1
-      Nr. 11 'der 8. Mai 2025 (80. Jahrestag der Befreiung vom Nationalsozialismus
-      und der Beendigung des Zweiten Weltkriegs in Europa)' (2025-05-09 자동 삭제,
-      Art. 2·Art. 4 Abs. 2)
+      Gesetz über die Sonn- und Feiertage (Berlin) § 1 Abs. 1 Nr. 11 'der 8. Mai 2025 (80.
+      Jahrestag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten
+      Weltkriegs in Europa)' — Viertes Gesetz zur Änderung des Gesetzes über die Sonn- und
+      Feiertage vom 10.07.2024 Art. 1 Nr. 2 (Nr. 11·12 추가), Art. 2 Nr. 1 (Nr. 11 삭제)·Art.
+      4 Abs. 2 (Art. 2 는 2025-05-09 시행), GVBl. für Berlin 2024 Nr. 28 S. 460 (20.07.2024
+      공포; 베를린 주의회(Abgeordnetenhaus Berlin) 의회 문서 시스템 PARDOK 의 관보 면 사본
+      https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf
+      sha256 750494cd72ff03c5259022a396f2641be42ac6aff5b1d5367c2994c469503353, 2026-09-29
+      열람, 재수령 대조 일치). 2025 년 한 번의 공휴일
 
   - key: siebzehnter_juni_2028
     name: 17. Juni 2028
@@ -67,7 +83,12 @@ holidays:
     date: 2028-06-17
     verified: true
     source: >-
-      GVBl. für Berlin 2024 Nr. 28 S. 460 — Viertes Gesetz zur Änderung des
-      Gesetzes über die Sonn- und Feiertage vom 10. Juli 2024 Art. 1 Nr. 12 →
-      현행 § 1 Abs. 1 Nr. 11 'der 17. Juni 2028 (75. Jahrestag des Aufstandes vom
-      17. Juni 1953)' (2028-06-18 자동 삭제, Art. 3·Art. 4 Abs. 3)
+      Gesetz über die Sonn- und Feiertage (Berlin) § 1 Abs. 1 Nr. 12 → 현행 Nr. 11 'der 17.
+      Juni 2028 (75. Jahrestag des Aufstandes vom 17. Juni 1953)' — Viertes Gesetz zur
+      Änderung des Gesetzes über die Sonn- und Feiertage vom 10.07.2024 Art. 1 Nr. 2 (Nr.
+      12 추가), Art. 2 Nr. 2 (Nr. 12 → Nr. 11, 2025-05-09 시행), Art. 3 Nr. 2 (Nr. 11 삭제)·Art.
+      4 Abs. 3 (Art. 3 은 2028-06-18 시행), GVBl. für Berlin 2024 Nr. 28 S. 460 (20.07.2024
+      공포; 베를린 주의회(Abgeordnetenhaus Berlin) 의회 문서 시스템 PARDOK 의 관보 면 사본
+      https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf
+      sha256 750494cd72ff03c5259022a396f2641be42ac6aff5b1d5367c2994c469503353, 2026-09-29
+      열람, 재수령 대조 일치). 2028 년 한 번의 공휴일
