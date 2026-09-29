@@ -45,7 +45,21 @@ concurrency:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    # 러너 이미지를 고정한다. ubuntu-latest 는 Ubuntu 26.04 로 옮겨 간다
+    # (actions/runner-images #14748). 이 워크플로가 기대는 두 전제는
+    # ubuntu-24.04 에서만 확인했다.
+    #   - 브라우저 스모크가 러너 이미지의 시스템 라이브러리로 launch 한다
+    #     (아래 브라우저 스텝 주석).
+    #   - uv 가 러너의 시스템 파이썬 /usr/bin/python3.12 를 쓴다
+    #     (.python-version 이 3.12 다). 26.04 의 시스템 파이썬은 3.14 다.
+    #
+    # ci.yml 과 publish.yml 은 같은 값이어야 한다. ci 초록이 발행의
+    # 관문이라, 이미지가 다르면 ci 가 확인한 것이 발행 run 에서 성립한다는
+    # 보장이 없다. tests/test_workflows.py 가 지킨다.
+    #
+    # 다시 볼 때: ubuntu-24.04 의 deprecation 공지가 나올 때, 또는 이 값을
+    # 바꾸는 PR 을 열 때. 그 PR 의 ci run 이 새 이미지에서의 실측이다.
+    runs-on: ubuntu-24.04
     steps:
       - name: 체크아웃
         uses: actions/checkout@v5
@@ -79,7 +93,8 @@ jobs:
       #
       # 시스템 라이브러리는 받지 않는다(--with-deps 없음). 받으면 매 run
       # apt 저장소에 기대게 된다. 러너 이미지에 이미 있는 라이브러리로
-      # launch 가 성립한다 — 이 스텝을 들인 PR 의 CI 에서 확인했다. 이미지
+      # launch 가 성립한다 — 이 스텝을 들인 PR 의 CI 에서 확인했다. 확인한
+      # 이미지는 ubuntu-24.04 다(runs-on 이 그 값에 고정된 이유). 이미지
       # 갱신으로 라이브러리가 빠지면 launch 가 실패해 빨개지고(스킵 없음)
       # 발행도 막힌다. 그때 설치 단계에서 받을지는 사람이 정한다.
       #

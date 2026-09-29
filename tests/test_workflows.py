@@ -4,7 +4,8 @@ ci.yml 의 초록이 발행의 관문이다 — 규칙·데이터를 바꾸는 P
 때 머지되고, 머지된 것을 publish.yml 이 발행한다. 둘이 다른 이미지에서 돌면
 ci 가 확인한 것(브라우저 스모크의 launch, uv 가 고르는 파이썬)이 발행 run 에서
 성립한다는 보장이 없다. ci 가 초록인데 발행이 빨개지거나, 그 반대가 된다.
-그래서 모든 job 의 runs-on 이 같은 값이어야 한다.
+그래서 모든 job 의 runs-on 이 같은 값이어야 하고, 그 값은 옮겨 가지 않는
+고정 레이블이어야 한다.
 
 워크플로 YAML 을 그대로 읽는다. job 이 하나도 안 잡히면 "모두 같다" 는
 빈 집합에서 참이 되므로, 워크플로마다 runs-on 을 가진 job 이 하나 이상인지
@@ -43,3 +44,13 @@ def _all_runs_on() -> dict[str, str]:
 def test_every_job_in_both_workflows_uses_the_same_runner():
     found = _all_runs_on()
     assert len(set(found.values())) == 1, f"runs-on 이 job 마다 다르다: {found}"
+
+
+def test_no_job_uses_a_moving_latest_label():
+    """-latest 레이블은 이미지 버전이 공지만으로 옮겨 간다(#14748 이 그 예다).
+    이행 기간에는 run 마다 이미지가 달라 같은 커밋이 초록·빨강을 오간다.
+    이미지를 바꾸는 것은 runs-on 을 바꾸는 PR 로만 한다 — 그 PR 의 ci run 이
+    새 이미지에서의 실측이다."""
+    found = _all_runs_on()
+    moving = {where: value for where, value in found.items() if value.endswith("-latest")}
+    assert not moving, f"-latest 레이블이 있다: {moving}"
