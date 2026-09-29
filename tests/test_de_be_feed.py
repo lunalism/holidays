@@ -384,19 +384,94 @@ def test_the_tables_hold_thirteen_entries_with_sources():
         assert isinstance(entry.get("verified"), bool), entry["key"]
 
 
-def test_only_the_gazette_backed_one_offs_are_verified():
-    """관보 원문(GVBl. 2024 Nr. 28 S. 460)을 본 것은 2025·2028 일회성 둘이다.
-    2020 일회성은 2019 개정 관보를 보지 못했고, Frauentag 과 정규 9 건은
-    비공식 현행판·정부 안내·API 대조까지라 false 다."""
+# 개정 관보 두 호. 값의 정본은 rules/de_be/designated_holidays.yaml 머리 주석이고 여기는
+# 그 사본이다 — 각 source 가 자기 호의 이 값들을 스스로 들어야 한다.
+GAZETTE = {
+    2019: {
+        "issue": "GVBl. für Berlin 2019 Nr. 3 S. 22",
+        "proclaimed": "06.02.2019 공포",
+        "url": "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/18/gvbl/g19030022.pdf",
+        "sha256": "714f8bfc1cb1ac1babe023519d62b02546bd2310dfe8429ce452cce380bc85e2",
+    },
+    2024: {
+        "issue": "GVBl. für Berlin 2024 Nr. 28 S. 460",
+        "proclaimed": "20.07.2024 공포",
+        "url": "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf",
+        "sha256": "750494cd72ff03c5259022a396f2641be42ac6aff5b1d5367c2994c469503353",
+    },
+}
+READ_ON = "2026-09-29 열람"
+VERIFIED_FROM = {
+    "frauentag": 2019,
+    "achter_mai_2020": 2019,
+    "achter_mai_2025": 2024,
+    "siebzehnter_juni_2028": 2024,
+}
+
+
+def _source(entry) -> str:
+    """source 를 DESCRIPTION 처럼 한 줄로 편다. YAML 접힘이 URL·sha256 을 가르지 않게."""
+    return " ".join(entry["source"].split())
+
+
+def test_the_gazette_backed_entries_are_verified_and_the_base_nine_are_not():
+    """개정 관보 면을 본 것은 넷이다 — 2019 Nr. 3 S. 22(Frauentag·2020 일회성)와
+    2024 Nr. 28 S. 460(2025·2028 일회성). 정규 9 건은 자구 원천인 1954 S. 615·
+    1994 S. 491 을 온라인에서 찾지 못해 false 이고, source_todo 가 그 두 호를 댄다."""
     by_key = {e["key"]: e for e in _raw_entries()}
-    for key in ("achter_mai_2025", "siebzehnter_juni_2028"):
+    for key in VERIFIED_FROM:
         assert by_key[key]["verified"] is True, key
         assert "source_todo" not in by_key[key], key
-    for key, entry in by_key.items():
-        if key not in ("achter_mai_2025", "siebzehnter_juni_2028"):
-            assert entry["verified"] is False, key
-            assert entry.get("source_todo"), key
-    assert "GVBl. S. 22" in by_key["frauentag"]["source_todo"]
+    base = [k for k in by_key if k not in VERIFIED_FROM]
+    assert len(base) == 9
+    for key in base:
+        entry = by_key[key]
+        assert entry["verified"] is False, key
+        todo = " ".join(entry.get("source_todo", "").split())
+        assert "GVBl. 1954 S. 615" in todo and "GVBl. 1994 S. 491" in todo, key
+
+
+def test_each_verified_source_carries_its_own_gazette_page_hash_and_reading_date():
+    """source 는 DESCRIPTION 에 그대로 실리므로 서지를 스스로 들어야 한다(NW·HE 전례).
+    자기 호의 면·공포일·PARDOK URL·sha256·열람일, 남의 호 sha256 은 들지 않는다."""
+    by_key = {e["key"]: e for e in _raw_entries()}
+    for key, year in VERIFIED_FROM.items():
+        source = _source(by_key[key])
+        for field, value in GAZETTE[year].items():
+            assert value in source, (key, field)
+        assert READ_ON in source and "재수령 대조 일치" in source, key
+        assert "PARDOK" in source and "Abgeordnetenhaus Berlin" in source, key
+        assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == {GAZETTE[year]["sha256"]}, key
+
+
+def test_frauentag_quotes_the_2019_insertion_and_states_the_search_fact():
+    source = _source({e["key"]: e for e in _raw_entries()}["frauentag"])
+    assert "§ 1 Abs. 1 Nr. 2 'der Frauentag (8. März)'" in source
+    assert "Art. 1 Nr. 1 a)" in source
+    assert "§ 1 Abs. 1 Nr. 2 의 2019 이후 개정은 찾지 못함" in source
+
+
+def test_each_one_off_names_its_insertion_and_its_repeal():
+    by_key = {e["key"]: e for e in _raw_entries()}
+    expect = {
+        "achter_mai_2020": ("Art. 1 Nr. 1 d)", "Art. 2 Nr. 2", "2020-05-09"),
+        "achter_mai_2025": ("Art. 1 Nr. 2", "Art. 2 Nr. 1", "2025-05-09"),
+        "siebzehnter_juni_2028": ("Art. 1 Nr. 2", "Art. 3 Nr. 2", "2028-06-18"),
+    }
+    for key, parts in expect.items():
+        source = _source(by_key[key])
+        for part in parts:
+            assert part in source, (key, part)
+
+
+def test_no_source_points_to_the_header_comment_or_a_repo_path_or_states_a_verdict():
+    """source 는 DESCRIPTION 의 '근거:' 뒤에 그대로 나간다. 구독자는 YAML·레포를 볼 수
+    없으므로 머리 주석이나 레포 경로를 가리키면 안 되고, '무개정' 판정어도 쓰지 않는다."""
+    for entry in _raw_entries():
+        source = entry["source"]
+        assert "머리 주석" not in source, entry["key"]
+        assert "무개정" not in source, entry["key"]
+        assert "rules/" not in source and ".yaml" not in source, entry["key"]
 
 
 def test_every_description_carries_the_source(events):

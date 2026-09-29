@@ -1,7 +1,8 @@
 """독일·베를린 주 공휴일 규칙 — 주 전역 법정 공휴일.
 
 근거 법령은 Gesetz über die Sonn- und Feiertage (Berlin) vom 28. Oktober 1954
-(GVBl. S. 615) § 1 Abs. 1 이다. 조사 기록은 /tmp/report_de_laender.md 의 BE 절.
+(GVBl. S. 615) § 1 Abs. 1 이다. 조사 기록은 /tmp/report_de_laender.md 의 BE 절과
+docs/research/report_he_be_gazette_access.md.
 
 연 단위 구성은 고정 6 + 부활절 이동 4 = 10 건이고, 조문에 연도가 박힌 일회성
 항목이 해마다 더해진다(designated_holidays.yaml). 지자체·학교 한정 항목은

@@ -7,7 +7,8 @@
 # 베를린은 Fronleichnam(+60)·Ostersonntag(0)·Pfingstsonntag(+49)이 없다 —
 # § 1 Abs. 1 의 열거에 없다.
 #
-# key·name·verified 규약은 solar_holidays.yaml 머리 주석과 같다. name 은
+# key·name·verified 규약과 기저 항목이 false 인 사정은 solar_holidays.yaml 머리 주석과
+# 같다. name 은
 # 조문 표기라 de.ics 의 "Christi Himmelfahrt" 가 여기서는 "Himmelfahrtstag" 다.
 
 # --- scope ---
@@ -26,7 +27,9 @@ holidays:
     source: >-
       umwelt-online 현행판 § 1 Abs. 1 Nr. 3 + berlin.de 공식 안내 열거 +
       feiertage-api 2026 날짜 대조 10/10
-    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+    source_todo: >-
+      관보 원본 GVBl. 1954 S. 615(Gesetz über die Sonn- und Feiertage vom 28.10.1954 원 공포)와
+      GVBl. 1994 S. 491(02.12.1994 개정) — 2026-09-29 조사에서 두 호 모두 온라인 사본을 찾지 못함
 
   - key: ostermontag
     name: Ostermontag
@@ -36,7 +39,9 @@ holidays:
     source: >-
       umwelt-online 현행판 § 1 Abs. 1 Nr. 4 + berlin.de 공식 안내 열거 +
       feiertage-api 2026 날짜 대조 10/10
-    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+    source_todo: >-
+      관보 원본 GVBl. 1954 S. 615(Gesetz über die Sonn- und Feiertage vom 28.10.1954 원 공포)와
+      GVBl. 1994 S. 491(02.12.1994 개정) — 2026-09-29 조사에서 두 호 모두 온라인 사본을 찾지 못함
 
   - key: christi_himmelfahrt
     name: Himmelfahrtstag
@@ -46,7 +51,9 @@ holidays:
     source: >-
       umwelt-online 현행판 § 1 Abs. 1 Nr. 6 + berlin.de 공식 안내 열거 +
       feiertage-api 2026 날짜 대조 10/10
-    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+    source_todo: >-
+      관보 원본 GVBl. 1954 S. 615(Gesetz über die Sonn- und Feiertage vom 28.10.1954 원 공포)와
+      GVBl. 1994 S. 491(02.12.1994 개정) — 2026-09-29 조사에서 두 호 모두 온라인 사본을 찾지 못함
 
   - key: pfingstmontag
     name: Pfingstmontag
@@ -56,4 +63,6 @@ holidays:
     source: >-
       umwelt-online 현행판 § 1 Abs. 1 Nr. 7 + berlin.de 공식 안내 열거 +
       feiertage-api 2026 날짜 대조 10/10
-    source_todo: 공식 포털 gesetze.berlin.de 열람 또는 관보 원본
+    source_todo: >-
+      관보 원본 GVBl. 1954 S. 615(Gesetz über die Sonn- und Feiertage vom 28.10.1954 원 공포)와
+      GVBl. 1994 S. 491(02.12.1994 개정) — 2026-09-29 조사에서 두 호 모두 온라인 사본을 찾지 못함
