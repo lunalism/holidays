@@ -15,7 +15,7 @@
 | `$S/transcripts/1991_S200_artI.txt` | `1991_S200_artI.txt` | GV. NW. 1991 S. 200 Art. I–II 전사 |
 | `$S/transcripts/1994_S1114_artI.txt` | `1994_S1114_artI.txt` | GV. NW. 1994 S. 1114 표제~Art. II 전사 |
 | `$S/transcripts/current_par2abs1_by_chain.txt` | `current_par2abs1_by_chain.txt` | 세 호를 적용한 § 2 Abs. 1 현행 자구 |
-| `$S/transcripts/1977_S98_par2abs1.txt` | (옮기지 않음) | 보조 대조용 |
+| `$S/transcripts/1977_S98_par2abs1.txt` | `1977_S98_par2abs1.txt` | 보조: GV. NW. 1977 S. 98 § 2 Abs. 1 전사(Nr. 4·5 자구 대조) |
 | `$S/png/*.png` | (옮기지 않음) | `render_pngs.py` 로 다시 만든다 |
 | `$S/pdf/*.pdf` 등 | (옮기지 않음) | PDF 는 레포에 두지 않는다 |
 | `$S/scan9096/result.tsv` | `scan9096/result.tsv` | 1990–1996 전 512 호 탐색 결과 |
@@ -34,6 +34,13 @@ PDF 세 벌을 받아 sha256 을 맞춘 뒤 렌더한다. 명령과 sha256 은 `
 머리에 있다(sha256 의 정본은 `rules/de_nw/solar_holidays.yaml` 머리 주석).
 
     uv run --no-project --with pymupdf==1.26.5 python render_pngs.py
+
+1977 S. 98 은 보조 대조라 `render_pngs.py` 에 넣지 않았다. 원본은 GV. NW. 1977 Nr. 12
+(`https://recht.nrw.de/system/files/GV_Archiv/2907-xmmgvb7712.pdf`, sha256
+`9be1989744d4594d4b36112b66d4a95e8cf53a0f063236427e774b1a8d7fba4f`, 2026-09-29 1 회 수령)이고,
+전사 면은 PDF 2 쪽의 하반 좌단을 300 dpi 로 자른 것이다:
+
+    uv run --no-project --with pymupdf==1.26.5 python -c "import fitz; p=fitz.open('1977-12.pdf')[1]; r=p.rect; p.get_pixmap(clip=fitz.Rect(0, r.height/2, r.width/2, r.height), dpi=300).save('1977_S98_q10.png')"
 
 같은 크기의 PNG 가 나오지만 조사 때의 PNG 와 바이트가 같다는 보장은 없다(MuPDF 의 이미지
 저장소 상태 차이, `render_pngs.py` 머리 참조). 판독 대조용이다.
