@@ -2,19 +2,22 @@
 
 근거 법령은 Gesetz über die Sonn- und Feiertage (Feiertagsgesetz NW) in der Fassung
 der Bekanntmachung vom 23. April 1989 (GV. NW. S. 222) § 2 Abs. 1 Nr. 1~11 이다.
-조사 기록은 /tmp/report_de_laender.md 의 NW 절.
+조사 기록은 docs/research/report_nw_feiertagsgesetz_chain.md.
 
-공식 경로는 전멸이다 — recht.nrw.de 는 검색 SPA 로 딥링크를 무시하고, 관보 PDF
-(GV_Archiv 4122-xmmgvb8919.pdf)는 JBIG2 스캔이라 텍스트가 없다. 조문은 비공식 둘로
-읽었다: lexmea(전문, "Imported 21.10.2025") ↔ IHK Köln(요약 열거). 기준 텍스트는
-lexmea 이고, 자구가 다른 호(Nr. 7 괄호, Nr. 8 어순, Nr. 10/11 괄호 날짜)는 해당
-항목 source 에 차이를 기록했다. 그래서 11 건 전부 verified: false 다(BE 기저 9 건과
-같은 관례, source_todo 에 공식 경로).
+조문은 공포본 세 호로 읽었다 — 1989 Neufassung(GV. NW. 1989 Nr. 19 S. 222), 1991
+개정(1991 Nr. 19 S. 200, Nr. 8 을 3. Oktober 로), 1994 개정(1994 Nr. 88 S. 1114,
+Nr. 10 Buß- und Bettag 삭제·재번호). 세 PDF 는 recht.nrw.de 의 GV_Archiv 스캔본이고
+결정적이라(재수령 sha256 동일) 파일 sha256 으로 고정했다. 1989·1991 판은 JBIG2
+이미지에 OCR 텍스트층이 있고 1994 판은 CCITT G4 에 텍스트층이 없다 — 판독 근거는
+세 판 모두 면 이미지이고 OCR 은 교차 확인에만 썼다. 11 건 전부 verified: true 다.
+서지·체인의 닫힘·비공식 현행판(lexmea·IHK Köln)과의 자구 차이는
+solar_holidays.yaml 머리 주석에 있다.
 
 연 단위 구성은 고정 6 + 부활절 이동 5 = 11 건이다. 전국 공통 9 건에 Nr. 7
 Fronleichnamstag 와 Nr. 9 Allerheiligentag 가 더해진다. token 은 전부 기존 확립값
 (공통 9 종 + fronleichnam + allerheiligen) — 신규 명명 0. § 2 에 지자체·집단 한정
-항목이 없고 일회성도 없다. 대체공휴일(이동) 규칙도 없다.
+항목이 없다. 일회성은 2017-10-31(GV. NRW. 2015 S. 496) 하나가 있었으나 피드 범위
+(2020~) 밖이다. 대체공휴일(이동) 규칙도 없다.
 
 SUMMARY 는 조문 표기에서 정관사·서술부·괄호를 뺀 것이다(de.ics 의 전례). Nr. 4 의
 "als Tag des Bekenntnisses …", Nr. 7·9 의 괄호 정의, Nr. 8 의 "der 3. Oktober als"

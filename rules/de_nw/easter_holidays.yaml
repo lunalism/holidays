@@ -10,10 +10,13 @@
 # 부활절 +60 과 등가다. 2026 실측: Trinitatis 05-31, 다음 목요일 06-04 = 부활절
 # (04-05) +60. feiertage-api 2026 NW(06-04)와 일치.
 #
-# key·name·verified 규약과 확인 경로는 solar_holidays.yaml 머리 주석과 같다.
-# name 은 NW 조문 표기라 Nr. 5 가 "Christi-Himmelfahrts-Tag"(하이픈, 조문 그대로),
-# Nr. 7 이 "Fronleichnamstag"(괄호 정의 제외)이다. token 은 기존 확립값
-# (christi_himmelfahrt, fronleichnam) — 신규 명명 없음.
+# key·name·verified 규약, 공포본 세 호와 개정 체인의 닫힘은 solar_holidays.yaml 머리
+# 주석과 같다. 다섯 건 모두 1989 Neufassung(GV. NW. 1989 Nr. 19 S. 222)의 자구이고
+# 1991·1994 개정이 건드리지 않았다. name 은 공포본 조문 표기라 Nr. 5 가
+# "Christi-Himmelfahrtstag"(1977·1989 공포본 표기 — 비공식 현행판의 하이픈 표기
+# "Christi-Himmelfahrts-Tag" 가 아니다), Nr. 7 이 "Fronleichnamstag"(괄호 정의
+# 제외)이다. token 은 기존 확립값(christi_himmelfahrt, fronleichnam) — 신규 명명
+# 없음.
 
 # --- scope ---
 # bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
@@ -27,56 +30,76 @@ holidays:
     name: Karfreitag
     scope: bundesweit
     easter_offset: -2
-    verified: false
+    verified: true
     source: >-
-      Feiertagsgesetz NW § 2 Abs. 1 Nr. 2 'der Karfreitag' — lexmea 현행판(Imported
-      21.10.2025), IHK Köln 동일 자구. 부활절 −2 일은 feiertage-api 2026 NW(04-03)
-      대조 일치
-    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 2 'der Karfreitag' — Bekanntmachung der Neufassung
+      des Gesetzes über die Sonn- und Feiertage vom 23.04.1989, GV. NW. 1989 Nr. 19 S. 222
+      (09.05.1989 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 부활절 −2 일은 feiertage-api
+      2026 NW(04-03) 대조 일치
 
   - key: ostermontag
     name: Ostermontag
     scope: bundesweit
     easter_offset: 1
-    verified: false
+    verified: true
     source: >-
-      Feiertagsgesetz NW § 2 Abs. 1 Nr. 3 'der Ostermontag' — lexmea 현행판(Imported
-      21.10.2025), IHK Köln 동일 자구. 부활절 +1 일은 feiertage-api 2026 NW(04-06)
-      대조 일치
-    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 3 'der Ostermontag' — Bekanntmachung der
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989, GV. NW. 1989
+      Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 부활절 +1 일은 feiertage-api
+      2026 NW(04-06) 대조 일치
 
   - key: christi_himmelfahrt
-    name: Christi-Himmelfahrts-Tag
+    name: Christi-Himmelfahrtstag
     scope: bundesweit
     easter_offset: 39
-    verified: false
+    verified: true
     source: >-
-      Feiertagsgesetz NW § 2 Abs. 1 Nr. 5 'der Christi-Himmelfahrts-Tag' — lexmea
-      현행판(Imported 21.10.2025), IHK Köln 동일 자구(하이픈 표기 그대로). 부활절
-      +39 일은 feiertage-api 2026 NW(05-14, Christi Himmelfahrt) 대조 일치
-    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 5 'der Christi-Himmelfahrtstag' — Bekanntmachung
+      der Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989, GV. NW.
+      1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 1977 Bekanntmachung(GV. NW. 1977 S. 98)도 같은 표기다 — 비공식 현행판(lexmea·IHK Köln
+      등)의 하이픈 표기 'Christi-Himmelfahrts-Tag' 는 공포본에 없다. 이 호는 1991·1994 개정(GV. NW. 1991 S.
+      200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지,
+      관보 색인·포털 개정 이력). 부활절 +39 일은 feiertage-api 2026 NW(05-14, Christi Himmelfahrt) 대조 일치
 
   - key: pfingstmontag
     name: Pfingstmontag
     scope: bundesweit
     easter_offset: 50
-    verified: false
+    verified: true
     source: >-
-      Feiertagsgesetz NW § 2 Abs. 1 Nr. 6 'der Pfingstmontag' — lexmea 현행판
-      (Imported 21.10.2025), IHK Köln 동일 자구. 부활절 +50 일은 feiertage-api 2026
-      NW(05-25) 대조 일치
-    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 6 'der Pfingstmontag' — Bekanntmachung der
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989, GV. NW. 1989
+      Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 부활절 +50 일은 feiertage-api
+      2026 NW(05-25) 대조 일치
 
   - key: fronleichnam
     name: Fronleichnamstag
     scope: land
     easter_offset: 60
-    verified: false
+    verified: true
     source: >-
       Feiertagsgesetz NW § 2 Abs. 1 Nr. 7 'der Fronleichnamstag (Donnerstag nach dem
-      Sonntag Trinitatis)' — lexmea 현행판(Imported 21.10.2025). IHK Köln 은 'der
-      Fronleichnamstag'(괄호 없음)로 자구가 다르다 — lexmea 를 따름. SUMMARY 는 괄호
-      정의를 뺀 'Fronleichnamstag'. 조문의 정의(Trinitatis 다음 목요일)는 부활절 +60
-      과 등가 — Trinitatis 가 부활절 +56 일요일이라서. 2026 실측 Trinitatis 05-31 →
-      06-04, feiertage-api 2026 NW(Fronleichnam 06-04) 대조 일치
-    source_todo: 공식 포털 recht.nrw.de 열람 또는 GV. NW 1989 S. 222 관보 원본(스캔본 OCR 포함)
+      Sonntag Trinitatis)' — Bekanntmachung der Neufassung des Gesetzes über die Sonn- und
+      Feiertage vom 23.04.1989, GV. NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de
+      PDF https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200· 1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 괄호 정의를 뺀
+      'Fronleichnamstag'. 조문의 정의(Trinitatis 다음 목요일)는 부활절 +60 과 등가 — Trinitatis 가 부활절 +56
+      일요일이라서. 2026 실측 Trinitatis 05-31 → 06-04, feiertage-api 2026 NW(Fronleichnam 06-04)
+      대조 일치

@@ -10,12 +10,11 @@
     Nr. 7 Fronleichnamstag 와 Nr. 9 Allerheiligentag. 일회성은 없다. 대체공휴일
     (이동) 규칙도 없다.
 
-근거는 /tmp/report_de_laender.md 의 NW 절이고, 요지는 rules/de_nw/ 의 YAML
-source 필드에 옮겨 적었다. 공식 경로는 전멸이다(recht.nrw.de 검색 SPA, 관보 PDF 는
-JBIG2 스캔). 조문은 비공식 둘(lexmea 전문 ↔ IHK Köln 요약)로 읽었고 기준 텍스트는
-lexmea 다 — 자구가 다른 호(7·8·10·11)는 source 에 차이를 기록한다. 11 건 전부
-verified: false, BE 기저 9 건과 같은 관례(xfail 없음, source_todo 필수, 상태 고정
-테스트 하나).
+근거는 docs/research/report_nw_feiertagsgesetz_chain.md 이고, 요지는 rules/de_nw/ 의
+YAML source 필드에 옮겨 적었다. 조문은 공포본 세 호의 스캔 면을 판독해 읽었다 —
+1989 Neufassung(GV. NW. 1989 Nr. 19 S. 222), 1991 개정(1991 Nr. 19 S. 200, Nr. 8),
+1994 개정(1994 Nr. 88 S. 1114, Nr. 10 삭제·재번호). 11 건 전부 verified: true 이고,
+각 source 는 자기 호의 서지·공포일·PDF URL·sha256·열람일을 스스로 든다(BW 전례).
 
 SUMMARY 는 조문 표기에서 정관사·서술부·괄호를 뺀 것이다(de.ics 의 전례):
 Nr. 4 "der 1. Mai als Tag des Bekenntnisses …" → "1. Mai", Nr. 7 "der
@@ -31,6 +30,9 @@ Nr. 9 "der Allerheiligentag (1. November)" → "Allerheiligentag". token 은 전
     e. 신규 token 0 — 기존 네 주 피드 key 합집합 대비 차집합이 공집합
     f. 하니스 — python-holidays(subdiv='NW')와 연도별 날짜 집합 대조
     g. 헤더·DTEND·범위·근거 — 관례 이식. SUMMARY 네 건의 서술부·괄호 제외 포함
+    h. 근거 — 11 건 전부 verified true. 자기 공포본 호의 면·sha256·열람일,
+       Nr. 8 은 1991 S. 200, Nr. 10·11 은 1994 S. 1114 재번호. source 는
+       DESCRIPTION 에 그대로 실리므로 머리 주석을 가리키지 않는다
 
 발행하지 않는다. build() 로 메모리에서 만들어 보고, publish() 는 tmp_path 로만
 부른다. 시계를 읽지 않는다 — today·dtstamp 를 고정값으로 준다.
@@ -79,14 +81,15 @@ FEIERTAGE_API_2026_NW = {
 }
 FEIERTAGE_API_2026_NW_HINWEIS = {name: "" for name in FEIERTAGE_API_2026_NW}
 
-# Feiertagsgesetz NW § 2 Abs. 1 의 호 순서·SUMMARY 표기(lexmea 기준, 정관사·서술부·
-# 괄호 제외). Nr. 5 는 조문의 하이픈 표기 "Christi-Himmelfahrts-Tag" 그대로.
+# Feiertagsgesetz NW § 2 Abs. 1 의 호 순서·SUMMARY 표기(공포본 자구 기준, 정관사·서술부·
+# 괄호 제외). Nr. 5 는 공포본 표기 "Christi-Himmelfahrtstag" — 비공식 현행판의 하이픈
+# 표기 "Christi-Himmelfahrts-Tag" 가 아니다.
 EXPECTED_2026 = [
     (dt.date(2026, 1, 1), "Neujahrstag", "neujahr", 1),
     (dt.date(2026, 4, 3), "Karfreitag", "karfreitag", 2),
     (dt.date(2026, 4, 6), "Ostermontag", "ostermontag", 3),
     (dt.date(2026, 5, 1), "1. Mai", "erster_mai", 4),
-    (dt.date(2026, 5, 14), "Christi-Himmelfahrts-Tag", "christi_himmelfahrt", 5),
+    (dt.date(2026, 5, 14), "Christi-Himmelfahrtstag", "christi_himmelfahrt", 5),
     (dt.date(2026, 5, 25), "Pfingstmontag", "pfingstmontag", 6),
     (dt.date(2026, 6, 4), "Fronleichnamstag", "fronleichnam", 7),
     (dt.date(2026, 10, 3), "Tag der Deutschen Einheit", "tag_der_deutschen_einheit", 8),
@@ -98,21 +101,54 @@ TOKENS = {PREFIX + key for _, _, key, _ in EXPECTED_2026}
 NR_OF = {key: nr for _, _, key, nr in EXPECTED_2026}
 NAME_OF = {key: name for _, name, key, _ in EXPECTED_2026}
 
-# 조문 원문(lexmea)이 SUMMARY 보다 긴 네 호. source 는 이 원문을 따옴표로 담아야 한다.
+# 조문 원문(공포본)이 SUMMARY 보다 긴 네 호. source 는 이 원문을 따옴표로 담아야 한다.
+# Nr. 4 의 "Gerichtigkeit" 는 1989 공고본의 인쇄 그대로이고 [sic] 로 표시한다.
 STATUTE_TEXT = {
     "erster_mai": (
         "der 1. Mai als Tag des Bekenntnisses zu Freiheit und Frieden, sozialer "
-        "Gerechtigkeit, Völkerversöhnung und Menschenwürde"
+        "Gerichtigkeit [sic], Völkerversöhnung und Menschenwürde"
     ),
     "fronleichnam": "der Fronleichnamstag (Donnerstag nach dem Sonntag Trinitatis)",
     "tag_der_deutschen_einheit": "der 3. Oktober als Tag der Deutschen Einheit",
     "allerheiligen": "der Allerheiligentag (1. November)",
 }
 
-# IHK Köln 요약과 자구가 다른 호 — source 에 그 차이가 기록돼야 한다.
-IHK_DIFFERS = {
-    "fronleichnam", "tag_der_deutschen_einheit", "erster_weihnachtstag", "zweiter_weihnachtstag",
+# 공포본 세 호. 값의 정본은 rules/de_nw/solar_holidays.yaml 머리 주석이고 여기는 그
+# 사본이다 — 각 source 가 자기 호의 이 값들을 스스로 들어야 한다.
+GAZETTE = {
+    1989: {
+        "issue": "GV. NW. 1989 Nr. 19 S. 222",
+        "proclaimed": "09.05.1989 공포",
+        "url": "https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf",
+        "sha256": "b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49",
+    },
+    1991: {
+        "issue": "GV. NW. 1991 Nr. 19 S. 200",
+        "proclaimed": "03.05.1991 공포",
+        "url": "https://recht.nrw.de/system/files/GV_Archiv/3762-xmmgvb9119.pdf",
+        "sha256": "4c7dd3aad931ce0b5906db48681a0cdfb6cb425a1964a8a970c14a683aa2dbc5",
+    },
+    1994: {
+        "issue": "GV. NW. 1994 Nr. 88 S. 1114",
+        "proclaimed": "30.12.1994 공포",
+        "url": "https://recht.nrw.de/system/files/GV_Archiv/4383-xmmgvb9488.pdf",
+        "sha256": "329fd81bb58b2e9a0cb17d8e0d7df3e28ffe0de35b175648fce282359ab823f8",
+    },
 }
+READ_ON = "2026-09-29 열람"
+
+# 1994 이후 개정이 없다는 것은 검색 사실로 적는다 — 2021 Nr. 75a 를 직접 보지 못했고
+# 정오표 탐색도 일부 호는 목차 면만 봤다. 판정어('무개정')를 구독자 문장에 쓰지 않는다.
+NO_LATER_AMENDMENT = (
+    "§ 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력)"
+)
+
+# 항목별로 근거가 되는 공포본 호. Nr. 8 은 1991 의 새 문언, Nr. 10·11 은 1989 의
+# Nr. 11·12 를 1994 가 재번호한 것, 나머지는 1989 의 자구 그대로다.
+OWN_ISSUES = {key: (1989,) for key in NR_OF}
+OWN_ISSUES["tag_der_deutschen_einheit"] = (1991,)
+OWN_ISSUES["erster_weihnachtstag"] = (1989, 1994)
+OWN_ISSUES["zweiter_weihnachtstag"] = (1989, 1994)
 
 
 @pytest.fixture(scope="module")
@@ -332,7 +368,7 @@ def test_every_event_falls_inside_the_range(events):
 
 
 # ---------------------------------------------------------------------------
-# 근거 — 항목별 호 인용(lexmea 기준, IHK 차이 병기), verified 전건 false
+# h. 근거 — 항목별 호 인용·공포본 서지, verified 전건 true
 # ---------------------------------------------------------------------------
 
 
@@ -343,31 +379,103 @@ def _raw_entries() -> list:
     return out
 
 
+def _source(entry) -> str:
+    """source 를 DESCRIPTION 처럼 한 줄로 편다. YAML 접힘이 URL·sha256 을 가르지 않게."""
+    return " ".join(entry["source"].split())
+
+
 def test_the_tables_hold_eleven_entries_each_citing_its_own_number_of_section_2():
     """호 번호가 있으므로 '§ 2 Abs. 1 Nr. n' 을 직접 인용한다. 각 source 는 자기 호
-    번호와 그 호의 조문 표기(lexmea)를 따옴표로 담는다."""
+    번호와 그 호의 조문 표기(공포본 자구)를 따옴표로 담는다."""
     entries = _raw_entries()
     assert len(entries) == 11
     assert {e["key"] for e in entries} == set(NR_OF)
     for entry in entries:
         key = entry["key"]
-        assert f"§ 2 Abs. 1 Nr. {NR_OF[key]}" in entry["source"], key
-        quoted = re.findall(r"'([^']+)'", entry["source"])
+        source = _source(entry)
+        assert f"§ 2 Abs. 1 Nr. {NR_OF[key]} '" in source, key
+        quoted = re.findall(r"'([^']+)'", source)
         assert quoted, key
         if key in STATUTE_TEXT:
             assert STATUTE_TEXT[key] in quoted, key
         else:
-            assert any(NAME_OF[key] in q for q in quoted), key
-        assert "lexmea" in entry["source"], key
+            assert f"der {NAME_OF[key]}" in quoted, key
 
 
-def test_the_lines_where_ihk_differs_record_the_difference():
+def test_all_eleven_are_verified_and_nothing_is_left_to_do():
+    """공포본 세 호로 11 건 전부 확인했다. source_todo 는 남기지 않는다."""
+    entries = _raw_entries()
+    assert [e["key"] for e in entries if e["verified"] is not True] == []
+    for entry in entries:
+        assert "source_todo" not in entry, f"{entry['key']}: 전건 true 인데 source_todo 가 있다"
+        assert "feiertage-api 2026 NW" in entry["source"], entry["key"]
+
+
+def test_each_source_carries_its_own_gazette_issue_page_hash_and_reading_date():
+    """source 는 DESCRIPTION 에 그대로 실리므로 서지를 스스로 들어야 한다(BW 전례).
+    자기 호의 면·공포일·PDF URL·sha256 과 열람일, 그리고 남의 호 sha256 은 들지 않는다."""
+    for entry in _raw_entries():
+        key = entry["key"]
+        source = _source(entry)
+        for year in OWN_ISSUES[key]:
+            for field, value in GAZETTE[year].items():
+                assert value in source, (key, year, field)
+        assert READ_ON in source, key
+        assert "재수령 대조 일치" in source, key
+        own = {GAZETTE[year]["sha256"] for year in OWN_ISSUES[key]}
+        assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == own, key
+        assert NO_LATER_AMENDMENT in source, key
+
+
+def test_unity_day_cites_the_1991_amendment_that_replaced_the_17th_of_june():
+    entry = {e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"]
+    source = _source(entry)
+    assert "GV. NW. 1991 Nr. 19 S. 200" in source
+    assert "Art. I Nr. 1" in source
+    assert "'der 17. Juni als Tag der deutschen Einheit'" in source  # 종전 문언
+    assert "Einigungsvertrag Art. 2 Abs. 2" in source  # 연방 근거 부기
+
+
+def test_both_christmas_days_cite_the_1994_renumbering():
     by_key = {e["key"]: e for e in _raw_entries()}
-    for key in IHK_DIFFERS:
-        assert "IHK" in by_key[key]["source"], key
-    assert "(3. Oktober)" in by_key["tag_der_deutschen_einheit"]["source"]
-    assert "(25. Dezember)" in by_key["erster_weihnachtstag"]["source"]
-    assert "(26. Dezember)" in by_key["zweiter_weihnachtstag"]["source"]
+    for key, old_nr in (("erster_weihnachtstag", 11), ("zweiter_weihnachtstag", 12)):
+        source = _source(by_key[key])
+        assert "GV. NW. 1994 Nr. 88 S. 1114" in source, key
+        assert f"vom 23.04.1989 의 Nr. {old_nr}," in source, key
+        assert f"Nr. {NR_OF[key]} " in source and "재번호" in source, key
+
+
+def test_ascension_takes_the_gazette_spelling_not_the_hyphenated_one():
+    """공포본(1977·1989)은 'Christi-Himmelfahrtstag'. 비공식 현행판의 하이픈 표기는
+    source 에 대조로만 남고 SUMMARY 가 되지 않는다."""
+    entry = {e["key"]: e for e in _raw_entries()}["christi_himmelfahrt"]
+    assert entry["name"] == "Christi-Himmelfahrtstag"
+    assert "'der Christi-Himmelfahrtstag'" in _source(entry)
+    assert "GV. NW. 1977 S. 98" in _source(entry)
+
+
+def test_labour_day_keeps_the_misprint_as_printed_and_says_so():
+    """1989 공고본의 인쇄 'Gerichtigkeit' 를 [sic] 로 옮긴다. 1977 판의 자구와 정오표를
+    찾지 못했다는 사실을 짧게 든다."""
+    source = _source({e["key"]: e for e in _raw_entries()}["erster_mai"])
+    assert "sozialer Gerichtigkeit [sic]," in source
+    assert "GV. NW. 1977 S. 98" in source and "'Gerechtigkeit'" in source
+    assert "1989–1996 관보에서 S. 222 정오표를 찾지 못함(텍스트층 없는 호는 목차 면만)" in source
+
+
+def test_no_source_states_the_absence_of_amendment_as_a_verdict():
+    """2015 이후 무개정은 색인 검색·포털 개정 이력으로 닫았고 75a 등 한계가 있다. 구독자
+    문장은 '찾지 못함' 이라는 검색 사실로 적고 '무개정' 이라는 판정어를 쓰지 않는다."""
+    for entry in _raw_entries():
+        assert "무개정" not in entry["source"], entry["key"]
+
+
+def test_no_source_points_to_the_header_comment():
+    """source 는 DESCRIPTION 의 '근거:' 뒤에 그대로 나간다. 구독자는 YAML 을 볼 수
+    없으므로 머리 주석을 가리키는 문장이 있으면 안 된다."""
+    for entry in _raw_entries():
+        assert "머리 주석" not in entry["source"], entry["key"]
+        assert "solar_holidays.yaml" not in entry["source"], entry["key"]
 
 
 def test_the_corpus_christi_source_ties_the_offset_to_the_statute_definition():
@@ -379,16 +487,6 @@ def test_the_corpus_christi_source_ties_the_offset_to_the_statute_definition():
     assert entry["name"] == "Fronleichnamstag"
     for word in ("Trinitatis", "+60", "등가"):
         assert word in entry["source"], word
-
-
-def test_nothing_is_verified_and_every_entry_says_what_is_missing():
-    """공식 경로가 전멸이므로 11 건 전부 false 다. BE 기저 9 건과 같은 관례 —
-    xfail 이 아니라 source_todo 로 남기고 여기서 상태를 고정한다."""
-    for entry in _raw_entries():
-        assert entry["verified"] is False, entry["key"]
-        todo = entry.get("source_todo") or ""
-        assert "recht.nrw.de" in todo and "GV. NW" in todo, entry["key"]
-        assert "feiertage-api" in entry["source"], entry["key"]
 
 
 def test_every_description_carries_the_source(events):
