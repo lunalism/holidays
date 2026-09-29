@@ -37,8 +37,8 @@
 # 폴더.
 #
 # --- 개정 체인과 그 닫힘 ---
-# § 2 Abs. 1 에 닿은 개정은 1991 S. 200(Nr. 8)·1994 S. 1114(Nr. 10 삭제·재번호)
-# 둘뿐이다. 구간별 근거:
+# § 2 Abs. 1 에 닿은 개정으로 찾은 것은 1991 S. 200(Nr. 8)·1994 S. 1114(Nr. 10 삭제·
+# 재번호) 둘이다. 구간별 근거(2015 이후는 개정을 찾지 못했다는 검색 사실이다):
 #   1989 → 1991   1991 S. 200 서두가 1989 공고본을 개정 없이 인용
 #   1991 → 1994   1994 S. 1114 서두가 "geändert durch Gesetz vom 17. April 1991" 만 인용
 #   1994 → 2006   GV. NRW. 2006 S. 516 (LÖG NRW) § 1 의 "zuletzt geändert durch Gesetz
@@ -141,10 +141,10 @@ holidays:
       Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989, GV. NW. 1989
       Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
       https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
-      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람,
-      재수령 대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이
-      건드리지 않았고 § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026 Nr. 27 까지). 날짜
-      1. 1. 은 feiertage-api 2026 NW 대조 일치
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 날짜 1. 1. 은 feiertage-api
+      2026 NW 대조 일치
 
   - key: erster_mai
     name: 1. Mai
@@ -158,13 +158,12 @@ holidays:
       Menschenwürde' — Bekanntmachung der Neufassung des Gesetzes über die Sonn- und
       Feiertage vom 23.04.1989, GV. NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de
       PDF https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
-      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람,
-      재수령 대조 일치). 'Gerichtigkeit' 는 1989 공고본의 인쇄 그대로다 — 1977
-      Bekanntmachung(GV. NW. 1977 S. 98)은 'Gerechtigkeit' 이고, 1989–1996 관보에서
-      S. 222 정오표를 찾지 못함. 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994
-      S. 1114)이 건드리지 않았고 § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026 Nr. 27
-      까지). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부 제외 전례). 날짜는 조문에
-      박혀 있고 feiertage-api 2026 NW(Tag der Arbeit) 대조 일치
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 'Gerichtigkeit' 는 1989 공고본의 인쇄 그대로다 — 1977 Bekanntmachung(GV. NW. 1977 S.
+      98)은 'Gerechtigkeit' 이고, 1989–1996 관보에서 S. 222 정오표를 찾지 못함(텍스트층 없는 호는 목차 면만). 이 호는
+      1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의 1994 이후 개정은 찾지
+      못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부
+      제외 전례). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag der Arbeit) 대조 일치
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
@@ -173,15 +172,15 @@ holidays:
     day: 3
     verified: true
     source: >-
-      Feiertagsgesetz NW § 2 Abs. 1 Nr. 8 'der 3. Oktober als Tag der Deutschen
-      Einheit' — Gesetz zur Änderung des Feiertagsgesetzes NW vom 17.04.1991 Art. I
-      Nr. 1 (Nr. 8 새 문언, 종전 'der 17. Juni als Tag der deutschen Einheit'), GV. NW.
-      1991 Nr. 19 S. 200 (03.05.1991 공포; recht.nrw.de PDF
+      Feiertagsgesetz NW § 2 Abs. 1 Nr. 8 'der 3. Oktober als Tag der Deutschen Einheit' —
+      Gesetz zur Änderung des Feiertagsgesetzes NW vom 17.04.1991 Art. I Nr. 1 (Nr. 8 새
+      문언, 종전 'der 17. Juni als Tag der deutschen Einheit'), GV. NW. 1991 Nr. 19 S. 200
+      (03.05.1991 공포; recht.nrw.de PDF
       https://recht.nrw.de/system/files/GV_Archiv/3762-xmmgvb9119.pdf sha256
-      4c7dd3aad931ce0b5906db48681a0cdfb6cb425a1964a8a970c14a683aa2dbc5, 2026-09-29 열람,
-      재수령 대조 일치). § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026 Nr. 27 까지).
-      SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2
-      Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW 대조 일치
+      4c7dd3aad931ce0b5906db48681a0cdfb6cb425a1964a8a970c14a683aa2dbc5, 2026-09-29 열람, 재수령
+      대조 일치). § 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력).
+      SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de).
+      날짜는 조문에 박혀 있고 feiertage-api 2026 NW 대조 일치
 
   - key: allerheiligen
     name: Allerheiligentag
@@ -194,12 +193,11 @@ holidays:
       Bekanntmachung der Neufassung des Gesetzes über die Sonn- und Feiertage vom
       23.04.1989, GV. NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
       https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
-      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람,
-      재수령 대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이
-      건드리지 않았고 § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026 Nr. 27 까지).
-      SUMMARY 는 괄호 날짜를 뺀 'Allerheiligentag'. token 은 de_by 와 같은
-      allerheiligen(신규 명명 없음). § 6 의 stiller Feiertag. 날짜 1. 11. 은 조문 괄호와
-      feiertage-api 2026 NW(Allerheiligen) 대조 일치
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
+      1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 괄호 날짜를 뺀
+      'Allerheiligentag'. token 은 de_by 와 같은 allerheiligen(신규 명명 없음). § 6 의 stiller
+      Feiertag. 날짜 1. 11. 은 조문 괄호와 feiertage-api 2026 NW(Allerheiligen) 대조 일치
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
@@ -209,17 +207,17 @@ holidays:
     verified: true
     source: >-
       Feiertagsgesetz NW § 2 Abs. 1 Nr. 10 'der 1. Weihnachtstag' — Bekanntmachung der
-      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989 의 Nr. 11,
-      GV. NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989 의 Nr. 11, GV.
+      NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
       https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
-      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람,
-      재수령 대조 일치)을 Zweites Gesetz zur Änderung des Feiertagsgesetzes
-      Nordrhein-Westfalen vom 20.12.1994 Art. I Nr. 1(Nr. 10 Buß- und Bettag 삭제,
-      Nr. 11·12 → 10·11)이 Nr. 10 으로 재번호, GV. NW. 1994 Nr. 88 S. 1114 (30.12.1994
-      공포; recht.nrw.de PDF https://recht.nrw.de/system/files/GV_Archiv/4383-xmmgvb9488.pdf
-      sha256 329fd81bb58b2e9a0cb17d8e0d7df3e28ffe0de35b175648fce282359ab823f8,
-      2026-09-29 열람, 재수령 대조 일치). § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026
-      Nr. 27 까지). 날짜 25. 12. 은 feiertage-api 2026 NW 대조 일치
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치)을 Zweites Gesetz zur Änderung des Feiertagsgesetzes Nordrhein-Westfalen vom
+      20.12.1994 Art. I Nr. 1(Nr. 10 Buß- und Bettag 삭제, Nr. 11·12 → 10·11)이 Nr. 10 으로
+      재번호, GV. NW. 1994 Nr. 88 S. 1114 (30.12.1994 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4383-xmmgvb9488.pdf sha256
+      329fd81bb58b2e9a0cb17d8e0d7df3e28ffe0de35b175648fce282359ab823f8, 2026-09-29 열람, 재수령
+      대조 일치). § 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 날짜
+      25. 12. 은 feiertage-api 2026 NW 대조 일치
 
   - key: zweiter_weihnachtstag
     name: 2. Weihnachtstag
@@ -229,14 +227,14 @@ holidays:
     verified: true
     source: >-
       Feiertagsgesetz NW § 2 Abs. 1 Nr. 11 'der 2. Weihnachtstag' — Bekanntmachung der
-      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989 의 Nr. 12,
-      GV. NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
+      Neufassung des Gesetzes über die Sonn- und Feiertage vom 23.04.1989 의 Nr. 12, GV.
+      NW. 1989 Nr. 19 S. 222 (09.05.1989 공포; recht.nrw.de PDF
       https://recht.nrw.de/system/files/GV_Archiv/4122-xmmgvb8919.pdf sha256
-      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람,
-      재수령 대조 일치)을 Zweites Gesetz zur Änderung des Feiertagsgesetzes
-      Nordrhein-Westfalen vom 20.12.1994 Art. I Nr. 1(Nr. 10 Buß- und Bettag 삭제,
-      Nr. 11·12 → 10·11)이 Nr. 11 로 재번호, GV. NW. 1994 Nr. 88 S. 1114 (30.12.1994
-      공포; recht.nrw.de PDF https://recht.nrw.de/system/files/GV_Archiv/4383-xmmgvb9488.pdf
-      sha256 329fd81bb58b2e9a0cb17d8e0d7df3e28ffe0de35b175648fce282359ab823f8,
-      2026-09-29 열람, 재수령 대조 일치). § 2 Abs. 1 은 1994 이후 무개정(GV. NRW. 2026
-      Nr. 27 까지). 날짜 26. 12. 은 feiertage-api 2026 NW 대조 일치
+      b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
+      대조 일치)을 Zweites Gesetz zur Änderung des Feiertagsgesetzes Nordrhein-Westfalen vom
+      20.12.1994 Art. I Nr. 1(Nr. 10 Buß- und Bettag 삭제, Nr. 11·12 → 10·11)이 Nr. 11 로 재번호,
+      GV. NW. 1994 Nr. 88 S. 1114 (30.12.1994 공포; recht.nrw.de PDF
+      https://recht.nrw.de/system/files/GV_Archiv/4383-xmmgvb9488.pdf sha256
+      329fd81bb58b2e9a0cb17d8e0d7df3e28ffe0de35b175648fce282359ab823f8, 2026-09-29 열람, 재수령
+      대조 일치). § 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). 날짜
+      26. 12. 은 feiertage-api 2026 NW 대조 일치

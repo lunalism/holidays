@@ -137,6 +137,12 @@ GAZETTE = {
 }
 READ_ON = "2026-09-29 열람"
 
+# 1994 이후 개정이 없다는 것은 검색 사실로 적는다 — 2021 Nr. 75a 를 직접 보지 못했고
+# 정오표 탐색도 일부 호는 목차 면만 봤다. 판정어('무개정')를 구독자 문장에 쓰지 않는다.
+NO_LATER_AMENDMENT = (
+    "§ 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력)"
+)
+
 # 항목별로 근거가 되는 공포본 호. Nr. 8 은 1991 의 새 문언, Nr. 10·11 은 1989 의
 # Nr. 11·12 를 1994 가 재번호한 것, 나머지는 1989 의 자구 그대로다.
 OWN_ISSUES = {key: (1989,) for key in NR_OF}
@@ -418,7 +424,7 @@ def test_each_source_carries_its_own_gazette_issue_page_hash_and_reading_date():
         assert "재수령 대조 일치" in source, key
         own = {GAZETTE[year]["sha256"] for year in OWN_ISSUES[key]}
         assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == own, key
-        assert "§ 2 Abs. 1 은 1994 이후 무개정" in source, key
+        assert NO_LATER_AMENDMENT in source, key
 
 
 def test_unity_day_cites_the_1991_amendment_that_replaced_the_17th_of_june():
@@ -454,7 +460,14 @@ def test_labour_day_keeps_the_misprint_as_printed_and_says_so():
     source = _source({e["key"]: e for e in _raw_entries()}["erster_mai"])
     assert "sozialer Gerichtigkeit [sic]," in source
     assert "GV. NW. 1977 S. 98" in source and "'Gerechtigkeit'" in source
-    assert "1989–1996 관보에서 S. 222 정오표를 찾지 못함" in source
+    assert "1989–1996 관보에서 S. 222 정오표를 찾지 못함(텍스트층 없는 호는 목차 면만)" in source
+
+
+def test_no_source_states_the_absence_of_amendment_as_a_verdict():
+    """2015 이후 무개정은 색인 검색·포털 개정 이력으로 닫았고 75a 등 한계가 있다. 구독자
+    문장은 '찾지 못함' 이라는 검색 사실로 적고 '무개정' 이라는 판정어를 쓰지 않는다."""
+    for entry in _raw_entries():
+        assert "무개정" not in entry["source"], entry["key"]
 
 
 def test_no_source_points_to_the_header_comment():
