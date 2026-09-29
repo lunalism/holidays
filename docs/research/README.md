@@ -7,6 +7,18 @@
 규칙·테스트 주석이 보고를 가리킬 때는 이 폴더의 경로를 쓴다 — `/tmp` 경로는
 세션이 끝나면 사라진다(첫 사례: `docs/research/report_bgbl_1990_einigungsvertrag.md`).
 
+## 보고의 흐름
+
+- 조사 보고는 레포 밖 `~/holidays-reports/` 에 쓴다.
+- 그 보고를 근거로 쓰는 구현 PR 이 보고를 `docs/research/` 로 옮긴다 — 내용은 고치지 않는다.
+- 전사본·탐색 기록·스크립트는 같은 이름의 폴더(`report_<주제>/`)에 README 와 함께 둔다. PDF 는 두지 않는다.
+- 그 폴더의 스크립트는 재현 기록이다 — CI 는 돌리지 않는다.
+- 원본(`~/holidays-reports/` 의 파일)은 PR 머지 뒤 사람이 지운다.
+
+첫 적용은 #112–#115 다(`report_ubuntu2604.md`·`report_nw_feiertagsgesetz_chain.md`·
+`report_he_be_gazette_access.md`). AGENTS.md 「조사와 보고」가 같은 문구를 든다 — 고칠 때는
+둘을 함께 고친다.
+
 ## 이차 기록이다
 
 여기 있는 보고는 근거의 정본이 아니다. 데이터 근거의 정본은 규칙 YAML 의
