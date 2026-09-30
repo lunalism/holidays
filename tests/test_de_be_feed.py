@@ -251,7 +251,7 @@ def test_the_intersection_of_state_feeds_is_the_nationwide_feed(year):
     if len(STATE_FEEDS) < 2:
         pytest.skip(
             f"주 피드가 {len(STATE_FEEDS)} 개({', '.join(STATE_FEEDS)})뿐이라 교집합이 "
-            "자기 자신이다. 두 번째 주 피드가 생기면 STATE_FEEDS 에 더해 켤 것."
+            "자기 자신이다. 두 번째 주 피드가 rules/ 에 생기면 스캔이 저절로 켠다."
         )
     start, end = dt.date(year, 1, 1), dt.date(year, 12, 31)
     sets = [{e.day for e in f.events(start, end)} for f in STATE_FEEDS.values()]

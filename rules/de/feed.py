@@ -72,7 +72,7 @@ BUNDESWEIT_SENTENCE = "독일 전국 공휴일입니다."
 
 # --- LAND_NAME_DE — 주 피드의 독일어 주 이름 ---
 #
-# 근거는 여기 한 번만 적는다. 주 피드 아홉(rules/de_*/feed.py)의 LAND_NAME_DE 는
+# 근거는 여기 한 번만 적는다. 주 피드 전부(rules/de_*/feed.py)의 LAND_NAME_DE 는
 # 전부 이 절을 가리킨다 — 같은 한 조문이 16 개를 전부 덮으므로 2 차 배치 주가
 # 들어와도 출처를 다시 찾지 않는다.
 #

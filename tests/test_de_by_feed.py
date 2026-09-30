@@ -26,8 +26,8 @@
 발행하지 않는다. build() 로 메모리에서 만들어 보고, publish() 는 tmp_path 로만
 부른다. 시계를 읽지 않는다 — today·dtstamp 를 고정값으로 준다.
 
-주 피드 교집합 == de.ics 테스트는 tests/test_de_be_feed.py 의 STATE_FEEDS 에
-de_by 를 더해 켠다(여기 두지 않는다 — 한 자리에서 주 피드를 센다).
+주 피드 교집합 == de.ics 테스트는 tests/test_de_be_feed.py 의 STATE_FEEDS(rules/ 스캔)가
+이 주를 저절로 넣는다(여기 두지 않는다 — 한 자리에서 주 피드를 센다).
 """
 
 from __future__ import annotations

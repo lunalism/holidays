@@ -68,9 +68,9 @@
 # --- scope ---
 # bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
 # 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
-# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
-# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
-# bundesweit key 집합 == rules/de key 집합을 고정한다.
+# rules/de 의 YAML 과 삼중 일치(실측 요지는 tests/test_de_scope.py 머리 docstring,
+# 고정은 같은 파일의 test_bundesweit_keys_equal_the_nationwide_keys). DESCRIPTION 첫
+# 줄이 이 값에서 나온다. 로더가 닫힌 집합으로 검사한다.
 
 holidays:
   - key: neujahr
