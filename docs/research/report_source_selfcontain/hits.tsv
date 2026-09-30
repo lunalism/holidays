@@ -1,0 +1,108 @@
+file	key	verified	cat	pattern	cs_hits	ci_hits	context
+rules/de/solar_holidays.yaml	tag_der_deutschen_einheit	True	C2	머리 주석	1	1	3f40521301db6d8a92a6af 을 적는다 — 정의는 이 파일 머리 주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
+rules/de/solar_holidays.yaml	tag_der_deutschen_einheit	True	C2	이 파일	1	1	7e53d3f40521301db6d8a92a6af 을 적는다 — 정의는 이 파일 머리 주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
+rules/de/solar_holidays.yaml	tag_der_deutschen_einheit	True	C2	주석	1	1	0521301db6d8a92a6af 을 적는다 — 정의는 이 파일 머리 주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
+rules/de/solar_holidays.yaml	tag_der_deutschen_einheit	True	C5	무개정	1	1	주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
+rules/de_be/solar_holidays.yaml	frauentag	True	C6	SUMMARY	1	1	함(2026-09 까지, 2024 개정 서두 인용·PARDOK 검색). SUMMARY 는 괄호 날짜를 뺀 'Frauentag'. 날짜 8. 3. 은 feiertage-api 202
+rules/de_bw/easter_holidays.yaml	karfreitag	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feiertage-api 2026 BW(04
+rules/de_bw/easter_holidays.yaml	ostermontag	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feiertage-api 2026 BW(04
+rules/de_bw/easter_holidays.yaml	christi_himmelfahrt	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 일은 feiertage-api 2026 BW(0
+rules/de_bw/easter_holidays.yaml	pfingstmontag	True	C5	무개정	1	1	"hristi Himmelfahrt,"" 뒤에 재삽입), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 부활절 +50 일은 feiertage-api 2026 BW(0"
+rules/de_bw/easter_holidays.yaml	fronleichnam	True	C3	\bde_[a-z]{2}\b(?! 와 같은)	2	2	1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_by·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donnerstag na
+rules/de_bw/easter_holidays.yaml	fronleichnam	True	C4	\bkey\b	1	1	3), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_by·de_he·de_nw 와 같은 fronleichnam. 부활절 +60 일(Donners
+rules/de_bw/easter_holidays.yaml	fronleichnam	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). key 는 de_by·de_he·de_nw 와 같은 fronl
+rules/de_bw/solar_holidays.yaml	neujahr	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage-api 2026 BW 대
+rules/de_bw/solar_holidays.yaml	heilige_drei_koenige	True	C4	\bkey\b	1	1	est' (통칭 Heilige Drei Könige 는 조문에 없음). key 는 de_by 와 같은 heilige_drei_koenige(신규 명명 없음). 날짜 6. 1. 은 
+rules/de_bw/solar_holidays.yaml	heilige_drei_koenige	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfe
+rules/de_bw/solar_holidays.yaml	heilige_drei_koenige	True	C6	SUMMARY	1	1	3), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest' (통칭 Heilige Drei König
+rules/de_bw/solar_holidays.yaml	erster_mai	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있고 feiertage-api 2026 B
+rules/de_bw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C1	rules/	2	2	7e53d3f40521301db6d8a92a6af 을 적는다 — 정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 
+rules/de_bw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C1	\.yaml\b	1	1	a6af 을 적는다 — 정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 의 같은 항목을 미러). FTG(BW) 의
+rules/de_bw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C2	머리 주석	1	1	 적는다 — 정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 의 같은 항목을 미러). FTG(BW) 의 § 1 열
+rules/de_bw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C2	주석	1	1	다 — 정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 의 같은 항목을 미러). FTG(BW) 의 § 1 열거에는
+rules/de_bw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	미러	1	1	"머리 주석, 2026-09-17 열람; rules/de 의 같은 항목을 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 ""mit Ausnahme des 1. M"
+rules/de_bw/solar_holidays.yaml	allerheiligen	True	C3	\bde_[a-z]{2}\b(?! 와 같은)	1	1	MMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage
+rules/de_bw/solar_holidays.yaml	allerheiligen	True	C4	\bkey\b	1	1	지). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 fei
+rules/de_bw/solar_holidays.yaml	allerheiligen	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'
+rules/de_bw/solar_holidays.yaml	allerheiligen	True	C6	SUMMARY	1	1	3), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는 de_by·de_nw 와 같은 a
+rules/de_bw/solar_holidays.yaml	erster_weihnachtstag	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 은 feiertage-api 2026 BW
+rules/de_bw/solar_holidays.yaml	zweiter_weihnachtstag	True	C5	무개정	1	1	)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 은 feiertage-api 2026 BW
+rules/de_by/solar_holidays.yaml	tag_der_deutschen_einheit	True	C1	rules/	1	1	 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 BY·python-holida
+rules/de_hh/solar_holidays.yaml	tag_der_deutschen_einheit	False	C1	rules/	1	1	 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 HH 대조 일치
+rules/de_hh/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	de\.ics	1	1	and 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기 (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (
+rules/de_hh/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	\.ics\b	1	1	d 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기 (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (ru
+rules/de_hh/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	전례	1	1	 SUMMARY 는 괄호 날짜를 뺀 표기 (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는 조
+rules/de_hh/solar_holidays.yaml	tag_der_deutschen_einheit	False	C6	SUMMARY	1	1	 — umwelt-online 현행판(Stand 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기 (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungs
+rules/de_ni/easter_holidays.yaml	karfreitag	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. b 그대로. 부활절 −2 일은 feiertage-api 2026 NI(04-03) 대조 일치
+rules/de_ni/easter_holidays.yaml	ostermontag	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. c 그대로. 부활절 +1 일은 feiertage-api 2026 NI(04-06) 대조 일치
+rules/de_ni/easter_holidays.yaml	christi_himmelfahrt	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. e 그대로. 부활절 +39 일은 feiertage-api 2026 NI(05-14, Christi Himmelf
+rules/de_ni/easter_holidays.yaml	pfingstmontag	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. f 그대로. 부활절 +50 일은 feiertage-api 2026 NI(05-25) 대조 일치
+rules/de_ni/solar_holidays.yaml	neujahr	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. a 그대로. 날짜 1. 1. 은 feiertage-api 2026 NI 대조 일치
+rules/de_ni/solar_holidays.yaml	erster_mai	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. d 그대로. SUMMARY 는 정관사를 뺀 '1. Mai'. 날짜는 조문에 박혀 있고 feiertage-api 
+rules/de_ni/solar_holidays.yaml	erster_mai	False	C6	SUMMARY	1	1	. 2018 Nr. 7 S. 122) 후에도 Buchst. d 그대로. SUMMARY 는 정관사를 뺀 '1. Mai'. 날짜는 조문에 박혀 있고 feiertage-api 2026 
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C1	rules/	1	1	. 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de) — 조문 열거에 있으므로 여기서는 부기다. 날짜는 조문에 박혀 있고 feiertage-ap
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	de\.ics	1	1	 는 서술부를 정리한 'Tag der Deutschen Einheit'(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de) 
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	\.ics\b	1	1	 서술부를 정리한 'Tag der Deutschen Einheit'(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de) — 
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C3	전례	1	1	 정리한 'Tag der Deutschen Einheit'(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de) — 조문 열거
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C5	그대로	1	1	 GVBl. 2018 Nr. 7 S. 122) 후에도 Buchst. g 그대로. SUMMARY 는 서술부를 정리한 'Tag der Deutschen Einheit'(de.ics 전
+rules/de_ni/solar_holidays.yaml	tag_der_deutschen_einheit	False	C6	SUMMARY	1	1	. 2018 Nr. 7 S. 122) 후에도 Buchst. g 그대로. SUMMARY 는 서술부를 정리한 'Tag der Deutschen Einheit'(de.ics 전례). 연
+rules/de_ni/solar_holidays.yaml	reformationstag	True	C6	SUMMARY	1	1	대조 일치; Wayback 20240415 사본도 같은 sha256). SUMMARY 는 서술부를 정리한 'Reformationstag'. 날짜 31. 10. 은 feiertage
+rules/de_nw/easter_holidays.yaml	fronleichnam	True	C6	SUMMARY	1	1	. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 괄호 정의를 뺀 'Fronleichnamstag'. 조문의 정의(Trinitatis 다음 
+rules/de_nw/solar_holidays.yaml	erster_mai	True	C3	de\.ics	1	1	색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부 제외 전례). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag
+rules/de_nw/solar_holidays.yaml	erster_mai	True	C3	\.ics\b	1	1	·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부 제외 전례). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag d
+rules/de_nw/solar_holidays.yaml	erster_mai	True	C3	전례	1	1	MMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부 제외 전례). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag der Arbeit) 대조 
+rules/de_nw/solar_holidays.yaml	erster_mai	True	C5	그대로	1	1	 대조 일치). 'Gerichtigkeit' 는 1989 공고본의 인쇄 그대로다 — 1977 Bekanntmachung(GV. NW. 1977 S. 98)은 'Gerechtigke
+rules/de_nw/solar_holidays.yaml	erster_mai	True	C6	SUMMARY	1	1	. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부 제외 전례). 날짜는 조문에 박혀 있고
+rules/de_nw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C1	rules/	1	1	 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW 대조 일치
+rules/de_nw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	de\.ics	1	1	지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de)
+rules/de_nw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	\.ics\b	1	1	 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 
+rules/de_nw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	전례	1	1	인·포털 개정 이력). SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는 조
+rules/de_nw/solar_holidays.yaml	tag_der_deutschen_einheit	True	C6	SUMMARY	1	1	. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art.
+rules/de_nw/solar_holidays.yaml	allerheiligen	True	C4	\btoken\b	1	1	 SUMMARY 는 괄호 날짜를 뺀 'Allerheiligentag'. token 은 de_by 와 같은 allerheiligen(신규 명명 없음). § 6 의 stiller Fe
+rules/de_nw/solar_holidays.yaml	allerheiligen	True	C6	SUMMARY	1	1	. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligentag'. token 은 de_by 와 같은 al
+rules/de_rp/easter_holidays.yaml	karfreitag	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 2 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'K
+rules/de_rp/easter_holidays.yaml	karfreitag	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Karfreitag'. 부활절 −2 일은 feiertage-api 2026 R
+rules/de_rp/easter_holidays.yaml	ostermontag	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 3 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'O
+rules/de_rp/easter_holidays.yaml	ostermontag	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Ostermontag'. 부활절 +1 일은 feiertage-api 2026 
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C3	de\.ics	1	1	MMARY 는 관사를 뺀 'Tag Christi Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이). 부활절 +3
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C3	\.ics\b	1	1	ARY 는 관사를 뺀 'Tag Christi Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이). 부활절 +39 
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C3	\bde_[a-z]{2}\b(?! 와 같은)	1	1	 관사를 뺀 'Tag Christi Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이). 부활절 +39 일은 fe
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C3	\bde_bw 의\b	1	1	 관사를 뺀 'Tag Christi Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이). 부활절 +39 일은 fe
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 5 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'T
+rules/de_rp/easter_holidays.yaml	christi_himmelfahrt	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Tag Christi Himmelfahrt'(de.ics·de_bw 의 'Ch
+rules/de_rp/easter_holidays.yaml	pfingstmontag	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 6 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'P
+rules/de_rp/easter_holidays.yaml	pfingstmontag	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Pfingstmontag'. 부활절 +50 일은 feiertage-api 20
+rules/de_rp/easter_holidays.yaml	fronleichnam	False	C3	\bde_[a-z]{2}\b(?! 와 같은)	3	3	0 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'(de_bw 의 'Fronleichnam' 과 갈림은 조문 표기 차이). key 는 de_bw·de_by·de
+rules/de_rp/easter_holidays.yaml	fronleichnam	False	C3	\bde_bw 의\b	1	1	0 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'(de_bw 의 'Fronleichnam' 과 갈림은 조문 표기 차이). key 는 de_bw·de_by·de
+rules/de_rp/easter_holidays.yaml	fronleichnam	False	C4	\bkey\b	1	1	de_bw 의 'Fronleichnam' 과 갈림은 조문 표기 차이). key 는 de_bw·de_by·de_nw 와 같은 fronleichnam. 부활절 +60 일 (Donner
+rules/de_rp/easter_holidays.yaml	fronleichnam	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 7 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'F
+rules/de_rp/easter_holidays.yaml	fronleichnam	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'(de_bw 의 'Fronleichnam' 과 
+rules/de_rp/solar_holidays.yaml	neujahr	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 1 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'N
+rules/de_rp/solar_holidays.yaml	neujahr	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Neujahrstag'. 날짜 1. 1. 은 feiertage-api 2026
+rules/de_rp/solar_holidays.yaml	erster_mai	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 4 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 '1
+rules/de_rp/solar_holidays.yaml	erster_mai	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 '1. Mai'. 날짜는 조문에 박혀 있고 feiertage-api 2026 R
+rules/de_rp/solar_holidays.yaml	tag_der_deutschen_einheit	False	C1	rules/	1	1	 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de) — 조문 열거에 있으므로 여기서는 부기다. 날짜는 조문 괄호에 박혀 있고 feiertage
+rules/de_rp/solar_holidays.yaml	tag_der_deutschen_einheit	False	C5	그대로	1	1	2-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 8 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사와 괄호 날
+rules/de_rp/solar_holidays.yaml	tag_der_deutschen_einheit	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사와 괄호 날짜를 뺀 'Tag der Deutschen Einheit'. 연방 근거는 E
+rules/de_rp/solar_holidays.yaml	allerheiligen	False	C3	\bde_[a-z]{2}\b(?! 와 같은)	2	2	 'Allerheiligen' 과 갈림은 조문 표기 차이). key 는 de_bw· de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 fe
+rules/de_rp/solar_holidays.yaml	allerheiligen	False	C3	\bBW 의\b	1	1	MMARY 는 관사와 괄호 날짜를 뺀 'Allerheiligentag'(BW 의 'Allerheiligen' 과 갈림은 조문 표기 차이). key 는 de_bw· de_by·de_
+rules/de_rp/solar_holidays.yaml	allerheiligen	False	C4	\bkey\b	1	1	'(BW 의 'Allerheiligen' 과 갈림은 조문 표기 차이). key 는 de_bw· de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 
+rules/de_rp/solar_holidays.yaml	allerheiligen	False	C5	그대로	1	1	"l. S. 474)이 말미 쉼표를 ""und"" 로 바꾼 것 외 Nr. 9 그대로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사와 괄호 날"
+rules/de_rp/solar_holidays.yaml	allerheiligen	False	C6	SUMMARY	1	1	로, 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사와 괄호 날짜를 뺀 'Allerheiligentag'(BW 의 'Allerheilige
+rules/de_rp/solar_holidays.yaml	erster_weihnachtstag	False	C6	SUMMARY	1	1	), 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 자기 몫 '1. Weihnachtstag'. 날짜 25. 12. 은 조문 괄호와 feier
+rules/de_rp/solar_holidays.yaml	erster_weihnachtstag	False	C6	\b(erster|zweiter)_weihnachtstag\b	1	1	chtstag'(25. Dezember) 를 이 항목으로 낸다(뒷 날은 zweiter_weihnachtstag). 현행 자구는 2차 소스 넷 (datumsrechner.de·Bis
+rules/de_rp/solar_holidays.yaml	zweiter_weihnachtstag	False	C6	SUMMARY	1	1	), 2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 자기 몫 '2. Weihnachtstag'. 날짜 26. 12. 은 조문 괄호와 feier
+rules/de_rp/solar_holidays.yaml	zweiter_weihnachtstag	False	C6	\b(erster|zweiter)_weihnachtstag\b	1	1	chtstag'(26. Dezember) 를 이 항목으로 낸다(앞 날은 erster_weihnachtstag). 현행 자구는 2차 소스 넷 (datumsrechner.de·Bist
+rules/de_sh/easter_holidays.yaml	karfreitag	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 2 그대로. 부활절 −2 일은 feiertage-api 2026 SH(04-03) 대조 일치
+rules/de_sh/easter_holidays.yaml	ostermontag	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 3 그대로. 부활절 +1 일은 feiertage-api 2026 SH(04-06) 대조 일치
+rules/de_sh/easter_holidays.yaml	christi_himmelfahrt	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 5 그대로. 부활절 +39 일은 feiertage-api 2026 SH(05-14, Christi Himmelf
+rules/de_sh/easter_holidays.yaml	pfingstmontag	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 6 그대로. 부활절 +50 일은 feiertage-api 2026 SH(05-25) 대조 일치
+rules/de_sh/solar_holidays.yaml	neujahr	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 1 그대로. 날짜 1. 1. 은 feiertage-api 2026 SH 대조 일치
+rules/de_sh/solar_holidays.yaml	erster_mai	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 4 그대로. 날짜는 조문에 박혀 있고 feiertage-api 2026 SH(Tag der Arbeit) 대조 
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C1	rules/	1	1	. 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 SH 대조 일치
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	de\.ics	1	1	RY 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(r
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	\.ics\b	1	1	 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rul
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C3	전례	1	1	 der Deutschen Einheit'(de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de). 날짜는 조문
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C5	그대로	1	1	l. Schl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의 서
+rules/de_sh/solar_holidays.yaml	tag_der_deutschen_einheit	True	C6	SUMMARY	1	1	hl.-H. 2018 Nr. 6 S. 69) 후에도 Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의 서술부 제외
+rules/de_sh/solar_holidays.yaml	reformationstag	True	C6	SUMMARY	1	1	22e7102d44b, 2026-09-09 열람, 재수령 대조 일치). SUMMARY 는 날짜부를 뺀 'Reformationstag'. 날짜 31. 10. 은 feiertage-a

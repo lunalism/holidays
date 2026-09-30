@@ -5,10 +5,12 @@
 /tmp/report_de_laender.md 의 HH 절.
 
 공식 포털(landesrecht-hamburg.de)은 JS 셸만 돌아와 열람하지 못했다. 조문 원문은
-비공식 현행판(umwelt-online, Stand 28.08.2023)으로 읽었고, 2018 개정분(Nr. 8
-"31. Oktober" 삽입)만 의회 문서 Drucksache 21/12153 로 봤다 — 의결 전 안이라
-공포 관보(HmbGVBl. 2018 S. 63)는 미열람. 그래서 10 건 전부 verified: false 다
-(BE 기저 9 건과 같은 관례, source_todo 에 공식 경로).
+비공식 현행판(umwelt-online, Stand 28.08.2023)으로 읽었다. Nr. 8 "31. Oktober" 는
+그것을 넣은 공포 관보(HmbGVBl. 2018 Nr. 9 S. 63, Fünftes Gesetz zur Änderung des
+Feiertagsgesetzes vom 12. März 2018)를 읽어 verified: true 다. 나머지 9 건은 자구가
+1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존하고 그 호는 디지털 공개가
+없어(luewu·Transparenzportal 공히 1995~) verified: false 다(BE 기저 9 건과 같은
+관례, source_todo 에 공식 경로). 서지·개정 체인은 solar_holidays.yaml 머리 주석에 있다.
 
 연 단위 구성은 고정 6 + 부활절 이동 4 = 10 건이다. 전국 공통 9 건에 Nr. 8
 "31. Oktober" 하나가 더해진다 — 조문에는 이름 없이 날짜만 있다. SUMMARY 는 그

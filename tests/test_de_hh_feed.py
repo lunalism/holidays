@@ -359,6 +359,28 @@ def test_the_31st_of_october_entry_cites_the_gazette_and_is_verified():
     assert "source_todo" not in entry, "해소된 항목에 source_todo 가 남아 있다"
 
 
+# 31. Oktober 의 공포 관보 호. 관보 출판·배포처(Lütcke & Wulff)의 호 PDF 는 두 번 받아
+# sha256 이 같았다 — 파일 해시로 충분하고 이미지 스트림 해시는 필요 없다(2026-09-30).
+GAZETTE_2018 = {
+    "cite": "HmbGVBl. 2018 Nr. 9 S. 63",
+    "published": "20.03.2018",
+    "url": "https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf",
+    "sha256": "025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8",
+}
+GAZETTE_READ_ON = "2026-09-07 열람"  # 첫 열람. 같은 파일임은 크기·sha256 으로 확인
+
+
+def test_the_31st_of_october_source_carries_its_own_gazette_issue_hash_and_reading_date():
+    """source 는 DESCRIPTION 에 그대로 실리므로 서지를 스스로 들어야 한다(NW·HE·BE 전례).
+    자기 호의 면·공포일·PDF URL·sha256·열람일과 재수령 대조, 남의 sha256 은 들지 않는다."""
+    source = " ".join({e["key"]: e for e in _raw_entries()}["reformationstag"]["source"].split())
+    for field, value in GAZETTE_2018.items():
+        assert value in source, field
+    assert GAZETTE_READ_ON in source
+    assert "2026-09-30 재수령 대조 일치" in source
+    assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == {GAZETTE_2018["sha256"]}
+
+
 def test_only_the_31st_of_october_is_verified_and_the_rest_say_what_is_missing():
     """9 false + 1 true. 공식 포털(landesrecht-hamburg)을 열람하지 못한 9 건은
     BE 기저 9 건과 같은 관례 — xfail 이 아니라 source_todo 로 남기고 여기서 상태를

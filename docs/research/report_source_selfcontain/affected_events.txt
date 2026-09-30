@@ -1,0 +1,8 @@
+de	events_total=108	changed=12	tag_der_deutschen_einheit=12(2020-2031)
+de_bw	events_total=144	changed=144	tag_der_deutschen_einheit=12(2020-2031), fronleichnam=12(2020-2031), heilige_drei_koenige=12(2020-2031), allerheiligen=12(2020-2031), karfreitag=12(2020-2031), ostermontag=12(2020-2031), christi_himmelfahrt=12(2020-2031), pfingstmontag=12(2020-2031), neujahr=12(2020-2031), erster_mai=12(2020-2031), erster_weihnachtstag=12(2020-2031), zweiter_weihnachtstag=12(2020-2031)
+de_by	events_total=144	changed=12	tag_der_deutschen_einheit=12(2020-2031)
+de_hh	events_total=120	changed=24	tag_der_deutschen_einheit=12(2020-2031), reformationstag=12(2020-2031)
+de_ni	events_total=120	changed=12	tag_der_deutschen_einheit=12(2020-2031)
+de_nw	events_total=132	changed=36	tag_der_deutschen_einheit=12(2020-2031), erster_mai=12(2020-2031), allerheiligen=12(2020-2031)
+de_rp	events_total=132	changed=72	tag_der_deutschen_einheit=12(2020-2031), christi_himmelfahrt=12(2020-2031), fronleichnam=12(2020-2031), allerheiligen=12(2020-2031), erster_weihnachtstag=12(2020-2031), zweiter_weihnachtstag=12(2020-2031)
+de_sh	events_total=120	changed=12	tag_der_deutschen_einheit=12(2020-2031)

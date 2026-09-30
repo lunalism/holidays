@@ -461,9 +461,10 @@ def test_unity_day_is_grounded_in_the_unification_treaty_not_in_section_1():
 
 def test_unity_day_mirrors_the_federal_gazette_citation_of_rules_de():
     """미러는 서지까지 같아야 한다. rules/de 가 든 공포본(BGBl. 1990 II Nr. 35, S. 890
-    이미지 스트림 sha256, 열람일)을 de_bw 도 그대로 들고, 통합본을 근거로 되돌리지
-    않는다. 값의 정본은 tests/test_de_feed.py 의 BGBL_1990 이다."""
-    from tests.test_de_feed import BGBL_1990
+    이미지 스트림 sha256, 그 정의, 열람일)을 de_bw 도 그대로 들고, 통합본을 근거로
+    되돌리지 않는다. 미러라는 사실은 머리 주석이 든다 — source 는 구독자에게 나가므로
+    rules/de 를 가리키지 않는다. 값의 정본은 tests/test_de_feed.py 의 BGBL_1990 이다."""
+    from tests.test_de_feed import BGBL_1990, HASH_DEFINITION
     from tests.test_de_feed import READ_ON as DE_READ_ON
 
     entry = {e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"]
@@ -471,7 +472,8 @@ def test_unity_day_mirrors_the_federal_gazette_citation_of_rules_de():
     for value in BGBL_1990.values():
         assert value in source, value
     assert DE_READ_ON in source
-    assert "rules/de" in source  # 미러라는 사실은 남긴다
+    assert HASH_DEFINITION in source  # 정의까지 de 와 같다
+    assert "rules/de" not in source and "머리 주석" not in source
     assert "gesetze-im-internet" not in source.split("—")[0]
     assert re.findall(r"\b[0-9a-f]{64}\b", source) == [BGBL_1990["sha256"]]
 
@@ -484,13 +486,20 @@ def _de_raw_entries() -> list:
 
 
 def test_the_epiphany_entry_reuses_the_bavarian_key_and_keeps_the_statute_wording():
+    """key 재사용 근거를 적는다 — UID token 은 한 번 나가면 영구값이고 새 명명은 승인이
+    필요하므로, de_by 의 heilige_drei_koenige 를 다시 쓴다는 근거가 기록돼 있어야 한다.
+    그 자리는 표의 머리 주석이다. source 는 구독자에게 나가므로 내부 key 를 들지 않는다
+    (그 부재는 tests/test_de_source_selfcontained.py 의 공통 단언이 본다)."""
     by_key = {e["key"]: e for e in _raw_entries()}
     entry = by_key["heilige_drei_koenige"]
     assert entry["name"] == "Erscheinungsfest"
     assert (entry["month"], entry["day"]) == (1, 6)
     assert entry["scope"] == "land"
     assert "'Erscheinungsfest (6. Januar)'" in entry["source"]
-    assert "heilige_drei_koenige" in entry["source"]  # key 재사용 근거를 적는다
+    head = feed.SOLAR_PATH.read_text(encoding="utf-8").split("\nholidays:")[0]
+    assert all(line.startswith("#") or not line.strip() for line in head.splitlines())
+    reuse = [line for line in head.splitlines() if "heilige_drei_koenige" in line]
+    assert reuse and any("de_by" in line for line in reuse), "key 재사용 근거가 머리 주석에 없다"
 
 
 def test_corpus_christi_is_easter_plus_sixty():

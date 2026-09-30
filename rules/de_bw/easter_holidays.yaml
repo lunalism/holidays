@@ -33,8 +33,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 부활절 −2 일은 feiertage-api 2026 BW(04-03) 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 부활절 −2 일은 feiertage-api 2026 BW(04-03) 대조 일치
 
   - key: ostermontag
     name: Ostermontag
@@ -48,8 +47,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 부활절 +1 일은 feiertage-api 2026 BW(04-06) 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 부활절 +1 일은 feiertage-api 2026 BW(04-06) 대조 일치
 
   - key: christi_himmelfahrt
     name: Christi Himmelfahrt
@@ -63,8 +61,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 부활절 +39 일은 feiertage-api 2026 BW(05-14) 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 부활절 +39 일은 feiertage-api 2026 BW(05-14) 대조 일치
 
   - key: pfingstmontag
     name: Pfingstmontag
@@ -79,7 +76,7 @@ holidays:
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
       S. 1)·1994-12-12 개정(GBl. S. 631, § 1 에서 삭제)·1995-03-23 개정(GBl. S. 293,
-      "Christi Himmelfahrt," 뒤에 재삽입), § 1 은 그 뒤 무개정(GBl. 2026 Nr. 79 까지).
+      "Christi Himmelfahrt," 뒤에 재삽입), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관).
       부활절 +50 일은 feiertage-api 2026 BW(05-25) 대조 일치
 
   - key: fronleichnam
@@ -94,6 +91,4 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). key 는 de_by·de_he·de_nw 와 같은 fronleichnam.
-      부활절 +60 일(Donnerstag nach Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 부활절 +60 일(Donnerstag nach Trinitatis)은 feiertage-api 2026 BW(06-04) 대조 일치

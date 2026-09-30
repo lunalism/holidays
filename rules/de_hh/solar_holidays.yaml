@@ -51,6 +51,10 @@
 # „8. 31. Oktober,“. Die bisherigen Nummern 8 und 9 werden Nummern 9 und 10."
 # 이 표의 Nr. 9·10 인용은 그 재번호 후 체계다. 의결 전 안(Drucksache 21/12153)은
 # 공포본이 상위 근거라 더 적지 않는다.
+# 2026-09-30 에 같은 호의 PDF 를 URL·sha256 과 함께 다시 받았다 — Lütcke & Wulff 의
+# https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf (457,762 B,
+# sha256 025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8, 두 번 받아 같음).
+# 09-07 에 읽은 사본의 크기·sha256 은 커밋 3af0ead 메시지에 적혀 있고 위 값과 같다(URL 은 적지 않았다).
 #
 # --- 개정 체인 (공포본, luewu 1995–2026 Nr. 26 실측) ---
 # § 1 에 닿은 개정은 2018-03-12 (S. 63, Nr. 8 삽입·재번호) 하나뿐이다.
@@ -120,9 +124,7 @@ holidays:
     verified: false
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 7 'Tag der Deutschen Einheit (3. Oktober)' —
-      umwelt-online 현행판(Stand 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기
-      (de.ics 의 서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2
-      (rules/de). 날짜는 조문에 박혀 있고 feiertage-api 2026 HH 대조 일치
+      umwelt-online 현행판(Stand 28.08.2023). SUMMARY 는 괄호 날짜를 뺀 표기. 연방 근거는 Einigungsvertrag Art. 2 Abs. 2. 날짜는 조문에 박혀 있고 feiertage-api 2026 HH 대조 일치
     source_todo: >-
       § 1 열거 자구는 1994-12-20 개정(HmbGVBl. S. 441) 이전 공포본에 의존한다.
       디지털 공개는 luewu·Transparenzportal 공히 1995 년부터(Transparenzportal 의
@@ -140,9 +142,12 @@ holidays:
     verified: true
     source: >-
       Feiertagsgesetz(HH) § 1 Nr. 8 '31. Oktober' (통칭 Reformationstag) — Fünftes
-      Gesetz zur Änderung des Feiertagsgesetzes vom 12.03.2018, HmbGVBl. 2018 Nr. 9
-      S. 63 (20.03.2018 공포, luewu.de PDF 2026-09-07 열람). 날짜는 feiertage-api
-      2026 HH 대조 일치
+      Gesetz zur Änderung des Feiertagsgesetzes vom 12.03.2018 Einziger Paragraph
+      Nr. 1 (Nr. 7 뒤에 Nr. 8 삽입)·Nr. 2 (구 Nr. 8·9 → 9·10), HmbGVBl. 2018 Nr. 9
+      S. 63 (20.03.2018 공포; 관보 출판·배포처 Lütcke & Wulff 의 호 PDF
+      https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf
+      sha256 025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8,
+      2026-09-07 열람, 2026-09-30 재수령 대조 일치). 날짜는 feiertage-api 2026 HH 대조 일치
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
