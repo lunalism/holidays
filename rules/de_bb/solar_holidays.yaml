@@ -44,7 +44,9 @@
 # 원문을 직접 본 항목만 true. 12 건 전건 false — § 2 Abs. 1 자구가 1991·1994 공포본에
 # 의존하고 둘 다 온라인에서 찾지 못했다. 각 항목 source 는 "§ 2 Abs. 1, 열거 n번째 '자구'"
 # 와 현행 자구를 읽은 통합본을, source_todo 는 경계와 잔존 경로를 적는다. 날짜는
-# feiertage-api 2020~2031 BB(매년 12/12, hinweis 전부 공란)·python-holidays 0.102 로 대조했다.
+# feiertage-api 2020~2031 BB(매년 12/12, hinweis 전부 공란)로 대조했다. python-holidays
+# (pyproject 에 0.102 고정) DE(subdiv='BB') 와의 연도별 대조는
+# tests/test_de_bb_feed.py::test_the_dates_agree_with_python_holidays_bb 가 2020~2031 로 돈다.
 #
 # --- 범위 밖 ---
 # § 2 Abs. 2 Gedenk- und Trauertage(Volkstrauertag·Totensonntag·8. Mai)와 Abs. 4 의 religiöse
@@ -52,8 +54,9 @@
 #
 # --- 대체공휴일(이동) 규칙이 없다 ---
 # § 2 에 이동 조항이 없다. 2020~2031 에서 고정 날짜가 일요일과 겹치는 날(2021 10-03·10-31·
-# 12-26, 2022 05-01·12-25, 2023 01-01, 2027 10-03·10-31·12-26)에도 python-holidays 0.102 BB
-# 는 해마다 12 건으로 보상 휴일이 없다. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+# 12-26, 2022 05-01·12-25, 2023 01-01, 2027 10-03·10-31·12-26)에도 보상 휴일이 없다 — 위
+# 테스트가 해마다 이 피드의 12 건과 python-holidays BB 의 날짜 집합이 같음을 단언하므로, 그쪽에도
+# 보상일이 없다. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
 #
 # --- key 규약 ---
 # UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
