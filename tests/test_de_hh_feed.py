@@ -367,7 +367,7 @@ GAZETTE_2018 = {
     "url": "https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf",
     "sha256": "025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8",
 }
-GAZETTE_READ_ON = "2026-09-30 열람"
+GAZETTE_READ_ON = "2026-09-07 열람"  # 첫 열람. 같은 파일임은 크기·sha256 으로 확인
 
 
 def test_the_31st_of_october_source_carries_its_own_gazette_issue_hash_and_reading_date():
@@ -377,7 +377,7 @@ def test_the_31st_of_october_source_carries_its_own_gazette_issue_hash_and_readi
     for field, value in GAZETTE_2018.items():
         assert value in source, field
     assert GAZETTE_READ_ON in source
-    assert "재수령 대조 일치" in source
+    assert "2026-09-30 재수령 대조 일치" in source
     assert set(re.findall(r"\b[0-9a-f]{64}\b", source)) == {GAZETTE_2018["sha256"]}
 
 
