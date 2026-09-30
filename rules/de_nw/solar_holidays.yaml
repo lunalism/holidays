@@ -162,8 +162,7 @@ holidays:
       대조 일치). 'Gerichtigkeit' 는 1989 공고본의 인쇄 그대로다 — 1977 Bekanntmachung(GV. NW. 1977 S.
       98)은 'Gerechtigkeit' 이고, 1989–1996 관보에서 S. 222 정오표를 찾지 못함(텍스트층 없는 호는 목차 면만). 이 호는
       1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의 1994 이후 개정은 찾지
-      못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'(de.ics 의 서술부
-      제외 전례). 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag der Arbeit) 대조 일치
+      못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 서술부를 뺀 '1. Mai'. 날짜는 조문에 박혀 있고 feiertage-api 2026 NW(Tag der Arbeit) 대조 일치
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
@@ -179,7 +178,7 @@ holidays:
       https://recht.nrw.de/system/files/GV_Archiv/3762-xmmgvb9119.pdf sha256
       4c7dd3aad931ce0b5906db48681a0cdfb6cb425a1964a8a970c14a683aa2dbc5, 2026-09-29 열람, 재수령
       대조 일치). § 2 Abs. 1 의 1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력).
-      SUMMARY 는 서술부를 뺀 표기(de.ics 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de).
+      SUMMARY 는 서술부를 뺀 표기. 연방 근거는 Einigungsvertrag Art. 2 Abs. 2.
       날짜는 조문에 박혀 있고 feiertage-api 2026 NW 대조 일치
 
   - key: allerheiligen
@@ -196,7 +195,7 @@ holidays:
       b72dd60b57c8b59139d27313e193f13d0b0fd06fce4da727749dd9a58b780a49, 2026-09-29 열람, 재수령
       대조 일치). 이 호는 1991·1994 개정(GV. NW. 1991 S. 200·1994 S. 1114)이 건드리지 않았고 § 2 Abs. 1 의
       1994 이후 개정은 찾지 못함(GV. NRW. 2026 Nr. 27 까지, 관보 색인·포털 개정 이력). SUMMARY 는 괄호 날짜를 뺀
-      'Allerheiligentag'. token 은 de_by 와 같은 allerheiligen(신규 명명 없음). § 6 의 stiller
+      'Allerheiligentag'. § 6 의 stiller
       Feiertag. 날짜 1. 11. 은 조문 괄호와 feiertage-api 2026 NW(Allerheiligen) 대조 일치
 
   - key: erster_weihnachtstag

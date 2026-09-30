@@ -107,8 +107,7 @@ holidays:
       https://verkuendungsportal.schleswig-holstein.de/mm/gvobl_jahrgang_2004/GVOBl_2004.pdf
       sha256 dba6f1a10bf991211a29d6f6c52f2e4f4dab5526c627d46f76b1df6ced26bc41,
       2026-09-09 열람). 2018-03-21 개정(GVOBl. Schl.-H. 2018 Nr. 6 S. 69) 후에도
-      Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'(de.ics 의
-      서술부 제외 전례). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2(rules/de). 날짜는
+      Nr. 7 그대로. SUMMARY 는 날짜부를 뺀 'Tag der Deutschen Einheit'. 연방 근거는 Einigungsvertrag Art. 2 Abs. 2. 날짜는
       조문에 박혀 있고 feiertage-api 2026 SH 대조 일치
 
   - key: reformationstag

@@ -100,8 +100,7 @@ holidays:
       Wayback 사본
       https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf
       파일 sha256 은 요청마다 달라 적지 않고 S. 890 이미지 스트림 sha256
-      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 —
-      정의는 이 파일 머리 주석, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 무개정
+      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 — PDF 를 사용자 비밀번호 빈 문자열로 복호화한 뒤, 6 쪽(S. 890)의 /XObject /I5 안 이미지 XObject /Im0 의 /Filter 를 풀지 않은 스트림 바이트, 2026-09-17 열람). 스캔 판독 자구 일치, Art. 2 의 개정 기록은 찾지 못함(gesetze-im-internet 통합본, 2026-05-06 빌드)
 
   - key: erster_weihnachtstag
     name: Erster Weihnachtstag

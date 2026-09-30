@@ -97,8 +97,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 날짜 1. 1. 은 feiertage-api 2026 BW 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 날짜 1. 1. 은 feiertage-api 2026 BW 대조 일치
 
   - key: heilige_drei_koenige
     name: Erscheinungsfest
@@ -113,10 +112,8 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest'
-      (통칭 Heilige Drei Könige 는 조문에 없음). key 는 de_by 와 같은
-      heilige_drei_koenige(신규 명명 없음). 날짜 6. 1. 은 조문 괄호와 feiertage-api 2026
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). SUMMARY 는 괄호 날짜를 뺀 'Erscheinungsfest'
+      (통칭 Heilige Drei Könige 는 조문에 없음). 날짜 6. 1. 은 조문 괄호와 feiertage-api 2026
       BW(Heilige Drei Könige) 대조 일치
 
   - key: erster_mai
@@ -132,8 +129,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 날짜는 조문에 박혀 있고 feiertage-api 2026 BW
       (Tag der Arbeit) 대조 일치
 
   - key: tag_der_deutschen_einheit
@@ -150,9 +146,7 @@ holidays:
       Wayback 사본
       https://web.archive.org/web/20230719131947id_/https://www.bgbl.de/xaver/bgbl/media/B9530373AE1BE942B45341AEC08B37B4/bgbl290s0885_67234.pdf
       파일 sha256 은 요청마다 달라 적지 않고 S. 890 이미지 스트림 sha256
-      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 —
-      정의는 rules/de/solar_holidays.yaml 머리 주석, 2026-09-17 열람; rules/de 의
-      같은 항목을 미러). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des
+      0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af 을 적는다 — PDF 를 사용자 비밀번호 빈 문자열로 복호화한 뒤, 6 쪽(S. 890)의 /XObject /I5 안 이미지 XObject /Im0 의 /Filter 를 풀지 않은 스트림 바이트, 2026-09-17 열람). FTG(BW) 의 § 1 열거에는 없고 § 7 Abs. 2 "mit Ausnahme des 1. Mai und des
       3. Oktober" 등에서 전제만 한다(GBl. 1995 Nr. 17 S. 450). 날짜는 조문에 박혀 있고
       feiertage-api 2026 BW 대조 일치
 
@@ -169,9 +163,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. key 는
-      de_by·de_nw 와 같은 allerheiligen. 날짜 1. 11. 은 조문 괄호와 feiertage-api 2026
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). SUMMARY 는 괄호 날짜를 뺀 'Allerheiligen'. 날짜 1. 11. 은 조문 괄호와 feiertage-api 2026
       BW 대조 일치
 
   - key: erster_weihnachtstag
@@ -187,8 +179,7 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 날짜 25. 12. 은 feiertage-api 2026 BW 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 날짜 25. 12. 은 feiertage-api 2026 BW 대조 일치
 
   - key: zweiter_weihnachtstag
     name: Zweiter Weihnachtstag
@@ -203,5 +194,4 @@ holidays:
       https://www.landtag-bw.de/resource/blob/75054/19739a8ea1fb5eee00898b30364b0f93/GBl199517.pdf
       sha256 98f68c3039ac0a2df4f9ffc2417aa3f3ef25669c19a6b72e08c15f8f85d4fb94,
       2026-09-09 열람, 재수령 대조 일치). 자구의 입법 뿌리는 1970 Neufassung(GBl. 1971
-      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 은 그 뒤
-      무개정(GBl. 2026 Nr. 79 까지). 날짜 26. 12. 은 feiertage-api 2026 BW 대조 일치
+      S. 1)·1994-12-12 개정(GBl. S. 631)·1995-03-23 개정(GBl. S. 293), § 1 의 그 뒤 개정은 찾지 못함(GBl. 1995–2013·2016–2023 전 호, 2024–2026 Nr. 79 전자 관보; 2014·2015 의 FTG 개정 두 건은 § 1 무관). 날짜 26. 12. 은 feiertage-api 2026 BW 대조 일치

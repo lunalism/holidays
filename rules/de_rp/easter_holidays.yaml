@@ -93,8 +93,7 @@ holidays:
       (datumsrechner.de·Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·
       kirchenrecht-evpfalz.de 14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl.
       S. 225)의 것이고 1994-12-20 개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 5 그대로,
-      2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Tag Christi
-      Himmelfahrt'(de.ics·de_bw 의 'Christi Himmelfahrt' 와 갈림은 조문 표기 차이).
+      2009-10-27 개정(GVBl. S. 358)은 § 10 만. SUMMARY 는 관사를 뺀 'Tag Christi Himmelfahrt'.
       부활절 +39 일은 feiertage-api 2026 RP(05-14, Christi Himmelfahrt) 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·
@@ -156,8 +155,7 @@ holidays:
       Bistum Speyer OVB 2007/08 Beilage·kirchenrecht-ekhn.de 19575·kirchenrecht-evpfalz.de
       14462)이 글자 단위로 일치. 자구는 1970-07-15 원법(GVBl. S. 225)의 것이고 1994-12-20
       개정(GVBl. S. 474, 말미 재번호) 뒤에도 Nr. 7 그대로, 2009-10-27 개정(GVBl. S. 358)은
-      § 10 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'(de_bw 의 'Fronleichnam' 과 갈림은
-      조문 표기 차이). key 는 de_bw·de_by·de_nw 와 같은 fronleichnam. 부활절 +60 일
+      § 10 만. SUMMARY 는 관사를 뺀 'Fronleichnamstag'. 부활절 +60 일
       (Donnerstag nach Trinitatis)은 feiertage-api 2026 RP(06-04) 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 열거 자구는 1970-07-15 원법(GVBl. S. 225)에 1990-10-05(GVBl. S. 289)·

@@ -96,7 +96,7 @@ holidays:
     source: >-
       BayFTG Art. 1 Abs. 1 Nr. 1, 열거 9번째 'der 3. Oktober als Tag der Deutschen
       Einheit' — gesetze-bayern.de BayFTG-1 원문 2026-09-06 열람(Text gilt ab
-      01.08.2013). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2 (rules/de). 날짜는
+      01.08.2013). 연방 근거는 Einigungsvertrag Art. 2 Abs. 2. 날짜는
       조문에 박혀 있고 feiertage-api 2026 BY·python-holidays 0.102 BY 대조 일치
 
   - key: allerheiligen
