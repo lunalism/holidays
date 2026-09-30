@@ -1,0 +1,42 @@
+# (머리 주석 개요 — 보고서 D 절 참조)
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 부활절 −2 일은 feiertage-api 2026 HB(04-03) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 부활절 +1 일은 feiertage-api 2026 HB(04-06) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: christi_himmelfahrt
+    name: Himmelfahrtstag
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 부활절 +39 일은 feiertage-api 2026 HB(05-14, Christi Himmelfahrt) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmontag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 부활절 +50 일은 feiertage-api 2026 HB(05-25) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+

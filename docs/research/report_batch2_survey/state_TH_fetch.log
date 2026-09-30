@@ -1,0 +1,25 @@
+# state_TH fetch log — 형식: UTC시각 \t URL \t HTTP \t content-type \t bytes \t final URL
+# UA: 'holidays.lunalism.com research (contact: repo issues)', curl -s -L
+# 주의: 공유 scratchpad 의 헬퍼 스크립트가 다른 에이전트에 의해 덮어써져 curl 행 대부분이 실행 당시
+#       이 파일이 아닌 state_MV_fetch.log 로 기록됨. 아래 행은 각 호출 직후 터미널 출력에서 옮겨 적은 것(값 동일).
+2026-09-30T09:25:16Z	https://landesrecht.thueringen.de/	200	text/html	5841	https://landesrecht.thueringen.de/bsth/
+2026-09-30T09:25:22Z	https://landesrecht.thueringen.de/bsth/document/jlr-FeiertGTHrahmen	200	text/html	5841	https://landesrecht.thueringen.de/bsth/document/jlr-FeiertGTHrahmen
+2026-09-30T09:25:50Z	https://de.wikipedia.org/w/index.php?title=Weltkindertag&action=raw	200	text/x-wiki; charset=UTF-8	24	(same)
+2026-09-30T09:25:58Z	https://de.wikipedia.org/w/index.php?title=Kindertag&action=raw	200	text/x-wiki; charset=UTF-8	23353	(same)
+2026-09-30T09:26:07Z	https://de.wikipedia.org/w/index.php?title=Th%C3%BCringer_Feier-_und_Gedenktagsgesetz&action=raw	404	text/html; charset=utf-8	1929	(same)
+2026-09-30T09:26:16Z	https://de.wikipedia.org/w/index.php?title=Gesetzliche_Feiertage_in_Deutschland&action=raw	200	text/x-wiki; charset=UTF-8	41	(same)  [redirect stub]
+2026-09-30T09:26:25Z	https://de.wikipedia.org/w/index.php?title=Feiertage_in_Deutschland&action=raw	200	text/x-wiki; charset=UTF-8	41	(same)  [redirect stub]
+2026-09-30T09:26:34Z	https://de.wikipedia.org/w/index.php?title=Feiertag_(Deutschland)&action=raw	200	text/x-wiki; charset=UTF-8	75777	(same)
+2026-09-30T09:26:46Z	https://innen.thueringen.de/fileadmin/staats_und_verwaltungsrecht/oeffentliches_recht/210122_merkblatt_feiertagsgesetz.pdf	200	text/html	45856	(same)  [Link11 CAPTCHA page, not PDF -> line stopped]
+2026-09-30T09:27:09Z	https://de.wikipedia.org/w/index.php?title=Gesetz-_und_Verordnungsblatt_f%C3%BCr_den_Freistaat_Th%C3%BCringen&action=raw	200	text/x-wiki; charset=UTF-8	4223	(same)
+2026-09-30T09:27:20Z	https://parldok.thueringer-landtag.de/ParlDok/dokument/4188/gesetz_und_verordnungsblatt_nr_1_1990.pdf	200	application/pdf	18249	(same)
+2026-09-30T09:27:25Z	https://parldok.thueringer-landtag.de/parldok/docnumber	404	-	0	(same)
+2026-09-30T09:27:35Z	https://parldok.thueringer-landtag.de/ParlDok/	200	text/html; charset=utf-8	40478	(same)  [JS required for search]
+2026-09-30T09:27:48Z	https://parldok.thueringer-landtag.de/ParlDok/index.rss	200	application/xml	13129	(same)
+2026-09-30T09:27:52Z	https://thulex.de/	200	text/html; charset=utf-8	17789	https://thulex.de/home
+2026-09-30T09:28:24Z	WebSearch (tool, not curl): 'Thüringer Feier- und Gedenktagsgesetz Weltkindertag Änderung GVBl 2019 S.'	-	-	-	-
+2026-09-30T09:28:27Z	https://www.kirchenrecht-ekm.de/document/9627	200	text/html; charset=utf-8	65757	(same)
+2026-09-30T09:28:59Z	WebSearch (tool, not curl): 'parldok ... GVBl 2019 Weltkindertag Drittes Gesetz ...'	-	-	-	-
+2026-09-30T09:29:02Z	https://parldok.thueringer-landtag.de/ParlDok/dokument/68329/drittes_gesetz_zur_aenderung_des_thueringer_feier_und_gedenktagsgesetzes_gesetz_ueber_die_einfuehrung_des_weltkindertages_als_gesetzlichen_feiertag_vo.pdf	200	application/pdf	443558	(same)  [= Drucksache 6/6163 Gesetzentwurf, 10 S., not GVBl]
+# 합계: curl 18건 + WebSearch 2건. 호스트별 자기 요청 간격 >=3s 유지.
+# 단, de.wikipedia.org 는 같은 시각대 MV 에이전트 요청(09:25:51, 09:26:57)과 1s 간격으로 겹침 — 전체 기준 3s 규칙 위반 가능.

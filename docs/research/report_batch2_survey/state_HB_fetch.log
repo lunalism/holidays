@@ -1,0 +1,25 @@
+# state_HB fetch log — UTC time<TAB>URL<TAB>HTTP status<TAB>content-type<TAB>bytes<TAB>final URL
+# UA: holidays.lunalism.com research (contact: repo issues); >=3 s between requests per host
+# 주의: 공유 scratchpad 의 fetch 스크립트가 다른 에이전트에 의해 덮어써져, 최초 로그 파일이 유실됨.
+#       #1-#17 은 세션 터미널 출력(curl -w 결과)에서 그대로 재구성한 행이다. #16-#17 은 실제로는 다른 에이전트의 scratchpad/st.log 에 기록됐다.
+#       #18-#20 은 전용 스크립트가 직접 기록한 행. 요청 총 20회. 이 외 WebSearch 3회(대상 호스트 직접 요청 아님)로 문서 ID 를 찾음.
+2026-09-30T09:25:11Z	https://www.transparenz.bremen.de/suche?q=Feiertage	404	text/html; charset=utf-8	84	https://www.transparenz.bremen.de/suche?q=Feiertage
+2026-09-30T09:25:22Z	https://www.transparenz.bremen.de/	200	text/html; charset=utf-8	43867	https://www.transparenz.bremen.de/
+2026-09-30T09:25:33Z	https://www.transparenz.bremen.de/sixcms/detail.php?template=02_tp_suche_css_d&q=Sonn-+und+Feiertage	200	text/css;charset=utf-8	14785	(same)
+2026-09-30T09:25:46Z	https://www.transparenz.bremen.de/sixcms/detail.php?template=20_search_d&search%5Bsend%5D=true&lang=de&search%5Bvt%5D=Gesetz+%C3%BCber+die+Sonn-+und+Feiertage	503	text/html; charset=utf-8	47	(same) body: 'Die Suche ist leider momentan nicht erreichbar.'
+2026-09-30T09:26:00Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen203_tpgesetz.c.55340.de	200	text/html; charset=utf-8	55755	(same)
+2026-09-30T09:26:28Z	https://www.transparenz.bremen.de/metainformationen/gesetz-ueber-die-sonn-gedenk-und-feiertage-vom-12-november-1954-87915?asl=bremen203_tpgesetz.c.55340.de&template=20_gp_ifg_meta_detail_d	500	text/html; charset=UTF-8	20	(same) body: 'db-connection failed'
+2026-09-30T09:26:36Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.87915.de&template=00_html_to_pdf_d	200	application/pdf	285453	(same)
+2026-09-30T09:27:07Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.145882.de&template=00_html_to_pdf_d	200	application/pdf	295467	(same)
+2026-09-30T09:27:34Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.74780.de&template=00_html_to_pdf_d	200	application/pdf	285465	(same)
+2026-09-30T09:27:48Z	https://www.gesetzblatt.bremen.de/	200	text/html; charset=utf-8	22552	https://www.gesetzblatt.bremen.de/
+2026-09-30T09:28:14Z	https://www.gesetzblatt.bremen.de/?sv%5Bsuchbegriff%5D=Feiertage&sv%5Bsuchbegriff_jahr%5D%5B%5D=2018&submit=suchen	200	text/html; charset=utf-8	18810	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Feiertage&sv%5Bsuchbegriff_jahr%5D%5B0%5D=2018
+2026-09-30T09:28:27Z	https://www.gesetzblatt.bremen.de/fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf	200	application/pdf	241672	(same)
+2026-09-30T09:28:41Z	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Feiertage&sv%5Bsuchbegriff_jahr%5D%5B%5D=2019..2026 (8 years)	200	text/html; charset=utf-8	17277	(same, only first year 2019 applied; 0 hits)
+2026-09-30T09:28:59Z	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Feiertage&sv%5Bsuchbegriff_jahr%5D%5B0%5D=2020	200	text/html; charset=utf-8	16593	(same; 0 hits)
+2026-09-30T09:29:13Z	https://www.transparenz.bremen.de/metainformationen/gesetz-ueber-die-sonn-gedenk-und-feiertage-vom-12-november-1954-145882?asl=bremen203_tpgesetz.c.55340.de&template=20_gp_ifg_meta_detail_d	500	text/html; charset=UTF-8	20	(same) body: 'db-connection failed'
+2026-09-30T09:29:27Z	https://www.bremische-buergerschaft.de/drs_abo/Drs-18-896_3d1.pdf	200	application/pdf	109730	(same)
+2026-09-30T09:30:03Z	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Feiertage&sv%5Bsuchbegriff_jahr%5D%5B0%5D=2025	200	text/html; charset=utf-8	16593	(same; 0 hits)
+2026-09-30T09:30:40Z	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Gedenk&sv%5Bsuchbegriff_jahr%5D%5B0%5D=2025	200	text/html; charset=utf-8	16584	https://www.gesetzblatt.bremen.de/gesetzblatt-1459?submit=suchen&sv%5Bsuchbegriff%5D=Gedenk&sv%5Bsuchbegriff_jahr%5D%5B0%5D=2025
+2026-09-30T09:31:02Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.296390.de&template=00_html_to_pdf_d	500	text/html; charset=UTF-8	20	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.296390.de&template=00_html_to_pdf_d
+2026-09-30T09:31:34Z	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.296390.de&template=00_html_to_pdf_d	500	text/html; charset=utf-8	0	https://www.transparenz.bremen.de/sixcms/detail.php?gsid=bremen2014_tp.c.296390.de&template=00_html_to_pdf_d
