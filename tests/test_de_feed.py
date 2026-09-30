@@ -75,6 +75,12 @@ BGBL_1990 = {
     "sha256": "0f70b21d7715670a0db1d9433d8ea04ff534a7e53d3f40521301db6d8a92a6af",
 }
 READ_ON = "2026-09-17 열람"
+# 해시의 정의 — 구독자는 머리 주석을 볼 수 없으므로 source 가 정의를 직접 든다.
+# 용어는 rules/de/solar_holidays.yaml 머리 주석의 정의와 같다(복호화는 PDF 에 건다).
+HASH_DEFINITION = (
+    "PDF 를 사용자 비밀번호 빈 문자열로 복호화한 뒤, 6 쪽(S. 890)의 /XObject /I5 안 "
+    "이미지 XObject /Im0 의 /Filter 를 풀지 않은 스트림 바이트"
+)
 UNITY_QUOTE = "'Der 3. Oktober ist als Tag der Deutschen Einheit gesetzlicher Feiertag.'"
 
 # 부활절 기준 오프셋. /tmp/report_de.md §3 — Karfreitag −2, Ostermontag +1,
@@ -317,14 +323,16 @@ def test_only_the_unity_day_is_verified():
 def test_the_unity_day_cites_the_federal_gazette_by_page_image_hash():
     """통일의 날의 근거는 연방 관보 공포본이다 — BGBl. 1990 II Nr. 35, 조약 S. 889,
     Art. 2 는 S. 890. 파일 해시가 재현되지 않는 공포본이라 S. 890 이미지 스트림의
-    sha256 을 적는다(정의는 규칙 YAML 머리 주석). 파일 해시·다른 해시는 적지 않는다."""
+    sha256 을 적는다. 구독자는 머리 주석을 볼 수 없으므로 정의를 source 가 직접 든다
+    (전체 정의·재현 명령은 규칙 YAML 머리 주석). 파일 해시·다른 해시는 적지 않는다."""
     entry = {e["key"]: e for e in _raw_entries()}["tag_der_deutschen_einheit"]
     source = " ".join(entry["source"].split())
     assert source.startswith("Einigungsvertrag Art. 2 Abs. 2 — " + UNITY_QUOTE)
     for value in BGBL_1990.values():
         assert value in source, value
     assert READ_ON in source
-    assert "머리 주석" in source  # 해시 정의가 사는 곳을 가리킨다
+    assert HASH_DEFINITION in source  # 해시의 뜻을 source 가 스스로 든다
+    assert "머리 주석" not in source and "이 파일" not in source
     assert "gesetze-im-internet" not in source.split("—")[0]
     # 64 자 hex 는 정의된 그 값 하나뿐이어야 한다 — 파일 해시나 비트맵 해시가 섞이면 안 된다.
     assert re.findall(r"\b[0-9a-f]{64}\b", source) == [BGBL_1990["sha256"]]
