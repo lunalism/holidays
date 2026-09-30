@@ -1,0 +1,12 @@
+== https://holidays.lunalism.com/   (curl -sI -H 'Accept-Encoding: gzip, br')
+HTTP/2 200
+content-encoding: gzip
+content-length: 13829
+== https://holidays.lunalism.com/en/   (curl -sI -H 'Accept-Encoding: gzip, br')
+HTTP/2 200
+content-encoding: gzip
+content-length: 14111
+== https://holidays.lunalism.com/ja/   (curl -sI -H 'Accept-Encoding: gzip, br')
+HTTP/2 200
+content-encoding: gzip
+content-length: 14270

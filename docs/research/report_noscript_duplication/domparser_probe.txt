@@ -1,0 +1,6 @@
+/	{'domparser_rows': 15, 'domparser_groups': 3, 'domparser_accordion_rows': 9, 'template_rows': 15, 'first': {'label': '대한민국', 'url': 'https://holidays.lunalism.com/feeds/kr.ics'}, 'last': {'label': '일본만', 'url': 'https://holidays.lunalism.com/feeds/jp_only.ics'}}
+/en/	{'domparser_rows': 15, 'domparser_groups': 3, 'domparser_accordion_rows': 9, 'template_rows': 15, 'first': {'label': 'South Korea', 'url': 'https://holidays.lunalism.com/feeds/kr.ics'}, 'last': {'label': 'Japan only', 'url': 'https://holidays.lunalism.com/feeds/jp_only.ics'}}
+/ja/	{'domparser_rows': 15, 'domparser_groups': 3, 'domparser_accordion_rows': 9, 'template_rows': 15, 'first': {'label': '韓国', 'url': 'https://holidays.lunalism.com/feeds/kr.ics'}, 'last': {'label': '日本のみ', 'url': 'https://holidays.lunalism.com/feeds/jp_only.ics'}}
+ko 15 True
+en 15 True
+ja 15 True
