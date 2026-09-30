@@ -1,0 +1,68 @@
+# (머리 주석 개요 — 보고서 D 절 참조)
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 1번째 'der Neujahrstag (1. Januar)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 1. 1. 은 조문 괄호와 feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 5번째 'der 1. Mai (Tag der Arbeit)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜는 조문에 박혀 있고 feiertage-api 2026 BB(Tag der Arbeit) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 9번째 'der Tag der deutschen Einheit (3. Oktober)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 3. 10. 은 조문 괄호와 feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: reformationstag
+    name: Reformationsfest
+    scope: land
+    month: 10
+    day: 31
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 10번째 'das Reformationsfest (31. Oktober)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 31. 10. 은 조문 괄호와 feiertage-api 2026 BB(Reformationstag) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtsfeiertag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 11번째 'der 1. Weihnachtsfeiertag (25. Dezember)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 25. 12. 은 조문 괄호와 feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtsfeiertag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 12번째 'der 2. Weihnachtsfeiertag (26. Dezember)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 26. 12. 은 조문 괄호와 feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S. 514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은 없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+

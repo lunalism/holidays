@@ -48,6 +48,7 @@ import json
 from datetime import date
 
 from rules.de import status as de
+from rules.de_bb import status as de_bb
 from rules.de_be import status as de_be
 from rules.de_bw import status as de_bw
 from rules.de_by import status as de_by
@@ -87,6 +88,7 @@ def status(*, today: date, dtstamp) -> dict:
             "de_bw": de_bw.feed_status(today=today),
             "de_ni": de_ni.feed_status(today=today),
             "de_rp": de_rp.feed_status(today=today),
+            "de_bb": de_bb.feed_status(today=today),
         },
         **kr.top_level_sections(today=today),
     }

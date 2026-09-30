@@ -35,7 +35,9 @@ python-holidays 는 대조 상대이지 채택 소스가 아니다(tests/test_de
 from __future__ import annotations
 
 import datetime as dt
+import importlib
 import re
+from pathlib import Path
 
 import pytest
 import yaml
@@ -44,14 +46,6 @@ from core import ics
 from rules.de import feed as de_feed
 from rules.de_be import feed
 from rules.de_be import status as de_be_status
-from rules.de_bw import feed as de_bw_feed
-from rules.de_by import feed as de_by_feed
-from rules.de_he import feed as de_he_feed
-from rules.de_hh import feed as de_hh_feed
-from rules.de_ni import feed as de_ni_feed
-from rules.de_nw import feed as de_nw_feed
-from rules.de_rp import feed as de_rp_feed
-from rules.de_sh import feed as de_sh_feed
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
 TODAY = dt.date(2026, 1, 1)
@@ -225,21 +219,24 @@ def test_the_dates_agree_with_python_holidays_berlin(events, year):
     assert ours == theirs
 
 
-# 주 피드 목록. 주 피드가 생길 때마다 여기에 더한다. 둘째(de_by)가 들어오면서
-# 아래 교집합 테스트가 켜졌고, 셋째(de_he)·넷째(de_hh)·다섯째(de_nw)·여섯째(de_sh)·
-# 일곱째(de_bw)·여덟째(de_ni)·아홉째(de_rp)로 교집합이 넓어진다 — BE ∩ BW ∩ BY ∩ HE ∩ HH
-# ∩ NI ∩ NW ∩ RP ∩ SH 는 전국 공통 9 건이어야 한다.
+# 주 피드 목록 — rules/ 스캔이 이끈다(tests/test_de_scope.py 의 STATE_CODES 와 같은 조건:
+# rules/ 아래 de_ 로 시작하고 feed.py 를 가진 패키지). 전에는 손으로 적은 dict 였고, 새 주를
+# 더하고 여기 안 적으면 그 주가 아래 교집합 검사에서 조용히 빠졌다(CI 는 녹색). 이제 주를
+# 더하면 저절로 든다. 교집합 BE ∩ … 은 전국 공통 9 건이어야 한다 — 주 피드가 늘수록 넓어진다.
+RULES_DIR = Path(__file__).resolve().parents[1] / "rules"
 STATE_FEEDS = {
-    "de_be": feed,
-    "de_bw": de_bw_feed,
-    "de_by": de_by_feed,
-    "de_he": de_he_feed,
-    "de_hh": de_hh_feed,
-    "de_ni": de_ni_feed,
-    "de_nw": de_nw_feed,
-    "de_rp": de_rp_feed,
-    "de_sh": de_sh_feed,
+    p.name: importlib.import_module(f"rules.{p.name}.feed")
+    for p in sorted(RULES_DIR.iterdir())
+    if p.is_dir() and p.name.startswith("de_") and (p / "feed.py").is_file()
 }
+assert "de_be" in STATE_FEEDS, "rules/ 스캔이 de_be 를 찾지 못했다"
+
+
+def test_the_state_feed_scan_matches_the_scope_scan():
+    # 두 스캔이 같은 조건이어야 한다 — 한쪽만 바뀌면 교집합 검사와 scope 검사가 다른 주 집합을 본다.
+    from tests.test_de_scope import STATE_CODES
+
+    assert sorted(STATE_FEEDS) == STATE_CODES
 
 
 @pytest.mark.parametrize("year", range(2020, 2032))
@@ -254,7 +251,7 @@ def test_the_intersection_of_state_feeds_is_the_nationwide_feed(year):
     if len(STATE_FEEDS) < 2:
         pytest.skip(
             f"주 피드가 {len(STATE_FEEDS)} 개({', '.join(STATE_FEEDS)})뿐이라 교집합이 "
-            "자기 자신이다. 두 번째 주 피드가 생기면 STATE_FEEDS 에 더해 켤 것."
+            "자기 자신이다. 두 번째 주 피드가 rules/ 에 생기면 스캔이 저절로 켠다."
         )
     start, end = dt.date(year, 1, 1), dt.date(year, 12, 31)
     sets = [{e.day for e in f.events(start, end)} for f in STATE_FEEDS.values()]

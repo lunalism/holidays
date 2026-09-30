@@ -1,0 +1,106 @@
+# 독일·브란덴부르크 주 공휴일 — 부활절 기준 이동 6 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_bb/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# 전국 공통 4 건에 "der Ostersonntag"(0)·"der Pfingstsonntag"(+49)가 더해진다. 두 key
+# (ostersonntag·pfingstsonntag)는 이 피드에서 처음 쓰는 것이고 사람이 승인했다.
+#
+# key·name·verified 규약과 현행 자구의 출처·공포본 경계는 solar_holidays.yaml 머리 주석과
+# 같다. 여섯 건 모두 자구가 1991·1994 공포본(온라인에서 찾지 못함)에 의존해 verified:
+# false + source_todo 다. name 은 조문 표기에서 관사 "der" 만 뺀 것이라 "Christi
+# Himmelfahrtstag" 다(각 피드는 자기 조문의 표기).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(실측 요지는 tests/test_de_scope.py 머리 docstring,
+# 고정은 같은 파일의 test_bundesweit_keys_equal_the_nationwide_keys). DESCRIPTION 첫
+# 줄이 이 값에서 나온다. 로더가 닫힌 집합으로 검사한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 2번째 'der Karfreitag' — BRAVORS 통합본(Gesetz über
+      die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30.
+      April 2015; 2026-09-30 열람). 부활절 −2 일은 feiertage-api 2026 BB(04-03) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: ostersonntag
+    name: Ostersonntag
+    scope: land
+    easter_offset: 0
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 3번째 'der Ostersonntag' — BRAVORS 통합본(Gesetz
+      über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom
+      30. April 2015; 2026-09-30 열람). 부활절 당일은 feiertage-api 2026 BB(04-05) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 4번째 'der Ostermontag' — BRAVORS 통합본(Gesetz über
+      die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom 30.
+      April 2015; 2026-09-30 열람). 부활절 +1 일은 feiertage-api 2026 BB(04-06) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: christi_himmelfahrt
+    name: Christi Himmelfahrtstag
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 6번째 'der Christi Himmelfahrtstag' — BRAVORS
+      통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch
+      Gesetz vom 30. April 2015; 2026-09-30 열람). 부활절 +39 일은 feiertage-api 2026 BB(05-14,
+      Christi Himmelfahrt) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: pfingstsonntag
+    name: Pfingstsonntag
+    scope: land
+    easter_offset: 49
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 7번째 'der Pfingstsonntag' — BRAVORS 통합본(Gesetz
+      über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom
+      30. April 2015; 2026-09-30 열람). 부활절 +49 일은 feiertage-api 2026 BB(05-24) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 8번째 'der Pfingstmontag' — BRAVORS 통합본(Gesetz
+      über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch Gesetz vom
+      30. April 2015; 2026-09-30 열람). 부활절 +50 일은 feiertage-api 2026 BB(05-25) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.

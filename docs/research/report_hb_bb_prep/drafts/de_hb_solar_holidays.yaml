@@ -1,0 +1,73 @@
+# (머리 주석 개요 — 보고서 D 절 참조)
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 날짜 1. 1. 은 feiertage-api 2026 HB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 날짜는 조문에 박혀 있고 feiertage-api 2026 HB(Tag der Arbeit) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober - Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 날짜는 조문에 박혀 있고 feiertage-api 2026 HB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: reformationstag
+    name: Reformationstag
+    scope: land
+    month: 10
+    day: 31
+    verified: true
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der
+      Reformationstag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage
+      vom 26.06.2018 Art. 1 Nr. 1 (Buchst. j 새 문언, 종전 'der 31. Oktober 2017 (500.
+      Jahrestag der Reformation)'), Brem.GBl. 2018 Nr. 63 S. 302 (28.06.2018 공포, 다음 날
+      시행; 브레멘 관보 포털 PDF
+      https://www.gesetzblatt.bremen.de/fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf
+      sha256 e0a706281f932bd4445366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf,
+      2026-09-30 열람, 재수령 대조 일치). 날짜 31. 10. 은 feiertage-api 2026 HB 대조 일치
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 날짜 25. 12. 은 feiertage-api 2026 HB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, 2026-09-30 열람). 날짜 26. 12. 은 feiertage-api 2026 HB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013 년부터다. 현행 통합본(2025-06-30 판)은 2026-09-30 열람 시 서버 오류. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+

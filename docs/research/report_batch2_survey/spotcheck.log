@@ -1,0 +1,18 @@
+== 2026-09-30T09:35:45Z GET https://bravors.brandenburg.de/gesetze/ftg_2015
+status=200 type=text/html; charset=utf-8 size=20288
+== 2026-09-30T09:35:46Z GET https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG
+status=200 type=text/html; charset=utf-8 size=28998
+== 2026-09-30T09:35:48Z GET https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/GVOBl.%20Nr.%2031%20v.%2012.7.2022.pdf
+status=200 type=application/pdf size=263235
+== 2026-09-30T09:35:50Z GET https://www.gesetzblatt.bremen.de/fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf
+status=200 type=application/pdf size=241672
+bb.html Ostersonntag -> tage sind: der Neujahrstag (1. Januar), der Karfreitag, der Ostersonntag, der Ostermontag, der 1. Mai (Tag der Arbeit), 
+bb.html Pfingstsonntag -> r 1. Mai (Tag der Arbeit), der Christi Himmelfahrtstag, der Pfingstsonntag, der Pfingstmontag, der Tag der deutschen Ein
+bb.html Reformationstag -> NOT FOUND
+bb.html Reformationsfest -> ngstmontag, der Tag der deutschen Einheit (3. Oktober), das Reformationsfest (31. Oktober), der 1. Weihnachtsfeiertag (2
+bb.html Fronleichnam -> NOT FOUND
+sn.html Buß- und Bettag -> schen Einheit (3. Oktober), Reformationsfest (31. Oktober), Buß- und Bettag, 1. Weihnachtstag (25. Dezember), 2. Weihnac
+sn.html Reformationsfest -> stimmten Regionen), Tag der Deutschen Einheit (3. Oktober), Reformationsfest (31. Oktober), Buß- und Bettag, 1. Weihnach
+sn.html Fronleichnam -> ag der Arbeit (1. Mai), Christi Himmelfahrt, Pfingstmontag, Fronleichnam (nur in den vom Staatsministerium des Innern du
+mv.pdf Frauentag -> 1. § 2 Absatz 1 wird wie folgt geändert: a) Nach Nummer 1 wird folgende Nummer 2 eingefügt: „2. der Frauentag (8. März),“. b) Die bisherigen Nummern 2 bis 10 werden die Nummern 3 b
+hb.pdf Reformationstag ->  2013 (Brem.GBl. S. 231), wird wie folgt geändert: 1. § 2 Absatz 1j wird wie folgt neu gefasst: der Reformationstag. 2. § 14 Absatz 2 wird gestrichen. Artikel 2 Inkrafttreten Das G

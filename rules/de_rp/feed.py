@@ -17,7 +17,7 @@ feed_range(today) / events(start, end) / build(...) / publish(...).
 UID token 에 접두사를 단다
 --------------------------------------------------------------------------
 token 은 "de_rp-" + key 다. 주 피드 규약 {피드토큰}-{key} (docs/holiday_12.md §6).
-key 는 전부 기존 확립값(공통 9 종은 de·여덟 주 피드와, fronleichnam·allerheiligen 은
+key 는 전부 기존 확립값(공통 9 종은 de·다른 주 피드와, fronleichnam·allerheiligen 은
 de_bw·de_by·de_nw 와 같다)이라 접두사가 없으면 같은 날 같은 항목이 같은 UID 로 나간다.
 함께 구독한 캘린더에서 같은 UID 는 서로를 덮어쓴다(rules/kr_only/feed.py 의 같은 절).
 한 번 발행되면 이 접두사도 영구값이다.

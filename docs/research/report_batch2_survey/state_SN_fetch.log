@@ -1,0 +1,18 @@
+# state_SN fetch log (UTC	URL	HTTP	content-type	bytes	final URL)
+# 주: 공유 scratchpad 충돌로 원래 로그 파일이 유실되어 09:29Z 이전 항목은 각 요청 직후 터미널에 출력된 동일 행에서 재구성함.
+# 주: REVOSax /suche POST(검색 폼) 시도는 로컬 권한 정책에 의해 전송 전에 차단됨 — 요청 없음.
+2026-09-30T09:25:12Z	https://www.revosax.sachsen.de/vorschrift/3853-Saechsisches-Sonn-und-Feiertagsgesetz	200	text/html; charset=utf-8	11872	https://www.revosax.sachsen.de/vorschrift/3853-Saechsisches-Sonn-und-Feiertagsgesetz	(추측 ID; 무관한 문서 Bek. Gleichwertigkeit Bildungsabschlüsse)
+2026-09-30T09:25:46Z	https://www.revosax.sachsen.de/	200	text/html; charset=utf-8	10822	https://www.revosax.sachsen.de/
+2026-09-30T09:26:57Z	https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland	200	text/html; charset=UTF-8	475309	https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland	(REVOSax 링크 탐색용, 근거로 쓰지 않음)
+2026-09-30T09:27:06Z	https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG	200	text/html; charset=utf-8	28998	https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG
+2026-09-30T09:27:33Z	https://www.revosax.sachsen.de/vorschrift/21192	200	text/html; charset=utf-8	11788	https://www.revosax.sachsen.de/vorschrift/21192
+2026-09-30T09:27:54Z	https://www.revosax.sachsen.de/faq	200	text/html; charset=utf-8	21095	https://www.revosax.sachsen.de/faq
+2026-09-30T09:28:10Z	https://www.saxonia-verlag.de/	200	text/html; charset=UTF-8	637274	https://www.saxonia-verlag.de/
+2026-09-30T09:28:29Z	https://www.saxonia-verlag.de/juristischer-verlag/	200	text/html; charset=UTF-8	592184	https://www.saxonia-verlag.de/juristischer-verlag/
+2026-09-30T09:28:48Z	https://www.recht-sachsen.de/	200	text/html; charset=UTF-8	58638	https://www.recht-sachsen.de/
+2026-09-30T09:29:02Z	https://www.recht-sachsen.de/veroffentlichungen/sgvl.html	200	text/html; charset=UTF-8	112956	https://www.recht-sachsen.de/veroffentlichungen/sgvl.html
+2026-09-30T09:29:21Z	https://www.recht-sachsen.de/sgvl/sachsisches-gesetz-und-verordnungsblatt-2025-6.html	200	text/html; charset=UTF-8	62978	https://www.recht-sachsen.de/sgvl/sachsisches-gesetz-und-verordnungsblatt-2025-6.html
+2026-09-30T09:30:33Z	https://www.recht-sachsen.de/sgvl/sachsisches-gesetz-und-verordnungsblatt-2025-6.html	200	text/html; charset=UTF-8	62978	https://www.recht-sachsen.de/sgvl/sachsisches-gesetz-und-verordnungsblatt-2025-6.html
+2026-09-30T09:30:44Z	https://www.recht-sachsen.de/downloadable/download/attachment/id/3249/	200	application/octet-stream	893093	https://www.recht-sachsen.de/downloadable/download/attachment/id/3249/
+2026-09-30T09:31:29Z	https://www.revosax.sachsen.de/vorschrift_gesamt/3997/48138.pdf	200	application/pdf	53502	https://www.revosax.sachsen.de/vorschrift_gesamt/3997/48138.pdf
+2026-09-30T09:31:34Z	http://edas.landtag.sachsen.de/	200	text/html; charset=iso-8859-1	3420	https://edas.landtag.sachsen.de/

@@ -1,0 +1,7 @@
+de_bb_easter_holidays.yaml entries 6 hits 0
+de_bb_solar_holidays.yaml entries 6 hits 0
+de_hb_easter_holidays.yaml entries 4 hits 0
+de_hb_solar_holidays.yaml entries 6 hits 0
+total hits 0
+HB draft 2026 dates 10 api 10 equal True
+BB draft 2026 dates 12 api 12 equal True

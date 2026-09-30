@@ -1,0 +1,12 @@
+# MV fetch log (UTC time	URL	HTTP status	content-type	size bytes	final URL)
+# 주의: 공유 scratchpad 의 fetch 스크립트를 병렬 에이전트가 함께 사용해 타 주 요청이 이 로그에 섞였음 -> MV 호스트(landesrecht-mv.de, landtag-mv.de, regierung-mv.de) 행만 남기고 제거함. 모든 MV 요청은 이 세 호스트뿐.
+2026-09-30T09:25:13Z	https://www.landesrecht-mv.de/bsmv/document/jlr-FeiertGMVrahmen	200	text/html	5559	https://www.landesrecht-mv.de/bsmv/document/jlr-FeiertGMVrahmen
+2026-09-30T09:25:37Z	https://www.dokumentation.landtag-mv.de/parldok/	200	text/html; charset=utf-8	42233	https://www.dokumentation.landtag-mv.de/parldok/
+2026-09-30T09:26:03Z	https://www.regierung-mv.de/Landesregierung/jm/Service/Gesetz--und-Verordnungsblatt/	404	text/html;charset=UTF-8	63123	https://www.regierung-mv.de/Landesregierung/jm/Service/Gesetz--und-Verordnungsblatt/
+2026-09-30T09:26:48Z	https://www.regierung-mv.de/Landesregierung/jm/	200	text/html;charset=UTF-8	142675	https://www.regierung-mv.de/Landesregierung/jm/
+2026-09-30T09:26:58Z	https://www.regierung-mv.de/Landesregierung/jm/service_justizministerium/verkuendungsblaetter/gesetz-verordnungsblaetter/	200	text/html;charset=UTF-8	524995	https://www.regierung-mv.de/Landesregierung/jm/service_justizministerium/verkuendungsblaetter/gesetz-verordnungsblaetter/
+2026-09-30T09:27:18Z	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/1-System%20%C3%9Cbersicht%20Stand9_2026.pdf	200	application/pdf	1881891	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/1-System%20%C3%9Cbersicht%20Stand9_2026.pdf
+2026-09-30T09:27:53Z	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/GVOBl.%20Nr.%2031%20v.%2012.7.2022.pdf	200	application/pdf	263235	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/GVOBl.%20Nr.%2031%20v.%2012.7.2022.pdf
+2026-09-30T09:28:22Z	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/Dateien/2021/letzte%20AK_GVO_43_21.pdf	200	application/pdf	676228	https://www.regierung-mv.de/static/Regierungsportal/Justizministerium/Inhalte/Rechtliches/GVOBI.M-V/Dateien/2021/letzte%20AK_GVO_43_21.pdf
+2026-09-30T09:28:44Z	https://www.regierung-mv.de/Suche/?query=Feiertagsgesetz	200	text/html;charset=UTF-8	65422	https://www.regierung-mv.de/Suche/?query=Feiertagsgesetz
+2026-09-30T09:30:27Z	https://gesetze.co/MV/FTG_M-V	200	text/html	64119	https://gesetze.co/alle/MV

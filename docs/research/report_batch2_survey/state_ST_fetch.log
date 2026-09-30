@@ -1,0 +1,19 @@
+# state_ST fetch log. columns: UTC time	URL	HTTP status	content-type	size(bytes)	final URL
+# UA: holidays.lunalism.com research (contact: repo issues); >=3s spacing per host
+2026-09-30T09:25:11Z	https://www.landesrecht.sachsen-anhalt.de/bsst/document/jlr-FeiertGSTrahmen	200	text/html	5310	https://www.landesrecht.sachsen-anhalt.de/bsst/document/jlr-FeiertGSTrahmen	# JS shell (noscript msg), <title>Bürgerservice Thüringen</title>
+2026-09-30T09:25:29Z	https://www.landesrecht.sachsen-anhalt.de/	200	text/html	5310	https://www.landesrecht.sachsen-anhalt.de/bsst/	# JS shell, <title>Landesrecht Sachsen-Anhalt
+2026-09-30T09:25:51Z	https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland	200	text/html; charset=UTF-8	475309	https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland	# non-official cross-check
+2026-09-30T09:26:32Z	http://www.landesrecht.sachsen-anhalt.de/jportal/?quelle=jlink&query=FeiertG+ST&psml=bssahprod.psml&max=true	200	text/html	5310	https://www.landesrecht.sachsen-anhalt.de/bsst/?docId=jlr-NNLST0000411C&query=JURISLINK%3A%22FeiertG+ST%22	# legacy deep link (from Wikipedia ref) -> JS shell
+2026-09-30T09:26:47Z	https://padoka.landtag.sachsen-anhalt.de/	200	text/html	269	https://padoka.landtag.sachsen-anhalt.de/	# meta-refresh to /portal/browse.tt.html
+2026-09-30T09:27:01Z	https://padoka.landtag.sachsen-anhalt.de/portal/browse.tt.html	200	text/html	1689969	https://padoka.landtag.sachsen-anhalt.de/portal/browse.tt.html	# search form UI, Dokumentart incl. "Gesetz- und Verordnungsblatt"; no static PDF links
+2026-09-30T09:27:27Z	https://html.duckduckgo.com/html/?q=%22FeiertG+LSA%22+%C2%A7+2+Feiertage+%22Heilige+Drei+K%C3%B6nige%22	200	text/html; charset=UTF-8	13074	(same)	# search engine
+2026-09-30T09:27:37Z	https://gesetze.co/ST/FeiertG_LSA/2	200	text/html	43195	https://gesetze.co/ST/FeiertG_LSA/2	# NON-OFFICIAL § 2
+2026-09-30T09:27:48Z	https://gesetze.co/ST/FeiertG_LSA	200	text/html	25720	https://gesetze.co/ST/FeiertG_LSA	# NON-OFFICIAL overview (Stand-Vermerk)
+2026-09-30T09:28:13Z	https://gesetze.co/ST/FeiertG_LSA/2a	200	text/html	36050	https://gesetze.co/ST/FeiertG_LSA/2a	# NON-OFFICIAL § 2a
+2026-09-30T09:28:26Z	https://gesetze.co/ST/FeiertG_LSA/1	200	text/html	36152	https://gesetze.co/ST/FeiertG_LSA/1	# NON-OFFICIAL § 1
+2026-09-30T09:28:30Z	https://gesetze.co/ST/FeiertG_LSA/3	200	text/html	44796	https://gesetze.co/ST/FeiertG_LSA/3	# NON-OFFICIAL § 3
+2026-09-30T09:30:22Z	https://html.duckduckgo.com/html/?q=Gesetz-+und+Verordnungsblatt+f%C3%BCr+das+Land+Sachsen-Anhalt+2026+PDF	200	text/html; charset=UTF-8	33973	https://html.duckduckgo.com/html/?q=Gesetz-+und+Verordnungsblatt+f%C3%BCr+das+Land+Sachsen-Anhalt+2026+PDF	# search engine
+2026-09-30T09:30:33Z	https://justiz.sachsen-anhalt.de/service/recht-und-gesetz/landesrecht	200	text/html; charset=utf-8	178669	https://justiz.sachsen-anhalt.de/service/recht-und-gesetz/landesrecht	# MJ page: gazette via publisher (registration/prices)
+2026-09-30T09:30:50Z	https://landesrecht-sachsen-anhalt.info/	000		0	https://landesrecht-sachsen-anhalt.info/	# connection failed (curl 000), DNS resolves 83.221.235.179; not retried
+2026-09-30T09:31:00Z	http://www.landesrecht-sachsen-anhalt.info/	000		0	http://www.landesrecht-sachsen-anhalt.info/	# connection failed (curl 000), DNS resolves 83.221.235.179; not retried
+# note: lines 1-12 transcribed from terminal output of the helper (its file logging was redirected by a concurrent edit of a shared scratch script); times/values are as printed at request time.

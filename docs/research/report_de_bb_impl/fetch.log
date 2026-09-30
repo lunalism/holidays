@@ -1,0 +1,211 @@
+2026-09-30T10:00:44Z	https://bravors.brandenburg.de/gesetze/ftg_2015	200	text/html; charset=utf-8	20288	https://bravors.brandenburg.de/gesetze/ftg_2015
+2026-09-30T10:00:56Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2020	200	text/html; charset=utf-8	112517	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2020
+2026-09-30T10:01:02Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2021	200	text/html; charset=utf-8	115369	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2021
+2026-09-30T10:01:09Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2022	200	text/html; charset=utf-8	98297	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2022
+2026-09-30T10:01:14Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2023	200	text/html; charset=utf-8	85811	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2023
+2026-09-30T10:01:20Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2024	200	text/html; charset=utf-8	114105	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2024
+2026-09-30T10:01:26Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2025	200	text/html; charset=utf-8	89873	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2025
+2026-09-30T10:01:32Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2026	200	text/html; charset=utf-8	55727	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2026
+2026-09-30T10:02:11Z	https://bravors.brandenburg.de/gesetze/ftg_2015/list	200	text/html; charset=utf-8	11720	https://bravors.brandenburg.de/gesetze/ftg_2015/list
+2026-09-30T10:08:17Z	GET https://bravors.brandenburg.de/	200	text/html; charset=utf-8	11828	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:08:33Z	GET /de/vorschriften_erweiterte_suche	200	text/html; charset=utf-8	24114	https://bravors.brandenburg.de/de/vorschriften_erweiterte_suche
+2026-09-30T10:08:39Z	GET /de/archiv_schnellsuche	200	text/html; charset=utf-8	11673	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:08:44Z	GET /de/veroeffentlichungsblaetter_einfache_suche	200	text/html; charset=utf-8	13629	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_einfache_suche
+2026-09-30T10:09:02Z	POST /de/archiv_schnellsuche searchterm=Feiertag	200	text/html; charset=utf-8	31064	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:09:47Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:09:54Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertag	200	30956	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:10:00Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	31638	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:10:06Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	30831	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:10:12Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31061	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:10:18Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	31087	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:10:24Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	30828	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:10:31Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	30483	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:10:37Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertage	200	30957	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:10:43Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	31639	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:10:50Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	30832	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:10:56Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31062	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:11:02Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	31088	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:11:08Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	30829	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:11:14Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	30484	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:11:21Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertagsgesetz	200	31065	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:11:27Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	30029	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:11:33Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	31647	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:11:39Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31180	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:11:44Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	30710	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:11:50Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	31740	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:11:56Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	31586	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:12:03Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche § 2 Abs. 3 FTG	200	15314	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:12:10Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche einmalig	200	35422	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:12:16Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	34437	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:12:22Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	35206	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:12:27Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	35848	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:12:33Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	36743	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:12:39Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	34061	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:12:45Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	35583	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:12:51Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:12:58Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertag	200	34223	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:13:03Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	34067	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:13:09Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	33573	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:13:16Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33339	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:13:22Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33399	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:13:28Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33203	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:13:34Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33844	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:13:41Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertage	200	34224	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:13:47Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	34068	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:13:53Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	33574	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:13:59Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33340	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:14:05Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33400	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:14:11Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33204	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:14:17Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33845	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:14:24Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertagsgesetz	200	33839	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:14:31Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	33949	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:14:37Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	34545	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:14:43Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33857	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:14:49Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33492	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:14:55Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33259	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:15:01Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33058	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:15:08Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche § 2 Abs. 3 FTG	200	14393	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:15:14Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche einmalig	200	40899	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:15:21Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	40384	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:15:27Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	39829	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:15:33Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	40161	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:15:39Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	41175	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:15:44Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	40614	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:15:51Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	39914	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:16:11Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:16:18Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertag	200	30956	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:16:24Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	31638	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:16:30Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	30831	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:16:36Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31061	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:16:42Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	31087	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:16:48Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	30828	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:16:54Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	30483	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:17:00Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8 	200	31801	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8
+2026-09-30T10:17:06Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9 	200	29659	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9
+2026-09-30T10:17:14Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10 	200	29817	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10
+2026-09-30T10:17:20Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11 	200	32164	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11
+2026-09-30T10:17:26Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12 	200	27078	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12
+2026-09-30T10:17:31Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:17:38Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertage	200	30957	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:17:44Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	31639	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:17:50Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	30832	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:17:55Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31062	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:18:02Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	31088	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:18:08Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	30829	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:18:14Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	30484	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:18:20Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8 	200	31802	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8
+2026-09-30T10:18:26Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9 	200	29660	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9
+2026-09-30T10:18:33Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10 	200	29818	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10
+2026-09-30T10:18:39Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11 	200	32165	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11
+2026-09-30T10:18:45Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12 	200	27079	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12
+2026-09-30T10:18:50Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:18:57Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche Feiertagsgesetz	200	31065	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:19:03Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	30029	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:19:09Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	31647	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:19:15Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	31180	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:19:21Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	30710	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:19:27Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	31740	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:19:33Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	31586	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:19:40Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8 	200	30957	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8
+2026-09-30T10:19:46Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9 	200	31176	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9
+2026-09-30T10:19:52Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10 	200	31202	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10
+2026-09-30T10:19:58Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11 	200	29215	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11
+2026-09-30T10:20:05Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12 	200	26980	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12
+2026-09-30T10:20:10Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:20:17Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche § 2 Abs. 3 FTG	200	15314	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:20:22Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche 	200	11663	https://bravors.brandenburg.de/de/archiv_schnellsuche
+2026-09-30T10:20:29Z	POST https://bravors.brandenburg.de/de/archiv_schnellsuche einmalig	200	35422	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis
+2026-09-30T10:20:35Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2 	200	34437	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/2
+2026-09-30T10:20:41Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3 	200	35206	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/3
+2026-09-30T10:20:47Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4 	200	35848	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/4
+2026-09-30T10:20:53Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5 	200	36743	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/5
+2026-09-30T10:20:59Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6 	200	34061	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/6
+2026-09-30T10:21:05Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7 	200	35583	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/7
+2026-09-30T10:21:11Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8 	200	37470	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/8
+2026-09-30T10:21:17Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9 	200	36162	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/9
+2026-09-30T10:21:23Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10 	200	36312	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/10
+2026-09-30T10:21:28Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11 	200	35634	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/11
+2026-09-30T10:21:34Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12 	200	35876	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/12
+2026-09-30T10:21:40Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/13 	200	35149	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/13
+2026-09-30T10:21:46Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/14 	200	35751	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/14
+2026-09-30T10:21:52Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/15 	200	35427	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/15
+2026-09-30T10:21:58Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/16 	200	36050	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/16
+2026-09-30T10:22:04Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/17 	200	35723	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/17
+2026-09-30T10:22:10Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/18 	200	35803	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/18
+2026-09-30T10:22:17Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/19 	200	34151	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/19
+2026-09-30T10:22:22Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/20 	200	34165	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/20
+2026-09-30T10:22:29Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/21 	200	34858	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/21
+2026-09-30T10:22:35Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/22 	200	34300	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/22
+2026-09-30T10:22:41Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/23 	200	34870	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/23
+2026-09-30T10:22:47Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/24 	200	35202	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/24
+2026-09-30T10:22:54Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/25 	200	33345	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/25
+2026-09-30T10:23:00Z	GET https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/26 	200	30595	https://bravors.brandenburg.de/de/archiv_schnellsuche/ergebnis/page/26
+2026-09-30T10:23:05Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:23:12Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertag	200	34223	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:23:18Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	34067	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:23:24Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	33573	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:23:30Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33339	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:23:36Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33399	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:23:43Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33203	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:23:49Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33844	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:23:55Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8 	200	35071	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8
+2026-09-30T10:24:01Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9 	200	33212	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9
+2026-09-30T10:24:07Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10 	200	31098	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10
+2026-09-30T10:24:12Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:24:19Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertage	200	34224	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:24:25Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	34068	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:24:31Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	33574	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:24:37Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33340	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:24:43Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33400	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:24:49Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33204	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:24:55Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33845	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:25:02Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8 	200	35072	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8
+2026-09-30T10:25:08Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9 	200	33213	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9
+2026-09-30T10:25:14Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10 	200	31099	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10
+2026-09-30T10:25:19Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:25:26Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche Feiertagsgesetz	200	33839	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:25:32Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	33949	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:25:38Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	34545	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:25:44Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	33857	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:25:50Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	33492	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:25:56Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	33259	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:26:02Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	33058	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:26:08Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8 	200	33656	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8
+2026-09-30T10:26:15Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9 	200	34218	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9
+2026-09-30T10:26:21Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10 	200	29721	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10
+2026-09-30T10:26:21Z	GET feiertage-api BE 2020	200	application/json; charset=utf-8	535
+2026-09-30T10:26:25Z	GET feiertage-api BE 2025	200	application/json; charset=utf-8	709
+2026-09-30T10:26:26Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:26:29Z	GET feiertage-api BB 2020	200	application/json; charset=utf-8	645
+2026-09-30T10:26:32Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche § 2 Abs. 3 FTG	200	14393	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:26:33Z	GET feiertage-api BB 2021	200	application/json; charset=utf-8	645
+2026-09-30T10:26:37Z	GET feiertage-api BB 2022	200	application/json; charset=utf-8	645
+2026-09-30T10:26:37Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche 	200	11819	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T10:26:41Z	GET feiertage-api BB 2023	200	application/json; charset=utf-8	645
+2026-09-30T10:26:45Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche einmalig	200	40899	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T10:26:45Z	GET feiertage-api BB 2024	200	application/json; charset=utf-8	645
+2026-09-30T10:26:49Z	GET feiertage-api BB 2025	200	application/json; charset=utf-8	645
+2026-09-30T10:26:50Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2 	200	40384	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/2
+2026-09-30T10:26:53Z	GET feiertage-api BB 2026	200	application/json; charset=utf-8	645
+2026-09-30T10:26:56Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3 	200	39829	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/3
+2026-09-30T10:26:57Z	GET feiertage-api BB 2027	200	application/json; charset=utf-8	645
+2026-09-30T10:27:01Z	GET feiertage-api BB 2028	200	application/json; charset=utf-8	645
+2026-09-30T10:27:02Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4 	200	40161	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/4
+2026-09-30T10:27:05Z	GET feiertage-api BB 2029	200	application/json; charset=utf-8	645
+2026-09-30T10:27:08Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5 	200	41175	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/5
+2026-09-30T10:27:09Z	GET feiertage-api BB 2030	200	application/json; charset=utf-8	645
+2026-09-30T10:27:13Z	GET feiertage-api BB 2031	200	application/json; charset=utf-8	645
+2026-09-30T10:27:14Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6 	200	40614	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/6
+2026-09-30T10:27:20Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7 	200	39914	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/7
+2026-09-30T10:27:26Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8 	200	39705	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/8
+2026-09-30T10:27:32Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9 	200	41000	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/9
+2026-09-30T10:27:38Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10 	200	41099	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/10
+2026-09-30T10:27:44Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/11 	200	40907	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/11
+2026-09-30T10:27:50Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/12 	200	40134	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/12
+2026-09-30T10:27:56Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/13 	200	40506	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/13
+2026-09-30T10:28:03Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/14 	200	40339	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/14
+2026-09-30T10:28:09Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/15 	200	41172	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/15
+2026-09-30T10:28:16Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/16 	200	41099	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/16
+2026-09-30T10:28:22Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/17 	200	39751	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/17
+2026-09-30T10:28:29Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/18 	200	39589	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/18
+2026-09-30T10:28:35Z	GET https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/19 	200	35319	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis/page/19

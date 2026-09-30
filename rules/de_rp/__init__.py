@@ -31,7 +31,7 @@ fronleichnam·allerheiligen) — 신규 명명 0. § 2 Abs. 2 의 일회성 수�
 rules/de/ 를 import 하지 않는다. 표를 따로 둔다 — 전국 공통 9 건이 RP 에서도
 유효하다는 것은 이 표가 그 사실을 담고 있어서이지 de 의 표를 물려받아서가 아니다.
 두 표가 갈리면 tests/test_de_rp_feed.py 의 상위집합 테스트가 잡고, 주 피드끼리
-갈리면 tests/test_de_be_feed.py 의 교집합 == de.ics 테스트(아홉 주)가 잡는다.
+갈리면 tests/test_de_be_feed.py 의 교집합 == de.ics 테스트(rules/ 스캔의 주 피드 전부)가 잡는다.
 
     solar_holidays.yaml       고정 날짜 6 건
     easter_holidays.yaml      부활절 기준 오프셋 5 건

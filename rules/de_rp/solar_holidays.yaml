@@ -63,7 +63,7 @@
 # rules/de_be/solar_holidays.yaml 의 규약과 같다. 이 표의 key 는 전부 기존 확립값 —
 # allerheiligen 은 de_bw·de_by·de_nw 의 것(신규 명명 0). Nr. 10 을 둘로 나눠도 key 는
 # 기존 erster_weihnachtstag·zweiter_weihnachtstag 다. 발행되는 UID 의 token 은 이 key
-# 앞에 "de_rp-" 가 붙는다(rules/de_rp/feed.py). 접두사 없이는 아홉 독일 피드와 UID 가
+# 앞에 "de_rp-" 가 붙는다(rules/de_rp/feed.py). 접두사 없이는 다른 독일 피드와 UID 가
 # 겹친다.
 #
 # --- name ---

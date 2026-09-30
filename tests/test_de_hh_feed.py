@@ -31,8 +31,8 @@ Nr. 8 은 조문에 이름이 없고 날짜뿐이다. SUMMARY 는 조문 표기 
 발행하지 않는다. build() 로 메모리에서 만들어 보고, publish() 는 tmp_path 로만
 부른다. 시계를 읽지 않는다 — today·dtstamp 를 고정값으로 준다.
 
-주 피드 교집합 == de.ics 테스트는 tests/test_de_be_feed.py 의 STATE_FEEDS 에
-de_hh 를 더해 네 주로 확장한다(여기 두지 않는다).
+주 피드 교집합 == de.ics 테스트는 tests/test_de_be_feed.py 의 STATE_FEEDS(rules/ 스캔)가
+이 주를 저절로 넣는다(여기 두지 않는다).
 """
 
 from __future__ import annotations

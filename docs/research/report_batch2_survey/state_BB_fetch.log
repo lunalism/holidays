@@ -1,0 +1,19 @@
+# Brandenburg (BB) fetch log — columns: UTC time	URL	HTTP status	content-type	size(bytes)	final URL
+# UA: holidays.lunalism.com research (contact: repo issues); >=3 s between requests; scratch files deleted
+2026-09-30T09:25:09Z	https://bravors.brandenburg.de/gesetze/ftg	302	text/html; charset=utf-8	0	http://bravors.brandenburg.de:443/
+2026-09-30T09:25:19Z	https://bravors.brandenburg.de/	200	text/html; charset=utf-8	11828	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T09:25:35Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche (searchterm=Feiertagsgesetz)	200	text/html; charset=utf-8	11828	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T09:25:48Z	HEAD-ish GET (no follow) https://bravors.brandenburg.de/gesetze/ftg	HTTP/1.1 302 Found	-	0	Location: http://bravors.brandenburg.de:443
+2026-09-30T09:25:56Z	https://bravors.brandenburg.de/gesetze/feiertagsg	302	text/html; charset=utf-8	0	http://bravors.brandenburg.de:443/
+2026-09-30T09:26:09Z	https://bravors.brandenburg.de/de/vorschriften_schnellsuche (cookie jar)	200	text/html; charset=utf-8	11828	https://bravors.brandenburg.de/de/vorschriften_schnellsuche
+2026-09-30T09:26:13Z	POST https://bravors.brandenburg.de/de/vorschriften_schnellsuche (searchterm=Feiertagsgesetz, with cookie)	200	text/html; charset=utf-8	34000	https://bravors.brandenburg.de/de/vorschriften_schnellsuche/ergebnis
+2026-09-30T09:26:24Z	https://bravors.brandenburg.de/gesetze/ftg_2015	200	text/html; charset=utf-8	20288	https://bravors.brandenburg.de/gesetze/ftg_2015
+2026-09-30T09:26:43Z	https://bravors.brandenburg.de/gesetze/ftg_2015/list	200	text/html; charset=utf-8	11720	https://bravors.brandenburg.de/gesetze/ftg_2015/list
+2026-09-30T09:27:02Z	https://bravors.brandenburg.de/fm/76/GVBl_I_13_2015.pdf	200	application/pdf	128605	https://bravors.brandenburg.de/fm/76/GVBl_I_13_2015.pdf
+2026-09-30T09:27:19Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_einfache_suche	200	text/html; charset=utf-8	13629	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_einfache_suche
+2026-09-30T09:27:34Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch	200	text/html; charset=utf-8	17279	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch
+2026-09-30T09:27:44Z	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2026	200	text/html; charset=utf-8	55727	https://bravors.brandenburg.de/de/veroeffentlichungsblaetter_chronologisch/2026
+2026-09-30T09:28:00Z	https://www.parlamentsdokumentation.brandenburg.de/	200	text/html	782	https://www.parlamentsdokumentation.brandenburg.de/
+2026-09-30T09:28:11Z	https://www.parlamentsdokumentation.brandenburg.de/starweb/LBB/ELVIS/index.html	200	text/html	283	https://www.parlamentsdokumentation.brandenburg.de/starweb/LBB/ELVIS/index.html
+2026-09-30T09:28:26Z	https://www.parlamentsdokumentation.brandenburg.de/portal/browse.tt.html	200	text/html	346264	https://www.parlamentsdokumentation.brandenburg.de/portal/browse.tt.html
+# total requests: 16 (bravors.brandenburg.de 13, parlamentsdokumentation.brandenburg.de 3); no 403/429 observed
