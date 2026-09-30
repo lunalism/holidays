@@ -1,0 +1,25 @@
+set	page	variant	raw	gzip5	gzip9	d_raw	d_gzip5	d_gzip9
+HEAD15	index.html	full	53457	13829	13637	0	0	0
+HEAD15	index.html	-json	50634	13351	13169	2823	478	468
+HEAD15	index.html	-list	44980	13107	12972	8477	722	665
+HEAD15	index.html	-head	53377	13794	13605	80	35	32
+HEAD15	index.html	-json-list	42157	12521	12398	11300	1308	1239
+# HEAD15	index.html	json	chars 28824..30834	lines 895..936
+# HEAD15	index.html	head	chars 1779..1859	lines 33..35
+# HEAD15	index.html	list	chars 14477..21901	lines 499..664
+HEAD15	en/index.html	full	53031	14111	13930	0	0	0
+HEAD15	en/index.html	-json	50333	13599	13432	2698	512	498
+HEAD15	en/index.html	-list	44769	13394	13269	8262	717	661
+HEAD15	en/index.html	-head	52951	14075	13897	80	36	33
+HEAD15	en/index.html	-json-list	42071	12800	12683	10960	1311	1247
+# HEAD15	en/index.html	json	chars 32088..34773	lines 903..944
+# HEAD15	en/index.html	head	chars 2389..2469	lines 33..35
+# HEAD15	en/index.html	list	chars 15386..23635	lines 500..665
+HEAD15	ja/index.html	full	53646	14270	14088	0	0	0
+HEAD15	ja/index.html	-json	50893	13802	13628	2753	468	460
+HEAD15	ja/index.html	-list	45134	13514	13398	8512	756	690
+HEAD15	ja/index.html	-head	53566	14236	14057	80	34	31
+HEAD15	ja/index.html	-json-list	42381	12932	12823	11265	1338	1265
+# HEAD15	ja/index.html	json	chars 28691..30756	lines 895..936
+# HEAD15	ja/index.html	head	chars 1751..1831	lines 33..35
+# HEAD15	ja/index.html	list	chars 14428..21922	lines 499..664

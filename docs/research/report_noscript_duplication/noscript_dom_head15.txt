@@ -1,0 +1,16 @@
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /status.json HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /en/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /status.json HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /ja/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /status.json HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /en/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2026 15:36:41] "GET /ja/ HTTP/1.1" 200 -
+js=True	/	{'noscript_total': 2, 'list_childElementCount': 0, 'list_textContent_len': 7398, 'list_textContent_head': '<div class="feed-group">\n        <p class="feed-group-title">나라별 전체</p>\n        ', 'list_innerHTML_len': 7398, 'rows_all': 15, 'rows_in_noscript': 0, 'rows_script': 15, 'details_in_noscript': 0}
+js=True	/en/	{'noscript_total': 2, 'list_childElementCount': 0, 'list_textContent_len': 8223, 'list_textContent_head': '<div class="feed-group">\n        <p class="feed-group-title">Whole countries</p>', 'list_innerHTML_len': 8223, 'rows_all': 15, 'rows_in_noscript': 0, 'rows_script': 15, 'details_in_noscript': 0}
+js=True	/ja/	{'noscript_total': 2, 'list_childElementCount': 0, 'list_textContent_len': 7468, 'list_textContent_head': '<div class="feed-group">\n        <p class="feed-group-title">国別すべて</p>\n        <', 'list_innerHTML_len': 7468, 'rows_all': 15, 'rows_in_noscript': 0, 'rows_script': 15, 'details_in_noscript': 0}
+js=False	/	{'noscript_total': 2, 'list_childElementCount': 3, 'list_textContent_len': 3532, 'list_textContent_head': '나라별 전체\n        \n          \n            대한민국\n            대한민국 공휴일 전체\n          \n ', 'list_innerHTML_len': 7398, 'rows_all': 15, 'rows_in_noscript': 15, 'rows_script': 0, 'details_in_noscript': 1}
+js=False	/en/	{'noscript_total': 2, 'list_childElementCount': 3, 'list_textContent_len': 4357, 'list_textContent_head': 'Whole countries\n        \n          \n            South Korea\n            All Sout', 'list_innerHTML_len': 8223, 'rows_all': 15, 'rows_in_noscript': 15, 'rows_script': 0, 'details_in_noscript': 1}
+js=False	/ja/	{'noscript_total': 2, 'list_childElementCount': 3, 'list_textContent_len': 3602, 'list_textContent_head': '国別すべて\n        \n          \n            韓国\n            韓国の祝日すべて\n          \n       ', 'list_innerHTML_len': 7468, 'rows_all': 15, 'rows_in_noscript': 15, 'rows_script': 0, 'details_in_noscript': 1}
+chromium 151.0.7922.34

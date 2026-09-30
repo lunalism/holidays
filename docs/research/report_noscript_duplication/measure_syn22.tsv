@@ -1,0 +1,25 @@
+set	page	variant	raw	gzip5	gzip9	d_raw	d_gzip5	d_gzip9
+SYN22	index.html	full	58555	14250	14031	0	0	0
+SYN22	index.html	-json	54541	13628	13417	4014	622	614
+SYN22	index.html	-list	46171	13269	13129	12384	981	902
+SYN22	index.html	-head	58475	14212	13995	80	38	36
+SYN22	index.html	-json-list	42157	12521	12398	16398	1729	1633
+# SYN22	index.html	json	chars 32210..35002	lines 965..1013
+# SYN22	index.html	head	chars 1779..1859	lines 33..35
+# SYN22	index.html	list	chars 14477..25287	lines 499..734
+SYN22	en/index.html	full	57921	14508	14308	0	0	0
+SYN22	en/index.html	-json	54115	13907	13708	3806	601	600
+SYN22	en/index.html	-list	45877	13542	13417	12044	966	891
+SYN22	en/index.html	-head	57841	14470	14272	80	38	36
+SYN22	en/index.html	-json-list	42071	12800	12683	15850	1708	1625
+# SYN22	en/index.html	json	chars 35861..39645	lines 973..1021
+# SYN22	en/index.html	head	chars 2389..2469	lines 33..35
+# SYN22	en/index.html	list	chars 15386..27408	lines 500..735
+SYN22	ja/index.html	full	58711	14655	14468	0	0	0
+SYN22	ja/index.html	-json	54808	14059	13869	3903	596	599
+SYN22	ja/index.html	-list	46284	13671	13554	12427	984	914
+SYN22	ja/index.html	-head	58631	14617	14434	80	38	34
+SYN22	ja/index.html	-json-list	42381	12932	12823	16330	1723	1645
+# SYN22	ja/index.html	json	chars 32142..35047	lines 965..1013
+# SYN22	ja/index.html	head	chars 1751..1831	lines 33..35
+# SYN22	ja/index.html	list	chars 14428..25373	lines 499..734
