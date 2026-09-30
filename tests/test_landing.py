@@ -202,10 +202,11 @@ DE_STATE_CODES = sorted(c for c in landing_render.feed_codes() if c.startswith("
 # 그 파일의 명제는 "피드에 나가는 것"(scope·DESCRIPTION)이고 LAND_NAME_DE 는 피드에
 # 나가지 않는다. 소비처가 랜딩이므로 랜딩 테스트가 든다.
 #
-# 표기 근거는 독일 기본법 전문(rules/de/feed.py 의 LAND_NAME_DE 절). 아홉 모듈에
+# 표기 근거는 독일 기본법 전문(rules/de/feed.py 의 LAND_NAME_DE 절). 주 모듈마다
 # 손으로 옮겨 적은 값이라 오타가 그대로 랜딩에 나간다 — Nordrhein-Westphalen 처럼
 # 한 글자 틀린 것을 잡는 것이 여기의 일이다.
 LAND_NAMES_DE = {
+    "de_bb": "Brandenburg",
     "de_be": "Berlin",
     "de_bw": "Baden-Württemberg",
     "de_by": "Bayern",
@@ -235,7 +236,7 @@ def test_the_korean_label_template_matches_the_calname(code):
     테스트가 깨지지 않는다. 갈라지면 구독 버튼의 이름과 구독 뒤 캘린더에 뜨는
     X-WR-CALNAME 이 달라진다(이 파일 머리의 "주명은 왜 feed.py 에서" 절).
 
-    지금 아홉 주 전부 참인 관계라 그대로 단언한다. 새 주를 더하면서 CALNAME 을
+    지금 주 피드 전부에서 참인 관계라 그대로 단언한다. 새 주를 더하면서 CALNAME 을
     다른 모양으로 적으면(예: "독일 베를린 공휴일") 여기서 걸린다. 리터럴 둘은
     ko.yaml 의 label 틀·label_suffix 와 같은 값이어야 하고, 그 일치는 위
     test_state_labels_and_descs_are_derived_from_the_feed_modules 가 본다."""

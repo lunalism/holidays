@@ -1,4 +1,4 @@
-"""독일 계열 열 피드 — scope 필드와 DESCRIPTION 첫 줄.
+"""독일 계열 열한 피드 — scope 필드와 DESCRIPTION 첫 줄.
 
 --------------------------------------------------------------------------
 이 파일이 지키는 명제
@@ -19,8 +19,8 @@ bundesweit 9 건의 근거는 /tmp/report_bundesweit.md — feiertage-api 2025·
 key 집합이 rules/de 의 key 집합과 다르면(전국 항목을 land 로, 주 항목을
 bundesweit 로 잘못 적으면) 어느 쪽이든 집합이 어긋나 깨진다.
 
-    a. 교차 검증 — 아홉 피드 각각의 bundesweit key 집합 == rules/de key 집합
-    b. 로더 — scope 누락·미정의 값은 아홉 로더 전부에서 실패, de 는 scope 존재가 실패
+    a. 교차 검증 — 주 피드 각각의 bundesweit key 집합 == rules/de key 집합
+    b. 로더 — scope 누락·미정의 값은 주 피드 로더 전부에서 실패, de 는 scope 존재가 실패
     c. DESCRIPTION — 첫 줄 문장·빈 줄·"근거: " 유지, 직렬화(\\n 이스케이프·75 옥텟
        접기)가 한글에서 깨지지 않음
 
@@ -73,6 +73,7 @@ STATE_FEEDS = {code: _module(code) for code in STATE_CODES}
 # 주명은 여기서 고정한다. feed.py 의 상수가 바뀌면 여기가 먼저 깨진다. 스캔이
 # parametrize 를 이끌고 이 표는 조회 대상이라, 새 주가 빠지면 KeyError 다.
 LAND_NAMES = {
+    "de_bb": "브란덴부르크",
     "de_be": "베를린",
     "de_bw": "바덴뷔르템베르크",
     "de_by": "바이에른",
@@ -149,7 +150,7 @@ def test_land_keys_never_overlap_the_nationwide_keys(name):
 
 
 # ---------------------------------------------------------------------------
-# b. 로더 — 아홉 로더의 scope 검증, de 의 금지 단언
+# b. 로더 — 주 피드 로더의 scope 검증, de 의 금지 단언
 # ---------------------------------------------------------------------------
 
 
