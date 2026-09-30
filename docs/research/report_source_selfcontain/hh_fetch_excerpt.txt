@@ -1,0 +1,22 @@
+# hh_fetch.log 의 발췌 — 요청·응답 상태·필요한 링크 한 줄·sha256·응답 헤더 세 필드만.
+# 페이지 HTML 에서 뽑은 나머지 링크 목록·스크립트 태그 조각과 전체 헤더는 두지 않는다.
+== 2026-09-30T07:23:28Z GET https://www.luewu.de/gvbl/
+status=200 type=text/html; charset=UTF-8 final=https://www.luewu.de/gesetz-und-verordnungsblatt/
+== 2026-09-30T07:23:34Z GET https://www.luewu.de/gvbl/2018/
+status=200 type=text/html; charset=UTF-8
+== 2026-09-30T07:23:53Z GET https://www.luewu.de/gvbl/ausgabe-nr-9-vom-20-03-2018-seiten-61-64-groesse-458-kb/
+status=200 type=text/html; charset=UTF-8
+PDF 링크: https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf
+== 2026-09-30T07:24:05Z GET https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf (#1)
+status=200 type=application/pdf size=457762
+last-modified: Tue, 05 Aug 2025 07:32:31 GMT / etag: "6fc22-63b993a18c1c0"
+== 2026-09-30T07:24:18Z GET https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf (#2)
+status=200 type=application/pdf size=457762
+last-modified: Tue, 05 Aug 2025 07:32:31 GMT / etag: "6fc22-63b993a18c1c0"
+sha256 #1 025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8
+sha256 #2 025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8
+== 2026-09-30T07:24:54Z GET https://suche.transparenz.hamburg.de/?q=HmbGVBl.%202018%20Nr.%209
+status=200 type=text/html; charset=utf-8 — 정적 응답에 결과 목록 없음(스크립트로 채움). 여기서 멈췄다.
+== 2026-09-30T07:37:17Z GET https://www.luewu.de/wp-content/uploads/2025/08/GVBL_HH_2018-9.pdf (구현 PR 사전 확인의 재수령)
+status=200 type=application/pdf size=457762
+sha256 #3 025be364db842223fc6b8356da91adc3b4e7a39f52410103c317273af66a4aa8
