@@ -1,0 +1,170 @@
+# 독일·브란덴부르크 주 공휴일 — 고정 날짜 6 건.
+#
+# 근거: Gesetz über die Sonn- und Feiertage (Feiertagsgesetz - FTG) vom 21. März 1991
+# (GVBl. I S. 44) § 2 Abs. 1 — "(1) Gesetzlich anerkannte Feiertage sind: der Neujahrstag
+# (1. Januar), der Karfreitag, der Ostersonntag, der Ostermontag, der 1. Mai (Tag der
+# Arbeit), der Christi Himmelfahrtstag, der Pfingstsonntag, der Pfingstmontag, der Tag der
+# deutschen Einheit (3. Oktober), das Reformationsfest (31. Oktober), der 1.
+# Weihnachtsfeiertag (25. Dezember), der 2. Weihnachtsfeiertag (26. Dezember)." — 번호 없는
+# 열거 12 건. 고정 날짜는 열거 1·5·9·10·11·12번째. 전국 공통 5 건에 "das Reformationsfest
+# (31. Oktober)" 이 더해진다. 3. Oktober 는 조문 열거 안에 있어 조문이 주근거다.
+#
+# --- 현행 자구의 출처 — 통합본(2차) ---
+# BRAVORS(brandenburgisches Vorschriftensystem) https://bravors.brandenburg.de/gesetze/ftg_2015
+# 「zuletzt geändert durch Gesetz vom 30. April 2015 (GVBl.I/15, [Nr. 13])」, 2026-09-30 열람.
+# 같은 날 다시 받아 § 2 Abs. 1 의 열두 호가 위 자구 그대로임을 확인했다.
+# 포털의 개정 이력: 1991 원법(GVBl.I/91 [Nr. 06] S. 44) · 1994-12-19(GVBl.I/94 S. 514,
+# §§ 1, 2, 4, 5, 7-12) · 1997-04-07(S. 32, §§ 3-6, 8) · 1998-07-06(Nr. 12 S. 167, 170, § 4) ·
+# 2003-11-20(Nr. 15 S. 287, § 4) · 2015-04-30(Nr. 13, § 2).
+#
+# --- 공포본 — 온라인으로 닿는 것 ---
+# 2015 개정 Viertes Gesetz zur Änderung des Feiertagsgesetzes vom 30. April 2015, GVBl. I
+#   2015 Nr. 13 https://bravors.brandenburg.de/fm/76/GVBl_I_13_2015.pdf (128,605 B) — § 2
+#   Abs. 2 에 Nr. 3(8. Mai 기념일)을 더했을 뿐 Abs. 1 은 건드리지 않았다.
+# 1991 원법·1994 개정의 호는 BRAVORS 관보 목록에 없다 — 1994 년 목록은 Teil I Nr. 12·26
+#   (둘 다 이 법과 무관, Nr. 26 은 받아 확인)만 PDF 로 두고 1991 년 목록은 없다.
+#
+# --- § 2 Abs. 3 일회성 지정 — 수록 항목 없음 ---
+# "Die Landesregierung wird ermächtigt, bei besonderem Anlaß … durch Rechtsverordnung
+# Werktage zu einmaligen Feier-, Gedenk- oder Trauertagen zu erklären …" 발행 범위(2020~)
+# 안의 지정 명령은 찾지 못함 — BRAVORS 공개 검색 화면 두 곳(현행 Schnellsuche 와,
+# 「außer Kraft getretenen Vorschriften」 을 찾는 Archiv-Schnellsuche), 검색어 'Feiertag'·
+# 'Feiertage'·'Feiertagsgesetz'·'einmalig'·'§ 2 Abs. 3 FTG', 2026-09-30. 적중(현행 95·95·
+# 94·182·0, Archiv 115·115·115·255·0 건)의 제목 전부를 봤고 일회성 공휴일 지정은 없었다.
+# 교차 확인: feiertage-api 2020~2031 BB 는 해마다 12 건이 이 표·부활절 표와 같고 hinweis 가
+# 붙은 항목이 없다. 같은 API 는 BE 2025 의 8. Mai(일회성)는 hinweis 를 달아 싣지만 BE 2020
+# 의 8. Mai 는 싣지 않았다 — 일회성 누락 사례가 있어 이 대조는 보조다.
+#
+# --- verified ---
+# 원문을 직접 본 항목만 true. 12 건 전건 false — § 2 Abs. 1 자구가 1991·1994 공포본에
+# 의존하고 둘 다 온라인에서 찾지 못했다. 각 항목 source 는 "§ 2 Abs. 1, 열거 n번째 '자구'"
+# 와 현행 자구를 읽은 통합본을, source_todo 는 경계와 잔존 경로를 적는다. 날짜는
+# feiertage-api 2020~2031 BB(매년 12/12, hinweis 전부 공란)·python-holidays 0.102 로 대조했다.
+#
+# --- 범위 밖 ---
+# § 2 Abs. 2 Gedenk- und Trauertage(Volkstrauertag·Totensonntag·8. Mai)와 Abs. 4 의 religiöse
+# Feiertage 는 공휴일이 아니다.
+#
+# --- 대체공휴일(이동) 규칙이 없다 ---
+# § 2 에 이동 조항이 없다. 2020~2031 에서 고정 날짜가 일요일과 겹치는 날(2021 10-03·10-31·
+# 12-26, 2022 05-01·12-25, 2023 01-01, 2027 10-03·10-31·12-26)에도 python-holidays 0.102 BB
+# 는 해마다 12 건으로 보상 휴일이 없다. 일요일과 겹쳐도 그 날짜 그대로 싣는다.
+#
+# --- key 규약 ---
+# UID 의 token 이 된다. 한 번 나가면 바꿀 수 없다(core/ics.py 의 UID 절).
+# rules/de_be/solar_holidays.yaml 의 규약과 같다. 이 표의 key 는 전부 기존 확립값이다 —
+# Reformationsfest 도 reformationstag(de_hh·de_ni·de_sh)를 쓴다(token 은 개념 식별자,
+# SUMMARY 가 조문 표기를 든다). 부활절 표의 ostersonntag·pfingstsonntag 는 이 피드에서
+# 처음 쓰는 key 이고 사람이 승인했다. 발행되는 UID 의 token 은 이 key 앞에 "de_bb-" 가
+# 붙는다(rules/de_bb/feed.py). 접두사 없이는 다른 독일 피드와 UID 가 겹친다.
+#
+# --- name ---
+# SUMMARY 에 그대로 실린다. 조문 표기에서 관사(der/das)와 괄호만 뺐다 — "1. Mai",
+# "Tag der deutschen Einheit"(소문자 d 도 조문 그대로, de_be 와 같다), "Reformationsfest",
+# "1. Weihnachtsfeiertag", "2. Weihnachtsfeiertag". 원문은 각 항목 source 에 그대로 남긴다.
+#
+# verified 와 source_todo 는 피드에 나가지 않는다(rules/de_bb/feed.py).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(/tmp/report_bundesweit.md). DESCRIPTION 첫 줄이
+# 이 값에서 나온다. 로더가 닫힌 집합으로 검사하고, tests/test_de_scope.py 가
+# bundesweit key 집합 == rules/de key 집합을 고정한다.
+
+holidays:
+  - key: neujahr
+    name: Neujahrstag
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 1번째 'der Neujahrstag (1. Januar)' — BRAVORS
+      통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch
+      Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 1. 1. 은 조문 괄호와 feiertage-api 2026 BB
+      대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: erster_mai
+    name: 1. Mai
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 5번째 'der 1. Mai (Tag der Arbeit)' — BRAVORS
+      통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt geändert durch
+      Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜는 조문에 박혀 있고 feiertage-api 2026 BB(Tag
+      der Arbeit) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 9번째 'der Tag der deutschen Einheit (3.
+      Oktober)' — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991,
+      zuletzt geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 3. 10. 은 조문
+      괄호와 feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: reformationstag
+    name: Reformationsfest
+    scope: land
+    month: 10
+    day: 31
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 10번째 'das Reformationsfest (31. Oktober)' —
+      BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt
+      geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 31. 10. 은 조문 괄호와
+      feiertage-api 2026 BB(Reformationstag) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtsfeiertag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 11번째 'der 1. Weihnachtsfeiertag (25. Dezember)'
+      — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt
+      geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 25. 12. 은 조문 괄호와
+      feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtsfeiertag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      Feiertagsgesetz(BB) § 2 Abs. 1, 열거 12번째 'der 2. Weihnachtsfeiertag (26. Dezember)'
+      — BRAVORS 통합본(Gesetz über die Sonn- und Feiertage vom 21. März 1991, zuletzt
+      geändert durch Gesetz vom 30. April 2015; 2026-09-30 열람). 날짜 26. 12. 은 조문 괄호와
+      feiertage-api 2026 BB 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 자구는 1991 원법(GVBl. I/91 Nr. 6 S. 44)과 1994-12-19 개정(GVBl. I/94 S.
+      514)에 의존한다. BRAVORS 의 관보 목록은 1994 년에 Teil I Nr. 12·26 만 PDF 로 두고 1991 년 목록은
+      없다(2026-09-30). 2015 개정(GVBl. I/15 Nr. 13)은 § 2 Abs. 2 만 바꿨다. 잔존 경로: 실물 GVBl. 열람.
