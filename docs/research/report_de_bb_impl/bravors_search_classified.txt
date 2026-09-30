@@ -1,0 +1,182 @@
+archiv Feiertag==Feiertage True Feiertagsgesetz ⊆ Feiertag True sizes 115 115 115
+aktuell Feiertag==Feiertage True Feiertagsgesetz ⊆ Feiertag True sizes 95 95 94
+unique documents across all queries: 610
+
+== 제목에 Feiertag·Gedenk·Jahrestag·einmalig·Trauertag 가 있는 문서
+  [aktuell] vom 21.03.1991&nbsp; | Gesetz über die Sonn- und Feiertage (Feiertagsgesetz - FTG)
+  [aktuell] vom 06.06.1997&nbsp; | Ausnahmegenehmigungen vom Sonn- und Feiertagsfahrverbot des § 30 Absatz 3 der Straßenverkehrs-Ordnung (StVO) für bestimmte Erntetransporte
+  [aktuell] vom 13.11.1998&nbsp; | Verordnung über die Zulassung der Beschäftigung von Arbeitnehmern an Sonn- und Feiertagen zur Befriedigung täglicher oder an diesen Tagen besonders hervortretender Bedürf
+  [aktuell] vom 15.12.1998&nbsp; | Erlass des Ministeriums des Innern zur Aufhebung der Vorläufigen Verwaltungsvorschriften zur Durchführung des Feiertagsgesetzes
+  [aktuell] vom 13.06.2003&nbsp; | Rundschreiben Begehen von Jahrestagen brandenburgischer Städte und Gemeinden
+  [aktuell] vom 29.06.2004&nbsp; | Widerruf von Ausnahmegenehmigungen vom Sonn-/Feiertagsfahrverbot des § 30 Abs. 3 und 4 der Straßenverkehrs-Ordnung für in Richtung Polen fahrende beziehungsweise aus Rich
+  [aktuell] vom 24.06.2004&nbsp; | Maßgebliches Feiertagsrecht" target="window218810">Anwendung des § 108 Abs. 3 AO bei der Zugangsvermutung nach § 122 Abs. 2 Nr. 1 AO Maßgebliches Feiertagsrecht
+  [archiv] vom 09.05.2005&nbsp; | Verordnung über den Verkauf bestimmter Waren an Sonn- und Feiertagen in Kur-, Ausflugs- und Erholungsorten (Ladenschluss-Ausnahmeverordnung - LSchlAV)
+  [archiv] vom 27.09.2006&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einem zulässigen Gesamtgewicht über 7,5 t und für Anhänger hinter Lastkraftwagen am 31. Okto
+  [aktuell] vom 18.01.2007&nbsp; | Verordnung zur Übertragung der Zuständigkeit nach § 8 Satz 1 des Feiertagsgesetzes (FTGZüV)
+  [archiv] vom 19.03.2008&nbsp; | Verwaltungsvorschrift über einmalige Zuweisungen an Landkreise zum Ausgleich von Haushaltsdefiziten (Rderl. 5/2008)" target="window220099">Runderlass Nr. 5/2008 in kommun
+  [aktuell] vom 27.09.2011&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einem zulässigen Gesamtgewicht über 7,5 t und für Anhänger hinter Lastkraftwagen am 31. Okto
+  [archiv] vom 21.04.2015&nbsp; | Allgemeine Ausnahmegenehmigung vom Sonn- und Feiertagsfahrverbot und vom Verkehrsverbot auf Bundesautobahnen und Bundesstraßen während der Ferienzeit für bestimmte Fahrte
+  [archiv] vom 20.01.2022&nbsp; | Gesetz zur Gewährung einer einmaligen Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungsempfängerinnen und Besoldungsempfänger für das Land Brandenburg (Branden
+  [aktuell] vom 13.06.2022&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einem zulässigen Gesamtgewicht über 7,5 t sowie Anhänger hinter Lastkraftwagen am 31. Oktobe
+  [aktuell] vom 14.10.2022&nbsp; | Gesetz über die Gewährung einer einmaligen Energiepreispauschale an Versorgungsempfängerinnen und Versorgungsempfänger für das Land Brandenburg (Brandenburgisches Versorg
+  [aktuell] vom 16.04.2024&nbsp; | Verordnung über den Verkauf bestimmter Waren an Sonn- und Feiertagen in Kur-, Ausflugs- und Erholungsorten im Land Brandenburg (Brandenburgische Ladenschluss-Ausnahmevero
+  [aktuell] vom 01.04.2025&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einer zulässigen Gesamtmasse über 7,5 t sowie Anhänger hinter Lastkraftwagen am 31. Oktober 
+
+== 2019 년 이후 날짜의 문서(질의 무관), 제목
+  [archiv/Feiertag] vom 31.08.2019&nbsp; | Richtlinien zur Gewährung von Zuwendungen an Schülerinnen und Schüler mit einem Berufsausbildungsvertrag nach dem Berufsbildungsgesetz oder der Handwe
+  [archiv/einmalig] vom 09.12.2019&nbsp; | Richtlinie zur Förderung von selbst genutztem Wohneigentum in Innenstädten (WohneigentumInnenstadtR)
+  [archiv/einmalig] vom 03.09.2019&nbsp; | Richtlinie des Ministeriums für Arbeit, Soziales, Gesundheit, Frauen und Familie des Landes Brandenburg über die Gewährung von Zuwendungen an Beratung
+  [archiv/einmalig] vom 03.09.2019&nbsp; | Richtlinie des Ministeriums für Arbeit, Soziales, Gesundheit, Frauen und Familie des Landes Brandenburg über die Gewährung von Zuwendungen an überregi
+  [archiv/einmalig] vom 20.12.2019&nbsp; | Richtlinie zur Förderung des Abbaus von Barrieren bei vorhandenem Wohnraum (WohnraumanpassungsR)
+  [archiv/einmalig] vom 20.02.2019&nbsp; | Richtlinie des Ministeriums für Ländliche Entwicklung, Umwelt und Landwirtschaft des Landes Brandenburg über die Gewährung von Zuwendungen an kommunal
+  [archiv/einmalig] vom 15.02.2019&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Förderung von Lokalen Koordinierungsstellen an Oberstufenzentren 
+  [archiv/einmalig] vom 03.05.2019&nbsp; | Ausführungsbestimmungen zur Verwaltungsvorschrift des Ministeriums des Innern und für Kommunales über die dienstliche Beurteilung der Beamtinnen und B
+  [archiv/einmalig] vom 16.08.2019&nbsp; | Kita-Beitragsbefreiungsverordnung (KitaBBV)
+  [archiv/einmalig] vom 01.01.2019&nbsp; | Richtlinie des Ministeriums für Ländliche Entwicklung, Umwelt und Landwirtschaft des Landes Brandenburg zur Gewährung von Zuwendungen für die Förderun
+  [archiv/einmalig] vom 06.11.2019&nbsp; | Richtlinie des Ministeriums für Arbeit, Soziales, Gesundheit, Frauen und Familie des Landes Brandenburg zur Förderung von Deutschkursen für Flüchtling
+  [archiv/einmalig] vom 10.10.2019&nbsp; | Richtlinie zur Förderung der generationsgerechten und barrierefreien Anpassung von Mietwohngebäuden durch Modernisierung und Instandsetzung und des Mi
+  [archiv/einmalig] vom 16.05.2019&nbsp; | Richtlinie des Ministeriums für Arbeit, Soziales, Gesundheit, Frauen und Familie über die Gewährung von Zuschüssen an kleine und mittlere Unternehmen 
+  [aktuell/einmalig] vom 01.04.2019&nbsp; | 1 im Handwerk im Land Brandenburg (Meistergründungsprämie Brandenburg)" target="window246912">Richtlinie des Ministeriums für Wirtschaft und Energie d
+  [aktuell/einmalig] vom 09.07.2019&nbsp; | Verordnung über die Zuständigkeiten im Ausländerrecht (Ausländerrechtszuständigkeitsverordnung - AuslRZV)
+  [aktuell/einmalig] vom 30.08.2019&nbsp; | Verwaltungsvorschrift zu § 84 der Brandenburgischen Bauordnung - Einrichtung und Führung des Baulastenverzeichnisses (VV-Baulasten)
+  [aktuell/einmalig] vom 19.06.2019&nbsp; | Gesetz über die Rechtsstellung und die Finanzierung von Fraktionen und Gruppen im Landtag Brandenburg (Fraktionsgesetz - FraktG)
+  [aktuell/einmalig] vom 05.06.2019&nbsp; | Gesetz über die soziale Wohnraumförderung im Land Brandenburg (Brandenburgisches Wohnraumförderungsgesetz - BbgWoFG)
+  [aktuell/einmalig] vom 31.05.2019&nbsp; | Verordnung über die Aufwandsentschädigungen für ehrenamtliche Mitglieder kommunaler Vertretungen und Ausschüsse, für sachkundige Einwohnerinnen und Ei
+  [aktuell/einmalig] vom 14.10.2019&nbsp; | Gebührenordnung für das amtliche Vermessungswesen im Land Brandenburg (Vermessungsgebührenordnung - VermGebO)
+  [aktuell/einmalig] vom 01.10.2019&nbsp; | Verordnung über die Laufbahnen der Beamtinnen und Beamten des Landes Brandenburg (Laufbahnverordnung - LVO)
+  [aktuell/einmalig] vom 17.09.2019&nbsp; | Verwaltungsvorschrift des Ministeriums für Ländliche Entwicklung, Umwelt und Landwirtschaft zur Anwendung der §§ 32 bis 36 des Bundesnaturschutzgesetz
+  [archiv/Feiertag] vom 17.03.2020&nbsp; | Verordnung über Maßnahmen zur Eindämmung des neuartigen Coronavirus SARS-CoV-2 und COVID-19 in Brandenburg (SARS-CoV-2-Eindämmungsverordnung - SARS-Co
+  [archiv/Feiertag] vom 22.03.2020&nbsp; | Verordnung über Maßnahmen zur Eindämmung des neuartigen Coronavirus SARS-CoV-2 und COVID-19 in Brandenburg (SARS-CoV-2-Eindämmungsverordnung - SARS-Co
+  [archiv/Feiertag] vom 17.04.2020&nbsp; | Verordnung über Maßnahmen zur Eindämmung des neuartigen Coronavirus SARS-CoV-2 und COVID-19 in Brandenburg (SARS-CoV-2-Eindämmungsverordnung - SARS-Co
+  [archiv/Feiertag] vom 30.11.2020&nbsp; | Zweite Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Zweite SARS-CoV-2-Eindämmungsve
+  [archiv/Feiertag] vom 15.12.2020&nbsp; | Dritte Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Dritte SARS-CoV-2-Eindämmungsve
+  [archiv/Feiertag] vom 25.06.2020&nbsp; | Geschäftsordnung des Landtages Brandenburg
+  [archiv/Feiertag] vom 10.12.2020&nbsp; | Ausführungsbestimmungen zu § 3 Nr. 6 und § 4 der Verordnung über die Zuständigkeiten im Ausländerrecht (Allgemeine Weisung Nr. 09/2020 im Aufenthaltsr
+  [archiv/Feiertag] vom 29.12.2020&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Förderung der wirtschaftsnahen kommunalen Infrastruktur im Rahmen der Gemeinschafts
+  [archiv/einmalig] vom 31.03.2020&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie des Landes Brandenburg zur Gewährung einer Soforthilfe für von der Corona-Krise 2020 un
+  [archiv/einmalig] vom 23.09.2020&nbsp; | Rundschreiben 19/20 (RS 19/20)
+  [archiv/einmalig] vom 10.07.2020&nbsp; | Richtlinie des Landes Brandenburg für die Gewährung von Billigkeitsleistungen zum Ausgleich kommunaler Mehrausgaben im Zusammenhang mit dem Ausbruch v
+  [archiv/einmalig] vom 24.03.2020&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie des Landes Brandenburg zur Gewährung einer Soforthilfe für von der Coronakrise 2020 bes
+  [archiv/einmalig] vom 02.09.2020&nbsp; | Verordnung über die Ausbildung und Prüfung für die Laufbahnen des Polizeivollzugsdienstes im Land Brandenburg (Polizeiausbildungs- und Prüfungsordnung
+  [archiv/einmalig] vom 14.05.2020&nbsp; | Gewährung einer Soforthilfe für von der Coronakrise geschädigte gemeinnützige Träger von Tierheimen und tierheimähnlichen Einrichtungen (RL-MSGIV-Coro
+  [archiv/einmalig] vom 29.04.2020&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Gewährung einer Soforthilfe für von der Coronakrise geschädigte g
+  [archiv/einmalig] vom 21.04.2020&nbsp; | Rundschreiben 11/20 (RS 11/20)
+  [archiv/einmalig] vom 28.12.2020&nbsp; | Richtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz des Landes Brandenburg über die Gewährung von Zuwendungen an ü
+  [archiv/einmalig] vom 27.07.2020&nbsp; | Gewährung einer Soforthilfe für von der Corona-Pandemie geschädigte Träger von sozialen Einrichtungen, Diensten und Beratungsstellen (RL-MSGIV-Corona-
+  [archiv/einmalig] vom 24.08.2020&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Gewährung einer Überbrückungshilfe für von der Coronakrise geschä
+  [archiv/einmalig] vom 24.03.2020&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Gewährung von Zuwendungen zur Konsolidierung und Standortsicherung für kleine und m
+  [archiv/einmalig] vom 13.10.2020&nbsp; | Verwaltungsvorschriften zur Haushaltssystematik des Landes Brandenburg
+  [aktuell/Feiertag] vom 28.04.2020&nbsp; | Medienstaatsvertrag (MStV)
+  [aktuell/einmalig] vom 09.12.2020&nbsp; | Richtlinie über Entschädigungen für die Mitglieder der Prüfungsausschüsse im öffentlichen Dienst im Zuständigkeitsbereich des Staatlichen Prüfungsamte
+  [aktuell/einmalig] vom 24.04.2020&nbsp; | Verordnung über die Zuständigkeit für die Aufgaben nach dem Sozialdienstleister-Einsatzgesetz (Sozialdienstleister-Einsatzgesetz-Zuständigkeitsverordn
+  [aktuell/einmalig] vom 19.05.2020&nbsp; | Bestellung und Anstellung von Mitgliedern und stellvertretenden Mitgliedern des Vorstandes" target="window249879">Durchführung des Brandenburgischen S
+  [aktuell/einmalig] vom 17.09.2020&nbsp; | Verordnung über die Erstattung des Zusatzaufwandes aus der Anwendung des Sorben/Wenden-Gesetzes (SWG-Kostenerstattungsverordnung - SWGKostenV)
+  [aktuell/einmalig] vom 14.07.2020&nbsp; | Geschäftsordnung des Verfassungsgerichts des Landes Brandenburg
+  [aktuell/einmalig] vom 07.12.2020&nbsp; | Allgemeine Weisung im Aufenthaltsrecht Nr. 2020.08, Erteilung von Aufenthaltserlaubnissen an gut integrierte Jugendliche und Heranwachsende und an der
+  [aktuell/einmalig] vom 20.10.2020&nbsp; | Beteiligung der Träger öffentlicher Belange nach dem Baugesetzbuch im Land Brandenburg (TöB-Runderlass - TöB-RdErl)
+  [aktuell/einmalig] vom 16.09.2020&nbsp; | Verordnung über die Bildungsgänge der Fachoberschule und den Erwerb der Fachhochschulreife in beruflichen Bildungsgängen (Fachoberschul- und Fachhochs
+  [archiv/Feiertag] vom 12.02.2021&nbsp; | Sechste Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Sechste SARS-CoV-2-Eindämmungs
+  [archiv/Feiertag] vom 22.01.2021&nbsp; | Fünfte Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Fünfte SARS-CoV-2-Eindämmungsve
+  [archiv/Feiertag] vom 08.01.2021&nbsp; | Vierte Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Vierte SARS-CoV-2-Eindämmungsve
+  [archiv/Feiertag] vom 06.03.2021&nbsp; | Siebte Verordnung über befristete Eindämmungsmaßnahmen aufgrund des SARS-CoV-2-Virus und COVID-19 im Land Brandenburg (Siebte SARS-CoV-2-Eindämmungsve
+  [archiv/einmalig] vom 22.10.2021&nbsp; | Richtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz über die Gewährung von Billigkeitsleistungen zum Ausgleich asy
+  [archiv/einmalig] vom 25.03.2021&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport über die Gewährung von Zuwendungen zur Unterstützung der Jugendhilfeträger bei der Durchführ
+  [archiv/einmalig] vom 31.05.2021&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport über die Gewährung von Zuwendungen zur Unterstützung der Jugendhilfeträger bei der Durchführ
+  [archiv/einmalig] vom 06.01.2021&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz des Landes Brandenburg über die Gewährung von Zuwendungen an kommunale Aufgaben
+  [archiv/einmalig] vom 26.08.2021&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Umsetzung der Zusatz-Verwaltungsvereinbarung "Administration" zum
+  [archiv/einmalig] vom 08.02.2021&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz über die Gewährung von Zuwendungen zur Förderung von Maßnahmen zur Verbesserung
+  [archiv/einmalig] vom 05.05.2021&nbsp; | Ausführungsbestimmungen zu den Verwaltungsvorschriften des Ministeriums des Innern und für Kommunales über die dienstliche Beurteilung der Beamtinnen 
+  [archiv/einmalig] vom 08.03.2021&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Gewährung einer Hilfe für von der Coronakrise geschädigte gemeinn
+  [archiv/einmalig] vom 01.01.2021&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz des Landes Brandenburg zur Gewährung von Zuwendungen für die Förderung forstwir
+  [archiv/einmalig] vom 30.07.2021&nbsp; | Richtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz des Landes Brandenburg zur Förderung und Weiterentwicklung der
+  [aktuell/Feiertag] vom 30.04.2021&nbsp; | Neufassung der Allgemeinen Durchführungshinweise zur Trennungsgeldverordnung im Land Brandenburg
+  [aktuell/Feiertag] vom 23.06.2021&nbsp; | Brandenburgisches Spielhallengesetz (BbgSpielhG)
+  [aktuell/einmalig] vom 01.11.2021&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit, Energie und Klimaschutz des Landes Brandenburg zur Förderung von Gemeinschaftsprojekten wirtschaft
+  [aktuell/einmalig] vom 11.11.2021&nbsp; | Allgemeine Weisung Nr. 04/2021 im Aufenthaltsrecht; Anwendungshinweise des BMI zum Gesetz über Duldung bei Ausbildung und Beschäftigung (Allgemeine We
+  [aktuell/einmalig] vom 22.06.2021&nbsp; | Vierter Krankenhausplan des Landes Brandenburg
+  [archiv/Feiertag] vom 15.02.2022&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Förderung der wirtschaftsnahen kommunalen Infrastruktur im Rahmen der Gemeinschafts
+  [archiv/einmalig] vom 20.01.2022&nbsp; | Gesetz zur Gewährung einer einmaligen Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungsempfängerinnen und Besoldungsempfänger für das Land 
+  [archiv/einmalig] vom 02.11.2022&nbsp; | Richtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz über die Gewährung von Billigkeitsleistungen zum Ausgleich asy
+  [archiv/einmalig] vom 23.02.2022&nbsp; | Richtlinie zur Förderung von selbst genutztem Wohneigentum (WohneigentumförderR)
+  [archiv/einmalig] vom 19.01.2022&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport über die Gewährung von Zuwendungen zur Unterstützung der örtlichen Träger der öffentlichen J
+  [archiv/einmalig] vom 25.02.2022&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport über die Gewährung von Zuwendungen zur Unterstützung der örtlichen Träger der öffentlichen J
+  [archiv/einmalig] vom 19.10.2022&nbsp; | Rundschreiben 09/22 (RS 09/22)
+  [archiv/einmalig] vom 04.04.2022&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz über die Gewährung von Zuwendungen zur Förderung von Maßnahmen zur Verbesserung
+  [archiv/einmalig] vom 16.02.2022&nbsp; | Richtlinie zur Förderung des Abbaus von Barrieren bei vorhandenem Wohnraum (WohnraumanpassungsR)
+  [archiv/einmalig] vom 24.01.2022&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Gewährung einer Hilfe für von der Coronakrise geschädigte gemeinn
+  [archiv/einmalig] vom 01.01.2022&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz des Landes Brandenburg zur Gewährung von Zuwendungen für die Förderung forstwir
+  [archiv/einmalig] vom 17.03.2022&nbsp; | Richtlinie zur Förderung der generationsgerechten und barrierefreien Anpassung von Mietwohngebäuden durch Modernisierung und Instandsetzung und des Mi
+  [archiv/einmalig] vom 14.02.2022&nbsp; | Haushaltstechnische Richtlinien des Landes Brandenburg (HRL-Bbg)
+  [archiv/einmalig] vom 10.03.2022&nbsp; | Verwaltungsvorschriften zur Haushaltssystematik des Landes Brandenburg (VV-HSBbg)
+  [aktuell/Feiertag] vom 23.06.2022&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport zur Förderung des Programms Projekte Schule/Jugendhilfe 2030 in der EU-Förderperiode 2021-20
+  [aktuell/Feiertag] vom 13.06.2022&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einem zulässigen Gesamtgewicht über 7,5 t sowie Anhänger hinter Lastkraf
+  [aktuell/Feiertag] vom 22.07.2022&nbsp; | Gemeinsame Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie und des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz zur Förderun
+  [aktuell/Feiertag] vom 13.12.2022&nbsp; | Richtlinien für das Strafverfahren und das Bußgeldverfahren (RiStBV)
+  [aktuell/Feiertag] vom 16.09.2022&nbsp; | Brandenburgische Richtlinie für die Durchführung von Landesbaumaßnahmen (BbgRLBau)
+  [aktuell/einmalig] vom 14.10.2022&nbsp; | Gesetz über die Gewährung einer einmaligen Energiepreispauschale an Versorgungsempfängerinnen und Versorgungsempfänger für das Land Brandenburg (Brand
+  [aktuell/einmalig] vom 13.07.2022&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Förderung von Lokalen Koordinierungsstellen an Oberstufenzentren 
+  [aktuell/einmalig] vom 18.05.2022&nbsp; | Verordnung über den Bildungsgang der Berufsfachschule Soziales (Berufsfachschulverordnung Soziales - BFSSozV)
+  [aktuell/einmalig] vom 16.12.2022&nbsp; | Durchführungsbestimmungen zum Gerichtsvollzieherkostengesetz (DB-GvKostG)
+  [aktuell/einmalig] vom 04.10.2022&nbsp; | Verordnung über die Laufbahnen der Beamtinnen und Beamten des feuerwehrtechnischen Dienstes im Land Brandenburg (Feuerwehrlaufbahnverordnung - FeuLV)
+  [aktuell/einmalig] vom 22.11.2022&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie über die Gewährung von Zuschüssen an kleine und mittlere Unternehmen im Land Brandenbur
+  [aktuell/einmalig] vom 08.09.2022&nbsp; | Staatsvertrag zwischen dem Land Brandenburg und dem Land Berlin über die Führung eines Klinisch-epidemiologischen Krebsregisters nach § 65c des Fünfte
+  [archiv/Feiertag] vom 10.05.2023&nbsp; | Richtlinien zur Gewährung von Zuwendungen an Schülerinnen und Schüler mit einem Berufsausbildungsvertrag nach dem Berufsbildungsgesetz oder der Handwe
+  [archiv/Feiertag] vom 23.06.2023&nbsp; | Verwaltungsvorschrift des Ministeriums des Innern und für Kommunales über die produktorientierte Gliederung der Haushaltspläne, die Kontierung der kom
+  [archiv/Feiertag] vom 03.03.2023&nbsp; | 2 -armen Produktionsweise (Richtlinie Brandenburg Paket Energie 2023/2024 - RiLi BEn 2023/2024)" target="window255834">Richtlinie des Ministeriums für
+  [archiv/Feiertag] vom 13.09.2023&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Förderung der wirtschaftsnahen kommunalen Infrastruktur im Rahmen der Gemeinschafts
+  [archiv/einmalig] vom 15.03.2023&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie des Landes Brandenburg über die Gewährung von Härtefallhilfen als Billigkeitsleistungen
+  [archiv/einmalig] vom 25.04.2023&nbsp; | Billigkeitsrichtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz zur Gewährung einer Soforthilfe zur Aufrechterhaltu
+  [archiv/einmalig] vom 28.08.2023&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg zur Gewährung von Billigkeitsleistungen zur Aufrechterhaltung der soz
+  [archiv/einmalig] vom 14.03.2023&nbsp; | Billigkeitsrichtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz zur Gewährung einer Soforthilfe für Privathaushalte
+  [archiv/einmalig] vom 01.12.2023&nbsp; | Richtlinie zur Förderung der generationsgerechten und barrierefreien Anpassung von Mietwohngebäuden durch Modernisierung und Instandsetzung und des Mi
+  [aktuell/einmalig] vom 31.07.2023&nbsp; | Berichtigung des Rundschreibens 8/23 (RS 8/23)
+  [aktuell/einmalig] vom 25.04.2023&nbsp; | Verordnung über die dienstliche Beurteilung der Richterinnen und Richter sowie Staatsanwältinnen und Staatsanwälte im Land Brandenburg (Brandenburgisc
+  [aktuell/einmalig] vom 03.04.2023&nbsp; | Rundschreiben 5/23 (RS 5/23)
+  [aktuell/einmalig] vom 10.07.2023&nbsp; | Rundschreiben 8/23 (RS 8/23)
+  [aktuell/einmalig] vom 12.07.2023&nbsp; | Richtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz des Landes Brandenburg über die Gewährung von Zuwendungen an ü
+  [aktuell/einmalig] vom 15.05.2023&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz über die Gewährung von Zuwendungen zur Förderung von Maßnahmen zur Verbesserung
+  [aktuell/einmalig] vom 12.07.2023&nbsp; | Verordnung über die Bildungsgänge der Fachschule Technik und Wirtschaft (Fachschulverordnung Technik und Wirtschaft - FSTuWV)
+  [aktuell/einmalig] vom 07.07.2023&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie des Landes Brandenburg zur Förderung sozialer Innovationen im Land Brandenburg - Modell
+  [aktuell/einmalig] vom 12.06.2023&nbsp; | Richtlinie des Ministeriums für Landwirtschaft, Umwelt und Klimaschutz über die Gewährung von Zuwendungen für die Förderung der ländlichen Entwicklung
+  [aktuell/einmalig] vom 18.11.2023&nbsp; | Anwendungshinweise zur Einführung eines Chancenaufenthaltsrechts vom 23. Dezember 2022, aktualisiert am 24. April 2024, ergänzt um landesspezifische H
+  [archiv/Feiertag] vom 05.11.2024&nbsp; | Vorläufige Geschäftsordnung des Landtages Brandenburg
+  [archiv/Feiertag] vom 03.05.2024&nbsp; | Ausführungsbestimmungen zu § 3 Nr. 6, 8 bis 13 der Verordnung über die Zuständigkeiten im Ausländerrecht (Allgemeine Weisung im Ausländerrecht Nr. 202
+  [archiv/einmalig] vom 12.02.2024&nbsp; | Richtlinie zur Förderung von selbst genutztem Wohneigentum (WohneigentumförderR)
+  [archiv/einmalig] vom 05.03.2024&nbsp; | Billigkeitsrichtlinie des Ministeriums für Soziales, Gesundheit, Integration und Verbraucherschutz zur Gewährung einer Soforthilfe zur Aufrechterhaltu
+  [archiv/einmalig] vom 12.02.2024&nbsp; | Richtlinie zur Förderung des Abbaus von Barrieren bei vorhandenem Wohnraum (WohnraumanpassungsR)
+  [archiv/einmalig] vom 26.03.2024&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Förderung der gewerblichen Wirtschaft im Rahmen der Gemeinschaftsaufgabe „Verbesser
+  [archiv/einmalig] vom 26.03.2024&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit und Energie zur Förderung der gewerblichen Wirtschaft im Rahmen der Gemeinschaftsaufgabe „Verbesser
+  [aktuell/Feiertag] vom 16.04.2024&nbsp; | Verordnung über den Verkauf bestimmter Waren an Sonn- und Feiertagen in Kur-, Ausflugs- und Erholungsorten im Land Brandenburg (Brandenburgische Laden
+  [aktuell/Feiertag] vom 04.06.2024&nbsp; | Bundesweiter Pilotbetrieb für digitale Beifahrer bei Großraum- und Schwertransporten - Ergänzung zur RGST-Auflage 21
+  [aktuell/Feiertag] vom 27.11.2024&nbsp; | Verwaltungsvorschrift des Ministeriums des Innern und für Kommunales über die produktorientierte Gliederung der Haushaltspläne, die Kontierung der kom
+  [aktuell/Feiertag] vom 20.11.2024&nbsp; | Verwaltungsvorschrift des Ministeriums für Bildung, Jugend und Sport (MBJS) zur Aufnahme, Registrierung, Verteilung und Zuweisung sowie Kostenerstattu
+  [aktuell/einmalig] vom 21.03.2024&nbsp; | Verordnung über die Ausbildung und Prüfung für die Laufbahnen des Polizeivollzugsdienstes im Land Brandenburg (Polizeiausbildungs- und Prüfungsordnung
+  [aktuell/einmalig] vom 06.06.2024&nbsp; | Verfahrens- und Prüfungsordnung für den Feuerwehrprüfungsausschuss gemäß § 9 Absatz 3 der Feuerwehrlaufbahnverordnung (VV FPA)
+  [aktuell/einmalig] vom 25.07.2024&nbsp; | Rundschreiben 5/24 (Rundschreiben Medikamentengabe - RS 5/24)
+  [aktuell/einmalig] vom 29.05.2024&nbsp; | Verordnung über den Bildungsgang der Fachschule Sozialwesen (Fachschulverordnung Sozialwesen - FSSV)
+  [aktuell/einmalig] vom 02.08.2024&nbsp; | Beschleunigte Erledigung von Strafverfahren im Bereich der geringfügigen und mittleren Kriminalität; Täter-Opfer-Ausgleich
+  [aktuell/einmalig] vom 14.02.2024&nbsp; | Verordnung über die Ausbildung und Prüfung für die Laufbahn des gehobenen und höheren Forstdienstes im Land Brandenburg (Ausbildungs- und Prüfungsvero
+  [aktuell/einmalig] vom 27.11.2024&nbsp; | Verordnung über die Aufstellung und Ausführung des Haushaltsplans der Kommunen (Kommunale Haushalts- und Kassenverordnung - KomHKV)
+  [aktuell/einmalig] vom 05.03.2024&nbsp; | Haushaltstechnische Richtlinien des Landes Brandenburg (HRL-Bbg)
+  [aktuell/einmalig] vom 25.06.2024&nbsp; | Gesetz zur Förderung und zum Schutz junger Menschen (Brandenburgisches Kinder- und Jugendgesetz - BbgKJG)
+  [aktuell/einmalig] vom 05.03.2024&nbsp; | Kommunalverfassung des Landes Brandenburg (Brandenburgische Kommunalverfassung - BbgKVerf)
+  [aktuell/Feiertag] vom 10.10.2025&nbsp; | Verwaltungsvorschrift des Ministeriums für Infrastruktur und Landesplanung für die Zuweisung von Mitteln für die Durchführung von PlusBus-Verkehren fü
+  [aktuell/Feiertag] vom 19.08.2025&nbsp; | Richtlinien zur Gewährung von Zuwendungen an Schülerinnen und Schüler mit einem Berufsausbildungsvertrag nach dem Berufsbildungsgesetz oder der Handwe
+  [aktuell/Feiertag] vom 01.04.2025&nbsp; | Allgemeine Ausnahmegenehmigung vom Feiertagsfahrverbot für Lastkraftwagen mit einer zulässigen Gesamtmasse über 7,5 t sowie Anhänger hinter Lastkraftw
+  [aktuell/Feiertag] vom 23.12.2025&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit, Energie und Klimaschutz zur Förderung der wirtschaftsnahen kommunalen Infrastruktur im Rahmen der 
+  [aktuell/einmalig] vom 15.12.2025&nbsp; | Richtlinie des Ministeriums für Bildung, Jugend und Sport des Landes Brandenburg für die Förderung von Projekten der schulisch übergreifenden Themen
+  [aktuell/einmalig] vom 01.07.2025&nbsp; | Rundschreiben 11/25 (RS 11/25)
+  [aktuell/einmalig] vom 23.12.2025&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit, Energie und Klimaschutz zur Förderung der gewerblichen Wirtschaft im Rahmen der Gemeinschaftsaufga
+  [aktuell/einmalig] vom 17.01.2025&nbsp; | Richtlinie des Ministeriums für Infrastruktur und Landesplanung zur Förderung von Investitionen für den Öffentlichen Personennahverkehr im Land Brande
+  [aktuell/einmalig] vom 23.12.2025&nbsp; | Richtlinie des Ministeriums für Wirtschaft, Arbeit, Energie und Klimaschutz zur Förderung der gewerblichen Wirtschaft im Rahmen der Gemeinschaftsaufga
+  [aktuell/einmalig] vom 17.12.2025&nbsp; | Verwaltungsvorschriften zur Haushaltssystematik des Landes Brandenburg
+  [aktuell/Feiertag] vom 03.03.2026&nbsp; | Verordnung über die Durchführung des Sondervermögens „Zukunftspaket Brandenburg“ (Zukunftspaket-Brandenburg-Durchführungsverordnung - ZuPakBbg-DV)
+  [aktuell/Feiertag] vom 27.03.2026&nbsp; | Verordnung für die Studienplatzvergabe im Zentralen Vergabeverfahren und für das Dialogorientierte Serviceverfahren (Zentrale Studienplatzvergabeveror
+  [aktuell/Feiertag] vom 18.03.2026&nbsp; | Geschäftsordnung des Landtages Brandenburg (GOLT)
+  [aktuell/Feiertag] vom 12.08.2026&nbsp; | Ausführungsbestimmungen zu § 3 Nr. 6, 8 bis 13 der Verordnung über die Zuständigkeiten im Ausländerrecht (Allgemeine Weisung im Ausländerrecht Nr. 202
+  [aktuell/einmalig] vom 15.09.2026&nbsp; | Rundschreiben 10/26 (RS 10/26 - RS 10/26)
+  [aktuell/einmalig] vom 13.02.2026&nbsp; | Richtlinie zur Förderung von selbstgenutztem Wohneigentum (WohneigentumförderR)
+  [aktuell/einmalig] vom 12.02.2026&nbsp; | Richtlinie zur Förderung der generationsgerechten und barrierefreien Anpassung von Mietwohngebäuden durch Modernisierung und Instandsetzung und des Mi
+  [aktuell/einmalig] vom 13.02.2026&nbsp; | Richtlinie zur Förderung des Abbaus von Barrieren bei vorhandenem Wohnraum (WohnraumanpassungsR)
+  [aktuell/einmalig] vom 24.02.2026&nbsp; | Haushaltstechnische Richtlinien des Landes Brandenburg 2027/2028 (HRL-Bbg 2027/2028)
+  [aktuell/einmalig] vom 13.03.2026&nbsp; | Staatsvertrag über private Medien in Berlin und Brandenburg
