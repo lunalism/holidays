@@ -4,9 +4,10 @@
 # rules/de_bb/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
 # 같은 계산기, 같은 근거).
 #
-# 전국 공통 4 건에 "der Ostersonntag"(0)·"der Pfingstsonntag"(+49)가 더해진다 — 두 일요일이
-# § 2 Abs. 1 열거에 있는 것은 16 주 중 BB 뿐이다. 두 key(ostersonntag·pfingstsonntag)는
-# 이 피드에서 처음 쓰는 것이고 사람이 승인했다.
+# 전국 공통 4 건에 "der Ostersonntag"(0)·"der Pfingstsonntag"(+49)가 더해진다. 보조 대조로,
+# python-holidays 0.102 의 DE 하위 구역 17 개(16 주 + Augsburg) 2026 년 집합에서 두 일요일을
+# 싣는 것은 BB 하나다(주법 조문을 16 벌 모두 본 것은 아니다). 두 key(ostersonntag·
+# pfingstsonntag)는 이 피드에서 처음 쓰는 것이고 사람이 승인했다.
 #
 # key·name·verified 규약과 현행 자구의 출처·공포본 경계는 solar_holidays.yaml 머리 주석과
 # 같다. 여섯 건 모두 자구가 1991·1994 공포본(온라인에서 찾지 못함)에 의존해 verified:
