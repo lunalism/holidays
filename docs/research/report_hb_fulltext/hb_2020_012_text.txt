@@ -1,0 +1,40 @@
+# Brem.GBl. 2020 Nr. 12 S. 52 — 텍스트층 전사(pypdf 5.4.0 extract_text 출력 그대로, 고치지 않음)
+# URL https://www.gesetzblatt.bremen.de/fastmedia/218/2020_03_13_GBl_Nr_0012_signed.pdf
+# 200, 197,746 B, sha256 ab9347a5b0dc85d9c710714815bc6b493bcbc1e5a4053f79bb47e2ed45963653, 1 쪽, 2026-10-06 열람
+# 줄 끝 공백·줄바꿈은 추출기가 낸 그대로다. 첫 줄의 쪽 머리("=== page 1 ===")만 뺐다.
+
+52 
+Gesetzblatt 
+der 
+Freien Hansestadt Bremen  
+2020  Verkündet  am 13. März 2020 Nr. 12 
+ 
+Gesetz zur staatlichen Anerkennung des Tags der Befreiung vom 
+Nationalsozialismus und der Beendigung des Zweiten 
+Weltkrieges in Europa als Gedenktag 
+Vom 3. März 2020 
+Der Senat verkündet das nachstehende, von der Bürgerschaft (Landtag) 
+beschlossene Gesetz: 
+Artikel 1 
+Änderung des Gesetzes über die Sonn- und Feiertage 
+Das Gesetz über die Sonn- und Feiertage vom 12. November 1954 (GVBl. 1954, 
+115 SaBremR 113-c-1), das zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. 
+S. 302) geändert worden ist, wird wie folgt geändert: 
+1. Die Überschrift wird wie folgt gefasst: 
+„Gesetz über die Sonn-, Gedenk- und Feiertage“. 
+2. Die Überschrift des I. Abschnittes wird wie folgt gefasst: 
+„Die Sonntage und die staatlich anerkannten Gedenk- und Feiertage“ 
+3. Nach § 7 wird folgender § 7a eingefügt: 
+„§ 7a 
+(1) Der 8. Mai als Tag der Befreiung vom Nationalsozialismus und der 
+Beendigung des Zweiten Weltkrieges in Europa ist staatlich anerkannter 
+Gedenktag. 
+(2) Den in einem Beschäftigungs- oder Ausbildungsverhältnis stehenden 
+Personen ist, soweit betriebliche Notwendigkeiten nicht entgegenstehen, an 
+diesem Gedenktag Gelegenheit zum Besuch der Gedenkveranstaltungen zu 
+geben.“ 
+Artikel 2 
+Inkrafttreten 
+Dieses Gesetz tritt am Tag nach seiner Verkündung in Kraft. 
+Bremen, den 3. März 2020 
+Der Senat 
