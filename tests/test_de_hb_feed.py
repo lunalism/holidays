@@ -11,9 +11,9 @@
 
 현행 자구는 Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882)으로
 읽었다. 그 판이 지금도 현행이라는 근거는 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 텍스트층
-전문 검색(§ 2 Abs. 1 개정 0 건)과 텍스트층이 없는 쪽 741 개의 계정이다. 원래의 판정 기준 2
-(검색 불가 쪽 0)는 미충족이고, 그 계정으로 대신한다는 것은 사람의 결정이다(조사 기록은
-docs/research/report_hb_fulltext.md 외 셋).
+전문 검색(§ 2 Abs. 1 개정 0 건)과 텍스트층이 부족한 쪽(비공백 200 자 미만) 741 개의
+계정이다. 원래의 판정 기준 2(검색 불가 쪽 0)는 미충족이고, 그 계정으로 대신한다는 것은
+사람의 결정이다(조사 기록은 docs/research/report_hb_fulltext.md 외 셋).
 
 verified 는 reformationstag 1 건만 true 다 — Buchst. j 의 현행 문언은 Brem.GBl. 2018 Nr. 63
 S. 302 공포본으로 읽었다. a–i 9 건은 1954 원법과 2013 이전 개정에 의존하는데 Brem.GBl. 의
