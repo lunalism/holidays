@@ -210,6 +210,7 @@ LAND_NAMES_DE = {
     "de_be": "Berlin",
     "de_bw": "Baden-Württemberg",
     "de_by": "Bayern",
+    "de_hb": "Bremen",
     "de_he": "Hessen",
     "de_hh": "Hamburg",
     "de_ni": "Niedersachsen",

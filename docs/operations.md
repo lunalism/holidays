@@ -30,7 +30,7 @@ Secret 으로만 주입합니다. 커밋 전에 인증정보가 섞이지 않았
 Secret 값은 공공데이터포털의 **Encoding 키**(퍼센트 인코딩된 형태)를 그대로
 붙여 넣습니다. Decoding 키를 넣으면 `+` 가 공백으로 해석되어 인증에 실패합니다.
 
-워크플로 권한이 필요한 이유는 산출물(`feeds/*.ics` 열여섯 벌, `status.json`,
+워크플로 권한이 필요한 이유는 산출물(`feeds/*.ics` 열일곱 벌, `status.json`,
 `logs/build.jsonl`)을 커밋해야 하기 때문입니다. `publish.yml` 이 `permissions: contents: write` 를 선언하지만,
 저장소 기본 설정이 read-only 면 그 선언도 무시됩니다.
 

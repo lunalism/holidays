@@ -1,8 +1,8 @@
 # holidays
 
 대한민국·일본·독일의 공휴일을 캘린더 앱에서 구독할 수 있는 iCalendar(`.ics`)
-피드로 발행합니다. 피드는 열여섯입니다 — 나라별 전체 셋(`kr`·`jp`·`de`),
-독일 주별 열, 두 나라를 한 캘린더로 합친 `kr_jp`, 한쪽만 쉬는 날만 모은
+피드로 발행합니다. 피드는 열일곱입니다 — 나라별 전체 셋(`kr`·`jp`·`de`),
+독일 주별 열하나, 두 나라를 한 캘린더로 합친 `kr_jp`, 한쪽만 쉬는 날만 모은
 `kr_only`·`jp_only`. 매주 월·수·금 06:23 KST 에 자동 갱신됩니다.
 
 수록 기간·항목 수·마지막 갱신 시각은
@@ -22,6 +22,7 @@
 |  | 독일·베를린 | `https://holidays.lunalism.com/feeds/de_be.ics` |
 |  | 독일·바덴뷔르템베르크 | `https://holidays.lunalism.com/feeds/de_bw.ics` |
 |  | 독일·바이에른 | `https://holidays.lunalism.com/feeds/de_by.ics` |
+|  | 독일·브레멘 | `https://holidays.lunalism.com/feeds/de_hb.ics` |
 |  | 독일·헤센 | `https://holidays.lunalism.com/feeds/de_he.ics` |
 |  | 독일·함부르크 | `https://holidays.lunalism.com/feeds/de_hh.ics` |
 |  | 독일·니더작센 | `https://holidays.lunalism.com/feeds/de_ni.ics` |
@@ -138,14 +139,14 @@ sources/       외부에서 갱신되는 원천 수집 (kr: KASI API, jp: 内閣
 sources/*/cache/  원시 응답을 받은 그대로. 커밋 대상이다 — 변화를 diff 로
                추적하기 위한 관측 기록이며, 테스트가 이 파일들을 입력으로 쓴다.
 rules/         피드별 공휴일 규칙과 조립. 나라별 전체(kr, jp, de), 독일 주별
-               열(de_bb, de_be, de_bw, de_by, de_he, de_hh, de_ni, de_nw,
-               de_rp, de_sh), 교차 피드(kr_jp, kr_only, jp_only).
+               열하나(de_bb, de_be, de_bw, de_by, de_hb, de_he, de_hh, de_ni,
+               de_nw, de_rp, de_sh), 교차 피드(kr_jp, kr_only, jp_only).
                status.py 가 status.json 을 조립한다.
 core/          국가 공통 로직 (날짜 모델, UID 생성, iCalendar 직렬화, 피드 쓰기)
 data/          jp: 캐시된 CSV 에서 생성한 연도별 YAML. kr: 비어 있다 —
                rules/kr/*.yaml 규칙표에서 날짜를 유도하므로 중간 산출물을
                두지 않는다.
-feeds/         발행되는 .ics 파일 열여섯 벌
+feeds/         발행되는 .ics 파일 열일곱 벌
 tests/         테스트
 docs/          운영 문서, 브랜치 운영 규칙, 작업 세션 기록
 logs/          build.jsonl — 발행 시도 기록. 실패도 남는다.
@@ -212,7 +213,7 @@ BGBl. 을 근거로 드는 항목은 `rules/de` 의 3. Oktober 와 그 미러뿐
 
 한 번 공개된 값은 되돌릴 수 없습니다. 아래 두 가지는 특히 주의합니다.
 
-- **구독 URL** — 위 구독 표의 열여섯 주소 전부입니다. `webcal://` 로도 같은
+- **구독 URL** — 위 구독 표의 열일곱 주소 전부입니다. `webcal://` 로도 같은
   경로입니다. 구독자의 캘린더 앱에 그대로 박히므로 경로를 바꾸면 전부
   끊깁니다.
 - **이벤트 UID** — 네임스페이스는 `@holidays.lunalism.com` 으로 **확정**
@@ -222,7 +223,7 @@ BGBl. 을 근거로 드는 항목은 `rules/de` 의 3. Oktober 와 그 미러뿐
 UID 는 `<날짜>-<토큰>@holidays.lunalism.com` 형태이고, 토큰에 피드를 가르는
 접두사가 붙습니다. 독일 주 피드는 `de_<주>-` 를 앞에 답니다 —
 `20200101-de_sh-neujahr@holidays.lunalism.com` 처럼입니다. 접두사가 없으면
-같은 날 같은 공휴일이 열한 피드에서 같은 UID 를 갖게 되어, 전국 피드와 주
+같은 날 같은 공휴일이 열두 피드에서 같은 UID 를 갖게 되어, 전국 피드와 주
 피드를 같이 구독한 캘린더에서 한쪽이 다른 쪽을 덮어씁니다.
 
 두 값은 확정되었습니다. 바꾸는 제안은 구독자 영향을 먼저 확인해야 합니다.
