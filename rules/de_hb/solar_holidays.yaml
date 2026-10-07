@@ -88,13 +88,9 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
       — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람).
-      이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025
-      Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는
-      지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S.
-      674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지
-      않았다). 조사 기록: lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜 1. 1. 은 feiertage-api 2026 HB 대조 일치
+      이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의 텍스트층에서 § 2
+      Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜
+      1. 1. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
       년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
@@ -109,13 +105,9 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' —
       Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람). 이
-      판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr.
-      12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가
-      있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은
-      § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사
-      기록: lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜는 조문에 박혀 있고 feiertage-api 2026 HB(Tag der Arbeit) 대조 일치
+      판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs.
+      1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문에
+      박혀 있고 feiertage-api 2026 HB(Tag der Arbeit) 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
       년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
@@ -130,13 +122,9 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
       Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판,
-      gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가
-      있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건,
-      일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고,
-      통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로
-      계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜는 조문에 박혀 있고 feiertage-api 2026 HB 대조 일치
+      gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중
+      PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지
+      못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 2026 HB 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
       년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
@@ -158,14 +146,10 @@ holidays:
       e0a706281f932bd4445366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf, 2026-09-30 열람,
       2026-10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법을 'zuletzt durch Gesetz vom 26.
       Juni 2018 (Brem.GBl. S. 302) geändert' 로 적는다. 현행 자구: Transparenzportal Bremen
-      통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl.
-      2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층
-      검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr.
-      12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴
-      공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록:
-      lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜 31. 10. 은 feiertage-api 2026 HB 대조 일치
+      통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보
+      Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일
+      지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 feiertage-api
+      2026 HB 대조 일치
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
@@ -176,13 +160,9 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1.
       Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
-      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로
-      PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 —
-      이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는
-      2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만
-      닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜 25. 12. 은 feiertage-api 2026 HB 대조 일치
+      2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+      호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 –
+      2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
       년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
@@ -197,13 +177,9 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2.
       Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
-      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로
-      PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 —
-      이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는
-      2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만
-      닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
-      docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
-      날짜 26. 12. 은 feiertage-api 2026 HB 대조 일치
+      2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+      호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 –
+      2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-
       § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
       년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
