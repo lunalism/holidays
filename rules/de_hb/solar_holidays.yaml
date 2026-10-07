@@ -18,10 +18,13 @@
 # 3 회. 그래서 2020-03-14 판을 현행으로 삼은 근거는 관보 쪽이다(아래).
 #
 # --- 2020-03-14 판이 현행이라는 근거 — 관보 전문 검색과 계정 ---
-# 1) Brem.GBl. 2020 Nr. 1 – 2026 Nr. 101(PDF 1,056 건, 2026-10-06)과 2026 Nr. 102(2026-10-07)의
-#    PDF 텍스트층을 패턴 feiertag·gedenk·113-c·reformationstag·einmalig 로 찾았다. 적중 중
-#    § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건(§ 12 b) 선언 포함). 이 법을 바꾼 것은
-#    2020 Nr. 12 S. 52(표제에 Gedenk- 삽입·I. Abschnitt 표제·§ 7a 신설) 하나다. 그 법은
+# 1) Brem.GBl. 2020 Nr. 1 – 2026 Nr. 101(PDF 1,056 건 — 철회·폐지로 PDF 가 없는 2025 Nr. 12·91
+#    제외, 2026-10-06)과 2026 Nr. 102(2026-10-07)의 PDF 텍스트층을 패턴 feiertag·gedenk·
+#    113-c·reformationstag·einmalig 로 찾았다. 적중 중
+#    § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건(§ 12 b) 선언 포함). 이 법의 자구를 바꾸라는
+#    지시가 있는 호는 2020 Nr. 12 S. 52(표제에 Gedenk- 삽입·I. Abschnitt 표제·§ 7a 신설) 하나다.
+#    통합본 머리가 마지막 변경으로 드는 2025 Nr. 98(S. 674)은 「Bekanntmachung über die Änderung
+#    von Zuständigkeiten」 — § 11 의 관할을 옮긴 공고이고 자구 개정 지시가 없다. 2020 Nr. 12 는
 #    「zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert」 을 개정 대상으로 적고
 #    다음 날(14.03.2020) 시행 — 2020-03-14 판의 시행일과 같다.
 # 2) 텍스트층이 부족한 쪽(비공백 200 자 미만) 741 개의 계정: 빈 쪽 116(새 규칙, 표본 검증) +
@@ -34,7 +37,7 @@
 # 교차 확인(근거 아님): 학교 방학 규정 Brem.GBl. 2022 Nr. 142 § 4 가 같은 10 날을 「gesetzliche Feiertage」 로 든다.
 #
 # --- 공포본 — 온라인으로 닿는 것 ---
-# j 만 공포본을 읽었다: Brem.GBl. 2018 Nr. 63 S. 302(위 reformationstag 항목 source).
+# j 만 공포본을 읽었다: Brem.GBl. 2018 Nr. 63 S. 302(아래 reformationstag 항목 source).
 # 2013 Nr. 33 S. 231 은 i 의 구두점과 j 의 종전 문언(31. Oktober 2017)만, 2013 Nr. 16 S. 89 는
 # §§ 5·6·13 만 바꿨다. a–i 의 자구는 1954 원법과 2013 이전 개정에 의존하는데 브레멘 관보
 # 포털의 공개는 2013 년부터라 찾지 못했다.
@@ -85,10 +88,11 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
       — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람).
-      이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 전 호의 텍스트층 검색(2026-10-06·07)에서 § 2
-      Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법을 바꾼 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이다.
-      텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록:
-      lunalism/holidays 의
+      이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025
+      Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는
+      지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S.
+      674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지
+      않았다). 조사 기록: lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜 1. 1. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-
@@ -105,9 +109,11 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' —
       Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람). 이
-      판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 전 호의 텍스트층 검색(2026-10-06·07)에서 § 2 Abs.
-      1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법을 바꾼 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이다. 텍스트층이
-      부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
+      판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr.
+      12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가
+      있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은
+      § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사
+      기록: lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜는 조문에 박혀 있고 feiertage-api 2026 HB(Tag der Arbeit) 대조 일치
     source_todo: >-
@@ -124,10 +130,11 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
       Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판,
-      gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 전 호의
-      텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법을 바꾼 호는 2020 Nr.
-      12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고
-      내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
+      gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가
+      있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건,
+      일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고,
+      통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로
+      계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜는 조문에 박혀 있고 feiertage-api 2026 HB 대조 일치
     source_todo: >-
@@ -152,9 +159,11 @@ holidays:
       2026-10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법을 'zuletzt durch Gesetz vom 26.
       Juni 2018 (Brem.GBl. S. 302) geändert' 로 적는다. 현행 자구: Transparenzportal Bremen
       통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl.
-      2020 Nr. 1 – 2026 Nr. 102 전 호의 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0
-      건 — 이 법을 바꾼 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이다. 텍스트층이 부족한 741 쪽은 미계정 0 으로
-      계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
+      2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로 PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층
+      검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr.
+      12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는 2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴
+      공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지 않았다). 조사 기록:
+      lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜 31. 10. 은 feiertage-api 2026 HB 대조 일치
 
@@ -167,10 +176,11 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1.
       Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
-      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 전 호의 텍스트층
-      검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법을 바꾼 호는 2020 Nr. 12(표제·I.
-      Abschnitt 표제·§ 7a 신설)뿐이다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지
-      않았다). 조사 기록: lunalism/holidays 의
+      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로
+      PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 —
+      이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는
+      2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만
+      닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜 25. 12. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-
@@ -187,10 +197,11 @@ holidays:
     source: >-
       Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2.
       Weihnachtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
-      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 전 호의 텍스트층
-      검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 — 이 법을 바꾼 호는 2020 Nr. 12(표제·I.
-      Abschnitt 표제·§ 7a 신설)뿐이다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만 닫았고 내용을 읽지
-      않았다). 조사 기록: lunalism/holidays 의
+      2026-09-30 열람). 이 판이 현행이라는 근거: Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 의 PDF 가 있는 전 호(철회·폐지로
+      PDF 가 없는 2025 Nr. 12·91 제외) 텍스트층 검색(2026-10-06·07)에서 § 2 Abs. 1 개정 0 건, 일회성 공휴일 지정 0 건 —
+      이 법의 자구를 바꾸라는 지시가 있는 호는 2020 Nr. 12(표제·I. Abschnitt 표제·§ 7a 신설)뿐이고, 통합본이 마지막 변경으로 드는
+      2025 Nr. 98(S. 674)은 § 11 의 관할을 옮긴 공고다. 텍스트층이 부족한 741 쪽은 미계정 0 으로 계정했다(그중 557 쪽은 구조 검사로만
+      닫았고 내용을 읽지 않았다). 조사 기록: lunalism/holidays 의
       docs/research/report_hb_fulltext.md·report_hb_flagged.md·report_hb_structure.md·report_hb_read.md.
       날짜 26. 12. 은 feiertage-api 2026 HB 대조 일치
     source_todo: >-

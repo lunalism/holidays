@@ -9,7 +9,8 @@ events(start, end) 가 구간 안의 Event 를 날짜 오름차순으로 낸다.
 부활절은 python-dateutil 의 easter() 로 계산한다(rules/de/feed.py 의 근거).
 일회성 표는 두지 않는다 — 법에 일회성 공휴일 지정 조항은 없고, § 12 b)(Senat 가 「aus
 besonderem Anlaß im Einzelfall」 이 법의 규정을 § 3 에 없는 날에도 적용한다고 선언)에 따른
-선언을 발행 범위 안의 관보에서 찾지 못했다(검색 범위는 solar_holidays.yaml 머리 주석).
+선언을 2020-01 – 2026-10-07 의 관보에서 찾지 못했다(검색 범위는 solar_holidays.yaml 머리
+주석). 2026-10-07 뒤의 관보는 보지 않았다.
 사례가 오면 de_be 의 designated_holidays.yaml 형식을 따른다.
 
 --------------------------------------------------------------------------
