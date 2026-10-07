@@ -1,0 +1,84 @@
+# 독일·브레멘 주 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_hb/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# § 2 Abs. 1 Buchst. b·c·e·f — 전국 공통 4 건 그대로다. 이 주에 더해지는 이동 공휴일은 없다.
+#
+# key·name·verified 규약과 현행 자구의 출처·현행성 근거·공포본 경계는 solar_holidays.yaml 머리
+# 주석과 같다. 네 건 모두 자구가 1954 원법과 2013 이전 개정(온라인에서 찾지 못함)에 의존해
+# verified: false + source_todo 다. name 은 조문 표기에서 관사 "der" 만 뺀 것이라 e 는
+# "Himmelfahrtstag" 다(각 피드는 자기 조문의 표기).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(실측 요지는 tests/test_de_scope.py 머리 docstring,
+# 고정은 같은 파일의 test_bundesweit_keys_equal_the_nationwide_keys). DESCRIPTION 첫
+# 줄이 이 값에서 나온다. 로더가 닫힌 집합으로 검사한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag'
+      — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람).
+      이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의 텍스트층에서 § 2
+      Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 부활절
+      −2 일은 feiertage-api 2026 HB(04-03) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
+      년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
+      2026-10-07 3 회. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+      — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882, 2026-09-30 열람).
+      이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의 텍스트층에서 § 2
+      Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 부활절
+      +1 일은 feiertage-api 2026 HB(04-06) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
+      년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
+      2026-10-07 3 회. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: christi_himmelfahrt
+    name: Himmelfahrtstag
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der
+      Himmelfahrtstag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
+      2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+      호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 –
+      2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 HB(Christi Himmelfahrt, 05-14) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
+      년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
+      2026-10-07 3 회. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      Gesetz über die Sonn-, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der
+      Pfingstmontag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판, gsid 145882,
+      2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+      호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 –
+      2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(05-25) 대조 일치
+    source_todo: >-
+      § 2 Abs. 1 의 이 자구는 1954 원법(Brem.GBl. S. 115)과 2013 이전 개정에 의존하고, Brem.GBl. 온라인 공개는 2013
+      년부터다. 현행 통합본(gsid 296390)의 PDF 요청은 매번 HTTP 500 — 2026-09-30 3 회, 2026-10-06 3 회,
+      2026-10-07 3 회. 잔존 경로: 실물 Brem.GBl.·Staatsarchiv Bremen 열람.

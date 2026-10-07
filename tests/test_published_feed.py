@@ -291,8 +291,8 @@ def test_the_kr_status_has_provisional_events():
     assert _published_status()["feeds"]["kr"]["provisional_events"] > 0
 
 
-@pytest.mark.parametrize("code", ["jp", "de", "de_bb", "de_be", "de_bw", "de_by", "de_he", "de_hh",
-                                  "de_ni", "de_nw", "de_rp", "de_sh"])
+@pytest.mark.parametrize("code", ["jp", "de", "de_bb", "de_be", "de_bw", "de_by", "de_hb", "de_he",
+                                  "de_hh", "de_ni", "de_nw", "de_rp", "de_sh"])
 def test_the_status_publishes_no_provisional_events(code):
     """잠정 표시가 사양상 없는 피드 — 위 비교가 0 == 0 으로 통과하는 것이 맞고,
     여기서 그 0 이 사양임을 못 박는다. jp 는 tests/test_jp_feed.py 의 잠정 표시

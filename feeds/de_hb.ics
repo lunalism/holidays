@@ -1,0 +1,2395 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lunalism//holidays.lunalism.com//KO
+CALSCALE:GREGORIAN
+X-WR-CALNAME:독일·브레멘 공휴일
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20200101
+DTEND;VALUE=DATE:20200102
+DTSTAMP:20261007T005734Z
+UID:20200101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20200410
+DTEND;VALUE=DATE:20200411
+DTSTAMP:20261007T005734Z
+UID:20200410-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20200413
+DTEND;VALUE=DATE:20200414
+DTSTAMP:20261007T005734Z
+UID:20200413-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20200501
+DTEND;VALUE=DATE:20200502
+DTSTAMP:20261007T005734Z
+UID:20200501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20200521
+DTEND;VALUE=DATE:20200522
+DTSTAMP:20261007T005734Z
+UID:20200521-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20200601
+DTEND;VALUE=DATE:20200602
+DTSTAMP:20261007T005734Z
+UID:20200601-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20201003
+DTEND;VALUE=DATE:20201004
+DTSTAMP:20261007T005734Z
+UID:20201003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20201031
+DTEND;VALUE=DATE:20201101
+DTSTAMP:20261007T005734Z
+UID:20201031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20201225
+DTEND;VALUE=DATE:20201226
+DTSTAMP:20261007T005734Z
+UID:20201225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20201226
+DTEND;VALUE=DATE:20201227
+DTSTAMP:20261007T005734Z
+UID:20201226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20210101
+DTEND;VALUE=DATE:20210102
+DTSTAMP:20261007T005734Z
+UID:20210101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20210402
+DTEND;VALUE=DATE:20210403
+DTSTAMP:20261007T005734Z
+UID:20210402-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20210405
+DTEND;VALUE=DATE:20210406
+DTSTAMP:20261007T005734Z
+UID:20210405-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20210501
+DTEND;VALUE=DATE:20210502
+DTSTAMP:20261007T005734Z
+UID:20210501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20210513
+DTEND;VALUE=DATE:20210514
+DTSTAMP:20261007T005734Z
+UID:20210513-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20210524
+DTEND;VALUE=DATE:20210525
+DTSTAMP:20261007T005734Z
+UID:20210524-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20211003
+DTEND;VALUE=DATE:20211004
+DTSTAMP:20261007T005734Z
+UID:20211003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20211031
+DTEND;VALUE=DATE:20211101
+DTSTAMP:20261007T005734Z
+UID:20211031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20211225
+DTEND;VALUE=DATE:20211226
+DTSTAMP:20261007T005734Z
+UID:20211225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20211226
+DTEND;VALUE=DATE:20211227
+DTSTAMP:20261007T005734Z
+UID:20211226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20220101
+DTEND;VALUE=DATE:20220102
+DTSTAMP:20261007T005734Z
+UID:20220101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20220415
+DTEND;VALUE=DATE:20220416
+DTSTAMP:20261007T005734Z
+UID:20220415-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20220418
+DTEND;VALUE=DATE:20220419
+DTSTAMP:20261007T005734Z
+UID:20220418-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20220501
+DTEND;VALUE=DATE:20220502
+DTSTAMP:20261007T005734Z
+UID:20220501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20220526
+DTEND;VALUE=DATE:20220527
+DTSTAMP:20261007T005734Z
+UID:20220526-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20220606
+DTEND;VALUE=DATE:20220607
+DTSTAMP:20261007T005734Z
+UID:20220606-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20221003
+DTEND;VALUE=DATE:20221004
+DTSTAMP:20261007T005734Z
+UID:20221003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20221031
+DTEND;VALUE=DATE:20221101
+DTSTAMP:20261007T005734Z
+UID:20221031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20221225
+DTEND;VALUE=DATE:20221226
+DTSTAMP:20261007T005734Z
+UID:20221225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20221226
+DTEND;VALUE=DATE:20221227
+DTSTAMP:20261007T005734Z
+UID:20221226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20230101
+DTEND;VALUE=DATE:20230102
+DTSTAMP:20261007T005734Z
+UID:20230101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20230407
+DTEND;VALUE=DATE:20230408
+DTSTAMP:20261007T005734Z
+UID:20230407-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20230410
+DTEND;VALUE=DATE:20230411
+DTSTAMP:20261007T005734Z
+UID:20230410-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20230501
+DTEND;VALUE=DATE:20230502
+DTSTAMP:20261007T005734Z
+UID:20230501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20230518
+DTEND;VALUE=DATE:20230519
+DTSTAMP:20261007T005734Z
+UID:20230518-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20230529
+DTEND;VALUE=DATE:20230530
+DTSTAMP:20261007T005734Z
+UID:20230529-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20231003
+DTEND;VALUE=DATE:20231004
+DTSTAMP:20261007T005734Z
+UID:20231003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20231031
+DTEND;VALUE=DATE:20231101
+DTSTAMP:20261007T005734Z
+UID:20231031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20231225
+DTEND;VALUE=DATE:20231226
+DTSTAMP:20261007T005734Z
+UID:20231225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20231226
+DTEND;VALUE=DATE:20231227
+DTSTAMP:20261007T005734Z
+UID:20231226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20240101
+DTEND;VALUE=DATE:20240102
+DTSTAMP:20261007T005734Z
+UID:20240101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20240329
+DTEND;VALUE=DATE:20240330
+DTSTAMP:20261007T005734Z
+UID:20240329-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20240401
+DTEND;VALUE=DATE:20240402
+DTSTAMP:20261007T005734Z
+UID:20240401-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20240501
+DTEND;VALUE=DATE:20240502
+DTSTAMP:20261007T005734Z
+UID:20240501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20240509
+DTEND;VALUE=DATE:20240510
+DTSTAMP:20261007T005734Z
+UID:20240509-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20240520
+DTEND;VALUE=DATE:20240521
+DTSTAMP:20261007T005734Z
+UID:20240520-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20241003
+DTEND;VALUE=DATE:20241004
+DTSTAMP:20261007T005734Z
+UID:20241003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20241031
+DTEND;VALUE=DATE:20241101
+DTSTAMP:20261007T005734Z
+UID:20241031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20241225
+DTEND;VALUE=DATE:20241226
+DTSTAMP:20261007T005734Z
+UID:20241225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20241226
+DTEND;VALUE=DATE:20241227
+DTSTAMP:20261007T005734Z
+UID:20241226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20250101
+DTEND;VALUE=DATE:20250102
+DTSTAMP:20261007T005734Z
+UID:20250101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20250418
+DTEND;VALUE=DATE:20250419
+DTSTAMP:20261007T005734Z
+UID:20250418-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20250421
+DTEND;VALUE=DATE:20250422
+DTSTAMP:20261007T005734Z
+UID:20250421-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20250501
+DTEND;VALUE=DATE:20250502
+DTSTAMP:20261007T005734Z
+UID:20250501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20250529
+DTEND;VALUE=DATE:20250530
+DTSTAMP:20261007T005734Z
+UID:20250529-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20250609
+DTEND;VALUE=DATE:20250610
+DTSTAMP:20261007T005734Z
+UID:20250609-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20251003
+DTEND;VALUE=DATE:20251004
+DTSTAMP:20261007T005734Z
+UID:20251003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20251031
+DTEND;VALUE=DATE:20251101
+DTSTAMP:20261007T005734Z
+UID:20251031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251226
+DTSTAMP:20261007T005734Z
+UID:20251225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20251226
+DTEND;VALUE=DATE:20251227
+DTSTAMP:20261007T005734Z
+UID:20251226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260102
+DTSTAMP:20261007T005734Z
+UID:20260101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260404
+DTSTAMP:20261007T005734Z
+UID:20260403-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20260406
+DTEND;VALUE=DATE:20260407
+DTSTAMP:20261007T005734Z
+UID:20260406-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+DTSTAMP:20261007T005734Z
+UID:20260501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260515
+DTSTAMP:20261007T005734Z
+UID:20260514-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+DTSTAMP:20261007T005734Z
+UID:20260525-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20261003
+DTEND;VALUE=DATE:20261004
+DTSTAMP:20261007T005734Z
+UID:20261003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+DTSTAMP:20261007T005734Z
+UID:20261031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+DTSTAMP:20261007T005734Z
+UID:20261225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+DTSTAMP:20261007T005734Z
+UID:20261226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+DTSTAMP:20261007T005734Z
+UID:20270101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+DTSTAMP:20261007T005734Z
+UID:20270326-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20270329
+DTEND;VALUE=DATE:20270330
+DTSTAMP:20261007T005734Z
+UID:20270329-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+DTSTAMP:20261007T005734Z
+UID:20270501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20270506
+DTEND;VALUE=DATE:20270507
+DTSTAMP:20261007T005734Z
+UID:20270506-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+DTSTAMP:20261007T005734Z
+UID:20270517-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20271003
+DTEND;VALUE=DATE:20271004
+DTSTAMP:20261007T005734Z
+UID:20271003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20271031
+DTEND;VALUE=DATE:20271101
+DTSTAMP:20261007T005734Z
+UID:20271031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20271225
+DTEND;VALUE=DATE:20271226
+DTSTAMP:20261007T005734Z
+UID:20271225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20271226
+DTEND;VALUE=DATE:20271227
+DTSTAMP:20261007T005734Z
+UID:20271226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20280101
+DTEND;VALUE=DATE:20280102
+DTSTAMP:20261007T005734Z
+UID:20280101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20280414
+DTEND;VALUE=DATE:20280415
+DTSTAMP:20261007T005734Z
+UID:20280414-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20280417
+DTEND;VALUE=DATE:20280418
+DTSTAMP:20261007T005734Z
+UID:20280417-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20280501
+DTEND;VALUE=DATE:20280502
+DTSTAMP:20261007T005734Z
+UID:20280501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20280525
+DTEND;VALUE=DATE:20280526
+DTSTAMP:20261007T005734Z
+UID:20280525-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20280605
+DTEND;VALUE=DATE:20280606
+DTSTAMP:20261007T005734Z
+UID:20280605-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20281003
+DTEND;VALUE=DATE:20281004
+DTSTAMP:20261007T005734Z
+UID:20281003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20281031
+DTEND;VALUE=DATE:20281101
+DTSTAMP:20261007T005734Z
+UID:20281031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20281225
+DTEND;VALUE=DATE:20281226
+DTSTAMP:20261007T005734Z
+UID:20281225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20281226
+DTEND;VALUE=DATE:20281227
+DTSTAMP:20261007T005734Z
+UID:20281226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20290101
+DTEND;VALUE=DATE:20290102
+DTSTAMP:20261007T005734Z
+UID:20290101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20290330
+DTEND;VALUE=DATE:20290331
+DTSTAMP:20261007T005734Z
+UID:20290330-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20290402
+DTEND;VALUE=DATE:20290403
+DTSTAMP:20261007T005734Z
+UID:20290402-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20290501
+DTEND;VALUE=DATE:20290502
+DTSTAMP:20261007T005734Z
+UID:20290501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20290510
+DTEND;VALUE=DATE:20290511
+DTSTAMP:20261007T005734Z
+UID:20290510-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20290521
+DTEND;VALUE=DATE:20290522
+DTSTAMP:20261007T005734Z
+UID:20290521-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20291003
+DTEND;VALUE=DATE:20291004
+DTSTAMP:20261007T005734Z
+UID:20291003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20291031
+DTEND;VALUE=DATE:20291101
+DTSTAMP:20261007T005734Z
+UID:20291031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20291225
+DTEND;VALUE=DATE:20291226
+DTSTAMP:20261007T005734Z
+UID:20291225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20291226
+DTEND;VALUE=DATE:20291227
+DTSTAMP:20261007T005734Z
+UID:20291226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20300101
+DTEND;VALUE=DATE:20300102
+DTSTAMP:20261007T005734Z
+UID:20300101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20300419
+DTEND;VALUE=DATE:20300420
+DTSTAMP:20261007T005734Z
+UID:20300419-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20300422
+DTEND;VALUE=DATE:20300423
+DTSTAMP:20261007T005734Z
+UID:20300422-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20300501
+DTEND;VALUE=DATE:20300502
+DTSTAMP:20261007T005734Z
+UID:20300501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20300530
+DTEND;VALUE=DATE:20300531
+DTSTAMP:20261007T005734Z
+UID:20300530-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20300610
+DTEND;VALUE=DATE:20300611
+DTSTAMP:20261007T005734Z
+UID:20300610-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20301003
+DTEND;VALUE=DATE:20301004
+DTSTAMP:20261007T005734Z
+UID:20301003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20301031
+DTEND;VALUE=DATE:20301101
+DTSTAMP:20261007T005734Z
+UID:20301031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20301225
+DTEND;VALUE=DATE:20301226
+DTSTAMP:20261007T005734Z
+UID:20301225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20301226
+DTEND;VALUE=DATE:20301227
+DTSTAMP:20261007T005734Z
+UID:20301226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Neujahrstag
+DTSTART;VALUE=DATE:20310101
+DTEND;VALUE=DATE:20310102
+DTSTAMP:20261007T005734Z
+UID:20310101-de_hb-neujahr@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. a 'der Neujahrstag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 날짜 1. 1. 은 feiertage-api 2026 HB 대
+ 조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Karfreitag
+DTSTART;VALUE=DATE:20310411
+DTEND;VALUE=DATE:20310412
+DTSTAMP:20261007T005734Z
+UID:20310411-de_hb-karfreitag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. b 'der Karfreitag' 
+ — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid
+  145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘
+  관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 
+ 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 −2 일은 feiertage-api 2026 HB(
+ 04-03) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ostermontag
+DTSTART;VALUE=DATE:20310414
+DTEND;VALUE=DATE:20310415
+DTSTAMP:20261007T005734Z
+UID:20310414-de_hb-ostermontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. c 'der Ostermontag'
+  — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsi
+ d 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +1 일은 feiertage-api 2026 HB(04
+ -06) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Mai
+DTSTART;VALUE=DATE:20310501
+DTEND;VALUE=DATE:20310502
+DTSTAMP:20261007T005734Z
+UID:20310501-de_hb-erster_mai@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. d 'der 1. Mai' — 
+ Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, gsid 145
+ 882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레멘 관
+ 보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든 호의
+  텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 공휴
+ 일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-10-06 
+ – 2026-10-07 검색). 날짜는 조문에 박혀 있고 feiertage-api 20
+ 26 HB(Tag der Arbeit) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Himmelfahrtstag
+DTSTART;VALUE=DATE:20310522
+DTEND;VALUE=DATE:20310523
+DTSTAMP:20261007T005734Z
+UID:20310522-de_hb-christi_himmelfahrt@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. e 'der Himmelfahrts
+ tag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\,
+  gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 부활절 +39 일은 feiertage-api 2026 
+ HB(Christi Himmelfahrt\, 05-14) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pfingstmontag
+DTSTART;VALUE=DATE:20310602
+DTEND;VALUE=DATE:20310603
+DTSTAMP:20261007T005734Z
+UID:20310602-de_hb-pfingstmontag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. f 'der Pfingstmonta
+ g' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\, g
+ sid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브레
+ 멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모든
+  호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회성 
+ 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2026-
+ 10-06 – 2026-10-07 검색). 부활절 +50 일은 feiertage-api 2026 HB(0
+ 5-25) 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tag der deutschen Einheit
+DTSTART;VALUE=DATE:20311003
+DTEND;VALUE=DATE:20311004
+DTSTAMP:20261007T005734Z
+UID:20311003-de_hb-tag_der_deutschen_einheit@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. g 'der 3. Oktober -
+  Tag der deutschen Einheit -' — Transparenzportal Bremen 통합본(Inkra
+ fttreten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현
+ 행이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 10
+ 2 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바
+ 꾸는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포
+ 함)을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜는 조문
+ 에 박혀 있고 feiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Reformationstag
+DTSTART;VALUE=DATE:20311031
+DTEND;VALUE=DATE:20311101
+DTSTAMP:20261007T005734Z
+UID:20311031-de_hb-reformationstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:브레멘 주 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. j 'der Reformations
+ tag' — Gesetz zur Änderung des Gesetzes über die Sonn- und Feiertage v
+ om 26.06.2018 Art. 1 Nr. 1 '§ 2 Absatz 1j wird wie folgt neu gefasst: der
+  Reformationstag.'(종전 'der 31. Oktober 2017 (500. Jahrestag der Reform
+ ation)')\, Brem.GBl. 2018 Nr. 63 S. 302(28.06.2018 공포\, Art. 2 다음 
+ 날 시행\; 브레멘 관보 포털 PDF https://www.gesetzblatt.bremen.de
+ /fastmedia/218/2018_06_28_GBl_Nr_0063_signed.pdf sha256 e0a706281f932bd444
+ 5366e2e546b0de894f0fcfc1e5ccb1793bdcb8665e23bf\, 2026-09-30 열람\, 2026-
+ 10-06 재수령 대조 일치). 2020 Nr. 12(13.03.2020 공포)는 이 법
+ 을 'zuletzt durch Gesetz vom 26. Juni 2018 (Brem.GBl. S. 302) geändert' 
+ 로 적는다. 현행 자구: Transparenzportal Bremen 통합본(Inkrafttr
+ eten 14.03.2020 판\, gsid 145882\, 2026-09-30 열람). 이 판이 현행
+ 이라는 근거: 브레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 
+ 중 PDF 가 있는 모든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸
+ 는 지시와 일회성 공휴일 지정(§ 12 b) 에 따른 선언 포함
+ )을 찾지 못함(2026-10-06 – 2026-10-07 검색). 날짜 31. 10. 은 f
+ eiertage-api 2026 HB 대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:1. Weihnachtstag
+DTSTART;VALUE=DATE:20311225
+DTEND;VALUE=DATE:20311226
+DTSTAMP:20261007T005734Z
+UID:20311225-de_hb-erster_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. h 'der 1. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 25. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2. Weihnachtstag
+DTSTART;VALUE=DATE:20311226
+DTEND;VALUE=DATE:20311227
+DTSTAMP:20261007T005734Z
+UID:20311226-de_hb-zweiter_weihnachtstag@holidays.lunalism.com
+SEQUENCE:0
+DESCRIPTION:독일 전국 공휴일입니다.\n\n근거: Gesetz über die 
+ Sonn-\, Gedenk- und Feiertage (HB) § 2 Abs. 1 Buchst. i 'der 2. Weihnacht
+ stag' — Transparenzportal Bremen 통합본(Inkrafttreten 14.03.2020 판\
+ , gsid 145882\, 2026-09-30 열람). 이 판이 현행이라는 근거: 브
+ 레멘 관보 Brem.GBl. 2020 Nr. 1 – 2026 Nr. 102 중 PDF 가 있는 모
+ 든 호의 텍스트층에서 § 2 Abs. 1 을 바꾸는 지시와 일회
+ 성 공휴일 지정(§ 12 b) 에 따른 선언 포함)을 찾지 못함(2
+ 026-10-06 – 2026-10-07 검색). 날짜 26. 12. 은 feiertage-api 2026 HB
+  대조 일치
+TRANSP:TRANSPARENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+END:VEVENT
+END:VCALENDAR
