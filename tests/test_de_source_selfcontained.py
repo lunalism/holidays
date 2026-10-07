@@ -20,6 +20,8 @@ nw·he·be 의 테스트가 같은 단언을 자기 피드에 대해 이미 든�
     key 는 token 은         UID token 부기 — 내부 식별자
     무개정                  판정어. 검색 사실로 적는다
     _weihnachtstag         다른 항목의 내부 key 이름
+    docs/research          레포의 조사 보고 경로 — 구독자는 레포를 볼 수 없다
+    lunalism/holidays      레포 자체를 가리키는 말 — 같은 까닭
 
 대소문자를 가리지 않고 찾는다(AGENTS.md — 소스가 소문자인데 대문자로 찾아 0 건으로
 믿은 사례가 있다). 금지 목록 밖의 자기완결성(예: SUMMARY 라는 필드명, 한 개정법과의
@@ -49,6 +51,8 @@ FORBIDDEN = (
     "token 은",
     "무개정",
     "_weihnachtstag",
+    "docs/research",
+    "lunalism/holidays",
 )
 
 # 독일 계열 표 전수 — rules/de/ 와 rules/de_*/ 의 *.yaml. feed.py 가 있는 패키지만 센다

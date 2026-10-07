@@ -120,15 +120,21 @@ TODO_MUST_SAY = (
     "Staatsarchiv",
 )
 
-# 모든 항목 source 가 들어야 하는 현행성 근거(사람의 결정 H1 의 두 근거).
+# 모든 항목 source 가 들어야 하는 현행성 근거 — 검색 사실의 꼴(무엇을 찾았고 무엇을 찾지
+# 못했는지, 언제). 건수·판정어가 아니라 「찾지 못함」 이다(사람의 결정 K3).
 CURRENCY_MUST_SAY = (
     "145882",
     "2020 Nr. 1",
     "2026 Nr. 102",
-    "§ 2 Abs. 1 개정 0 건",
-    "docs/research/report_hb_fulltext.md",
-    "report_hb_read.md",
+    "텍스트층",
+    "§ 2 Abs. 1",
+    "§ 12 b)",
+    "찾지 못함",
+    "2026-10-07",
 )
+# source 에 두지 않는 것 — 741 쪽 계정·기준 2 의 경위·조사 기록 경로는 머리 주석과 PR 본문에만
+# 둔다(K2·K3). 레포 경로 자체는 tests/test_de_source_selfcontained.py 의 FORBIDDEN 이 막는다.
+CURRENCY_MUST_NOT_SAY = ("개정 0 건", "741", "557", "기준 2", "report_hb")
 
 # 다른 독일 피드 — rules/ 스캔(tests/test_de_scope.py 와 같은 조건). 손으로 적지 않는다.
 RULES_DIR = Path(__file__).resolve().parents[1] / "rules"
@@ -369,7 +375,8 @@ def _header(path: Path) -> str:
 
 def test_the_tables_hold_ten_entries_each_citing_its_letter_and_wording():
     """§ 2 Abs. 1 은 Buchst. a)–j) 로 나뉜다. 그 자구를 따옴표로 담고, 현행 자구를 읽은
-    통합본과 그 판이 현행이라는 근거(관보 전문 검색 범위·결과·조사 기록 경로)를 든다."""
+    통합본과 그 판이 현행이라는 근거를 검색 사실로 든다 — 찾은 범위(관보 호·텍스트층)와 찾지
+    못한 것(§ 2 Abs. 1 을 바꾸는 지시, § 12 b) 를 포함한 일회성 지정)과 날짜."""
     entries = _raw_entries()
     assert len(entries) == 10
     assert {e["key"] for e in entries} == set(NAME_OF)
@@ -382,6 +389,8 @@ def test_the_tables_hold_ten_entries_each_citing_its_letter_and_wording():
         assert "Transparenzportal Bremen" in source, key
         for must in CURRENCY_MUST_SAY:
             assert must in source, (key, must)
+        for banned in CURRENCY_MUST_NOT_SAY:
+            assert banned not in source, (key, banned)
         assert "feiertage-api 2026 HB" in source, key
         assert entry["name"] == NAME_OF[key], key
 
