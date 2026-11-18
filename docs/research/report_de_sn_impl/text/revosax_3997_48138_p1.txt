@@ -1,0 +1,257 @@
+# pages=4
+# sha256 full=4f9b905c824aee0ea106de006ea6ff132e90bc794b24cebb3ad097c036b4d335
+# sha256 §1=5e6fdcb454710f7f23413c03a93cee63193a16fdb03cd3b439d171c2f9eaa025
+# sha256 §2=fed4093e6fcd804aebe1e2442abe442e8b253a7c3576049a8e5b71528935f838
+
+# --- 전문(정규화) ---
+1.
+2.
+3.
+Gesetz
+über Sonn- und Feiertage im Freistaat Sachsen
+(SächsSFG)
+Vom 10. November 1992
+Der Sächsische Landtag hat am 13. Oktober 1992 das folgende Gesetz beschlossen:
+§ 1
+Gesetzliche Feiertage
+(1) Gesetzliche Feiertage sind:
+Neujahr (1. Januar),
+Karfreitag,
+Ostermontag,
+Tag der Arbeit (1. Mai),
+Christi Himmelfahrt,
+Pfingstmontag,
+Fronleichnam (nur in den vom Staatsministerium des Innern durch
+Rechtsverordnung bestimmten Regionen),
+Tag der Deutschen Einheit (3. Oktober),
+Reformationsfest (31. Oktober),
+Buß- und Bettag,
+1. Weihnachtstag (25. Dezember),
+2. Weihnachtstag (26. Dezember).
+(2) Die gesetzlichen Feiertage sind Feiertage im Sinne bundes- und landesrechtlicher Vorschriften.
+1
+§ 2
+Gedenk- und Trauertage
+Gedenk- und Trauertage im Sinne dieses Gesetzes sind:
+der Volkstrauertag (vorletzter Sonntag vor dem 1. Advent),
+der Totensonntag (letzter Sonntag vor dem 1. Advent),
+der 8. Mai als Tag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten
+Weltkriegs in Europa.
+2
+§ 2a
+Örtlicher Gedenktag an die friedliche Revolution 1989
+Die Gemeinden können einen örtlichen Gedenktag zur Erinnerung an die friedliche Revolution des
+Jahres 1989 durch Satzung bestimmen.
+3
+§ 3
+Religiöse Feiertage
+(1) Religiöse Feiertage im Sinne dieses Gesetzes sind:
+Erscheinungsfest (6. Januar),
+Frühjahrsbußtag (7. Mittwoch vor Ostern),
+Gründonnerstag,
+Fronleichnam (soweit nicht gesetzlicher Feiertag),
+Johannestag (24. Juni),
+Peter und Paul (29. Juni),
+Mariä Himmelfahrt (15. August),
+Allerheiligen (1. November),
+Mariä Empfängnis (8. Dezember).
+(2) Die Staatsregierung wird ermächtigt, durch Rechtsverordnung weitere religiöse Feiertage
+festzulegen, soweit hierfür aufgrund der Bedeutung einer Religionsgemeinschaft nach Tradition oder
+Mitgliederzahl ein Bedürfnis besteht.
+SächsSFG
+http://web:3000
+Fassung vom 07.05.2025
+Seite 1 von 4
+1.
+2.
+1.
+2.
+a)
+b)
+c)
+d)
+3.
+4.
+5.
+a)
+b)
+c)
+(3) An den in Absatz 1 genannten und den nach Absatz 2 festgelegten religiösen Feiertagen haben
+Schüler und Auszubildende das Recht, dem Unterricht oder der Ausbildung fernzubleiben,
+Personen, die in einem Beschäftigungsverhältnis stehen, das Recht, der Arbeit fernzubleiben,
+wenn keine zwingenden betrieblichen Erfordernisse entgegenstehen,
+soweit und solange dies erforderlich ist, um am Hauptgottesdienst ihrer Religionsgemeinschaft
+teilzunehmen.
+4
+§ 4
+Allgemeine Schutzvorschrift
+(1) Die Sonntage und die gesetzlichen Feiertage sind als Tage der Arbeitsruhe und seelischen
+Erhebung nach Maßgabe der gewerbe- und arbeitsrechtlichen Vorschriften sowie der Bestimmungen
+dieses Gesetzes geschützt.
+(2) An den Sonntagen und den gesetzlichen Feiertagen sind öffentlich bemerkbare Arbeiten und
+sonstige Handlungen, die geeignet sind, die Ruhe des Tages zu beeinträchtigen, verboten, soweit nicht
+durch Gesetz oder aufgrund eines Gesetzes etwas anderes bestimmt ist.
+(3)
+1
+Absatz 2 gilt nicht für
+den Betrieb der Post, der Eisenbahnen und sonstiger Unternehmen, die der Personenbeförderung
+dienen, sowie der Hilfseinrichtungen des Verkehrs mit der Maßgabe, daß Instandsetzungsarbeiten
+an Kraftfahrzeugen nur vorgenommen werden dürfen, soweit sie für die Weiterfahrt erforderlich
+sind;
+unaufschiebbare Arbeiten, die erforderlich sind
+zur Abwendung eines Schadens an Gesundheit oder Eigentum,
+zur Befriedigung häuslicher Bedürfnisse,
+in landwirtschaftlichen Betrieben, insbesondere zur Ernte,
+zur Be- oder Verarbeitung leicht verderblicher Nahrungsmittel und zur Versorgung der
+Bevölkerung mit Milch;
+leichte Arbeiten nicht gewerblicher Art in Gärten, die keine störenden Geräusche verursachen,
+den Betrieb von Videotheken an den Sonntagen zwischen 12.00 und 20.00 Uhr.
+den Betrieb von
+vollautomatischen, gemeinsam mit Tankstellen betriebenen, Waschanlagen in geschlossener
+Bauform für Personenkraftwagen an den Sonntagen zwischen 8.00 und 20.00 Uhr,
+gemeinsam mit Tankstellen betriebenen Selbstwaschanlagen für Personenkraftwagen an den
+Sonntagen zwischen 12.00 und 20.00 Uhr,
+automatischen Waschanlagen und Selbstwaschanlagen für Personenkraftwagen in durch
+Bebauungsplan festgesetzten Gewerbe- und Industriegebieten an den Sonntagen zwischen
+12.00 und 20.00 Uhr.
+2
+Satz 1 Nr. 4 und 5 gilt nicht für den Ostersonntag und Pfingstsonntag sowie für solche Sonntage, auf
+die ein gesetzlicher Feiertag nach § 1 Abs. 1 oder ein Gedenk- und Trauertag nach § 2 fällt.
+(4) Soweit Arbeiten an Sonntagen und gesetzlichen Feiertagen zulässig sind, ist auf das Wesen
+des Tages Rücksicht zu nehmen.
+5
+§ 5
+Schutz religiöser Veranstaltungen
+1
+An den Sonntagen, religiösen und gesetzlichen Feiertagen, mit Ausnahme des 1. Mai und des
+3. Oktober, sind in der Nähe von Kirchen und anderen Gebäuden, die religiösen Zwecken dienen, alle
+Handlungen zu unterlassen, die geeignet sind, religiöse Veranstaltungen zu stören.
+2
+Dasselbe gilt am
+24. Dezember für die Zeit ab 14.00 Uhr.
+§ 6
+Besondere Schutzvorschriften
+Am Karfreitag, am Buß- und Bettag und an den Gedenk- und Trauertagen nach § 2 Nummer 1 und 2
+SächsSFG
+http://web:3000
+Fassung vom 07.05.2025
+Seite 2 von 4
+1.
+2.
+1.
+2.
+3.
+1.
+2.
+3.
+sind verboten:
+öffentliche Tanzveranstaltungen und andere öffentliche Vergnügungen, die dem ernsten
+Charakter dieser Tage zuwiderlaufen, am Karfreitag während des ganzen Tages, an den
+übrigen Tagen von 3.00 Uhr bis 24.00 Uhr;
+öffentliche Sportveranstaltungen am Karfreitag während des ganzen Tages, an den übrigen Tagen
+bis 11.00 Uhr.
+6
+§ 7
+Befreiungen
+(1) Die Kreispolizeibehörden können im Einzelfall aus wichtigem Grund von den Verbotsvorschriften der
+§§ 4 und 6 befreien.
+(2)
+1
+Vor der Erteilung einer Befreiung sind die betroffenen Religionsgemeinschaften zu hören.
+2
+Dies
+gilt nicht, soweit sich die Befreiung auf den 1. Mai oder den 3. Oktober bezieht.
+§ 8
+Ordnungswidrigkeiten
+(1) Ordnungswidrig handelt, wer vorsätzlich oder fahrlässig den Vorschriften über das Verbot
+öffentlich bemerkbarer Arbeiten und sonstiger Handlungen (§ 4 Abs. 2),
+von Handlungen, die geeignet sind, religiöse Veranstaltungen zu stören (§ 5),
+bestimmter Veranstaltungen an besonders geschützten Tagen (§ 6)
+zuwiderhandelt.
+(2) Die Ordnungswidrigkeit kann mit einer Geldbuße bis zu 5 000 EUR geahndet werden.
+(3) Verwaltungsbehörden im Sinne des § 36 Abs. 1 Nr. 1 des
+Gesetzes über Ordnungswidrigkeiten
+sind
+die Ortspolizeibehörden.
+7
+§ 9
+Grundrechtseinschränkung
+Das Grundrecht der Versammlungsfreiheit (Artikel 8 Abs. 2 des
+Grundgesetzes
+und Artikel 23 Abs. 2
+der
+Verfassung des Freistaates Sachsen
+) wird nach Maßgabe der §§ 5 und 6 eingeschränkt.
+§ 10
+Außerkrafttreten von Rechtsvorschriften
+Folgende Rechtsvorschriften treten außer Kraft:
+§ 168 Abs. 2 des Arbeitsgesetzbuches der Deutschen Demokratischen Republik vom 16. Juni 1977
+(GBl. I Nr. 18 S. 185), zuletzt geändert durch Gesetz vom 22. Juni 1990 (GBl. I Nr. 35 S. 371),
+Verordnung über die Einführung gesetzlicher Feiertage vom 16. Mai 1990 (GBl. I Nr. 27 S. 248),
+Erste Durchführungsbestimmung vom 7. Juni 1990 zur Verordnung über die Einführung
+gesetzlicher Feiertage (GBl. I Nr. 31 S.281).
+§ 11
+Inkrafttreten
+Dieses Gesetz tritt am Tage nach seiner Verkündung in Kraft.
+Das vorstehende Gesetz wird hiermit ausgefertigt und ist zu verkünden.
+Dresden, den 10. November 1992
+Der Landtagspräsident
+Erich Iltgen
+Der Ministerpräsident
+Prof. Dr. Kurt Biedenkopf
+Der Staatsminister des Innern
+SächsSFG
+http://web:3000
+Fassung vom 07.05.2025
+Seite 3 von 4
+1
+2
+3
+4
+5
+6
+7
+Heinz Eggert
+§ 1 Absatz 1 geändert durch
+Artikel 4 des Gesetzes vom 6. Juni 2002
+(SächsGVBl. S. 168, 170)
+§ 2 neu gefasst durch
+Artikel 1 der Verordnung vom 23. April 2025
+(SächsGVBl. S. 146)
+§ 2a neu eingefügt durch
+Gesetz vom 27. März 2008
+(SächsGVBl. S. 274)
+§ 3 Absatz 1 geändert durch
+Artikel 4 des Gesetzes vom 6. Juni 2002
+(SächsGVBl. S. 168, 170)
+§ 4 geändert durch
+Artikel 2 des Gesetzes vom 1. Dezember 2010
+(SächsGVBl. S. 338, 340) und
+durch
+Gesetz vom 30. Januar 2013
+(SächsGVBl. S. 2)
+§ 6 geändert durch
+Gesetz vom 27. März 2008
+(SächsGVBl. S. 274) und durch
+Artikel 1 der
+Verordnung vom 23. April 2025
+(SächsGVBl. S. 146)
+§ 8 Absatz 2 geändert durch
+Artikel 4 des Gesetzes vom 6. Juni 2002
+(SächsGVBl. S. 168, 170)
+Änderungsvorschriften
+Änderung des Gesetzes über Sonn- und Feiertage im Freistaat Sachsen
+Art. 4 des Gesetzes vom
+6. Juni 2002 (SächsGVBl. S. 168, 170)
+Gesetz zur Änderung des Gesetzes über Sonn- und Feiertage im Freistaat Sachsen
+vom 27. März 2008 (SächsGVBl. S. 274)
+Änderung des Gesetzes über Sonn- und Feiertage im Freistaat Sachsen
+Art. 2 des Gesetzes vom
+1. Dezember 2010 (SächsGVBl. S. 338, 340)
+Zweites Gesetz zur Änderung des Gesetzes über Sonn- und Feiertage im Freistaat
+Sachsen
+vom 30. Januar 2013 (SächsGVBl. S. 2)
+SächsSFG
+http://web:3000
+Fassung vom 07.05.2025
+Seite 4 von 4

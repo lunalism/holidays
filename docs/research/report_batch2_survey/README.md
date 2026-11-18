@@ -49,3 +49,12 @@
 보고 본문은 옮기면서 고치지 않았다. 본문에 나오는 `fapi_2026_*.json`·`state_SL_fetch.log`
 는 이 폴더에 없는 파일을 가리킨다. HB 의 `gsid=` 는 Transparenzportal 의 문서 식별자이고
 세션 값이 아니다.
+
+## 정정 — 뒤 차례에서 드러난 것
+
+- **`state_SL.md` 의 Buß- und Bettag 정의는 1976 조문에 없다.** 그 보고 D 절은 「1976 원문의 Buß- und Bettag
+  (11월 23일 이전 마지막 수요일, 요일 기반 규칙)」 이라고 적는다. 공포본 Amtsblatt des Saarlandes 1976 Nr. 13
+  S. 214 § 2 Abs. 1 Nr. 11 은 「der Buß- und Bettag,」 뿐이고, 그 쪽 어디에도 날짜 정의가 없다
+  (`https://www.amtsblatt.uni-saarland.de/hefte/1976/1976-013.pdf`, 2026-11-18 다시 받아 렌더 판독 —
+  `docs/research/report_sn_prep.md` C2, 전사 `docs/research/report_sn_prep/text/sl_amtsbl_1976_13_S214.txt`).
+  「11월 23일 이전 마지막 수요일」 은 그 조사의 배경지식이다. 보고 본문은 기록이라 고치지 않는다.

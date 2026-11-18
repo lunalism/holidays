@@ -85,18 +85,17 @@ LAND_NAMES = {
     "de_nw": "노르트라인베스트팔렌",
     "de_rp": "라인란트팔츠",
     "de_sh": "슐레스비히홀슈타인",
+    "de_sn": "작센",
 }
 
 BUNDESWEIT_SENTENCE = "독일 전국 공휴일입니다."
 
 
 def _tables(feed) -> list:
-    """피드 모듈이 읽는 YAML 경로 전부. designated 표는 있는 피드만."""
-    paths = [feed.SOLAR_PATH, feed.EASTER_PATH]
-    designated = getattr(feed, "DESIGNATED_PATH", None)
-    if designated is not None:
-        paths.append(designated)
-    return paths
+    """피드 패키지의 YAML 표 전부 — 디렉터리 스캔(tests/test_de_source_selfcontained.py 와 같은
+    조건). 경로 상수를 손으로 고르면 표가 하나 더 생겼을 때(de_sn 의 totensonntag_holidays.yaml)
+    빠진다."""
+    return sorted(Path(feed.__file__).resolve().parent.glob("*.yaml"))
 
 
 def _raw_entries(feed) -> list:

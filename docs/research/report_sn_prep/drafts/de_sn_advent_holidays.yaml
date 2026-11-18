@@ -1,0 +1,26 @@
+# 초안(DRAFT) — 적용하지 않음. report_sn_prep 의 설계안 (ii) 를 고른다면의 꼴. drafts/README.md 참조.
+
+holidays:
+  - key: buss_und_bettag
+    name: Buß- und Bettag
+    scope: land
+    advent_offset: -11
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 10번째 'Buß- und
+      Bettag' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 조문은 이름만 들고 날짜를 정의하지 않는다. 날짜 관행: 같은 법 § 2 의 Totensonntag('letzter Sonntag vor
+      dem 1. Advent') 앞의 수요일 — 대림절 첫째 주일(11월 27일–12월 3일의 일요일)에서 11 일 전, 해마다 11월 16–22일. 작센 주의회 청원 보고서 2023
+      (Sächsischer Landtag, Bericht des Petitionsausschusses,
+      https://www.landtag.sachsen.de/download/publikationen/SLT_BR_Petitionsbericht_2023_Web_PDFUA.pdf,
+      2026-11-18 열람)가 'Der Landesgesetzgeber entschied sich dafür, den Buß- und Bettag als gesetzlichen
+      Feiertag am letzten Mittwoch vor dem Totensonntag beizubehalten.' 라고 적는다. 같은 날을 다른 주의 옛 조문은 'der
+      Buß- und Bettag (Mittwoch vor dem letzten Sonntag nach Trinitatis)' 로 정의했다(Hessen GVBl. 1971 I Nr.
+      36 S. 344 § 1 Abs. 1 Nr. 9, 같은 조 Abs. 3 'Der letzte Sonntag nach Trinitatis ist Totensonntag.').
+      2026-11-18 은 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
