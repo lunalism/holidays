@@ -12,7 +12,7 @@ de_sn(작센 피드) 구현 PR 의 사전 확인 P1·P3 에서 돌린 것과 출
 | 파일 | 무엇 |
 |---|---|
 | `fetch.sh`·`fetch.log` | P1 — REVOSax 화면(Stand·Fassung 줄)과 통합본 PDF 한 번 |
-| `text/revosax_3997_48138_p1.txt` | P1 — PDF 텍스트층과 sha256. 전문 `4f9b905c…`, § 1 `5e6fdcb4…`, § 2 `fed4093e…` — `report_sn_prep` 의 두 추출과 같다. PDF 자체도 53,502 B, sha256 `93d9dc8b…` 로 같다 |
+| `text/revosax_3997_48138_p1.txt` | P1 — PDF 텍스트층과 sha256. 전문 `4f9b905c…`, § 1 `5e6fdcb4…`, § 2 `fed4093e…` — `report_sn_prep` 의 두 추출과 같다. PDF 자체도 53,502 B, sha256 `93d9dc8b5cdeea97fde557b9c72654ac04b4492a691fb6d2b8af218ba62157c4` 로 `report_sn_prep.md` 「A1」 의 값과 같다. 이 값은 scratch 의 PDF 에서 `shasum -a 256` 으로 얻었다 — PDF 는 이 폴더에 두지 않았고, `fetch.log` 에는 바이트 수만 있다 |
 | `pyholidays_sn.py` → `.out` | P3 — holidays 0.102 DE(subdiv='SN') 2020–2031. `report_sn_prep/pyholidays_sn.out` 과 바이트가 같다 |
 
 - 화면 HTML 과 PDF 는 scratch(`<scratch>/de_sn_impl/`)에만 두었다(`docs/research/README.md` 「넣지 않는 것」).
