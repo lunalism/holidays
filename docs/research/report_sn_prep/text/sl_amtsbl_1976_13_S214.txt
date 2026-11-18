@@ -1,0 +1,11 @@
+# Saarland Amtsblatt 1976 Nr. 13, S. 214 — Gesetz Nr. 1040 über die Sonn- und Feiertage (Feiertagsgesetz – SFG) vom 18. Februar 1976, § 2
+# https://www.amtsblatt.uni-saarland.de/hefte/1976/1976-013.pdf — 받음 2026-11-18, 180,842 B(2026-09-30 조사와 같은 바이트 수),
+# sha256 1ad5257834c94d316ec2e63fb284a8c4db417dcd4447d783ba6af12e5fa751c5. 텍스트층 없음. 2 쪽을 150 dpi 로 렌더해 읽었다.
+§ 2 Gesetzliche Feiertage
+(1) Gesetzliche Feiertage sind
+1. der Neujahrstag, 2. der Karfreitag, 3. der Ostermontag, 4. der 1. Mai, 5. der Tag Christi Himmelfahrt, 6. der Pfingstmontag,
+7. der Fronleichnamstag, 8. der Tag der Deutschen Einheit (17. Juni), 9. der Maria Himmelfahrtstag (15. August),
+10. der Allerheiligentag (1. November), 11. der Buß- und Bettag, 12. der 1. Weihnachtstag (25. Dezember), 13. der 2. Weihnachtstag (26. Dezember).
+(2) Der Minister des Innern wird ermächtigt, aus besonderem Anlaß, der eine Staatstrauer oder -feier gebietet, durch Rechtsverordnung
+a) Werktage einmalig zu Feiertagen zu erklären; …
+# 관찰: Nr. 11 「der Buß- und Bettag,」 에 날짜 정의가 없다. 이 쪽의 다른 곳에도 없다.

@@ -1,0 +1,28 @@
+# SächsGVBl. 2025 Nr. 6 (6. Mai 2025), S. 145–146 — recht-sachsen.de 「Vorschau」 첨부(attachment/id/3249)
+# 받음 2026-11-18, 893,093 B, sha256 f01131af434d35fb2101648d6e64f31aedb9298761dc1ae855cfcfddd915c6e9 (2026-09-30 조사의 바이트 수와 같다)
+# 1 쪽(S. 145, 목차)은 텍스트층. 2 쪽(S. 146)은 텍스트층이 없어 150 dpi 로 렌더해 읽었다(render_pages.py). 줄바꿈은 읽기 편하게 이었다.
+
+## S. 145 머리(텍스트층)
+Sächsisches Gesetz- und Verordnungsblatt
+Nr. 6/2025 6. Mai 2025
+Inhaltsverzeichnis
+Gesetz zur Einführung eines Gedenktages zum Tag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten Weltkriegs in Europa vom 23. April 2025 …… 146
+
+## S. 146 (렌더 판독)
+Sächsisches Gesetz- und Verordnungsblatt   Nr. 6   6. Mai 2025
+Gesetz zur Einführung eines Gedenktages zum Tag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten Weltkriegs in Europa
+Vom 23. April 2025
+Der Sächsische Landtag hat am 26. März 2025 das folgende Gesetz beschlossen:
+Artikel 1 Änderung des Gesetzes über Sonn- und Feiertage im Freistaat Sachsen
+Das Gesetz über Sonn- und Feiertage im Freistaat Sachsen vom 10. November 1992 (SächsGVBl. S. 536), das zuletzt durch das Gesetz vom 30. Januar 2013 (SächsGVBl. S. 2) geändert worden ist, wird wie folgt geändert:
+1. § 2 wird wie folgt gefasst:
+„§ 2 Gedenk- und Trauertage
+Gedenk- und Trauertage im Sinne dieses Gesetzes sind:
+1. der Volkstrauertag (vorletzter Sonntag vor dem 1. Advent),
+2. der Totensonntag (letzter Sonntag vor dem 1. Advent),
+3. der 8. Mai als Tag der Befreiung vom Nationalsozialismus und der Beendigung des Zweiten Weltkriegs in Europa.“
+2. In § 6 in der Angabe vor Nummer 1 wird die Angabe „Gedenk- und Trauertagen nach § 2“ durch die Angabe „Gedenk- und Trauertagen nach § 2 Nummer 1 und 2“ ersetzt.
+Artikel 2 Inkrafttreten
+Dieses Gesetz tritt am Tag nach der Verkündung in Kraft.
+Dresden, den 23. April 2025
+Der Landtagspräsident Alexander Dierks / Der Ministerpräsident Michael Kretschmer / Der Staatsminister des Innern Armin Schuster

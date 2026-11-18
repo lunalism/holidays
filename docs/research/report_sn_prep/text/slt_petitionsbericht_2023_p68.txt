@@ -1,0 +1,6 @@
+# Sächsischer Landtag — Bericht des Petitionsausschusses 2023 (PDF 메타데이터 Title 「SLT_Petitionsbericht_2023_PDFUA」, CreationDate 2024-07-24)
+# https://www.landtag.sachsen.de/download/publikationen/SLT_BR_Petitionsbericht_2023_Web_PDFUA.pdf — 받음 2026-11-18, 5,320,069 B,
+# sha256 96092ac6b983b9ecac0da2099e23001183d090bc1bed33512626959f7e699b6c. 98 쪽. PDF 68 쪽 텍스트층(pypdf 5.4.0), 공백 축약.
+# 찾은 경로: sachsen.de 검색 「Bettag Mittwoch vor dem」(17 건) 2026-11-18.
+… Nach § 58 Absatz 3 SGB XI tragen die versicherungspflichtig Beschäftigten, die in der gesetzlichen Krankenversicherung pflichtver- sichert sind, die Beiträge in Höhe von 1,0 % allein, wenn der Beschäftigungsort in einem Land liegt, in dem die am 31. Dezember 1993 bestehende Anzahl an Feiertagen nicht um einen stets auf einen Werktag fallenden Feiertag ver- mindert wurde. Der Freistaat Sachsen hat die Anzahl der gesetzlichen landes- weiten Feiertage, die zum Stichtag 31. Dezember 1993 bestanden, nicht um einen Feiertag, der stets auf einen Werktag fällt, reduziert. Der Landesgesetzgeber entschied sich dafür, den Buß- und Bettag als gesetzlichen Feiertag am letzten Mittwoch vor dem Totensonntag beizubehalten. Dadurch liegt der Arbeitnehmeranteil bei der Pflegever- sicherung in Sachsen höher als im übrigen Bundesgebiet. …
+# 텍스트층 그대로(줄 끝 하이픈 분철 「pflichtver- sichert」·「landes- weiten」·「Pflegever- sicherung」 보존).

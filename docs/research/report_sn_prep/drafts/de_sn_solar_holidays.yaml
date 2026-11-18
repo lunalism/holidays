@@ -1,0 +1,104 @@
+# 초안(DRAFT) — 적용하지 않음. report_sn_prep 의 설계안 (ii) 를 고른다면의 꼴. drafts/README.md 참조.
+
+holidays:
+  - key: neujahr
+    name: Neujahr
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 1번째 'Neujahr (1.
+      Januar)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 1. 1. 은 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: erster_mai
+    name: Tag der Arbeit
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 4번째 'Tag der Arbeit
+      (1. Mai)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 1. 5. 는 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: tag_der_deutschen_einheit
+    name: Tag der Deutschen Einheit
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 8번째 'Tag der
+      Deutschen Einheit (3. Oktober)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 3. 10. 은 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: reformationstag
+    name: Reformationsfest
+    scope: land
+    month: 10
+    day: 31
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 9번째 'Reformationsfest
+      (31. Oktober)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 31. 10. 은 feiertage-api 2026 SN(Reformationstag) 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: erster_weihnachtstag
+    name: 1. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 11번째 '1.
+      Weihnachtstag (25. Dezember)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 25. 12. 는 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: zweiter_weihnachtstag
+    name: 2. Weihnachtstag
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: >-
+      Gesetz über Sonn- und Feiertage im Freistaat Sachsen (SächsSFG) § 1 Abs. 1, 열거 12번째 '2.
+      Weihnachtstag (26. Dezember)' — REVOSax(Sächsische Staatskanzlei) 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). § 1 Abs. 1 은 1992 원법(SächsGVBl. 1992 Nr. 35
+      S. 536)에 2002 개정(SächsGVBl. 2002 Nr. 9 S. 168, 170, 'Reformationstag' → 'Reformationsfest')만
+      얹혔다(통합본의 역사판 여섯과 각주). 날짜 26. 12. 는 feiertage-api 2026 SN 대조 일치
+    source_todo: >-
+      공포본을 받지 못했다. SächsGVBl. 1992 Nr. 35 는 온라인 판매·보관 범위 밖이고(발행사 recht-sachsen.de 의 보관 상품은 1999–2018),
+      2002 Nr. 9 는 그 유료 보관 상품 안에만 있다(2026-11-18 관찰).

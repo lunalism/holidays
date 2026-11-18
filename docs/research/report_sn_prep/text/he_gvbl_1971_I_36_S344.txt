@@ -1,0 +1,12 @@
+# Hessen GVBl. 1971 I Nr. 36, S. 344 — Hessisches Feiertagsgesetz (HFeiertagsG) in der Fassung vom 29. Dezember 1971, § 1
+# https://starweb.hessen.de/cache/GVBL/1971/00036.pdf — 받음 2026-11-18, 269,786 B,
+# sha256 fc2067c2778f3db8a8b7295c72d25f7df020b1b18e512fb2b648432f9ec21f55(레포 docs/research/report_he_be_gazette_access.md 의 2026-09-29 기록과 같다).
+# 텍스트층 없음(CCITT 스캔). 2 쪽 왼단 위를 300 dpi 로 렌더해 읽었다. 줄바꿈은 이었다.
+§ 1
+(1) Gesetzliche Feiertage sind die Sonntage sowie
+1. der Neujahrstag, 2. der Karfreitag, 3. der Ostermontag, 4. der 1. Mai, 5. der Himmelfahrtstag, 6. der Pfingstmontag,
+7. der Fronleichnamstag, 8. der Tag der deutschen Einheit (17. Juni),
+9. der Buß- und Bettag (Mittwoch vor dem letzten Sonntag nach Trinitatis),
+10. der 1. und 2. Weihnachtsfeiertag.
+(2) Der zweitletzte Sonntag nach Trinitatis ist Gedenktag für die Opfer des Nationalsozialismus und die Toten beider Weltkriege (Volkstrauertag).
+(3) Der letzte Sonntag nach Trinitatis ist Totensonntag.
