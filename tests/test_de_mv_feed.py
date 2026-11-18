@@ -616,3 +616,30 @@ def test_the_start_means_what_kr_effective_from_means(day):
     entry = {"effective_from": FRAUENTAG_FROM}
     assert feed._active(entry, day) is kr_calendar._active(entry, day)
     assert feed._active({}, day) is kr_calendar._active({}, day) is True
+
+
+def test_an_unknown_top_level_key_stops_the_load(tmp_path):
+    """로더가 holidays 만 읽으면 최상위의 effective_until 은 조용히 무시된다(Codex 지적 1)."""
+    path = tmp_path / "solar_holidays.yaml"
+    path.write_text(
+        yaml.safe_dump({"effective_until": dt.date(2025, 12, 31), "holidays": [_solar_entry()]},
+                       allow_unicode=True),
+        encoding="utf-8",
+    )
+    with pytest.raises(ics.IcsError, match="최상위의 모르는 키"):
+        feed._load(path, "month", "day")
+
+
+def test_a_duplicate_key_stops_the_load(tmp_path):
+    """safe_load 는 뒤의 값을 남긴다. effective_from 을 두 번 적으면 뒤의 2020-01-01 만 검사를
+    지나 2020–2022 에도 Frauentag 가 나간다(Codex 지적 2)."""
+    path = tmp_path / "solar_holidays.yaml"
+    path.write_text(
+        "holidays:\n"
+        "  - key: frauentag\n    name: Frauentag\n    scope: land\n    month: 3\n    day: 8\n"
+        "    verified: false\n    source: test\n"
+        "    effective_from: 2022-07-13\n    effective_from: 2020-01-01\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(ics.IcsError, match="중복 키"):
+        feed._load(path, "month", "day")

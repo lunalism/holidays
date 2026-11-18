@@ -26,6 +26,10 @@ Frauentag 가 나간다. 그래서 이 로더는
     연 단위로는 연중 시행일(2022-07-13)을 표현할 수 없다 — kr 의 같은 결정
     (tests/test_substitute_rules.py::test_effective_from_is_a_date_not_a_year).
   - 끝 필드(effective_until·valid_until)는 두지 않는다. 모르는 필드로 거부된다.
+  - 표의 최상위에는 holidays 하나만 둔다. 최상위의 모르는 키(예: effective_until)도 거부한다 —
+    로더가 holidays 만 읽으면 그 키는 조용히 무시된다.
+  - 한 매핑 안의 중복 키를 거부한다. yaml.safe_load 는 뒤의 값을 남기므로 effective_from 을 두 번
+    적으면 검사가 뒤의 값만 보게 된다(_UniqueKeyLoader).
 
 다른 주 로더에는 손대지 않았다. 전 로더의 모르는 필드 거부는 따로 열린 항목이다.
 
@@ -158,8 +162,30 @@ def _checked(entry: dict, path: Path, *fields) -> dict:
     return entry
 
 
+class _UniqueKeyLoader(yaml.SafeLoader):
+    """safe_load 와 같되, 한 매핑 안의 중복 키를 거부한다(모듈 docstring 「이 로더만의 규약」)."""
+
+
+def _construct_unique_mapping(loader, node, deep=False):
+    keys = [loader.construct_object(k, deep=deep) for k, _ in node.value]
+    dupes = sorted({str(k) for k in keys if keys.count(k) > 1})
+    if dupes:
+        raise ics.IcsError(
+            f"중복 키 {dupes} — 한 매핑에 같은 키를 두 번 적었다({node.start_mark})."
+        )
+    return loader.construct_mapping(node, deep=deep)
+
+
+_UniqueKeyLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _construct_unique_mapping
+)
+
+
 def _load(path: Path, *fields) -> list:
-    doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    doc = yaml.load(path.read_text(encoding="utf-8"), Loader=_UniqueKeyLoader) or {}
+    extra = sorted(set(doc) - {"holidays"})
+    if extra:
+        raise ics.IcsError(f"{path.name}: 최상위의 모르는 키 {extra} — holidays 하나만 둔다.")
     entries = doc.get("holidays") or ()
     if not entries:
         raise ics.IcsError(f"{path} 에 holidays 가 비었다.")
