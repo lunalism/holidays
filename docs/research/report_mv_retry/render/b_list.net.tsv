@@ -1,0 +1,34 @@
+time	method	url	status	content_type
+2026-11-18T04:59:51Z	GET	https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter	200	text/html; charset=utf-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2_50rodfa5ywf.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/1cag0zwhxv095.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/3t3qg8wtcbmm3.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/logo-mv.svg	200	image/svg+xml
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2h3hpwr69wwl6.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/0yoppehgs8xgj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2dk-w8d6h05f-.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/turbopack-2u1d16houkiyo.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/0n749b1gefo9u.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2hwn3hjua93fw.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/02rf3k081_swl.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/3lgef53qomkf8.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/1elrt6io6ug9h.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/1wl7zob1klhpu.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2skx4qsx_pmrx.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/1mfm8bai1iwjy.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/21xbky62yj-8r.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:53Z	GET	https://land-mv.de/_next/static/chunks/2728t7vmv3rlj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:54Z	GET	https://land-mv.de/fonts/Macho-Regular.woff2	200	font/woff2
+2026-11-18T04:59:54Z	GET	https://land-mv.de/fonts/Macho-Bold.woff2	200	font/woff2
+2026-11-18T04:59:54Z	GET	https://land-mv.de/fonts/Macho-Medium.woff2	200	font/woff2
+2026-11-18T04:59:54Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-05%2FGesetz-%2520und%2520Verordnungsblatt%2520mit%2520KI.jpg%3Fh%3Db89f0b02%26itok%3DYfvdM1v7%26v%3D1778593785&w=1080&q=75	200	image/webp
+2026-11-18T04:59:54Z	GET	https://land-mv.de/logo-rpmv.svg	200	text/html; charset=utf-8
+2026-11-18T04:59:57Z	GET	https://land-mv.de/api/disable-draft	200	text/plain;charset=UTF-8
+2026-11-18T04:59:57Z	GET	https://land-mv.de/?_rsc=WuyxyhfLdZIM--Ia	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=WuyxyhfLdZIM--Ia	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/gebaerdensprache?_rsc=WuyxyhfLdZIM--Ia	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/node/2046?_rsc=WuyxyhfLdZIM--Ia	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/node/2046?_rsc=0k4LjnXEzCAmkUJj	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=0k4LjnXEzCAmkUJj	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/gebaerdensprache?_rsc=0k4LjnXEzCAmkUJj	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:57Z	GET	https://land-mv.de/?_rsc=0k4LjnXEzCAmkUJj	FAILED:net::ERR_ABORTED	text/x-component

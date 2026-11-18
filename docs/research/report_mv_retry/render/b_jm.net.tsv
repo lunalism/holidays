@@ -1,0 +1,37 @@
+time	method	url	status	content_type
+2026-11-18T04:58:42Z	GET	https://land-mv.de/landesregierung/ministerium-fuer-justiz-gleichstellung-und-verbraucherschutz	200	text/html; charset=utf-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2_50rodfa5ywf.css	200	text/css; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/1cag0zwhxv095.css	200	text/css; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/3t3qg8wtcbmm3.css	200	text/css; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/logo-mv.svg	200	image/svg+xml
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2h3hpwr69wwl6.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/0yoppehgs8xgj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2dk-w8d6h05f-.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/turbopack-2u1d16houkiyo.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/0n749b1gefo9u.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2hwn3hjua93fw.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/02rf3k081_swl.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/3lgef53qomkf8.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/1elrt6io6ug9h.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/1wl7zob1klhpu.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2skx4qsx_pmrx.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/1mfm8bai1iwjy.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/21xbky62yj-8r.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/static/chunks/2728t7vmv3rlj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:58:43Z	GET	https://dashboard.stage.bio/static/bundle.js	200	application/javascript; charset=utf-8
+2026-11-18T04:58:43Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FMinisterium%2520fu%25CC%2588r%2520Justiz%2520Gleichstellung%2520und%2520Verbraucherschutz%2520MV%2520Foto%2520Ecki%2520Raff.jpg%3Fh%3D0eb53160%26itok%3DN2ZNCkmz%26v%3D1771329184&w=1920&q=75	200	image/webp
+2026-11-18T04:58:44Z	GET	https://land-mv.de/fonts/Macho-Regular.woff2	200	font/woff2
+2026-11-18T04:58:44Z	GET	https://land-mv.de/fonts/Macho-Bold.woff2	200	font/woff2
+2026-11-18T04:58:44Z	GET	https://land-mv.de/fonts/Macho-Medium.woff2	200	font/woff2
+2026-11-18T04:58:44Z	GET	https://land-mv.de/logo-rpmv.svg	200	text/html; charset=utf-8
+2026-11-18T04:58:48Z	GET	https://land-mv.de/api/disable-draft	200	text/plain;charset=UTF-8
+2026-11-18T04:58:48Z	GET	https://land-mv.de/api/get-path-alias?path=internal%3A%2Fnode%2F2236	200	application/json
+2026-11-18T04:58:48Z	GET	https://land-mv.de/?_rsc=k4tTu5ufmpCgA0oH	200	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=k4tTu5ufmpCgA0oH	200	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/gebaerdensprache?_rsc=k4tTu5ufmpCgA0oH	200	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/node/2046?_rsc=k4tTu5ufmpCgA0oH	200	text/x-component
+2026-11-18T04:58:48Z	GET	https://cdn.stage.bio/static/stage_icon_grey.svg	200	image/svg+xml
+2026-11-18T04:58:48Z	GET	https://land-mv.de/?_rsc=aEFLNZFlnPA9iMwI	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=aEFLNZFlnPA9iMwI	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/node/2046?_rsc=aEFLNZFlnPA9iMwI	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:58:48Z	GET	https://land-mv.de/gebaerdensprache?_rsc=aEFLNZFlnPA9iMwI	FAILED:net::ERR_ABORTED	text/x-component

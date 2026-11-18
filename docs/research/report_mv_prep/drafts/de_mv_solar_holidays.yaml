@@ -1,0 +1,78 @@
+# [초안 — 적용하지 않음] 독일·메클렌부르크포어포메른 주 공휴일 — 고정 날짜 7 건.
+#
+# 이 초안은 설계안 (iii)(kr 의 effective_from 을 같은 이름·같은 뜻으로 독일 주 로더에 들임)을
+# 보이기 위한 것이다. § 2 Abs. 1 의 현행 자구는 이번 조사에서 얻지 못했다(A1 — 공식 포털의 문서
+# API 가 500). Frauentag 외 항목의 name·자구는 아직 근거가 없다 — 「미확보」 로 표시했다.
+# Frauentag 의 자구·시행 조항은 report_batch2_survey(2026-09-30)의 관보 관찰이고, 이번 조사의
+# A2 재확인은 하지 않았다(Part A 중단).
+#
+# --- effective_from (설계안) ---
+# 날짜(YAML date). 그 항목은 effective_from 이상인 날에만 생긴다(포함 경계). 비어 있으면 발행
+# 범위 내내. rules/kr/holiday_calendar.py 의 _active() 와 같은 뜻. 연도(int)는 로더가 거부한다
+# (kr 의 substitute_rules 가 같은 이유로 거부한다).
+
+holidays:
+  - key: neujahr
+    name: "[미확보]"
+    scope: bundesweit
+    month: 1
+    day: 1
+    verified: false
+    source: "[미확보 — § 2 Abs. 1 Nr. 1 자구]"
+
+  - key: frauentag
+    name: Frauentag
+    scope: land
+    month: 3
+    day: 8
+    effective_from: 2022-07-13
+    verified: false
+    source: >-
+      Feiertagsgesetz Mecklenburg-Vorpommern (FTG M-V) § 2 Abs. 1 Nr. 2 'der Frauentag (8. März)'
+      — Viertes Gesetz zur Änderung des Feiertagsgesetzes Mecklenburg-Vorpommern vom 7. Juli
+      2022, Nr. 1 a) 'Nach Nummer 1 wird folgende Nummer 2 eingefügt', GVOBl. M-V 2022 Nr. 31
+      S. 427 (ausgegeben 12.07.2022). 시행 조항 'Dieses Gesetz tritt am Tag nach der Verkündung
+      in Kraft' — 2022-07-13 부터 공휴일이라 2022-03-08 은 공휴일이 아니었고 첫 날은 2023-03-08
+    source_todo: >-
+      [초안] 시행일 2022-07-13 은 공포(ausgegeben)일 다음 날로 읽은 것 — A2 에서 관보 원문으로 다시
+      확인할 것. 관보 PDF 의 URL·sha256 을 source 에 더할 것.
+
+  - key: erster_mai
+    name: "[미확보]"
+    scope: bundesweit
+    month: 5
+    day: 1
+    verified: false
+    source: "[미확보]"
+
+  - key: tag_der_deutschen_einheit
+    name: "[미확보]"
+    scope: bundesweit
+    month: 10
+    day: 3
+    verified: false
+    source: "[미확보]"
+
+  - key: reformationstag
+    name: "[미확보]"
+    scope: land
+    month: 10
+    day: 31
+    verified: false
+    source: "[미확보]"
+
+  - key: erster_weihnachtstag
+    name: "[미확보]"
+    scope: bundesweit
+    month: 12
+    day: 25
+    verified: false
+    source: "[미확보]"
+
+  - key: zweiter_weihnachtstag
+    name: "[미확보]"
+    scope: bundesweit
+    month: 12
+    day: 26
+    verified: false
+    source: "[미확보]"

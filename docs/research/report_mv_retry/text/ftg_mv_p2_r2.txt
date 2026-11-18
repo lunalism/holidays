@@ -1,0 +1,44 @@
+# 머리(Dokumentkopf)
+Amtliche Abkürzung: FTG M-V
+Fassung vom: 07.07.2022
+Gültig ab: 13.07.2022
+Dokumenttyp: Gesetz
+Quelle:
+Gliederungs-Nr: 1136-1
+
+# § 2 (정규화)
+§ 2
+Gesetzliche Feiertage
+(1) Gesetzliche Feiertage sind:
+1.
+der Neujahrstag (1. Januar),
+2.
+der Frauentag (8. März),
+3.
+der Karfreitag,
+4.
+der Ostermontag,
+5.
+der 1. Mai,
+6.
+der Christi-Himmelfahrtstag,
+7.
+der Pfingstmontag,
+8.
+der Tag der Deutschen Einheit (3. Oktober),
+9.
+der Reformationstag (31. Oktober),
+10.
+der 1. Weihnachtstag (25. Dezember),
+11.
+der 2. Weihnachtstag (26. Dezember).
+(2) Gedenk- und Trauertage sind:
+1.
+der Volkstrauertag (vorletzter Sonntag vor dem 1. Advent),
+2.
+der Totensonntag (letzter Sonntag vor dem 1. Advent),
+3.
+der 8. Mai als Tag der Befreiung vom Nationalsozialismus und der Beendigung des 2. Weltkrieges.
+(3) Die Landesregierung kann bei besonderem Anlass für das ganze Land oder für Teilgebiete des Landes Werktage zu einmaligen Feiertagen, Gedenktagen oder Trauertagen erklären und die Schutzvorschriften der §§ 3 bis 6 auf sie ausdehnen.
+
+# sha256(§ 2 정규화 텍스트) = e7fe52efabaa7216ae815e4ad7931ad32bde43e6636ca40a40b5155c9b02efb5

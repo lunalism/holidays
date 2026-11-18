@@ -1,0 +1,49 @@
+time	method	url	status	content_type
+2026-11-18T04:59:28Z	GET	https://land-mv.de/	200	text/html; charset=utf-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2_50rodfa5ywf.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/1cag0zwhxv095.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/3t3qg8wtcbmm3.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/logo-mv.svg	200	image/svg+xml
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2h3hpwr69wwl6.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/0yoppehgs8xgj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2dk-w8d6h05f-.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/turbopack-2u1d16houkiyo.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/0n749b1gefo9u.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2hwn3hjua93fw.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/02rf3k081_swl.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/3lgef53qomkf8.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/1elrt6io6ug9h.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/1wl7zob1klhpu.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2skx4qsx_pmrx.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/1mfm8bai1iwjy.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/21xbky62yj-8r.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/static/chunks/2728t7vmv3rlj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:29Z	GET	https://dashboard.stage.bio/static/bundle.js	200	application/javascript; charset=utf-8
+2026-11-18T04:59:29Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-11%2FDSC05467.jpeg%3Fh%3D40841af2%26itok%3DUuxCJOh0%26v%3D1794845697&w=1920&q=75	200	image/webp
+2026-11-18T04:59:30Z	GET	https://land-mv.de/fonts/Macho-Regular.woff2	200	font/woff2
+2026-11-18T04:59:30Z	GET	https://land-mv.de/fonts/Macho-Bold.woff2	200	font/woff2
+2026-11-18T04:59:30Z	GET	https://land-mv.de/fonts/Macho-Medium.woff2	200	font/woff2
+2026-11-18T04:59:30Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-11%2F2025_03_25%2520MP%2520Schwesig%2520bei%2520B%25C3%25BCrgerforum%2520in%2520Friedland2.jpeg%3Fh%3Dcbf0528d%26itok%3D9VNoYHel%26v%3D1794319683&w=1920&q=75	200	image/webp
+2026-11-18T04:59:30Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-11%2F2026_11_09_Manuela%2520Schwesig%2520mit%2520Daniel%2520G%25C3%25BCnther.jpeg%3Fh%3D26c6811d%26itok%3DHKdvknfw%26v%3D1794315134&w=1920&q=75	200	image/webp
+2026-11-18T04:59:30Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FArbeit%25206.jpg%3Fh%3D7a18494a%26itok%3DsWQBZ-7S%26v%3D1770909374&w=3840&q=75	200	image/webp
+2026-11-18T04:59:30Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FBildung.jpg%3Fh%3Db271a6b0%26itok%3D-IawZdr_%26v%3D1770909414&w=3840&q=75	200	image/webp
+2026-11-18T04:59:30Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FEnergie%25203.jpg%3Fh%3D1d5ec68d%26itok%3DqI0VV1z9%26v%3D1770907782&w=3840&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/api/disable-draft	200	text/plain;charset=UTF-8
+2026-11-18T04:59:33Z	GET	https://land-mv.de/api/get-path-alias?path=internal%3A%2Fnode%2F2236	200	application/json
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-10%2FLandeserntedankfest%25202026%252C%2520MPin%2520in%2520Menge2_1920x800px.jpeg%3Fh%3Dd3325f90%26itok%3DxF74D3az%26v%3D1791802670&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-09%2FResilient%2520gegen%2520hybride%2520Bedrohungen.jpeg%3Fh%3D5e7e4d99%26itok%3D8Dryx8wd%26v%3D1789644397&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-10%2FFestakt%2520Frauentag%25202026_1920x800px.jpg%3Fh%3Dddab288b%26itok%3D1CQjr8-S%26v%3D1791807845&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-10%2Ffestakt2026-14.jpeg%3Fh%3Dcbc3007c%26itok%3DGY7dVOPH%26v%3D1790855198&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-09%2FGezoomte%2520Seite%2520Rechenzentrum.jpg%3Fh%3Dea387a7f%26itok%3DS51YoWAR%26v%3D1790235140&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-04%2FMusterfeuerwehrhaus.jpg%3Fh%3Da78000c5%26itok%3DzQlVciDz%26v%3D1776697549&w=1920&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FFamilie%25204.jpg%3Fh%3Df7b7a57d%26itok%3Dns0RyCqa%26v%3D1770907893&w=3840&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FGesundheit.jpg%3Fh%3Dd7b29bda%26itok%3D-46qnREf%26v%3D1770908106&w=3840&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FNC2A5838.jpeg%3Fh%3Da53c7b06%26itok%3Das7fg47K%26v%3D1770908300&w=3840&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_16_9%2Fpublic%2F2026-02%2FLandwirtschaft%2520Insel%2520Ru%25CC%2588gen%2520%2528Kap%2520Arkona%2529.jpg%3Fh%3Dbff4590f%26itok%3DDMdSpECZ%26v%3D1770908407&w=3840&q=75	200	image/webp
+2026-11-18T04:59:33Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=6jjooRaMxbEaUzaq	200	text/x-component
+2026-11-18T04:59:33Z	GET	https://land-mv.de/gebaerdensprache?_rsc=6jjooRaMxbEaUzaq	200	text/x-component
+2026-11-18T04:59:33Z	GET	https://land-mv.de/node/2046?_rsc=6jjooRaMxbEaUzaq	200	text/x-component
+2026-11-18T04:59:33Z	GET	https://cdn.stage.bio/static/stage_icon_grey.svg	200	image/svg+xml
+2026-11-18T04:59:34Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=HUBDkbBZviYpOSaQ	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:34Z	GET	https://land-mv.de/gebaerdensprache?_rsc=HUBDkbBZviYpOSaQ	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:34Z	GET	https://land-mv.de/node/2046?_rsc=HUBDkbBZviYpOSaQ	FAILED:net::ERR_ABORTED	text/x-component
