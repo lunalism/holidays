@@ -110,7 +110,7 @@
 `X-HOLIDAY-STATUS:PROVISIONAL` 이 붙습니다. 피드별 잠정 건수는
 `status.json` 의 `provisional_events` 와 랜딩 페이지에 있습니다.
 
-**다른 구현과 대조합니다.** 독일 피드 열 벌은 `python-holidays` 의
+**다른 구현과 대조합니다.** 독일 피드 열세 벌은 `python-holidays` 의
 `DE(subdiv=...)` 와 발행 범위 전 연도의 날짜 집합을 대조하는 테스트를
 매번 돌립니다. feiertage-api 와의 대조는 조사 시점에 받은 응답을 측정값으로
 테스트에 박아 두고 비교합니다 — 테스트는 네트워크를 타지 않습니다.
