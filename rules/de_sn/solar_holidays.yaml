@@ -23,7 +23,8 @@
 #
 # --- 공포본 — 온라인으로 닿는 것 ---
 # 찾지 못했다. 원법(1992 Nr. 35)은 관보 발행사(SV SAXONIA Verlag)의 판매 사이트 https://www.recht-sachsen.de
-# 에서 찾지 못했고 보관 상품은 1999 년부터다. 2002 Nr. 9 는 그 유료 보관 상품(1999–2018) 안에만 있다.
+# 에서 찾지 못했고 보관 상품은 1999 년부터다. 2002 Nr. 9 는 그 사이트에서
+# 유료 보관 상품(1999–2018 — 연도 범위에 2002 가 든다)으로만 찾았다.
 # 사지 않는다(사람의 결정 S4). 2025 Nr. 6 S. 146(§ 2·§ 6 개정)은 무료 미리보기로 읽었지만 § 1 을
 # 건드리지 않는다.
 #
@@ -99,8 +100,9 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
 
   - key: erster_mai
     name: Tag der Arbeit
@@ -115,8 +117,9 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
@@ -131,8 +134,9 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
 
   - key: reformationstag
     name: Reformationsfest
@@ -148,8 +152,9 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
@@ -164,8 +169,9 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
 
   - key: zweiter_weihnachtstag
     name: 2. Weihnachtstag
@@ -180,5 +186,6 @@ holidays:
     source_todo: >-
       공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 관보 발행사의 판매 사이트 https://www.recht-sachsen.de 에서 찾지
       못했다 — 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz- und Verordnungsblatt
-      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 유료 보관 상품 안에만
-      있다(2026-11-18 관찰).
+      Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그 사이트에서 유료
+      보관 상품(연도 범위에 2002 가 든다)으로만 찾았다 — 「Heft 9/2002」 검색은 무관한 상품으로 넘어갔다
+      (2026-11-18 관찰).
