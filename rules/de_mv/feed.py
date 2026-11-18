@@ -18,7 +18,8 @@ events(start, end) 가 구간 안의 Event 를 날짜 오름차순으로 낸다.
 들이면서 그 모양을 두면, 로더가 모르는 이름(예: valid_from)을 적었을 때 오류 없이 2020–2022 에
 Frauentag 가 나간다. 그래서 이 로더는
 
-  - 표마다 닫힌 필드 집합을 두고 모르는 필드를 거부한다(_FIELDS).
+  - 닫힌 필드 집합을 두고 모르는 필드를 거부한다 — 공통 필드(_COMMON_FIELDS)에 표마다 _load() 가
+    받는 날짜 필드(solar 는 month·day, easter 는 easter_offset)를 더한 것이 그 표의 집합이다.
   - effective_from 을 받는다. kr 의 항목별 effective_from(rules/kr/holiday_calendar.py 의
     _active)과 같은 뜻이다 — 공휴일 지위의 시작, 날짜, 포함 경계. 없으면 발행 범위 내내다.
   - effective_from 은 datetime.date 여야 한다. 연도(int)·문자열·datetime·bool 은 거부한다.
@@ -105,14 +106,11 @@ _WHITESPACE = re.compile(r"\s+")
 # 같다(끝 개행이 새지 않게).
 _KEY_RE = re.compile(r"[a-z][a-z_]*(?:_\d{4})?")
 
-# 표마다 받는 필드 — 닫힌 집합. 모듈 docstring 의 「이 로더만의 규약」.
+# 두 표가 함께 받는 필드. 표마다의 날짜 필드는 _load() 의 fields 로 더해져 닫힌 집합이 된다
+# (_checked). 모듈 docstring 의 「이 로더만의 규약」.
 _COMMON_FIELDS = frozenset(
     {"key", "name", "scope", "verified", "source", "source_todo", "effective_from"}
 )
-_FIELDS = {
-    "solar": _COMMON_FIELDS | {"month", "day"},
-    "easter": _COMMON_FIELDS | {"easter_offset"},
-}
 
 
 def feed_range(today: date) -> tuple:

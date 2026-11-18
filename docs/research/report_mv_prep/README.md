@@ -38,8 +38,10 @@
   문서 API·toc 가 500 이었다. 같은 포털의 검색(Schnellsuche)이 같은 법을 다른 id 로 찾았고, 조문 단위 id
   `jlr-NNLMV00007A2FNN00000000003` 이 § 2 전문을 냈다(「Fassung vom: 07.07.2022 / Gültig ab: 13.07.2022」). 이 보고의
   판단 요청 1 (b)(포털 검색으로 다른 문서 id)가 그 경로였다.
-- **초안의 「[미확보]」 자구는 그 § 2 로 채워졌다.** 초안이 비공식 명칭으로 둔 것과 조문 표기가 다른 곳이 있다 —
-  「der 1. Mai」, 「der Christi-Himmelfahrtstag」, 「der Tag der Deutschen Einheit (3. Oktober)」.
+- **초안의 「[미확보]」 자구는 그 § 2 로 채워졌다.** 초안은 Frauentag 밖의 name·source 를 「[미확보]」 로 두었다.
+  2026-09-30 조사(`docs/research/report_batch2_survey/state_MV.md` B)가 비공식 목록에서 가져온 명칭과 조문 표기가
+  다른 곳이 셋 있다 — 「der Neujahrstag (1. Januar)」(조사 「Neujahr」), 「der 1. Mai」(비공식 「Tag der Arbeit
+  (1. Mai)」), 「der Christi-Himmelfahrtstag」(비공식 「Christi Himmelfahrt」).
 - **A2(GVOBl. M-V 2022 Nr. 31 재수령)는 이제 할 수 없다.** `report_mv_retry` Part B(2026-11-18): 2026-09-30 의 PDF
   주소는 `https://land-mv.de/` 의 HTML 화면으로 넘어가고, 새 관보 화면은 2014–2025 를 E-Mail 요청으로 돌린다.
 - **effective_from 의 값.** 이 보고는 `2022-07-13` 을 공포일 다음 날로 읽은 [추론] 으로 두었다. 구현은 그 값을
