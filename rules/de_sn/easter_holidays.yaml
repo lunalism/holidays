@@ -1,0 +1,83 @@
+# 독일·작센 주 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_sn/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# § 1 Abs. 1 열거 2·3·5·6번째 — 전국 공통 4 건 그대로다. 이 주에 더해지는 부활절 이동 공휴일은 없다.
+#
+# key·name·verified 규약과 현행 자구의 출처·공포본 경계·일회성 지정 확인 범위는 solar_holidays.yaml
+# 머리 주석과 같다. 네 건 모두 공포본을 받지 못해 verified: false + source_todo 다. name 은 조문 표기
+# 그대로다(관사·괄호가 없다).
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(실측 요지는 tests/test_de_scope.py 머리 docstring,
+# 고정은 같은 파일의 test_bundesweit_keys_equal_the_nationwide_keys). DESCRIPTION 첫
+# 줄이 이 값에서 나온다. 로더가 닫힌 집합으로 검사한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      SächsSFG § 1 Abs. 1, 열거 2번째 'Karfreitag' — REVOSax 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). 부활절 −2 일은 feiertage-api 2026 SN(04-03) 대조
+      일치
+    source_todo: >-
+      공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 온라인에 없다 — 관보 발행사의 판매 사이트
+      https://www.recht-sachsen.de 에서 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz-
+      und Verordnungsblatt Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그
+      유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      SächsSFG § 1 Abs. 1, 열거 3번째 'Ostermontag' — REVOSax 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). 부활절 +1 일은 feiertage-api 2026 SN(04-06) 대조
+      일치
+    source_todo: >-
+      공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 온라인에 없다 — 관보 발행사의 판매 사이트
+      https://www.recht-sachsen.de 에서 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz-
+      und Verordnungsblatt Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그
+      유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: christi_himmelfahrt
+    name: Christi Himmelfahrt
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      SächsSFG § 1 Abs. 1, 열거 5번째 'Christi Himmelfahrt' — REVOSax 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). 부활절 +39 일은 feiertage-api 2026 SN(05-14) 대조
+      일치
+    source_todo: >-
+      공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 온라인에 없다 — 관보 발행사의 판매 사이트
+      https://www.recht-sachsen.de 에서 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz-
+      und Verordnungsblatt Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그
+      유료 보관 상품 안에만 있다(2026-11-18 관찰).
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      SächsSFG § 1 Abs. 1, 열거 6번째 'Pfingstmontag' — REVOSax 통합본
+      https://www.revosax.sachsen.de/vorschrift/3997-SaechsSFG ('Rechtsbereinigt mit Stand vom 7. Mai
+      2025', 'Fassung gültig ab: 7. Mai 2025', 2026-11-18 열람). 부활절 +50 일은 feiertage-api 2026 SN(05-25) 대조
+      일치
+    source_todo: >-
+      공포본을 받지 못했다. 원법 SächsGVBl. 1992 Nr. 35 S. 536 은 온라인에 없다 — 관보 발행사의 판매 사이트
+      https://www.recht-sachsen.de 에서 「Heft 35/1992」 검색은 결과가 없고, 보관 상품은 'Archivabo zum Sächsisches Gesetz-
+      und Verordnungsblatt Jahrgänge 1999 - 2018' 로 1999 년부터다. § 1 Abs. 1 을 바꾼 2002 Nr. 9 S. 168, 170 은 그
+      유료 보관 상품 안에만 있다(2026-11-18 관찰).
