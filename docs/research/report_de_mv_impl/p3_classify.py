@@ -7,12 +7,21 @@
 판정 「일회성 선언 아님」 은 그 제목·부제가 주 전역 일회성 공휴일이나 Arbeitsruhe 날을 선언하는
 규범의 것이 아니라는 뜻이다. 2020 전 날짜의 결과도 판정한다 — 결과 날짜는 판(Fassung)의
 날짜라, 2020 의 날을 2019 에 선언한 규범이 있다면 2019 로 나온다.
+판정 열은 87 건을 하나씩 읽은 결과가 모두 같아 한 값으로 적은 것이다 — 스크립트가 판정하지
+않는다.
+입력이 바뀌면(행 수가 87 이 아니면) 멈춘다. 새 결과에 이 판정을 조용히 옮기지 않기 위해서다.
+docId 에 조문 표지(NN + 숫자)가 없으면 규범 전체의 결과다 — 근거 문구를 그에 맞춘다.
 """
 import datetime as dt
+import re
 import sys
 
 SKIP = ("-", "gültig ab", "Textnachweis")
 rows = [ln.rstrip("\n").split("\t") for ln in open(sys.argv[1], encoding="utf-8")][1:]
+REVIEWED = 87
+feiertag = [r for r in rows if r[0] == "Feiertag"]
+if len(feiertag) != REVIEWED:
+    sys.exit(f"입력 행이 {len(feiertag)} 건이다 — 판정은 읽은 {REVIEWED} 건에만 붙인다.")
 print("n\tdoc_id\tdate\tperiod\ttitle\tsubtitle\tverdict\tbasis")
 for r in rows:
     query, _label, _rep, n, doc_id, date, _cat, title, subtitle = r
@@ -29,7 +38,10 @@ for r in rows:
     if "FFN" in title:
         basis = (f"제목·부제만 읽음: 「{title}」 — Fundstellennachweis(법령 색인)의 절 "
                  f"「{norm}」 이다. 선언 규범이 아니다")
-    else:
+    elif re.search(r"NN\d+$", doc_id):
         basis = (f"제목·부제만 읽음: 「{title}」 은 「{norm}」 의 조문·부속이다 — 제목이 주 전역 "
+                 "일회성 공휴일·Arbeitsruhe 날의 선언이 아니다")
+    else:
+        basis = (f"제목·부제만 읽음: 「{title}」 은 규범 「{norm}」 그 자체다 — 제목이 주 전역 "
                  "일회성 공휴일·Arbeitsruhe 날의 선언이 아니다")
     print("\t".join([n, doc_id, date, period, title, subtitle, "일회성 선언 아님", basis]))
