@@ -50,11 +50,11 @@ from pathlib import Path
 
 import pytest
 import yaml
-from rules.de_mv import feed
-from rules.de_mv import status as de_mv_status
 
 from core import ics
 from rules.de import feed as de_feed
+from rules.de_mv import feed
+from rules.de_mv import status as de_mv_status
 from rules.kr import holiday_calendar as kr_calendar
 
 DTSTAMP = dt.datetime(2026, 1, 1, tzinfo=dt.UTC)
