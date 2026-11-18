@@ -30,6 +30,7 @@
 |  | 독일·노르트라인베스트팔렌 | `https://holidays.lunalism.com/feeds/de_nw.ics` |
 |  | 독일·라인란트팔츠 | `https://holidays.lunalism.com/feeds/de_rp.ics` |
 |  | 독일·슐레스비히홀슈타인 | `https://holidays.lunalism.com/feeds/de_sh.ics` |
+|  | 독일·작센 | `https://holidays.lunalism.com/feeds/de_sn.ics` |
 | 한 피드로 합침 | 대한민국·일본 | `https://holidays.lunalism.com/feeds/kr_jp.ics` |
 | 겹치지 않는 날만 | 대한민국만 | `https://holidays.lunalism.com/feeds/kr_only.ics` |
 |  | 일본만 | `https://holidays.lunalism.com/feeds/jp_only.ics` |
@@ -140,8 +141,8 @@ sources/       외부에서 갱신되는 원천 수집 (kr: KASI API, jp: 内閣
 sources/*/cache/  원시 응답을 받은 그대로. 커밋 대상이다 — 변화를 diff 로
                추적하기 위한 관측 기록이며, 테스트가 이 파일들을 입력으로 쓴다.
 rules/         피드별 공휴일 규칙과 조립. 나라별 전체(kr, jp, de), 독일 주별
-               열둘(de_bb, de_be, de_bw, de_by, de_hb, de_he, de_hh, de_mv,
-               de_ni, de_nw, de_rp, de_sh), 교차 피드(kr_jp, kr_only, jp_only).
+               열셋(de_bb, de_be, de_bw, de_by, de_hb, de_he, de_hh, de_mv,
+               de_ni, de_nw, de_rp, de_sh, de_sn), 교차 피드(kr_jp, kr_only, jp_only).
                status.py 가 status.json 을 조립한다.
 core/          국가 공통 로직 (날짜 모델, UID 생성, iCalendar 직렬화, 피드 쓰기)
 data/          jp: 캐시된 CSV 에서 생성한 연도별 YAML. kr: 비어 있다 —

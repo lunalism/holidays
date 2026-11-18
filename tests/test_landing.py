@@ -218,6 +218,7 @@ LAND_NAMES_DE = {
     "de_nw": "Nordrhein-Westfalen",
     "de_rp": "Rheinland-Pfalz",
     "de_sh": "Schleswig-Holstein",
+    "de_sn": "Sachsen",
 }
 
 
