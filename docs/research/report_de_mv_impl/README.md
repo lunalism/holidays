@@ -21,6 +21,7 @@ de_mv(메클렌부르크포어포메른 피드) 구현 PR 의 사전 확인 P1·
 | `extract_gesamt_p2.py` → `text/ftg_mv_gesamt_p2.txt` | P1 — Stand 줄과 § 2 를 `report_mv_retry/extract_para2.py` 와 같은 정규화로 뽑는다. sha256 `e7fe52efabaa7216ae815e4ad7931ad32bde43e6636ca40a40b5155c9b02efb5`(887 B) — 조문 단위 id 추출과 같다 |
 | `portal_search_all.py` | P3 — `report_mv_retry/portal_search.py` 의 검색에 (선택) 분류로 좁히기와 결과 목록 끝까지 넘기기(최대 20 쪽)를 더했다 |
 | `summarize_all.py` → `p3_results.tsv` | P3 — 검색어마다 결과 전부(docId·날짜·분류·제목·부제). 분류로 좁힌 검색은 좁히기 전 첫 화면을 섞지 않는다 |
+| `p3_classify.py` → `p3_classified.tsv` | P3 — 「Feiertag」 87 건 전부(docId·날짜·제목·부제)에 기간(2020 이후 42 · 날짜 없음 3 · 2020 전 42)과 판정·판정 근거를 붙인 표. **판정은 제목과 부제만 읽고 정했다 — 문서 본문은 열지 않았다.** 옮길 때 더한 파일이다(아래) |
 | `render/p3_*.net.tsv` | P3 — 검색 네 번의 요청. `p3_q1` 은 분류 화면을 보기 위한 「Feiertag」 첫 검색(`report_mv_retry/portal_search.py` 그대로)이고 표에는 쓰지 않았다 |
 | `pyholidays_mv.py` → `.out` | P4 — holidays 0.102 의 DE(subdiv='MV') 2020–2031. 2020–2022 10 건, 2023 부터 11 건(3월 8일 Frauentag) |
 
@@ -28,8 +29,12 @@ de_mv(메클렌부르크포어포메른 피드) 구현 PR 의 사전 확인 P1·
 
 - 「Feiertag」 를 분류 Gesetze/Verordnungen 으로 좁혀 87 건 전부(4 쪽)를 받았다. 결과 날짜 2020-01-01 이후 42 건,
   날짜 없음 3 건(FFN 색인), 그 전 42 건. 날짜 필터는 포털의 것을 쓰지 않았고 결과의 `date` 로 골랐다.
-- 2020 이후 42 건과 날짜 없는 3 건의 제목·부제에 주 전역 일회성 공휴일이나 Arbeitsruhe 날의 선언은 없다. 가까운
-  것은 Beflaggung(BeflLVO M-V 2023, FlaggTV MV)·Landtag 의사 규칙의 기한·영업시간·근무 규정이다.
+- 87 건 모두 판정했다(`p3_classified.tsv`). 2020 전 42 건도 본다 — 결과 날짜는 판(Fassung)의 날짜라 2020 의 날을
+  2019 에 선언한 규범은 2019 로 나온다. 87 건 어느 제목·부제도 주 전역 일회성 공휴일이나 Arbeitsruhe 날의 선언이
+  아니다. 가까운 것은 Beflaggung(BeflLVO M-V, FlaggTV MV)·Hoheitszeichen·Landtag 의사 규칙의 기한·영업시간·근무 규정·
+  국가와 교회의 조약이다.
+- **이 판정의 근거는 제목과 부제뿐이다.** 문서 본문을 열어 읽지 않았다. 제목이 선언을 드러내지 않는 규범 안에
+  선언이 들어 있었다면 이 판정은 그것을 잡지 못한다.
 - 인용 조문으로 찾는 검색은 없다. 「§ 2 Abs. 3 FTG M-V」 는 § 2 조문 문서 한 건으로 바로 열렸고(검색이 인용을
   문서 주소로 풀었다), 「§ 2 Absatz 3 Feiertagsgesetz」 는 0 건이다.
 - [추론] 포털은 통합본 데이터베이스라, 날이 지나 효력을 잃은 일회성 선언이 빠져 있다면 이 검색에 들지 않는다.
@@ -40,6 +45,8 @@ de_mv(메클렌부르크포어포메른 피드) 구현 PR 의 사전 확인 P1·
 - 렌더 HTML(`p1.html`·`p3_*.html`), 검색 응답 JSON(`p3_*.search.json`), 결과 링크(`p3_*.links.tsv` — href 에
   `oi=` 값)는 scratch(`<scratch>/de_mv_impl/render/`)에만 두었다. 필요한 사실은 `p3_results.tsv`·`render/*.txt`·
   `*.net.tsv` 가 든다.
+- 옮길 때 더한 것: `p3_classify.py`·`p3_classified.tsv` — 조사 때 손으로 본 제목 판정을 87 건 표로 남겼다(입력은 조사 때의
+  `p3_results.tsv` 그대로).
 - 옮길 때 바꾼 것: 린트에 걸리는 스크립트 넷(`extract_gesamt_p2.py`·`portal_search_all.py`·`render_tab.py`·
   `summarize_all.py`)은 파일 머리에 `# ruff: noqa` 한 줄만 더했다. 조사 때 돌린 그대로가 기록이다.
 - 넣는 파일 전부를 대소문자 무시로 검색했다: `_csrf`·`SID=`(빈 값 제외)·`cookie`·`bgblxaver`·`ServiceKey`·
