@@ -120,7 +120,7 @@ BUSSTAG_MUST_SAY = (
     "Der Landesgesetzgeber entschied sich dafür, den Buß- und Bettag als gesetzlichen Feiertag am "
     "letzten Mittwoch vor dem Totensonntag beizubehalten.",
     "https://www.landtag.sachsen.de/download/publikationen/SLT_BR_Petitionsbericht_2023_Web_PDFUA.pdf",
-    "68",
+    "PDF 68 쪽",
     "2026-11-18",
 )
 
@@ -522,6 +522,7 @@ def busstage():
     out = {}
     for e in feed.events(dt.date(1990, 1, 1), dt.date(2100, 12, 31)):
         if e.token == PREFIX + "buss_und_bettag":
+            assert e.day.year not in out, ("같은 해 두 번째", out.get(e.day.year), e.day)
             out[e.day.year] = e.day
     return out
 
