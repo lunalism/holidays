@@ -11,9 +11,10 @@ Totensonntag」 은 작센 주의회 청원위원회 보고서 2023 의 문장�
 totensonntag_offset 은 이 주의 로더만 받는다(rules/de_sn/feed.py). key buss_und_bettag 는 사람이
 승인했다(2026-11-18, S1).
 
-verified 는 11 건 전부 false 다 — 1992 원법은 온라인에 없고, § 1 Abs. 1 을 바꾼 2002 개정(SächsGVBl.
-2002 Nr. 9)은 관보 발행사의 유료 보관 상품 안에만 있다(S4). 일회성 지정을 수권하는 조항은 없고,
-2020 이후 지정 확인의 범위와 공백은 solar_holidays.yaml 머리 주석에 있다(S5).
+verified 는 11 건 전부 false 다 — 1992 원법은 관보 발행사의 판매 사이트에서 찾지 못했고,
+§ 1 Abs. 1 을 바꾼 2002 개정(SächsGVBl. 2002 Nr. 9)은 그 사이트의 유료 보관 상품 안에만 있다(S4).
+일회성 지정을 수권하는 조항은 없고, 2020 이후 지정 확인의 범위와 공백은 solar_holidays.yaml 머리
+주석에 있다(S5).
 
 연 단위 구성은 고정 6 + 부활절 이동 4 + Totensonntag 기준 1 = 11 건이다. 전국 공통 9 건에
 Reformationsfest(10. 31.)와 Buß- und Bettag 가 더해진다. Fronleichnam·§ 2 Gedenk- und Trauertage
