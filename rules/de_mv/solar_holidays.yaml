@@ -31,7 +31,7 @@
 # 해시는 기록되지 않았고 지금은 받을 수 없다(아래). 값의 근거로 쓰지 않는다.
 #
 # --- 공포본 — 온라인으로 닿는 것 ---
-# 없다. 2026-11-18 의 관찰:
+# 찾지 못했다. 2026-11-18 의 관찰:
 # - 2026-09-30 의 관보 PDF 주소(regierung-mv.de …/GVOBl.%20Nr.%2031%20v.%2012.7.2022.pdf)와 관보
 #   목록 주소는 이제 https://land-mv.de/ 의 HTML 화면으로 넘어간다.
 # - 같은 사이트의 두 화면이 관보의 온라인 공개를 다르게 적는다. 판단 없이 그대로 옮긴다.
@@ -56,8 +56,8 @@
 # - 인용 조문으로 찾는 검색은 없다. '§ 2 Abs. 3 FTG M-V' 는 § 2 조문 문서 1 건으로 바로 열렸고
 #   '§ 2 Absatz 3 Feiertagsgesetz' 는 0 건이다.
 # [추론] 포털은 통합본 데이터베이스라, 날이 지나 효력을 잃은 일회성 선언이 빠져 있다면 이 검색에
-# 들지 않는다. de_bb 처럼 관보 목록의 제목으로 찾는 것은 2020–2025 목록이 온라인에 없어 하지
-# 못했다(2026-11-18). 이 공백은 사실로만 적는다.
+# 들지 않는다. de_bb 처럼 관보 목록의 제목으로 찾는 것은 관보 화면에 2020–2025 목록이 없어
+# 하지 못했다(2026-11-18). 이 공백은 사실로만 적는다.
 # 조사 기록: docs/research/report_mv_prep.md·report_mv_retry.md 와 같은 이름의 폴더,
 # docs/research/report_de_mv_impl/(이 표를 세울 때의 포털 확인).
 #
@@ -117,12 +117,12 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜 1.
       1. 은 feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: frauentag
     name: Frauentag
@@ -140,12 +140,12 @@ holidays:
       2022-07-13 부터 싣는다 — 포털 § 2 의 'Gültig ab: 13.07.2022' 그대로다. 그래서 2020–2022 의 3월 8일은 싣지 않는다. 날짜 8. 3. 은
       feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: erster_mai
     name: 1. Mai
@@ -161,12 +161,12 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜는
       조문에 박혀 있고 feiertage-api 2026 MV(Tag der Arbeit) 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: tag_der_deutschen_einheit
     name: Tag der Deutschen Einheit
@@ -182,12 +182,12 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜 3.
       10. 은 feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: reformationstag
     name: Reformationstag
@@ -203,12 +203,12 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜
       31. 10. 은 feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: erster_weihnachtstag
     name: 1. Weihnachtstag
@@ -224,12 +224,12 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜
       25. 12. 은 feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
 
   - key: zweiter_weihnachtstag
     name: 2. Weihnachtstag
@@ -245,9 +245,9 @@ holidays:
       Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 날짜
       26. 12. 은 feiertage-api 2026 MV 대조 일치
     source_todo: >-
-      공포본을 해시와 함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인 목록에 없다 — 관보 화면
-      https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 이 2026 년 호만 싣고 'Sie haben Interesse
-      an Gesetz- und Verordnungsblättern, am Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren
-      2014-2025? Bitte schreiben Sie eine E-Mail unter Angabe der gewünschten Publikation' 이라고
-      적는다(2026-11-18 열람). 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나
-      크기(263,235 B)만 기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.

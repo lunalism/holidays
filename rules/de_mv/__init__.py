@@ -12,9 +12,10 @@ effective_from 과 같은 뜻(날짜, 포함 경계)이고, 이 주의 로더만
 거부한다(rules/de_mv/feed.py, M6).
 
 verified 는 11 건 전부 false 다 — 공포본(2002 재공포본, 개정법 GVOBl. M-V 2022 Nr. 31)을 해시와
-함께 받지 못했다. GVOBl. M-V 2014–2025 는 이제 온라인에 없고 관보 화면은 E-Mail 요청을 안내한다
-(M3). E-Mail 요청은 하지 않는다(M4). § 2 Abs. 3 의 일회성 지정은 포털 검색으로만 확인했다 —
-범위는 solar_holidays.yaml 머리 주석.
+함께 받지 못했다. 관보 화면은 2026 년 호만 싣고 GVOBl. M-V 2014–2025 는 E-Mail 로 요청하라고
+안내한다 — 같은 사이트의 다른 화면은 2020–2025 가 온라인에 있다고 적는다(M3). E-Mail 요청은
+하지 않는다(M4). § 2 Abs. 3 의 일회성 지정은 포털 검색으로만 확인했다 — 범위는
+solar_holidays.yaml 머리 주석.
 
 연 단위 구성은 고정 7 + 부활절 이동 4 = 11 건이다. 전국 공통 9 건에 Frauentag(3. 8.)와
 Reformationstag(10. 31.)가 더해진다. key 는 전부 기존 확립값이다. § 2 Abs. 2 의 Gedenk- und
