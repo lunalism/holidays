@@ -1,0 +1,8 @@
+# [초안 — 적용하지 않음] 독일·메클렌부르크포어포메른 주 공휴일 — 부활절 기준 이동 4 건.
+# 자구·name 은 미확보(solar 초안 머리 주석 참조). 오프셋은 전국 공통 4 건과 같다.
+
+holidays:
+  - {key: karfreitag, name: "[미확보]", scope: bundesweit, easter_offset: -2, verified: false, source: "[미확보]"}
+  - {key: ostermontag, name: "[미확보]", scope: bundesweit, easter_offset: 1, verified: false, source: "[미확보]"}
+  - {key: christi_himmelfahrt, name: "[미확보]", scope: bundesweit, easter_offset: 39, verified: false, source: "[미확보]"}
+  - {key: pfingstmontag, name: "[미확보]", scope: bundesweit, easter_offset: 50, verified: false, source: "[미확보]"}

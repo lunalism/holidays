@@ -1,0 +1,100 @@
+# 독일·메클렌부르크포어포메른 주 공휴일 — 부활절 기준 이동 4 건.
+#
+# easter_offset 은 부활절 일요일(Ostersonntag)로부터의 날수다. 부활절 자체는
+# rules/de_mv/feed.py 가 python-dateutil 의 easter() 로 계산한다(rules/de 와
+# 같은 계산기, 같은 근거).
+#
+# § 2 Abs. 1 Nr. 3·4·6·7 — 전국 공통 4 건 그대로다. 이 주에 더해지는 이동 공휴일은 없다.
+#
+# key·name·verified 규약과 현행 자구의 출처·관보 공백·일회성 지정 확인 범위는 solar_holidays.yaml
+# 머리 주석과 같다. 네 건 모두 공포본을 해시와 함께 받지 못해 verified: false + source_todo 다.
+# name 은 조문 표기에서 관사 "der" 만 뺀 것이라 Nr. 6 은 "Christi-Himmelfahrtstag" 다(각 피드는
+# 자기 조문의 표기). 네 건 모두 effective_from 이 없다 — 발행 범위 내내다.
+
+# --- scope ---
+# bundesweit | land. 전국 공통 9 건은 bundesweit, 나머지(일회성 포함)는 land.
+# 9 건의 근거: feiertage-api 2025·2026 16 주 교집합 실측 — API 의 NATIONAL 키·
+# rules/de 의 YAML 과 삼중 일치(실측 요지는 tests/test_de_scope.py 머리 docstring,
+# 고정은 같은 파일의 test_bundesweit_keys_equal_the_nationwide_keys). DESCRIPTION 첫
+# 줄이 이 값에서 나온다. 로더가 닫힌 집합으로 검사한다.
+
+holidays:
+  - key: karfreitag
+    name: Karfreitag
+    scope: bundesweit
+    easter_offset: -2
+    verified: false
+    source: >-
+      Feiertagsgesetz Mecklenburg-Vorpommern (FTG M-V) § 2 Abs. 1 Nr. 3 'der Karfreitag' — Landesrecht
+      Mecklenburg-Vorpommern(공식 법령 포털) § 2 조문 단위 문서
+      https://www.landesrecht-mv.de/bsmv/document/jlr-NNLMV00007A2FNN00000000003 ('Fassung vom:
+      07.07.2022', 'Gültig ab: 13.07.2022'; 법 전체 문서 jlr-NNLMV00007A2F 의 'Stand: letzte berücksichtigte
+      Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 부활절
+      −2 일은 feiertage-api 2026 MV(04-03) 대조 일치
+    source_todo: >-
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+
+  - key: ostermontag
+    name: Ostermontag
+    scope: bundesweit
+    easter_offset: 1
+    verified: false
+    source: >-
+      Feiertagsgesetz Mecklenburg-Vorpommern (FTG M-V) § 2 Abs. 1 Nr. 4 'der Ostermontag' — Landesrecht
+      Mecklenburg-Vorpommern(공식 법령 포털) § 2 조문 단위 문서
+      https://www.landesrecht-mv.de/bsmv/document/jlr-NNLMV00007A2FNN00000000003 ('Fassung vom:
+      07.07.2022', 'Gültig ab: 13.07.2022'; 법 전체 문서 jlr-NNLMV00007A2F 의 'Stand: letzte berücksichtigte
+      Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 부활절
+      +1 일은 feiertage-api 2026 MV(04-06) 대조 일치
+    source_todo: >-
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+
+  - key: christi_himmelfahrt
+    name: Christi-Himmelfahrtstag
+    scope: bundesweit
+    easter_offset: 39
+    verified: false
+    source: >-
+      Feiertagsgesetz Mecklenburg-Vorpommern (FTG M-V) § 2 Abs. 1 Nr. 6 'der Christi-Himmelfahrtstag' —
+      Landesrecht Mecklenburg-Vorpommern(공식 법령 포털) § 2 조문 단위 문서
+      https://www.landesrecht-mv.de/bsmv/document/jlr-NNLMV00007A2FNN00000000003 ('Fassung vom:
+      07.07.2022', 'Gültig ab: 13.07.2022'; 법 전체 문서 jlr-NNLMV00007A2F 의 'Stand: letzte berücksichtigte
+      Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 부활절
+      +39 일은 feiertage-api 2026 MV(05-14, Christi Himmelfahrt) 대조 일치
+    source_todo: >-
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.
+
+  - key: pfingstmontag
+    name: Pfingstmontag
+    scope: bundesweit
+    easter_offset: 50
+    verified: false
+    source: >-
+      Feiertagsgesetz Mecklenburg-Vorpommern (FTG M-V) § 2 Abs. 1 Nr. 7 'der Pfingstmontag' — Landesrecht
+      Mecklenburg-Vorpommern(공식 법령 포털) § 2 조문 단위 문서
+      https://www.landesrecht-mv.de/bsmv/document/jlr-NNLMV00007A2FNN00000000003 ('Fassung vom:
+      07.07.2022', 'Gültig ab: 13.07.2022'; 법 전체 문서 jlr-NNLMV00007A2F 의 'Stand: letzte berücksichtigte
+      Änderung: zuletzt geändert durch Gesetz vom 7. Juli 2022 (GVOBl. M-V S. 427)', 2026-11-18 열람). 부활절
+      +50 일은 feiertage-api 2026 MV(05-25) 대조 일치
+    source_todo: >-
+      공포본을 해시와 함께 받지 못했다. 관보 화면 https://land-mv.de/landeregierung/jm/gesetz-verordnungsblaetter 은 2026 년
+      호만 싣고 GVOBl. M-V 2014–2025 에 대해 'Sie haben Interesse an Gesetz- und Verordnungsblättern, am
+      Amtsblatt oder dem Amtlichen Anzeiger aus den Jahren 2014-2025? Bitte schreiben Sie eine E-Mail
+      unter Angabe der gewünschten Publikation' 이라고 적는다(2026-11-18 열람). 2026-09-30 의 관보 PDF 주소는 이제 그 사이트의
+      첫 화면으로 넘어간다. 2026-09-30 조사는 개정법 GVOBl. M-V 2022 Nr. 31 S. 427 을 당시 관보 목록의 PDF 로 열람했으나 크기(263,235 B)만
+      기록했다. 1992 원법과 2002 재공포본(GVOBl. M-V 2002 S. 145)은 그때도 온라인 목록(2014 년부터) 밖이었다.

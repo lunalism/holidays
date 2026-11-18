@@ -1,0 +1,33 @@
+time	method	url	status	content_type
+2026-11-18T04:59:14Z	GET	https://land-mv.de/thema/buergerservices-und-digitale-verwaltung	200	text/html; charset=utf-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2_50rodfa5ywf.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/1cag0zwhxv095.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/3t3qg8wtcbmm3.css	200	text/css; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/logo-mv.svg	200	image/svg+xml
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/image?url=%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fbildformat_4_3%2Fpublic%2F2026-01%2Fdigitization-5140043_950_534.jpg%3Fh%3D3a562da4%26itok%3DEnrBaKDr%26v%3D1769426280&w=1080&q=75	200	image/webp
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2h3hpwr69wwl6.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/0yoppehgs8xgj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2dk-w8d6h05f-.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/turbopack-2u1d16houkiyo.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/0n749b1gefo9u.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2hwn3hjua93fw.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/02rf3k081_swl.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/3lgef53qomkf8.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/1elrt6io6ug9h.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/1wl7zob1klhpu.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2skx4qsx_pmrx.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/1mfm8bai1iwjy.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/21xbky62yj-8r.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:15Z	GET	https://land-mv.de/_next/static/chunks/2728t7vmv3rlj.js	200	application/javascript; charset=UTF-8
+2026-11-18T04:59:16Z	GET	https://land-mv.de/fonts/Macho-Regular.woff2	200	font/woff2
+2026-11-18T04:59:16Z	GET	https://land-mv.de/fonts/Macho-Bold.woff2	200	font/woff2
+2026-11-18T04:59:16Z	GET	https://land-mv.de/fonts/Macho-Medium.woff2	200	font/woff2
+2026-11-18T04:59:20Z	GET	https://land-mv.de/api/disable-draft	200	text/plain;charset=UTF-8
+2026-11-18T04:59:20Z	GET	https://land-mv.de/?_rsc=CwpyttR27yoO6sbw	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=CwpyttR27yoO6sbw	200	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/gebaerdensprache?_rsc=CwpyttR27yoO6sbw	200	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/node/2046?_rsc=CwpyttR27yoO6sbw	200	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/node/2046?_rsc=JcquNIf-LiQKJf5C	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/thema/herzlich-willkommen-auf-unserer-internet-seite-fuer-leichte-sprache?_rsc=JcquNIf-LiQKJf5C	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/gebaerdensprache?_rsc=JcquNIf-LiQKJf5C	FAILED:net::ERR_ABORTED	text/x-component
+2026-11-18T04:59:20Z	GET	https://land-mv.de/?_rsc=JcquNIf-LiQKJf5C	FAILED:net::ERR_ABORTED	text/x-component

@@ -213,6 +213,7 @@ LAND_NAMES_DE = {
     "de_hb": "Bremen",
     "de_he": "Hessen",
     "de_hh": "Hamburg",
+    "de_mv": "Mecklenburg-Vorpommern",
     "de_ni": "Niedersachsen",
     "de_nw": "Nordrhein-Westfalen",
     "de_rp": "Rheinland-Pfalz",
