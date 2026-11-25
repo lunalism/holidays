@@ -3,7 +3,7 @@
 - `data/` 포함 모든 브랜치는 PR 을 거친다. `main` 직푸시 금지, 긴급 예외 없음.
 - 병합은 merge commit 고정. squash 금지 — 개별 커밋의 근거가 뭉개진다.
 - 데이터 근거의 정본은 커밋 메시지가 아니라 YAML 의 `source` 필드다.
-- 커밋에는 `Co-Authored-By: Claude …` 트레일러와 「Generated with」 줄을, PR 본문에는 「Generated with」 줄을 달지 않는다.
+- 커밋에는 `Co-Authored-By: Claude …` 트레일러·`Claude-Session:` 트레일러·「Generated with」 줄을, PR 본문에는 「Generated with」 줄과 claude.ai 세션·채팅 링크를 달지 않는다.
 
 ## 이 레포 고유 사항
 - UID 네임스페이스: @holidays.lunalism.com (확정). 구독 URL: https://holidays.lunalism.com/feeds/kr.ics
