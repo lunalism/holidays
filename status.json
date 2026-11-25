@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T01:50:42.617059+00:00",
+  "generated_at": "2026-11-25T04:20:15.900925+00:00",
   "feeds": {
     "kr": {
       "path": "feeds/kr.ics",
@@ -194,7 +194,7 @@
   },
   "kasi_key": {
     "expires_on": "2028-08-08",
-    "days_left": 624,
+    "days_left": 622,
     "min_days": 60
   }
 }
